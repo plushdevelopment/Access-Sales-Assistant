@@ -1,0 +1,300 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FF8B415513A8EEF700A05007 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8B415413A8EEF700A05007 /* UIKit.framework */; };
+		FF8B415713A8EEF700A05007 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8B415613A8EEF700A05007 /* Foundation.framework */; };
+		FF8B415913A8EEF700A05007 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8B415813A8EEF700A05007 /* CoreGraphics.framework */; };
+		FF8B415F13A8EEF700A05007 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF8B415D13A8EEF700A05007 /* InfoPlist.strings */; };
+		FF8B416113A8EEF700A05007 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B416013A8EEF700A05007 /* main.m */; };
+		FF8B416513A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B416413A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m */; };
+		FF8B416813A8EEF700A05007 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B416713A8EEF700A05007 /* RootViewController.m */; };
+		FF8B416A13A8EEF700A05007 /* DetailViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = FF8B416913A8EEF700A05007 /* DetailViewController.h */; };
+		FF8B416C13A8EEF700A05007 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B416B13A8EEF700A05007 /* DetailViewController.m */; };
+		FF8B416F13A8EEF700A05007 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8B416D13A8EEF700A05007 /* RootViewController.xib */; };
+		FF8B417213A8EEF700A05007 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8B417013A8EEF700A05007 /* DetailViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FF8B415013A8EEF700A05007 /* Access Sales Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Access Sales Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF8B415413A8EEF700A05007 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FF8B415613A8EEF700A05007 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FF8B415813A8EEF700A05007 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FF8B415C13A8EEF700A05007 /* Access Sales Assistant-Info.plist */ = {isa = PBXFileReference; path = "Access Sales Assistant-Info.plist"; sourceTree = "<group>"; };
+		FF8B415E13A8EEF700A05007 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FF8B416013A8EEF700A05007 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FF8B416213A8EEF700A05007 /* Access Sales Assistant-Prefix.pch */ = {isa = PBXFileReference; path = "Access Sales Assistant-Prefix.pch"; sourceTree = "<group>"; };
+		FF8B416313A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.h */ = {isa = PBXFileReference; path = Access_Sales_AssistantAppDelegate.h; sourceTree = "<group>"; };
+		FF8B416413A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Access_Sales_AssistantAppDelegate.m; sourceTree = "<group>"; };
+		FF8B416613A8EEF700A05007 /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		FF8B416713A8EEF700A05007 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		FF8B416913A8EEF700A05007 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		FF8B416B13A8EEF700A05007 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		FF8B416E13A8EEF700A05007 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		FF8B417113A8EEF700A05007 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF8B414D13A8EEF700A05007 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF8B415513A8EEF700A05007 /* UIKit.framework in Frameworks */,
+				FF8B415713A8EEF700A05007 /* Foundation.framework in Frameworks */,
+				FF8B415913A8EEF700A05007 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FF8B414513A8EEF700A05007 = {
+			isa = PBXGroup;
+			children = (
+				FF8B415A13A8EEF700A05007 /* Access Sales Assistant */,
+				FF8B415313A8EEF700A05007 /* Frameworks */,
+				FF8B415113A8EEF700A05007 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF8B415113A8EEF700A05007 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF8B415013A8EEF700A05007 /* Access Sales Assistant.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF8B415313A8EEF700A05007 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF8B415413A8EEF700A05007 /* UIKit.framework */,
+				FF8B415613A8EEF700A05007 /* Foundation.framework */,
+				FF8B415813A8EEF700A05007 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				FF8B416313A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.h */,
+				FF8B416413A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m */,
+				FF8B416613A8EEF700A05007 /* RootViewController.h */,
+				FF8B416713A8EEF700A05007 /* RootViewController.m */,
+				FF8B416913A8EEF700A05007 /* DetailViewController.h */,
+				FF8B416B13A8EEF700A05007 /* DetailViewController.m */,
+				FF8B416D13A8EEF700A05007 /* RootViewController.xib */,
+				FF8B417013A8EEF700A05007 /* DetailViewController.xib */,
+				FF8B415B13A8EEF700A05007 /* Supporting Files */,
+			);
+			path = "Access Sales Assistant";
+			sourceTree = "<group>";
+		};
+		FF8B415B13A8EEF700A05007 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF8B415C13A8EEF700A05007 /* Access Sales Assistant-Info.plist */,
+				FF8B415D13A8EEF700A05007 /* InfoPlist.strings */,
+				FF8B416013A8EEF700A05007 /* main.m */,
+				FF8B416213A8EEF700A05007 /* Access Sales Assistant-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF8B414F13A8EEF700A05007 /* Access Sales Assistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF8B417513A8EEF700A05007 /* Build configuration list for PBXNativeTarget "Access Sales Assistant" */;
+			buildPhases = (
+				FF8B414C13A8EEF700A05007 /* Sources */,
+				FF8B414D13A8EEF700A05007 /* Frameworks */,
+				FF8B414E13A8EEF700A05007 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Access Sales Assistant";
+			productName = "Access Sales Assistant";
+			productReference = FF8B415013A8EEF700A05007 /* Access Sales Assistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF8B414713A8EEF700A05007 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = FF8B414A13A8EEF700A05007 /* Build configuration list for PBXProject "Access Sales Assistant" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FF8B414513A8EEF700A05007;
+			productRefGroup = FF8B415113A8EEF700A05007 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF8B414F13A8EEF700A05007 /* Access Sales Assistant */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF8B414E13A8EEF700A05007 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF8B415F13A8EEF700A05007 /* InfoPlist.strings in Resources */,
+				FF8B416A13A8EEF700A05007 /* DetailViewController.h in Resources */,
+				FF8B416F13A8EEF700A05007 /* RootViewController.xib in Resources */,
+				FF8B417213A8EEF700A05007 /* DetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF8B414C13A8EEF700A05007 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF8B416113A8EEF700A05007 /* main.m in Sources */,
+				FF8B416513A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m in Sources */,
+				FF8B416813A8EEF700A05007 /* RootViewController.m in Sources */,
+				FF8B416C13A8EEF700A05007 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FF8B415D13A8EEF700A05007 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF8B415E13A8EEF700A05007 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FF8B416D13A8EEF700A05007 /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF8B416E13A8EEF700A05007 /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+		FF8B417013A8EEF700A05007 /* DetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF8B417113A8EEF700A05007 /* en */,
+			);
+			name = DetailViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FF8B417313A8EEF700A05007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		FF8B417413A8EEF700A05007 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF8B417613A8EEF700A05007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
+				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FF8B417713A8EEF700A05007 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
+				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF8B414A13A8EEF700A05007 /* Build configuration list for PBXProject "Access Sales Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF8B417313A8EEF700A05007 /* Debug */,
+				FF8B417413A8EEF700A05007 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF8B417513A8EEF700A05007 /* Build configuration list for PBXNativeTarget "Access Sales Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF8B417613A8EEF700A05007 /* Debug */,
+				FF8B417713A8EEF700A05007 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF8B414713A8EEF700A05007 /* Project object */;
+}
