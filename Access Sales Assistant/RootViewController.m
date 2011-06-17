@@ -10,14 +10,22 @@
 
 #import "DetailViewController.h"
 
-@implementation RootViewController
+#import "NSData+Base64.h"
 
+#import "StringEncryption.h"
+
+#import "CustomCellBackground.h"
+
+#import "CustomHeader.h"
+
+#import "CustomFooter.h"
+
+@implementation RootViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		self.title = NSLocalizedString(@"Master", @"Master");
 		self.clearsSelectionOnViewWillAppear = NO;
 		self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
@@ -37,6 +45,25 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+	
+	//[crypto testSymmetricEncryption];
+	
+	NSString * _secret = @"Im starving";
+	NSString * _key = @"wTGMqLubzizPgylAsHGgfPfLDoclQt+YAIzM1ugFMko=";
+	
+	StringEncryption *crypto = [[StringEncryption alloc] init];
+	NSData *_secretData = [_secret dataUsingEncoding:NSUTF8StringEncoding];
+	CCOptions padding = kCCOptionPKCS7Padding;
+	NSData *encryptedData = [crypto encrypt:_secretData key:[_key dataUsingEncoding:NSUTF8StringEncoding] padding:&padding];
+	
+	NSLog(@"encrypted data in hex: %@", encryptedData);
+	
+	NSData *decryptedData = [crypto decrypt:encryptedData key:[_key dataUsingEncoding:NSUTF8StringEncoding] padding:&padding];
+	
+	NSLog(@"decrypted data in dex: %@", decryptedData);
+	NSString *str = [[NSString alloc] initWithData:decryptedData encoding:NSUTF8StringEncoding];
+	
+	NSLog(@"encrypted data string for export: %@",[encryptedData base64EncodingWithLineLength:0]);
 }
 
 - (void)viewDidUnload
@@ -78,9 +105,49 @@
 	return 1;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	NSString *title;
+	switch (section) {
+		case 0:
+			title = @"Visit Application";
+			break;
+		default:
+			break;
+	}
+	return title;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 50;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    CustomHeader *header = [[CustomHeader alloc] init];        
+    header.titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
+    if (section == 1) {
+        header.lightColor = [UIColor colorWithRed:147.0/255.0 green:105.0/255.0 blue:216.0/255.0 alpha:1.0];
+        header.darkColor = [UIColor colorWithRed:72.0/255.0 green:22.0/255.0 blue:137.0/255.0 alpha:1.0];
+    }
+    return header;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 15;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[CustomFooter alloc] init];
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 1;
+	NSInteger rowsCount = 0;
+	if (section == 0) {
+		rowsCount = 5;
+	}
+	return rowsCount;
 }
 
 // Customize the appearance of table view cells.
@@ -91,10 +158,41 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+		cell.backgroundView = [[CustomCellBackground alloc] init];
+        cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
+        ((CustomCellBackground *)cell.selectedBackgroundView).selected = YES;
     }
 
-	// Configure the cell.
-	cell.textLabel.text = NSLocalizedString(@"Detail", @"Detail");
+	NSInteger section = indexPath.section;
+	NSInteger row = indexPath.row;
+	
+	switch (section) {
+		case 0:
+			switch (row) {
+				case 0:
+					cell.textLabel.text = @"Monday";
+					break;
+				case 1:
+					cell.textLabel.text = @"Tuesday";
+					break;
+				case 2:
+					cell.textLabel.text = @"Wednesday";
+					break;
+				case 3:
+					cell.textLabel.text = @"Thursday";
+					break;
+				case 4:
+					cell.textLabel.text = @"Friday";
+					break;
+				default:
+					break;
+			}
+			break;
+		default:
+			break;
+	}
+	cell.textLabel.backgroundColor = [UIColor clearColor];    
+    cell.textLabel.highlightedTextColor = [UIColor blackColor];
     return cell;
 }
 
@@ -141,7 +239,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here -- for example, create and push another view controller.
+    switch (indexPath.row) {
+		case 0:
+			NSLog(@"Monday");
+			break;
+		case 1:
+			NSLog(@"Tuesday");
+			break;
+		case 2:
+			NSLog(@"Wednesday");
+			break;
+		case 3:
+			NSLog(@"Thursday");
+			break;
+		case 4:
+			NSLog(@"Friday");
+			break;
+		default:
+			break;
+	}
 }
 
 @end

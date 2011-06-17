@@ -24,6 +24,7 @@
 
 	RootViewController *controller = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
 	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+	[[navigationController navigationBar] setTintColor:[UIColor darkTextColor]];
 
 	DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
 

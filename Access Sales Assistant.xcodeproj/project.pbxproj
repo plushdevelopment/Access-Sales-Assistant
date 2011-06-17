@@ -18,6 +18,32 @@
 		FF8B416C13A8EEF700A05007 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B416B13A8EEF700A05007 /* DetailViewController.m */; };
 		FF8B416F13A8EEF700A05007 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8B416D13A8EEF700A05007 /* RootViewController.xib */; };
 		FF8B417213A8EEF700A05007 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8B417013A8EEF700A05007 /* DetailViewController.xib */; };
+		FFFB3BFE13AB94210063E374 /* main_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FFFB3BFD13AB94210063E374 /* main_bg.png */; };
+		FFFB3C0513ABA15C0063E374 /* api.html in Resources */ = {isa = PBXBuildFile; fileRef = FFFB3C0313ABA15C0063E374 /* api.html */; };
+		FFFB3C0613ABA15C0063E374 /* json2.js in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0413ABA15C0063E374 /* json2.js */; };
+		FFFB3C1413ABA17E0063E374 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0913ABA17E0063E374 /* NSObject+SBJSON.m */; };
+		FFFB3C1513ABA17E0063E374 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0B13ABA17E0063E374 /* NSString+SBJSON.m */; };
+		FFFB3C1613ABA17E0063E374 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0D13ABA17E0063E374 /* SBJSON.m */; };
+		FFFB3C1713ABA17E0063E374 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0F13ABA17E0063E374 /* SBJsonBase.m */; };
+		FFFB3C1813ABA17E0063E374 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C1113ABA17E0063E374 /* SBJsonParser.m */; };
+		FFFB3C1913ABA17E0063E374 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C1313ABA17E0063E374 /* SBJsonWriter.m */; };
+		FFFB3C2913ABA1A30063E374 /* UICGClientGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C1C13ABA1A30063E374 /* UICGClientGeocoder.m */; };
+		FFFB3C2A13ABA1A30063E374 /* UICGDirections.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C1E13ABA1A30063E374 /* UICGDirections.m */; };
+		FFFB3C2B13ABA1A30063E374 /* UICGDirectionsOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C2013ABA1A30063E374 /* UICGDirectionsOptions.m */; };
+		FFFB3C2C13ABA1A30063E374 /* UICGoogleMapsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C2213ABA1A30063E374 /* UICGoogleMapsAPI.m */; };
+		FFFB3C2D13ABA1A30063E374 /* UICGPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C2413ABA1A30063E374 /* UICGPolyline.m */; };
+		FFFB3C2E13ABA1A30063E374 /* UICGRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C2613ABA1A30063E374 /* UICGRoute.m */; };
+		FFFB3C2F13ABA1A30063E374 /* UICGStep.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C2813ABA1A30063E374 /* UICGStep.m */; };
+		FFFB3C3513ABA2400063E374 /* UICRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C3213ABA2400063E374 /* UICRouteAnnotation.m */; };
+		FFFB3C3613ABA2400063E374 /* UICRouteOverlayMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C3413ABA2400063E374 /* UICRouteOverlayMapView.m */; };
+		FFFB3C3913ABA3F50063E374 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFFB3C3813ABA3F50063E374 /* MapKit.framework */; };
+		FFFB3C3B13ABA4050063E374 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFFB3C3A13ABA4050063E374 /* CoreLocation.framework */; };
+		FFFB3C4513ABA7C90063E374 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C4213ABA7C90063E374 /* NSData+Base64.m */; };
+		FFFB3C4613ABA7C90063E374 /* StringEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C4413ABA7C90063E374 /* StringEncryption.m */; };
+		FFFB3C5413ABC03C0063E374 /* CustomCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C4D13ABC03B0063E374 /* CustomCellBackground.m */; };
+		FFFB3C5513ABC03C0063E374 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C4F13ABC03B0063E374 /* Common.m */; };
+		FFFB3C5613ABC03C0063E374 /* CustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C5113ABC03C0063E374 /* CustomHeader.m */; };
+		FFFB3C5713ABC03C0063E374 /* CustomFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C5313ABC03C0063E374 /* CustomFooter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,18 +51,67 @@
 		FF8B415413A8EEF700A05007 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FF8B415613A8EEF700A05007 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FF8B415813A8EEF700A05007 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		FF8B415C13A8EEF700A05007 /* Access Sales Assistant-Info.plist */ = {isa = PBXFileReference; path = "Access Sales Assistant-Info.plist"; sourceTree = "<group>"; };
+		FF8B415C13A8EEF700A05007 /* Access Sales Assistant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Access Sales Assistant-Info.plist"; sourceTree = "<group>"; };
 		FF8B415E13A8EEF700A05007 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FF8B416013A8EEF700A05007 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FF8B416213A8EEF700A05007 /* Access Sales Assistant-Prefix.pch */ = {isa = PBXFileReference; path = "Access Sales Assistant-Prefix.pch"; sourceTree = "<group>"; };
-		FF8B416313A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.h */ = {isa = PBXFileReference; path = Access_Sales_AssistantAppDelegate.h; sourceTree = "<group>"; };
+		FF8B416213A8EEF700A05007 /* Access Sales Assistant-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Access Sales Assistant-Prefix.pch"; sourceTree = "<group>"; };
+		FF8B416313A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Access_Sales_AssistantAppDelegate.h; sourceTree = "<group>"; };
 		FF8B416413A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Access_Sales_AssistantAppDelegate.m; sourceTree = "<group>"; };
-		FF8B416613A8EEF700A05007 /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		FF8B416613A8EEF700A05007 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		FF8B416713A8EEF700A05007 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		FF8B416913A8EEF700A05007 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		FF8B416B13A8EEF700A05007 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		FF8B416E13A8EEF700A05007 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		FF8B417113A8EEF700A05007 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		FF8B418F13A907AF00A05007 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		FFFB3BFD13AB94210063E374 /* main_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_bg.png; sourceTree = "<group>"; };
+		FFFB3C0313ABA15C0063E374 /* api.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = api.html; sourceTree = "<group>"; };
+		FFFB3C0413ABA15C0063E374 /* json2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = json2.js; sourceTree = "<group>"; };
+		FFFB3C0713ABA17E0063E374 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		FFFB3C0813ABA17E0063E374 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		FFFB3C0913ABA17E0063E374 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		FFFB3C0A13ABA17E0063E374 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		FFFB3C0B13ABA17E0063E374 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		FFFB3C0C13ABA17E0063E374 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		FFFB3C0D13ABA17E0063E374 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		FFFB3C0E13ABA17E0063E374 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		FFFB3C0F13ABA17E0063E374 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		FFFB3C1013ABA17E0063E374 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		FFFB3C1113ABA17E0063E374 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		FFFB3C1213ABA17E0063E374 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		FFFB3C1313ABA17E0063E374 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		FFFB3C1B13ABA1A30063E374 /* UICGClientGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICGClientGeocoder.h; sourceTree = "<group>"; };
+		FFFB3C1C13ABA1A30063E374 /* UICGClientGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICGClientGeocoder.m; sourceTree = "<group>"; };
+		FFFB3C1D13ABA1A30063E374 /* UICGDirections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICGDirections.h; sourceTree = "<group>"; };
+		FFFB3C1E13ABA1A30063E374 /* UICGDirections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICGDirections.m; sourceTree = "<group>"; };
+		FFFB3C1F13ABA1A30063E374 /* UICGDirectionsOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICGDirectionsOptions.h; sourceTree = "<group>"; };
+		FFFB3C2013ABA1A30063E374 /* UICGDirectionsOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICGDirectionsOptions.m; sourceTree = "<group>"; };
+		FFFB3C2113ABA1A30063E374 /* UICGoogleMapsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICGoogleMapsAPI.h; sourceTree = "<group>"; };
+		FFFB3C2213ABA1A30063E374 /* UICGoogleMapsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICGoogleMapsAPI.m; sourceTree = "<group>"; };
+		FFFB3C2313ABA1A30063E374 /* UICGPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICGPolyline.h; sourceTree = "<group>"; };
+		FFFB3C2413ABA1A30063E374 /* UICGPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICGPolyline.m; sourceTree = "<group>"; };
+		FFFB3C2513ABA1A30063E374 /* UICGRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICGRoute.h; sourceTree = "<group>"; };
+		FFFB3C2613ABA1A30063E374 /* UICGRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICGRoute.m; sourceTree = "<group>"; };
+		FFFB3C2713ABA1A30063E374 /* UICGStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICGStep.h; sourceTree = "<group>"; };
+		FFFB3C2813ABA1A30063E374 /* UICGStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICGStep.m; sourceTree = "<group>"; };
+		FFFB3C3113ABA2400063E374 /* UICRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICRouteAnnotation.h; sourceTree = "<group>"; };
+		FFFB3C3213ABA2400063E374 /* UICRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICRouteAnnotation.m; sourceTree = "<group>"; };
+		FFFB3C3313ABA2400063E374 /* UICRouteOverlayMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICRouteOverlayMapView.h; sourceTree = "<group>"; };
+		FFFB3C3413ABA2400063E374 /* UICRouteOverlayMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICRouteOverlayMapView.m; sourceTree = "<group>"; };
+		FFFB3C3813ABA3F50063E374 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FFFB3C3A13ABA4050063E374 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FFFB3C4113ABA7C90063E374 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		FFFB3C4213ABA7C90063E374 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		FFFB3C4313ABA7C90063E374 /* StringEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncryption.h; sourceTree = "<group>"; };
+		FFFB3C4413ABA7C90063E374 /* StringEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncryption.m; sourceTree = "<group>"; };
+		FFFB3C4C13ABC03B0063E374 /* CustomCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellBackground.h; sourceTree = "<group>"; };
+		FFFB3C4D13ABC03B0063E374 /* CustomCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellBackground.m; sourceTree = "<group>"; };
+		FFFB3C4E13ABC03B0063E374 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		FFFB3C4F13ABC03B0063E374 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		FFFB3C5013ABC03C0063E374 /* CustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHeader.h; sourceTree = "<group>"; };
+		FFFB3C5113ABC03C0063E374 /* CustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHeader.m; sourceTree = "<group>"; };
+		FFFB3C5213ABC03C0063E374 /* CustomFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFooter.h; sourceTree = "<group>"; };
+		FFFB3C5313ABC03C0063E374 /* CustomFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFooter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFFB3C3B13ABA4050063E374 /* CoreLocation.framework in Frameworks */,
+				FFFB3C3913ABA3F50063E374 /* MapKit.framework in Frameworks */,
 				FF8B415513A8EEF700A05007 /* UIKit.framework in Frameworks */,
 				FF8B415713A8EEF700A05007 /* Foundation.framework in Frameworks */,
 				FF8B415913A8EEF700A05007 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +150,9 @@
 		FF8B415313A8EEF700A05007 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFFB3C3A13ABA4050063E374 /* CoreLocation.framework */,
+				FFFB3C3813ABA3F50063E374 /* MapKit.framework */,
+				FF8B418F13A907AF00A05007 /* libcommonCrypto.dylib */,
 				FF8B415413A8EEF700A05007 /* UIKit.framework */,
 				FF8B415613A8EEF700A05007 /* Foundation.framework */,
 				FF8B415813A8EEF700A05007 /* CoreGraphics.framework */,
@@ -83,14 +163,14 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				FFFB3C5813ABE4210063E374 /* Core Graphics Table View */,
+				FFFB3C5913ABE46E0063E374 /* AES */,
+				FFFB3C3713ABA2480063E374 /* MapKit Extention */,
+				FFFB3C3013ABA1AB0063E374 /* Google Maps API */,
+				FFFB3C1A13ABA1860063E374 /* JSON */,
 				FF8B416313A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.h */,
 				FF8B416413A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m */,
-				FF8B416613A8EEF700A05007 /* RootViewController.h */,
-				FF8B416713A8EEF700A05007 /* RootViewController.m */,
-				FF8B416913A8EEF700A05007 /* DetailViewController.h */,
-				FF8B416B13A8EEF700A05007 /* DetailViewController.m */,
-				FF8B416D13A8EEF700A05007 /* RootViewController.xib */,
-				FF8B417013A8EEF700A05007 /* DetailViewController.xib */,
+				FFFB3C5A13ABE4890063E374 /* View Controllers */,
 				FF8B415B13A8EEF700A05007 /* Supporting Files */,
 			);
 			path = "Access Sales Assistant";
@@ -99,12 +179,106 @@
 		FF8B415B13A8EEF700A05007 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FFFB3C0313ABA15C0063E374 /* api.html */,
+				FFFB3C0413ABA15C0063E374 /* json2.js */,
+				FFFB3BFD13AB94210063E374 /* main_bg.png */,
 				FF8B415C13A8EEF700A05007 /* Access Sales Assistant-Info.plist */,
 				FF8B415D13A8EEF700A05007 /* InfoPlist.strings */,
 				FF8B416013A8EEF700A05007 /* main.m */,
 				FF8B416213A8EEF700A05007 /* Access Sales Assistant-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FFFB3C1A13ABA1860063E374 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				FFFB3C0713ABA17E0063E374 /* JSON.h */,
+				FFFB3C0813ABA17E0063E374 /* NSObject+SBJSON.h */,
+				FFFB3C0913ABA17E0063E374 /* NSObject+SBJSON.m */,
+				FFFB3C0A13ABA17E0063E374 /* NSString+SBJSON.h */,
+				FFFB3C0B13ABA17E0063E374 /* NSString+SBJSON.m */,
+				FFFB3C0C13ABA17E0063E374 /* SBJSON.h */,
+				FFFB3C0D13ABA17E0063E374 /* SBJSON.m */,
+				FFFB3C0E13ABA17E0063E374 /* SBJsonBase.h */,
+				FFFB3C0F13ABA17E0063E374 /* SBJsonBase.m */,
+				FFFB3C1013ABA17E0063E374 /* SBJsonParser.h */,
+				FFFB3C1113ABA17E0063E374 /* SBJsonParser.m */,
+				FFFB3C1213ABA17E0063E374 /* SBJsonWriter.h */,
+				FFFB3C1313ABA17E0063E374 /* SBJsonWriter.m */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		FFFB3C3013ABA1AB0063E374 /* Google Maps API */ = {
+			isa = PBXGroup;
+			children = (
+				FFFB3C1B13ABA1A30063E374 /* UICGClientGeocoder.h */,
+				FFFB3C1C13ABA1A30063E374 /* UICGClientGeocoder.m */,
+				FFFB3C1D13ABA1A30063E374 /* UICGDirections.h */,
+				FFFB3C1E13ABA1A30063E374 /* UICGDirections.m */,
+				FFFB3C1F13ABA1A30063E374 /* UICGDirectionsOptions.h */,
+				FFFB3C2013ABA1A30063E374 /* UICGDirectionsOptions.m */,
+				FFFB3C2113ABA1A30063E374 /* UICGoogleMapsAPI.h */,
+				FFFB3C2213ABA1A30063E374 /* UICGoogleMapsAPI.m */,
+				FFFB3C2313ABA1A30063E374 /* UICGPolyline.h */,
+				FFFB3C2413ABA1A30063E374 /* UICGPolyline.m */,
+				FFFB3C2513ABA1A30063E374 /* UICGRoute.h */,
+				FFFB3C2613ABA1A30063E374 /* UICGRoute.m */,
+				FFFB3C2713ABA1A30063E374 /* UICGStep.h */,
+				FFFB3C2813ABA1A30063E374 /* UICGStep.m */,
+			);
+			name = "Google Maps API";
+			sourceTree = "<group>";
+		};
+		FFFB3C3713ABA2480063E374 /* MapKit Extention */ = {
+			isa = PBXGroup;
+			children = (
+				FFFB3C3113ABA2400063E374 /* UICRouteAnnotation.h */,
+				FFFB3C3213ABA2400063E374 /* UICRouteAnnotation.m */,
+				FFFB3C3313ABA2400063E374 /* UICRouteOverlayMapView.h */,
+				FFFB3C3413ABA2400063E374 /* UICRouteOverlayMapView.m */,
+			);
+			name = "MapKit Extention";
+			sourceTree = "<group>";
+		};
+		FFFB3C5813ABE4210063E374 /* Core Graphics Table View */ = {
+			isa = PBXGroup;
+			children = (
+				FFFB3C4C13ABC03B0063E374 /* CustomCellBackground.h */,
+				FFFB3C4D13ABC03B0063E374 /* CustomCellBackground.m */,
+				FFFB3C4E13ABC03B0063E374 /* Common.h */,
+				FFFB3C4F13ABC03B0063E374 /* Common.m */,
+				FFFB3C5013ABC03C0063E374 /* CustomHeader.h */,
+				FFFB3C5113ABC03C0063E374 /* CustomHeader.m */,
+				FFFB3C5213ABC03C0063E374 /* CustomFooter.h */,
+				FFFB3C5313ABC03C0063E374 /* CustomFooter.m */,
+			);
+			name = "Core Graphics Table View";
+			sourceTree = "<group>";
+		};
+		FFFB3C5913ABE46E0063E374 /* AES */ = {
+			isa = PBXGroup;
+			children = (
+				FFFB3C4113ABA7C90063E374 /* NSData+Base64.h */,
+				FFFB3C4213ABA7C90063E374 /* NSData+Base64.m */,
+				FFFB3C4313ABA7C90063E374 /* StringEncryption.h */,
+				FFFB3C4413ABA7C90063E374 /* StringEncryption.m */,
+			);
+			name = AES;
+			sourceTree = "<group>";
+		};
+		FFFB3C5A13ABE4890063E374 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF8B416613A8EEF700A05007 /* RootViewController.h */,
+				FF8B416713A8EEF700A05007 /* RootViewController.m */,
+				FF8B416913A8EEF700A05007 /* DetailViewController.h */,
+				FF8B416B13A8EEF700A05007 /* DetailViewController.m */,
+				FF8B416D13A8EEF700A05007 /* RootViewController.xib */,
+				FF8B417013A8EEF700A05007 /* DetailViewController.xib */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +332,8 @@
 				FF8B416A13A8EEF700A05007 /* DetailViewController.h in Resources */,
 				FF8B416F13A8EEF700A05007 /* RootViewController.xib in Resources */,
 				FF8B417213A8EEF700A05007 /* DetailViewController.xib in Resources */,
+				FFFB3BFE13AB94210063E374 /* main_bg.png in Resources */,
+				FFFB3C0513ABA15C0063E374 /* api.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +348,28 @@
 				FF8B416513A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m in Sources */,
 				FF8B416813A8EEF700A05007 /* RootViewController.m in Sources */,
 				FF8B416C13A8EEF700A05007 /* DetailViewController.m in Sources */,
+				FFFB3C0613ABA15C0063E374 /* json2.js in Sources */,
+				FFFB3C1413ABA17E0063E374 /* NSObject+SBJSON.m in Sources */,
+				FFFB3C1513ABA17E0063E374 /* NSString+SBJSON.m in Sources */,
+				FFFB3C1613ABA17E0063E374 /* SBJSON.m in Sources */,
+				FFFB3C1713ABA17E0063E374 /* SBJsonBase.m in Sources */,
+				FFFB3C1813ABA17E0063E374 /* SBJsonParser.m in Sources */,
+				FFFB3C1913ABA17E0063E374 /* SBJsonWriter.m in Sources */,
+				FFFB3C2913ABA1A30063E374 /* UICGClientGeocoder.m in Sources */,
+				FFFB3C2A13ABA1A30063E374 /* UICGDirections.m in Sources */,
+				FFFB3C2B13ABA1A30063E374 /* UICGDirectionsOptions.m in Sources */,
+				FFFB3C2C13ABA1A30063E374 /* UICGoogleMapsAPI.m in Sources */,
+				FFFB3C2D13ABA1A30063E374 /* UICGPolyline.m in Sources */,
+				FFFB3C2E13ABA1A30063E374 /* UICGRoute.m in Sources */,
+				FFFB3C2F13ABA1A30063E374 /* UICGStep.m in Sources */,
+				FFFB3C3513ABA2400063E374 /* UICRouteAnnotation.m in Sources */,
+				FFFB3C3613ABA2400063E374 /* UICRouteOverlayMapView.m in Sources */,
+				FFFB3C4513ABA7C90063E374 /* NSData+Base64.m in Sources */,
+				FFFB3C4613ABA7C90063E374 /* StringEncryption.m in Sources */,
+				FFFB3C5413ABC03C0063E374 /* CustomCellBackground.m in Sources */,
+				FFFB3C5513ABC03C0063E374 /* Common.m in Sources */,
+				FFFB3C5613ABC03C0063E374 /* CustomHeader.m in Sources */,
+				FFFB3C5713ABC03C0063E374 /* CustomFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,9 +453,15 @@
 		FF8B417613A8EEF700A05007 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ARC_MIGRATION = migrate;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
 				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -266,9 +470,15 @@
 		FF8B417713A8EEF700A05007 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ARC_MIGRATION = migrate;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
 				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -293,6 +503,7 @@
 				FF8B417713A8EEF700A05007 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
