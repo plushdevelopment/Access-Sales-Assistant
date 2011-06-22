@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="837" systemVersion="10J869" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Agency" representedClassName="Agency">
+        <attribute name="accessSign" optional="YES" attributeType="Boolean"/>
+        <attribute name="accountingEmail" optional="YES" attributeType="String"/>
+        <attribute name="agencyName" optional="YES" attributeType="String"/>
+        <attribute name="appointedDate" optional="YES" attributeType="Date"/>
+        <attribute name="claimsEmail" optional="YES" attributeType="String"/>
+        <attribute name="customerServiceEmail" optional="YES" attributeType="String"/>
+        <attribute name="dateEstablished" optional="YES" attributeType="Date"/>
+        <attribute name="eAndOExpires" optional="YES" attributeType="Date"/>
+        <attribute name="eligible" optional="YES" attributeType="Boolean"/>
+        <attribute name="fax" optional="YES" attributeType="String"/>
+        <attribute name="guid" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="howDoYouMarketYourAgency" optional="YES" attributeType="String"/>
+        <attribute name="mainEmail" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="numberOfEmployees" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="numberOfLocations" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="phone1" optional="YES" attributeType="String"/>
+        <attribute name="primaryContact" optional="YES" attributeType="String"/>
+        <attribute name="producerCode" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="rater" optional="YES" attributeType="String"/>
+        <attribute name="rater2" optional="YES" attributeType="String"/>
+        <attribute name="reasonIneligible" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="statusDate" optional="YES" attributeType="Date"/>
+        <attribute name="subTerritory" optional="YES" attributeType="String"/>
+        <attribute name="suspensionReason" optional="YES" attributeType="String"/>
+        <attribute name="websiteAddress" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="User" representedClassName="User">
+        <attribute name="domain" optional="YES" attributeType="String"/>
+        <attribute name="organization" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" transient="YES" attributeType="String"/>
+        <attribute name="serviceKey" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Agency" positionX="160" positionY="192" width="128" height="450"/>
+    </elements>
+</model>

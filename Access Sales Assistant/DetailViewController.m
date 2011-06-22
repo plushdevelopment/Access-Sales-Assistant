@@ -108,7 +108,7 @@
 
 - (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController: (UIPopoverController *)pc
 {
-    barButtonItem.title = @"Master";
+    barButtonItem.title = @"Menu";
     NSMutableArray *items = [[self.toolbar items] mutableCopy];
     [items insertObject:barButtonItem atIndex:0];
     [self.toolbar setItems:items animated:YES];

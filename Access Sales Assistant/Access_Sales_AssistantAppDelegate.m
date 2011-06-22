@@ -12,6 +12,10 @@
 
 #import "DetailViewController.h"
 
+#import "LoginViewController.h"
+
+#import "User.h"
+
 @implementation Access_Sales_AssistantAppDelegate
 
 @synthesize window = _window;
@@ -19,6 +23,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	// Setup the Core Data Stack
+	[ActiveRecordHelpers setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Access_Sales_Assistant.sqlite"];
+	
     // Override point for customization after application launch.
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -33,6 +40,13 @@
 	self.splitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
 	self.window.rootViewController = self.splitViewController;
     [self.window makeKeyAndVisible];
+	
+	LoginViewController *viewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+	[viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+	[viewController setModalPresentationStyle:UIModalPresentationFormSheet];
+	[self.splitViewController presentModalViewController:viewController animated:YES];
+	[viewController release];
+	
     return YES;
 }
 
@@ -73,6 +87,7 @@
 	 Save data if appropriate.
 	 See also applicationDidEnterBackground:.
 	 */
+	[ActiveRecordHelpers cleanUp];
 }
 
 @end

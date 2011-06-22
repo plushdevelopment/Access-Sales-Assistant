@@ -10,6 +10,8 @@
 
 #import "DetailViewController.h"
 
+#import "AgenciesTableViewController.h"
+
 #import "NSData+Base64.h"
 
 #import "StringEncryption.h"
@@ -28,6 +30,7 @@
     if (self) {
 		self.clearsSelectionOnViewWillAppear = NO;
 		self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+		self.title = @"Menu";
     }
     return self;
 }
@@ -45,25 +48,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
-	
-	//[crypto testSymmetricEncryption];
-	
-	NSString * _secret = @"Im starving";
-	NSString * _key = @"wTGMqLubzizPgylAsHGgfPfLDoclQt+YAIzM1ugFMko=";
-	
-	StringEncryption *crypto = [[StringEncryption alloc] init];
-	NSData *_secretData = [_secret dataUsingEncoding:NSUTF8StringEncoding];
-	CCOptions padding = kCCOptionPKCS7Padding;
-	NSData *encryptedData = [crypto encrypt:_secretData key:[_key dataUsingEncoding:NSUTF8StringEncoding] padding:&padding];
-	
-	NSLog(@"encrypted data in hex: %@", encryptedData);
-	
-	NSData *decryptedData = [crypto decrypt:encryptedData key:[_key dataUsingEncoding:NSUTF8StringEncoding] padding:&padding];
-	
-	NSLog(@"decrypted data in dex: %@", decryptedData);
-	NSString *str = [[NSString alloc] initWithData:decryptedData encoding:NSUTF8StringEncoding];
-	
-	NSLog(@"encrypted data string for export: %@",[encryptedData base64EncodingWithLineLength:0]);
 }
 
 - (void)viewDidUnload
@@ -258,6 +242,11 @@
 		default:
 			break;
 	}
+	
+	AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
+	[self.navigationController pushViewController:viewController animated:YES];
+	[viewController release];
+	
 }
 
 @end
