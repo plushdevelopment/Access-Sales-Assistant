@@ -22,5 +22,6 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)submitLogin:(id)sender;
+- (void)showError:(NSString *)message;
 
 @end

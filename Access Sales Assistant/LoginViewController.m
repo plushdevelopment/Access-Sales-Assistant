@@ -71,28 +71,27 @@
 	return YES;
 }
 
+- (void)showError:(NSString *)message
+{
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
+	[alertView show];
+	[alertView release];
+
+}
+
 - (IBAction)submitLogin:(id)sender
 {
-	if ([self.domainField.text isEqualToString:@""]) {
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a Domain" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
-		[alertView show];
-		[alertView release];
-	} else if ([self.usernameField.text isEqualToString:@""]) {
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a Username" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
-		[alertView show];
-		[alertView release];
-	} else if ([self.passwordField.text isEqualToString:@""]) {
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a Password" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
-		[alertView show];
-		[alertView release];
-	} else if ([self.organizationField.text isEqualToString:@""]) {
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter an Organization" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
-		[alertView show];
-		[alertView release];
-	} else if ([self.serviceKeyField.text isEqualToString:@""]) {
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a Service Key" delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
-		[alertView show];
-		[alertView release];
+	if (self.domainField.text.length == 0) {
+		[self showError:@"Please enter a Domain"];
+	} else if (self.usernameField.text.length == 0) {
+		[self showError:@"Please enter a Username"];
+	} else if (self.passwordField.text.length == 0) {
+		[self showError:@"Please enter a Password"];
+	} else if (self.organizationField.text.length == 0) {
+		[self showError:@"Please enter an Organization"];
+	} else if (self.serviceKeyField.text.length == 0) {
+		[self showError:@"Please enter a Service Key"];
+
 	} else {
 		[[self user] setDomain:self.domainField.text];
 		[[self user] setUsername:self.usernameField.text];
@@ -134,9 +133,7 @@
 	
 	// Uncomment this once login mechanism is in place 
 	/*
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
-	[alertView show];
-	[alertView release];
+	[self showError:[error localizedDescription];];
 	*/
 	
 	// Remove this once login mechanism is in place
