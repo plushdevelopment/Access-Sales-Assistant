@@ -154,6 +154,11 @@
 		FF8CA88013B124C800BA9A7B /* VisitApplicationProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8CA87E13B124C800BA9A7B /* VisitApplicationProfileViewController.xib */; };
 		FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */; };
 		FF8CA88513B1256500BA9A7B /* VisitApplicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */; };
+		FF90610B13B3AF8D009DCA0E /* button_menu_off.png in Resources */ = {isa = PBXBuildFile; fileRef = FF90610713B3AF8D009DCA0E /* button_menu_off.png */; };
+		FF90610C13B3AF8D009DCA0E /* button_menu_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF90610813B3AF8D009DCA0E /* button_menu_off@2x.png */; };
+		FF90610D13B3AF8D009DCA0E /* button_menu_on.png in Resources */ = {isa = PBXBuildFile; fileRef = FF90610913B3AF8D009DCA0E /* button_menu_on.png */; };
+		FF90610E13B3AF8D009DCA0E /* button_menu_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF90610A13B3AF8D009DCA0E /* button_menu_on@2x.png */; };
+		FF90611813B3D6AB009DCA0E /* form_seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = FF90611713B3D6AA009DCA0E /* form_seperator.png */; };
 		FFA1A31913AF922200434B93 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA1A31713AF922200434B93 /* LoginViewController.m */; };
 		FFA1A31A13AF922200434B93 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA1A31813AF922200434B93 /* LoginViewController.xib */; };
 		FFA1A31E13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFA1A31C13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld */; };
@@ -404,6 +409,11 @@
 		FF8CA88113B1256500BA9A7B /* VisitApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationViewController.h; sourceTree = "<group>"; };
 		FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationViewController.m; sourceTree = "<group>"; };
 		FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationViewController.xib; sourceTree = "<group>"; };
+		FF90610713B3AF8D009DCA0E /* button_menu_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_menu_off.png; sourceTree = "<group>"; };
+		FF90610813B3AF8D009DCA0E /* button_menu_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_menu_off@2x.png"; sourceTree = "<group>"; };
+		FF90610913B3AF8D009DCA0E /* button_menu_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_menu_on.png; sourceTree = "<group>"; };
+		FF90610A13B3AF8D009DCA0E /* button_menu_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_menu_on@2x.png"; sourceTree = "<group>"; };
+		FF90611713B3D6AA009DCA0E /* form_seperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = form_seperator.png; sourceTree = "<group>"; };
 		FFA1A31613AF922200434B93 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FFA1A31713AF922200434B93 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FFA1A31813AF922200434B93 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -541,6 +551,7 @@
 		FF697AD713AFB8DA00B66202 /* Model Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FFA1A31C13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld */,
 				FF697AD913AFB8F200B66202 /* Machine Classes */,
 				FF697AD813AFB8E500B66202 /* Human Classes */,
 			);
@@ -599,6 +610,7 @@
 		FF77100213B23DE500E90F4B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FF9060E813B3ACF0009DCA0E /* Visit Application */,
 				FF77110A13B25A2D00E90F4B /* Table View Carat */,
 				FF77101413B23E1C00E90F4B /* Daily Summary */,
 				FF77101313B23E1400E90F4B /* Phases */,
@@ -968,9 +980,28 @@
 				FF8B415D13A8EEF700A05007 /* InfoPlist.strings */,
 				FF8B416013A8EEF700A05007 /* main.m */,
 				FF8B416213A8EEF700A05007 /* Access Sales Assistant-Prefix.pch */,
-				FFA1A31C13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF9060E813B3ACF0009DCA0E /* Visit Application */ = {
+			isa = PBXGroup;
+			children = (
+				FF90611713B3D6AA009DCA0E /* form_seperator.png */,
+				FF9060EA13B3AD07009DCA0E /* Menu */,
+			);
+			name = "Visit Application";
+			sourceTree = "<group>";
+		};
+		FF9060EA13B3AD07009DCA0E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FF90610713B3AF8D009DCA0E /* button_menu_off.png */,
+				FF90610813B3AF8D009DCA0E /* button_menu_off@2x.png */,
+				FF90610913B3AF8D009DCA0E /* button_menu_on.png */,
+				FF90610A13B3AF8D009DCA0E /* button_menu_on@2x.png */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		FFA1A32113AFB4B200434B93 /* Reachability */ = {
@@ -1326,6 +1357,11 @@
 				FF77110813B25A2400E90F4B /* carat.png in Resources */,
 				FF77110913B25A2400E90F4B /* carat-open.png in Resources */,
 				FF77111313B25A8900E90F4B /* QuoteCell.xib in Resources */,
+				FF90610B13B3AF8D009DCA0E /* button_menu_off.png in Resources */,
+				FF90610C13B3AF8D009DCA0E /* button_menu_off@2x.png in Resources */,
+				FF90610D13B3AF8D009DCA0E /* button_menu_on.png in Resources */,
+				FF90610E13B3AF8D009DCA0E /* button_menu_on@2x.png in Resources */,
+				FF90611813B3D6AB009DCA0E /* form_seperator.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

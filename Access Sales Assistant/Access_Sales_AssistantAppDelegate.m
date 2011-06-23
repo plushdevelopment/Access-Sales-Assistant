@@ -12,6 +12,8 @@
 
 #import "DetailViewController.h"
 
+#import "VisitApplicationViewController.h"
+
 #import "LoginViewController.h"
 
 #import "User.h"
@@ -31,9 +33,9 @@
 
 	RootViewController *controller = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
 	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-	[[navigationController navigationBar] setTintColor:[UIColor darkTextColor]];
+	//[[navigationController navigationBar] setTintColor:[UIColor darkTextColor]];
 
-	DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+	VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
 
 	self.splitViewController = [[UISplitViewController alloc] init];
 	self.splitViewController.delegate = detailViewController;

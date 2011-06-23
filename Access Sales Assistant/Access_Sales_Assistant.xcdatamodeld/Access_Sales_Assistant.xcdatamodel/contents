@@ -34,10 +34,11 @@
         <attribute name="organization" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" transient="YES" attributeType="String"/>
         <attribute name="serviceKey" optional="YES" attributeType="String"/>
+        <attribute name="token" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="User" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Agency" positionX="160" positionY="192" width="128" height="450"/>
+        <element name="User" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>

@@ -11,6 +11,7 @@
 
 
 
+
 @interface UserID : NSManagedObjectID {}
 @end
 
@@ -52,6 +53,12 @@
 
 
 
+@property (nonatomic, retain) NSString *token;
+
+//- (BOOL)validateToken:(id*)value_ error:(NSError**)error_;
+
+
+
 
 
 @end
@@ -89,6 +96,12 @@
 
 - (NSString*)primitiveServiceKey;
 - (void)setPrimitiveServiceKey:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveToken;
+- (void)setPrimitiveToken:(NSString*)value;
 
 
 

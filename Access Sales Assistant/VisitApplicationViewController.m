@@ -10,11 +10,30 @@
 
 @implementation VisitApplicationViewController
 
+@synthesize toolbar=_toolbar;
+
+@synthesize popoverController;
+
+@synthesize activeVisitFormView;
+
+@synthesize profileApplicationViewController;
+
+- (IBAction)loadApplicationForm:(id)sender
+{
+	UIButton *button = (UIButton *)sender;
+	NSLog(@"Button Label: %@ Button Tag: %d", button.titleLabel.text, button.tag);
+}
+
+- (IBAction)submitApplicationForm:(id)sender
+{
+	NSLog(@"Submit Application");
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+		
     }
     return self;
 }
@@ -33,10 +52,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	[self.activeVisitFormView addSubview:profileApplicationViewController.view];
 }
 
 - (void)viewDidUnload
 {
+	[self setToolbar:nil];
+	[self setActiveVisitFormView:nil];
+	[self setProfileApplicationViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -47,5 +70,26 @@
     // Return YES for supported orientations
 	return YES;
 }
+
+#pragma mark - Split view
+
+- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController: (UIPopoverController *)pc
+{
+    barButtonItem.title = @"Menu";
+    NSMutableArray *items = [[self.toolbar items] mutableCopy];
+    [items insertObject:barButtonItem atIndex:0];
+    [self.toolbar setItems:items animated:YES];
+    self.popoverController = pc;
+}
+
+- (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    // Called when the view is shown again in the split view, invalidating the button and popover controller.
+    NSMutableArray *items = [[self.toolbar items] mutableCopy];
+    [items removeObjectAtIndex:0];
+    [self.toolbar setItems:items animated:YES];
+    self.popoverController = nil;
+}
+
 
 @end

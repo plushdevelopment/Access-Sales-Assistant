@@ -14,6 +14,8 @@
 
 #import "ASIFormDataRequest.h"
 
+#import "JSON.h"
+
 @implementation LoginViewController
 
 @synthesize domainField=_domainField;
@@ -98,21 +100,26 @@
 		[[self user] setPassword:self.passwordField.text];
 		[[self user] setOrganization:self.organizationField.text];
 		[[self user] setServiceKey:self.serviceKeyField.text];
-		NSString *jsonString = [[self user] jsonStringValue];
-		NSLog(@"%@", jsonString);
+		
 		NSString * _key = @"wTGMqLubzizPgylAsHGgfPfLDoclQt+YAIzM1ugFMko=";
 		
 		StringEncryption *crypto = [[StringEncryption alloc] init];
-		NSData *secretData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+		NSData *secretData = [[[self user] password] dataUsingEncoding:NSUTF8StringEncoding];
 		CCOptions padding = kCCOptionPKCS7Padding;
 		NSData *encryptedData = [crypto encrypt:secretData key:[_key dataUsingEncoding:NSUTF8StringEncoding] padding:&padding];
 		NSString *encryptedString = [encryptedData base64EncodingWithLineLength:0];
-		NSLog(@"Encrypted Login: %@", encryptedString);
+		NSString *encryptedEncodedString = [encryptedString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+		NSLog(@"Encrypted Login: %@", encryptedEncodedString);
 		
-		NSString *urlString = [NSString stringWithFormat:@"https://accessgeneral.com/app/"];
+		
+		
+		NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:81/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@", self.user.username, encryptedString, self.user.domain, self.user.organization, self.user.serviceKey];
 		NSURL *url = [NSURL URLWithString:urlString];
 		ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
-		[request setPostValue:encryptedString forKey:@"apiKey"];
+		[request setRequestMethod:@"GET"];
+		[request addRequestHeader:@"Content-Type" value:@"application/json"];
+		//[request buildRequestHeaders];
+		//[[request requestHeaders] setObject:@"application/json" forKey:@"Content-Type"];
 		[request setDelegate:self];
 		[request startAsynchronous];
 	}
@@ -122,7 +129,9 @@
 {
 	NSString *responseString = [request responseString];
 	NSLog(@"Response String: %@", responseString);
-	
+	NSString *jsonString = [responseString JSONFragmentValue];
+	self.user.token = responseString;
+	[self.managedObjectContext save];
 	[self dismissModalViewControllerAnimated:YES];
 }
 
@@ -131,13 +140,7 @@
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
-	// Uncomment this once login mechanism is in place 
-	/*
-	[self showError:[error localizedDescription];];
-	*/
-	
-	// Remove this once login mechanism is in place
-	[self dismissModalViewControllerAnimated:YES];
+	[self showError:[error localizedDescription]];
 }
 
 @end
