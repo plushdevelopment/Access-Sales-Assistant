@@ -11,15 +11,16 @@
 
 @interface VisitApplicationViewController : UIViewController <UISplitViewControllerDelegate> {
 	
-	UIView *activeVisitFormView;
+	UIScrollView *activeVisitFormView;
 	VisitApplicationProfileViewController *profileApplicationViewController;
+
 }
 
 @property (nonatomic, strong) IBOutlet UIToolbar *toolbar;
 
 @property (nonatomic, strong) UIPopoverController *popoverController;
 
-@property (nonatomic, strong) IBOutlet UIView *activeVisitFormView;
+@property (nonatomic, strong) IBOutlet UIScrollView *activeVisitFormView;
 
 @property (nonatomic, strong) IBOutlet VisitApplicationProfileViewController *profileApplicationViewController;
 

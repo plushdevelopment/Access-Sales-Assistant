@@ -140,7 +140,8 @@
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
-	[self showError:[error localizedDescription]];
+	//[self showError:[error localizedDescription]];
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 @end
