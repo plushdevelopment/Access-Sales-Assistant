@@ -116,8 +116,6 @@
 		ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 		[request setRequestMethod:@"GET"];
 		[request addRequestHeader:@"Content-Type" value:@"application/json"];
-		//[request buildRequestHeaders];
-		//[[request requestHeaders] setObject:@"application/json" forKey:@"Content-Type"];
 		[request setDelegate:self];
 		[request startAsynchronous];
 	}
@@ -132,6 +130,12 @@
 	NSString * encodedString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)jsonString, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 );
 	
 	self.user.token = encodedString;
+	
+	NSDictionary *userInfo = [[self.user entity] userInfo];
+	for (NSString *attribute in userInfo) {
+		NSLog(@"%@", attribute);
+	}
+	
 	[self.managedObjectContext save];
 	[self dismissModalViewControllerAnimated:YES];
 }

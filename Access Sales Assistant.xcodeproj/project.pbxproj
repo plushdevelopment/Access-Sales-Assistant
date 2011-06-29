@@ -97,8 +97,6 @@
 		FF8CA83813B0D1AE00BA9A7B /* NSManagedObjectExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA83713B0D1AE00BA9A7B /* NSManagedObjectExtras.m */; };
 		FF8CA83C13B1134B00BA9A7B /* AgenciesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA83A13B1134B00BA9A7B /* AgenciesTableViewController.m */; };
 		FF8CA83D13B1134B00BA9A7B /* AgenciesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8CA83B13B1134B00BA9A7B /* AgenciesTableViewController.xib */; };
-		FF8CA87A13B1205B00BA9A7B /* _Agency.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA87713B1205B00BA9A7B /* _Agency.m */; };
-		FF8CA87B13B1205B00BA9A7B /* Agency.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA87913B1205B00BA9A7B /* Agency.m */; };
 		FF8CA87F13B124C800BA9A7B /* VisitApplicationProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA87D13B124C800BA9A7B /* VisitApplicationProfileViewController.m */; };
 		FF8CA88013B124C800BA9A7B /* VisitApplicationProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8CA87E13B124C800BA9A7B /* VisitApplicationProfileViewController.xib */; };
 		FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */; };
@@ -142,6 +140,35 @@
 		FFC9534313AFCACE000967CB /* NSPersistentStore+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9533913AFCACE000967CB /* NSPersistentStore+ActiveRecord.m */; };
 		FFC9534413AFCACE000967CB /* NSPersistentStoreCoordinator+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9533B13AFCACE000967CB /* NSPersistentStoreCoordinator+ActiveRecord.m */; };
 		FFC9534513AFCACE000967CB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FFC9533C13AFCACE000967CB /* README.md */; };
+		FFF0D00013BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */; };
+		FFF0D00513BB7ED7008DFA19 /* _Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00213BB7ED7008DFA19 /* _Producer.m */; };
+		FFF0D00613BB7ED7008DFA19 /* Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00413BB7ED7008DFA19 /* Producer.m */; };
+		FFF0D04313BBA529008DFA19 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00D13BBA526008DFA19 /* Type.m */; };
+		FFF0D04413BBA529008DFA19 /* SuspensionReason.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00F13BBA526008DFA19 /* SuspensionReason.m */; };
+		FFF0D04513BBA529008DFA19 /* SubTerritory.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D01113BBA526008DFA19 /* SubTerritory.m */; };
+		FFF0D04613BBA529008DFA19 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D01313BBA526008DFA19 /* Status.m */; };
+		FFF0D04713BBA529008DFA19 /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D01513BBA527008DFA19 /* State.m */; };
+		FFF0D04813BBA529008DFA19 /* Rater.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D01713BBA527008DFA19 /* Rater.m */; };
+		FFF0D04913BBA529008DFA19 /* QuestionListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D01913BBA527008DFA19 /* QuestionListItem.m */; };
+		FFF0D04B13BBA529008DFA19 /* PhoneListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D01D13BBA527008DFA19 /* PhoneListItem.m */; };
+		FFF0D04C13BBA529008DFA19 /* IneligibleReason.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D01F13BBA527008DFA19 /* IneligibleReason.m */; };
+		FFF0D04D13BBA529008DFA19 /* HoursOfOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D02113BBA527008DFA19 /* HoursOfOperation.m */; };
+		FFF0D04E13BBA529008DFA19 /* EmailListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D02313BBA527008DFA19 /* EmailListItem.m */; };
+		FFF0D04F13BBA529008DFA19 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D02513BBA527008DFA19 /* Contact.m */; };
+		FFF0D05013BBA529008DFA19 /* AddressListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D02713BBA527008DFA19 /* AddressListItem.m */; };
+		FFF0D05113BBA529008DFA19 /* _Type.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D02913BBA527008DFA19 /* _Type.m */; };
+		FFF0D05213BBA529008DFA19 /* _SuspensionReason.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D02B13BBA528008DFA19 /* _SuspensionReason.m */; };
+		FFF0D05313BBA529008DFA19 /* _SubTerritory.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D02D13BBA528008DFA19 /* _SubTerritory.m */; };
+		FFF0D05413BBA529008DFA19 /* _Status.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D02F13BBA528008DFA19 /* _Status.m */; };
+		FFF0D05513BBA529008DFA19 /* _State.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03113BBA528008DFA19 /* _State.m */; };
+		FFF0D05613BBA529008DFA19 /* _Rater.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03313BBA528008DFA19 /* _Rater.m */; };
+		FFF0D05713BBA529008DFA19 /* _QuestionListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03513BBA528008DFA19 /* _QuestionListItem.m */; };
+		FFF0D05813BBA529008DFA19 /* _PhoneListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03713BBA528008DFA19 /* _PhoneListItem.m */; };
+		FFF0D05913BBA529008DFA19 /* _IneligibleReason.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03913BBA528008DFA19 /* _IneligibleReason.m */; };
+		FFF0D05A13BBA529008DFA19 /* _HoursOfOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03B13BBA528008DFA19 /* _HoursOfOperation.m */; };
+		FFF0D05B13BBA529008DFA19 /* _EmailListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03D13BBA528008DFA19 /* _EmailListItem.m */; };
+		FFF0D05C13BBA529008DFA19 /* _Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03F13BBA528008DFA19 /* _Contact.m */; };
+		FFF0D05D13BBA529008DFA19 /* _AddressListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D04113BBA529008DFA19 /* _AddressListItem.m */; };
 		FFFB3BFE13AB94210063E374 /* main_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FFFB3BFD13AB94210063E374 /* main_bg.png */; };
 		FFFB3C0513ABA15C0063E374 /* api.html in Resources */ = {isa = PBXBuildFile; fileRef = FFFB3C0313ABA15C0063E374 /* api.html */; };
 		FFFB3C0613ABA15C0063E374 /* json2.js in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0413ABA15C0063E374 /* json2.js */; };
@@ -277,10 +304,6 @@
 		FF8CA83913B1134B00BA9A7B /* AgenciesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgenciesTableViewController.h; sourceTree = "<group>"; };
 		FF8CA83A13B1134B00BA9A7B /* AgenciesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgenciesTableViewController.m; sourceTree = "<group>"; };
 		FF8CA83B13B1134B00BA9A7B /* AgenciesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgenciesTableViewController.xib; sourceTree = "<group>"; };
-		FF8CA87613B1205B00BA9A7B /* _Agency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Agency.h; sourceTree = "<group>"; };
-		FF8CA87713B1205B00BA9A7B /* _Agency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Agency.m; sourceTree = "<group>"; };
-		FF8CA87813B1205B00BA9A7B /* Agency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agency.h; sourceTree = "<group>"; };
-		FF8CA87913B1205B00BA9A7B /* Agency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agency.m; sourceTree = "<group>"; };
 		FF8CA87C13B124C800BA9A7B /* VisitApplicationProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationProfileViewController.h; sourceTree = "<group>"; };
 		FF8CA87D13B124C800BA9A7B /* VisitApplicationProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationProfileViewController.m; sourceTree = "<group>"; };
 		FF8CA87E13B124C800BA9A7B /* VisitApplicationProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationProfileViewController.xib; sourceTree = "<group>"; };
@@ -356,6 +379,66 @@
 		FFC9533A13AFCACE000967CB /* NSPersistentStoreCoordinator+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+ActiveRecord.h"; sourceTree = "<group>"; };
 		FFC9533B13AFCACE000967CB /* NSPersistentStoreCoordinator+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ActiveRecord.m"; sourceTree = "<group>"; };
 		FFC9533C13AFCACE000967CB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		FFF0CFFE13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.h"; sourceTree = "<group>"; };
+		FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.m"; sourceTree = "<group>"; };
+		FFF0D00113BB7ED7008DFA19 /* _Producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Producer.h; sourceTree = "<group>"; };
+		FFF0D00213BB7ED7008DFA19 /* _Producer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Producer.m; sourceTree = "<group>"; };
+		FFF0D00313BB7ED7008DFA19 /* Producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Producer.h; sourceTree = "<group>"; };
+		FFF0D00413BB7ED7008DFA19 /* Producer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Producer.m; sourceTree = "<group>"; };
+		FFF0D00D13BBA526008DFA19 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
+		FFF0D00E13BBA526008DFA19 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
+		FFF0D00F13BBA526008DFA19 /* SuspensionReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspensionReason.m; sourceTree = "<group>"; };
+		FFF0D01013BBA526008DFA19 /* SuspensionReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspensionReason.h; sourceTree = "<group>"; };
+		FFF0D01113BBA526008DFA19 /* SubTerritory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubTerritory.m; sourceTree = "<group>"; };
+		FFF0D01213BBA526008DFA19 /* SubTerritory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubTerritory.h; sourceTree = "<group>"; };
+		FFF0D01313BBA526008DFA19 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Status.m; sourceTree = "<group>"; };
+		FFF0D01413BBA526008DFA19 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
+		FFF0D01513BBA527008DFA19 /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = State.m; sourceTree = "<group>"; };
+		FFF0D01613BBA527008DFA19 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		FFF0D01713BBA527008DFA19 /* Rater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rater.m; sourceTree = "<group>"; };
+		FFF0D01813BBA527008DFA19 /* Rater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rater.h; sourceTree = "<group>"; };
+		FFF0D01913BBA527008DFA19 /* QuestionListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionListItem.m; sourceTree = "<group>"; };
+		FFF0D01A13BBA527008DFA19 /* QuestionListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionListItem.h; sourceTree = "<group>"; };
+		FFF0D01B13BBA527008DFA19 /* Producer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Producer.m; sourceTree = "<group>"; };
+		FFF0D01C13BBA527008DFA19 /* Producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Producer.h; sourceTree = "<group>"; };
+		FFF0D01D13BBA527008DFA19 /* PhoneListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneListItem.m; sourceTree = "<group>"; };
+		FFF0D01E13BBA527008DFA19 /* PhoneListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneListItem.h; sourceTree = "<group>"; };
+		FFF0D01F13BBA527008DFA19 /* IneligibleReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IneligibleReason.m; sourceTree = "<group>"; };
+		FFF0D02013BBA527008DFA19 /* IneligibleReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IneligibleReason.h; sourceTree = "<group>"; };
+		FFF0D02113BBA527008DFA19 /* HoursOfOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoursOfOperation.m; sourceTree = "<group>"; };
+		FFF0D02213BBA527008DFA19 /* HoursOfOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoursOfOperation.h; sourceTree = "<group>"; };
+		FFF0D02313BBA527008DFA19 /* EmailListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailListItem.m; sourceTree = "<group>"; };
+		FFF0D02413BBA527008DFA19 /* EmailListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailListItem.h; sourceTree = "<group>"; };
+		FFF0D02513BBA527008DFA19 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		FFF0D02613BBA527008DFA19 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		FFF0D02713BBA527008DFA19 /* AddressListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressListItem.m; sourceTree = "<group>"; };
+		FFF0D02813BBA527008DFA19 /* AddressListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressListItem.h; sourceTree = "<group>"; };
+		FFF0D02913BBA527008DFA19 /* _Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Type.m; sourceTree = "<group>"; };
+		FFF0D02A13BBA527008DFA19 /* _Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Type.h; sourceTree = "<group>"; };
+		FFF0D02B13BBA528008DFA19 /* _SuspensionReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SuspensionReason.m; sourceTree = "<group>"; };
+		FFF0D02C13BBA528008DFA19 /* _SuspensionReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SuspensionReason.h; sourceTree = "<group>"; };
+		FFF0D02D13BBA528008DFA19 /* _SubTerritory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SubTerritory.m; sourceTree = "<group>"; };
+		FFF0D02E13BBA528008DFA19 /* _SubTerritory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SubTerritory.h; sourceTree = "<group>"; };
+		FFF0D02F13BBA528008DFA19 /* _Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Status.m; sourceTree = "<group>"; };
+		FFF0D03013BBA528008DFA19 /* _Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Status.h; sourceTree = "<group>"; };
+		FFF0D03113BBA528008DFA19 /* _State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _State.m; sourceTree = "<group>"; };
+		FFF0D03213BBA528008DFA19 /* _State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _State.h; sourceTree = "<group>"; };
+		FFF0D03313BBA528008DFA19 /* _Rater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Rater.m; sourceTree = "<group>"; };
+		FFF0D03413BBA528008DFA19 /* _Rater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Rater.h; sourceTree = "<group>"; };
+		FFF0D03513BBA528008DFA19 /* _QuestionListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _QuestionListItem.m; sourceTree = "<group>"; };
+		FFF0D03613BBA528008DFA19 /* _QuestionListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _QuestionListItem.h; sourceTree = "<group>"; };
+		FFF0D03713BBA528008DFA19 /* _PhoneListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _PhoneListItem.m; sourceTree = "<group>"; };
+		FFF0D03813BBA528008DFA19 /* _PhoneListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PhoneListItem.h; sourceTree = "<group>"; };
+		FFF0D03913BBA528008DFA19 /* _IneligibleReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _IneligibleReason.m; sourceTree = "<group>"; };
+		FFF0D03A13BBA528008DFA19 /* _IneligibleReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _IneligibleReason.h; sourceTree = "<group>"; };
+		FFF0D03B13BBA528008DFA19 /* _HoursOfOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _HoursOfOperation.m; sourceTree = "<group>"; };
+		FFF0D03C13BBA528008DFA19 /* _HoursOfOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _HoursOfOperation.h; sourceTree = "<group>"; };
+		FFF0D03D13BBA528008DFA19 /* _EmailListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _EmailListItem.m; sourceTree = "<group>"; };
+		FFF0D03E13BBA528008DFA19 /* _EmailListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _EmailListItem.h; sourceTree = "<group>"; };
+		FFF0D03F13BBA528008DFA19 /* _Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Contact.m; sourceTree = "<group>"; };
+		FFF0D04013BBA529008DFA19 /* _Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Contact.h; sourceTree = "<group>"; };
+		FFF0D04113BBA529008DFA19 /* _AddressListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AddressListItem.m; sourceTree = "<group>"; };
+		FFF0D04213BBA529008DFA19 /* _AddressListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AddressListItem.h; sourceTree = "<group>"; };
 		FFFB3BFD13AB94210063E374 /* main_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_bg.png; sourceTree = "<group>"; };
 		FFFB3C0313ABA15C0063E374 /* api.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = api.html; sourceTree = "<group>"; };
 		FFFB3C0413ABA15C0063E374 /* json2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = json2.js; sourceTree = "<group>"; };
@@ -442,8 +525,36 @@
 		FF697AD813AFB8E500B66202 /* Human Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FF8CA87813B1205B00BA9A7B /* Agency.h */,
-				FF8CA87913B1205B00BA9A7B /* Agency.m */,
+				FFF0D00E13BBA526008DFA19 /* Type.h */,
+				FFF0D00D13BBA526008DFA19 /* Type.m */,
+				FFF0D01013BBA526008DFA19 /* SuspensionReason.h */,
+				FFF0D00F13BBA526008DFA19 /* SuspensionReason.m */,
+				FFF0D01213BBA526008DFA19 /* SubTerritory.h */,
+				FFF0D01113BBA526008DFA19 /* SubTerritory.m */,
+				FFF0D01413BBA526008DFA19 /* Status.h */,
+				FFF0D01313BBA526008DFA19 /* Status.m */,
+				FFF0D01613BBA527008DFA19 /* State.h */,
+				FFF0D01513BBA527008DFA19 /* State.m */,
+				FFF0D01813BBA527008DFA19 /* Rater.h */,
+				FFF0D01713BBA527008DFA19 /* Rater.m */,
+				FFF0D01A13BBA527008DFA19 /* QuestionListItem.h */,
+				FFF0D01913BBA527008DFA19 /* QuestionListItem.m */,
+				FFF0D01C13BBA527008DFA19 /* Producer.h */,
+				FFF0D01B13BBA527008DFA19 /* Producer.m */,
+				FFF0D01E13BBA527008DFA19 /* PhoneListItem.h */,
+				FFF0D01D13BBA527008DFA19 /* PhoneListItem.m */,
+				FFF0D02013BBA527008DFA19 /* IneligibleReason.h */,
+				FFF0D01F13BBA527008DFA19 /* IneligibleReason.m */,
+				FFF0D02213BBA527008DFA19 /* HoursOfOperation.h */,
+				FFF0D02113BBA527008DFA19 /* HoursOfOperation.m */,
+				FFF0D02413BBA527008DFA19 /* EmailListItem.h */,
+				FFF0D02313BBA527008DFA19 /* EmailListItem.m */,
+				FFF0D02613BBA527008DFA19 /* Contact.h */,
+				FFF0D02513BBA527008DFA19 /* Contact.m */,
+				FFF0D02813BBA527008DFA19 /* AddressListItem.h */,
+				FFF0D02713BBA527008DFA19 /* AddressListItem.m */,
+				FFF0D00313BB7ED7008DFA19 /* Producer.h */,
+				FFF0D00413BB7ED7008DFA19 /* Producer.m */,
 				FF697AD213AFB8D500B66202 /* User.h */,
 				FF697AD313AFB8D500B66202 /* User.m */,
 			);
@@ -453,8 +564,34 @@
 		FF697AD913AFB8F200B66202 /* Machine Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FF8CA87613B1205B00BA9A7B /* _Agency.h */,
-				FF8CA87713B1205B00BA9A7B /* _Agency.m */,
+				FFF0D02A13BBA527008DFA19 /* _Type.h */,
+				FFF0D02913BBA527008DFA19 /* _Type.m */,
+				FFF0D02C13BBA528008DFA19 /* _SuspensionReason.h */,
+				FFF0D02B13BBA528008DFA19 /* _SuspensionReason.m */,
+				FFF0D02E13BBA528008DFA19 /* _SubTerritory.h */,
+				FFF0D02D13BBA528008DFA19 /* _SubTerritory.m */,
+				FFF0D03013BBA528008DFA19 /* _Status.h */,
+				FFF0D02F13BBA528008DFA19 /* _Status.m */,
+				FFF0D03213BBA528008DFA19 /* _State.h */,
+				FFF0D03113BBA528008DFA19 /* _State.m */,
+				FFF0D03413BBA528008DFA19 /* _Rater.h */,
+				FFF0D03313BBA528008DFA19 /* _Rater.m */,
+				FFF0D03613BBA528008DFA19 /* _QuestionListItem.h */,
+				FFF0D03513BBA528008DFA19 /* _QuestionListItem.m */,
+				FFF0D03813BBA528008DFA19 /* _PhoneListItem.h */,
+				FFF0D03713BBA528008DFA19 /* _PhoneListItem.m */,
+				FFF0D03A13BBA528008DFA19 /* _IneligibleReason.h */,
+				FFF0D03913BBA528008DFA19 /* _IneligibleReason.m */,
+				FFF0D03C13BBA528008DFA19 /* _HoursOfOperation.h */,
+				FFF0D03B13BBA528008DFA19 /* _HoursOfOperation.m */,
+				FFF0D03E13BBA528008DFA19 /* _EmailListItem.h */,
+				FFF0D03D13BBA528008DFA19 /* _EmailListItem.m */,
+				FFF0D04013BBA529008DFA19 /* _Contact.h */,
+				FFF0D03F13BBA528008DFA19 /* _Contact.m */,
+				FFF0D04213BBA529008DFA19 /* _AddressListItem.h */,
+				FFF0D04113BBA529008DFA19 /* _AddressListItem.m */,
+				FFF0D00113BB7ED7008DFA19 /* _Producer.h */,
+				FFF0D00213BB7ED7008DFA19 /* _Producer.m */,
 				FF697AD013AFB8D500B66202 /* _User.h */,
 				FF697AD113AFB8D500B66202 /* _User.m */,
 			);
@@ -568,6 +705,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FFF0CFFC13BB7AC2008DFA19 /* Core Data JSON Categories */,
 				FFC9534613AFCCE2000967CB /* ActiveRecord Helpers */,
 				FFA1A35913AFB4DD00434B93 /* ASIHTTPRequest */,
 				FFFB3C5913ABE46E0063E374 /* AES Encryption */,
@@ -755,6 +893,15 @@
 			name = "ActiveRecord Helpers";
 			sourceTree = "<group>";
 		};
+		FFF0CFFC13BB7AC2008DFA19 /* Core Data JSON Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0CFFE13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */,
+				FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */,
+			);
+			name = "Core Data JSON Categories";
+			sourceTree = "<group>";
+		};
 		FFFB3C1A13ABA1860063E374 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -901,6 +1048,9 @@
 /* Begin PBXProject section */
 		FF8B414713A8EEF700A05007 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = FF8B414A13A8EEF700A05007 /* Build configuration list for PBXProject "Access Sales Assistant" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -1076,12 +1226,39 @@
 				FF8CA83113B0D03200BA9A7B /* NSString+BSJSONAdditions.m in Sources */,
 				FF8CA83813B0D1AE00BA9A7B /* NSManagedObjectExtras.m in Sources */,
 				FF8CA83C13B1134B00BA9A7B /* AgenciesTableViewController.m in Sources */,
-				FF8CA87A13B1205B00BA9A7B /* _Agency.m in Sources */,
-				FF8CA87B13B1205B00BA9A7B /* Agency.m in Sources */,
 				FF8CA87F13B124C800BA9A7B /* VisitApplicationProfileViewController.m in Sources */,
 				FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */,
 				FF99B8AC13B8A3FC00FC1A0B /* DatePickerViewController.m in Sources */,
 				FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */,
+				FFF0D00013BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */,
+				FFF0D00513BB7ED7008DFA19 /* _Producer.m in Sources */,
+				FFF0D00613BB7ED7008DFA19 /* Producer.m in Sources */,
+				FFF0D04313BBA529008DFA19 /* Type.m in Sources */,
+				FFF0D04413BBA529008DFA19 /* SuspensionReason.m in Sources */,
+				FFF0D04513BBA529008DFA19 /* SubTerritory.m in Sources */,
+				FFF0D04613BBA529008DFA19 /* Status.m in Sources */,
+				FFF0D04713BBA529008DFA19 /* State.m in Sources */,
+				FFF0D04813BBA529008DFA19 /* Rater.m in Sources */,
+				FFF0D04913BBA529008DFA19 /* QuestionListItem.m in Sources */,
+				FFF0D04B13BBA529008DFA19 /* PhoneListItem.m in Sources */,
+				FFF0D04C13BBA529008DFA19 /* IneligibleReason.m in Sources */,
+				FFF0D04D13BBA529008DFA19 /* HoursOfOperation.m in Sources */,
+				FFF0D04E13BBA529008DFA19 /* EmailListItem.m in Sources */,
+				FFF0D04F13BBA529008DFA19 /* Contact.m in Sources */,
+				FFF0D05013BBA529008DFA19 /* AddressListItem.m in Sources */,
+				FFF0D05113BBA529008DFA19 /* _Type.m in Sources */,
+				FFF0D05213BBA529008DFA19 /* _SuspensionReason.m in Sources */,
+				FFF0D05313BBA529008DFA19 /* _SubTerritory.m in Sources */,
+				FFF0D05413BBA529008DFA19 /* _Status.m in Sources */,
+				FFF0D05513BBA529008DFA19 /* _State.m in Sources */,
+				FFF0D05613BBA529008DFA19 /* _Rater.m in Sources */,
+				FFF0D05713BBA529008DFA19 /* _QuestionListItem.m in Sources */,
+				FFF0D05813BBA529008DFA19 /* _PhoneListItem.m in Sources */,
+				FFF0D05913BBA529008DFA19 /* _IneligibleReason.m in Sources */,
+				FFF0D05A13BBA529008DFA19 /* _HoursOfOperation.m in Sources */,
+				FFF0D05B13BBA529008DFA19 /* _EmailListItem.m in Sources */,
+				FFF0D05C13BBA529008DFA19 /* _Contact.m in Sources */,
+				FFF0D05D13BBA529008DFA19 /* _AddressListItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

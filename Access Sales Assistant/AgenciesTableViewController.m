@@ -8,6 +8,8 @@
 
 #import "AgenciesTableViewController.h"
 #import "User.h"
+#import "JSON.h"
+#import "Producer.h"
 
 @interface AgenciesTableViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -40,8 +42,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	//NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=1&pageSize=100&partialLoad=false&token=%@", [[User findFirst] token]];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Picklist?type=status&token=%@", [[User findFirst] token]];
+	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=1&pageSize=100&partialLoad=false&token=%@", [[User findFirst] token]];
+	//NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Picklist?type=status&token=%@", [[User findFirst] token]];
 	//NSString *escapedString = [urlString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -170,7 +172,7 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Agency" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Producer" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
@@ -184,7 +186,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Agency"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Producer"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -304,6 +306,21 @@
 {
 	NSString *responseString = [request responseString];
 	NSLog(@"Response String: %@", responseString);
+	
+	NSArray *array = [Producer findAll];
+	for (Producer *prod in array) {
+		BOOL success = [prod deleteInContext:self.managedObjectContext];
+		if (!success) {
+			NSLog(@"Delete was unsuccessful");
+		}
+	}
+	
+	NSArray *results = [[responseString JSONValue] objectForKey:@"results"];
+	for (NSDictionary *dict in results) {
+		Producer *producer = [Producer createEntity];
+		[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:nil];
+	}
+	[self.managedObjectContext save];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
