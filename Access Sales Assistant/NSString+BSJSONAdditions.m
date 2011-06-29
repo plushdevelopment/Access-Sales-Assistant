@@ -67,7 +67,7 @@
 	}
 	[jsonString appendString:jsonStringDelimiterString];
 	
-	return [jsonString autorelease];
+	return jsonString;
 }
 
 @end

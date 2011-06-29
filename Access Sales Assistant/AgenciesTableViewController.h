@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIFormDataRequest.h"
 
-@interface AgenciesTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface AgenciesTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, ASIHTTPRequestDelegate>
 
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end

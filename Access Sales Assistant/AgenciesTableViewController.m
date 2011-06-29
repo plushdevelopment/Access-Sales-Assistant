@@ -7,6 +7,7 @@
 //
 
 #import "AgenciesTableViewController.h"
+#import "User.h"
 
 @interface AgenciesTableViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -39,6 +40,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	//NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=1&pageSize=100&partialLoad=false&token=%@", [[User findFirst] token]];
+	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Picklist?type=status&token=%@", [[User findFirst] token]];
+	//NSString *escapedString = [urlString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+	NSURL *url = [NSURL URLWithString:urlString];
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+	[request setRequestMethod:@"GET"];
+	[request addRequestHeader:@"Content-Type" value:@"application/json"];
+	[request setDelegate:self];
+	[request startAsynchronous];
 }
 
 - (void)viewDidUnload
@@ -285,6 +295,24 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+}
+
+#pragma mark -
+#pragma mark ASIHTTPRequestDelegate
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+	NSString *responseString = [request responseString];
+	NSLog(@"Response String: %@", responseString);
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+	NSError *error = [request error];
+	NSLog(@"Request Error: %@", [error localizedDescription]);
+	
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
+	[alertView show];
 }
 
 @end

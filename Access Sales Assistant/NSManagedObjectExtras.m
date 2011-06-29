@@ -10,7 +10,7 @@
 
 - (NSDictionary *)propertiesDictionary
 {
-	NSMutableDictionary *properties = [[[NSMutableDictionary alloc] init] autorelease];
+	NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
 	
 	for (id property in [[self entity] properties])
 	{
@@ -31,7 +31,7 @@
 				NSMutableArray *arr = [properties valueForKey:name];
 				if (!arr)
 				{
-					arr = [[[NSMutableArray alloc] init] autorelease];
+					arr = [[NSMutableArray alloc] init];
 					[properties setValue:arr forKey:name];
 				}
 				

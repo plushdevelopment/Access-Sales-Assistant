@@ -77,8 +77,6 @@
 {
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
 	[alertView show];
-	[alertView release];
-
 }
 
 - (IBAction)submitLogin:(id)sender
@@ -130,7 +128,10 @@
 	NSString *responseString = [request responseString];
 	NSLog(@"Response String: %@", responseString);
 	NSString *jsonString = [responseString JSONFragmentValue];
-	self.user.token = responseString;
+	
+	NSString * encodedString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)jsonString, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 );
+	
+	self.user.token = encodedString;
 	[self.managedObjectContext save];
 	[self dismissModalViewControllerAnimated:YES];
 }
@@ -140,8 +141,8 @@
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
-	//[self showError:[error localizedDescription]];
-	[self dismissModalViewControllerAnimated:YES];
+	[self showError:[error localizedDescription]];
+	//[self dismissModalViewControllerAnimated:YES];
 }
 
 @end

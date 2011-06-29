@@ -12,14 +12,14 @@
 
 @interface LoginViewController : UIViewController <ASIHTTPRequestDelegate>
 
-@property (nonatomic, retain) IBOutlet UITextField *domainField;
-@property (nonatomic, retain) IBOutlet UITextField *usernameField;
-@property (nonatomic, retain) IBOutlet UITextField *passwordField;
-@property (nonatomic, retain) IBOutlet UITextField *organizationField;
-@property (nonatomic, retain) IBOutlet UITextField *serviceKeyField;
+@property (nonatomic, strong) IBOutlet UITextField *domainField;
+@property (nonatomic, strong) IBOutlet UITextField *usernameField;
+@property (nonatomic, strong) IBOutlet UITextField *passwordField;
+@property (nonatomic, strong) IBOutlet UITextField *organizationField;
+@property (nonatomic, strong) IBOutlet UITextField *serviceKeyField;
 
-@property (nonatomic, retain) User *user;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) User *user;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)submitLogin:(id)sender;
 - (void)showError:(NSString *)message;

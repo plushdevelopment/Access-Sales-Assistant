@@ -12,7 +12,7 @@
 
 @interface PickerViewController : UIViewController {
 	UIPickerView *pickerView;
-	id <PickerViewControllerDelegate> _delegate;
+	__weak id <PickerViewControllerDelegate> _delegate;
 }
 
 @property (nonatomic, strong) IBOutlet UIPickerView *pickerView;

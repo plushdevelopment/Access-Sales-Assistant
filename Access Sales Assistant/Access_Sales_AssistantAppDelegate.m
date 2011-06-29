@@ -47,7 +47,6 @@
 	[viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
 	[viewController setModalPresentationStyle:UIModalPresentationFormSheet];
 	[self.splitViewController presentModalViewController:viewController animated:YES];
-	[viewController release];
 	
     return YES;
 }

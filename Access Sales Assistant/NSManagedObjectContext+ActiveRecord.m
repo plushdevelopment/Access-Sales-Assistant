@@ -31,8 +31,7 @@ static NSString const * kActiveRecordManagedObjectContextKey = @"ActiveRecord_NS
 + (void) setDefaultContext:(NSManagedObjectContext *)moc
 {
 	if (defaultManageObjectContext != moc) {
-		[defaultManageObjectContext release];
-		defaultManageObjectContext = [moc retain];
+		defaultManageObjectContext = moc;
 	}
 }
 
@@ -93,9 +92,6 @@ static NSString const * kActiveRecordManagedObjectContextKey = @"ActiveRecord_NS
 
 - (void) mergeChangesFromNotification:(NSNotification *)notification
 {
-	ARLog(@"Merging changes to %@context%@", 
-          self == [NSManagedObjectContext defaultContext] ? @"*** DEFAULT *** " : @"",
-          ([NSThread isMainThread] ? @" *** on Main Thread ***" : @""));
 	[self mergeChangesFromContextDidSaveNotification:notification];
 }
 
@@ -117,14 +113,11 @@ static NSString const * kActiveRecordManagedObjectContextKey = @"ActiveRecord_NS
 	BOOL saved = NO;
 	@try
 	{
-		ARLog(@"Saving %@Context%@", 
-              self == [[self class] defaultContext] ? @" *** Default *** ": @"", 
-              ([NSThread isMainThread] ? @" *** on Main Thread ***" : @""));
 		saved = [self save:&error];
 	}
 	@catch (NSException *exception)
 	{
-		ARLog(@"Problem saving: %@", (id)[exception userInfo] ?: (id)[exception reason]);
+		
 	}
 
 	[ActiveRecordHelpers handleErrors:error];
@@ -134,9 +127,9 @@ static NSString const * kActiveRecordManagedObjectContextKey = @"ActiveRecord_NS
 
 - (void) saveWrapper
 {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[self save];
-	[pool drain];
+	@autoreleasepool {
+		[self save];
+	}
 }
 
 - (BOOL) saveOnBackgroundThread
@@ -178,11 +171,10 @@ static NSString const * kActiveRecordManagedObjectContextKey = @"ActiveRecord_NS
 	NSManagedObjectContext *context = nil;
     if (coordinator != nil)
 	{
-        ARLog(@"Creating MOContext %@", [NSThread isMainThread] ? @" *** On Main Thread ***" : @"");
         context = [[NSManagedObjectContext alloc] init];
         [context setPersistentStoreCoordinator:coordinator];
     }
-    return [context autorelease];
+    return context;
 }
 
 + (NSManagedObjectContext *) contextThatNotifiesDefaultContextOnMainThreadWithCoordinator:(NSPersistentStoreCoordinator *)coordinator;

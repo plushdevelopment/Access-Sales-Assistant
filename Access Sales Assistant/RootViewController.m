@@ -245,7 +245,6 @@
 	
 	AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
 	[self.navigationController pushViewController:viewController animated:YES];
-	[viewController release];
 	
 }
 

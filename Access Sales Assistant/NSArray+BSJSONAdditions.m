@@ -31,7 +31,6 @@
 	NSScanner *scanner = [[NSScanner alloc] initWithString:jsonString];
 	NSArray *array = nil;
 	[scanner scanJSONArray:&array];
-	[scanner release];
 	
 	return array;
 }
@@ -58,7 +57,7 @@
 	}
 	
 	[jsonString appendString:jsonArrayEndString];
-	return [jsonString autorelease];
+	return jsonString;
 }
 
 @end

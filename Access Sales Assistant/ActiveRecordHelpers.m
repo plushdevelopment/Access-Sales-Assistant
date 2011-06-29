@@ -36,21 +36,21 @@
 				{
 					if ([e respondsToSelector:@selector(userInfo)])
 					{
-						ARLog(@"Error Details: %@", [e userInfo]);
+						//ARLog(@"Error Details: %@", [e userInfo]);
 					}
 					else
 					{
-						ARLog(@"Error Details: %@", e);
+						//ARLog(@"Error Details: %@", e);
 					}
 				}
 			}
 			else
 			{
-				ARLog(@"Error: %@", detailedError);
+				//ARLog(@"Error: %@", detailedError);
 			}
 		}
-		ARLog(@"Error Domain: %@", [error domain]);
-		ARLog(@"Recovery Suggestion: %@", [error localizedRecoverySuggestion]);	
+		//ARLog(@"Error Domain: %@", [error domain]);
+		//ARLog(@"Recovery Suggestion: %@", [error localizedRecoverySuggestion]);	
 	}
 }
 

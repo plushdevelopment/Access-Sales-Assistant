@@ -168,6 +168,7 @@
 #pragma mark -
 #pragma mark IBActions
 
+// Show the pickerView inside of a popover
 - (IBAction)showPickerView:(id)sender
 {
 	UIButton *button = (UIButton *)sender;
@@ -184,6 +185,7 @@
 	[pickerView selectRow:0 inComponent:0 animated:NO];
 }
 
+// Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
 {
 	
@@ -198,6 +200,7 @@
 	[viewController.datePicker setDatePickerMode:UIDatePickerModeDate];
 }
 
+// show the Date picker in Time mode in a popover
 - (IBAction)showTimePickerView:(id)sender
 {
 	
@@ -384,6 +387,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+	// Set the next form field active
 	[self nextField:textField.tag];
 	return YES;
 }
@@ -406,6 +410,7 @@
 #pragma mark -
 #pragma mark UIPickerViewDelegate
 
+// Set the appropriate value for a text field based on what the current tag is
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
 	switch (self.pickerViewController.currentTag) {

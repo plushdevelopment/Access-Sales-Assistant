@@ -11,7 +11,7 @@
 
 @interface DatePickerViewController : UIViewController {
 	UIDatePicker *datePicker;
-	id <DatePickerViewControllerDelegate> _delegate;
+	__weak id <DatePickerViewControllerDelegate> _delegate;
 }
 
 @property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;

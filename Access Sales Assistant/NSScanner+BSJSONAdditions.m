@@ -59,7 +59,7 @@ const NSInteger jsonDoNotIndent = -1;
 	if (![self scanJSONObjectStartString]) {
 		// TODO: Error condition. For now, return false result, do nothing with the dictionary handle
 	} else {
-		NSMutableDictionary *jsonKeyValues = [[[NSMutableDictionary alloc] init] autorelease];
+		NSMutableDictionary *jsonKeyValues = [[NSMutableDictionary alloc] init];
 		NSString *key = nil;
 		id value;
 		[self scanJSONWhiteSpace];
@@ -83,7 +83,7 @@ const NSInteger jsonDoNotIndent = -1;
 - (BOOL)scanJSONArray:(NSArray **)array
 {
 	BOOL result = NO;
-	NSMutableArray *values = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray *values = [[NSMutableArray alloc] init];
 	[self scanJSONArrayStartString];
 	id value = nil;
 	
@@ -106,7 +106,7 @@ const NSInteger jsonDoNotIndent = -1;
 {
 	BOOL result = NO;
 	if ([self scanJSONStringDelimiterString]) {
-		NSMutableString *chars = [[[NSMutableString alloc] init] autorelease];
+		NSMutableString *chars = [[NSMutableString alloc] init];
 		
 		// process character by character until we finish the string or reach another double-quote
 		while ((![self isAtEnd]) && ([[self string] characterAtIndex:[self scanLocation]] != '\"')) {

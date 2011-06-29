@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF14029D13B524A800829716 /* ActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FF14029C13B524A800829716 /* ActionSheetPicker.m */; };
 		FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF641CF113B9094400CC0B61 /* PickerViewController.m */; };
 		FF641CF413B9094400CC0B61 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF641CF213B9094400CC0B61 /* PickerViewController.xib */; };
 		FF697AD413AFB8D500B66202 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697AD113AFB8D500B66202 /* _User.m */; };
 		FF697AD513AFB8D500B66202 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697AD313AFB8D500B66202 /* User.m */; };
-		FF770FFD13B23D9100E90F4B /* AppointmentApplicationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF770FFA13B23D9100E90F4B /* AppointmentApplicationView.xib */; };
-		FF770FFE13B23D9100E90F4B /* AppointmentApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF770FFC13B23D9100E90F4B /* AppointmentApplicationViewController.m */; };
 		FF77100B13B23DFC00E90F4B /* access-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77100413B23DFC00E90F4B /* access-logo.png */; };
 		FF77100C13B23DFC00E90F4B /* home-button.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77100513B23DFC00E90F4B /* home-button.png */; };
 		FF77100D13B23DFC00E90F4B /* icon-access-academy.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77100613B23DFC00E90F4B /* icon-access-academy.png */; };
@@ -77,60 +74,9 @@
 		FF77108213B23E4B00E90F4B /* zero-producer-green.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77106713B23E4B00E90F4B /* zero-producer-green.png */; };
 		FF77108313B23E4B00E90F4B /* icon-calls-off.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77106813B23E4B00E90F4B /* icon-calls-off.png */; };
 		FF77108413B23E4B00E90F4B /* icon-calls-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77106913B23E4B00E90F4B /* icon-calls-on.png */; };
-		FF77109013B2545400E90F4B /* ProducerCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF77108B13B2545400E90F4B /* ProducerCallViewController.m */; };
-		FF77109113B2545400E90F4B /* ProducerCallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF77108C13B2545400E90F4B /* ProducerCallView.xib */; };
-		FF77109213B2545400E90F4B /* ProducerOverviewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF77108D13B2545400E90F4B /* ProducerOverviewContent.html */; };
-		FF77109313B2545400E90F4B /* ProducerSalesPitchContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF77108E13B2545400E90F4B /* ProducerSalesPitchContent.html */; };
-		FF77109413B2545400E90F4B /* ProducerCloseContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF77108F13B2545400E90F4B /* ProducerCloseContent.html */; };
-		FF77109B13B2545E00E90F4B /* ZeroProducerCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF77109613B2545E00E90F4B /* ZeroProducerCallViewController.m */; };
-		FF77109C13B2545E00E90F4B /* ZeroProducerCallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF77109713B2545E00E90F4B /* ZeroProducerCallView.xib */; };
-		FF77109D13B2545E00E90F4B /* ZeroProducerOverviewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF77109813B2545E00E90F4B /* ZeroProducerOverviewContent.html */; };
-		FF77109E13B2545E00E90F4B /* ZeroProducerSalesPitchContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF77109913B2545E00E90F4B /* ZeroProducerSalesPitchContent.html */; };
-		FF77109F13B2545E00E90F4B /* ZeroProducerCloseContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF77109A13B2545E00E90F4B /* ZeroProducerCloseContent.html */; };
-		FF7710A513B2546900E90F4B /* SuspendedCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710A113B2546900E90F4B /* SuspendedCallViewController.m */; };
-		FF7710A613B2546900E90F4B /* SuspendedCallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710A213B2546900E90F4B /* SuspendedCallView.xib */; };
-		FF7710A713B2546900E90F4B /* SuspendedInsufficientFundsContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF7710A313B2546900E90F4B /* SuspendedInsufficientFundsContent.html */; };
-		FF7710A813B2546900E90F4B /* SuspendedErrorsContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF7710A413B2546900E90F4B /* SuspendedErrorsContent.html */; };
-		FF7710B013B2547300E90F4B /* ProspectCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710AA13B2547300E90F4B /* ProspectCallViewController.m */; };
-		FF7710B113B2547300E90F4B /* ProspectCallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710AB13B2547300E90F4B /* ProspectCallView.xib */; };
-		FF7710B213B2547300E90F4B /* ProspectOverviewContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF7710AC13B2547300E90F4B /* ProspectOverviewContent.html */; };
-		FF7710B313B2547300E90F4B /* ProspectSalesPitchContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF7710AD13B2547300E90F4B /* ProspectSalesPitchContent.html */; };
-		FF7710B413B2547300E90F4B /* ProspectCallSurveyContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF7710AE13B2547300E90F4B /* ProspectCallSurveyContent.html */; };
-		FF7710B513B2547300E90F4B /* ProspectCloseContent.html in Resources */ = {isa = PBXBuildFile; fileRef = FF7710AF13B2547300E90F4B /* ProspectCloseContent.html */; };
-		FF7710BA13B2549100E90F4B /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710B813B2549100E90F4B /* ContactsViewController.m */; };
-		FF7710BB13B2549100E90F4B /* ContactsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710B913B2549100E90F4B /* ContactsView.xib */; };
-		FF7710C013B254CB00E90F4B /* DailySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710BE13B254CB00E90F4B /* DailySummaryViewController.m */; };
-		FF7710C113B254CB00E90F4B /* DailySummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710BF13B254CB00E90F4B /* DailySummaryView.xib */; };
-		FF7710D313B2551900E90F4B /* LoginFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710D113B2551900E90F4B /* LoginFormViewController.m */; };
-		FF7710D413B2551900E90F4B /* LoginForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710D213B2551900E90F4B /* LoginForm.xib */; };
-		FF7710DA13B2553400E90F4B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710D713B2553400E90F4B /* MainViewController.m */; };
-		FF7710DB13B2553400E90F4B /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710D813B2553400E90F4B /* MainView.xib */; };
-		FF7710DC13B2553400E90F4B /* BaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710D913B2553400E90F4B /* BaseView.xib */; };
-		FF7710E813B2554800E90F4B /* PhasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710DF13B2554800E90F4B /* PhasesViewController.m */; };
-		FF7710E913B2554800E90F4B /* Phase1View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710E013B2554800E90F4B /* Phase1View.xib */; };
-		FF7710EA13B2554800E90F4B /* Phase1Content.html in Resources */ = {isa = PBXBuildFile; fileRef = FF7710E113B2554800E90F4B /* Phase1Content.html */; };
-		FF7710EB13B2554800E90F4B /* Phase2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710E213B2554800E90F4B /* Phase2View.xib */; };
-		FF7710EC13B2554800E90F4B /* Phase2Content.html in Resources */ = {isa = PBXBuildFile; fileRef = FF7710E313B2554800E90F4B /* Phase2Content.html */; };
-		FF7710ED13B2554800E90F4B /* Phase3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710E413B2554800E90F4B /* Phase3View.xib */; };
-		FF7710EE13B2554800E90F4B /* Phase3Content.html in Resources */ = {isa = PBXBuildFile; fileRef = FF7710E513B2554800E90F4B /* Phase3Content.html */; };
-		FF7710EF13B2554800E90F4B /* Phase4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7710E613B2554800E90F4B /* Phase4View.xib */; };
-		FF7710F013B2554800E90F4B /* Phase4Content.html in Resources */ = {isa = PBXBuildFile; fileRef = FF7710E713B2554800E90F4B /* Phase4Content.html */; };
-		FF7710F213B2556700E90F4B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FF7710F113B2556700E90F4B /* Settings.bundle */; };
-		FF7710F313B255B300E90F4B /* APICall.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710CA13B254E700E90F4B /* APICall.m */; };
-		FF7710F413B255B600E90F4B /* APIKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710C813B254E700E90F4B /* APIKey.m */; };
-		FF7710F513B255B900E90F4B /* CoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710C613B254E700E90F4B /* CoreLocationController.m */; };
-		FF7710F613B255BB00E90F4B /* DataManagementController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710C413B254E700E90F4B /* DataManagementController.m */; };
-		FF7710FC13B255DC00E90F4B /* NSData+AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710F913B255DC00E90F4B /* NSData+AESCrypt.m */; };
-		FF7710FD13B255DC00E90F4B /* NSString+AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7710FB13B255DC00E90F4B /* NSString+AESCrypt.m */; };
 		FF7710FF13B255F400E90F4B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7710FE13B255F400E90F4B /* MessageUI.framework */; };
 		FF77110813B25A2400E90F4B /* carat.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77110613B25A2400E90F4B /* carat.png */; };
 		FF77110913B25A2400E90F4B /* carat-open.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77110713B25A2400E90F4B /* carat-open.png */; };
-		FF77111213B25A8900E90F4B /* QuoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF77110E13B25A8900E90F4B /* QuoteCell.m */; };
-		FF77111313B25A8900E90F4B /* QuoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF77110F13B25A8900E90F4B /* QuoteCell.xib */; };
-		FF77111413B25A8900E90F4B /* HighlightingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF77111113B25A8900E90F4B /* HighlightingTextView.m */; };
-		FF77111B13B25A9F00E90F4B /* CollapsibleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF77111613B25A9F00E90F4B /* CollapsibleTableViewController.m */; };
-		FF77111C13B25A9F00E90F4B /* SectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FF77111813B25A9F00E90F4B /* SectionInfo.m */; };
-		FF77111D13B25A9F00E90F4B /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF77111A13B25A9F00E90F4B /* SectionHeaderView.m */; };
 		FF77112113B263AA00E90F4B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF77112013B263AA00E90F4B /* QuartzCore.framework */; };
 		FF8B415513A8EEF700A05007 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8B415413A8EEF700A05007 /* UIKit.framework */; };
 		FF8B415713A8EEF700A05007 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8B415613A8EEF700A05007 /* Foundation.framework */; };
@@ -225,8 +171,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FF14029B13B524A800829716 /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
-		FF14029C13B524A800829716 /* ActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetPicker.m; sourceTree = "<group>"; };
 		FF641CF013B9094400CC0B61 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		FF641CF113B9094400CC0B61 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		FF641CF213B9094400CC0B61 /* PickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
@@ -234,9 +178,6 @@
 		FF697AD113AFB8D500B66202 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
 		FF697AD213AFB8D500B66202 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		FF697AD313AFB8D500B66202 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		FF770FFA13B23D9100E90F4B /* AppointmentApplicationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppointmentApplicationView.xib; sourceTree = "<group>"; };
-		FF770FFB13B23D9100E90F4B /* AppointmentApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentApplicationViewController.h; sourceTree = "<group>"; };
-		FF770FFC13B23D9100E90F4B /* AppointmentApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentApplicationViewController.m; sourceTree = "<group>"; };
 		FF77100413B23DFC00E90F4B /* access-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "access-logo.png"; sourceTree = "<group>"; };
 		FF77100513B23DFC00E90F4B /* home-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-button.png"; sourceTree = "<group>"; };
 		FF77100613B23DFC00E90F4B /* icon-access-academy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-access-academy.png"; sourceTree = "<group>"; };
@@ -300,82 +241,9 @@
 		FF77106713B23E4B00E90F4B /* zero-producer-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zero-producer-green.png"; sourceTree = "<group>"; };
 		FF77106813B23E4B00E90F4B /* icon-calls-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-calls-off.png"; sourceTree = "<group>"; };
 		FF77106913B23E4B00E90F4B /* icon-calls-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-calls-on.png"; sourceTree = "<group>"; };
-		FF77108A13B2545400E90F4B /* ProducerCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCallViewController.h; sourceTree = "<group>"; };
-		FF77108B13B2545400E90F4B /* ProducerCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCallViewController.m; sourceTree = "<group>"; };
-		FF77108C13B2545400E90F4B /* ProducerCallView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerCallView.xib; sourceTree = "<group>"; };
-		FF77108D13B2545400E90F4B /* ProducerOverviewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ProducerOverviewContent.html; sourceTree = "<group>"; };
-		FF77108E13B2545400E90F4B /* ProducerSalesPitchContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ProducerSalesPitchContent.html; sourceTree = "<group>"; };
-		FF77108F13B2545400E90F4B /* ProducerCloseContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ProducerCloseContent.html; sourceTree = "<group>"; };
-		FF77109513B2545E00E90F4B /* ZeroProducerCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZeroProducerCallViewController.h; sourceTree = "<group>"; };
-		FF77109613B2545E00E90F4B /* ZeroProducerCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeroProducerCallViewController.m; sourceTree = "<group>"; };
-		FF77109713B2545E00E90F4B /* ZeroProducerCallView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZeroProducerCallView.xib; sourceTree = "<group>"; };
-		FF77109813B2545E00E90F4B /* ZeroProducerOverviewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ZeroProducerOverviewContent.html; sourceTree = "<group>"; };
-		FF77109913B2545E00E90F4B /* ZeroProducerSalesPitchContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ZeroProducerSalesPitchContent.html; sourceTree = "<group>"; };
-		FF77109A13B2545E00E90F4B /* ZeroProducerCloseContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ZeroProducerCloseContent.html; sourceTree = "<group>"; };
-		FF7710A013B2546900E90F4B /* SuspendedCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendedCallViewController.h; sourceTree = "<group>"; };
-		FF7710A113B2546900E90F4B /* SuspendedCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendedCallViewController.m; sourceTree = "<group>"; };
-		FF7710A213B2546900E90F4B /* SuspendedCallView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuspendedCallView.xib; sourceTree = "<group>"; };
-		FF7710A313B2546900E90F4B /* SuspendedInsufficientFundsContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SuspendedInsufficientFundsContent.html; sourceTree = "<group>"; };
-		FF7710A413B2546900E90F4B /* SuspendedErrorsContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SuspendedErrorsContent.html; sourceTree = "<group>"; };
-		FF7710A913B2547300E90F4B /* ProspectCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProspectCallViewController.h; sourceTree = "<group>"; };
-		FF7710AA13B2547300E90F4B /* ProspectCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProspectCallViewController.m; sourceTree = "<group>"; };
-		FF7710AB13B2547300E90F4B /* ProspectCallView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProspectCallView.xib; sourceTree = "<group>"; };
-		FF7710AC13B2547300E90F4B /* ProspectOverviewContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ProspectOverviewContent.html; sourceTree = "<group>"; };
-		FF7710AD13B2547300E90F4B /* ProspectSalesPitchContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ProspectSalesPitchContent.html; sourceTree = "<group>"; };
-		FF7710AE13B2547300E90F4B /* ProspectCallSurveyContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ProspectCallSurveyContent.html; sourceTree = "<group>"; };
-		FF7710AF13B2547300E90F4B /* ProspectCloseContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ProspectCloseContent.html; sourceTree = "<group>"; };
-		FF7710B713B2549100E90F4B /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
-		FF7710B813B2549100E90F4B /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
-		FF7710B913B2549100E90F4B /* ContactsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsView.xib; sourceTree = "<group>"; };
-		FF7710BD13B254CB00E90F4B /* DailySummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailySummaryViewController.h; sourceTree = "<group>"; };
-		FF7710BE13B254CB00E90F4B /* DailySummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailySummaryViewController.m; sourceTree = "<group>"; };
-		FF7710BF13B254CB00E90F4B /* DailySummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailySummaryView.xib; sourceTree = "<group>"; };
-		FF7710C313B254E700E90F4B /* DataManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManagementController.h; sourceTree = "<group>"; };
-		FF7710C413B254E700E90F4B /* DataManagementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DataManagementController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		FF7710C513B254E700E90F4B /* CoreLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationController.h; sourceTree = "<group>"; };
-		FF7710C613B254E700E90F4B /* CoreLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationController.m; sourceTree = "<group>"; };
-		FF7710C713B254E700E90F4B /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
-		FF7710C813B254E700E90F4B /* APIKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIKey.m; sourceTree = "<group>"; };
-		FF7710C913B254E700E90F4B /* APICall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APICall.h; sourceTree = "<group>"; };
-		FF7710CA13B254E700E90F4B /* APICall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APICall.m; sourceTree = "<group>"; };
-		FF7710D013B2551900E90F4B /* LoginFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginFormViewController.h; sourceTree = "<group>"; };
-		FF7710D113B2551900E90F4B /* LoginFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginFormViewController.m; sourceTree = "<group>"; };
-		FF7710D213B2551900E90F4B /* LoginForm.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginForm.xib; sourceTree = "<group>"; };
-		FF7710D613B2553400E90F4B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		FF7710D713B2553400E90F4B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		FF7710D813B2553400E90F4B /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
-		FF7710D913B2553400E90F4B /* BaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseView.xib; sourceTree = "<group>"; };
-		FF7710DE13B2554800E90F4B /* PhasesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhasesViewController.h; sourceTree = "<group>"; };
-		FF7710DF13B2554800E90F4B /* PhasesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhasesViewController.m; sourceTree = "<group>"; };
-		FF7710E013B2554800E90F4B /* Phase1View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Phase1View.xib; sourceTree = "<group>"; };
-		FF7710E113B2554800E90F4B /* Phase1Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Phase1Content.html; sourceTree = "<group>"; };
-		FF7710E213B2554800E90F4B /* Phase2View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Phase2View.xib; sourceTree = "<group>"; };
-		FF7710E313B2554800E90F4B /* Phase2Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Phase2Content.html; sourceTree = "<group>"; };
-		FF7710E413B2554800E90F4B /* Phase3View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Phase3View.xib; sourceTree = "<group>"; };
-		FF7710E513B2554800E90F4B /* Phase3Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Phase3Content.html; sourceTree = "<group>"; };
-		FF7710E613B2554800E90F4B /* Phase4View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Phase4View.xib; sourceTree = "<group>"; };
-		FF7710E713B2554800E90F4B /* Phase4Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Phase4Content.html; sourceTree = "<group>"; };
-		FF7710F113B2556700E90F4B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		FF7710F813B255DC00E90F4B /* NSData+AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AESCrypt.h"; sourceTree = "<group>"; };
-		FF7710F913B255DC00E90F4B /* NSData+AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AESCrypt.m"; sourceTree = "<group>"; };
-		FF7710FA13B255DC00E90F4B /* NSString+AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AESCrypt.h"; sourceTree = "<group>"; };
-		FF7710FB13B255DC00E90F4B /* NSString+AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AESCrypt.m"; sourceTree = "<group>"; };
 		FF7710FE13B255F400E90F4B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FF77110613B25A2400E90F4B /* carat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carat.png; sourceTree = "<group>"; };
 		FF77110713B25A2400E90F4B /* carat-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carat-open.png"; sourceTree = "<group>"; };
-		FF77110D13B25A8900E90F4B /* QuoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteCell.h; sourceTree = "<group>"; };
-		FF77110E13B25A8900E90F4B /* QuoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteCell.m; sourceTree = "<group>"; };
-		FF77110F13B25A8900E90F4B /* QuoteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteCell.xib; sourceTree = "<group>"; };
-		FF77111013B25A8900E90F4B /* HighlightingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightingTextView.h; sourceTree = "<group>"; };
-		FF77111113B25A8900E90F4B /* HighlightingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighlightingTextView.m; sourceTree = "<group>"; };
-		FF77111513B25A9F00E90F4B /* CollapsibleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CollapsibleTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		FF77111613B25A9F00E90F4B /* CollapsibleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CollapsibleTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		FF77111713B25A9F00E90F4B /* SectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionInfo.h; sourceTree = "<group>"; };
-		FF77111813B25A9F00E90F4B /* SectionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionInfo.m; sourceTree = "<group>"; };
-		FF77111913B25A9F00E90F4B /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
-		FF77111A13B25A9F00E90F4B /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
-		FF77111E13B25C6900E90F4B /* SectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionItem.h; sourceTree = "<group>"; };
-		FF77111F13B25F5A00E90F4B /* RowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowItem.h; sourceTree = "<group>"; };
 		FF77112013B263AA00E90F4B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FF8B415013A8EEF700A05007 /* Access Sales Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Access Sales Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8B415413A8EEF700A05007 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -561,15 +429,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FF14029E13B524B000829716 /* ActionSheetPicker */ = {
-			isa = PBXGroup;
-			children = (
-				FF14029B13B524A800829716 /* ActionSheetPicker.h */,
-				FF14029C13B524A800829716 /* ActionSheetPicker.m */,
-			);
-			name = ActionSheetPicker;
-			sourceTree = "<group>";
-		};
 		FF697AD713AFB8DA00B66202 /* Model Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -600,33 +459,6 @@
 				FF697AD113AFB8D500B66202 /* _User.m */,
 			);
 			name = "Machine Classes";
-			sourceTree = "<group>";
-		};
-		FF77100013B23D9600E90F4B /* Appointment Application */ = {
-			isa = PBXGroup;
-			children = (
-				FF770FFA13B23D9100E90F4B /* AppointmentApplicationView.xib */,
-				FF770FFB13B23D9100E90F4B /* AppointmentApplicationViewController.h */,
-				FF770FFC13B23D9100E90F4B /* AppointmentApplicationViewController.m */,
-			);
-			name = "Appointment Application";
-			sourceTree = "<group>";
-		};
-		FF77100113B23DA600E90F4B /* Existing Code */ = {
-			isa = PBXGroup;
-			children = (
-				FF7710F713B255C700E90F4B /* NSString-AESCrypt */,
-				FF7710F113B2556700E90F4B /* Settings.bundle */,
-				FF7710DD13B2553A00E90F4B /* Phases */,
-				FF7710D513B2552800E90F4B /* Main View */,
-				FF7710CF13B2550500E90F4B /* Login Information */,
-				FF7710C213B254D600E90F4B /* Data Storage */,
-				FF7710BC13B254B400E90F4B /* Daily Summary Report */,
-				FF7710B613B2548200E90F4B /* Contacts */,
-				FF77108513B2541200E90F4B /* Calls */,
-				FF77100013B23D9600E90F4B /* Appointment Application */,
-			);
-			name = "Existing Code";
 			sourceTree = "<group>";
 		};
 		FF77100213B23DE500E90F4B /* Images */ = {
@@ -733,157 +565,9 @@
 			name = "Daily Summary";
 			sourceTree = "<group>";
 		};
-		FF77108513B2541200E90F4B /* Calls */ = {
-			isa = PBXGroup;
-			children = (
-				FF77108913B2544300E90F4B /* Producer */,
-				FF77108813B2543700E90F4B /* Zero Producer */,
-				FF77108713B2542E00E90F4B /* Suspended */,
-				FF77108613B2542000E90F4B /* Prospect */,
-			);
-			name = Calls;
-			sourceTree = "<group>";
-		};
-		FF77108613B2542000E90F4B /* Prospect */ = {
-			isa = PBXGroup;
-			children = (
-				FF7710A913B2547300E90F4B /* ProspectCallViewController.h */,
-				FF7710AA13B2547300E90F4B /* ProspectCallViewController.m */,
-				FF7710AB13B2547300E90F4B /* ProspectCallView.xib */,
-				FF7710AC13B2547300E90F4B /* ProspectOverviewContent.html */,
-				FF7710AD13B2547300E90F4B /* ProspectSalesPitchContent.html */,
-				FF7710AE13B2547300E90F4B /* ProspectCallSurveyContent.html */,
-				FF7710AF13B2547300E90F4B /* ProspectCloseContent.html */,
-			);
-			name = Prospect;
-			sourceTree = "<group>";
-		};
-		FF77108713B2542E00E90F4B /* Suspended */ = {
-			isa = PBXGroup;
-			children = (
-				FF7710A013B2546900E90F4B /* SuspendedCallViewController.h */,
-				FF7710A113B2546900E90F4B /* SuspendedCallViewController.m */,
-				FF7710A213B2546900E90F4B /* SuspendedCallView.xib */,
-				FF7710A313B2546900E90F4B /* SuspendedInsufficientFundsContent.html */,
-				FF7710A413B2546900E90F4B /* SuspendedErrorsContent.html */,
-			);
-			name = Suspended;
-			sourceTree = "<group>";
-		};
-		FF77108813B2543700E90F4B /* Zero Producer */ = {
-			isa = PBXGroup;
-			children = (
-				FF77109513B2545E00E90F4B /* ZeroProducerCallViewController.h */,
-				FF77109613B2545E00E90F4B /* ZeroProducerCallViewController.m */,
-				FF77109713B2545E00E90F4B /* ZeroProducerCallView.xib */,
-				FF77109813B2545E00E90F4B /* ZeroProducerOverviewContent.html */,
-				FF77109913B2545E00E90F4B /* ZeroProducerSalesPitchContent.html */,
-				FF77109A13B2545E00E90F4B /* ZeroProducerCloseContent.html */,
-			);
-			name = "Zero Producer";
-			sourceTree = "<group>";
-		};
-		FF77108913B2544300E90F4B /* Producer */ = {
-			isa = PBXGroup;
-			children = (
-				FF77108A13B2545400E90F4B /* ProducerCallViewController.h */,
-				FF77108B13B2545400E90F4B /* ProducerCallViewController.m */,
-				FF77108C13B2545400E90F4B /* ProducerCallView.xib */,
-				FF77108D13B2545400E90F4B /* ProducerOverviewContent.html */,
-				FF77108E13B2545400E90F4B /* ProducerSalesPitchContent.html */,
-				FF77108F13B2545400E90F4B /* ProducerCloseContent.html */,
-			);
-			name = Producer;
-			sourceTree = "<group>";
-		};
-		FF7710B613B2548200E90F4B /* Contacts */ = {
-			isa = PBXGroup;
-			children = (
-				FF7710B713B2549100E90F4B /* ContactsViewController.h */,
-				FF7710B813B2549100E90F4B /* ContactsViewController.m */,
-				FF7710B913B2549100E90F4B /* ContactsView.xib */,
-			);
-			name = Contacts;
-			sourceTree = "<group>";
-		};
-		FF7710BC13B254B400E90F4B /* Daily Summary Report */ = {
-			isa = PBXGroup;
-			children = (
-				FF7710BD13B254CB00E90F4B /* DailySummaryViewController.h */,
-				FF7710BE13B254CB00E90F4B /* DailySummaryViewController.m */,
-				FF7710BF13B254CB00E90F4B /* DailySummaryView.xib */,
-			);
-			name = "Daily Summary Report";
-			sourceTree = "<group>";
-		};
-		FF7710C213B254D600E90F4B /* Data Storage */ = {
-			isa = PBXGroup;
-			children = (
-				FF7710C313B254E700E90F4B /* DataManagementController.h */,
-				FF7710C413B254E700E90F4B /* DataManagementController.m */,
-				FF7710C513B254E700E90F4B /* CoreLocationController.h */,
-				FF7710C613B254E700E90F4B /* CoreLocationController.m */,
-				FF7710C713B254E700E90F4B /* APIKey.h */,
-				FF7710C813B254E700E90F4B /* APIKey.m */,
-				FF7710C913B254E700E90F4B /* APICall.h */,
-				FF7710CA13B254E700E90F4B /* APICall.m */,
-			);
-			name = "Data Storage";
-			sourceTree = "<group>";
-		};
-		FF7710CF13B2550500E90F4B /* Login Information */ = {
-			isa = PBXGroup;
-			children = (
-				FF7710D013B2551900E90F4B /* LoginFormViewController.h */,
-				FF7710D113B2551900E90F4B /* LoginFormViewController.m */,
-				FF7710D213B2551900E90F4B /* LoginForm.xib */,
-			);
-			name = "Login Information";
-			sourceTree = "<group>";
-		};
-		FF7710D513B2552800E90F4B /* Main View */ = {
-			isa = PBXGroup;
-			children = (
-				FF7710D613B2553400E90F4B /* MainViewController.h */,
-				FF7710D713B2553400E90F4B /* MainViewController.m */,
-				FF7710D813B2553400E90F4B /* MainView.xib */,
-				FF7710D913B2553400E90F4B /* BaseView.xib */,
-			);
-			name = "Main View";
-			sourceTree = "<group>";
-		};
-		FF7710DD13B2553A00E90F4B /* Phases */ = {
-			isa = PBXGroup;
-			children = (
-				FF7710DE13B2554800E90F4B /* PhasesViewController.h */,
-				FF7710DF13B2554800E90F4B /* PhasesViewController.m */,
-				FF7710E013B2554800E90F4B /* Phase1View.xib */,
-				FF7710E113B2554800E90F4B /* Phase1Content.html */,
-				FF7710E213B2554800E90F4B /* Phase2View.xib */,
-				FF7710E313B2554800E90F4B /* Phase2Content.html */,
-				FF7710E413B2554800E90F4B /* Phase3View.xib */,
-				FF7710E513B2554800E90F4B /* Phase3Content.html */,
-				FF7710E613B2554800E90F4B /* Phase4View.xib */,
-				FF7710E713B2554800E90F4B /* Phase4Content.html */,
-			);
-			name = Phases;
-			sourceTree = "<group>";
-		};
-		FF7710F713B255C700E90F4B /* NSString-AESCrypt */ = {
-			isa = PBXGroup;
-			children = (
-				FF7710F813B255DC00E90F4B /* NSData+AESCrypt.h */,
-				FF7710F913B255DC00E90F4B /* NSData+AESCrypt.m */,
-				FF7710FA13B255DC00E90F4B /* NSString+AESCrypt.h */,
-				FF7710FB13B255DC00E90F4B /* NSString+AESCrypt.m */,
-			);
-			name = "NSString-AESCrypt";
-			sourceTree = "<group>";
-		};
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
-				FF14029E13B524B000829716 /* ActionSheetPicker */,
 				FFC9534613AFCCE2000967CB /* ActiveRecord Helpers */,
 				FFA1A35913AFB4DD00434B93 /* ASIHTTPRequest */,
 				FFFB3C5913ABE46E0063E374 /* AES Encryption */,
@@ -901,42 +585,6 @@
 				FF77110713B25A2400E90F4B /* carat-open.png */,
 			);
 			name = "Table View Carat";
-			sourceTree = "<group>";
-		};
-		FF77110B13B25A5300E90F4B /* Collapsible Table View */ = {
-			isa = PBXGroup;
-			children = (
-				FF77112213B27D6900E90F4B /* Protocols */,
-				FF77111513B25A9F00E90F4B /* CollapsibleTableViewController.h */,
-				FF77111613B25A9F00E90F4B /* CollapsibleTableViewController.m */,
-				FF77111713B25A9F00E90F4B /* SectionInfo.h */,
-				FF77111813B25A9F00E90F4B /* SectionInfo.m */,
-				FF77111913B25A9F00E90F4B /* SectionHeaderView.h */,
-				FF77111A13B25A9F00E90F4B /* SectionHeaderView.m */,
-				FF77110C13B25A7700E90F4B /* Cells */,
-			);
-			name = "Collapsible Table View";
-			sourceTree = "<group>";
-		};
-		FF77110C13B25A7700E90F4B /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				FF77110D13B25A8900E90F4B /* QuoteCell.h */,
-				FF77110E13B25A8900E90F4B /* QuoteCell.m */,
-				FF77110F13B25A8900E90F4B /* QuoteCell.xib */,
-				FF77111013B25A8900E90F4B /* HighlightingTextView.h */,
-				FF77111113B25A8900E90F4B /* HighlightingTextView.m */,
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
-		FF77112213B27D6900E90F4B /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				FF77111F13B25F5A00E90F4B /* RowItem.h */,
-				FF77111E13B25C6900E90F4B /* SectionItem.h */,
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 		FF8B414513A8EEF700A05007 = {
@@ -979,14 +627,12 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				FF77110B13B25A5300E90F4B /* Collapsible Table View */,
 				FF77110013B257BF00E90F4B /* External */,
 				FF697AD713AFB8DA00B66202 /* Model Classes */,
 				FFFB3C5813ABE4210063E374 /* Core Graphics Table View */,
 				FF8B416313A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.h */,
 				FF8B416413A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m */,
 				FFFB3C5A13ABE4890063E374 /* View Controllers */,
-				FF77100113B23DA600E90F4B /* Existing Code */,
 				FF8B415B13A8EEF700A05007 /* Supporting Files */,
 			);
 			path = "Access Sales Assistant";
@@ -1289,7 +935,6 @@
 				FF8CA83D13B1134B00BA9A7B /* AgenciesTableViewController.xib in Resources */,
 				FF8CA88013B124C800BA9A7B /* VisitApplicationProfileViewController.xib in Resources */,
 				FF8CA88513B1256500BA9A7B /* VisitApplicationViewController.xib in Resources */,
-				FF770FFD13B23D9100E90F4B /* AppointmentApplicationView.xib in Resources */,
 				FF77100B13B23DFC00E90F4B /* access-logo.png in Resources */,
 				FF77100C13B23DFC00E90F4B /* home-button.png in Resources */,
 				FF77100D13B23DFC00E90F4B /* icon-access-academy.png in Resources */,
@@ -1353,39 +998,8 @@
 				FF77108213B23E4B00E90F4B /* zero-producer-green.png in Resources */,
 				FF77108313B23E4B00E90F4B /* icon-calls-off.png in Resources */,
 				FF77108413B23E4B00E90F4B /* icon-calls-on.png in Resources */,
-				FF77109113B2545400E90F4B /* ProducerCallView.xib in Resources */,
-				FF77109213B2545400E90F4B /* ProducerOverviewContent.html in Resources */,
-				FF77109313B2545400E90F4B /* ProducerSalesPitchContent.html in Resources */,
-				FF77109413B2545400E90F4B /* ProducerCloseContent.html in Resources */,
-				FF77109C13B2545E00E90F4B /* ZeroProducerCallView.xib in Resources */,
-				FF77109D13B2545E00E90F4B /* ZeroProducerOverviewContent.html in Resources */,
-				FF77109E13B2545E00E90F4B /* ZeroProducerSalesPitchContent.html in Resources */,
-				FF77109F13B2545E00E90F4B /* ZeroProducerCloseContent.html in Resources */,
-				FF7710A613B2546900E90F4B /* SuspendedCallView.xib in Resources */,
-				FF7710A713B2546900E90F4B /* SuspendedInsufficientFundsContent.html in Resources */,
-				FF7710A813B2546900E90F4B /* SuspendedErrorsContent.html in Resources */,
-				FF7710B113B2547300E90F4B /* ProspectCallView.xib in Resources */,
-				FF7710B213B2547300E90F4B /* ProspectOverviewContent.html in Resources */,
-				FF7710B313B2547300E90F4B /* ProspectSalesPitchContent.html in Resources */,
-				FF7710B413B2547300E90F4B /* ProspectCallSurveyContent.html in Resources */,
-				FF7710B513B2547300E90F4B /* ProspectCloseContent.html in Resources */,
-				FF7710BB13B2549100E90F4B /* ContactsView.xib in Resources */,
-				FF7710C113B254CB00E90F4B /* DailySummaryView.xib in Resources */,
-				FF7710D413B2551900E90F4B /* LoginForm.xib in Resources */,
-				FF7710DB13B2553400E90F4B /* MainView.xib in Resources */,
-				FF7710DC13B2553400E90F4B /* BaseView.xib in Resources */,
-				FF7710E913B2554800E90F4B /* Phase1View.xib in Resources */,
-				FF7710EA13B2554800E90F4B /* Phase1Content.html in Resources */,
-				FF7710EB13B2554800E90F4B /* Phase2View.xib in Resources */,
-				FF7710EC13B2554800E90F4B /* Phase2Content.html in Resources */,
-				FF7710ED13B2554800E90F4B /* Phase3View.xib in Resources */,
-				FF7710EE13B2554800E90F4B /* Phase3Content.html in Resources */,
-				FF7710EF13B2554800E90F4B /* Phase4View.xib in Resources */,
-				FF7710F013B2554800E90F4B /* Phase4Content.html in Resources */,
-				FF7710F213B2556700E90F4B /* Settings.bundle in Resources */,
 				FF77110813B25A2400E90F4B /* carat.png in Resources */,
 				FF77110913B25A2400E90F4B /* carat-open.png in Resources */,
-				FF77111313B25A8900E90F4B /* QuoteCell.xib in Resources */,
 				FF90610B13B3AF8D009DCA0E /* button_menu_off.png in Resources */,
 				FF90610C13B3AF8D009DCA0E /* button_menu_off@2x.png in Resources */,
 				FF90610D13B3AF8D009DCA0E /* button_menu_on.png in Resources */,
@@ -1466,28 +1080,6 @@
 				FF8CA87B13B1205B00BA9A7B /* Agency.m in Sources */,
 				FF8CA87F13B124C800BA9A7B /* VisitApplicationProfileViewController.m in Sources */,
 				FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */,
-				FF770FFE13B23D9100E90F4B /* AppointmentApplicationViewController.m in Sources */,
-				FF77109013B2545400E90F4B /* ProducerCallViewController.m in Sources */,
-				FF77109B13B2545E00E90F4B /* ZeroProducerCallViewController.m in Sources */,
-				FF7710A513B2546900E90F4B /* SuspendedCallViewController.m in Sources */,
-				FF7710B013B2547300E90F4B /* ProspectCallViewController.m in Sources */,
-				FF7710BA13B2549100E90F4B /* ContactsViewController.m in Sources */,
-				FF7710C013B254CB00E90F4B /* DailySummaryViewController.m in Sources */,
-				FF7710D313B2551900E90F4B /* LoginFormViewController.m in Sources */,
-				FF7710DA13B2553400E90F4B /* MainViewController.m in Sources */,
-				FF7710E813B2554800E90F4B /* PhasesViewController.m in Sources */,
-				FF7710F313B255B300E90F4B /* APICall.m in Sources */,
-				FF7710F413B255B600E90F4B /* APIKey.m in Sources */,
-				FF7710F513B255B900E90F4B /* CoreLocationController.m in Sources */,
-				FF7710F613B255BB00E90F4B /* DataManagementController.m in Sources */,
-				FF7710FC13B255DC00E90F4B /* NSData+AESCrypt.m in Sources */,
-				FF7710FD13B255DC00E90F4B /* NSString+AESCrypt.m in Sources */,
-				FF77111213B25A8900E90F4B /* QuoteCell.m in Sources */,
-				FF77111413B25A8900E90F4B /* HighlightingTextView.m in Sources */,
-				FF77111B13B25A9F00E90F4B /* CollapsibleTableViewController.m in Sources */,
-				FF77111C13B25A9F00E90F4B /* SectionInfo.m in Sources */,
-				FF77111D13B25A9F00E90F4B /* SectionHeaderView.m in Sources */,
-				FF14029D13B524A800829716 /* ActionSheetPicker.m in Sources */,
 				FF99B8AC13B8A3FC00FC1A0B /* DatePickerViewController.m in Sources */,
 				FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */,
 			);
@@ -1528,6 +1120,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ARC_MIGRATION = precheck;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -1554,6 +1147,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ARC_MIGRATION = precheck;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -1573,21 +1167,23 @@
 		FF8B417613A8EEF700A05007 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ARC_MIGRATION = donothing;
+				CLANG_ARC_MIGRATION = precheck;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
-				OTHER_CFLAGS = "-fno-objc-arc";
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1595,21 +1191,23 @@
 		FF8B417713A8EEF700A05007 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ARC_MIGRATION = donothing;
+				CLANG_ARC_MIGRATION = precheck;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
-				OTHER_CFLAGS = "-fno-objc-arc";
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
