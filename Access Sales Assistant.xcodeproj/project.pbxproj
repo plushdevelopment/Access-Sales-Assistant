@@ -8,16 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		FF0A17DC13BC940D00ECF9F6 /* NSManagedObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */; };
-		FF0A17F713BC944E00ECF9F6 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E013BC944E00ECF9F6 /* CDataScanner.m */; };
-		FF0A17F813BC944E00ECF9F6 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E313BC944E00ECF9F6 /* CFilteringJSONSerializer.m */; };
-		FF0A17F913BC944E00ECF9F6 /* CJSONDeserializer_BlocksExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E513BC944E00ECF9F6 /* CJSONDeserializer_BlocksExtensions.m */; };
-		FF0A17FA13BC944E00ECF9F6 /* CJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E713BC944E00ECF9F6 /* CJSONSerialization.m */; };
-		FF0A17FB13BC944E00ECF9F6 /* CJSONSerializedData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E913BC944E00ECF9F6 /* CJSONSerializedData.m */; };
-		FF0A17FC13BC944E00ECF9F6 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17EC13BC944E00ECF9F6 /* CDataScanner_Extensions.m */; };
-		FF0A17FD13BC944E00ECF9F6 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17EE13BC944E00ECF9F6 /* NSDictionary_JSONExtensions.m */; };
-		FF0A17FE13BC944E00ECF9F6 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F113BC944E00ECF9F6 /* CJSONDeserializer.m */; };
-		FF0A17FF13BC944E00ECF9F6 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F313BC944E00ECF9F6 /* CJSONScanner.m */; };
-		FF0A180013BC944E00ECF9F6 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F513BC944E00ECF9F6 /* CJSONSerializer.m */; };
+		FF0A17F713BC944E00ECF9F6 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E013BC944E00ECF9F6 /* CDataScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A17F813BC944E00ECF9F6 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E313BC944E00ECF9F6 /* CFilteringJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A17F913BC944E00ECF9F6 /* CJSONDeserializer_BlocksExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E513BC944E00ECF9F6 /* CJSONDeserializer_BlocksExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A17FA13BC944E00ECF9F6 /* CJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E713BC944E00ECF9F6 /* CJSONSerialization.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A17FB13BC944E00ECF9F6 /* CJSONSerializedData.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E913BC944E00ECF9F6 /* CJSONSerializedData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A17FC13BC944E00ECF9F6 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17EC13BC944E00ECF9F6 /* CDataScanner_Extensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A17FD13BC944E00ECF9F6 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17EE13BC944E00ECF9F6 /* NSDictionary_JSONExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A17FE13BC944E00ECF9F6 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F113BC944E00ECF9F6 /* CJSONDeserializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A17FF13BC944E00ECF9F6 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F313BC944E00ECF9F6 /* CJSONScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A180013BC944E00ECF9F6 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F513BC944E00ECF9F6 /* CJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF641CF113B9094400CC0B61 /* PickerViewController.m */; };
 		FF641CF413B9094400CC0B61 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF641CF213B9094400CC0B61 /* PickerViewController.xib */; };
 		FF697AD413AFB8D500B66202 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697AD113AFB8D500B66202 /* _User.m */; };
@@ -142,6 +142,44 @@
 		FFA1A35E13AFB54E00434B93 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA1A35B13AFB54E00434B93 /* MobileCoreServices.framework */; };
 		FFA1A35F13AFB54E00434B93 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA1A35C13AFB54E00434B93 /* SystemConfiguration.framework */; };
 		FFA1A36113AFB55E00434B93 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA1A36013AFB55E00434B93 /* libz.1.2.5.dylib */; };
+		FFAE77E413BD001800183FA9 /* SCBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77D313BD001800183FA9 /* SCBadgeView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFAE77E513BD001800183FA9 /* SCClassDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77D513BD001800183FA9 /* SCClassDefinition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFAE77E613BD001800183FA9 /* SCGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77D713BD001800183FA9 /* SCGlobals.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFAE77E713BD001800183FA9 /* SCPropertyAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77D913BD001800183FA9 /* SCPropertyAttributes.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFAE77E813BD001800183FA9 /* SCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77DB13BD001800183FA9 /* SCTableViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFAE77E913BD001800183FA9 /* SCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77DD13BD001800183FA9 /* SCTableViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFAE77EA13BD001800183FA9 /* SCTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77DF13BD001800183FA9 /* SCTableViewModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFAE77EB13BD001800183FA9 /* SCTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77E113BD001800183FA9 /* SCTableViewSection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFAE77EC13BD001800183FA9 /* SCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77E313BD001800183FA9 /* SCViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFAE77F613BD029800183FA9 /* TestSensibleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77F413BD029800183FA9 /* TestSensibleTableViewController.m */; };
+		FFAE77F713BD029800183FA9 /* TestSensibleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFAE77F513BD029800183FA9 /* TestSensibleTableViewController.xib */; };
+		FFC2814613BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812B13BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png */; };
+		FFC2814713BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812C13BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png */; };
+		FFC2814813BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812D13BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png */; };
+		FFC2814913BCAC2C00CA3ABB /* AuntK icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812E13BCAC2C00CA3ABB /* AuntK icon.png */; };
+		FFC2814A13BCAC2C00CA3ABB /* buttons.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812F13BCAC2C00CA3ABB /* buttons.psd */; };
+		FFC2814B13BCAC2C00CA3ABB /* circle logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813013BCAC2C00CA3ABB /* circle logo.png */; };
+		FFC2814C13BCAC2C00CA3ABB /* circle logo.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813113BCAC2C00CA3ABB /* circle logo.psd */; };
+		FFC2814D13BCAC2C00CA3ABB /* dark blue button.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813213BCAC2C00CA3ABB /* dark blue button.png */; };
+		FFC2814E13BCAC2C00CA3ABB /* double line.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813313BCAC2C00CA3ABB /* double line.png */; };
+		FFC2814F13BCAC2C00CA3ABB /* double line.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813413BCAC2C00CA3ABB /* double line.psd */; };
+		FFC2815013BCAC2C00CA3ABB /* gray button.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813513BCAC2C00CA3ABB /* gray button.png */; };
+		FFC2815113BCAC2C00CA3ABB /* ipad background - cars (black).png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813613BCAC2C00CA3ABB /* ipad background - cars (black).png */; };
+		FFC2815213BCAC2C00CA3ABB /* ipad background - cars (black).psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813713BCAC2C00CA3ABB /* ipad background - cars (black).psd */; };
+		FFC2815313BCAC2C00CA3ABB /* ipad background - cars.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813813BCAC2C00CA3ABB /* ipad background - cars.png */; };
+		FFC2815413BCAC2C00CA3ABB /* ipad background - cars.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813913BCAC2C00CA3ABB /* ipad background - cars.psd */; };
+		FFC2815513BCAC2C00CA3ABB /* light blue button.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813A13BCAC2C00CA3ABB /* light blue button.png */; };
+		FFC2815613BCAC2C00CA3ABB /* notes icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813B13BCAC2C00CA3ABB /* notes icon.png */; };
+		FFC2815713BCAC2C00CA3ABB /* picture icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813C13BCAC2C00CA3ABB /* picture icon.png */; };
+		FFC2815813BCAC2C00CA3ABB /* profile icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813D13BCAC2C00CA3ABB /* profile icon.png */; };
+		FFC2815913BCAC2C00CA3ABB /* red x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813E13BCAC2C00CA3ABB /* red x.png */; };
+		FFC2815A13BCAC2C00CA3ABB /* red x.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2813F13BCAC2C00CA3ABB /* red x.psd */; };
+		FFC2815B13BCAC2C00CA3ABB /* single line.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814013BCAC2C00CA3ABB /* single line.png */; };
+		FFC2815C13BCAC2C00CA3ABB /* single line.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814113BCAC2C00CA3ABB /* single line.psd */; };
+		FFC2815D13BCAC2C00CA3ABB /* summary icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814213BCAC2C00CA3ABB /* summary icon.png */; };
+		FFC2815E13BCAC2C00CA3ABB /* total access bar.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814313BCAC2C00CA3ABB /* total access bar.png */; };
+		FFC2815F13BCAC2C00CA3ABB /* total access bar.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814413BCAC2C00CA3ABB /* total access bar.psd */; };
+		FFC2816013BCAC2C00CA3ABB /* visit application icons.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814513BCAC2C00CA3ABB /* visit application icons.psd */; };
 		FFC9533D13AFCACE000967CB /* ActiveRecordHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9532D13AFCACE000967CB /* ActiveRecordHelpers.m */; };
 		FFC9533E13AFCACE000967CB /* ARCoreDataAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9532F13AFCACE000967CB /* ARCoreDataAction.m */; };
 		FFC9533F13AFCACE000967CB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FFC9533113AFCACE000967CB /* LICENSE */; };
@@ -396,6 +434,54 @@
 		FFA1A35B13AFB54E00434B93 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		FFA1A35C13AFB54E00434B93 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FFA1A36013AFB55E00434B93 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		FFAE77D213BD001800183FA9 /* SCBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBadgeView.h; sourceTree = "<group>"; };
+		FFAE77D313BD001800183FA9 /* SCBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBadgeView.m; sourceTree = "<group>"; };
+		FFAE77D413BD001800183FA9 /* SCClassDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCClassDefinition.h; sourceTree = "<group>"; };
+		FFAE77D513BD001800183FA9 /* SCClassDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCClassDefinition.m; sourceTree = "<group>"; };
+		FFAE77D613BD001800183FA9 /* SCGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGlobals.h; sourceTree = "<group>"; };
+		FFAE77D713BD001800183FA9 /* SCGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGlobals.m; sourceTree = "<group>"; };
+		FFAE77D813BD001800183FA9 /* SCPropertyAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPropertyAttributes.h; sourceTree = "<group>"; };
+		FFAE77D913BD001800183FA9 /* SCPropertyAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPropertyAttributes.m; sourceTree = "<group>"; };
+		FFAE77DA13BD001800183FA9 /* SCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTableViewCell.h; sourceTree = "<group>"; };
+		FFAE77DB13BD001800183FA9 /* SCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTableViewCell.m; sourceTree = "<group>"; };
+		FFAE77DC13BD001800183FA9 /* SCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTableViewController.h; sourceTree = "<group>"; };
+		FFAE77DD13BD001800183FA9 /* SCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTableViewController.m; sourceTree = "<group>"; };
+		FFAE77DE13BD001800183FA9 /* SCTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTableViewModel.h; sourceTree = "<group>"; };
+		FFAE77DF13BD001800183FA9 /* SCTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTableViewModel.m; sourceTree = "<group>"; };
+		FFAE77E013BD001800183FA9 /* SCTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTableViewSection.h; sourceTree = "<group>"; };
+		FFAE77E113BD001800183FA9 /* SCTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTableViewSection.m; sourceTree = "<group>"; };
+		FFAE77E213BD001800183FA9 /* SCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCViewController.h; sourceTree = "<group>"; };
+		FFAE77E313BD001800183FA9 /* SCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCViewController.m; sourceTree = "<group>"; };
+		FFAE77F313BD029800183FA9 /* TestSensibleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSensibleTableViewController.h; sourceTree = "<group>"; };
+		FFAE77F413BD029800183FA9 /* TestSensibleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSensibleTableViewController.m; sourceTree = "<group>"; };
+		FFAE77F513BD029800183FA9 /* TestSensibleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestSensibleTableViewController.xib; sourceTree = "<group>"; };
+		FFC2812B13BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalRGB2.png; sourceTree = "<group>"; };
+		FFC2812C13BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalRGB3.png; sourceTree = "<group>"; };
+		FFC2812D13BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalwhite2.png; sourceTree = "<group>"; };
+		FFC2812E13BCAC2C00CA3ABB /* AuntK icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AuntK icon.png"; sourceTree = "<group>"; };
+		FFC2812F13BCAC2C00CA3ABB /* buttons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = buttons.psd; sourceTree = "<group>"; };
+		FFC2813013BCAC2C00CA3ABB /* circle logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle logo.png"; sourceTree = "<group>"; };
+		FFC2813113BCAC2C00CA3ABB /* circle logo.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "circle logo.psd"; sourceTree = "<group>"; };
+		FFC2813213BCAC2C00CA3ABB /* dark blue button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark blue button.png"; sourceTree = "<group>"; };
+		FFC2813313BCAC2C00CA3ABB /* double line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "double line.png"; sourceTree = "<group>"; };
+		FFC2813413BCAC2C00CA3ABB /* double line.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "double line.psd"; sourceTree = "<group>"; };
+		FFC2813513BCAC2C00CA3ABB /* gray button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray button.png"; sourceTree = "<group>"; };
+		FFC2813613BCAC2C00CA3ABB /* ipad background - cars (black).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad background - cars (black).png"; sourceTree = "<group>"; };
+		FFC2813713BCAC2C00CA3ABB /* ipad background - cars (black).psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ipad background - cars (black).psd"; sourceTree = "<group>"; };
+		FFC2813813BCAC2C00CA3ABB /* ipad background - cars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad background - cars.png"; sourceTree = "<group>"; };
+		FFC2813913BCAC2C00CA3ABB /* ipad background - cars.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ipad background - cars.psd"; sourceTree = "<group>"; };
+		FFC2813A13BCAC2C00CA3ABB /* light blue button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light blue button.png"; sourceTree = "<group>"; };
+		FFC2813B13BCAC2C00CA3ABB /* notes icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notes icon.png"; sourceTree = "<group>"; };
+		FFC2813C13BCAC2C00CA3ABB /* picture icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture icon.png"; sourceTree = "<group>"; };
+		FFC2813D13BCAC2C00CA3ABB /* profile icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile icon.png"; sourceTree = "<group>"; };
+		FFC2813E13BCAC2C00CA3ABB /* red x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red x.png"; sourceTree = "<group>"; };
+		FFC2813F13BCAC2C00CA3ABB /* red x.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "red x.psd"; sourceTree = "<group>"; };
+		FFC2814013BCAC2C00CA3ABB /* single line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single line.png"; sourceTree = "<group>"; };
+		FFC2814113BCAC2C00CA3ABB /* single line.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "single line.psd"; sourceTree = "<group>"; };
+		FFC2814213BCAC2C00CA3ABB /* summary icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "summary icon.png"; sourceTree = "<group>"; };
+		FFC2814313BCAC2C00CA3ABB /* total access bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "total access bar.png"; sourceTree = "<group>"; };
+		FFC2814413BCAC2C00CA3ABB /* total access bar.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "total access bar.psd"; sourceTree = "<group>"; };
+		FFC2814513BCAC2C00CA3ABB /* visit application icons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "visit application icons.psd"; sourceTree = "<group>"; };
 		FFC9532C13AFCACE000967CB /* ActiveRecordHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveRecordHelpers.h; sourceTree = "<group>"; };
 		FFC9532D13AFCACE000967CB /* ActiveRecordHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveRecordHelpers.m; sourceTree = "<group>"; };
 		FFC9532E13AFCACE000967CB /* ARCoreDataAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCoreDataAction.h; sourceTree = "<group>"; };
@@ -687,6 +773,7 @@
 		FF77100213B23DE500E90F4B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FFC2816113BCAC3200CA3ABB /* Access Images */,
 				FF9060E813B3ACF0009DCA0E /* Visit Application */,
 				FF77110A13B25A2D00E90F4B /* Table View Carat */,
 				FF77101413B23E1C00E90F4B /* Daily Summary */,
@@ -791,6 +878,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FFAE77EE13BD002100183FA9 /* Sensible TableView */,
 				FF0A17DE13BC944E00ECF9F6 /* TouchJSON */,
 				FFF0CFFC13BB7AC2008DFA19 /* Core Data JSON Categories */,
 				FFC9534613AFCCE2000967CB /* ActiveRecord Helpers */,
@@ -956,6 +1044,65 @@
 			name = ASIHTTPRequest;
 			sourceTree = "<group>";
 		};
+		FFAE77EE13BD002100183FA9 /* Sensible TableView */ = {
+			isa = PBXGroup;
+			children = (
+				FFAE77D213BD001800183FA9 /* SCBadgeView.h */,
+				FFAE77D313BD001800183FA9 /* SCBadgeView.m */,
+				FFAE77D413BD001800183FA9 /* SCClassDefinition.h */,
+				FFAE77D513BD001800183FA9 /* SCClassDefinition.m */,
+				FFAE77D613BD001800183FA9 /* SCGlobals.h */,
+				FFAE77D713BD001800183FA9 /* SCGlobals.m */,
+				FFAE77D813BD001800183FA9 /* SCPropertyAttributes.h */,
+				FFAE77D913BD001800183FA9 /* SCPropertyAttributes.m */,
+				FFAE77DA13BD001800183FA9 /* SCTableViewCell.h */,
+				FFAE77DB13BD001800183FA9 /* SCTableViewCell.m */,
+				FFAE77DC13BD001800183FA9 /* SCTableViewController.h */,
+				FFAE77DD13BD001800183FA9 /* SCTableViewController.m */,
+				FFAE77DE13BD001800183FA9 /* SCTableViewModel.h */,
+				FFAE77DF13BD001800183FA9 /* SCTableViewModel.m */,
+				FFAE77E013BD001800183FA9 /* SCTableViewSection.h */,
+				FFAE77E113BD001800183FA9 /* SCTableViewSection.m */,
+				FFAE77E213BD001800183FA9 /* SCViewController.h */,
+				FFAE77E313BD001800183FA9 /* SCViewController.m */,
+			);
+			name = "Sensible TableView";
+			sourceTree = "<group>";
+		};
+		FFC2816113BCAC3200CA3ABB /* Access Images */ = {
+			isa = PBXGroup;
+			children = (
+				FFC2812B13BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png */,
+				FFC2812C13BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png */,
+				FFC2812D13BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png */,
+				FFC2812E13BCAC2C00CA3ABB /* AuntK icon.png */,
+				FFC2812F13BCAC2C00CA3ABB /* buttons.psd */,
+				FFC2813013BCAC2C00CA3ABB /* circle logo.png */,
+				FFC2813113BCAC2C00CA3ABB /* circle logo.psd */,
+				FFC2813213BCAC2C00CA3ABB /* dark blue button.png */,
+				FFC2813313BCAC2C00CA3ABB /* double line.png */,
+				FFC2813413BCAC2C00CA3ABB /* double line.psd */,
+				FFC2813513BCAC2C00CA3ABB /* gray button.png */,
+				FFC2813613BCAC2C00CA3ABB /* ipad background - cars (black).png */,
+				FFC2813713BCAC2C00CA3ABB /* ipad background - cars (black).psd */,
+				FFC2813813BCAC2C00CA3ABB /* ipad background - cars.png */,
+				FFC2813913BCAC2C00CA3ABB /* ipad background - cars.psd */,
+				FFC2813A13BCAC2C00CA3ABB /* light blue button.png */,
+				FFC2813B13BCAC2C00CA3ABB /* notes icon.png */,
+				FFC2813C13BCAC2C00CA3ABB /* picture icon.png */,
+				FFC2813D13BCAC2C00CA3ABB /* profile icon.png */,
+				FFC2813E13BCAC2C00CA3ABB /* red x.png */,
+				FFC2813F13BCAC2C00CA3ABB /* red x.psd */,
+				FFC2814013BCAC2C00CA3ABB /* single line.png */,
+				FFC2814113BCAC2C00CA3ABB /* single line.psd */,
+				FFC2814213BCAC2C00CA3ABB /* summary icon.png */,
+				FFC2814313BCAC2C00CA3ABB /* total access bar.png */,
+				FFC2814413BCAC2C00CA3ABB /* total access bar.psd */,
+				FFC2814513BCAC2C00CA3ABB /* visit application icons.psd */,
+			);
+			name = "Access Images";
+			sourceTree = "<group>";
+		};
 		FFC9534613AFCCE2000967CB /* ActiveRecord Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1108,6 +1255,9 @@
 				FF641CF013B9094400CC0B61 /* PickerViewController.h */,
 				FF641CF113B9094400CC0B61 /* PickerViewController.m */,
 				FF641CF213B9094400CC0B61 /* PickerViewController.xib */,
+				FFAE77F313BD029800183FA9 /* TestSensibleTableViewController.h */,
+				FFAE77F413BD029800183FA9 /* TestSensibleTableViewController.m */,
+				FFAE77F513BD029800183FA9 /* TestSensibleTableViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1246,6 +1396,34 @@
 				FF90611813B3D6AB009DCA0E /* form_seperator.png in Resources */,
 				FF99B8AD13B8A3FC00FC1A0B /* DatePickerViewController.xib in Resources */,
 				FF641CF413B9094400CC0B61 /* PickerViewController.xib in Resources */,
+				FFC2814613BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png in Resources */,
+				FFC2814713BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png in Resources */,
+				FFC2814813BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png in Resources */,
+				FFC2814913BCAC2C00CA3ABB /* AuntK icon.png in Resources */,
+				FFC2814A13BCAC2C00CA3ABB /* buttons.psd in Resources */,
+				FFC2814B13BCAC2C00CA3ABB /* circle logo.png in Resources */,
+				FFC2814C13BCAC2C00CA3ABB /* circle logo.psd in Resources */,
+				FFC2814D13BCAC2C00CA3ABB /* dark blue button.png in Resources */,
+				FFC2814E13BCAC2C00CA3ABB /* double line.png in Resources */,
+				FFC2814F13BCAC2C00CA3ABB /* double line.psd in Resources */,
+				FFC2815013BCAC2C00CA3ABB /* gray button.png in Resources */,
+				FFC2815113BCAC2C00CA3ABB /* ipad background - cars (black).png in Resources */,
+				FFC2815213BCAC2C00CA3ABB /* ipad background - cars (black).psd in Resources */,
+				FFC2815313BCAC2C00CA3ABB /* ipad background - cars.png in Resources */,
+				FFC2815413BCAC2C00CA3ABB /* ipad background - cars.psd in Resources */,
+				FFC2815513BCAC2C00CA3ABB /* light blue button.png in Resources */,
+				FFC2815613BCAC2C00CA3ABB /* notes icon.png in Resources */,
+				FFC2815713BCAC2C00CA3ABB /* picture icon.png in Resources */,
+				FFC2815813BCAC2C00CA3ABB /* profile icon.png in Resources */,
+				FFC2815913BCAC2C00CA3ABB /* red x.png in Resources */,
+				FFC2815A13BCAC2C00CA3ABB /* red x.psd in Resources */,
+				FFC2815B13BCAC2C00CA3ABB /* single line.png in Resources */,
+				FFC2815C13BCAC2C00CA3ABB /* single line.psd in Resources */,
+				FFC2815D13BCAC2C00CA3ABB /* summary icon.png in Resources */,
+				FFC2815E13BCAC2C00CA3ABB /* total access bar.png in Resources */,
+				FFC2815F13BCAC2C00CA3ABB /* total access bar.psd in Resources */,
+				FFC2816013BCAC2C00CA3ABB /* visit application icons.psd in Resources */,
+				FFAE77F713BD029800183FA9 /* TestSensibleTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1359,6 +1537,16 @@
 				FF0A17FE13BC944E00ECF9F6 /* CJSONDeserializer.m in Sources */,
 				FF0A17FF13BC944E00ECF9F6 /* CJSONScanner.m in Sources */,
 				FF0A180013BC944E00ECF9F6 /* CJSONSerializer.m in Sources */,
+				FFAE77E413BD001800183FA9 /* SCBadgeView.m in Sources */,
+				FFAE77E513BD001800183FA9 /* SCClassDefinition.m in Sources */,
+				FFAE77E613BD001800183FA9 /* SCGlobals.m in Sources */,
+				FFAE77E713BD001800183FA9 /* SCPropertyAttributes.m in Sources */,
+				FFAE77E813BD001800183FA9 /* SCTableViewCell.m in Sources */,
+				FFAE77E913BD001800183FA9 /* SCTableViewController.m in Sources */,
+				FFAE77EA13BD001800183FA9 /* SCTableViewModel.m in Sources */,
+				FFAE77EB13BD001800183FA9 /* SCTableViewSection.m in Sources */,
+				FFAE77EC13BD001800183FA9 /* SCViewController.m in Sources */,
+				FFAE77F613BD029800183FA9 /* TestSensibleTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1453,7 +1641,7 @@
 				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
@@ -1477,7 +1665,7 @@
 				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",

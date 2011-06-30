@@ -12,11 +12,11 @@
 
 @interface PickerViewController : UIViewController {
 	UIPickerView *pickerView;
-	__weak id <PickerViewControllerDelegate> _delegate;
+	__unsafe_unretained id <PickerViewControllerDelegate> _delegate;
 }
 
 @property (nonatomic, strong) IBOutlet UIPickerView *pickerView;
-@property (nonatomic, weak) IBOutlet id <PickerViewControllerDelegate> delegate;
+@property (nonatomic, unsafe_unretained) IBOutlet id <PickerViewControllerDelegate> delegate;
 @property (nonatomic) NSInteger currentTag;
 
 - (IBAction)nextField:(id)sender;

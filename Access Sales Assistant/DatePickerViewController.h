@@ -11,11 +11,11 @@
 
 @interface DatePickerViewController : UIViewController {
 	UIDatePicker *datePicker;
-	__weak id <DatePickerViewControllerDelegate> _delegate;
+	__unsafe_unretained id <DatePickerViewControllerDelegate> _delegate;
 }
 
 @property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
-@property (nonatomic, weak) id <DatePickerViewControllerDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id <DatePickerViewControllerDelegate> delegate;
 @property (nonatomic) NSInteger currentTag;
 
 - (IBAction)datePickerValueChanged:(id)sender;
