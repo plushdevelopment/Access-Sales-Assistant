@@ -54,7 +54,7 @@
 	NSDictionary *userInfo = [[self entity] userInfo];
 	for (NSString *attribute in userInfo) {
 		NSLog(@"%@", attribute);
-		id value = [keyedValues objectForKey:attribute];
+		id value = [keyedValues valueForKeyPath:attribute];
         if (value == nil) {
             continue;
         }
