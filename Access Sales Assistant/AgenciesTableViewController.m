@@ -42,9 +42,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=1&pageSize=100&partialLoad=false&token=%@", [[User findFirst] token]];
+	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=1&pageSize=50&partialLoad=false&token=%@", [[User findFirst] token]];
 	//NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Picklist?type=status&token=%@", [[User findFirst] token]];
 	//NSString *escapedString = [urlString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -316,9 +317,11 @@
 	}
 	
 	NSArray *results = [[responseString JSONValue] objectForKey:@"results"];
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
 	for (NSDictionary *dict in results) {
 		Producer *producer = [Producer createEntity];
-		[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:nil];
+		[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter];
 	}
 	[self.managedObjectContext save];
 }

@@ -121,26 +121,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/AgenciesTableViewController.m"
-         timestampString = "331066360.721775"
+         timestampString = "331590272.8812"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "49"
-         endingLineNumber = "49"
+         startingLineNumber = "50"
+         endingLineNumber = "50"
          landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Access Sales Assistant/NSManagedObject+SafeSetValuesKeysWithDictionary.m"
-         timestampString = "331065385.022099"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
-         landmarkName = "-safeSetValuesForKeysWithDictionary:dateFormatter:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -157,5 +143,42 @@
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Access Sales Assistant/AgenciesTableViewController.m"
+         timestampString = "331578913.228872"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "41"
+         endingLineNumber = "41"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Access Sales Assistant/NSManagedObject+SafeSetValuesKeysWithDictionary.m"
+         timestampString = "331599077.914874"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "88"
+         endingLineNumber = "88"
+         landmarkName = "-safeSetValuesForKeysWithDictionary:dateFormatter:"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
+   <ExceptionBreakpoints>
+      <ExceptionBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         scope = "0"
+         stopOnStyle = "0">
+      </ExceptionBreakpoint>
+   </ExceptionBreakpoints>
 </Bucket>

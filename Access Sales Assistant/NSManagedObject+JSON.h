@@ -10,7 +10,7 @@
 
 @interface NSManagedObject (NSManagedObject_JSON)
 
-- (NSString*)jsonStructureFromManagedObjects:(NSArray*)managedObjects;
-- (NSArray*)managedObjectsFromJSONStructure:(NSString*)json withManagedObjectContext:(NSManagedObjectContext*)moc;
++ (NSString*)jsonStructureFromManagedObjects:(NSArray*)managedObjects;
++ (NSArray*)managedObjectsFromJSONStructure:(NSString*)json withManagedObjectContext:(NSManagedObjectContext*)moc;
 
 @end

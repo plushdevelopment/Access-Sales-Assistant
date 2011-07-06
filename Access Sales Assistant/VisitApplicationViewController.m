@@ -53,7 +53,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	self.activeVisitFormView.contentSize = CGSizeMake(768.0, 1500.0);
-	[self.activeVisitFormView addSubview:profileApplicationViewController.view];
+	//[self.activeVisitFormView addSubview:profileApplicationViewController.view];
+	[self
+	[self.activeVisitFormView addSubview:testViewController.view];
 }
 
 - (void)viewDidUnload

@@ -14,4 +14,5 @@
 	#import <CoreData/CoreData.h>
 	#import "CoreData+ActiveRecordFetching.h"
 	#import "NSManagedObject+SafeSetValuesKeysWithDictionary.h"
+	#import "NSManagedObject+JSON.h"
 #endif

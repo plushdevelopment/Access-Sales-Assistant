@@ -46,7 +46,7 @@
 
 
 
-@property (nonatomic, retain) NSString *eAndOExpires;
+@property (nonatomic, retain) NSDate *eAndOExpires;
 
 //- (BOOL)validateEAndOExpires:(id*)value_ error:(NSError**)error_;
 
@@ -58,19 +58,19 @@
 
 
 
-@property (nonatomic, retain) NSString *updatedDtm;
+@property (nonatomic, retain) NSDate *updatedDtm;
 
 //- (BOOL)validateUpdatedDtm:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *dateEstablished;
+@property (nonatomic, retain) NSDate *dateEstablished;
 
 //- (BOOL)validateDateEstablished:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *createdDtm;
+@property (nonatomic, retain) NSDate *createdDtm;
 
 //- (BOOL)validateCreatedDtm:(id*)value_ error:(NSError**)error_;
 
@@ -108,7 +108,7 @@
 
 
 
-@property (nonatomic, retain) NSString *statusDate;
+@property (nonatomic, retain) NSDate *statusDate;
 
 //- (BOOL)validateStatusDate:(id*)value_ error:(NSError**)error_;
 
@@ -158,7 +158,7 @@
 
 
 
-@property (nonatomic, retain) NSString *appointedDate;
+@property (nonatomic, retain) NSDate *appointedDate;
 
 //- (BOOL)validateAppointedDate:(id*)value_ error:(NSError**)error_;
 
@@ -260,8 +260,8 @@
 @interface _Producer (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveEAndOExpires;
-- (void)setPrimitiveEAndOExpires:(NSString*)value;
+- (NSDate*)primitiveEAndOExpires;
+- (void)setPrimitiveEAndOExpires:(NSDate*)value;
 
 
 
@@ -272,20 +272,20 @@
 
 
 
-- (NSString*)primitiveUpdatedDtm;
-- (void)setPrimitiveUpdatedDtm:(NSString*)value;
+- (NSDate*)primitiveUpdatedDtm;
+- (void)setPrimitiveUpdatedDtm:(NSDate*)value;
 
 
 
 
-- (NSString*)primitiveDateEstablished;
-- (void)setPrimitiveDateEstablished:(NSString*)value;
+- (NSDate*)primitiveDateEstablished;
+- (void)setPrimitiveDateEstablished:(NSDate*)value;
 
 
 
 
-- (NSString*)primitiveCreatedDtm;
-- (void)setPrimitiveCreatedDtm:(NSString*)value;
+- (NSDate*)primitiveCreatedDtm;
+- (void)setPrimitiveCreatedDtm:(NSDate*)value;
 
 
 
@@ -320,8 +320,8 @@
 
 
 
-- (NSString*)primitiveStatusDate;
-- (void)setPrimitiveStatusDate:(NSString*)value;
+- (NSDate*)primitiveStatusDate;
+- (void)setPrimitiveStatusDate:(NSDate*)value;
 
 
 
@@ -368,8 +368,8 @@
 
 
 
-- (NSString*)primitiveAppointedDate;
-- (void)setPrimitiveAppointedDate:(NSString*)value;
+- (NSDate*)primitiveAppointedDate;
+- (void)setPrimitiveAppointedDate:(NSDate*)value;
 
 
 

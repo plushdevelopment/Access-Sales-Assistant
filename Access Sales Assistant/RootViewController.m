@@ -24,6 +24,8 @@
 
 @implementation RootViewController
 
+@synthesize detailViewController = _detailViewController;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -245,6 +247,7 @@
 	
 	AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
 	[self.navigationController pushViewController:viewController animated:YES];
+	
 	
 }
 

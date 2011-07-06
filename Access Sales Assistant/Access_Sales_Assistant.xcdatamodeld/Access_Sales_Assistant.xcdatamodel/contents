@@ -95,11 +95,11 @@
         </userInfo>
     </entity>
     <entity name="Producer" representedClassName="Producer">
-        <attribute name="appointedDate" optional="YES" attributeType="String"/>
+        <attribute name="appointedDate" optional="YES" attributeType="Date"/>
         <attribute name="createdBy" optional="YES" attributeType="String"/>
-        <attribute name="createdDtm" optional="YES" attributeType="String"/>
-        <attribute name="dateEstablished" optional="YES" attributeType="String"/>
-        <attribute name="eAndOExpires" optional="YES" attributeType="String"/>
+        <attribute name="createdDtm" optional="YES" attributeType="Date"/>
+        <attribute name="dateEstablished" optional="YES" attributeType="Date"/>
+        <attribute name="eAndOExpires" optional="YES" attributeType="Date"/>
         <attribute name="guid" optional="YES" attributeType="String"/>
         <attribute name="hasAccessSign" optional="YES" attributeType="Boolean"/>
         <attribute name="isEligible" optional="YES" attributeType="Boolean"/>
@@ -108,9 +108,9 @@
         <attribute name="numberOfLocations" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="primaryContact" optional="YES" attributeType="String"/>
         <attribute name="producerCode" optional="YES" attributeType="String"/>
-        <attribute name="statusDate" optional="YES" attributeType="String"/>
+        <attribute name="statusDate" optional="YES" attributeType="Date"/>
         <attribute name="updatedBy" optional="YES" attributeType="String"/>
-        <attribute name="updatedDtm" optional="YES" attributeType="String"/>
+        <attribute name="updatedDtm" optional="YES" attributeType="Date"/>
         <attribute name="webAddress" optional="YES" attributeType="String"/>
         <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AddressListItem" inverseName="producer" inverseEntity="AddressListItem"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="producer" inverseEntity="Contact"/>
@@ -222,20 +222,20 @@
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Producer" positionX="306" positionY="123" width="128" height="480"/>
-        <element name="User" positionX="160" positionY="192" width="128" height="135"/>
         <element name="AddressListItem" positionX="-569" positionY="72" width="128" height="270"/>
-        <element name="State" positionX="450" positionY="696" width="128" height="150"/>
         <element name="Contact" positionX="-441" positionY="684" width="128" height="225"/>
-        <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="180"/>
-        <element name="Type" positionX="180" positionY="-45" width="128" height="150"/>
         <element name="EmailListItem" positionX="-650" positionY="405" width="128" height="180"/>
         <element name="HoursOfOperation" positionX="0" positionY="-45" width="128" height="270"/>
         <element name="IneligibleReason" positionX="43" positionY="561" width="128" height="150"/>
+        <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="180"/>
+        <element name="Producer" positionX="306" positionY="123" width="128" height="480"/>
         <element name="QuestionListItem" positionX="-423" positionY="360" width="128" height="165"/>
         <element name="Rater" positionX="684" positionY="354" width="128" height="150"/>
+        <element name="State" positionX="450" positionY="696" width="128" height="150"/>
         <element name="Status" positionX="475" positionY="27" width="128" height="150"/>
         <element name="SubTerritory" positionX="628" positionY="135" width="128" height="150"/>
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="150"/>
+        <element name="Type" positionX="180" positionY="-45" width="128" height="150"/>
+        <element name="User" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VisitApplicationViewController.h"
 
 @interface RootViewController : UITableViewController
+
+@property (strong, nonatomic) IBOutlet DetailViewController *detailViewController;
 
 @end

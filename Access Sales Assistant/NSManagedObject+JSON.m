@@ -12,9 +12,9 @@
 
 @implementation NSManagedObject (NSManagedObject_JSON)
 
-- (NSManagedObject*)managedObjectFromStructure:(NSDictionary*)structureDictionary withManagedObjectContext:(NSManagedObjectContext*)moc
++ (NSManagedObject*)managedObjectFromStructure:(NSDictionary*)structureDictionary withManagedObjectContext:(NSManagedObjectContext*)moc
 {
-	NSString *objectName = [structureDictionary objectForKey:@"ManagedObjectName"];
+	NSString *objectName = [structureDictionary objectForKey:@"Producer"];
 	NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:objectName inManagedObjectContext:moc];
 	[managedObject setValuesForKeysWithDictionary:structureDictionary];
 	
@@ -36,7 +36,7 @@
 	return managedObject;
 }
 
-- (NSArray*)managedObjectsFromJSONStructure:(NSString*)json withManagedObjectContext:(NSManagedObjectContext*)moc
++ (NSArray*)managedObjectsFromJSONStructure:(NSString*)json withManagedObjectContext:(NSManagedObjectContext*)moc
 {
 	NSError *error = nil;
 	NSArray *structureArray = [[CJSONDeserializer deserializer] deserializeAsArray:json error:&error];
