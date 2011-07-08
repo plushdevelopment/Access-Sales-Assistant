@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Alabama</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+	<key>Arizona</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>California</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>Florida</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>Louisiana</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>Mississippi</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>Nevada</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>Oklahoma</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>Pennysylvania</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>South Carolina</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>Texas</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>Virginia</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+    <key>Washington</key>
+	<dict>
+        <key>Accept International Drivers and Experience</key>
+		<string>Opens Market</string>
+		<key>Accept Business or Artisan Use</key>
+		<string>More Business/More Accessible</string>
+		<key>Multilingual Company</key>
+		<string>Advanced Communication Channels</string>
+        <key>Salvage Titles</key>
+        <string>More Business</string>
+        <key>We Do Not Go Direct</key>
+        <string>We Do Not Compete with Agents</string>
+        <key>Named Non-Owner Policy Option</key>
+        <string>Niche Market</string>
+        <key>Registered Owner Discounts</key>
+        <string>Lower Rates</string>
+        <key>Multi Family Policy</key>
+        <string>Niche Market</string>
+        <key>Accept up to 2 DUIs</key>
+        <string>Niche Market</string>
+        <key>No Credit Score for Tiers</key>
+        <string>Niche Market</string>
+        <key>Multiple Payment Options</key>
+        <string>More Business/Ease-of-Use</string>
+	</dict>
+
+</dict>
+</plist>
