@@ -22,8 +22,6 @@
 		FF0A17FE13BC944E00ECF9F6 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F113BC944E00ECF9F6 /* CJSONDeserializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17FF13BC944E00ECF9F6 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F313BC944E00ECF9F6 /* CJSONScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A180013BC944E00ECF9F6 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F513BC944E00ECF9F6 /* CJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FF44A1BF13C4DBB100935944 /* HoursOfOperationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF44A1BE13C4DBB100935944 /* HoursOfOperationTableViewCell.m */; };
-		FF44A1C113C4DBE500935944 /* HoursOfOperationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF44A1C013C4DBE400935944 /* HoursOfOperationTableViewCell.xib */; };
 		FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF641CF113B9094400CC0B61 /* PickerViewController.m */; };
 		FF641CF413B9094400CC0B61 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF641CF213B9094400CC0B61 /* PickerViewController.xib */; };
 		FF697AD413AFB8D500B66202 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697AD113AFB8D500B66202 /* _User.m */; };
@@ -295,9 +293,6 @@
 		FF0A17F413BC944E00ECF9F6 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		FF0A17F513BC944E00ECF9F6 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		FF0A17F613BC944E00ECF9F6 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
-		FF44A1BD13C4DBB100935944 /* HoursOfOperationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoursOfOperationTableViewCell.h; sourceTree = "<group>"; };
-		FF44A1BE13C4DBB100935944 /* HoursOfOperationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoursOfOperationTableViewCell.m; sourceTree = "<group>"; };
-		FF44A1C013C4DBE400935944 /* HoursOfOperationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoursOfOperationTableViewCell.xib; sourceTree = "<group>"; };
 		FF641CF013B9094400CC0B61 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		FF641CF113B9094400CC0B61 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		FF641CF213B9094400CC0B61 /* PickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
@@ -680,6 +675,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D317E2A13C7422900CD647E /* Features and Benefits */ = {
+			isa = PBXGroup;
+			children = (
+				6D317E1F13C7416900CD647E /* FeaturesAndBenefitsViewController.xib */,
+				6D317E2013C7416900CD647E /* FeaturesAndBenefitsViewController.m */,
+				6D317E2113C7416900CD647E /* FeaturesAndBenefitsViewController.h */,
+				6D317E2213C7416900CD647E /* StateSelectionTableViewController.h */,
+				6D317E2313C7416900CD647E /* StateSelectionTableViewController.m */,
+				6D317E2413C7416900CD647E /* FeaturesAndBenefits.plist */,
+			);
+			name = "Features and Benefits";
+			sourceTree = "<group>";
+		};
 		FF0A17DE13BC944E00ECF9F6 /* TouchJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -1016,12 +1024,6 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				6D317E1F13C7416900CD647E /* FeaturesAndBenefitsViewController.xib */,
-				6D317E2013C7416900CD647E /* FeaturesAndBenefitsViewController.m */,
-				6D317E2113C7416900CD647E /* FeaturesAndBenefitsViewController.h */,
-				6D317E2213C7416900CD647E /* StateSelectionTableViewController.h */,
-				6D317E2313C7416900CD647E /* StateSelectionTableViewController.m */,
-				6D317E2413C7416900CD647E /* FeaturesAndBenefits.plist */,
 				FF71F52813C63112005CE1DA /* TableViewCells */,
 				FF77110013B257BF00E90F4B /* External */,
 				FF697AD713AFB8DA00B66202 /* Model Classes */,
@@ -1316,6 +1318,7 @@
 		FFFB3C5A13ABE4890063E374 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6D317E2A13C7422900CD647E /* Features and Benefits */,
 				FF8B416613A8EEF700A05007 /* RootViewController.h */,
 				FF8B416713A8EEF700A05007 /* RootViewController.m */,
 				FF8B416D13A8EEF700A05007 /* RootViewController.xib */,
@@ -1340,9 +1343,6 @@
 				FF641CF013B9094400CC0B61 /* PickerViewController.h */,
 				FF641CF113B9094400CC0B61 /* PickerViewController.m */,
 				FF641CF213B9094400CC0B61 /* PickerViewController.xib */,
-				FF44A1BD13C4DBB100935944 /* HoursOfOperationTableViewCell.h */,
-				FF44A1BE13C4DBB100935944 /* HoursOfOperationTableViewCell.m */,
-				FF44A1C013C4DBE400935944 /* HoursOfOperationTableViewCell.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1508,7 +1508,6 @@
 				FFC2815E13BCAC2C00CA3ABB /* total access bar.png in Resources */,
 				FFC2815F13BCAC2C00CA3ABB /* total access bar.psd in Resources */,
 				FFC2816013BCAC2C00CA3ABB /* visit application icons.psd in Resources */,
-				FF44A1C113C4DBE500935944 /* HoursOfOperationTableViewCell.xib in Resources */,
 				FF71F52E13C6316C005CE1DA /* ProducerGeneralTableViewCell.xib in Resources */,
 				FF71F53413C63CD5005CE1DA /* ProducerQuestionTableViewCell.xib in Resources */,
 				FF71F53D13C63EA5005CE1DA /* ProducerStatusTableViewCell.xib in Resources */,
@@ -1640,7 +1639,6 @@
 				FFAE77EA13BD001800183FA9 /* SCTableViewModel.m in Sources */,
 				FFAE77EB13BD001800183FA9 /* SCTableViewSection.m in Sources */,
 				FFAE77EC13BD001800183FA9 /* SCViewController.m in Sources */,
-				FF44A1BF13C4DBB100935944 /* HoursOfOperationTableViewCell.m in Sources */,
 				FFCD8B2113C601D3008D8885 /* NSManagedObject+Additions.m in Sources */,
 				FF71F52C13C6314C005CE1DA /* ProducerGeneralTableViewCell.m in Sources */,
 				FF71F53713C63D24005CE1DA /* ProducerQuestionTableViewCell.m in Sources */,
