@@ -8,7 +8,6 @@
 
 
 
-
 @interface SubTerritoryID : NSManagedObjectID {}
 @end
 
@@ -20,15 +19,13 @@
 
 
 
-@property (nonatomic, retain) NSString *guid;
+@property (nonatomic, retain) NSNumber *guid;
+
+@property short guidValue;
+- (short)guidValue;
+- (void)setGuidValue:(short)value_;
 
 //- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *name;
-
-//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -53,14 +50,11 @@
 @interface _SubTerritory (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
+- (NSNumber*)primitiveGuid;
+- (void)setPrimitiveGuid:(NSNumber*)value;
 
-
-
-
-- (NSString*)primitiveName;
-- (void)setPrimitiveName:(NSString*)value;
+- (short)primitiveGuidValue;
+- (void)setPrimitiveGuidValue:(short)value_;
 
 
 

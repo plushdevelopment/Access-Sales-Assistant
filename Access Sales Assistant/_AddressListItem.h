@@ -16,7 +16,6 @@
 
 
 
-
 @interface AddressListItemID : NSManagedObjectID {}
 @end
 
@@ -41,12 +40,6 @@
 @property (nonatomic, retain) NSString *postalCode;
 
 //- (BOOL)validatePostalCode:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *guid;
-
-//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -82,15 +75,15 @@
 
 
 
-@property (nonatomic, retain) NSString *addressLine3;
-
-//- (BOOL)validateAddressLine3:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) NSString *addressLine2;
 
 //- (BOOL)validateAddressLine2:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *addressLine3;
+
+//- (BOOL)validateAddressLine3:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -130,12 +123,6 @@
 
 
 
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveCity;
 - (void)setPrimitiveCity:(NSString*)value;
 
@@ -166,14 +153,14 @@
 
 
 
-- (NSString*)primitiveAddressLine3;
-- (void)setPrimitiveAddressLine3:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveAddressLine2;
 - (void)setPrimitiveAddressLine2:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveAddressLine3;
+- (void)setPrimitiveAddressLine3:(NSString*)value;
 
 
 

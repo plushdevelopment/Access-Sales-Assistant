@@ -40,13 +40,6 @@
 
 
 
-@dynamic number;
-
-
-
-
-
-
 @dynamic type;
 
 
@@ -73,7 +66,7 @@
 
 
 
-@dynamic guid;
+@dynamic number;
 
 
 

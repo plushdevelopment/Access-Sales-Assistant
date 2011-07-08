@@ -10,7 +10,6 @@
 
 
 
-
 @interface PhoneListItemID : NSManagedObjectID {}
 @end
 
@@ -19,12 +18,6 @@
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (PhoneListItemID*)objectID;
-
-
-
-@property (nonatomic, retain) NSString *number;
-
-//- (BOOL)validateNumber:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -38,9 +31,9 @@
 
 
 
-@property (nonatomic, retain) NSString *guid;
+@property (nonatomic, retain) NSString *number;
 
-//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateNumber:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -65,12 +58,6 @@
 @interface _PhoneListItem (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveNumber;
-- (void)setPrimitiveNumber:(NSString*)value;
-
-
-
-
 - (NSNumber*)primitiveType;
 - (void)setPrimitiveType:(NSNumber*)value;
 
@@ -80,8 +67,8 @@
 
 
 
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
+- (NSString*)primitiveNumber;
+- (void)setPrimitiveNumber:(NSString*)value;
 
 
 

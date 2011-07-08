@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProducerHoursTableViewCell : UITableViewCell
+@interface ProducerHoursTableViewCell : UITableViewCell {
+	UITextField *_startTextField;
+	UITextField *_stopTextField;
+}
+
 
 @property (nonatomic, strong) IBOutlet UILabel *weekdayLabel;
+@property (nonatomic, strong) IBOutlet UITextField *startTextField;
+@property (nonatomic, strong) IBOutlet UITextField *stopTextField;
 
 @end

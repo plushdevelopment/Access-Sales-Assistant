@@ -20,7 +20,11 @@
 
 
 
-@property (nonatomic, retain) NSString *guid;
+@property (nonatomic, retain) NSNumber *guid;
+
+@property short guidValue;
+- (short)guidValue;
+- (void)setGuidValue:(short)value_;
 
 //- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
 
@@ -48,8 +52,11 @@
 @interface _Rater (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
+- (NSNumber*)primitiveGuid;
+- (void)setPrimitiveGuid:(NSNumber*)value;
+
+- (short)primitiveGuidValue;
+- (void)setPrimitiveGuidValue:(short)value_;
 
 
 

@@ -137,6 +137,10 @@
 		FF90611813B3D6AB009DCA0E /* form_seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = FF90611713B3D6AA009DCA0E /* form_seperator.png */; };
 		FF99B8AC13B8A3FC00FC1A0B /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF99B8AA13B8A3FC00FC1A0B /* DatePickerViewController.m */; };
 		FF99B8AD13B8A3FC00FC1A0B /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF99B8AB13B8A3FC00FC1A0B /* DatePickerViewController.xib */; };
+		FF9A1DCA13C7443200BAA6F2 /* ProducerAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9A1DC913C7443200BAA6F2 /* ProducerAddressTableViewCell.m */; };
+		FF9A1DCD13C7444E00BAA6F2 /* ProducerAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF9A1DCC13C7444E00BAA6F2 /* ProducerAddressTableViewCell.xib */; };
+		FF9A1DD013C746F200BAA6F2 /* ProducerContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9A1DCF13C746F200BAA6F2 /* ProducerContactTableViewCell.m */; };
+		FF9A1DD213C7472700BAA6F2 /* ProducerContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF9A1DD113C7472700BAA6F2 /* ProducerContactTableViewCell.xib */; };
 		FFA1A31913AF922200434B93 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA1A31713AF922200434B93 /* LoginViewController.m */; };
 		FFA1A31A13AF922200434B93 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA1A31813AF922200434B93 /* LoginViewController.xib */; };
 		FFA1A31E13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFA1A31C13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld */; };
@@ -434,6 +438,12 @@
 		FF99B8A913B8A3FC00FC1A0B /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
 		FF99B8AA13B8A3FC00FC1A0B /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 		FF99B8AB13B8A3FC00FC1A0B /* DatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
+		FF9A1DC813C7443200BAA6F2 /* ProducerAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerAddressTableViewCell.h; sourceTree = "<group>"; };
+		FF9A1DC913C7443200BAA6F2 /* ProducerAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerAddressTableViewCell.m; sourceTree = "<group>"; };
+		FF9A1DCC13C7444E00BAA6F2 /* ProducerAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerAddressTableViewCell.xib; sourceTree = "<group>"; };
+		FF9A1DCE13C746F200BAA6F2 /* ProducerContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerContactTableViewCell.h; sourceTree = "<group>"; };
+		FF9A1DCF13C746F200BAA6F2 /* ProducerContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerContactTableViewCell.m; sourceTree = "<group>"; };
+		FF9A1DD113C7472700BAA6F2 /* ProducerContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerContactTableViewCell.xib; sourceTree = "<group>"; };
 		FFA1A31613AF922200434B93 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FFA1A31713AF922200434B93 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FFA1A31813AF922200434B93 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -850,6 +860,12 @@
 				FF71F54D13C64D17005CE1DA /* ProducerHoursTableViewCell.h */,
 				FF71F54E13C64D18005CE1DA /* ProducerHoursTableViewCell.m */,
 				FF71F55013C64E17005CE1DA /* ProducerHoursTableViewCell.xib */,
+				FF9A1DC813C7443200BAA6F2 /* ProducerAddressTableViewCell.h */,
+				FF9A1DC913C7443200BAA6F2 /* ProducerAddressTableViewCell.m */,
+				FF9A1DCC13C7444E00BAA6F2 /* ProducerAddressTableViewCell.xib */,
+				FF9A1DCE13C746F200BAA6F2 /* ProducerContactTableViewCell.h */,
+				FF9A1DCF13C746F200BAA6F2 /* ProducerContactTableViewCell.m */,
+				FF9A1DD113C7472700BAA6F2 /* ProducerContactTableViewCell.xib */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -1517,6 +1533,8 @@
 				FF71F55113C64E17005CE1DA /* ProducerHoursTableViewCell.xib in Resources */,
 				6D317E2513C7416900CD647E /* FeaturesAndBenefitsViewController.xib in Resources */,
 				6D317E2813C7416900CD647E /* FeaturesAndBenefits.plist in Resources */,
+				FF9A1DCD13C7444E00BAA6F2 /* ProducerAddressTableViewCell.xib in Resources */,
+				FF9A1DD213C7472700BAA6F2 /* ProducerContactTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1649,6 +1667,8 @@
 				FF71F54F13C64D19005CE1DA /* ProducerHoursTableViewCell.m in Sources */,
 				6D317E2613C7416900CD647E /* FeaturesAndBenefitsViewController.m in Sources */,
 				6D317E2713C7416900CD647E /* StateSelectionTableViewController.m in Sources */,
+				FF9A1DCA13C7443200BAA6F2 /* ProducerAddressTableViewCell.m in Sources */,
+				FF9A1DD013C746F200BAA6F2 /* ProducerContactTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

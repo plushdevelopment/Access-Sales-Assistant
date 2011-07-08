@@ -81,13 +81,6 @@
 
 
 
-@dynamic guid;
-
-
-
-
-
-
 @dynamic city;
 
 
@@ -154,14 +147,14 @@
 
 
 
-@dynamic addressLine3;
-
-
-
-
-
-
 @dynamic addressLine2;
+
+
+
+
+
+
+@dynamic addressLine3;
 
 
 

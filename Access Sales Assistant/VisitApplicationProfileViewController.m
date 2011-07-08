@@ -976,38 +976,59 @@
 	    NSLog(@"%@", self.detailItem);
 		Producer *producer = (Producer *)self.detailItem;
 		
+		// Text Fields with string values
 		[self.producerNameTextField setText:producer.name];
 		[self.producerCodeTextField setText:producer.producerCode];
-		[self.subTerritoryTextField setText:producer.subTerritory.name];
-		[self.eOExpiresTextField setText:producer.eAndOExpires.description];
-		[self.numberOfLocationsTextField setText:producer.numberOfLocations.stringValue];
-		[self.accessSignTextField setText:producer.hasAccessSign.stringValue];
-		[self.dateEstablishedTextField setText:producer.dateEstablished.description];
 		[self.howDoYouMarketTextField setText:[(QuestionListItem *)[producer.questions anyObject] answer]];
-		[self.appointedDateTextField setText:producer.appointedDate.description];
 		[self.suspensionReasonTextField setText:producer.suspensionReason.name];
 		[self.statusTextField setText:producer.status.name];
-		[self.eligibleTextField setText:producer.isEligible.stringValue];
-		[self.statusDateTextField setText:producer.statusDate.description];
 		[self.reasonIneligibleTextField setText:producer.ineligibleReason.name];
 		[self.rater1TextField setText:producer.rater.name];
 		[self.rater2TextField setText:producer.rater2.name];
-		[self.sundayStopTextField setText:producer.hoursOfOperation.sundayCloseTime.description];
-		[self.saturdayStartTextField setText:producer.hoursOfOperation.saturdayOpenTime.description];
-		[self.mondayStopTextField setText:producer.hoursOfOperation.mondayCloseTime.description];
-		[self.tuesdayStopTextField setText:producer.hoursOfOperation.tuesdayCloseTime.description];
-		[self.thursdayStartTextField setText:producer.hoursOfOperation.thursdayOpenTime.description];
-		[self.fridayStopTextField setText:producer.hoursOfOperation.fridayCloseTime.description];
-		[self.wednesdayStartTextField setText:producer.hoursOfOperation.wednesdayOpenTime.description];
-		[self.fridayStartTextField setText:producer.hoursOfOperation.fridayOpenTime.description];
-		[self.thursdayStopTextField setText:producer.hoursOfOperation.thursdayCloseTime.description];
-		[self.wednesdayStopTextField setText:producer.hoursOfOperation.wednesdayCloseTime.description];
-		[self.tuesdayStartTextField setText:producer.hoursOfOperation.tuesdayOpenTime.description];
-		[self.saturdayStopTextField setText:producer.hoursOfOperation.saturdayCloseTime.description];
-		[self.sundayStartTextField setText:producer.hoursOfOperation.sundayOpenTime.description];
-		[self.mondayStartTextField setText:producer.hoursOfOperation.mondayOpenTime.description];
-		[self.numberOfEmployeesTextField setText:producer.numberOfEmployees.stringValue];
 		[self.websiteAddressTextField setText:producer.webAddress];
+		
+		// Text Fields with Date values
+		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+		[dateFormatter setDateFormat:@"MM-dd-yyyy"];
+		[self.eOExpiresTextField setText:[dateFormatter stringFromDate:producer.eAndOExpires]];
+		[self.dateEstablishedTextField setText:[dateFormatter stringFromDate:producer.dateEstablished]];
+		[self.appointedDateTextField setText:[dateFormatter stringFromDate:producer.appointedDate]];
+		[self.statusDateTextField setText:[dateFormatter stringFromDate:producer.statusDate]];
+		
+		// Text Fields with Time Values
+		NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+		[timeFormatter setDateFormat:@"HH:mm"];
+		[self.sundayStopTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.sundayCloseTime]];
+		[self.saturdayStartTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.saturdayOpenTime]];
+		[self.mondayStopTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.mondayCloseTime]];
+		[self.tuesdayStopTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.tuesdayCloseTime]];
+		[self.thursdayStartTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.thursdayOpenTime]];
+		[self.fridayStopTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.fridayCloseTime]];
+		[self.wednesdayStartTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.wednesdayOpenTime]];
+		[self.fridayStartTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.fridayOpenTime]];
+		[self.thursdayStopTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.thursdayCloseTime]];
+		[self.wednesdayStopTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.wednesdayCloseTime]];
+		[self.tuesdayStartTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.tuesdayOpenTime]];
+		[self.saturdayStopTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.saturdayCloseTime]];
+		[self.sundayStartTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.sundayOpenTime]];
+		[self.mondayStartTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.mondayOpenTime]];
+		
+		// Text Fields with Number Values
+		[self.numberOfLocationsTextField setText:producer.numberOfLocations.stringValue];
+		[self.numberOfEmployeesTextField setText:producer.numberOfEmployees.stringValue];
+		[self.subTerritoryTextField setText:producer.subTerritory.guid.stringValue];
+		
+		// Text Fields with BOOL Values
+		if (producer.hasAccessSignValue) {
+			[self.accessSignTextField setText:@"Yes"];
+		} else {
+			[self.accessSignTextField setText:@"No"];
+		}
+		if (producer.isEligibleValue) {
+			[self.eligibleTextField setText:@"Yes"];
+		} else {
+			[self.eligibleTextField setText:@"No"];
+		}
 		
 		/*
 		[self.firstNameTextField setText:];
@@ -1028,9 +1049,9 @@
 				[self.commissionStateTextField setText:address.state.name];
 				[self.commissionZipTextField setText:address.postalCode];
 			} else if (address.addressTypeValue == 3) {
-				[self.physicalStateTextField setText:address.addressLine1];
-				[self.physicalAddressTextField setText:address.city];
-				[self.physicalCityTextField setText:address.state.name];
+				[self.physicalAddressTextField setText:address.addressLine1];
+				[self.physicalCityTextField setText:address.city];
+				[self.physicalStateTextField setText:address.state.name];
 				[self.physicalZipTextField setText:address.postalCode];
 			}
 		}

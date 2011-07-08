@@ -40,13 +40,6 @@
 
 
 
-@dynamic address;
-
-
-
-
-
-
 @dynamic type;
 
 
@@ -73,18 +66,18 @@
 
 
 
-@dynamic guid;
+@dynamic address;
 
 
 
 
 
 
-@dynamic producer;
+@dynamic contact;
 
 	
 
-@dynamic contact;
+@dynamic producer;
 
 	
 

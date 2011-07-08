@@ -4,9 +4,8 @@
 #import <CoreData/CoreData.h>
 
 
-@class Producer;
 @class Contact;
-
+@class Producer;
 
 
 
@@ -22,12 +21,6 @@
 
 
 
-@property (nonatomic, retain) NSString *address;
-
-//- (BOOL)validateAddress:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) NSNumber *type;
 
 @property short typeValue;
@@ -38,20 +31,20 @@
 
 
 
-@property (nonatomic, retain) NSString *guid;
+@property (nonatomic, retain) NSString *address;
 
-//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateAddress:(id*)value_ error:(NSError**)error_;
 
-
-
-
-@property (nonatomic, retain) Producer* producer;
-//- (BOOL)validateProducer:(id*)value_ error:(NSError**)error_;
 
 
 
 @property (nonatomic, retain) Contact* contact;
 //- (BOOL)validateContact:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) Producer* producer;
+//- (BOOL)validateProducer:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -65,12 +58,6 @@
 @interface _EmailListItem (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveAddress;
-- (void)setPrimitiveAddress:(NSString*)value;
-
-
-
-
 - (NSNumber*)primitiveType;
 - (void)setPrimitiveType:(NSNumber*)value;
 
@@ -80,20 +67,20 @@
 
 
 
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
+- (NSString*)primitiveAddress;
+- (void)setPrimitiveAddress:(NSString*)value;
 
 
-
-
-
-- (Producer*)primitiveProducer;
-- (void)setPrimitiveProducer:(Producer*)value;
 
 
 
 - (Contact*)primitiveContact;
 - (void)setPrimitiveContact:(Contact*)value;
+
+
+
+- (Producer*)primitiveProducer;
+- (void)setPrimitiveProducer:(Producer*)value;
 
 
 @end

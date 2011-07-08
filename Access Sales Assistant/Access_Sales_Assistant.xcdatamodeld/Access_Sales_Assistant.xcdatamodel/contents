@@ -6,7 +6,6 @@
         <attribute name="addressLine3" optional="YES" attributeType="String"/>
         <attribute name="addressType" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="city" optional="YES" attributeType="String"/>
-        <attribute name="guid" optional="YES" attributeType="String"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0"/>
         <attribute name="postalCode" optional="YES" attributeType="String"/>
@@ -31,7 +30,6 @@
     </entity>
     <entity name="EmailListItem" representedClassName="EmailListItem">
         <attribute name="address" optional="YES" attributeType="String"/>
-        <attribute name="guid" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="emailList" inverseEntity="Contact"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="emails" inverseEntity="Producer"/>
@@ -57,7 +55,7 @@
         <relationship name="producer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="hoursOfOperation" inverseEntity="Producer"/>
     </entity>
     <entity name="IneligibleReason" representedClassName="IneligibleReason">
-        <attribute name="guid" optional="YES" attributeType="String"/>
+        <attribute name="guid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="producer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="ineligibleReason" inverseEntity="Producer"/>
         <userInfo>
@@ -65,7 +63,6 @@
         </userInfo>
     </entity>
     <entity name="PhoneListItem" representedClassName="PhoneListItem">
-        <attribute name="guid" optional="YES" attributeType="String"/>
         <attribute name="number" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="phoneList" inverseEntity="Contact"/>
@@ -78,10 +75,10 @@
         <attribute name="appointedDate" optional="YES" attributeType="Date"/>
         <attribute name="dateEstablished" optional="YES" attributeType="Date"/>
         <attribute name="eAndOExpires" optional="YES" attributeType="Date"/>
-        <attribute name="edited" optional="YES" attributeType="Boolean"/>
+        <attribute name="edited" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="guid" optional="YES" attributeType="String"/>
-        <attribute name="hasAccessSign" optional="YES" attributeType="Boolean"/>
-        <attribute name="isEligible" optional="YES" attributeType="Boolean"/>
+        <attribute name="hasAccessSign" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
+        <attribute name="isEligible" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="numberOfEmployees" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="numberOfLocations" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
@@ -115,7 +112,7 @@
         </userInfo>
     </entity>
     <entity name="Rater" representedClassName="Rater">
-        <attribute name="guid" optional="YES" attributeType="String"/>
+        <attribute name="guid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="rater2" inverseEntity="Producer"/>
         <userInfo>
@@ -123,7 +120,7 @@
         </userInfo>
     </entity>
     <entity name="State" representedClassName="State">
-        <attribute name="guid" optional="YES" attributeType="String"/>
+        <attribute name="guid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AddressListItem" inverseName="state" inverseEntity="AddressListItem"/>
         <userInfo>
@@ -139,15 +136,14 @@
         </userInfo>
     </entity>
     <entity name="SubTerritory" representedClassName="SubTerritory">
-        <attribute name="guid" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="guid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="producers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="subTerritory" inverseEntity="Producer"/>
         <userInfo>
             <entry key="id" value="guid"/>
         </userInfo>
     </entity>
     <entity name="SuspensionReason" representedClassName="SuspensionReason">
-        <attribute name="guid" optional="YES" attributeType="String"/>
+        <attribute name="guid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="producers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="suspensionReason" inverseEntity="Producer"/>
         <userInfo>
@@ -184,7 +180,7 @@
         <element name="Status" positionX="475" positionY="27" width="128" height="90"/>
         <element name="SubTerritory" positionX="628" positionY="135" width="128" height="90"/>
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="90"/>
-        <element name="Type" positionX="180" positionY="-45" width="128" height="90"/>
+        <element name="Type" positionX="27" positionY="270" width="128" height="90"/>
         <element name="User" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>
