@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D317E2513C7416900CD647E /* FeaturesAndBenefitsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D317E1F13C7416900CD647E /* FeaturesAndBenefitsViewController.xib */; };
+		6D317E2613C7416900CD647E /* FeaturesAndBenefitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D317E2013C7416900CD647E /* FeaturesAndBenefitsViewController.m */; };
+		6D317E2713C7416900CD647E /* StateSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D317E2313C7416900CD647E /* StateSelectionTableViewController.m */; };
+		6D317E2813C7416900CD647E /* FeaturesAndBenefits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D317E2413C7416900CD647E /* FeaturesAndBenefits.plist */; };
 		FF0A17DC13BC940D00ECF9F6 /* NSManagedObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */; };
 		FF0A17F713BC944E00ECF9F6 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E013BC944E00ECF9F6 /* CDataScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17F813BC944E00ECF9F6 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E313BC944E00ECF9F6 /* CFilteringJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -262,6 +266,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D317E1F13C7416900CD647E /* FeaturesAndBenefitsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeaturesAndBenefitsViewController.xib; sourceTree = "<group>"; };
+		6D317E2013C7416900CD647E /* FeaturesAndBenefitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesAndBenefitsViewController.m; sourceTree = "<group>"; };
+		6D317E2113C7416900CD647E /* FeaturesAndBenefitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesAndBenefitsViewController.h; sourceTree = "<group>"; };
+		6D317E2213C7416900CD647E /* StateSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateSelectionTableViewController.h; sourceTree = "<group>"; };
+		6D317E2313C7416900CD647E /* StateSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateSelectionTableViewController.m; sourceTree = "<group>"; };
+		6D317E2413C7416900CD647E /* FeaturesAndBenefits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeaturesAndBenefits.plist; sourceTree = "<group>"; };
 		FF0A17DA13BC940D00ECF9F6 /* NSManagedObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JSON.h"; sourceTree = "<group>"; };
 		FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+JSON.m"; sourceTree = "<group>"; };
 		FF0A17DF13BC944E00ECF9F6 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
@@ -1006,6 +1016,12 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				6D317E1F13C7416900CD647E /* FeaturesAndBenefitsViewController.xib */,
+				6D317E2013C7416900CD647E /* FeaturesAndBenefitsViewController.m */,
+				6D317E2113C7416900CD647E /* FeaturesAndBenefitsViewController.h */,
+				6D317E2213C7416900CD647E /* StateSelectionTableViewController.h */,
+				6D317E2313C7416900CD647E /* StateSelectionTableViewController.m */,
+				6D317E2413C7416900CD647E /* FeaturesAndBenefits.plist */,
 				FF71F52813C63112005CE1DA /* TableViewCells */,
 				FF77110013B257BF00E90F4B /* External */,
 				FF697AD713AFB8DA00B66202 /* Model Classes */,
@@ -1500,6 +1516,8 @@
 				FF71F54713C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib in Resources */,
 				FF71F54C13C64B76005CE1DA /* ProducerEmailTableViewCell.xib in Resources */,
 				FF71F55113C64E17005CE1DA /* ProducerHoursTableViewCell.xib in Resources */,
+				6D317E2513C7416900CD647E /* FeaturesAndBenefitsViewController.xib in Resources */,
+				6D317E2813C7416900CD647E /* FeaturesAndBenefits.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1631,6 +1649,8 @@
 				FF71F54513C648DA005CE1DA /* ProducerPhoneNumberTableViewCell.m in Sources */,
 				FF71F54A13C64B58005CE1DA /* ProducerEmailTableViewCell.m in Sources */,
 				FF71F54F13C64D19005CE1DA /* ProducerHoursTableViewCell.m in Sources */,
+				6D317E2613C7416900CD647E /* FeaturesAndBenefitsViewController.m in Sources */,
+				6D317E2713C7416900CD647E /* StateSelectionTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
