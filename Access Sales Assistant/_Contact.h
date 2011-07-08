@@ -14,10 +14,6 @@
 
 
 
-
-
-
-
 @interface ContactID : NSManagedObjectID {}
 @end
 
@@ -26,18 +22,6 @@
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (ContactID*)objectID;
-
-
-
-@property (nonatomic, retain) NSString *createdBy;
-
-//- (BOOL)validateCreatedBy:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *lastName;
-
-//- (BOOL)validateLastName:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -53,27 +37,15 @@
 
 
 
-@property (nonatomic, retain) NSString *updatedBy;
+@property (nonatomic, retain) NSString *lastName;
 
-//- (BOOL)validateUpdatedBy:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateLastName:(id*)value_ error:(NSError**)error_;
 
 
 
 @property (nonatomic, retain) NSString *ssn;
 
 //- (BOOL)validateSsn:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSDate *updatedDtm;
-
-//- (BOOL)validateUpdatedDtm:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSDate *createdDtm;
-
-//- (BOOL)validateCreatedDtm:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -118,18 +90,6 @@
 @interface _Contact (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveCreatedBy;
-- (void)setPrimitiveCreatedBy:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveLastName;
-- (void)setPrimitiveLastName:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveGuid;
 - (void)setPrimitiveGuid:(NSString*)value;
 
@@ -142,26 +102,14 @@
 
 
 
-- (NSString*)primitiveUpdatedBy;
-- (void)setPrimitiveUpdatedBy:(NSString*)value;
+- (NSString*)primitiveLastName;
+- (void)setPrimitiveLastName:(NSString*)value;
 
 
 
 
 - (NSString*)primitiveSsn;
 - (void)setPrimitiveSsn:(NSString*)value;
-
-
-
-
-- (NSDate*)primitiveUpdatedDtm;
-- (void)setPrimitiveUpdatedDtm:(NSDate*)value;
-
-
-
-
-- (NSDate*)primitiveCreatedDtm;
-- (void)setPrimitiveCreatedDtm:(NSDate*)value;
 
 
 

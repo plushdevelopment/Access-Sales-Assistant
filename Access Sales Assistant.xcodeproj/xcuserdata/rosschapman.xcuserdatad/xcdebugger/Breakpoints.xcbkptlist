@@ -37,25 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/VisitApplicationProfileViewController.m"
-         timestampString = "330975326.482599"
+         timestampString = "331754574.970187"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "383"
-         endingLineNumber = "383"
-         landmarkName = "-textFieldShouldEndEditing:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Access Sales Assistant/VisitApplicationProfileViewController.m"
-         timestampString = "330975326.482599"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "378"
-         endingLineNumber = "378"
+         startingLineNumber = "531"
+         endingLineNumber = "531"
          landmarkName = "-textFieldShouldClear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -65,25 +51,25 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/VisitApplicationProfileViewController.m"
-         timestampString = "330975326.482599"
+         timestampString = "331754574.970187"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "373"
-         endingLineNumber = "373"
+         startingLineNumber = "526"
+         endingLineNumber = "526"
          landmarkName = "-textFieldShouldBeginEditing:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/VisitApplicationProfileViewController.m"
-         timestampString = "330975326.482599"
+         timestampString = "331754574.970187"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "368"
-         endingLineNumber = "368"
+         startingLineNumber = "521"
+         endingLineNumber = "521"
          landmarkName = "-textFieldDidEndEditing:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -93,11 +79,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/VisitApplicationProfileViewController.m"
-         timestampString = "330975326.482599"
+         timestampString = "331754574.970187"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "363"
-         endingLineNumber = "363"
+         startingLineNumber = "386"
+         endingLineNumber = "386"
          landmarkName = "-textFieldDidBeginEditing:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -106,26 +92,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Access Sales Assistant/VisitApplicationProfileViewController.m"
-         timestampString = "330975326.482599"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "358"
-         endingLineNumber = "358"
-         landmarkName = "-textField:shouldChangeCharactersInRange:replacementString:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "Access Sales Assistant/AgenciesTableViewController.m"
-         timestampString = "331590272.8812"
+         timestampString = "331673137.877235"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -149,11 +121,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/AgenciesTableViewController.m"
-         timestampString = "331578913.228872"
+         timestampString = "331673137.877235"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
+         startingLineNumber = "44"
+         endingLineNumber = "44"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -163,12 +135,40 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/NSManagedObject+SafeSetValuesKeysWithDictionary.m"
-         timestampString = "331599077.914874"
+         timestampString = "331667188.104694"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
          landmarkName = "-safeSetValuesForKeysWithDictionary:dateFormatter:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Access Sales Assistant/AgenciesTableViewController.m"
+         timestampString = "331745989.134953"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "315"
+         endingLineNumber = "315"
+         landmarkName = "-requestFinished:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Access Sales Assistant/NSManagedObject+Additions.m"
+         timestampString = "331744170.977935"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "16"
+         endingLineNumber = "16"
+         landmarkName = "+ai_objectForProperty:value:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

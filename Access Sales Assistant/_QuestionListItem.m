@@ -36,13 +36,6 @@
 
 
 
-@dynamic text;
-
-
-
-
-
-
 @dynamic answer;
 
 
@@ -57,28 +50,7 @@
 
 
 
-@dynamic updatedBy;
-
-
-
-
-
-
-@dynamic createdBy;
-
-
-
-
-
-
-@dynamic updatedDtm;
-
-
-
-
-
-
-@dynamic createdDtm;
+@dynamic text;
 
 
 

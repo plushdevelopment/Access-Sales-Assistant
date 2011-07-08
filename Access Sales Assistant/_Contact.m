@@ -36,20 +36,6 @@
 
 
 
-@dynamic createdBy;
-
-
-
-
-
-
-@dynamic lastName;
-
-
-
-
-
-
 @dynamic guid;
 
 
@@ -64,7 +50,7 @@
 
 
 
-@dynamic updatedBy;
+@dynamic lastName;
 
 
 
@@ -72,20 +58,6 @@
 
 
 @dynamic ssn;
-
-
-
-
-
-
-@dynamic updatedDtm;
-
-
-
-
-
-
-@dynamic createdDtm;
 
 
 

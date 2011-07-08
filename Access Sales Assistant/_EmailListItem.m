@@ -40,6 +40,13 @@
 
 
 
+@dynamic address;
+
+
+
+
+
+
 @dynamic type;
 
 
@@ -67,41 +74,6 @@
 
 
 @dynamic guid;
-
-
-
-
-
-
-@dynamic address;
-
-
-
-
-
-
-@dynamic updatedBy;
-
-
-
-
-
-
-@dynamic createdDtm;
-
-
-
-
-
-
-@dynamic createdBy;
-
-
-
-
-
-
-@dynamic updatedDtm;
 
 
 

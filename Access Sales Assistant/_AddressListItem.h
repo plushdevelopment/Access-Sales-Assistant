@@ -4,12 +4,8 @@
 #import <CoreData/CoreData.h>
 
 
-@class State;
 @class Producer;
-
-
-
-
+@class State;
 
 
 
@@ -32,9 +28,13 @@
 
 
 
-@property (nonatomic, retain) NSString *city;
+@property (nonatomic, retain) NSNumber *addressType;
 
-//- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
+@property short addressTypeValue;
+- (short)addressTypeValue;
+- (void)setAddressTypeValue:(short)value_;
+
+//- (BOOL)validateAddressType:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -44,9 +44,21 @@
 
 
 
-@property (nonatomic, retain) NSDate *updatedDtm;
+@property (nonatomic, retain) NSString *guid;
 
-//- (BOOL)validateUpdatedDtm:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *city;
+
+//- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *addressLine1;
+
+//- (BOOL)validateAddressLine1:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -60,16 +72,6 @@
 
 
 
-@property (nonatomic, retain) NSNumber *addressType;
-
-@property short addressTypeValue;
-- (short)addressTypeValue;
-- (void)setAddressTypeValue:(short)value_;
-
-//- (BOOL)validateAddressType:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) NSNumber *latitude;
 
 @property double latitudeValue;
@@ -80,21 +82,9 @@
 
 
 
-@property (nonatomic, retain) NSString *addressLine1;
+@property (nonatomic, retain) NSString *addressLine3;
 
-//- (BOOL)validateAddressLine1:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSDate *createdDtm;
-
-//- (BOOL)validateCreatedDtm:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *guid;
-
-//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateAddressLine3:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -104,32 +94,14 @@
 
 
 
-@property (nonatomic, retain) NSString *createdBy;
 
-//- (BOOL)validateCreatedBy:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *addressLine3;
-
-//- (BOOL)validateAddressLine3:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *updatedBy;
-
-//- (BOOL)validateUpdatedBy:(id*)value_ error:(NSError**)error_;
-
+@property (nonatomic, retain) Producer* producer;
+//- (BOOL)validateProducer:(id*)value_ error:(NSError**)error_;
 
 
 
 @property (nonatomic, retain) State* state;
 //- (BOOL)validateState:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) Producer* producer;
-//- (BOOL)validateProducer:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -143,8 +115,11 @@
 @interface _AddressListItem (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveCity;
-- (void)setPrimitiveCity:(NSString*)value;
+- (NSNumber*)primitiveAddressType;
+- (void)setPrimitiveAddressType:(NSNumber*)value;
+
+- (short)primitiveAddressTypeValue;
+- (void)setPrimitiveAddressTypeValue:(short)value_;
 
 
 
@@ -155,8 +130,20 @@
 
 
 
-- (NSDate*)primitiveUpdatedDtm;
-- (void)setPrimitiveUpdatedDtm:(NSDate*)value;
+- (NSString*)primitiveGuid;
+- (void)setPrimitiveGuid:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveCity;
+- (void)setPrimitiveCity:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveAddressLine1;
+- (void)setPrimitiveAddressLine1:(NSString*)value;
 
 
 
@@ -170,50 +157,11 @@
 
 
 
-- (NSNumber*)primitiveAddressType;
-- (void)setPrimitiveAddressType:(NSNumber*)value;
-
-- (short)primitiveAddressTypeValue;
-- (void)setPrimitiveAddressTypeValue:(short)value_;
-
-
-
-
 - (NSNumber*)primitiveLatitude;
 - (void)setPrimitiveLatitude:(NSNumber*)value;
 
 - (double)primitiveLatitudeValue;
 - (void)setPrimitiveLatitudeValue:(double)value_;
-
-
-
-
-- (NSString*)primitiveAddressLine1;
-- (void)setPrimitiveAddressLine1:(NSString*)value;
-
-
-
-
-- (NSDate*)primitiveCreatedDtm;
-- (void)setPrimitiveCreatedDtm:(NSDate*)value;
-
-
-
-
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveAddressLine2;
-- (void)setPrimitiveAddressLine2:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveCreatedBy;
-- (void)setPrimitiveCreatedBy:(NSString*)value;
 
 
 
@@ -224,20 +172,20 @@
 
 
 
-- (NSString*)primitiveUpdatedBy;
-- (void)setPrimitiveUpdatedBy:(NSString*)value;
+- (NSString*)primitiveAddressLine2;
+- (void)setPrimitiveAddressLine2:(NSString*)value;
 
 
-
-
-
-- (State*)primitiveState;
-- (void)setPrimitiveState:(State*)value;
 
 
 
 - (Producer*)primitiveProducer;
 - (void)setPrimitiveProducer:(Producer*)value;
+
+
+
+- (State*)primitiveState;
+- (void)setPrimitiveState:(State*)value;
 
 
 @end

@@ -36,20 +36,6 @@
 
 
 
-@dynamic name;
-
-
-
-
-
-
-@dynamic updatedBy;
-
-
-
-
-
-
 @dynamic guid;
 
 
@@ -57,21 +43,7 @@
 
 
 
-@dynamic createdDtm;
-
-
-
-
-
-
-@dynamic createdBy;
-
-
-
-
-
-
-@dynamic updatedDtm;
+@dynamic name;
 
 
 

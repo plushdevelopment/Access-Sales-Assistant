@@ -9,26 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "DetailViewController.h"
 #import "VisitApplicationProfileViewController.h"
-#import "TestSensibleTableViewController.h"
 
 @interface VisitApplicationViewController : DetailViewController {
 	
 	UIView *activeVisitFormView;
-	UINavigationController *profileNavigationController;
 	VisitApplicationProfileViewController *profileApplicationViewController;
-	TestSensibleTableViewController *testViewController;
 
 }
 
 @property (nonatomic, strong) IBOutlet UIView *activeVisitFormView;
 
-@property (nonatomic, strong) IBOutlet UINavigationController *profileNavigationController;
-
 @property (nonatomic, strong) IBOutlet VisitApplicationProfileViewController *profileApplicationViewController;
+
+@property (nonatomic, strong) id detailItem;
 
 - (IBAction)loadApplicationForm:(id)sender;
 
 - (IBAction)submitApplicationForm:(id)sender;
 
+- (void)configureView;
 
 @end

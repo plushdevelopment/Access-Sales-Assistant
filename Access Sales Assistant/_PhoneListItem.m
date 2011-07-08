@@ -80,34 +80,6 @@
 
 
 
-@dynamic updatedBy;
-
-
-
-
-
-
-@dynamic updatedDtm;
-
-
-
-
-
-
-@dynamic createdDtm;
-
-
-
-
-
-
-@dynamic createdBy;
-
-
-
-
-
-
 @dynamic producer;
 
 	

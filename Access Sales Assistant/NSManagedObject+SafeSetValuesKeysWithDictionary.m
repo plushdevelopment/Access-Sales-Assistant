@@ -83,8 +83,6 @@
 		NSManagedObjectModel *model = [NSManagedObjectModel managedObjectModelNamed:@"Access_Sales_Assistant.momd"];
 		NSArray *entities = [model entities];
 		
-		
-		
 		for (NSEntityDescription *entityDescription in entities) {
 			if ([[[[relationships objectForKey:relationship] destinationEntity] name] isEqualToString:[entityDescription name]]) {
 				NSLog(@"Relationship: %@ Entity: %@", [[[relationships objectForKey:relationship] destinationEntity] name], [entityDescription name]);

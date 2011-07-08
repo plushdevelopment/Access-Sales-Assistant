@@ -18,10 +18,26 @@
 		FF0A17FE13BC944E00ECF9F6 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F113BC944E00ECF9F6 /* CJSONDeserializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17FF13BC944E00ECF9F6 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F313BC944E00ECF9F6 /* CJSONScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A180013BC944E00ECF9F6 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F513BC944E00ECF9F6 /* CJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF44A1BF13C4DBB100935944 /* HoursOfOperationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF44A1BE13C4DBB100935944 /* HoursOfOperationTableViewCell.m */; };
+		FF44A1C113C4DBE500935944 /* HoursOfOperationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF44A1C013C4DBE400935944 /* HoursOfOperationTableViewCell.xib */; };
 		FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF641CF113B9094400CC0B61 /* PickerViewController.m */; };
 		FF641CF413B9094400CC0B61 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF641CF213B9094400CC0B61 /* PickerViewController.xib */; };
 		FF697AD413AFB8D500B66202 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697AD113AFB8D500B66202 /* _User.m */; };
 		FF697AD513AFB8D500B66202 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697AD313AFB8D500B66202 /* User.m */; };
+		FF71F52C13C6314C005CE1DA /* ProducerGeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F52B13C6314C005CE1DA /* ProducerGeneralTableViewCell.m */; };
+		FF71F52E13C6316C005CE1DA /* ProducerGeneralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F52D13C6316C005CE1DA /* ProducerGeneralTableViewCell.xib */; };
+		FF71F53413C63CD5005CE1DA /* ProducerQuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F53313C63CD5005CE1DA /* ProducerQuestionTableViewCell.xib */; };
+		FF71F53713C63D24005CE1DA /* ProducerQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F53613C63D24005CE1DA /* ProducerQuestionTableViewCell.m */; };
+		FF71F53A13C63E6E005CE1DA /* ProducerStatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F53913C63E6E005CE1DA /* ProducerStatusTableViewCell.m */; };
+		FF71F53D13C63EA5005CE1DA /* ProducerStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F53C13C63EA5005CE1DA /* ProducerStatusTableViewCell.xib */; };
+		FF71F54013C64649005CE1DA /* ProducerRaterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F53F13C64649005CE1DA /* ProducerRaterTableViewCell.m */; };
+		FF71F54213C6467C005CE1DA /* ProducerRaterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F54113C6467C005CE1DA /* ProducerRaterTableViewCell.xib */; };
+		FF71F54513C648DA005CE1DA /* ProducerPhoneNumberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F54413C648D9005CE1DA /* ProducerPhoneNumberTableViewCell.m */; };
+		FF71F54713C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F54613C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib */; };
+		FF71F54A13C64B58005CE1DA /* ProducerEmailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F54913C64B57005CE1DA /* ProducerEmailTableViewCell.m */; };
+		FF71F54C13C64B76005CE1DA /* ProducerEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F54B13C64B76005CE1DA /* ProducerEmailTableViewCell.xib */; };
+		FF71F54F13C64D19005CE1DA /* ProducerHoursTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F54E13C64D18005CE1DA /* ProducerHoursTableViewCell.m */; };
+		FF71F55113C64E17005CE1DA /* ProducerHoursTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F55013C64E17005CE1DA /* ProducerHoursTableViewCell.xib */; };
 		FF77100B13B23DFC00E90F4B /* access-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77100413B23DFC00E90F4B /* access-logo.png */; };
 		FF77100C13B23DFC00E90F4B /* home-button.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77100513B23DFC00E90F4B /* home-button.png */; };
 		FF77100D13B23DFC00E90F4B /* icon-access-academy.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77100613B23DFC00E90F4B /* icon-access-academy.png */; };
@@ -151,8 +167,6 @@
 		FFAE77EA13BD001800183FA9 /* SCTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77DF13BD001800183FA9 /* SCTableViewModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FFAE77EB13BD001800183FA9 /* SCTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77E113BD001800183FA9 /* SCTableViewSection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FFAE77EC13BD001800183FA9 /* SCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77E313BD001800183FA9 /* SCViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FFAE77F613BD029800183FA9 /* TestSensibleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77F413BD029800183FA9 /* TestSensibleTableViewController.m */; };
-		FFAE77F713BD029800183FA9 /* TestSensibleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFAE77F513BD029800183FA9 /* TestSensibleTableViewController.xib */; };
 		FFC2814613BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812B13BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png */; };
 		FFC2814713BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812C13BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png */; };
 		FFC2814813BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812D13BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png */; };
@@ -189,6 +203,7 @@
 		FFC9534313AFCACE000967CB /* NSPersistentStore+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9533913AFCACE000967CB /* NSPersistentStore+ActiveRecord.m */; };
 		FFC9534413AFCACE000967CB /* NSPersistentStoreCoordinator+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9533B13AFCACE000967CB /* NSPersistentStoreCoordinator+ActiveRecord.m */; };
 		FFC9534513AFCACE000967CB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FFC9533C13AFCACE000967CB /* README.md */; };
+		FFCD8B2113C601D3008D8885 /* NSManagedObject+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD8B2013C601D3008D8885 /* NSManagedObject+Additions.m */; };
 		FFF0D00013BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */; };
 		FFF0D00513BB7ED7008DFA19 /* _Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00213BB7ED7008DFA19 /* _Producer.m */; };
 		FFF0D00613BB7ED7008DFA19 /* Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00413BB7ED7008DFA19 /* Producer.m */; };
@@ -270,6 +285,9 @@
 		FF0A17F413BC944E00ECF9F6 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		FF0A17F513BC944E00ECF9F6 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		FF0A17F613BC944E00ECF9F6 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		FF44A1BD13C4DBB100935944 /* HoursOfOperationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoursOfOperationTableViewCell.h; sourceTree = "<group>"; };
+		FF44A1BE13C4DBB100935944 /* HoursOfOperationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoursOfOperationTableViewCell.m; sourceTree = "<group>"; };
+		FF44A1C013C4DBE400935944 /* HoursOfOperationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoursOfOperationTableViewCell.xib; sourceTree = "<group>"; };
 		FF641CF013B9094400CC0B61 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		FF641CF113B9094400CC0B61 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		FF641CF213B9094400CC0B61 /* PickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
@@ -277,6 +295,27 @@
 		FF697AD113AFB8D500B66202 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
 		FF697AD213AFB8D500B66202 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		FF697AD313AFB8D500B66202 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		FF71F52A13C6314C005CE1DA /* ProducerGeneralTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerGeneralTableViewCell.h; sourceTree = "<group>"; };
+		FF71F52B13C6314C005CE1DA /* ProducerGeneralTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerGeneralTableViewCell.m; sourceTree = "<group>"; };
+		FF71F52D13C6316C005CE1DA /* ProducerGeneralTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerGeneralTableViewCell.xib; sourceTree = "<group>"; };
+		FF71F53313C63CD5005CE1DA /* ProducerQuestionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerQuestionTableViewCell.xib; sourceTree = "<group>"; };
+		FF71F53513C63D24005CE1DA /* ProducerQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerQuestionTableViewCell.h; sourceTree = "<group>"; };
+		FF71F53613C63D24005CE1DA /* ProducerQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerQuestionTableViewCell.m; sourceTree = "<group>"; };
+		FF71F53813C63E6E005CE1DA /* ProducerStatusTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerStatusTableViewCell.h; sourceTree = "<group>"; };
+		FF71F53913C63E6E005CE1DA /* ProducerStatusTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerStatusTableViewCell.m; sourceTree = "<group>"; };
+		FF71F53C13C63EA5005CE1DA /* ProducerStatusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerStatusTableViewCell.xib; sourceTree = "<group>"; };
+		FF71F53E13C64649005CE1DA /* ProducerRaterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerRaterTableViewCell.h; sourceTree = "<group>"; };
+		FF71F53F13C64649005CE1DA /* ProducerRaterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerRaterTableViewCell.m; sourceTree = "<group>"; };
+		FF71F54113C6467C005CE1DA /* ProducerRaterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerRaterTableViewCell.xib; sourceTree = "<group>"; };
+		FF71F54313C648D9005CE1DA /* ProducerPhoneNumberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerPhoneNumberTableViewCell.h; sourceTree = "<group>"; };
+		FF71F54413C648D9005CE1DA /* ProducerPhoneNumberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerPhoneNumberTableViewCell.m; sourceTree = "<group>"; };
+		FF71F54613C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerPhoneNumberTableViewCell.xib; sourceTree = "<group>"; };
+		FF71F54813C64B57005CE1DA /* ProducerEmailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerEmailTableViewCell.h; sourceTree = "<group>"; };
+		FF71F54913C64B57005CE1DA /* ProducerEmailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerEmailTableViewCell.m; sourceTree = "<group>"; };
+		FF71F54B13C64B76005CE1DA /* ProducerEmailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerEmailTableViewCell.xib; sourceTree = "<group>"; };
+		FF71F54D13C64D17005CE1DA /* ProducerHoursTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerHoursTableViewCell.h; sourceTree = "<group>"; };
+		FF71F54E13C64D18005CE1DA /* ProducerHoursTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerHoursTableViewCell.m; sourceTree = "<group>"; };
+		FF71F55013C64E17005CE1DA /* ProducerHoursTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerHoursTableViewCell.xib; sourceTree = "<group>"; };
 		FF77100413B23DFC00E90F4B /* access-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "access-logo.png"; sourceTree = "<group>"; };
 		FF77100513B23DFC00E90F4B /* home-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-button.png"; sourceTree = "<group>"; };
 		FF77100613B23DFC00E90F4B /* icon-access-academy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-access-academy.png"; sourceTree = "<group>"; };
@@ -452,9 +491,6 @@
 		FFAE77E113BD001800183FA9 /* SCTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTableViewSection.m; sourceTree = "<group>"; };
 		FFAE77E213BD001800183FA9 /* SCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCViewController.h; sourceTree = "<group>"; };
 		FFAE77E313BD001800183FA9 /* SCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCViewController.m; sourceTree = "<group>"; };
-		FFAE77F313BD029800183FA9 /* TestSensibleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSensibleTableViewController.h; sourceTree = "<group>"; };
-		FFAE77F413BD029800183FA9 /* TestSensibleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSensibleTableViewController.m; sourceTree = "<group>"; };
-		FFAE77F513BD029800183FA9 /* TestSensibleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestSensibleTableViewController.xib; sourceTree = "<group>"; };
 		FFC2812B13BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalRGB2.png; sourceTree = "<group>"; };
 		FFC2812C13BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalRGB3.png; sourceTree = "<group>"; };
 		FFC2812D13BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalwhite2.png; sourceTree = "<group>"; };
@@ -499,6 +535,8 @@
 		FFC9533A13AFCACE000967CB /* NSPersistentStoreCoordinator+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+ActiveRecord.h"; sourceTree = "<group>"; };
 		FFC9533B13AFCACE000967CB /* NSPersistentStoreCoordinator+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ActiveRecord.m"; sourceTree = "<group>"; };
 		FFC9533C13AFCACE000967CB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		FFCD8B1F13C601D3008D8885 /* NSManagedObject+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Additions.h"; sourceTree = "<group>"; };
+		FFCD8B2013C601D3008D8885 /* NSManagedObject+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Additions.m"; sourceTree = "<group>"; };
 		FFF0CFFE13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.h"; sourceTree = "<group>"; };
 		FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.m"; sourceTree = "<group>"; };
 		FFF0D00113BB7ED7008DFA19 /* _Producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Producer.h; sourceTree = "<group>"; };
@@ -770,6 +808,34 @@
 			name = "Machine Classes";
 			sourceTree = "<group>";
 		};
+		FF71F52813C63112005CE1DA /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				FF71F52A13C6314C005CE1DA /* ProducerGeneralTableViewCell.h */,
+				FF71F52B13C6314C005CE1DA /* ProducerGeneralTableViewCell.m */,
+				FF71F52D13C6316C005CE1DA /* ProducerGeneralTableViewCell.xib */,
+				FF71F53513C63D24005CE1DA /* ProducerQuestionTableViewCell.h */,
+				FF71F53613C63D24005CE1DA /* ProducerQuestionTableViewCell.m */,
+				FF71F53313C63CD5005CE1DA /* ProducerQuestionTableViewCell.xib */,
+				FF71F53813C63E6E005CE1DA /* ProducerStatusTableViewCell.h */,
+				FF71F53913C63E6E005CE1DA /* ProducerStatusTableViewCell.m */,
+				FF71F53C13C63EA5005CE1DA /* ProducerStatusTableViewCell.xib */,
+				FF71F53E13C64649005CE1DA /* ProducerRaterTableViewCell.h */,
+				FF71F53F13C64649005CE1DA /* ProducerRaterTableViewCell.m */,
+				FF71F54113C6467C005CE1DA /* ProducerRaterTableViewCell.xib */,
+				FF71F54313C648D9005CE1DA /* ProducerPhoneNumberTableViewCell.h */,
+				FF71F54413C648D9005CE1DA /* ProducerPhoneNumberTableViewCell.m */,
+				FF71F54613C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib */,
+				FF71F54813C64B57005CE1DA /* ProducerEmailTableViewCell.h */,
+				FF71F54913C64B57005CE1DA /* ProducerEmailTableViewCell.m */,
+				FF71F54B13C64B76005CE1DA /* ProducerEmailTableViewCell.xib */,
+				FF71F54D13C64D17005CE1DA /* ProducerHoursTableViewCell.h */,
+				FF71F54E13C64D18005CE1DA /* ProducerHoursTableViewCell.m */,
+				FF71F55013C64E17005CE1DA /* ProducerHoursTableViewCell.xib */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
 		FF77100213B23DE500E90F4B /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -940,6 +1006,7 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				FF71F52813C63112005CE1DA /* TableViewCells */,
 				FF77110013B257BF00E90F4B /* External */,
 				FF697AD713AFB8DA00B66202 /* Model Classes */,
 				FFFB3C5813ABE4210063E374 /* Core Graphics Table View */,
@@ -1134,6 +1201,8 @@
 				FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */,
 				FF0A17DA13BC940D00ECF9F6 /* NSManagedObject+JSON.h */,
 				FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */,
+				FFCD8B1F13C601D3008D8885 /* NSManagedObject+Additions.h */,
+				FFCD8B2013C601D3008D8885 /* NSManagedObject+Additions.m */,
 			);
 			name = "Core Data JSON Categories";
 			sourceTree = "<group>";
@@ -1255,9 +1324,9 @@
 				FF641CF013B9094400CC0B61 /* PickerViewController.h */,
 				FF641CF113B9094400CC0B61 /* PickerViewController.m */,
 				FF641CF213B9094400CC0B61 /* PickerViewController.xib */,
-				FFAE77F313BD029800183FA9 /* TestSensibleTableViewController.h */,
-				FFAE77F413BD029800183FA9 /* TestSensibleTableViewController.m */,
-				FFAE77F513BD029800183FA9 /* TestSensibleTableViewController.xib */,
+				FF44A1BD13C4DBB100935944 /* HoursOfOperationTableViewCell.h */,
+				FF44A1BE13C4DBB100935944 /* HoursOfOperationTableViewCell.m */,
+				FF44A1C013C4DBE400935944 /* HoursOfOperationTableViewCell.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1423,7 +1492,14 @@
 				FFC2815E13BCAC2C00CA3ABB /* total access bar.png in Resources */,
 				FFC2815F13BCAC2C00CA3ABB /* total access bar.psd in Resources */,
 				FFC2816013BCAC2C00CA3ABB /* visit application icons.psd in Resources */,
-				FFAE77F713BD029800183FA9 /* TestSensibleTableViewController.xib in Resources */,
+				FF44A1C113C4DBE500935944 /* HoursOfOperationTableViewCell.xib in Resources */,
+				FF71F52E13C6316C005CE1DA /* ProducerGeneralTableViewCell.xib in Resources */,
+				FF71F53413C63CD5005CE1DA /* ProducerQuestionTableViewCell.xib in Resources */,
+				FF71F53D13C63EA5005CE1DA /* ProducerStatusTableViewCell.xib in Resources */,
+				FF71F54213C6467C005CE1DA /* ProducerRaterTableViewCell.xib in Resources */,
+				FF71F54713C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib in Resources */,
+				FF71F54C13C64B76005CE1DA /* ProducerEmailTableViewCell.xib in Resources */,
+				FF71F55113C64E17005CE1DA /* ProducerHoursTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1546,7 +1622,15 @@
 				FFAE77EA13BD001800183FA9 /* SCTableViewModel.m in Sources */,
 				FFAE77EB13BD001800183FA9 /* SCTableViewSection.m in Sources */,
 				FFAE77EC13BD001800183FA9 /* SCViewController.m in Sources */,
-				FFAE77F613BD029800183FA9 /* TestSensibleTableViewController.m in Sources */,
+				FF44A1BF13C4DBB100935944 /* HoursOfOperationTableViewCell.m in Sources */,
+				FFCD8B2113C601D3008D8885 /* NSManagedObject+Additions.m in Sources */,
+				FF71F52C13C6314C005CE1DA /* ProducerGeneralTableViewCell.m in Sources */,
+				FF71F53713C63D24005CE1DA /* ProducerQuestionTableViewCell.m in Sources */,
+				FF71F53A13C63E6E005CE1DA /* ProducerStatusTableViewCell.m in Sources */,
+				FF71F54013C64649005CE1DA /* ProducerRaterTableViewCell.m in Sources */,
+				FF71F54513C648DA005CE1DA /* ProducerPhoneNumberTableViewCell.m in Sources */,
+				FF71F54A13C64B58005CE1DA /* ProducerEmailTableViewCell.m in Sources */,
+				FF71F54F13C64D19005CE1DA /* ProducerHoursTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

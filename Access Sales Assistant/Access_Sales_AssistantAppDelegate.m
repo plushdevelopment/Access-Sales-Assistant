@@ -40,6 +40,7 @@
 	self.splitViewController = [[UISplitViewController alloc] init];
 	self.splitViewController.delegate = detailViewController;
 	self.splitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
+	controller.detailViewController = detailViewController;
 	self.window.rootViewController = self.splitViewController;
     [self.window makeKeyAndVisible];
 	

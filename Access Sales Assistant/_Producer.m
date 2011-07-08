@@ -29,6 +29,10 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"editedValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"edited"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"isEligibleValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"isEligible"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -59,28 +63,33 @@
 
 
 
-@dynamic updatedBy;
+@dynamic edited;
 
 
 
+- (BOOL)editedValue {
+	NSNumber *result = [self edited];
+	return [result boolValue];
+}
 
+- (void)setEditedValue:(BOOL)value_ {
+	[self setEdited:[NSNumber numberWithBool:value_]];
+}
 
+- (BOOL)primitiveEditedValue {
+	NSNumber *result = [self primitiveEdited];
+	return [result boolValue];
+}
 
-@dynamic updatedDtm;
-
+- (void)setPrimitiveEditedValue:(BOOL)value_ {
+	[self setPrimitiveEdited:[NSNumber numberWithBool:value_]];
+}
 
 
 
 
 
 @dynamic dateEstablished;
-
-
-
-
-
-
-@dynamic createdDtm;
 
 
 
@@ -160,13 +169,6 @@
 
 
 
-@dynamic createdBy;
-
-
-
-
-
-
 @dynamic name;
 
 
@@ -214,6 +216,13 @@
 
 
 
+@dynamic appointedDate;
+
+
+
+
+
+
 @dynamic numberOfEmployees;
 
 
@@ -235,13 +244,6 @@
 - (void)setPrimitiveNumberOfEmployeesValue:(short)value_ {
 	[self setPrimitiveNumberOfEmployees:[NSNumber numberWithShort:value_]];
 }
-
-
-
-
-
-@dynamic appointedDate;
-
 
 
 
@@ -322,11 +324,11 @@
 }
 	
 
-@dynamic rater;
+@dynamic status;
 
 	
 
-@dynamic status;
+@dynamic rater;
 
 	
 

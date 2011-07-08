@@ -14,11 +14,8 @@
 @class AddressListItem;
 @class EmailListItem;
 @class PhoneListItem;
-@class Rater;
 @class Status;
-
-
-
+@class Rater;
 
 
 
@@ -52,27 +49,19 @@
 
 
 
-@property (nonatomic, retain) NSString *updatedBy;
+@property (nonatomic, retain) NSNumber *edited;
 
-//- (BOOL)validateUpdatedBy:(id*)value_ error:(NSError**)error_;
+@property BOOL editedValue;
+- (BOOL)editedValue;
+- (void)setEditedValue:(BOOL)value_;
 
-
-
-@property (nonatomic, retain) NSDate *updatedDtm;
-
-//- (BOOL)validateUpdatedDtm:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateEdited:(id*)value_ error:(NSError**)error_;
 
 
 
 @property (nonatomic, retain) NSDate *dateEstablished;
 
 //- (BOOL)validateDateEstablished:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSDate *createdDtm;
-
-//- (BOOL)validateCreatedDtm:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -114,12 +103,6 @@
 
 
 
-@property (nonatomic, retain) NSString *createdBy;
-
-//- (BOOL)validateCreatedBy:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) NSString *name;
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
@@ -148,6 +131,12 @@
 
 
 
+@property (nonatomic, retain) NSDate *appointedDate;
+
+//- (BOOL)validateAppointedDate:(id*)value_ error:(NSError**)error_;
+
+
+
 @property (nonatomic, retain) NSNumber *numberOfEmployees;
 
 @property short numberOfEmployeesValue;
@@ -155,12 +144,6 @@
 - (void)setNumberOfEmployeesValue:(short)value_;
 
 //- (BOOL)validateNumberOfEmployees:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSDate *appointedDate;
-
-//- (BOOL)validateAppointedDate:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -215,13 +198,13 @@
 
 
 
-@property (nonatomic, retain) Rater* rater;
-//- (BOOL)validateRater:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) Status* status;
 //- (BOOL)validateStatus:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) Rater* rater;
+//- (BOOL)validateRater:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -266,26 +249,17 @@
 
 
 
-- (NSString*)primitiveUpdatedBy;
-- (void)setPrimitiveUpdatedBy:(NSString*)value;
+- (NSNumber*)primitiveEdited;
+- (void)setPrimitiveEdited:(NSNumber*)value;
 
-
-
-
-- (NSDate*)primitiveUpdatedDtm;
-- (void)setPrimitiveUpdatedDtm:(NSDate*)value;
+- (BOOL)primitiveEditedValue;
+- (void)setPrimitiveEditedValue:(BOOL)value_;
 
 
 
 
 - (NSDate*)primitiveDateEstablished;
 - (void)setPrimitiveDateEstablished:(NSDate*)value;
-
-
-
-
-- (NSDate*)primitiveCreatedDtm;
-- (void)setPrimitiveCreatedDtm:(NSDate*)value;
 
 
 
@@ -326,12 +300,6 @@
 
 
 
-- (NSString*)primitiveCreatedBy;
-- (void)setPrimitiveCreatedBy:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
 
@@ -359,17 +327,17 @@
 
 
 
+- (NSDate*)primitiveAppointedDate;
+- (void)setPrimitiveAppointedDate:(NSDate*)value;
+
+
+
+
 - (NSNumber*)primitiveNumberOfEmployees;
 - (void)setPrimitiveNumberOfEmployees:(NSNumber*)value;
 
 - (short)primitiveNumberOfEmployeesValue;
 - (void)setPrimitiveNumberOfEmployeesValue:(short)value_;
-
-
-
-
-- (NSDate*)primitiveAppointedDate;
-- (void)setPrimitiveAppointedDate:(NSDate*)value;
 
 
 
@@ -425,13 +393,13 @@
 
 
 
-- (Rater*)primitiveRater;
-- (void)setPrimitiveRater:(Rater*)value;
-
-
-
 - (Status*)primitiveStatus;
 - (void)setPrimitiveStatus:(Status*)value;
+
+
+
+- (Rater*)primitiveRater;
+- (void)setPrimitiveRater:(Rater*)value;
 
 
 @end

@@ -198,9 +198,11 @@
 @property (nonatomic, strong) IBOutlet UIButton *numberOfEmployeesButton;
 @property (nonatomic, strong) IBOutlet UIButton *titleButton;
 
+@property (nonatomic, strong) id detailItem;
 
 
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
+- (void)configureView;
 
 @end

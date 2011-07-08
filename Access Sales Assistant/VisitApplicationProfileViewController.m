@@ -7,6 +7,21 @@
 //
 
 #import "VisitApplicationProfileViewController.h"
+#import "Producer.h"
+#import "QuestionListItem.h"
+#import "SubTerritory.h"
+#import "SuspensionReason.h"
+#import "AddressListItem.h"
+#import "Contact.h"
+#import "EmailListItem.h"
+#import "HoursOfOperation.h"
+#import "IneligibleReason.h"
+#import "PhoneListItem.h"
+#import "QuestionListItem.h"
+#import "Rater.h"
+#import "State.h"
+#import "Status.h"
+#import "Type.h"
 
 #define PRODUCER_CODE					0
 #define SUB_TERRITORY					1
@@ -164,6 +179,7 @@
 @synthesize numberOfEmployeesButton;
 @synthesize titleButton;
 
+@synthesize detailItem=_detailItem;
 
 #pragma mark -
 #pragma mark IBActions
@@ -357,6 +373,11 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+	Producer *producer = (Producer *)self.detailItem;
+	if (!producer.editedValue) {
+		producer.editedValue = YES;
+		[[NSManagedObjectContext defaultContext] save];
+	}
 	return YES;
 }
 
@@ -367,7 +388,137 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-	
+	Producer *producer = (Producer *)self.detailItem;
+	if (producer.editedValue) {
+		switch (textField.tag) {
+			case PRODUCER_CODE:
+				producer.producerCode = textField.text;
+				break;
+			case PRODUCER_NAME:
+				producer.name = textField.text;
+				break;
+			case NUMBER_OF_LOCATIONS:
+				producer.numberOfLocationsValue = [textField.text integerValue];
+				break;
+			case HOW_DO_YOU_MARKET_YOUR_AGENCY:
+				[(QuestionListItem *)[producer.questions anyObject] setAnswer:textField.text];
+				break;
+			case PHONE_1:
+				for (PhoneListItem *phoneNumber in producer.phoneNumbers) {
+					if (phoneNumber.typeValue == 3) {
+						phoneNumber.number = textField.text;
+					}
+				}
+				break;
+			case ACCOUNTING_EMAIL:
+				for (EmailListItem *email in producer.emails) {
+					if (email.typeValue == 3) {
+						email.address = textField.text;
+					}
+				}
+				break;
+			case FAX_1:
+				for (PhoneListItem *phoneNumber in producer.phoneNumbers) {
+					if (phoneNumber.typeValue == 4) {
+						phoneNumber.number = textField.text;
+					}
+				}
+				break;
+			case CUSTOMER_SERVICE_EMAIL:
+				for (EmailListItem *email in producer.emails) {
+					if (email.typeValue == 4) {
+						email.address = textField.text;
+					}
+				}
+				break;
+			case MAIN_EMAIL:
+				for (EmailListItem *email in producer.emails) {
+					if (email.typeValue == 1) {
+						email.address = textField.text;
+					}
+				}
+				break;
+			case WEBSITE_ADDRESS:
+				producer.webAddress = textField.text;
+				break;
+			case CLAIMS_EMAIL:
+				for (EmailListItem *email in producer.emails) {
+					if (email.typeValue == 2) {
+						email.address = textField.text;
+					}
+				}
+				break;
+			case MAILING_ADDRESS:
+				for (AddressListItem *address in producer.addresses) {
+					if (address.addressTypeValue == 1) {
+						address.addressLine1 = textField.text;
+					}
+				}
+				break;
+			case MAILING_CITY:
+				for (AddressListItem *address in producer.addresses) {
+					if (address.addressTypeValue == 1) {
+						address.city = textField.text;
+					}
+				}
+				break;
+			case MAILING_ZIP:
+				for (AddressListItem *address in producer.addresses) {
+					if (address.addressTypeValue == 1) {
+						address.postalCode = textField.text;
+					}
+				}
+				break;
+			case COMMISSION_ADDRESS:
+				for (AddressListItem *address in producer.addresses) {
+					if (address.addressTypeValue == 2) {
+						address.addressLine1 = textField.text;
+					}
+				}
+				break;
+			case COMMISSION_CITY:
+				for (AddressListItem *address in producer.addresses) {
+					if (address.addressTypeValue == 2) {
+						address.city = textField.text;
+					}
+				}
+				break;
+			case COMMISSION_ZIP:
+				for (AddressListItem *address in producer.addresses) {
+					if (address.addressTypeValue == 2) {
+						address.postalCode = textField.text;
+					}
+				}
+				break;
+			case PHYSICAL_ADDRESS:
+				for (AddressListItem *address in producer.addresses) {
+					if (address.addressTypeValue == 3) {
+						address.addressLine1 = textField.text;
+					}
+				}
+				break;
+			case PHYSICAL_CITY:
+				for (AddressListItem *address in producer.addresses) {
+					if (address.addressTypeValue == 3) {
+						address.city = textField.text;
+					}
+				}
+				break;
+			case PHYSICAL_ZIP:
+				for (AddressListItem *address in producer.addresses) {
+					if (address.addressTypeValue == 3) {
+						address.postalCode = textField.text;
+					}
+				}
+				break;
+			case NUMBER_OF_EMPLOYEES:
+				producer.numberOfEmployeesValue = [textField.text integerValue];
+				break;
+			default:
+				break;
+		}
+		[[NSManagedObjectContext defaultContext] save];
+	}
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -413,6 +564,9 @@
 // Set the appropriate value for a text field based on what the current tag is
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+	[self.detailItem setValue:[NSNumber numberWithBool:YES] forKey:@"edited"];
+	[[NSManagedObjectContext defaultContext] save];
+	
 	switch (self.pickerViewController.currentTag) {
 		case SUB_TERRITORY:
 			self.subTerritoryTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
@@ -536,6 +690,9 @@
 
 - (void)didChangeDate:(NSDate *)toDate forTag:(NSInteger)tag
 {
+	[self.detailItem setValue:[NSNumber numberWithBool:YES] forKey:@"edited"];
+	[[NSManagedObjectContext defaultContext] save];
+	
 	switch (tag) {
 		case EO_EXPIRES:
 			self.eOExpiresTextField.text = [toDate description];
@@ -786,6 +943,122 @@
 - (void)previousField:(NSInteger)currentTag
 {
 	
+}
+
+#pragma mark -
+#pragma mark Detail item
+
+#pragma mark - Managing the detail item
+
+- (void)setDetailItem:(id)newDetailItem
+{
+	if (self.detailItem) {
+		if ([self.detailItem valueForKey:@"editedValue"]) {
+			[[NSManagedObjectContext defaultContext] save];
+		}
+	}
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+        
+        // Update the view.
+        [self configureView];
+    }
+	
+    if (self.aPopoverController != nil) {
+        [self.aPopoverController dismissPopoverAnimated:YES];
+    }        
+}
+
+- (void)configureView
+{
+    // Update the user interface for the detail item.
+	if (self.detailItem) {
+	    NSLog(@"%@", self.detailItem);
+		Producer *producer = (Producer *)self.detailItem;
+		
+		[self.producerNameTextField setText:producer.name];
+		[self.producerCodeTextField setText:producer.producerCode];
+		[self.subTerritoryTextField setText:producer.subTerritory.name];
+		[self.eOExpiresTextField setText:producer.eAndOExpires.description];
+		[self.numberOfLocationsTextField setText:producer.numberOfLocations.stringValue];
+		[self.accessSignTextField setText:producer.hasAccessSign.stringValue];
+		[self.dateEstablishedTextField setText:producer.dateEstablished.description];
+		[self.howDoYouMarketTextField setText:[(QuestionListItem *)[producer.questions anyObject] answer]];
+		[self.appointedDateTextField setText:producer.appointedDate.description];
+		[self.suspensionReasonTextField setText:producer.suspensionReason.name];
+		[self.statusTextField setText:producer.status.name];
+		[self.eligibleTextField setText:producer.isEligible.stringValue];
+		[self.statusDateTextField setText:producer.statusDate.description];
+		[self.reasonIneligibleTextField setText:producer.ineligibleReason.name];
+		[self.rater1TextField setText:producer.rater.name];
+		[self.rater2TextField setText:producer.rater2.name];
+		[self.sundayStopTextField setText:producer.hoursOfOperation.sundayCloseTime.description];
+		[self.saturdayStartTextField setText:producer.hoursOfOperation.saturdayOpenTime.description];
+		[self.mondayStopTextField setText:producer.hoursOfOperation.mondayCloseTime.description];
+		[self.tuesdayStopTextField setText:producer.hoursOfOperation.tuesdayCloseTime.description];
+		[self.thursdayStartTextField setText:producer.hoursOfOperation.thursdayOpenTime.description];
+		[self.fridayStopTextField setText:producer.hoursOfOperation.fridayCloseTime.description];
+		[self.wednesdayStartTextField setText:producer.hoursOfOperation.wednesdayOpenTime.description];
+		[self.fridayStartTextField setText:producer.hoursOfOperation.fridayOpenTime.description];
+		[self.thursdayStopTextField setText:producer.hoursOfOperation.thursdayCloseTime.description];
+		[self.wednesdayStopTextField setText:producer.hoursOfOperation.wednesdayCloseTime.description];
+		[self.tuesdayStartTextField setText:producer.hoursOfOperation.tuesdayOpenTime.description];
+		[self.saturdayStopTextField setText:producer.hoursOfOperation.saturdayCloseTime.description];
+		[self.sundayStartTextField setText:producer.hoursOfOperation.sundayOpenTime.description];
+		[self.mondayStartTextField setText:producer.hoursOfOperation.mondayOpenTime.description];
+		[self.numberOfEmployeesTextField setText:producer.numberOfEmployees.stringValue];
+		[self.websiteAddressTextField setText:producer.webAddress];
+		
+		/*
+		[self.firstNameTextField setText:];
+		[self.lastNameTextField setText:];
+		[self.titleTextField setText:];
+		[self.socialSecurityNumberTextField setText:];
+		*/
+		
+		for (AddressListItem *address in producer.addresses) {
+			if (address.addressTypeValue == 1) {
+				[self.mailingAddressTextField setText:address.addressLine1];
+				[self.mailingCityTextField setText:address.city];
+				[self.mailingStateTextField setText:address.state.name];
+				[self.mailingZipTextField setText:address.postalCode];
+			} else if (address.addressTypeValue == 2) {
+				[self.commissionAddressTextField setText:address.addressLine1];
+				[self.commissionCityTextField setText:address.city];
+				[self.commissionStateTextField setText:address.state.name];
+				[self.commissionZipTextField setText:address.postalCode];
+			} else if (address.addressTypeValue == 3) {
+				[self.physicalStateTextField setText:address.addressLine1];
+				[self.physicalAddressTextField setText:address.city];
+				[self.physicalCityTextField setText:address.state.name];
+				[self.physicalZipTextField setText:address.postalCode];
+			}
+		}
+		for (PhoneListItem *phoneNumber in producer.phoneNumbers) {
+			if (phoneNumber.typeValue == 1) {
+				[self.mobilePhoneTextField setText:phoneNumber.number];
+			} else if (phoneNumber.typeValue == 2) {
+				[self.fax2TextField setText:phoneNumber.number];
+			} else if (phoneNumber.typeValue == 3) {
+				[self.phone1TextField setText:phoneNumber.number];
+			} else if (phoneNumber.typeValue == 4) {
+				[self.fax1TextField setText:phoneNumber.number];
+			}
+		}
+		for (EmailListItem *email in producer.emails) {
+			if (email.typeValue == 1) {
+				[self.emailAddressTextField setText:email.address];
+			} else if (email.typeValue == 2) {
+				[self.accountingEmailTextField setText:email.address];
+			} else if (email.typeValue == 3) {
+				[self.mainEmailTextField setText:email.address];
+			} else if (email.typeValue == 4) {
+				[self.customerServiceEmailTextField setText:email.address];
+			} else if (email.typeValue == 5) {
+				[self.claimsEmailTextField setText:email.address];
+			}
+		}
+	}
 }
 
 @end

@@ -18,6 +18,8 @@
 
 @synthesize profileApplicationViewController;
 
+@synthesize detailItem=_detailItem;
+
 - (IBAction)loadApplicationForm:(id)sender
 {
 	UIButton *button = (UIButton *)sender;
@@ -52,10 +54,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	self.activeVisitFormView.contentSize = CGSizeMake(768.0, 1500.0);
-	//[self.activeVisitFormView addSubview:profileApplicationViewController.view];
-	[self
-	[self.activeVisitFormView addSubview:testViewController.view];
+	[self.activeVisitFormView addSubview:profileApplicationViewController.view];
+	float contentWidth = self.activeVisitFormView.frame.size.width;
+	[(UIScrollView *)profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
+	profileApplicationViewController.detailItem = self.detailItem;
 }
 
 - (void)viewDidUnload
@@ -71,6 +73,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
+	[self.profileApplicationViewController shouldAutorotateToInterfaceOrientation:interfaceOrientation];
 	return YES;
 }
 
@@ -94,5 +97,29 @@
     self.popoverController = nil;
 }
 
+#pragma mark - Managing the detail item
+
+- (void)setDetailItem:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+        
+        // Update the view.
+        [self configureView];
+    }
+	
+    if (self.popoverController != nil) {
+        [self.popoverController dismissPopoverAnimated:YES];
+    }        
+}
+
+- (void)configureView
+{
+    // Update the user interface for the detail item.
+	
+	if (self.detailItem) {
+	    [profileApplicationViewController setDetailItem:self.detailItem];
+	}
+}
 
 @end

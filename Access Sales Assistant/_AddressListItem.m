@@ -29,12 +29,12 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"longitudeValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"longitude"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
 	if ([key isEqualToString:@"addressTypeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"addressType"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"longitudeValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"longitude"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 	if ([key isEqualToString:@"latitudeValue"]) {
@@ -48,8 +48,27 @@
 
 
 
-@dynamic city;
+@dynamic addressType;
 
+
+
+- (short)addressTypeValue {
+	NSNumber *result = [self addressType];
+	return [result shortValue];
+}
+
+- (void)setAddressTypeValue:(short)value_ {
+	[self setAddressType:[NSNumber numberWithShort:value_]];
+}
+
+- (short)primitiveAddressTypeValue {
+	NSNumber *result = [self primitiveAddressType];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveAddressTypeValue:(short)value_ {
+	[self setPrimitiveAddressType:[NSNumber numberWithShort:value_]];
+}
 
 
 
@@ -62,7 +81,21 @@
 
 
 
-@dynamic updatedDtm;
+@dynamic guid;
+
+
+
+
+
+
+@dynamic city;
+
+
+
+
+
+
+@dynamic addressLine1;
 
 
 
@@ -95,32 +128,6 @@
 
 
 
-@dynamic addressType;
-
-
-
-- (short)addressTypeValue {
-	NSNumber *result = [self addressType];
-	return [result shortValue];
-}
-
-- (void)setAddressTypeValue:(short)value_ {
-	[self setAddressType:[NSNumber numberWithShort:value_]];
-}
-
-- (short)primitiveAddressTypeValue {
-	NSNumber *result = [self primitiveAddressType];
-	return [result shortValue];
-}
-
-- (void)setPrimitiveAddressTypeValue:(short)value_ {
-	[self setPrimitiveAddressType:[NSNumber numberWithShort:value_]];
-}
-
-
-
-
-
 @dynamic latitude;
 
 
@@ -147,21 +154,7 @@
 
 
 
-@dynamic addressLine1;
-
-
-
-
-
-
-@dynamic createdDtm;
-
-
-
-
-
-
-@dynamic guid;
+@dynamic addressLine3;
 
 
 
@@ -175,32 +168,11 @@
 
 
 
-@dynamic createdBy;
-
-
-
-
-
-
-@dynamic addressLine3;
-
-
-
-
-
-
-@dynamic updatedBy;
-
-
-
-
-
-
-@dynamic state;
+@dynamic producer;
 
 	
 
-@dynamic producer;
+@dynamic state;
 
 	
 

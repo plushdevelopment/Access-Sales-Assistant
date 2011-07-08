@@ -7,6 +7,7 @@
 //
 
 #import "AgenciesTableViewController.h"
+#import "DetailViewController.h"
 #import "User.h"
 #import "JSON.h"
 #import "Producer.h"
@@ -16,6 +17,8 @@
 @end
 
 @implementation AgenciesTableViewController
+
+@synthesize detailViewController=_detailViewController;
 
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
@@ -41,10 +44,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
 	// Do any additional setup after loading the view, typically from a nib.
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=1&pageSize=50&partialLoad=false&token=%@", [[User findFirst] token]];
-	//NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Picklist?type=status&token=%@", [[User findFirst] token]];
-	//NSString *escapedString = [urlString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=1&pageSize=10&partialLoad=false&token=%@", [[User findFirst] token]];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -155,7 +157,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    Producer *producer = [[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
+	[self.detailViewController setDetailItem:producer];
 }
 
 #pragma mark - Fetched results controller
@@ -308,6 +311,7 @@
 	NSString *responseString = [request responseString];
 	NSLog(@"Response String: %@", responseString);
 	
+	/*
 	NSArray *array = [Producer findAll];
 	for (Producer *prod in array) {
 		BOOL success = [prod deleteInContext:self.managedObjectContext];
@@ -315,13 +319,17 @@
 			NSLog(@"Delete was unsuccessful");
 		}
 	}
-	
+	*/
+	 
 	NSArray *results = [[responseString JSONValue] objectForKey:@"results"];
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
 	for (NSDictionary *dict in results) {
-		Producer *producer = [Producer createEntity];
-		[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter];
+		Producer *producer = [Producer ai_objectForProperty:@"guid" value:[dict valueForKey:@"id"]];
+		if (!producer.editedValue) {
+			[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter];
+		}
+		
 	}
 	[self.managedObjectContext save];
 }
