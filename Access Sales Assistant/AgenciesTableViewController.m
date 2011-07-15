@@ -46,14 +46,6 @@
     [super viewDidLoad];
 	
 	// Do any additional setup after loading the view, typically from a nib.
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=1&pageSize=10&partialLoad=false&token=%@", [[User findFirst] token]];
-	NSLog(@"%@", urlString);
-	NSURL *url = [NSURL URLWithString:urlString];
-	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
-	[request setRequestMethod:@"GET"];
-	[request addRequestHeader:@"Content-Type" value:@"application/json"];
-	[request setDelegate:self];
-	[request startAsynchronous];
 }
 
 - (void)viewDidUnload
@@ -325,7 +317,7 @@
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
 	for (NSDictionary *dict in results) {
-		Producer *producer = [Producer ai_objectForProperty:@"guid" value:[dict valueForKey:@"id"]];
+		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"]];
 		if (!producer.editedValue) {
 			[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter];
 		}

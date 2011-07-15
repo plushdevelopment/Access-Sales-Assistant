@@ -13,9 +13,21 @@
 
 + (id)ai_objectForProperty:(NSString *)propertyName value:(id)propertyValue
 {
-	NSManagedObject *object = [[self class] findFirstByAttribute:propertyName withValue:propertyValue];
+	NSManagedObject *object;
+	if (propertyValue) {
+		object = [self findFirstByAttribute:propertyName withValue:propertyValue];
+	}
 	if (!object) {
-		object = [[self class] createEntity];
+		object = [self createEntity];
+		NSDictionary *attributes = [[object entity] attributesByName];
+		NSAttributeType attributeType = [[attributes objectForKey:propertyName] attributeType];
+        if ((attributeType == NSStringAttributeType) && ([propertyValue isKindOfClass:[NSNumber class]])) {
+            propertyValue = [propertyValue stringValue];
+        } else if (((attributeType == NSInteger16AttributeType) || (attributeType == NSInteger32AttributeType) || (attributeType == NSInteger64AttributeType) || (attributeType == NSBooleanAttributeType)) && ([propertyValue isKindOfClass:[NSString class]])) {
+            propertyValue = [NSNumber numberWithInteger:[propertyValue integerValue]];
+        } else if ((attributeType == NSFloatAttributeType) &&  ([propertyValue isKindOfClass:[NSString class]])) {
+            propertyValue = [NSNumber numberWithDouble:[propertyValue doubleValue]];
+        }
 		[object setValue:propertyValue forKey:propertyName];
 	}
 	return object;

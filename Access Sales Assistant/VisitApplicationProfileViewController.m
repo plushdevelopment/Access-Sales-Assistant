@@ -19,9 +19,11 @@
 #import "PhoneListItem.h"
 #import "QuestionListItem.h"
 #import "Rater.h"
+#import "Rater2.h"
 #import "State.h"
 #import "Status.h"
-#import "Type.h"
+#import "ContactType.h"
+
 
 #define PRODUCER_CODE					0
 #define SUB_TERRITORY					1
@@ -199,6 +201,7 @@
 	[pickerView setDataSource:self];
 	[pickerView setShowsSelectionIndicator:YES];
 	[pickerView selectRow:0 inComponent:0 animated:NO];
+	[pickerView reloadAllComponents];
 }
 
 // Show the Date picker in Date mode in a popover
@@ -554,7 +557,54 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-	return 10;
+	NSInteger rows = 0;
+	switch (self.pickerViewController.currentTag) {
+		case SUB_TERRITORY:
+			rows = 21;
+			break;
+		case ACCESS_SIGN:
+			rows = 2;
+			break;
+		case SUSPENSION_REASON:
+			rows = [[SuspensionReason findAll] count];
+			break;
+		case STATUS:
+			rows = [[Status findAll] count];
+			break;
+		case ELIGIBLE:
+			rows = 2;
+			break;
+		case REASON_INELIGIBLE:
+			rows = [[IneligibleReason findAll] count];
+			break;
+		case RATER_1:
+			rows = [[Rater findAll] count];
+			break;
+		case RATER_2:
+			rows = [[Rater2 findAll] count];
+			break;
+		case MAILING_STATE:
+			rows = [[State findAll] count];
+			break;
+		case COMMISSION_STATE:
+			rows = [[State findAll] count];
+			break;
+		case PHYSICAL_STATE:
+			rows = [[State findAll] count];
+			break;
+		case TITLE:
+			rows = 0;
+			break;
+		case NUMBER_OF_EMPLOYEES:
+			rows = 100;
+			break;
+		case NUMBER_OF_LOCATIONS:
+			rows = 100;
+			break;
+		default:
+			break;
+	}
+	return rows;
 }
 
 
@@ -564,52 +614,86 @@
 // Set the appropriate value for a text field based on what the current tag is
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-	[self.detailItem setValue:[NSNumber numberWithBool:YES] forKey:@"edited"];
-	[[NSManagedObjectContext defaultContext] save];
+	Producer *producer = (Producer *)self.detailItem;
+	[producer setEditedValue:YES];
+	
+	NSString *titleForRow = [pickerView.delegate
+							 pickerView:pickerView
+							 titleForRow:row
+							 forComponent:component];
 	
 	switch (self.pickerViewController.currentTag) {
 		case SUB_TERRITORY:
-			self.subTerritoryTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			producer.subTerritory = [SubTerritory findFirstByAttribute:@"uid" withValue:titleForRow];
+			self.subTerritoryTextField.text = titleForRow;
 			break;
 		case NUMBER_OF_LOCATIONS:
-			self.numberOfLocationsTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			producer.numberOfLocationsValue = [titleForRow integerValue];
+			self.numberOfLocationsTextField.text = titleForRow;
 			break;
 		case ACCESS_SIGN:
-			self.accessSignTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			producer.hasAccessSignValue = [titleForRow boolValue];
+			self.accessSignTextField.text = titleForRow;
 			break;
 		case SUSPENSION_REASON:
-			self.suspensionReasonTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			producer.suspensionReason = [SuspensionReason findFirstByAttribute:@"name" withValue:titleForRow];
+			self.suspensionReasonTextField.text = titleForRow;
 			break;
 		case STATUS:
-			self.statusTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			producer.status = [Status findFirstByAttribute:@"name" withValue:titleForRow];
+			self.statusTextField.text = titleForRow;
 			break;
 		case ELIGIBLE:
-			self.eligibleTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			producer.isEligibleValue = [titleForRow boolValue];
+			self.eligibleTextField.text = titleForRow;
 			break;
 		case REASON_INELIGIBLE:
-			self.reasonIneligibleTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			producer.ineligibleReason = [IneligibleReason findFirstByAttribute:@"name" withValue:titleForRow];
+			self.reasonIneligibleTextField.text = titleForRow;
 			break;
 		case RATER_1:
-			self.rater1TextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			producer.rater = [Rater findFirstByAttribute:@"name" withValue:titleForRow];
+			self.rater1TextField.text = titleForRow;
 			break;
 		case RATER_2:
-			self.rater2TextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			producer.rater2 = [Rater2 findFirstByAttribute:@"name" withValue:titleForRow];
+			self.rater2TextField.text = titleForRow;
 			break;
 		case MAILING_STATE:
-			self.mailingStateTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			for (AddressListItem *address in producer.addresses) {
+				if (address.addressTypeValue == 1) {
+					address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+					continue;
+				}
+			}
+			self.mailingStateTextField.text = titleForRow;
 			break;
 		case COMMISSION_STATE:
-			self.commissionStateTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			for (AddressListItem *address in producer.addresses) {
+				if (address.addressTypeValue == 2) {
+					address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+					continue;
+				}
+			}
+			self.commissionStateTextField.text = titleForRow;
 			break;
 		case PHYSICAL_STATE:
-			self.physicalStateTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			for (AddressListItem *address in producer.addresses) {
+				if (address.addressTypeValue == 3) {
+					address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+					continue;
+				}
+			}
+			self.physicalStateTextField.text = titleForRow;
 			break;
 		case NUMBER_OF_EMPLOYEES:
-			self.numberOfEmployeesTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
+			producer.numberOfEmployeesValue = [titleForRow integerValue];
+			self.numberOfEmployeesTextField.text = titleForRow;
 			break;
 		default:
 			break;
 	}
+	[[NSManagedObjectContext defaultContext] save];
 }
 
 /*
@@ -624,46 +708,54 @@
 	NSString *theTitle = @"NOT SET";
 	switch (self.pickerViewController.currentTag) {
 		case SUB_TERRITORY:
-			theTitle = @"SUB_TERRITORY";
-			break;
-		case NUMBER_OF_LOCATIONS:
-			theTitle = @"NUMBER_OF_LOCATIONS";
+			theTitle = [NSString stringWithFormat:@"%d", row];
 			break;
 		case ACCESS_SIGN:
-			theTitle = @"ACCESS_SIGN";
+			if (row == 0) {
+				theTitle = @"No";
+			} else if (row == 1) {
+				theTitle = @"Yes";
+			}
 			break;
 		case SUSPENSION_REASON:
-			theTitle = @"SUSPENSION_REASON";
+			theTitle = [[[SuspensionReason findAll] objectAtIndex:row] name];
 			break;
 		case STATUS:
-			theTitle = @"STATUS";
+			theTitle = [[[Status findAll] objectAtIndex:row] name];
 			break;
 		case ELIGIBLE:
-			theTitle = @"ELIGIBLE";
+			if (row == 0) {
+				theTitle = @"No";
+			} else if (row == 1) {
+				theTitle = @"Yes";
+			}
 			break;
 		case REASON_INELIGIBLE:
-			theTitle = @"REASON_INELIGIBLE";
+			theTitle = [[[IneligibleReason findAll] objectAtIndex:row] name];
 			break;
 		case RATER_1:
-			theTitle = @"RATER_1";
+			theTitle = [[[Rater findAll] objectAtIndex:row] name];
 			break;
 		case RATER_2:
-			theTitle = @"RATER_2";
+			theTitle = [[[Rater2 findAll] objectAtIndex:row] name];
 			break;
 		case MAILING_STATE:
-			theTitle = @"MAILING_STATE";
+			theTitle = [[[State findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
 			break;
 		case COMMISSION_STATE:
-			theTitle = @"COMMISSION_STATE";
+			theTitle = [[[State findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
 			break;
 		case PHYSICAL_STATE:
-			theTitle = @"PHYSICAL_STATE";
-			break;
-		case NUMBER_OF_EMPLOYEES:
-			theTitle = @"NUMBER_OF_EMPLOYEES";
+			theTitle = [[[State findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
 			break;
 		case TITLE:
 			theTitle = @"TITLE";
+			break;
+		case NUMBER_OF_EMPLOYEES:
+			theTitle = [NSString stringWithFormat:@"%d", row];
+			break;
+		case NUMBER_OF_LOCATIONS:
+			theTitle = [NSString stringWithFormat:@"%d", row];
 			break;
 		default:
 			break;
@@ -690,64 +782,99 @@
 
 - (void)didChangeDate:(NSDate *)toDate forTag:(NSInteger)tag
 {
-	[self.detailItem setValue:[NSNumber numberWithBool:YES] forKey:@"edited"];
-	[[NSManagedObjectContext defaultContext] save];
-	
+	Producer *producer = (Producer *)self.detailItem;
+	[producer setEditedValue:YES];
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	switch (tag) {
 		case EO_EXPIRES:
-			self.eOExpiresTextField.text = [toDate description];
+			producer.eAndOExpires = toDate;
+			[formatter setDateFormat:@"MM-dd-yyyy"];
+			self.eOExpiresTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case DATE_ESTABLISHED:
-			self.dateEstablishedTextField.text = [toDate description];
+			producer.dateEstablished = toDate;
+			[formatter setDateFormat:@"MM-dd-yyyy"];
+			self.dateEstablishedTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case STATUS_DATE:
-			self.statusDateTextField.text = [toDate description];
+			producer.statusDate = toDate;
+			[formatter setDateFormat:@"MM-dd-yyyy"];
+			self.statusDateTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case MONDAY_START:
-			self.mondayStartTextField.text = [toDate description];
+			producer.hoursOfOperation.mondayOpenTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.mondayStartTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case MONDAY_STOP:
-			self.mondayStopTextField.text = [toDate description];
+			producer.hoursOfOperation.mondayCloseTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.mondayStopTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case TUESDAY_START:
-			self.tuesdayStartTextField.text = [toDate description];
+			producer.hoursOfOperation.tuesdayOpenTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.tuesdayStartTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case TUESDAY_STOP:
-			self.tuesdayStopTextField.text = [toDate description];
+			producer.hoursOfOperation.tuesdayCloseTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.tuesdayStopTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case WEDNESDAY_START:
-			self.wednesdayStartTextField.text = [toDate description];
+			producer.hoursOfOperation.wednesdayOpenTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.wednesdayStartTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case WEDNESDAY_STOP:
-			self.wednesdayStopTextField.text = [toDate description];
+			producer.hoursOfOperation.wednesdayCloseTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.wednesdayStopTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case THURSDAY_START:
-			self.thursdayStartTextField.text = [toDate description];
+			producer.hoursOfOperation.thursdayOpenTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.thursdayStartTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case THURSDAY_STOP:
-			self.thursdayStopTextField.text = [toDate description];
+			producer.hoursOfOperation.thursdayCloseTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.thursdayStopTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case FRIDAY_START:
-			self.fridayStartTextField.text = [toDate description];
+			producer.hoursOfOperation.fridayOpenTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.fridayStartTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case FRIDAY_STOP:
-			self.fridayStopTextField.text = [toDate description];
+			producer.hoursOfOperation.fridayCloseTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.fridayStopTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case SATURDAY_START:
-			self.saturdayStartTextField.text = [toDate description];
+			producer.hoursOfOperation.saturdayOpenTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.saturdayStartTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case SATURDAY_STOP:
-			self.saturdayStopTextField.text = [toDate description];
+			producer.hoursOfOperation.saturdayCloseTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.saturdayStopTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case SUNDAY_START:
-			self.sundayStartTextField.text = [toDate description];
+			producer.hoursOfOperation.sundayOpenTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.sundayStartTextField.text = [formatter stringFromDate:toDate];
 			break;
 		case SUNDAY_STOP:
-			self.sundayStopTextField.text = [toDate description];
+			producer.hoursOfOperation.sundayCloseTime = toDate;
+			[formatter setDateFormat:@"hh:mm a"];
+			self.sundayStopTextField.text = [formatter stringFromDate:toDate];
 			break;
 		default:
 			break;
 	}
+	[[NSManagedObjectContext defaultContext] save];
 }
 
 - (void)nextField:(NSInteger)currentTag
@@ -997,7 +1124,7 @@
 		
 		// Text Fields with Time Values
 		NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
-		[timeFormatter setDateFormat:@"HH:mm"];
+		[timeFormatter setDateFormat:@"hh:mm a"];
 		[self.sundayStopTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.sundayCloseTime]];
 		[self.saturdayStartTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.saturdayOpenTime]];
 		[self.mondayStopTextField setText:[timeFormatter stringFromDate:producer.hoursOfOperation.mondayCloseTime]];
@@ -1016,7 +1143,7 @@
 		// Text Fields with Number Values
 		[self.numberOfLocationsTextField setText:producer.numberOfLocations.stringValue];
 		[self.numberOfEmployeesTextField setText:producer.numberOfEmployees.stringValue];
-		[self.subTerritoryTextField setText:producer.subTerritory.guid.stringValue];
+		[self.subTerritoryTextField setText:producer.subTerritory.uid.stringValue];
 		
 		// Text Fields with BOOL Values
 		if (producer.hasAccessSignValue) {

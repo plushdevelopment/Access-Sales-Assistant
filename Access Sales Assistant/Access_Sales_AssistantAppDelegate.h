@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class ASIHTTPRequest;
+
 @interface Access_Sales_AssistantAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UISplitViewController *splitViewController;
+
+- (void)loginFailed:(ASIHTTPRequest *)request;
 
 @end

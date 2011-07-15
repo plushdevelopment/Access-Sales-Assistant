@@ -29,8 +29,8 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"guidValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"guid"];
+	if ([key isEqualToString:@"uidValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"uid"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 
@@ -40,26 +40,26 @@
 
 
 
-@dynamic guid;
+@dynamic uid;
 
 
 
-- (short)guidValue {
-	NSNumber *result = [self guid];
+- (short)uidValue {
+	NSNumber *result = [self uid];
 	return [result shortValue];
 }
 
-- (void)setGuidValue:(short)value_ {
-	[self setGuid:[NSNumber numberWithShort:value_]];
+- (void)setUidValue:(short)value_ {
+	[self setUid:[NSNumber numberWithShort:value_]];
 }
 
-- (short)primitiveGuidValue {
-	NSNumber *result = [self primitiveGuid];
+- (short)primitiveUidValue {
+	NSNumber *result = [self primitiveUid];
 	return [result shortValue];
 }
 
-- (void)setPrimitiveGuidValue:(short)value_ {
-	[self setPrimitiveGuid:[NSNumber numberWithShort:value_]];
+- (void)setPrimitiveUidValue:(short)value_ {
+	[self setPrimitiveUid:[NSNumber numberWithShort:value_]];
 }
 
 

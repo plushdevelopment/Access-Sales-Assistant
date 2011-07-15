@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">10K540</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1881</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1891</string>
 		<string key="IBDocument.AppKitVersion">1038.36</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">876</string>
+			<string key="NS.object.0">884</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -986,7 +986,7 @@
 						<string key="NSFrame">{{20, 134}, {313, 31}}</string>
 						<reference key="NSSuperview" ref="1043666282"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="706885695"/>
+						<reference key="NSNextKeyView" ref="1059931723"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -1649,6 +1649,7 @@
 						<string key="NSFrame">{{435, 1130}, {313, 31}}</string>
 						<reference key="NSSuperview" ref="1043666282"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUITag">55</int>
@@ -1735,7 +1736,7 @@
 						<string key="NSFrame">{{20, 1013}, {313, 31}}</string>
 						<reference key="NSSuperview" ref="1043666282"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="767725203"/>
+						<reference key="NSNextKeyView" ref="737840065"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -2059,7 +2060,6 @@
 						<string key="NSFrame">{{20, 134}, {313, 31}}</string>
 						<reference key="NSSuperview" ref="1043666282"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1059931723"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">4</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -2716,7 +2716,6 @@
 						<string key="NSFrame">{{20, 1013}, {313, 31}}</string>
 						<reference key="NSSuperview" ref="1043666282"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="737840065"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">50</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -4154,11 +4153,6 @@
 						<string key="objectName">Scroll View</string>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">529</int>
-						<reference key="object" ref="767725203"/>
-						<reference key="parent" ref="1043666282"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">454</int>
 						<reference key="object" ref="46096790"/>
 						<reference key="parent" ref="1043666282"/>
@@ -4306,11 +4300,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">396</int>
 						<reference key="object" ref="671955067"/>
-						<reference key="parent" ref="1043666282"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">394</int>
-						<reference key="object" ref="706885695"/>
 						<reference key="parent" ref="1043666282"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -4701,6 +4690,16 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">264</int>
 						<reference key="object" ref="136309221"/>
+						<reference key="parent" ref="1043666282"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">529</int>
+						<reference key="object" ref="767725203"/>
+						<reference key="parent" ref="1043666282"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">394</int>
+						<reference key="object" ref="706885695"/>
 						<reference key="parent" ref="1043666282"/>
 					</object>
 				</object>
@@ -5739,6 +5738,6 @@
 			<string key="NS.key.0">form_seperator.png</string>
 			<string key="NS.object.0">{728, 7}</string>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">876</string>
+		<string key="IBCocoaTouchPluginVersion">884</string>
 	</data>
 </archive>

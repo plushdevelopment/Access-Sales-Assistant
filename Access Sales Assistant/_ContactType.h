@@ -1,5 +1,5 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to Type.h instead.
+// Make changes to ContactType.h instead.
 
 #import <CoreData/CoreData.h>
 
@@ -9,20 +9,20 @@
 
 
 
-@interface TypeID : NSManagedObjectID {}
+@interface ContactTypeID : NSManagedObjectID {}
 @end
 
-@interface _Type : NSManagedObject {}
+@interface _ContactType : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (TypeID*)objectID;
+- (ContactTypeID*)objectID;
 
 
 
-@property (nonatomic, retain) NSString *guid;
+@property (nonatomic, retain) NSString *uid;
 
-//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -41,7 +41,7 @@
 
 @end
 
-@interface _Type (CoreDataGeneratedAccessors)
+@interface _ContactType (CoreDataGeneratedAccessors)
 
 - (void)addContacts:(NSSet*)value_;
 - (void)removeContacts:(NSSet*)value_;
@@ -50,11 +50,11 @@
 
 @end
 
-@interface _Type (CoreDataGeneratedPrimitiveAccessors)
+@interface _ContactType (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
 
 
 

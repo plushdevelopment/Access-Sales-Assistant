@@ -20,9 +20,9 @@
 
 
 
-@property (nonatomic, retain) NSString *guid;
+@property (nonatomic, retain) NSString *uid;
 
-//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -53,8 +53,8 @@
 @interface _Status (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
 
 
 

@@ -50,6 +50,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+	
+	AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
+	[self.navigationController pushViewController:viewController animated:YES];
+	viewController.detailViewController = self.detailViewController;
 }
 
 - (void)viewDidUnload

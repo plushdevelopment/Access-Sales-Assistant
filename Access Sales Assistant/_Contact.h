@@ -4,10 +4,12 @@
 #import <CoreData/CoreData.h>
 
 
-@class Type;
+@class ContactType;
+@class Title;
 @class EmailListItem;
 @class Producer;
 @class PhoneListItem;
+
 
 
 
@@ -25,9 +27,15 @@
 
 
 
-@property (nonatomic, retain) NSString *guid;
+@property (nonatomic, retain) NSString *lastName;
 
-//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateLastName:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *uid;
+
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -37,21 +45,30 @@
 
 
 
-@property (nonatomic, retain) NSString *lastName;
-
-//- (BOOL)validateLastName:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) NSString *ssn;
 
 //- (BOOL)validateSsn:(id*)value_ error:(NSError**)error_;
 
 
 
+@property (nonatomic, retain) NSNumber *rdFollowUp;
 
-@property (nonatomic, retain) Type* type;
+@property BOOL rdFollowUpValue;
+- (BOOL)rdFollowUpValue;
+- (void)setRdFollowUpValue:(BOOL)value_;
+
+//- (BOOL)validateRdFollowUp:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) ContactType* type;
 //- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) Title* title;
+//- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -90,8 +107,14 @@
 @interface _Contact (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
+- (NSString*)primitiveLastName;
+- (void)setPrimitiveLastName:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
 
 
 
@@ -102,21 +125,29 @@
 
 
 
-- (NSString*)primitiveLastName;
-- (void)setPrimitiveLastName:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveSsn;
 - (void)setPrimitiveSsn:(NSString*)value;
 
 
 
 
+- (NSNumber*)primitiveRdFollowUp;
+- (void)setPrimitiveRdFollowUp:(NSNumber*)value;
 
-- (Type*)primitiveType;
-- (void)setPrimitiveType:(Type*)value;
+- (BOOL)primitiveRdFollowUpValue;
+- (void)setPrimitiveRdFollowUpValue:(BOOL)value_;
+
+
+
+
+
+- (ContactType*)primitiveType;
+- (void)setPrimitiveType:(ContactType*)value;
+
+
+
+- (Title*)primitiveTitle;
+- (void)setPrimitiveTitle:(Title*)value;
 
 
 

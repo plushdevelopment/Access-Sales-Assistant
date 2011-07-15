@@ -8,6 +8,12 @@
 
 #import "VisitApplicationViewController.h"
 
+#import "HTTPOperationController.h"
+
+#import "Producer.h"
+
+#import "DailySummary.h"
+
 @implementation VisitApplicationViewController
 
 @synthesize toolbar=_toolbar;
@@ -17,18 +23,46 @@
 @synthesize activeVisitFormView;
 
 @synthesize profileApplicationViewController;
+@synthesize summaryApplicationViewController;
 
 @synthesize detailItem=_detailItem;
 
 - (IBAction)loadApplicationForm:(id)sender
 {
 	UIButton *button = (UIButton *)sender;
+	switch (button.tag) {
+		case 2:
+			for (UIView *view in [self.activeVisitFormView subviews]) {
+				[view removeFromSuperview];
+			}
+			[self.activeVisitFormView addSubview:profileApplicationViewController.view];
+			float contentWidth = self.activeVisitFormView.frame.size.width;
+			[(UIScrollView *)profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
+			profileApplicationViewController.detailItem = self.detailItem;
+			break;
+		case 3: {
+			for (UIView *view in [self.activeVisitFormView subviews]) {
+				[view removeFromSuperview];
+			}
+			[self.activeVisitFormView addSubview:summaryApplicationViewController.view];
+			DailySummary *summary = [(Producer *)self.detailItem dailySummary];
+			if (!summary) {
+				summary = [DailySummary createEntity];
+				[(Producer *)self.detailItem setDailySummary:summary];
+				[[NSManagedObjectContext defaultContext] save];
+			}
+			summaryApplicationViewController.detailItem = summary;
+		}
+		default:
+			break;
+	}
 	NSLog(@"Button Label: %@ Button Tag: %d", button.titleLabel.text, button.tag);
 }
 
 - (IBAction)submitApplicationForm:(id)sender
 {
-	NSLog(@"Submit Application");
+	Producer *producer = (Producer *)self.detailItem;
+	[[HTTPOperationController sharedHTTPOperationController] postProducerProfile:[producer jsonStringValue]];	
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -65,6 +99,7 @@
 	[self setToolbar:nil];
 	[self setActiveVisitFormView:nil];
 	[self setProfileApplicationViewController:nil];
+	[self setSummaryApplicationViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -119,6 +154,7 @@
 	
 	if (self.detailItem) {
 	    [profileApplicationViewController setDetailItem:self.detailItem];
+		[summaryApplicationViewController setDetailItem:[(Producer *)self.detailItem dailySummary]];
 	}
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="844" systemVersion="10K540" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="848" systemVersion="10K540" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="AddressListItem" representedClassName="AddressListItem">
         <attribute name="addressLine1" optional="YES" attributeType="String"/>
         <attribute name="addressLine2" optional="YES" attributeType="String"/>
@@ -11,31 +11,72 @@
         <attribute name="postalCode" optional="YES" attributeType="String"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="addresses" inverseEntity="Producer"/>
         <relationship name="state" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="State" inverseName="addresses" inverseEntity="State"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
+    </entity>
+    <entity name="BarrierToBusiness" representedClassName="BarrierToBusiness">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="barriersToBusiness" inverseEntity="DailySummary"/>
+    </entity>
+    <entity name="CommissionStructure" representedClassName="CommissionStructure">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="commissionStructure" inverseEntity="DailySummary"/>
+    </entity>
+    <entity name="Competitor" representedClassName="Competitor">
+        <attribute name="appsPerMonth" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="deleted" optional="YES" attributeType="Boolean"/>
+        <attribute name="edited" optional="YES" attributeType="Boolean"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="String"/>
+        <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="competitors" inverseEntity="DailySummary"/>
     </entity>
     <entity name="Contact" representedClassName="Contact">
         <attribute name="firstName" optional="YES" attributeType="String"/>
-        <attribute name="guid" optional="YES" attributeType="String"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="rdFollowUp" optional="YES" attributeType="Boolean"/>
         <attribute name="ssn" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="String"/>
         <relationship name="emailList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EmailListItem" inverseName="contact" inverseEntity="EmailListItem"/>
         <relationship name="phoneList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhoneListItem" inverseName="contact" inverseEntity="PhoneListItem"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="contacts" inverseEntity="Producer"/>
-        <relationship name="type" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Type" inverseName="contacts" inverseEntity="Type"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
+        <relationship name="title" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Title" inverseName="contact" inverseEntity="Title"/>
+        <relationship name="type" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ContactType" inverseName="contacts" inverseEntity="ContactType"/>
+    </entity>
+    <entity name="ContactType" representedClassName="ContactType">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="String"/>
+        <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="type" inverseEntity="Contact"/>
+    </entity>
+    <entity name="DailySummary" representedClassName="DailySummary">
+        <attribute name="commissionPercentNew" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="commissionPercentRenewal" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="deleted" optional="YES" attributeType="Boolean"/>
+        <attribute name="edited" optional="YES" attributeType="Boolean"/>
+        <attribute name="nsbsFdl" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="nsbsMonthlyGoal" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="nsbsPercentLiab" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="nsbsTotAppsPerMonth" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="rdFollowUp" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="realSubmissionDate" optional="YES" attributeType="Date"/>
+        <attribute name="reportDate" optional="YES" attributeType="Date"/>
+        <attribute name="uid" optional="YES" attributeType="String"/>
+        <attribute name="visitNumber" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="barriersToBusiness" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BarrierToBusiness" inverseName="dailySummaries" inverseEntity="BarrierToBusiness"/>
+        <relationship name="commissionStructure" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CommissionStructure" inverseName="dailySummaries" inverseEntity="CommissionStructure"/>
+        <relationship name="competitors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Competitor" inverseName="dailySummaries" inverseEntity="Competitor"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="dailySummary" inverseEntity="Note"/>
+        <relationship name="nsbsQuestions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestionListItem" inverseName="dailySummaries" inverseEntity="QuestionListItem"/>
+        <relationship name="personsSpokeWith" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PersonSpokeWith" inverseName="dailySummaries" inverseEntity="PersonSpokeWith"/>
+        <relationship name="phase" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Phase" inverseName="dailySummary" inverseEntity="Phase"/>
+        <relationship name="producerAddOn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ProducerAddOn" inverseName="dailySummaries" inverseEntity="ProducerAddOn"/>
+        <relationship name="producerId" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="dailySummary" inverseEntity="Producer"/>
+        <relationship name="purposeOfCall" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PurposeOfCall" inverseName="dailySummmary" inverseEntity="PurposeOfCall"/>
     </entity>
     <entity name="EmailListItem" representedClassName="EmailListItem">
         <attribute name="address" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="emailList" inverseEntity="Contact"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="emails" inverseEntity="Producer"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
     </entity>
     <entity name="HoursOfOperation" representedClassName="HoursOfOperation">
         <attribute name="fridayCloseTime" optional="YES" attributeType="Date"/>
@@ -55,28 +96,44 @@
         <relationship name="producer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="hoursOfOperation" inverseEntity="Producer"/>
     </entity>
     <entity name="IneligibleReason" representedClassName="IneligibleReason">
-        <attribute name="guid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="producer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="ineligibleReason" inverseEntity="Producer"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
+    </entity>
+    <entity name="Note" representedClassName="Note">
+        <attribute name="deleted" optional="YES" attributeType="Boolean"/>
+        <attribute name="edited" optional="YES" attributeType="Boolean"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="uid" optional="YES" attributeType="String"/>
+        <relationship name="dailySummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="notes" inverseEntity="DailySummary"/>
+    </entity>
+    <entity name="PersonSpokeWith" representedClassName="PersonSpokeWith">
+        <attribute name="deleted" optional="YES" attributeType="Boolean"/>
+        <attribute name="edited" optional="YES" attributeType="Boolean"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="String"/>
+        <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="personsSpokeWith" inverseEntity="DailySummary"/>
+        <relationship name="title" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Title" inverseName="personSpokeWith" inverseEntity="Title"/>
+    </entity>
+    <entity name="Phase" representedClassName="Phase">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="dailySummary" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="phase" inverseEntity="DailySummary"/>
     </entity>
     <entity name="PhoneListItem" representedClassName="PhoneListItem">
         <attribute name="number" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="phoneList" inverseEntity="Contact"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="phoneNumbers" inverseEntity="Producer"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
     </entity>
     <entity name="Producer" representedClassName="Producer">
         <attribute name="appointedDate" optional="YES" attributeType="Date"/>
         <attribute name="dateEstablished" optional="YES" attributeType="Date"/>
         <attribute name="eAndOExpires" optional="YES" attributeType="Date"/>
         <attribute name="edited" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
-        <attribute name="guid" optional="YES" attributeType="String"/>
         <attribute name="hasAccessSign" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="isEligible" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -85,78 +142,75 @@
         <attribute name="primaryContact" optional="YES" attributeType="String"/>
         <attribute name="producerCode" optional="YES" attributeType="String"/>
         <attribute name="statusDate" optional="YES" attributeType="Date"/>
+        <attribute name="uid" optional="YES" attributeType="String"/>
         <attribute name="webAddress" optional="YES" attributeType="String"/>
         <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AddressListItem" inverseName="producer" inverseEntity="AddressListItem"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="producer" inverseEntity="Contact"/>
+        <relationship name="dailySummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="producerId" inverseEntity="DailySummary"/>
         <relationship name="emails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EmailListItem" inverseName="producer" inverseEntity="EmailListItem"/>
         <relationship name="hoursOfOperation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="HoursOfOperation" inverseName="producer" inverseEntity="HoursOfOperation"/>
         <relationship name="ineligibleReason" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="IneligibleReason" inverseName="producer" inverseEntity="IneligibleReason"/>
         <relationship name="phoneNumbers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhoneListItem" inverseName="producer" inverseEntity="PhoneListItem"/>
         <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestionListItem" inverseName="producers" inverseEntity="QuestionListItem"/>
         <relationship name="rater" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Rater" inverseName="producer" inverseEntity="Rater"/>
-        <relationship name="rater2" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Rater" inverseName="producer" inverseEntity="Rater"/>
+        <relationship name="rater2" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Rater2" inverseName="producer" inverseEntity="Rater2"/>
         <relationship name="status" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Status" inverseName="producers" inverseEntity="Status"/>
         <relationship name="subTerritory" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SubTerritory" inverseName="producers" inverseEntity="SubTerritory"/>
         <relationship name="suspensionReason" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SuspensionReason" inverseName="producers" inverseEntity="SuspensionReason"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
+    </entity>
+    <entity name="ProducerAddOn" representedClassName="ProducerAddOn">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="producerAddOn" inverseEntity="DailySummary"/>
+    </entity>
+    <entity name="PurposeOfCall" representedClassName="PurposeOfCall">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="dailySummmary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="purposeOfCall" inverseEntity="DailySummary"/>
     </entity>
     <entity name="QuestionListItem" representedClassName="QuestionListItem">
         <attribute name="answer" optional="YES" attributeType="String"/>
-        <attribute name="guid" optional="YES" attributeType="String"/>
+        <attribute name="deleted" optional="YES" attributeType="Boolean"/>
+        <attribute name="edited" optional="YES" attributeType="Boolean"/>
         <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="String"/>
+        <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="nsbsQuestions" inverseEntity="DailySummary"/>
         <relationship name="producers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="questions" inverseEntity="Producer"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
     </entity>
     <entity name="Rater" representedClassName="Rater">
-        <attribute name="guid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="rater2" inverseEntity="Producer"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="producer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="rater" inverseEntity="Producer"/>
+    </entity>
+    <entity name="Rater2" representedClassName="Rater2">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="producer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="rater2" inverseEntity="Producer"/>
     </entity>
     <entity name="State" representedClassName="State">
-        <attribute name="guid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AddressListItem" inverseName="state" inverseEntity="AddressListItem"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
     </entity>
     <entity name="Status" representedClassName="Status">
-        <attribute name="guid" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="String"/>
         <relationship name="producers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="status" inverseEntity="Producer"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
     </entity>
     <entity name="SubTerritory" representedClassName="SubTerritory">
-        <attribute name="guid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="producers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="subTerritory" inverseEntity="Producer"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
     </entity>
     <entity name="SuspensionReason" representedClassName="SuspensionReason">
-        <attribute name="guid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="producers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="suspensionReason" inverseEntity="Producer"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
     </entity>
-    <entity name="Type" representedClassName="Type">
-        <attribute name="guid" optional="YES" attributeType="String"/>
+    <entity name="Title" representedClassName="Title">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="type" inverseEntity="Contact"/>
-        <userInfo>
-            <entry key="id" value="guid"/>
-        </userInfo>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="contact" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="title" inverseEntity="Contact"/>
+        <relationship name="personSpokeWith" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PersonSpokeWith" inverseName="title" inverseEntity="PersonSpokeWith"/>
     </entity>
     <entity name="User" representedClassName="User">
         <attribute name="domain" optional="YES" attributeType="String"/>
@@ -167,20 +221,31 @@
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="AddressListItem" positionX="-569" positionY="72" width="128" height="210"/>
+        <element name="AddressListItem" positionX="-569" positionY="72" width="128" height="195"/>
+        <element name="Competitor" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Contact" positionX="-441" positionY="684" width="128" height="165"/>
-        <element name="EmailListItem" positionX="-650" positionY="405" width="128" height="120"/>
+        <element name="DailySummary" positionX="160" positionY="192" width="128" height="300"/>
+        <element name="EmailListItem" positionX="-650" positionY="405" width="128" height="105"/>
         <element name="HoursOfOperation" positionX="0" positionY="-45" width="128" height="270"/>
         <element name="IneligibleReason" positionX="43" positionY="561" width="128" height="90"/>
-        <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="120"/>
+        <element name="Note" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="PersonSpokeWith" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Phase" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="105"/>
         <element name="Producer" positionX="306" positionY="123" width="128" height="435"/>
+        <element name="PurposeOfCall" positionX="160" positionY="192" width="128" height="90"/>
         <element name="QuestionListItem" positionX="-423" positionY="360" width="128" height="105"/>
         <element name="Rater" positionX="684" positionY="354" width="128" height="90"/>
+        <element name="Rater2" positionX="160" positionY="192" width="128" height="90"/>
         <element name="State" positionX="450" positionY="696" width="128" height="90"/>
         <element name="Status" positionX="475" positionY="27" width="128" height="90"/>
-        <element name="SubTerritory" positionX="628" positionY="135" width="128" height="90"/>
+        <element name="SubTerritory" positionX="628" positionY="135" width="128" height="75"/>
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="90"/>
-        <element name="Type" positionX="27" positionY="270" width="128" height="90"/>
+        <element name="Title" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="ContactType" positionX="180" positionY="-45" width="128" height="90"/>
         <element name="User" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="BarrierToBusiness" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="ProducerAddOn" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="CommissionStructure" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

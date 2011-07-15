@@ -1,29 +1,29 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to Type.m instead.
+// Make changes to ContactType.m instead.
 
-#import "_Type.h"
+#import "_ContactType.h"
 
-@implementation TypeID
+@implementation ContactTypeID
 @end
 
-@implementation _Type
+@implementation _ContactType
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"Type" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"ContactType" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"Type";
+	return @"ContactType";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"Type" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"ContactType" inManagedObjectContext:moc_];
 }
 
-- (TypeID*)objectID {
-	return (TypeID*)[super objectID];
+- (ContactTypeID*)objectID {
+	return (ContactTypeID*)[super objectID];
 }
 
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
@@ -36,7 +36,7 @@
 
 
 
-@dynamic guid;
+@dynamic uid;
 
 
 

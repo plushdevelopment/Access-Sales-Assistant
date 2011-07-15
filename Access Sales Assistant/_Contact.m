@@ -29,6 +29,10 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"rdFollowUpValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"rdFollowUp"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 
 	return keyPaths;
 }
@@ -36,7 +40,14 @@
 
 
 
-@dynamic guid;
+@dynamic lastName;
+
+
+
+
+
+
+@dynamic uid;
 
 
 
@@ -50,13 +61,6 @@
 
 
 
-@dynamic lastName;
-
-
-
-
-
-
 @dynamic ssn;
 
 
@@ -64,7 +68,37 @@
 
 
 
+@dynamic rdFollowUp;
+
+
+
+- (BOOL)rdFollowUpValue {
+	NSNumber *result = [self rdFollowUp];
+	return [result boolValue];
+}
+
+- (void)setRdFollowUpValue:(BOOL)value_ {
+	[self setRdFollowUp:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveRdFollowUpValue {
+	NSNumber *result = [self primitiveRdFollowUp];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveRdFollowUpValue:(BOOL)value_ {
+	[self setPrimitiveRdFollowUp:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
 @dynamic type;
+
+	
+
+@dynamic title;
 
 	
 

@@ -15,4 +15,5 @@
 	#import "CoreData+ActiveRecordFetching.h"
 	#import "NSManagedObject+SafeSetValuesKeysWithDictionary.h"
 	#import "NSManagedObject+Additions.h"
+	#import "NSManagedObjectExtras.h"
 #endif

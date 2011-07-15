@@ -16,6 +16,8 @@
 
 #import "JSON.h"
 
+#import "HTTPOperationController.h"
+
 @implementation LoginViewController
 
 @synthesize domainField=_domainField;
@@ -59,6 +61,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFinished:) name:@"Login Successful" object:nil];
 }
 
 - (void)viewDidUnload
@@ -98,7 +101,11 @@
 		[[self user] setPassword:self.passwordField.text];
 		[[self user] setOrganization:self.organizationField.text];
 		[[self user] setServiceKey:self.serviceKeyField.text];
+		[self.managedObjectContext save];
 		
+		[[HTTPOperationController sharedHTTPOperationController] login];
+		
+		/*
 		NSString * _key = @"wTGMqLubzizPgylAsHGgfPfLDoclQt+YAIzM1ugFMko=";
 		
 		StringEncryption *crypto = [[StringEncryption alloc] init];
@@ -118,7 +125,13 @@
 		[request addRequestHeader:@"Content-Type" value:@"application/json"];
 		[request setDelegate:self];
 		[request startAsynchronous];
+		 */
 	}
+}
+
+- (void)loginFinished:(ASIHTTPRequest *)request
+{
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) IBOutlet UIPickerView *pickerView;
 @property (nonatomic, unsafe_unretained) IBOutlet id <PickerViewControllerDelegate> delegate;
 @property (nonatomic) NSInteger currentTag;
+@property (nonatomic, strong) NSIndexPath *currentIndexPath;
 
 - (IBAction)nextField:(id)sender;
 - (IBAction)previousField:(id)sender;
@@ -27,6 +28,7 @@
 
 @protocol PickerViewControllerDelegate <NSObject>
 
+- (void)didChangeValue:(PickerViewController *)picker;
 - (void)didChangeValue:(UIPickerView *)picker forTag:(NSInteger)tag;
 - (void)nextField:(NSInteger)currentTag;
 - (void)previousField:(NSInteger)currentTag;

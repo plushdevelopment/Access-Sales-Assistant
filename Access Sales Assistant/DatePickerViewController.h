@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, unsafe_unretained) id <DatePickerViewControllerDelegate> delegate;
 @property (nonatomic) NSInteger currentTag;
+@property (nonatomic, strong) NSIndexPath *currentIndexPath;
 
 - (IBAction)datePickerValueChanged:(id)sender;
 - (IBAction)nextField:(id)sender;

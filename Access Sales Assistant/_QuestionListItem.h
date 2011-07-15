@@ -4,7 +4,10 @@
 #import <CoreData/CoreData.h>
 
 
+@class DailySummary;
 @class Producer;
+
+
 
 
 
@@ -21,15 +24,19 @@
 
 
 
-@property (nonatomic, retain) NSString *answer;
+@property (nonatomic, retain) NSNumber *deleted;
 
-//- (BOOL)validateAnswer:(id*)value_ error:(NSError**)error_;
+@property BOOL deletedValue;
+- (BOOL)deletedValue;
+- (void)setDeletedValue:(BOOL)value_;
+
+//- (BOOL)validateDeleted:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *guid;
+@property (nonatomic, retain) NSString *uid;
 
-//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -37,6 +44,27 @@
 
 //- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
 
+
+
+@property (nonatomic, retain) NSNumber *edited;
+
+@property BOOL editedValue;
+- (BOOL)editedValue;
+- (void)setEditedValue:(BOOL)value_;
+
+//- (BOOL)validateEdited:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *answer;
+
+//- (BOOL)validateAnswer:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSSet* dailySummaries;
+- (NSMutableSet*)dailySummariesSet;
 
 
 
@@ -50,6 +78,11 @@
 
 @interface _QuestionListItem (CoreDataGeneratedAccessors)
 
+- (void)addDailySummaries:(NSSet*)value_;
+- (void)removeDailySummaries:(NSSet*)value_;
+- (void)addDailySummariesObject:(DailySummary*)value_;
+- (void)removeDailySummariesObject:(DailySummary*)value_;
+
 - (void)addProducers:(NSSet*)value_;
 - (void)removeProducers:(NSSet*)value_;
 - (void)addProducersObject:(Producer*)value_;
@@ -60,14 +93,17 @@
 @interface _QuestionListItem (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveAnswer;
-- (void)setPrimitiveAnswer:(NSString*)value;
+- (NSNumber*)primitiveDeleted;
+- (void)setPrimitiveDeleted:(NSNumber*)value;
+
+- (BOOL)primitiveDeletedValue;
+- (void)setPrimitiveDeletedValue:(BOOL)value_;
 
 
 
 
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
 
 
 
@@ -76,6 +112,26 @@
 - (void)setPrimitiveText:(NSString*)value;
 
 
+
+
+- (NSNumber*)primitiveEdited;
+- (void)setPrimitiveEdited:(NSNumber*)value;
+
+- (BOOL)primitiveEditedValue;
+- (void)setPrimitiveEditedValue:(BOOL)value_;
+
+
+
+
+- (NSString*)primitiveAnswer;
+- (void)setPrimitiveAnswer:(NSString*)value;
+
+
+
+
+
+- (NSMutableSet*)primitiveDailySummaries;
+- (void)setPrimitiveDailySummaries:(NSMutableSet*)value;
 
 
 

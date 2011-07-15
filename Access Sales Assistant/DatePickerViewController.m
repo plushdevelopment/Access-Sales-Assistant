@@ -16,6 +16,8 @@
 
 @synthesize currentTag=_currentTag;
 
+@synthesize currentIndexPath=_currentIndexPath;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

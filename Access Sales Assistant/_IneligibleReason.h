@@ -20,13 +20,13 @@
 
 
 
-@property (nonatomic, retain) NSNumber *guid;
+@property (nonatomic, retain) NSNumber *uid;
 
-@property short guidValue;
-- (short)guidValue;
-- (void)setGuidValue:(short)value_;
+@property short uidValue;
+- (short)uidValue;
+- (void)setUidValue:(short)value_;
 
-//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -57,11 +57,11 @@
 @interface _IneligibleReason (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSNumber*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSNumber*)value;
+- (NSNumber*)primitiveUid;
+- (void)setPrimitiveUid:(NSNumber*)value;
 
-- (short)primitiveGuidValue;
-- (void)setPrimitiveGuidValue:(short)value_;
+- (short)primitiveUidValue;
+- (void)setPrimitiveUidValue:(short)value_;
 
 
 

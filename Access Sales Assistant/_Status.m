@@ -36,7 +36,7 @@
 
 
 
-@dynamic guid;
+@dynamic uid;
 
 
 

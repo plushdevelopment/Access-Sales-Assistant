@@ -5,7 +5,8 @@
 
 
 @class SubTerritory;
-@class Rater;
+@class DailySummary;
+@class Rater2;
 @class Contact;
 @class SuspensionReason;
 @class IneligibleReason;
@@ -14,8 +15,8 @@
 @class AddressListItem;
 @class EmailListItem;
 @class PhoneListItem;
-@class Status;
 @class Rater;
+@class Status;
 
 
 
@@ -46,6 +47,12 @@
 @property (nonatomic, retain) NSDate *eAndOExpires;
 
 //- (BOOL)validateEAndOExpires:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *uid;
+
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -88,12 +95,6 @@
 @property (nonatomic, retain) NSString *producerCode;
 
 //- (BOOL)validateProducerCode:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *guid;
-
-//- (BOOL)validateGuid:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -153,7 +154,12 @@
 
 
 
-@property (nonatomic, retain) Rater* rater2;
+@property (nonatomic, retain) DailySummary* dailySummary;
+//- (BOOL)validateDailySummary:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) Rater2* rater2;
 //- (BOOL)validateRater2:(id*)value_ error:(NSError**)error_;
 
 
@@ -198,13 +204,13 @@
 
 
 
-@property (nonatomic, retain) Status* status;
-//- (BOOL)validateStatus:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) Rater* rater;
 //- (BOOL)validateRater:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) Status* status;
+//- (BOOL)validateStatus:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -249,6 +255,12 @@
 
 
 
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
+
+
+
+
 - (NSNumber*)primitiveEdited;
 - (void)setPrimitiveEdited:(NSNumber*)value;
 
@@ -284,12 +296,6 @@
 
 - (NSString*)primitiveProducerCode;
 - (void)setPrimitiveProducerCode:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveGuid;
-- (void)setPrimitiveGuid:(NSString*)value;
 
 
 
@@ -348,8 +354,13 @@
 
 
 
-- (Rater*)primitiveRater2;
-- (void)setPrimitiveRater2:(Rater*)value;
+- (DailySummary*)primitiveDailySummary;
+- (void)setPrimitiveDailySummary:(DailySummary*)value;
+
+
+
+- (Rater2*)primitiveRater2;
+- (void)setPrimitiveRater2:(Rater2*)value;
 
 
 
@@ -393,13 +404,13 @@
 
 
 
-- (Status*)primitiveStatus;
-- (void)setPrimitiveStatus:(Status*)value;
-
-
-
 - (Rater*)primitiveRater;
 - (void)setPrimitiveRater:(Rater*)value;
+
+
+
+- (Status*)primitiveStatus;
+- (void)setPrimitiveStatus:(Status*)value;
 
 
 @end

@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)submitLogin:(id)sender;
+- (void)loginFinished:(ASIHTTPRequest *)request;
 - (void)showError:(NSString *)message;
 
 @end

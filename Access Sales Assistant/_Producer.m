@@ -63,6 +63,13 @@
 
 
 
+@dynamic uid;
+
+
+
+
+
+
 @dynamic edited;
 
 
@@ -149,13 +156,6 @@
 
 
 @dynamic producerCode;
-
-
-
-
-
-
-@dynamic guid;
 
 
 
@@ -253,6 +253,10 @@
 
 	
 
+@dynamic dailySummary;
+
+	
+
 @dynamic rater2;
 
 	
@@ -324,11 +328,11 @@
 }
 	
 
-@dynamic status;
+@dynamic rater;
 
 	
 
-@dynamic rater;
+@dynamic status;
 
 	
 

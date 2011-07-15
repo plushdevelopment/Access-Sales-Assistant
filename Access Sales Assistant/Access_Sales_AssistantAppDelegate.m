@@ -8,6 +8,8 @@
 
 #import "Access_Sales_AssistantAppDelegate.h"
 
+#import "HTTPOperationController.h"
+
 #import "RootViewController.h"
 
 #import "DetailViewController.h"
@@ -23,20 +25,30 @@
 @synthesize window = _window;
 @synthesize splitViewController = _splitViewController;
 
+- (void)loginFailed:(ASIHTTPRequest *)request
+{
+	LoginViewController *viewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+	[viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+	[viewController setModalPresentationStyle:UIModalPresentationFormSheet];
+	[self.splitViewController presentModalViewController:viewController animated:YES];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Setup the Core Data Stack
 	[ActiveRecordHelpers setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Access_Sales_Assistant.sqlite"];
 	
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFailed:) name:@"Login Failure" object:nil];
+	
     // Override point for customization after application launch.
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+	
 	RootViewController *controller = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
 	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-	//[[navigationController navigationBar] setTintColor:[UIColor darkTextColor]];
-
+	
 	VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
-
+	
 	self.splitViewController = [[UISplitViewController alloc] init];
 	self.splitViewController.delegate = detailViewController;
 	self.splitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
@@ -44,10 +56,7 @@
 	self.window.rootViewController = self.splitViewController;
     [self.window makeKeyAndVisible];
 	
-	LoginViewController *viewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-	[viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-	[viewController setModalPresentationStyle:UIModalPresentationFormSheet];
-	[self.splitViewController presentModalViewController:viewController animated:YES];
+	[self loginFailed:nil];
 	
     return YES;
 }
