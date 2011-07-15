@@ -780,7 +780,7 @@
 #pragma mark -
 #pragma mark DatePickerViewControllerDelegate
 
-- (void)didChangeDate:(NSDate *)toDate forTag:(NSInteger)tag
+- (void)datePickerViewController:(DatePickerViewController *)controller didChangeDate:(NSDate *)toDate forTag:(NSInteger)tag
 {
 	Producer *producer = (Producer *)self.detailItem;
 	[producer setEditedValue:YES];

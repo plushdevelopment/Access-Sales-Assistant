@@ -27,7 +27,7 @@
 
 @protocol DatePickerViewControllerDelegate <NSObject>
 
-- (void)didChangeDate:(NSDate *)toDate forTag:(NSInteger)tag;
+- (void)datePickerViewController:(DatePickerViewController *)controller didChangeDate:(NSDate *)toDate forTag:(NSInteger)tag;
 - (void)nextField:(NSInteger)currentTag;
 - (void)previousField:(NSInteger)currentTag;
 

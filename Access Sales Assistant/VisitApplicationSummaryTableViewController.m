@@ -474,59 +474,12 @@ enum PRPTableStatsTags {
 	return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }   
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }   
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	[self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -610,9 +563,57 @@ enum PRPTableStatsTags {
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
 	NSInteger rows = 0;
-	switch (self.pickerViewController.currentTag) {
-		case 0:
-			rows = 1;
+	switch (self.pickerViewController.currentIndexPath.section) {
+		case PRPTableSectionGeneral:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableGeneralCallType:
+					rows = [[PurposeOfCall numberOfEntities] integerValue];
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionSpokeWith:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableSpokeWithTitle:
+					rows = [[Title numberOfEntities] integerValue];
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionCompetitor:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableCompetitorName:
+					rows = [[Competitor numberOfEntities] integerValue];
+					break;
+				case PRPTableCompetitorCommissionStructure:
+					rows = [[CommissionStructure numberOfEntities] integerValue];
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionBarriersToBusiness:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableBarrierName:
+					rows = [[BarrierToBusiness numberOfEntities] integerValue];
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionStats:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableStatsProducerAddOn:
+					rows = [[ProducerAddOn numberOfEntities] integerValue];
+					break;
+				case PRPTableStatsRDFollowUp:
+					rows = 100;
+					break;
+				default:
+					break;
+			}
 			break;
 		default:
 			break;
@@ -632,20 +633,14 @@ enum PRPTableStatsTags {
 							 titleForRow:row
 							 forComponent:component];
 	
-	switch (self.pickerViewController.currentIndexPath.section) {
+	NSIndexPath *indexPath = self.pickerViewController.currentIndexPath;
+	
+	switch (indexPath.section) {
 		case PRPTableSectionGeneral:
 			switch (self.pickerViewController.currentTag) {
-				case PRPTableGeneralProducerName:
-					// Change value in model object
-					// Change value in textField
-					break;
 				case PRPTableGeneralCallType:
 					// Change value in model object
-					// Change value in textField
-					break;
-				case PRPTableGeneralReportDate:
-					// Change value in model object
-					// Change value in textField
+					self.detailItem.purposeOfCall = [PurposeOfCall findFirstByAttribute:@"name" withValue:titleForRow];
 					break;
 				default:
 					break;
@@ -653,21 +648,11 @@ enum PRPTableStatsTags {
 			break;
 		case PRPTableSectionSpokeWith:
 			switch (self.pickerViewController.currentTag) {
-				case PRPTableSpokeWithFirstName:
+				case PRPTableSpokeWithTitle: {
 					// Change value in model object
-					// Change value in textField
-					break;
-				case PRPTableSpokeWithTitle:
-					// Change value in model object
-					// Change value in textField
-					break;
-				case PRPTableSpokeWithLastName:
-					// Change value in model object
-					// Change value in textField
-					break;
-				case PRPTableSpokeWithEmail:
-					// Change value in model object
-					// Change value in textField
+					PersonSpokeWith *person = [self.detailItem.personsSpokeWith.allObjects objectAtIndex:indexPath.row];
+					person.title = [Title findFirstByAttribute:@"name" withValue:titleForRow];
+				}
 					break;
 				default:
 					break;
@@ -675,25 +660,14 @@ enum PRPTableStatsTags {
 			break;
 		case PRPTableSectionCompetitor:
 			switch (self.pickerViewController.currentTag) {
-				case PRPTableCompetitorName:
-					// Change value in model object
-					// Change value in textField
-					break;
-				case PRPTableCompetitorAppsPerMonth:
-					// Change value in model object
-					// Change value in textField
+				case PRPTableCompetitorName: {
+					Competitor *competitor = [Competitor findFirstByAttribute:@"name" withValue:titleForRow];
+					[[self.detailItem.competitorsSet.allObjects objectAtIndex:indexPath.row] removeIndex:indexPath.row];
+					
+				}
 					break;
 				case PRPTableCompetitorCommissionStructure:
 					// Change value in model object
-					// Change value in textField
-					break;
-				case PRPTableCompetitorPercentNew:
-					// Change value in model object
-					// Change value in textField
-					break;
-				case PRPTableCompetitorPercentRenewal:
-					// Change value in model object
-					// Change value in textField
 					break;
 				default:
 					break;
@@ -703,7 +677,6 @@ enum PRPTableStatsTags {
 			switch (self.pickerViewController.currentTag) {
 				case PRPTableBarrierName:
 					// Change value in model object
-					// Change value in textField
 					break;
 				default:
 					break;
@@ -711,29 +684,11 @@ enum PRPTableStatsTags {
 			break;
 		case PRPTableSectionStats:
 			switch (self.pickerViewController.currentTag) {
-				case PRPTableStatsTotalAppsPerMonth:
-					// Change value in model object
-					// Change value in textField
-					break;
-				case PRPTableStatsMonthlyGoal:
-					// Change value in model object
-					// Change value in textField
-					break;
-				case PRPTableStatsPercentLiab:
-					// Change value in model object
-					// Change value in textField
-					break;
-				case PRPTableStatsPercentFDL:
-					// Change value in model object
-					// Change value in textField
-					break;
 				case PRPTableStatsProducerAddOn:
 					// Change value in model object
-					// Change value in textField
 					break;
 				case PRPTableStatsRDFollowUp:
 					// Change value in model object
-					// Change value in textField
 					break;
 				default:
 					break;
@@ -743,42 +698,89 @@ enum PRPTableStatsTags {
 			break;
 	}
 	[self.managedObjectContext save];
+	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:self.pickerViewController.currentIndexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
-
-/*
- - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
- {
- 
- }
- */
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
 	NSString *theTitle = @"NOT SET";
-	switch (self.pickerViewController.currentTag) {
-		case 0:
-			theTitle = [NSString stringWithFormat:@"%d", row];
+	switch (self.pickerViewController.currentIndexPath.section) {
+		case PRPTableSectionGeneral:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableGeneralCallType:
+					theTitle = [[[PurposeOfCall findAll] objectAtIndex:row] name];
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionSpokeWith:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableSpokeWithTitle:
+					theTitle = [[[Title findAll] objectAtIndex:row] name];
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionCompetitor:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableCompetitorName:
+					theTitle = [[[Competitor findAll] objectAtIndex:row] name];
+					break;
+				case PRPTableCompetitorCommissionStructure:
+					theTitle = [[[CommissionStructure findAll] objectAtIndex:row] name];
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionBarriersToBusiness:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableBarrierName:
+					theTitle = [[[BarrierToBusiness findAll] objectAtIndex:row] name];
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionStats:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableStatsProducerAddOn:
+					theTitle = [[[ProducerAddOn findAll] objectAtIndex:row] name];
+					break;
+				case PRPTableStatsRDFollowUp:
+					theTitle = [NSString stringWithFormat:@"%d", row];
+					break;
+				default:
+					break;
+			}
 			break;
 		default:
 			break;
 	}
+
 	return theTitle;
 }
 
 #pragma mark -
 #pragma mark DatePickerViewControllerDelegate
 
-- (void)didChangeDate:(NSDate *)toDate forTag:(NSInteger)tag
+- (void)datePickerViewController:(DatePickerViewController *)controller didChangeDate:(NSDate *)toDate forTag:(NSInteger)tag
 {
-	Producer *producer = (Producer *)self.detailItem;
-	[producer setEditedValue:YES];
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	switch (tag) {
-		case 0:
-			// Change value in the model object
-			// Format the date for the textField
-			[formatter setDateFormat:@"MM-dd-yyyy"];
-			// Change the value for the textField
+	
+	switch (controller.currentIndexPath.section) {
+		case PRPTableSectionGeneral:
+			switch (self.pickerViewController.currentTag) {
+				case PRPTableGeneralReportDate:
+					[formatter setDateFormat:@"MM-dd-yyyy"];
+					// Change value in model object
+					// Change value in textField
+					break;
+				default:
+					break;
+			}
 			break;
 		default:
 			break;

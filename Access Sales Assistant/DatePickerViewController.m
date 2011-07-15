@@ -60,7 +60,7 @@
 - (IBAction)datePickerValueChanged:(id)sender
 {
 	if (self.delegate != nil) {
-		[self.delegate didChangeDate:self.datePicker.date forTag:self.currentTag];
+		[self.delegate datePickerViewController:self didChangeDate:self.datePicker.date forTag:self.currentTag];
 	}
 }
 
