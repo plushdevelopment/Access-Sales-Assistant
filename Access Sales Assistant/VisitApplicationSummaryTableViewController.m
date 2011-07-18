@@ -518,6 +518,85 @@ enum PRPTableStatsTags {
 		summary.editedValue = YES;
 		[self.managedObjectContext save];
 	}
+	
+	NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
+	NSInteger tag = textField.tag;
+	
+	switch (indexPath.section) {
+        case PRPTableSectionGeneral:
+            switch (tag) {
+				case PRPTableGeneralProducerName:
+					self.detailItem.producerId.name = textField.text;
+					break;
+				default:
+					break;
+			}
+			break;
+        case PRPTableSectionSpokeWith: {
+			PersonSpokeWith *person = [self.detailItem.personsSpokeWith.allObjects objectAtIndex:indexPath.row];
+            switch (tag) {
+				case PRPTableSpokeWithFirstName:
+					person.firstName = textField.text;
+					break;
+				case PRPTableSpokeWithLastName:
+					person.lastName = textField.text;
+				case PRPTableSpokeWithEmail:
+					person.email = textField.text;
+				default:
+					break;
+			}
+		}
+			break;
+		case PRPTableSectionCompetitor: {
+			Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:indexPath.row];
+			switch (tag) {
+				case PRPTableCompetitorAppsPerMonth:
+					competitor.appsPerMonthValue = [textField.text integerValue];
+					break;
+				case PRPTableCompetitorPercentNew:
+					self.detailItem.commissionPercentNewValue = [textField.text integerValue];
+					break;
+				case PRPTableCompetitorPercentRenewal:
+					self.detailItem.commissionPercentRenewalValue = [textField.text integerValue];
+					break;
+				default:
+					break;
+			}
+		}
+			break;
+		case PRPTableSectionBarriersToBusiness:
+			
+			break;
+		case PRPTableSectionStats:
+			switch (tag) {
+				case PRPTableStatsTotalAppsPerMonth:
+					self.detailItem.nsbsTotAppsPerMonthValue = [textField.text integerValue];
+					break;
+				case PRPTableStatsMonthlyGoal:
+					self.detailItem.nsbsMonthlyGoalValue = [textField.text integerValue];
+					break;
+				case PRPTableStatsPercentLiab:
+					self.detailItem.nsbsPercentLiabValue = [textField.text integerValue];
+					break;
+				case PRPTableStatsPercentFDL:
+					self.detailItem.nsbsFdlValue = [textField.text integerValue];
+					break;
+				case PRPTableStatsProducerAddOn: {
+					self.detailItem.producerAddOn = [ProducerAddOn findFirstByAttribute:@"name" withValue:textField.text];
+				}
+					break;
+				case PRPTableStatsRDFollowUp:
+					self.detailItem.rdFollowUpValue = [textField.text integerValue];
+					break;
+				default:
+					break;
+			}
+			break;
+        default:
+            NSLog(@"Unexpected section (%d)", indexPath.section);
+            break;
+    }
+	
 	return YES;
 }
 
@@ -775,8 +854,7 @@ enum PRPTableStatsTags {
 			switch (self.pickerViewController.currentTag) {
 				case PRPTableGeneralReportDate:
 					[formatter setDateFormat:@"MM-dd-yyyy"];
-					// Change value in model object
-					// Change value in textField
+					self.detailItem.reportDate = toDate;
 					break;
 				default:
 					break;
@@ -786,6 +864,7 @@ enum PRPTableStatsTags {
 			break;
 	}
 	[[NSManagedObjectContext defaultContext] save];
+	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:controller.currentIndexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 - (void)nextField:(NSInteger)currentTag
