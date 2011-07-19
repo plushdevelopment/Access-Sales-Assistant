@@ -202,6 +202,7 @@
 	[pickerView setShowsSelectionIndicator:YES];
 	[pickerView selectRow:0 inComponent:0 animated:NO];
 	[pickerView reloadAllComponents];
+	[self pickerView:pickerView didSelectRow:0 inComponent:0];
 }
 
 // Show the Date picker in Date mode in a popover
@@ -217,6 +218,7 @@
 	_aPopoverController = [[UIPopoverController alloc] initWithContentViewController:viewController];
 	[self.aPopoverController presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	[viewController.datePicker setDatePickerMode:UIDatePickerModeDate];
+	[self datePickerViewController:viewController didChangeDate:viewController.datePicker.date forTag:button.tag];
 }
 
 // show the Date picker in Time mode in a popover
@@ -232,6 +234,7 @@
 	_aPopoverController = [[UIPopoverController alloc] initWithContentViewController:viewController];
 	[self.aPopoverController presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	[viewController.datePicker setDatePickerMode:UIDatePickerModeTime];
+	[self datePickerViewController:viewController didChangeDate:viewController.datePicker.date forTag:button.tag];
 }
 
 #pragma mark -
@@ -366,8 +369,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-	return YES;
+    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 

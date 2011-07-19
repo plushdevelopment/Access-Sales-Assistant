@@ -1,23 +1,22 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to Title.h instead.
+// Make changes to PersonSpokeWithTitle.h instead.
 
 #import <CoreData/CoreData.h>
 
 
-@class Contact;
 @class PersonSpokeWith;
 
 
 
 
-@interface TitleID : NSManagedObjectID {}
+@interface PersonSpokeWithTitleID : NSManagedObjectID {}
 @end
 
-@interface _Title : NSManagedObject {}
+@interface _PersonSpokeWithTitle : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (TitleID*)objectID;
+- (PersonSpokeWithTitleID*)objectID;
 
 
 
@@ -38,11 +37,6 @@
 
 
 
-@property (nonatomic, retain) NSSet* contact;
-- (NSMutableSet*)contactSet;
-
-
-
 @property (nonatomic, retain) NSSet* personSpokeWith;
 - (NSMutableSet*)personSpokeWithSet;
 
@@ -51,12 +45,7 @@
 
 @end
 
-@interface _Title (CoreDataGeneratedAccessors)
-
-- (void)addContact:(NSSet*)value_;
-- (void)removeContact:(NSSet*)value_;
-- (void)addContactObject:(Contact*)value_;
-- (void)removeContactObject:(Contact*)value_;
+@interface _PersonSpokeWithTitle (CoreDataGeneratedAccessors)
 
 - (void)addPersonSpokeWith:(NSSet*)value_;
 - (void)removePersonSpokeWith:(NSSet*)value_;
@@ -65,7 +54,7 @@
 
 @end
 
-@interface _Title (CoreDataGeneratedPrimitiveAccessors)
+@interface _PersonSpokeWithTitle (CoreDataGeneratedPrimitiveAccessors)
 
 
 - (NSNumber*)primitiveUid;
@@ -81,11 +70,6 @@
 - (void)setPrimitiveName:(NSString*)value;
 
 
-
-
-
-- (NSMutableSet*)primitiveContact;
-- (void)setPrimitiveContact:(NSMutableSet*)value;
 
 
 

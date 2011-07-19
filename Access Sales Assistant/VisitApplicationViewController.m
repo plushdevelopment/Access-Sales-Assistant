@@ -24,8 +24,12 @@
 
 @synthesize profileApplicationViewController;
 @synthesize summaryApplicationViewController;
+@synthesize notesApplicationViewController;
+@synthesize photoApplicationViewController;
 
 @synthesize detailItem=_detailItem;
+
+@synthesize currentController=_currentController;
 
 - (IBAction)loadApplicationForm:(id)sender
 {
@@ -39,6 +43,7 @@
 			float contentWidth = self.activeVisitFormView.frame.size.width;
 			[(UIScrollView *)profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
 			profileApplicationViewController.detailItem = self.detailItem;
+			self.currentController = profileApplicationViewController;
 			break;
 		case 3: {
 			for (UIView *view in [self.activeVisitFormView subviews]) {
@@ -52,7 +57,33 @@
 				[[NSManagedObjectContext defaultContext] save];
 			}
 			summaryApplicationViewController.detailItem = summary;
+			self.currentController = summaryApplicationViewController;
 		}
+			break;
+		case 4: {
+			for (UIView *view in [self.activeVisitFormView subviews]) {
+				[view removeFromSuperview];
+			}
+			[self.activeVisitFormView addSubview:notesApplicationViewController.view];
+			DailySummary *summary = [(Producer *)self.detailItem dailySummary];
+			if (!summary) {
+				summary = [DailySummary createEntity];
+				[(Producer *)self.detailItem setDailySummary:summary];
+				[[NSManagedObjectContext defaultContext] save];
+			}
+			notesApplicationViewController.detailItem = summary;
+			self.currentController = notesApplicationViewController;
+		}
+			break;
+		case 5:
+			for (UIView *view in [self.activeVisitFormView subviews]) {
+				[view removeFromSuperview];
+			}
+			[self.activeVisitFormView addSubview:photoApplicationViewController.view];
+			photoApplicationViewController.detailItem = self.detailItem;
+			self.currentController = photoApplicationViewController;
+			self.photoApplicationViewController.parent = self;
+			break;
 		default:
 			break;
 	}
@@ -62,7 +93,13 @@
 - (IBAction)submitApplicationForm:(id)sender
 {
 	Producer *producer = (Producer *)self.detailItem;
-	[[HTTPOperationController sharedHTTPOperationController] postProducerProfile:[producer jsonStringValue]];	
+	if ([self.currentController isEqual:self.profileApplicationViewController]) {
+		[[HTTPOperationController sharedHTTPOperationController] postProducerProfile:[producer jsonStringValue]];
+	} else if ([self.currentController isEqual:self.summaryApplicationViewController]) {
+		[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[producer.dailySummary jsonStringValue]];
+	} else if ([self.currentController isEqual:self.notesApplicationViewController]) {
+		[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[producer.dailySummary jsonStringValue]];
+	}
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -92,6 +129,7 @@
 	float contentWidth = self.activeVisitFormView.frame.size.width;
 	[(UIScrollView *)profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
 	profileApplicationViewController.detailItem = self.detailItem;
+	self.currentController = profileApplicationViewController;
 }
 
 - (void)viewDidUnload
@@ -100,6 +138,7 @@
 	[self setActiveVisitFormView:nil];
 	[self setProfileApplicationViewController:nil];
 	[self setSummaryApplicationViewController:nil];
+	[self setPhotoApplicationViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -107,9 +146,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-	[self.profileApplicationViewController shouldAutorotateToInterfaceOrientation:interfaceOrientation];
-	return YES;
+    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 #pragma mark - Split view
@@ -130,6 +167,15 @@
     [items removeObjectAtIndex:0];
     [self.toolbar setItems:items animated:YES];
     self.popoverController = nil;
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	// Access the uncropped image from info dictionary
+	UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+	Producer *producer = (Producer *)self.detailItem;
+	[[HTTPOperationController sharedHTTPOperationController] postImage:image forProducer:producer.uid];
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark - Managing the detail item
@@ -155,6 +201,8 @@
 	if (self.detailItem) {
 	    [profileApplicationViewController setDetailItem:self.detailItem];
 		[summaryApplicationViewController setDetailItem:[(Producer *)self.detailItem dailySummary]];
+		[notesApplicationViewController setDetailItem:[(Producer *)self.detailItem dailySummary]];
+		[photoApplicationViewController setDetailItem:self.detailItem];
 	}
 }
 

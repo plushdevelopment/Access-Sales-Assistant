@@ -9,6 +9,7 @@
 @class Rater2;
 @class Contact;
 @class SuspensionReason;
+@class ProducerImage;
 @class IneligibleReason;
 @class QuestionListItem;
 @class HoursOfOperation;
@@ -174,6 +175,11 @@
 
 
 
+@property (nonatomic, retain) NSSet* images;
+- (NSMutableSet*)imagesSet;
+
+
+
 @property (nonatomic, retain) IneligibleReason* ineligibleReason;
 //- (BOOL)validateIneligibleReason:(id*)value_ error:(NSError**)error_;
 
@@ -223,6 +229,11 @@
 - (void)removeContacts:(NSSet*)value_;
 - (void)addContactsObject:(Contact*)value_;
 - (void)removeContactsObject:(Contact*)value_;
+
+- (void)addImages:(NSSet*)value_;
+- (void)removeImages:(NSSet*)value_;
+- (void)addImagesObject:(ProducerImage*)value_;
+- (void)removeImagesObject:(ProducerImage*)value_;
 
 - (void)addQuestions:(NSSet*)value_;
 - (void)removeQuestions:(NSSet*)value_;
@@ -371,6 +382,11 @@
 
 - (SuspensionReason*)primitiveSuspensionReason;
 - (void)setPrimitiveSuspensionReason:(SuspensionReason*)value;
+
+
+
+- (NSMutableSet*)primitiveImages;
+- (void)setPrimitiveImages:(NSMutableSet*)value;
 
 
 

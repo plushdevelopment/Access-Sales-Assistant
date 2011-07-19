@@ -56,7 +56,7 @@
 					<object class="IBUIView" id="809266256">
 						<reference key="NSNextResponder" ref="1068277123"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 148}, {768, 876}}</string>
+						<string key="NSFrame">{{0, 140}, {768, 884}}</string>
 						<reference key="NSSuperview" ref="1068277123"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="116619793"/>
@@ -68,20 +68,6 @@
 							</object>
 						</object>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-					</object>
-					<object class="IBUIImageView" id="501280837">
-						<reference key="NSNextResponder" ref="1068277123"/>
-						<int key="NSvFlags">288</int>
-						<string key="NSFrame">{{0, 141}, {768, 18}}</string>
-						<reference key="NSSuperview" ref="1068277123"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="809266256"/>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<object class="NSCustomResource" key="IBUIImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">drop-shadow-top.png</string>
-						</object>
 					</object>
 					<object class="IBUIImageView" id="299251570">
 						<reference key="NSNextResponder" ref="1068277123"/>
@@ -144,7 +130,7 @@
 						<string key="NSFrame">{{619, 64}, {97, 48}}</string>
 						<reference key="NSSuperview" ref="1068277123"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="501280837"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">1</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -162,7 +148,7 @@
 					<object class="IBUIButton" id="116619793">
 						<reference key="NSNextResponder" ref="1068277123"/>
 						<int key="NSvFlags">288</int>
-						<string key="NSFrame">{{53, 126}, {126, 48}}</string>
+						<string key="NSFrame">{{53, 115}, {126, 48}}</string>
 						<reference key="NSSuperview" ref="1068277123"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="967527192"/>
@@ -183,7 +169,7 @@
 					<object class="IBUIButton" id="967527192">
 						<reference key="NSNextResponder" ref="1068277123"/>
 						<int key="NSvFlags">288</int>
-						<string key="NSFrame">{{187, 126}, {126, 48}}</string>
+						<string key="NSFrame">{{187, 115}, {126, 48}}</string>
 						<reference key="NSSuperview" ref="1068277123"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="185493879"/>
@@ -204,7 +190,7 @@
 					<object class="IBUIButton" id="646036340">
 						<reference key="NSNextResponder" ref="1068277123"/>
 						<int key="NSvFlags">288</int>
-						<string key="NSFrame">{{455, 126}, {126, 48}}</string>
+						<string key="NSFrame">{{455, 115}, {126, 48}}</string>
 						<reference key="NSSuperview" ref="1068277123"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="700428026"/>
@@ -225,10 +211,9 @@
 					<object class="IBUIButton" id="700428026">
 						<reference key="NSNextResponder" ref="1068277123"/>
 						<int key="NSvFlags">288</int>
-						<string key="NSFrame">{{589, 126}, {126, 48}}</string>
+						<string key="NSFrame">{{589, 115}, {126, 48}}</string>
 						<reference key="NSSuperview" ref="1068277123"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">6</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -246,7 +231,7 @@
 					<object class="IBUIButton" id="185493879">
 						<reference key="NSNextResponder" ref="1068277123"/>
 						<int key="NSvFlags">288</int>
-						<string key="NSFrame">{{321, 126}, {126, 48}}</string>
+						<string key="NSFrame">{{321, 115}, {126, 48}}</string>
 						<reference key="NSSuperview" ref="1068277123"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="646036340"/>
@@ -292,6 +277,42 @@
 			</object>
 			<object class="IBUIViewController" id="145865301">
 				<string key="IBUINibName">VisitApplicationSummaryTableViewController</string>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
+					<int key="IBUIStatusBarStyle">2</int>
+				</object>
+				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+					<int key="IBUIInterfaceOrientation">1</int>
+					<int key="interfaceOrientation">1</int>
+				</object>
+				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+				<bool key="IBUIHorizontal">NO</bool>
+			</object>
+			<object class="IBUIViewController" id="14970563">
+				<string key="IBUINibName">VisitApplicationNotesViewController</string>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
+					<int key="IBUIStatusBarStyle">2</int>
+				</object>
+				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+					<int key="IBUIInterfaceOrientation">1</int>
+					<int key="interfaceOrientation">1</int>
+				</object>
+				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+				<bool key="IBUIHorizontal">NO</bool>
+			</object>
+			<object class="IBUIViewController" id="1005805987">
+				<string key="IBUINibName">VisitApplicationPhotosViewController</string>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
+					<int key="IBUIStatusBarStyle">2</int>
+				</object>
+				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+					<int key="IBUIInterfaceOrientation">1</int>
+					<int key="interfaceOrientation">1</int>
+				</object>
+				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+				<bool key="IBUIHorizontal">NO</bool>
+			</object>
+			<object class="IBUIViewController" id="317903137">
+				<string key="IBUINibName">ProfileTableViewController</string>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
 					<int key="IBUIStatusBarStyle">2</int>
 				</object>
@@ -400,6 +421,22 @@
 					</object>
 					<int key="connectionID">74</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">notesApplicationViewController</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="14970563"/>
+					</object>
+					<int key="connectionID">76</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">photoApplicationViewController</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="1005805987"/>
+					</object>
+					<int key="connectionID">78</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -443,7 +480,6 @@
 							<reference ref="732585998"/>
 							<reference ref="185493879"/>
 							<reference ref="299251570"/>
-							<reference ref="501280837"/>
 							<reference ref="809266256"/>
 						</object>
 						<reference key="parent" ref="0"/>
@@ -495,11 +531,6 @@
 						<reference key="parent" ref="1068277123"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">39</int>
-						<reference key="object" ref="501280837"/>
-						<reference key="parent" ref="1068277123"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">70</int>
 						<reference key="object" ref="809266256"/>
 						<reference key="parent" ref="1068277123"/>
@@ -507,6 +538,21 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">73</int>
 						<reference key="object" ref="145865301"/>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">75</int>
+						<reference key="object" ref="14970563"/>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">77</int>
+						<reference key="object" ref="1005805987"/>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">79</int>
+						<reference key="object" ref="317903137"/>
 						<reference key="parent" ref="0"/>
 					</object>
 				</object>
@@ -526,7 +572,6 @@
 					<string>37.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>38.IBPluginDependency</string>
 					<string>38.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
-					<string>39.IBPluginDependency</string>
 					<string>40.IBPluginDependency</string>
 					<string>40.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>41.IBPluginDependency</string>
@@ -542,6 +587,12 @@
 					<string>70.IBPluginDependency</string>
 					<string>73.CustomClassName</string>
 					<string>73.IBPluginDependency</string>
+					<string>75.CustomClassName</string>
+					<string>75.IBPluginDependency</string>
+					<string>77.CustomClassName</string>
+					<string>77.IBPluginDependency</string>
+					<string>79.CustomClassName</string>
+					<string>79.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -557,7 +608,6 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -571,6 +621,12 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>VisitApplicationSummaryTableViewController</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>VisitApplicationNotesViewController</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>VisitApplicationPhotosViewController</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>ProfileTableViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
@@ -586,11 +642,51 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">74</int>
+			<int key="maxID">79</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBPartialClassDescription">
+					<string key="className">AQGridView</string>
+					<string key="superclassName">UIScrollView</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dataSource</string>
+							<string>delegate</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dataSource</string>
+							<string>delegate</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">dataSource</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">delegate</string>
+								<string key="candidateClassName">id</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/AQGridView.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">DetailViewController</string>
 					<string key="superclassName">UIViewController</string>
@@ -680,6 +776,98 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/PickerViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ProfileTableViewController</string>
+					<string key="superclassName">UITableViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ProfileTableViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">VisitApplicationNotesViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>committmentTextView</string>
+							<string>followUpTextView</string>
+							<string>opportunityTextView</string>
+							<string>summaryTextView</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UITextView</string>
+							<string>UITextView</string>
+							<string>UITextView</string>
+							<string>UITextView</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>committmentTextView</string>
+							<string>followUpTextView</string>
+							<string>opportunityTextView</string>
+							<string>summaryTextView</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">committmentTextView</string>
+								<string key="candidateClassName">UITextView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">followUpTextView</string>
+								<string key="candidateClassName">UITextView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">opportunityTextView</string>
+								<string key="candidateClassName">UITextView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">summaryTextView</string>
+								<string key="candidateClassName">UITextView</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/VisitApplicationNotesViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">VisitApplicationPhotosViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">uploadPhoto:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">uploadPhoto:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">uploadPhoto:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">gridView</string>
+						<string key="NS.object.0">AQGridView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">gridView</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">gridView</string>
+							<string key="candidateClassName">AQGridView</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/VisitApplicationPhotosViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -1468,12 +1656,16 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>activeVisitFormView</string>
+							<string>notesApplicationViewController</string>
+							<string>photoApplicationViewController</string>
 							<string>profileApplicationViewController</string>
 							<string>summaryApplicationViewController</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIView</string>
+							<string>VisitApplicationNotesViewController</string>
+							<string>VisitApplicationPhotosViewController</string>
 							<string>VisitApplicationProfileViewController</string>
 							<string>VisitApplicationSummaryTableViewController</string>
 						</object>
@@ -1483,6 +1675,8 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>activeVisitFormView</string>
+							<string>notesApplicationViewController</string>
+							<string>photoApplicationViewController</string>
 							<string>profileApplicationViewController</string>
 							<string>summaryApplicationViewController</string>
 						</object>
@@ -1491,6 +1685,14 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">activeVisitFormView</string>
 								<string key="candidateClassName">UIView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">notesApplicationViewController</string>
+								<string key="candidateClassName">VisitApplicationNotesViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">photoApplicationViewController</string>
+								<string key="candidateClassName">VisitApplicationPhotosViewController</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">profileApplicationViewController</string>
@@ -1511,6 +1713,10 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="1280" key="NS.object.0"/>
+		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
 			<integer value="3100" key="NS.object.0"/>
@@ -1524,14 +1730,12 @@
 				<string>button_menu_off.png</string>
 				<string>button_menu_on.png</string>
 				<string>daily-summary-header.png</string>
-				<string>drop-shadow-top.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{126, 47}</string>
 				<string>{126, 47}</string>
 				<string>{1023, 104}</string>
-				<string>{1026, 18}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">884</string>

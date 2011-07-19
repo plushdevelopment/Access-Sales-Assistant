@@ -20,6 +20,8 @@
 
 #import "User.h"
 
+#import "ASIHTTPRequest.h"
+
 @implementation Access_Sales_AssistantAppDelegate
 
 @synthesize window = _window;
@@ -33,6 +35,15 @@
 	[self.splitViewController presentModalViewController:viewController animated:YES];
 }
 
+- (void)showError:(id)notification
+{
+	ASIHTTPRequest *request = (ASIHTTPRequest *)[notification object];
+	NSError *error = [request error];
+	NSLog(@"Request Error: %@", [error localizedDescription]);
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+	[alertView show];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Setup the Core Data Stack
@@ -40,6 +51,11 @@
 	
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFailed:) name:@"Login Failure" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Producer Failure" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Summary Failure" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Image Failure" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Get Images Failure" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Get Image Failure" object:nil];
 	
     // Override point for customization after application launch.
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
