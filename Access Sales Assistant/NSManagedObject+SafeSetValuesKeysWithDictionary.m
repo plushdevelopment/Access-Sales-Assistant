@@ -51,6 +51,12 @@
         } else if ((attributeType == NSDateAttributeType) && ([value isKindOfClass:[NSString class]]) && (dateFormatter != nil)) {
             value = [dateFormatter dateFromString:value];
         }
+		if (value == nil) {
+			continue;
+		}
+		if (([value isKindOfClass:[NSDictionary class]]) && ([(NSDictionary *)value count] == 0)) {
+			continue;
+		}
         [self setValue:value forKey:attribute];
     }
 	
@@ -68,9 +74,25 @@
 			if ([[[[relationships objectForKey:relationship] destinationEntity] name] isEqualToString:[entityDescription name]]) {
 				
 				if (![[relationships objectForKey:relationship] isToMany]) {
-					NSManagedObject *object = [[NSClassFromString([entityDescription name]) class] findFirstByAttribute:@"uid" withValue:[value valueForKey:@"uid"]];
-					
-					[object safeSetValuesForKeysWithDictionary:value dateFormatter:nil];
+					NSManagedObject *object;
+					Class aClass = [NSClassFromString([entityDescription name]) class];
+					for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
+						if ([desc.description isEqualToString:@"uid"]) {
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"uid" value:[value valueForKey:@"uid"]];
+						} else if ([desc.description isEqualToString:@"addressLine1"]) {
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"addressLine1" value:[value valueForKey:@"addressLine1"]];
+						} else if ([desc.description isEqualToString:@"number"]) {
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"number" value:[value valueForKey:@"number"]];
+						} else if ([desc.description isEqualToString:@"address"]) {
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"address" value:[value valueForKey:@"address"]];
+						}  else if ([desc.description isEqualToString:@"text"]) {
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"text" value:[value valueForKey:@"text"]];
+						}
+					}
+					if (!object) {
+						object = [aClass createEntity];
+					}
+					[object safeSetValuesForKeysWithDictionary:value dateFormatter:dateFormatter];
 					[self setValue:object forKey:relationship];
 					continue;
 				}
@@ -79,13 +101,24 @@
 				for (id subValue in value) {
 					NSManagedObject *object;
 					Class aClass = [NSClassFromString([entityDescription name]) class];
-					if ([[[aClass entityDescription] attributesByName] respondsToSelector:@selector(uid)]) {
-						object = [[NSClassFromString([entityDescription name]) class] findFirstByAttribute:@"uid" withValue:[subValue valueForKey:@"uid"]];
-					} else {
+					for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
+						if ([desc.description isEqualToString:@"uid"]) {
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"uid" value:[subValue valueForKey:@"uid"]];
+						} else if ([desc.description isEqualToString:@"addressLine1"]) {
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"addressLine1" value:[subValue valueForKey:@"addressLine1"]];
+						} else if ([desc.description isEqualToString:@"number"]) {
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"number" value:[subValue valueForKey:@"number"]];
+						} else if ([desc.description isEqualToString:@"address"]) {
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"address" value:[subValue valueForKey:@"address"]];
+						}  else if ([desc.description isEqualToString:@"text"]) {
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"text" value:[subValue valueForKey:@"text"]];
+						}
+					}
+					if (!object) {
 						object = [aClass createEntity];
 					}
 					
-					[object safeSetValuesForKeysWithDictionary:subValue dateFormatter:nil];
+					[object safeSetValuesForKeysWithDictionary:subValue dateFormatter:dateFormatter];
 					[relationshipSet addObject:object];
 				}
 			}

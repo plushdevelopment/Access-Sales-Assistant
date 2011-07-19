@@ -808,8 +808,10 @@ enum PRPTableStatsTags {
 					
 				}
 					break;
-				case PRPTableCompetitorCommissionStructure:
-					// Change value in model object
+				case PRPTableCompetitorCommissionStructure: {
+					CommissionStructure *structure = [CommissionStructure findFirstByAttribute:@"name" withValue:titleForRow];
+					self.detailItem.commissionStructure = structure;
+				}
 					break;
 				default:
 					break;
@@ -817,8 +819,11 @@ enum PRPTableStatsTags {
 			break;
 		case PRPTableSectionBarriersToBusiness:
 			switch (self.pickerViewController.currentTag) {
-				case PRPTableBarrierName:
+				case PRPTableBarrierName: {
 					// Change value in model object
+					BarrierToBusiness *barrier = [BarrierToBusiness findFirstByAttribute:@"name" withValue:titleForRow];
+					[self.detailItem addBarriersToBusinessObject:barrier];
+				}
 					break;
 				default:
 					break;
@@ -827,10 +832,10 @@ enum PRPTableStatsTags {
 		case PRPTableSectionStats:
 			switch (self.pickerViewController.currentTag) {
 				case PRPTableStatsProducerAddOn:
-					// Change value in model object
+					self.detailItem.producerAddOn = [ProducerAddOn findFirstByAttribute:@"name" withValue:titleForRow];
 					break;
 				case PRPTableStatsRDFollowUp:
-					// Change value in model object
+					self.detailItem.rdFollowUpValue = [titleForRow integerValue];
 					break;
 				default:
 					break;

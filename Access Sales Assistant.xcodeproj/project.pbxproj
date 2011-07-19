@@ -305,6 +305,7 @@
 		FFF0D05B13BBA529008DFA19 /* _EmailListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03D13BBA528008DFA19 /* _EmailListItem.m */; };
 		FFF0D05C13BBA529008DFA19 /* _Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03F13BBA528008DFA19 /* _Contact.m */; };
 		FFF0D05D13BBA529008DFA19 /* _AddressListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D04113BBA529008DFA19 /* _AddressListItem.m */; };
+		FFF2D89713D5ADB00098609D /* VisitApplicationSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF2D89513D5ADB00098609D /* VisitApplicationSummaryViewController.xib */; };
 		FFFB3BFE13AB94210063E374 /* main_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FFFB3BFD13AB94210063E374 /* main_bg.png */; };
 		FFFB3C0513ABA15C0063E374 /* api.html in Resources */ = {isa = PBXBuildFile; fileRef = FFFB3C0313ABA15C0063E374 /* api.html */; };
 		FFFB3C0613ABA15C0063E374 /* json2.js in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0413ABA15C0063E374 /* json2.js */; };
@@ -794,6 +795,9 @@
 		FFF0D04013BBA529008DFA19 /* _Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Contact.h; sourceTree = "<group>"; };
 		FFF0D04113BBA529008DFA19 /* _AddressListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AddressListItem.m; sourceTree = "<group>"; };
 		FFF0D04213BBA529008DFA19 /* _AddressListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AddressListItem.h; sourceTree = "<group>"; };
+		FFF2D89313D5ADB00098609D /* VisitApplicationSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationSummaryViewController.h; sourceTree = "<group>"; };
+		FFF2D89413D5ADB00098609D /* VisitApplicationSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationSummaryViewController.m; sourceTree = "<group>"; };
+		FFF2D89513D5ADB00098609D /* VisitApplicationSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationSummaryViewController.xib; sourceTree = "<group>"; };
 		FFFB3BFD13AB94210063E374 /* main_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_bg.png; sourceTree = "<group>"; };
 		FFFB3C0313ABA15C0063E374 /* api.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = api.html; sourceTree = "<group>"; };
 		FFFB3C0413ABA15C0063E374 /* json2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = json2.js; sourceTree = "<group>"; };
@@ -1006,6 +1010,9 @@
 				FF95E22B13D4B1540098D41F /* VisitApplicationPhotosViewController.h */,
 				FF95E22C13D4B1540098D41F /* VisitApplicationPhotosViewController.m */,
 				FF95E22D13D4B1540098D41F /* VisitApplicationPhotosViewController.xib */,
+				FFF2D89313D5ADB00098609D /* VisitApplicationSummaryViewController.h */,
+				FFF2D89413D5ADB00098609D /* VisitApplicationSummaryViewController.m */,
+				FFF2D89513D5ADB00098609D /* VisitApplicationSummaryViewController.xib */,
 			);
 			name = "Visit Application";
 			sourceTree = "<group>";
@@ -1915,6 +1922,7 @@
 				FF883BEE13D4CD92001C3122 /* ProfileTableViewController.xib in Resources */,
 				FF9ED83713D50BAD006105C7 /* accessicon.png in Resources */,
 				FF374DF813D50CC000C170EB /* button-plus.png in Resources */,
+				FFF2D89713D5ADB00098609D /* VisitApplicationSummaryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

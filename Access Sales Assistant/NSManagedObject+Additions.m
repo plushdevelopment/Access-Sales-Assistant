@@ -28,6 +28,7 @@
         } else if ((attributeType == NSFloatAttributeType) &&  ([propertyValue isKindOfClass:[NSString class]])) {
             propertyValue = [NSNumber numberWithDouble:[propertyValue doubleValue]];
         }
+		
 		[object setValue:propertyValue forKey:propertyName];
 	}
 	return object;
