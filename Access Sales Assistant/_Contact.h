@@ -5,7 +5,6 @@
 
 
 @class ContactType;
-@class Title;
 @class EmailListItem;
 @class Producer;
 @class PhoneListItem;
@@ -64,11 +63,6 @@
 
 @property (nonatomic, retain) ContactType* type;
 //- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) Title* title;
-//- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -143,11 +137,6 @@
 
 - (ContactType*)primitiveType;
 - (void)setPrimitiveType:(ContactType*)value;
-
-
-
-- (Title*)primitiveTitle;
-- (void)setPrimitiveTitle:(Title*)value;
 
 
 

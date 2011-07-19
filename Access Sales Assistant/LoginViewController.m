@@ -62,6 +62,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFinished:) name:@"Login Successful" object:nil];
+	if (self.user.domain.length > 0)
+		self.domainField.text = self.user.domain;
+	if (self.user.username.length > 0)
+		self.usernameField.text = self.user.username;
+	if (self.user.password.length > 0)
+		self.passwordField.text = self.user.password;
+	if (self.user.organization.length > 0)
+		self.organizationField.text = self.user.organization;
+	if (self.user.serviceKey.length > 0)
+		self.serviceKeyField.text = self.user.serviceKey;
 }
 
 - (void)viewDidUnload
@@ -72,8 +82,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-	return YES;
+    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 - (void)showError:(NSString *)message
@@ -105,7 +114,7 @@
 		
 		[[HTTPOperationController sharedHTTPOperationController] login];
 		
-		/*
+		
 		NSString * _key = @"wTGMqLubzizPgylAsHGgfPfLDoclQt+YAIzM1ugFMko=";
 		
 		StringEncryption *crypto = [[StringEncryption alloc] init];
@@ -125,7 +134,7 @@
 		[request addRequestHeader:@"Content-Type" value:@"application/json"];
 		[request setDelegate:self];
 		[request startAsynchronous];
-		 */
+		 
 	}
 }
 
@@ -150,6 +159,7 @@
 	}
 	
 	[self.managedObjectContext save];
+	[[HTTPOperationController sharedHTTPOperationController] requestPickLists];
 	[self dismissModalViewControllerAnimated:YES];
 }
 

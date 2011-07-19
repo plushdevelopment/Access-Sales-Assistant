@@ -1,29 +1,29 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to Title.m instead.
+// Make changes to PersonSpokeWithTitle.m instead.
 
-#import "_Title.h"
+#import "_PersonSpokeWithTitle.h"
 
-@implementation TitleID
+@implementation PersonSpokeWithTitleID
 @end
 
-@implementation _Title
+@implementation _PersonSpokeWithTitle
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"Title" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"PersonSpokeWithTitle" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"Title";
+	return @"PersonSpokeWithTitle";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"Title" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"PersonSpokeWithTitle" inManagedObjectContext:moc_];
 }
 
-- (TitleID*)objectID {
-	return (TitleID*)[super objectID];
+- (PersonSpokeWithTitleID*)objectID {
+	return (PersonSpokeWithTitleID*)[super objectID];
 }
 
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
@@ -72,17 +72,6 @@
 
 
 
-
-@dynamic contact;
-
-	
-- (NSMutableSet*)contactSet {
-	[self willAccessValueForKey:@"contact"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"contact"];
-	[self didAccessValueForKey:@"contact"];
-	return result;
-}
-	
 
 @dynamic personSpokeWith;
 

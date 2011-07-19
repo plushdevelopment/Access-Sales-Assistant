@@ -14,20 +14,23 @@
 	
 	for (id property in [[self entity] properties])
 	{
+		NSString *name;
+		id value;
 		if ([property isKindOfClass:[NSAttributeDescription class]])
 		{
 			NSAttributeDescription *attributeDescription = (NSAttributeDescription *)property;
 			NSAttributeType attributeType = [attributeDescription attributeType];
-			NSString *name = [attributeDescription name];
-			id value = [self valueForKey:name];
-			if ((attributeType == NSDateAttributeType) && ([value isKindOfClass:[NSDate class]])) {
+			name = [attributeDescription name];
+			value = [self valueForKey:name];
+			if (attributeType == NSDateAttributeType) {
 				NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 				[formatter setDateFormat:@"MM-dd-yyyy HH:mm:ss"];
 				value = [formatter stringFromDate:value];
 			}
+		}
+		if (value && name) {
 			[properties setValue:value forKey:name];
 		}
-		
 		if ([property isKindOfClass:[NSRelationshipDescription class]])
 		{
 			NSRelationshipDescription *relationshipDescription = (NSRelationshipDescription *)property;
@@ -59,15 +62,24 @@
 - (NSDictionary *)propertiesDictionary
 {
 	NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
-	NSLog(@"%@", [[self entity] properties]);
-	NSLog(@"%@", [[self entity] propertiesByName]);
 	for (id property in [[self entity] properties])
 	{
+		NSString *name;
+		id value;
 		if ([property isKindOfClass:[NSAttributeDescription class]])
 		{
 			NSAttributeDescription *attributeDescription = (NSAttributeDescription *)property;
-			NSString *name = [attributeDescription name];
-			[properties setValue:[self valueForKey:name] forKey:name];
+			NSAttributeType attributeType = [attributeDescription attributeType];
+			name = [attributeDescription name];
+			value = [self valueForKey:name];
+			if (attributeType == NSDateAttributeType) {
+				NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+				[formatter setDateFormat:@"MM-dd-yyyy HH:mm:ss"];
+				value = [formatter stringFromDate:value];
+			}
+		}
+		if (value && name) {
+			[properties setValue:value forKey:name];
 		}
 	}
 	return properties;

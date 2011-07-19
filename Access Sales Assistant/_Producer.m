@@ -276,6 +276,17 @@
 
 	
 
+@dynamic images;
+
+	
+- (NSMutableSet*)imagesSet {
+	[self willAccessValueForKey:@"images"];
+	NSMutableSet *result = [self mutableSetValueForKey:@"images"];
+	[self didAccessValueForKey:@"images"];
+	return result;
+}
+	
+
 @dynamic ineligibleReason;
 
 	

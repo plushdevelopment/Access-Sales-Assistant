@@ -25,11 +25,23 @@
 - (void)requestPickLists;
 - (void)requestPickListsFinished:(ASIHTTPRequest *)request;
 - (void)requestPickListsFailed:(ASIHTTPRequest *)request;
-- (void)requestProducers:(NSInteger)page pageSize:(NSInteger)size;
+- (void)requestProducers:(NSNumber *)page;
 - (void)requestProducersFinished:(ASIHTTPRequest *)request;
 - (void)requestProducersFailed:(ASIHTTPRequest *)request;
 - (void)postProducerProfile:(NSString *)profile;
 - (void)postProducerProfileFinished:(ASIHTTPRequest *)request;
 - (void)postProducerProfileFailed:(ASIHTTPRequest *)request;
+- (void)postDailySummary:(NSString *)summary;
+- (void)postDailySummaryFinished:(ASIHTTPRequest *)request;
+- (void)postDailySummaryFailed:(ASIHTTPRequest *)request;
+- (void)getImagesForProducer:(NSString *)producerID;
+- (void)getImagesForProducerFinished:(ASIHTTPRequest *)request;
+- (void)getImagesForProducerFailed:(ASIHTTPRequest *)request;
+- (void)postImage:(UIImage *)image forProducer:(NSString *)producerID;
+- (void)postImageForProducerFinished:(ASIHTTPRequest *)request;
+- (void)postImageForProducerFailed:(ASIHTTPRequest *)request;
+- (void)getImage:(NSString *)urlString forProducer:(NSString *)producerID;
+- (void)getImageFinished:(ASIHTTPRequest *)request;
+- (void)getImageFailed:(ASIHTTPRequest *)request;
 
 @end

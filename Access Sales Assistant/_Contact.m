@@ -98,10 +98,6 @@
 
 	
 
-@dynamic title;
-
-	
-
 @dynamic emailList;
 
 	

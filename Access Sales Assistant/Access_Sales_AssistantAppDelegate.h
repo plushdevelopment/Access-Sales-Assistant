@@ -17,5 +17,6 @@
 @property (strong, nonatomic) UISplitViewController *splitViewController;
 
 - (void)loginFailed:(ASIHTTPRequest *)request;
+- (void)showError:(id)notification;
 
 @end

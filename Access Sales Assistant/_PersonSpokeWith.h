@@ -5,7 +5,7 @@
 
 
 @class DailySummary;
-@class Title;
+@class PersonSpokeWithTitle;
 
 
 
@@ -75,7 +75,7 @@
 
 
 
-@property (nonatomic, retain) Title* title;
+@property (nonatomic, retain) PersonSpokeWithTitle* title;
 //- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
 
 
@@ -143,8 +143,8 @@
 
 
 
-- (Title*)primitiveTitle;
-- (void)setPrimitiveTitle:(Title*)value;
+- (PersonSpokeWithTitle*)primitiveTitle;
+- (void)setPrimitiveTitle:(PersonSpokeWithTitle*)value;
 
 
 @end

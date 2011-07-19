@@ -32,11 +32,13 @@
 
 #import "BarrierToBusiness.h"
 
-#import "Title.h"
+#import "PersonSpokeWithTitle.h"
 
 #import "CommissionStructure.h"
 
 #import "ProducerAddOn.h"
+
+#import "PRPSmartTableViewCell.h"
 
 enum PRPTableSections {
     PRPTableSectionGeneral = 0,
@@ -126,6 +128,7 @@ enum PRPTableStatsTags {
 	[pickerView setShowsSelectionIndicator:YES];
 	[pickerView selectRow:0 inComponent:0 animated:NO];
 	[pickerView reloadAllComponents];
+	[self pickerView:pickerView didSelectRow:0 inComponent:0];
 }
 
 // Show the Date picker in Date mode in a popover
@@ -142,6 +145,7 @@ enum PRPTableStatsTags {
 	_aPopoverController = [[UIPopoverController alloc] initWithContentViewController:viewController];
 	[self.aPopoverController presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	[viewController.datePicker setDatePickerMode:UIDatePickerModeDate];
+	[self datePickerViewController:viewController didChangeDate:viewController.datePicker.date forTag:button.tag];
 }
 
 #pragma mark -
@@ -299,8 +303,7 @@ enum PRPTableStatsTags {
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-	return YES;
+    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 #pragma mark - Table view data source
@@ -352,7 +355,7 @@ enum PRPTableStatsTags {
 					[self.detailItem addPersonsSpokeWithObject:person];
 					[self.managedObjectContext save];
 				}
-				rows = self.detailItem.personsSpokeWith.allObjects.count;
+				rows = self.detailItem.personsSpokeWith.allObjects.count + 1;
 				break;
 			case PRPTableSectionCompetitor:
 				if (self.detailItem.competitors.allObjects.count == 0) {
@@ -360,7 +363,7 @@ enum PRPTableStatsTags {
 					[self.detailItem addCompetitorsObject:competitor];
 					[self.managedObjectContext save];
 				}
-				rows = self.detailItem.competitors.allObjects.count;
+				rows = self.detailItem.competitors.allObjects.count + 1;
 				break;
 			case PRPTableSectionBarriersToBusiness:
 				if (self.detailItem.barriersToBusiness.allObjects.count == 0) {
@@ -368,7 +371,7 @@ enum PRPTableStatsTags {
 					[self.detailItem addBarriersToBusinessObject:barrier];
 					[self.managedObjectContext save];
 				}
-				rows = self.detailItem.barriersToBusiness.allObjects.count;;
+				rows = self.detailItem.barriersToBusiness.allObjects.count + 1;
 				break;
 			case PRPTableSectionStats:
 				rows = 1;
@@ -400,47 +403,71 @@ enum PRPTableStatsTags {
 		}
 			break;
         case PRPTableSectionSpokeWith: {
-            SummarySpokeWithTableViewCell *customCell = [SummarySpokeWithTableViewCell cellForTableView:tableView fromNib:self.summarySpokeWithTableViewCellNib];
-			
-			PersonSpokeWith *person = (PersonSpokeWith *)[self.detailItem.personsSpokeWith.allObjects objectAtIndex:indexPath.row];
-			
-			customCell.firstNameTextField.text = [person firstName];
-			customCell.lastNameTextField.text = [person lastName];
-			customCell.titleTextField.text = [person.title name];
-			customCell.emailAddressTextField.text = [person email];
-			
-			[customCell.titleButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
-			
-			cell = customCell;
+			if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
+				PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
+				customCell.textLabel.text = @"Add a Person";
+				customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+				
+				cell = customCell;
+			} else {
+				SummarySpokeWithTableViewCell *customCell = [SummarySpokeWithTableViewCell cellForTableView:tableView fromNib:self.summarySpokeWithTableViewCellNib];
+				
+				PersonSpokeWith *person = (PersonSpokeWith *)[self.detailItem.personsSpokeWith.allObjects objectAtIndex:indexPath.row];
+				
+				customCell.firstNameTextField.text = [person firstName];
+				customCell.lastNameTextField.text = [person lastName];
+				customCell.titleTextField.text = [person.title name];
+				customCell.emailAddressTextField.text = [person email];
+				
+				[customCell.titleButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
+				
+				cell = customCell;
+			}
 		}
 			break;
 		case PRPTableSectionCompetitor: {
-			SummaryCompetitorTableViewCell *customCell = [SummaryCompetitorTableViewCell cellForTableView:tableView fromNib:self.summaryCompetitorTableViewCellNib];
-			
-			Competitor *competitor = (Competitor *)[self.detailItem.competitors.allObjects objectAtIndex:indexPath.row];
-			
-			customCell.competitorNameTextField.text = competitor.name;
-			customCell.appsPerMonthTextField.text = competitor.appsPerMonth.stringValue;
-			customCell.commissionStructureTextField.text = self.detailItem.commissionStructure.name;
-			customCell.percentNewTextField.text = self.detailItem.commissionPercentNew.stringValue;
-			customCell.percentRenewalTextField.text = self.detailItem.commissionPercentRenewal.stringValue;
-			
-			[customCell.competitorNameButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
-			[customCell.commissionStructureButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
-			
-			cell = customCell;
+			if (indexPath.row == self.detailItem.competitors.allObjects.count) {
+				PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
+				customCell.textLabel.text = @"Add a Competitor";
+				customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+				
+				cell = customCell;
+			} else {
+				SummaryCompetitorTableViewCell *customCell = [SummaryCompetitorTableViewCell cellForTableView:tableView fromNib:self.summaryCompetitorTableViewCellNib];
+				
+				Competitor *competitor = (Competitor *)[self.detailItem.competitors.allObjects objectAtIndex:indexPath.row];
+				
+				customCell.competitorNameTextField.text = competitor.name;
+				customCell.appsPerMonthTextField.text = competitor.appsPerMonth.stringValue;
+				customCell.commissionStructureTextField.text = self.detailItem.commissionStructure.name;
+				customCell.percentNewTextField.text = self.detailItem.commissionPercentNew.stringValue;
+				customCell.percentRenewalTextField.text = self.detailItem.commissionPercentRenewal.stringValue;
+				
+				[customCell.competitorNameButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
+				[customCell.commissionStructureButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
+				
+				cell = customCell;
+			}
 		}
 			break;
 		case PRPTableSectionBarriersToBusiness: {
-			SummaryBarriersToBusinessTableViewCell *customCell = [SummaryBarriersToBusinessTableViewCell cellForTableView:tableView fromNib:self.summaryBarriersToBusinessTableViewCellNib];
-			
-			BarrierToBusiness *barrier = (BarrierToBusiness *)[self.detailItem.barriersToBusiness.allObjects objectAtIndex:indexPath.row];
-			
-			customCell.barrierToBusinessTextField.text = barrier.name;
-			
-			[customCell.barrierToBusinessButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
-			
-			cell = customCell;
+			if (indexPath.row == self.detailItem.barriersToBusiness.allObjects.count) {
+				PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
+				customCell.textLabel.text = @"Add a Barrier to Business";
+				customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+				
+				cell = customCell;
+			} else {
+				SummaryBarriersToBusinessTableViewCell *customCell = [SummaryBarriersToBusinessTableViewCell cellForTableView:tableView fromNib:self.summaryBarriersToBusinessTableViewCellNib];
+				
+				BarrierToBusiness *barrier = (BarrierToBusiness *)[self.detailItem.barriersToBusiness.allObjects objectAtIndex:indexPath.row];
+				
+				customCell.barrierToBusinessTextField.text = barrier.name;
+				
+				[customCell.barrierToBusinessButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
+				
+				cell = customCell;
+			}
 		}
 			break;
 		case PRPTableSectionStats: {
@@ -479,6 +506,34 @@ enum PRPTableStatsTags {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	switch (indexPath.section) {
+        case PRPTableSectionSpokeWith:
+			if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
+				PersonSpokeWith *person = [PersonSpokeWith createEntity];
+				[self.detailItem addPersonsSpokeWithObject:person];
+				[self.managedObjectContext save];
+				[self.tableView reloadData];
+			}
+			break;
+		case PRPTableSectionCompetitor:
+			if (indexPath.row == self.detailItem.competitors.allObjects.count) {
+				Competitor *competitor = [Competitor createEntity];
+				[self.detailItem addCompetitorsObject:competitor];
+				[self.managedObjectContext save];
+				[self.tableView reloadData];
+			}
+			break;
+		case PRPTableSectionBarriersToBusiness:
+			if (indexPath.row == self.detailItem.barriersToBusiness.allObjects.count) {
+				BarrierToBusiness *barrier = [BarrierToBusiness createEntity];
+				[self.detailItem addBarriersToBusinessObject:barrier];
+				[self.managedObjectContext save];
+				[self.tableView reloadData];
+			}
+			break;
+        default:
+            break;
+    }
 	[self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
@@ -490,10 +545,18 @@ enum PRPTableStatsTags {
             height = 110.0;
 			break;
         case PRPTableSectionSpokeWith:
-            height = 110.0;
+			if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
+				height = 44.0;
+			} else {
+				height = 110.0;
+			}
 			break;
 		case PRPTableSectionCompetitor:
-			height = 44.0;
+			if (indexPath.row == self.detailItem.competitors.allObjects.count) {
+				height = 44.0;
+			} else {
+				height = 149.0;
+			}
 			break;
 		case PRPTableSectionBarriersToBusiness:
 			height = 44.0;
@@ -596,7 +659,7 @@ enum PRPTableStatsTags {
             NSLog(@"Unexpected section (%d)", indexPath.section);
             break;
     }
-	
+	[self.managedObjectContext save];
 	return YES;
 }
 
@@ -655,7 +718,7 @@ enum PRPTableStatsTags {
 		case PRPTableSectionSpokeWith:
 			switch (self.pickerViewController.currentTag) {
 				case PRPTableSpokeWithTitle:
-					rows = [[Title numberOfEntities] integerValue];
+					rows = [[PersonSpokeWithTitle numberOfEntities] integerValue];
 					break;
 				default:
 					break;
@@ -730,7 +793,7 @@ enum PRPTableStatsTags {
 				case PRPTableSpokeWithTitle: {
 					// Change value in model object
 					PersonSpokeWith *person = [self.detailItem.personsSpokeWith.allObjects objectAtIndex:indexPath.row];
-					person.title = [Title findFirstByAttribute:@"name" withValue:titleForRow];
+					person.title = [PersonSpokeWithTitle findFirstByAttribute:@"name" withValue:titleForRow];
 				}
 					break;
 				default:
@@ -741,7 +804,7 @@ enum PRPTableStatsTags {
 			switch (self.pickerViewController.currentTag) {
 				case PRPTableCompetitorName: {
 					Competitor *competitor = [Competitor findFirstByAttribute:@"name" withValue:titleForRow];
-					[[self.detailItem.competitorsSet.allObjects objectAtIndex:indexPath.row] removeIndex:indexPath.row];
+					//[self.detailItem.competitorsSet.allObjects removeObjectAtIndex:indexPath.row];
 					
 				}
 					break;
@@ -777,7 +840,7 @@ enum PRPTableStatsTags {
 			break;
 	}
 	[self.managedObjectContext save];
-	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:self.pickerViewController.currentIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+	[self.tableView reloadData];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -796,7 +859,7 @@ enum PRPTableStatsTags {
 		case PRPTableSectionSpokeWith:
 			switch (self.pickerViewController.currentTag) {
 				case PRPTableSpokeWithTitle:
-					theTitle = [[[Title findAll] objectAtIndex:row] name];
+					theTitle = [[[PersonSpokeWithTitle findAll] objectAtIndex:row] name];
 					break;
 				default:
 					break;
@@ -851,7 +914,7 @@ enum PRPTableStatsTags {
 	
 	switch (controller.currentIndexPath.section) {
 		case PRPTableSectionGeneral:
-			switch (self.pickerViewController.currentTag) {
+			switch (controller.currentTag) {
 				case PRPTableGeneralReportDate:
 					[formatter setDateFormat:@"MM-dd-yyyy"];
 					self.detailItem.reportDate = toDate;
@@ -864,7 +927,7 @@ enum PRPTableStatsTags {
 			break;
 	}
 	[[NSManagedObjectContext defaultContext] save];
-	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:controller.currentIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+	[self.tableView reloadData];
 }
 
 - (void)nextField:(NSInteger)currentTag
