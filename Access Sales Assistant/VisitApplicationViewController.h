@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DetailViewController.h"
+#import "BaseDetailViewController.h"
 #import "VisitApplicationProfileViewController.h"
 #import "VisitApplicationSummaryTableViewController.h"
 #import "VisitApplicationNotesViewController.h"
 #import "VisitApplicationPhotosViewController.h"
 
-@interface VisitApplicationViewController : DetailViewController <UIImagePickerControllerDelegate> {
+@interface VisitApplicationViewController : BaseDetailViewController <UIImagePickerControllerDelegate> {
 	
 	UIView *activeVisitFormView;
 	VisitApplicationProfileViewController *profileApplicationViewController;
@@ -33,6 +33,8 @@
 @property (nonatomic, strong) id detailItem;
 
 @property (nonatomic, strong) UIViewController *currentController;
+
+@property (nonatomic, strong) IBOutlet UIToolbar *toolBar;
 
 - (IBAction)loadApplicationForm:(id)sender;
 

@@ -11,16 +11,18 @@
 
 @protocol stateChangedDelegate <NSObject>
 
--(void) selectedState:(NSString*) stateName;
+-(void) selectedState:(NSString*) stateName:(NSString*) stateCode;
 
 @end
 
 @interface StateSelectionTableViewController : UITableViewController
 {
     NSMutableArray* array;
+    NSMutableArray* stateCodeArray;
     NSDictionary* dictionary;
     
 }
 
 @property (nonatomic,assign) id<stateChangedDelegate> delegate;
+@property (nonatomic,strong) NSString* currentSelectedState;
 @end

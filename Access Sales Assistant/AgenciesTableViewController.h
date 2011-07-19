@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ASIFormDataRequest.h"
 
-@class DetailViewController;
+@class BaseDetailViewController;
 
 @interface AgenciesTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, ASIHTTPRequestDelegate>
 
-@property (strong, nonatomic) IBOutlet DetailViewController *detailViewController;
+@property (strong, nonatomic) IBOutlet BaseDetailViewController *detailViewController;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;

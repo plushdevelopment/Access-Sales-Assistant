@@ -11,6 +11,10 @@
 @implementation StateSelectionTableViewController
 
 @synthesize delegate = _delegate;
+@synthesize currentSelectedState;
+
+#define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -39,12 +43,20 @@
     self.contentSizeForViewInPopover = CGSizeMake(300.0, 500.0);
     
     NSString *path = [[NSBundle mainBundle] pathForResource:
-                      @"FeaturesAndBenefits" ofType:@"plist"];
+                      @"States" ofType:@"plist"];
     
     NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:path];
     array = [NSMutableArray array];
-    NSMutableArray *tempArray = [plistData allKeys];
+    stateCodeArray = [NSMutableArray array];
+    
+    NSMutableArray *tempArray = [plistData allValues];
+    NSMutableArray* tempStateCodeArray = [plistData allKeys];
+    
+    
+    //[plistData allValues]
     array = [tempArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    stateCodeArray = [tempStateCodeArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
     
     
 //    array = [plistData allKeys];
@@ -128,6 +140,9 @@
     NSString *str= [array objectAtIndex:indexPath.row];
     cell.textLabel.text = str;
     
+   // if([str isEqualToString:self.currentSelectedState])
+     //   cell.textLabel.textColor = RGB(0,111,162);
+    
     return cell;
 }
 
@@ -175,7 +190,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(self.delegate!=nil)
-        [self.delegate selectedState:[array objectAtIndex:indexPath.row]];
+    {
+        self.currentSelectedState = [array objectAtIndex:indexPath.row];
+        [self.delegate selectedState:[array objectAtIndex:indexPath.row] :[stateCodeArray objectAtIndex:indexPath.row]];
+    }
+        //[self.delegate selectedState:[array objectAtIndex:indexPath.row]];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

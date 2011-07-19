@@ -7,7 +7,8 @@
 //
 
 #import "AgenciesTableViewController.h"
-#import "DetailViewController.h"
+#import "VisitApplicationViewController.h"
+#import "BaseDetailViewController.h"
 #import "User.h"
 #import "JSON.h"
 #import "Producer.h"
@@ -149,7 +150,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Producer *producer = [[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
-	[self.detailViewController setDetailItem:producer];
+	VisitApplicationViewController *controller = (VisitApplicationViewController *)self.detailViewController;
+	
+	[controller setDetailItem:producer];
 }
 
 #pragma mark - Fetched results controller

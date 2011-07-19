@@ -12,7 +12,7 @@
 
 #import "RootViewController.h"
 
-#import "DetailViewController.h"
+#import "BaseDetailViewController.h"
 
 #import "VisitApplicationViewController.h"
 
@@ -66,7 +66,8 @@
 	VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
 	
 	self.splitViewController = [[UISplitViewController alloc] init];
-	self.splitViewController.delegate = detailViewController;
+	self.splitViewController.delegate = controller;
+	controller.splitViewController = self.splitViewController;
 	self.splitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
 	controller.detailViewController = detailViewController;
 	self.window.rootViewController = self.splitViewController;

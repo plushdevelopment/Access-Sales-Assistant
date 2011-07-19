@@ -16,20 +16,21 @@
 
 @implementation VisitApplicationViewController
 
-@synthesize toolbar=_toolbar;
-
-@synthesize popoverController;
-
 @synthesize activeVisitFormView;
 
 @synthesize profileApplicationViewController;
+
 @synthesize summaryApplicationViewController;
+
 @synthesize notesApplicationViewController;
+
 @synthesize photoApplicationViewController;
 
 @synthesize detailItem=_detailItem;
 
 @synthesize currentController=_currentController;
+
+@synthesize toolBar=_toolBar;
 
 - (IBAction)loadApplicationForm:(id)sender
 {
@@ -125,6 +126,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	self.baseToolbar = self.toolBar;
 	[self.activeVisitFormView addSubview:profileApplicationViewController.view];
 	float contentWidth = self.activeVisitFormView.frame.size.width;
 	[(UIScrollView *)profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
@@ -134,7 +136,6 @@
 
 - (void)viewDidUnload
 {
-	[self setToolbar:nil];
 	[self setActiveVisitFormView:nil];
 	[self setProfileApplicationViewController:nil];
 	[self setSummaryApplicationViewController:nil];
@@ -147,26 +148,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return UIInterfaceOrientationIsPortrait(interfaceOrientation);
-}
-
-#pragma mark - Split view
-
-- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController: (UIPopoverController *)pc
-{
-    barButtonItem.title = @"Menu";
-    NSMutableArray *items = [[self.toolbar items] mutableCopy];
-    [items insertObject:barButtonItem atIndex:0];
-    [self.toolbar setItems:items animated:YES];
-    self.popoverController = pc;
-}
-
-- (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-    // Called when the view is shown again in the split view, invalidating the button and popover controller.
-    NSMutableArray *items = [[self.toolbar items] mutableCopy];
-    [items removeObjectAtIndex:0];
-    [self.toolbar setItems:items animated:YES];
-    self.popoverController = nil;
 }
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -189,9 +170,6 @@
         [self configureView];
     }
 	
-    if (self.popoverController != nil) {
-        [self.popoverController dismissPopoverAnimated:YES];
-    }        
 }
 
 - (void)configureView

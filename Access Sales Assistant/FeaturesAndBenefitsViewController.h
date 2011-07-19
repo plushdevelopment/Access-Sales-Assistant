@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "StateSelectionTableViewController.h"
+#import "RootViewController.h"
+#import "SSLocationManager.h"
+#import "YahooPlaceData.h"
+#import "YahooPlaceFinder.h"
+//@interface FeaturesAndBenefitsViewController : UIViewController<stateChangedDelegate,UIScrollViewDelegate,SubstitutableDetailViewController,SSLocationManagerDelegate>
 
-
-@interface FeaturesAndBenefitsViewController : UIViewController<stateChangedDelegate>
+@interface FeaturesAndBenefitsViewController : BaseDetailViewController<stateChangedDelegate,UIScrollViewDelegate,SSLocationManagerDelegate>
 {
     UIPopoverController* _popOverController;
 }
 
 -(IBAction)selectState:(id)sender;
--(void) selectedState:(NSString*) stateName;
+-(void) selectedState:(NSString*) stateName:(NSString *)stateCode;
 
 @property(nonatomic,strong) IBOutlet UILabel* _accessInternationalDrivers;
 @property(nonatomic,strong) IBOutlet UILabel* _accessBusiness;
@@ -30,7 +34,13 @@
 @property(nonatomic,strong) IBOutlet UILabel* _noCreditScoreorTiers;
 @property(nonatomic,strong) IBOutlet UILabel* _multiplePaymentOptions;
 @property(nonatomic,strong) IBOutlet UIButton* _changeStateButton;
+@property(nonatomic,strong) IBOutlet UIScrollView* fnbScrollview;
 @property (nonatomic,strong)StateSelectionTableViewController* stateViewController;
+@property (nonatomic, strong) IBOutlet UINavigationBar *navigationBar;
+@property (nonatomic, strong) IBOutlet UIToolbar *toolBar;
+
+@property (nonatomic,strong) NSString* currentStateName;
+@property (nonatomic,strong) NSString* currentStateCode;
 
 
 @end

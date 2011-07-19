@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D317E2513C7416900CD647E /* FeaturesAndBenefitsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D317E1F13C7416900CD647E /* FeaturesAndBenefitsViewController.xib */; };
-		6D317E2613C7416900CD647E /* FeaturesAndBenefitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D317E2013C7416900CD647E /* FeaturesAndBenefitsViewController.m */; };
-		6D317E2713C7416900CD647E /* StateSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D317E2313C7416900CD647E /* StateSelectionTableViewController.m */; };
-		6D317E2813C7416900CD647E /* FeaturesAndBenefits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D317E2413C7416900CD647E /* FeaturesAndBenefits.plist */; };
 		FF0A17DC13BC940D00ECF9F6 /* NSManagedObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */; };
 		FF0A17F713BC944E00ECF9F6 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E013BC944E00ECF9F6 /* CDataScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17F813BC944E00ECF9F6 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E313BC944E00ECF9F6 /* CFilteringJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -134,10 +130,10 @@
 		FF8B416113A8EEF700A05007 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B416013A8EEF700A05007 /* main.m */; };
 		FF8B416513A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B416413A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m */; };
 		FF8B416813A8EEF700A05007 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B416713A8EEF700A05007 /* RootViewController.m */; };
-		FF8B416A13A8EEF700A05007 /* DetailViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = FF8B416913A8EEF700A05007 /* DetailViewController.h */; };
-		FF8B416C13A8EEF700A05007 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B416B13A8EEF700A05007 /* DetailViewController.m */; };
+		FF8B416A13A8EEF700A05007 /* BaseDetailViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = FF8B416913A8EEF700A05007 /* BaseDetailViewController.h */; };
+		FF8B416C13A8EEF700A05007 /* BaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B416B13A8EEF700A05007 /* BaseDetailViewController.m */; };
 		FF8B416F13A8EEF700A05007 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8B416D13A8EEF700A05007 /* RootViewController.xib */; };
-		FF8B417213A8EEF700A05007 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8B417013A8EEF700A05007 /* DetailViewController.xib */; };
+		FF8B417213A8EEF700A05007 /* BaseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8B417013A8EEF700A05007 /* BaseDetailViewController.xib */; };
 		FF8CA82D13B0D03200BA9A7B /* BSJSONEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA82413B0D03200BA9A7B /* BSJSONEncoder.m */; };
 		FF8CA82E13B0D03200BA9A7B /* NSArray+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA82613B0D03200BA9A7B /* NSArray+BSJSONAdditions.m */; };
 		FF8CA82F13B0D03200BA9A7B /* NSDictionary+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA82813B0D03200BA9A7B /* NSDictionary+BSJSONAdditions.m */; };
@@ -188,6 +184,31 @@
 		FF9ED82C13D4F60D006105C7 /* ProducerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9ED82813D4F60D006105C7 /* ProducerImage.m */; };
 		FF9ED82D13D4F60D006105C7 /* _ProducerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9ED82A13D4F60D006105C7 /* _ProducerImage.m */; };
 		FF9ED83713D50BAD006105C7 /* accessicon.png in Resources */ = {isa = PBXBuildFile; fileRef = FF9ED83613D50BAD006105C7 /* accessicon.png */; };
+		FFA0706713D5EB650021E412 /* MulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0705313D5EB650021E412 /* MulticastDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0706813D5EB650021E412 /* NSObject+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0705513D5EB650021E412 /* NSObject+Helpers.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0706913D5EB650021E412 /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0705713D5EB650021E412 /* NSString+Helpers.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0706A13D5EB650021E412 /* UIHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0705913D5EB650021E412 /* UIHelpers.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0706B13D5EB650021E412 /* SSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0705C13D5EB650021E412 /* SSLocationManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0706C13D5EB650021E412 /* YahooPlaceData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0705E13D5EB650021E412 /* YahooPlaceData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0706D13D5EB650021E412 /* YahooPlaceFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0706013D5EB650021E412 /* YahooPlaceFinder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0706E13D5EB650021E412 /* SSWebRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0706313D5EB650021E412 /* SSWebRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0706F13D5EB650021E412 /* SSWebRequestParams.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0706613D5EB650021E412 /* SSWebRequestParams.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0707613D5EB930021E412 /* MyTreeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0707113D5EB930021E412 /* MyTreeViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0707713D5EB930021E412 /* MyTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0707313D5EB930021E412 /* MyTreeNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA0707813D5EB930021E412 /* AccessAcademy.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFA0707513D5EB930021E412 /* AccessAcademy.plist */; };
+		FFA0708013D5EBC00021E412 /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA0707A13D5EBC00021E412 /* ContactsViewController.xib */; };
+		FFA0708113D5EBC00021E412 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0707B13D5EBC00021E412 /* ContactsViewController.m */; };
+		FFA0708213D5EBC00021E412 /* ContactQAFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA0707D13D5EBC00021E412 /* ContactQAFormView.xib */; };
+		FFA0708313D5EBC00021E412 /* ContactQAFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0707E13D5EBC00021E412 /* ContactQAFormView.m */; };
+		FFA0708B13D5EC030021E412 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0708A13D5EC030021E412 /* SectionHeaderView.m */; };
+		FFA0709813D5EC330021E412 /* FeaturesAndBenefitsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA0708E13D5EC330021E412 /* FeaturesAndBenefitsViewController.xib */; };
+		FFA0709913D5EC330021E412 /* FeaturesAndBenefitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0708F13D5EC330021E412 /* FeaturesAndBenefitsViewController.m */; };
+		FFA0709A13D5EC330021E412 /* StateSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0709213D5EC330021E412 /* StateSelectionTableViewController.m */; };
+		FFA0709B13D5EC330021E412 /* FeaturesAndBenefits.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFA0709313D5EC330021E412 /* FeaturesAndBenefits.plist */; };
+		FFA0709C13D5EC330021E412 /* FeaturesAndBenefitsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFA0709413D5EC330021E412 /* FeaturesAndBenefitsList.plist */; };
+		FFA0709D13D5EC330021E412 /* States.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFA0709513D5EC330021E412 /* States.plist */; };
+		FFA0709E13D5EC330021E412 /* Features.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0709713D5EC330021E412 /* Features.m */; };
+		FFA070A113D5EC500021E412 /* MainViewSectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA070A013D5EC500021E412 /* MainViewSectionInfo.m */; };
 		FFA1A31913AF922200434B93 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA1A31713AF922200434B93 /* LoginViewController.m */; };
 		FFA1A31A13AF922200434B93 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA1A31813AF922200434B93 /* LoginViewController.xib */; };
 		FFA1A31E13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFA1A31C13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld */; };
@@ -335,12 +356,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6D317E1F13C7416900CD647E /* FeaturesAndBenefitsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeaturesAndBenefitsViewController.xib; sourceTree = "<group>"; };
-		6D317E2013C7416900CD647E /* FeaturesAndBenefitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesAndBenefitsViewController.m; sourceTree = "<group>"; };
-		6D317E2113C7416900CD647E /* FeaturesAndBenefitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesAndBenefitsViewController.h; sourceTree = "<group>"; };
-		6D317E2213C7416900CD647E /* StateSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateSelectionTableViewController.h; sourceTree = "<group>"; };
-		6D317E2313C7416900CD647E /* StateSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateSelectionTableViewController.m; sourceTree = "<group>"; };
-		6D317E2413C7416900CD647E /* FeaturesAndBenefits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeaturesAndBenefits.plist; sourceTree = "<group>"; };
 		FF0A17DA13BC940D00ECF9F6 /* NSManagedObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JSON.h"; sourceTree = "<group>"; };
 		FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+JSON.m"; sourceTree = "<group>"; };
 		FF0A17DF13BC944E00ECF9F6 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
@@ -508,10 +523,10 @@
 		FF8B416413A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Access_Sales_AssistantAppDelegate.m; sourceTree = "<group>"; };
 		FF8B416613A8EEF700A05007 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		FF8B416713A8EEF700A05007 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		FF8B416913A8EEF700A05007 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		FF8B416B13A8EEF700A05007 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		FF8B416913A8EEF700A05007 /* BaseDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDetailViewController.h; sourceTree = "<group>"; };
+		FF8B416B13A8EEF700A05007 /* BaseDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDetailViewController.m; sourceTree = "<group>"; };
 		FF8B416E13A8EEF700A05007 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
-		FF8B417113A8EEF700A05007 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		FF8B417113A8EEF700A05007 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BaseDetailViewController.xib; sourceTree = "<group>"; };
 		FF8B418F13A907AF00A05007 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		FF8CA82313B0D03200BA9A7B /* BSJSONEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSJSONEncoder.h; sourceTree = "<group>"; };
 		FF8CA82413B0D03200BA9A7B /* BSJSONEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSJSONEncoder.m; sourceTree = "<group>"; };
@@ -595,6 +610,50 @@
 		FF9ED82A13D4F60D006105C7 /* _ProducerImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ProducerImage.m; sourceTree = "<group>"; };
 		FF9ED82B13D4F60D006105C7 /* _ProducerImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ProducerImage.h; sourceTree = "<group>"; };
 		FF9ED83613D50BAD006105C7 /* accessicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accessicon.png; sourceTree = "<group>"; };
+		FFA0705213D5EB650021E412 /* MulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MulticastDelegate.h; sourceTree = "<group>"; };
+		FFA0705313D5EB650021E412 /* MulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MulticastDelegate.m; sourceTree = "<group>"; };
+		FFA0705413D5EB650021E412 /* NSObject+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Helpers.h"; sourceTree = "<group>"; };
+		FFA0705513D5EB650021E412 /* NSObject+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Helpers.m"; sourceTree = "<group>"; };
+		FFA0705613D5EB650021E412 /* NSString+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helpers.h"; sourceTree = "<group>"; };
+		FFA0705713D5EB650021E412 /* NSString+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helpers.m"; sourceTree = "<group>"; };
+		FFA0705813D5EB650021E412 /* UIHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHelpers.h; sourceTree = "<group>"; };
+		FFA0705913D5EB650021E412 /* UIHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIHelpers.m; sourceTree = "<group>"; };
+		FFA0705B13D5EB650021E412 /* SSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocationManager.h; sourceTree = "<group>"; };
+		FFA0705C13D5EB650021E412 /* SSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocationManager.m; sourceTree = "<group>"; };
+		FFA0705D13D5EB650021E412 /* YahooPlaceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YahooPlaceData.h; sourceTree = "<group>"; };
+		FFA0705E13D5EB650021E412 /* YahooPlaceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahooPlaceData.m; sourceTree = "<group>"; };
+		FFA0705F13D5EB650021E412 /* YahooPlaceFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YahooPlaceFinder.h; sourceTree = "<group>"; };
+		FFA0706013D5EB650021E412 /* YahooPlaceFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahooPlaceFinder.m; sourceTree = "<group>"; };
+		FFA0706213D5EB650021E412 /* SSWebRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWebRequest.h; sourceTree = "<group>"; };
+		FFA0706313D5EB650021E412 /* SSWebRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWebRequest.m; sourceTree = "<group>"; };
+		FFA0706413D5EB650021E412 /* SSWebRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWebRequestDelegate.h; sourceTree = "<group>"; };
+		FFA0706513D5EB650021E412 /* SSWebRequestParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWebRequestParams.h; sourceTree = "<group>"; };
+		FFA0706613D5EB650021E412 /* SSWebRequestParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWebRequestParams.m; sourceTree = "<group>"; };
+		FFA0707113D5EB930021E412 /* MyTreeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTreeViewCell.m; sourceTree = "<group>"; };
+		FFA0707213D5EB930021E412 /* MyTreeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTreeViewCell.h; sourceTree = "<group>"; };
+		FFA0707313D5EB930021E412 /* MyTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTreeNode.m; sourceTree = "<group>"; };
+		FFA0707413D5EB930021E412 /* MyTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTreeNode.h; sourceTree = "<group>"; };
+		FFA0707513D5EB930021E412 /* AccessAcademy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccessAcademy.plist; sourceTree = "<group>"; };
+		FFA0707A13D5EBC00021E412 /* ContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
+		FFA0707B13D5EBC00021E412 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		FFA0707C13D5EBC00021E412 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		FFA0707D13D5EBC00021E412 /* ContactQAFormView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactQAFormView.xib; sourceTree = "<group>"; };
+		FFA0707E13D5EBC00021E412 /* ContactQAFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactQAFormView.m; sourceTree = "<group>"; };
+		FFA0707F13D5EBC00021E412 /* ContactQAFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactQAFormView.h; sourceTree = "<group>"; };
+		FFA0708913D5EC030021E412 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
+		FFA0708A13D5EC030021E412 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
+		FFA0708E13D5EC330021E412 /* FeaturesAndBenefitsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeaturesAndBenefitsViewController.xib; sourceTree = "<group>"; };
+		FFA0708F13D5EC330021E412 /* FeaturesAndBenefitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesAndBenefitsViewController.m; sourceTree = "<group>"; };
+		FFA0709013D5EC330021E412 /* FeaturesAndBenefitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesAndBenefitsViewController.h; sourceTree = "<group>"; };
+		FFA0709113D5EC330021E412 /* StateSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateSelectionTableViewController.h; sourceTree = "<group>"; };
+		FFA0709213D5EC330021E412 /* StateSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateSelectionTableViewController.m; sourceTree = "<group>"; };
+		FFA0709313D5EC330021E412 /* FeaturesAndBenefits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeaturesAndBenefits.plist; sourceTree = "<group>"; };
+		FFA0709413D5EC330021E412 /* FeaturesAndBenefitsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeaturesAndBenefitsList.plist; sourceTree = "<group>"; };
+		FFA0709513D5EC330021E412 /* States.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = States.plist; sourceTree = "<group>"; };
+		FFA0709613D5EC330021E412 /* Features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Features.h; sourceTree = "<group>"; };
+		FFA0709713D5EC330021E412 /* Features.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Features.m; sourceTree = "<group>"; };
+		FFA0709F13D5EC500021E412 /* MainViewSectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewSectionInfo.h; sourceTree = "<group>"; };
+		FFA070A013D5EC500021E412 /* MainViewSectionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewSectionInfo.m; sourceTree = "<group>"; };
 		FFA1A31613AF922200434B93 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FFA1A31713AF922200434B93 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FFA1A31813AF922200434B93 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -874,12 +933,16 @@
 		6D317E2A13C7422900CD647E /* Features and Benefits */ = {
 			isa = PBXGroup;
 			children = (
-				6D317E1F13C7416900CD647E /* FeaturesAndBenefitsViewController.xib */,
-				6D317E2013C7416900CD647E /* FeaturesAndBenefitsViewController.m */,
-				6D317E2113C7416900CD647E /* FeaturesAndBenefitsViewController.h */,
-				6D317E2213C7416900CD647E /* StateSelectionTableViewController.h */,
-				6D317E2313C7416900CD647E /* StateSelectionTableViewController.m */,
-				6D317E2413C7416900CD647E /* FeaturesAndBenefits.plist */,
+				FFA0708E13D5EC330021E412 /* FeaturesAndBenefitsViewController.xib */,
+				FFA0708F13D5EC330021E412 /* FeaturesAndBenefitsViewController.m */,
+				FFA0709013D5EC330021E412 /* FeaturesAndBenefitsViewController.h */,
+				FFA0709113D5EC330021E412 /* StateSelectionTableViewController.h */,
+				FFA0709213D5EC330021E412 /* StateSelectionTableViewController.m */,
+				FFA0709313D5EC330021E412 /* FeaturesAndBenefits.plist */,
+				FFA0709413D5EC330021E412 /* FeaturesAndBenefitsList.plist */,
+				FFA0709513D5EC330021E412 /* States.plist */,
+				FFA0709613D5EC330021E412 /* Features.h */,
+				FFA0709713D5EC330021E412 /* Features.m */,
 			);
 			name = "Features and Benefits";
 			sourceTree = "<group>";
@@ -1285,6 +1348,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FFA0705013D5EB650021E412 /* SSLocationManager */,
 				FF9ED81B13D4EF6A006105C7 /* AQGridView */,
 				FF56A25613CC888D00FF159A /* SynthesizeSingleton.h */,
 				FFB56A2413D069A200B980EE /* TableView Categories */,
@@ -1449,6 +1513,92 @@
 				FF9ED82513D4F35C006105C7 /* SpringBoardIconCell.m */,
 			);
 			name = "AQGridView Custom Cells";
+			sourceTree = "<group>";
+		};
+		FFA0705013D5EB650021E412 /* SSLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0705113D5EB650021E412 /* Helpers */,
+				FFA0705A13D5EB650021E412 /* SSLocationManager */,
+				FFA0706113D5EB650021E412 /* SSWebRequest */,
+			);
+			path = SSLocationManager;
+			sourceTree = "<group>";
+		};
+		FFA0705113D5EB650021E412 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0705213D5EB650021E412 /* MulticastDelegate.h */,
+				FFA0705313D5EB650021E412 /* MulticastDelegate.m */,
+				FFA0705413D5EB650021E412 /* NSObject+Helpers.h */,
+				FFA0705513D5EB650021E412 /* NSObject+Helpers.m */,
+				FFA0705613D5EB650021E412 /* NSString+Helpers.h */,
+				FFA0705713D5EB650021E412 /* NSString+Helpers.m */,
+				FFA0705813D5EB650021E412 /* UIHelpers.h */,
+				FFA0705913D5EB650021E412 /* UIHelpers.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FFA0705A13D5EB650021E412 /* SSLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0705B13D5EB650021E412 /* SSLocationManager.h */,
+				FFA0705C13D5EB650021E412 /* SSLocationManager.m */,
+				FFA0705D13D5EB650021E412 /* YahooPlaceData.h */,
+				FFA0705E13D5EB650021E412 /* YahooPlaceData.m */,
+				FFA0705F13D5EB650021E412 /* YahooPlaceFinder.h */,
+				FFA0706013D5EB650021E412 /* YahooPlaceFinder.m */,
+			);
+			path = SSLocationManager;
+			sourceTree = "<group>";
+		};
+		FFA0706113D5EB650021E412 /* SSWebRequest */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0706213D5EB650021E412 /* SSWebRequest.h */,
+				FFA0706313D5EB650021E412 /* SSWebRequest.m */,
+				FFA0706413D5EB650021E412 /* SSWebRequestDelegate.h */,
+				FFA0706513D5EB650021E412 /* SSWebRequestParams.h */,
+				FFA0706613D5EB650021E412 /* SSWebRequestParams.m */,
+			);
+			path = SSWebRequest;
+			sourceTree = "<group>";
+		};
+		FFA0707913D5EBA60021E412 /* Access Academy */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0707113D5EB930021E412 /* MyTreeViewCell.m */,
+				FFA0707213D5EB930021E412 /* MyTreeViewCell.h */,
+				FFA0707313D5EB930021E412 /* MyTreeNode.m */,
+				FFA0707413D5EB930021E412 /* MyTreeNode.h */,
+				FFA0707513D5EB930021E412 /* AccessAcademy.plist */,
+			);
+			name = "Access Academy";
+			sourceTree = "<group>";
+		};
+		FFA0708413D5EBC70021E412 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0707A13D5EBC00021E412 /* ContactsViewController.xib */,
+				FFA0707B13D5EBC00021E412 /* ContactsViewController.m */,
+				FFA0707C13D5EBC00021E412 /* ContactsViewController.h */,
+				FFA0707D13D5EBC00021E412 /* ContactQAFormView.xib */,
+				FFA0707E13D5EBC00021E412 /* ContactQAFormView.m */,
+				FFA0707F13D5EBC00021E412 /* ContactQAFormView.h */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
+		FFA0708D13D5EC080021E412 /* MainMenu Expand/Collapse */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0709F13D5EC500021E412 /* MainViewSectionInfo.h */,
+				FFA070A013D5EC500021E412 /* MainViewSectionInfo.m */,
+				FFA0708913D5EC030021E412 /* SectionHeaderView.h */,
+				FFA0708A13D5EC030021E412 /* SectionHeaderView.m */,
+			);
+			name = "MainMenu Expand/Collapse";
 			sourceTree = "<group>";
 		};
 		FFA1A32113AFB4B200434B93 /* Reachability */ = {
@@ -1707,15 +1857,18 @@
 		FFFB3C5A13ABE4890063E374 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FFA0708D13D5EC080021E412 /* MainMenu Expand/Collapse */,
+				FFA0708413D5EBC70021E412 /* Contacts */,
+				FFA0707913D5EBA60021E412 /* Access Academy */,
 				FF95E22913D4B03E0098D41F /* Sensible TableView Alternatives */,
 				6D317E2A13C7422900CD647E /* Features and Benefits */,
 				FF374DFA13D5142200C170EB /* Visit Application */,
 				FF8B416613A8EEF700A05007 /* RootViewController.h */,
 				FF8B416713A8EEF700A05007 /* RootViewController.m */,
 				FF8B416D13A8EEF700A05007 /* RootViewController.xib */,
-				FF8B416913A8EEF700A05007 /* DetailViewController.h */,
-				FF8B416B13A8EEF700A05007 /* DetailViewController.m */,
-				FF8B417013A8EEF700A05007 /* DetailViewController.xib */,
+				FF8B416913A8EEF700A05007 /* BaseDetailViewController.h */,
+				FF8B416B13A8EEF700A05007 /* BaseDetailViewController.m */,
+				FF8B417013A8EEF700A05007 /* BaseDetailViewController.xib */,
 				FFA1A31613AF922200434B93 /* LoginViewController.h */,
 				FFA1A31713AF922200434B93 /* LoginViewController.m */,
 				FFA1A31813AF922200434B93 /* LoginViewController.xib */,
@@ -1783,9 +1936,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8B415F13A8EEF700A05007 /* InfoPlist.strings in Resources */,
-				FF8B416A13A8EEF700A05007 /* DetailViewController.h in Resources */,
+				FF8B416A13A8EEF700A05007 /* BaseDetailViewController.h in Resources */,
 				FF8B416F13A8EEF700A05007 /* RootViewController.xib in Resources */,
-				FF8B417213A8EEF700A05007 /* DetailViewController.xib in Resources */,
+				FF8B417213A8EEF700A05007 /* BaseDetailViewController.xib in Resources */,
 				FFFB3BFE13AB94210063E374 /* main_bg.png in Resources */,
 				FFFB3C0513ABA15C0063E374 /* api.html in Resources */,
 				FFA1A31A13AF922200434B93 /* LoginViewController.xib in Resources */,
@@ -1900,8 +2053,6 @@
 				FF71F54713C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib in Resources */,
 				FF71F54C13C64B76005CE1DA /* ProducerEmailTableViewCell.xib in Resources */,
 				FF71F55113C64E17005CE1DA /* ProducerHoursTableViewCell.xib in Resources */,
-				6D317E2513C7416900CD647E /* FeaturesAndBenefitsViewController.xib in Resources */,
-				6D317E2813C7416900CD647E /* FeaturesAndBenefits.plist in Resources */,
 				FF9A1DCD13C7444E00BAA6F2 /* ProducerAddressTableViewCell.xib in Resources */,
 				FF9A1DD213C7472700BAA6F2 /* ProducerContactTableViewCell.xib in Resources */,
 				FF21973F13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib in Resources */,
@@ -1923,6 +2074,13 @@
 				FF9ED83713D50BAD006105C7 /* accessicon.png in Resources */,
 				FF374DF813D50CC000C170EB /* button-plus.png in Resources */,
 				FFF2D89713D5ADB00098609D /* VisitApplicationSummaryViewController.xib in Resources */,
+				FFA0707813D5EB930021E412 /* AccessAcademy.plist in Resources */,
+				FFA0708013D5EBC00021E412 /* ContactsViewController.xib in Resources */,
+				FFA0708213D5EBC00021E412 /* ContactQAFormView.xib in Resources */,
+				FFA0709813D5EC330021E412 /* FeaturesAndBenefitsViewController.xib in Resources */,
+				FFA0709B13D5EC330021E412 /* FeaturesAndBenefits.plist in Resources */,
+				FFA0709C13D5EC330021E412 /* FeaturesAndBenefitsList.plist in Resources */,
+				FFA0709D13D5EC330021E412 /* States.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1936,7 +2094,7 @@
 				FF8B416113A8EEF700A05007 /* main.m in Sources */,
 				FF8B416513A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m in Sources */,
 				FF8B416813A8EEF700A05007 /* RootViewController.m in Sources */,
-				FF8B416C13A8EEF700A05007 /* DetailViewController.m in Sources */,
+				FF8B416C13A8EEF700A05007 /* BaseDetailViewController.m in Sources */,
 				FFFB3C0613ABA15C0063E374 /* json2.js in Sources */,
 				FFFB3C1413ABA17E0063E374 /* NSObject+SBJSON.m in Sources */,
 				FFFB3C1513ABA17E0063E374 /* NSString+SBJSON.m in Sources */,
@@ -2051,8 +2209,6 @@
 				FF71F54513C648DA005CE1DA /* ProducerPhoneNumberTableViewCell.m in Sources */,
 				FF71F54A13C64B58005CE1DA /* ProducerEmailTableViewCell.m in Sources */,
 				FF71F54F13C64D19005CE1DA /* ProducerHoursTableViewCell.m in Sources */,
-				6D317E2613C7416900CD647E /* FeaturesAndBenefitsViewController.m in Sources */,
-				6D317E2713C7416900CD647E /* StateSelectionTableViewController.m in Sources */,
 				FF9A1DCA13C7443200BAA6F2 /* ProducerAddressTableViewCell.m in Sources */,
 				FF9A1DD013C746F200BAA6F2 /* ProducerContactTableViewCell.m in Sources */,
 				FF56A25513CC883B00FF159A /* HTTPOperationController.m in Sources */,
@@ -2105,6 +2261,24 @@
 				FF9ED82613D4F35C006105C7 /* SpringBoardIconCell.m in Sources */,
 				FF9ED82C13D4F60D006105C7 /* ProducerImage.m in Sources */,
 				FF9ED82D13D4F60D006105C7 /* _ProducerImage.m in Sources */,
+				FFA0706713D5EB650021E412 /* MulticastDelegate.m in Sources */,
+				FFA0706813D5EB650021E412 /* NSObject+Helpers.m in Sources */,
+				FFA0706913D5EB650021E412 /* NSString+Helpers.m in Sources */,
+				FFA0706A13D5EB650021E412 /* UIHelpers.m in Sources */,
+				FFA0706B13D5EB650021E412 /* SSLocationManager.m in Sources */,
+				FFA0706C13D5EB650021E412 /* YahooPlaceData.m in Sources */,
+				FFA0706D13D5EB650021E412 /* YahooPlaceFinder.m in Sources */,
+				FFA0706E13D5EB650021E412 /* SSWebRequest.m in Sources */,
+				FFA0706F13D5EB650021E412 /* SSWebRequestParams.m in Sources */,
+				FFA0707613D5EB930021E412 /* MyTreeViewCell.m in Sources */,
+				FFA0707713D5EB930021E412 /* MyTreeNode.m in Sources */,
+				FFA0708113D5EBC00021E412 /* ContactsViewController.m in Sources */,
+				FFA0708313D5EBC00021E412 /* ContactQAFormView.m in Sources */,
+				FFA0708B13D5EC030021E412 /* SectionHeaderView.m in Sources */,
+				FFA0709913D5EC330021E412 /* FeaturesAndBenefitsViewController.m in Sources */,
+				FFA0709A13D5EC330021E412 /* StateSelectionTableViewController.m in Sources */,
+				FFA0709E13D5EC330021E412 /* Features.m in Sources */,
+				FFA070A113D5EC500021E412 /* MainViewSectionInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2127,12 +2301,12 @@
 			name = RootViewController.xib;
 			sourceTree = "<group>";
 		};
-		FF8B417013A8EEF700A05007 /* DetailViewController.xib */ = {
+		FF8B417013A8EEF700A05007 /* BaseDetailViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FF8B417113A8EEF700A05007 /* en */,
 			);
-			name = DetailViewController.xib;
+			name = BaseDetailViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Market Niche</key>
+	<dict>
+		<key>FDL Accepted</key>
+		<string>Opens Market</string>
+		<key>Biz/Artisan use</key>
+		<string>More Biz/Cheaper</string>
+		<key>ADD Coverage</key>
+		<string>More Coverages</string>
+		<key>Multi Lingual</key>
+		<string>All Customers Accepted</string>
+		<key>Salvage Titles</key>
+		<string>More Business</string>
+		<key>We don&apos;t go Direct</key>
+		<string>We&apos;re not in Competition</string>
+		<key>Non-Owner Policies</key>
+		<string>Niche</string>
+		<key>Registered Owner Discounts</key>
+		<string>Lower Rates</string>
+		<key>Multi Family Policy</key>
+		<string>Good Niche</string>
+		<key>Accept DUI</key>
+		<string>Good Niche/Won&apos;t Loose Business</string>
+		<key>Credit Cards on Down Payment</key>
+		<string>More Business</string>
+		<key>SR-22</key>
+		<string>More Business</string>
+		<key>Limited Policy</key>
+		<string>More Business</string>
+	</dict>
+	<key>Low Rates</key>
+	<dict>
+		<key>Low down pay</key>
+		<string>Higher fees/More Affordable</string>
+		<key>No Credit Scoring</key>
+		<string>Lower Rates/More Business</string>
+		<key>No CC Fees</key>
+		<string>Lower Price</string>
+		<key>Paid as Earned</key>
+		<string>No Charge Backs</string>
+	</dict>
+	<key>Ease of Use</key>
+	<dict>
+		<key>No Taxing</key>
+		<string>Saves Time</string>
+		<key>Access website</key>
+		<string>Simple/Ease of Use</string>
+		<key>24/7 automated</key>
+		<string>Consumer Case Use/Saves Time</string>
+		<key>Responsive Prod Support</key>
+		<string>Time is Money</string>
+		<key>59 Day Reinstate</key>
+		<string>Saves Time</string>
+		<key>No Production Requirement</key>
+		<string>Easy to Use</string>
+		<key>Retention Calls</key>
+		<string>Less Work/More Profit</string>
+		<key>Visible Sales Force</key>
+		<string>We Will be There</string>
+		<key>No Charge for MVR</key>
+		<string>Saves Money</string>
+		<key>Real Time</key>
+		<string>No Up Rates</string>
+		<key>Flexible Billing</key>
+		<string>Keep Customer Longer</string>
+		<key>iPhone app</key>
+		<string>Ease of Use</string>
+	</dict>
+	<key>Claims</key>
+	<dict>
+		<key>70% settled in 7 days 90% in 30 days</key>
+		<string>Happy Customers</string>
+		<key>Talk directly to adjuster</key>
+		<string>Quick Turnaround</string>
+		<key>Pick your body shop</key>
+		<string>Happy Customers</string>
+		<key>Claims Hours</key>
+		<string>Happy Customers</string>
+	</dict>
+</dict>
+</plist>
