@@ -32,6 +32,15 @@
 @synthesize emailAddressTextField3 = _emailAddressTextField3;
 @synthesize titleButton3 = _titleButton3;
 @synthesize lastNameTextField3 = _lastNameTextField3;
+@synthesize competitorNameTextField1 = _competitorNameTextField1;
+@synthesize competitorAppsPerMonthTextField1 = _competitorAppsPerMonthTextField1;
+@synthesize competitorCommissionStructureTextField1 = _competitorCommissionStructureTextField1;
+@synthesize competitorPercentNewTextField1 = _competitorPercentNewTextField1;
+@synthesize competitorPercentRenewalTextField1 = _competitorPercentRenewalTextField1;
+@synthesize competitorNameButton1 = _competitorNameButton1;
+@synthesize competitorCommissionStructureButton1 = _competitorCommissionStructureButton1;
+@synthesize barrierToBusinessTextField1 = _barrierToBusinessTextField1;
+@synthesize barrierToBusinessButton1 = _barrierToBusinessButton1;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -65,4 +74,16 @@
 	return YES;
 }
 
+- (void)viewDidUnload {
+    [self setCompetitorNameTextField1:nil];
+    [self setCompetitorAppsPerMonthTextField1:nil];
+    [self setCompetitorCommissionStructureTextField1:nil];
+    [self setCompetitorPercentNewTextField1:nil];
+    [self setCompetitorPercentRenewalTextField1:nil];
+    [self setCompetitorNameButton1:nil];
+    [self setCompetitorCommissionStructureButton1:nil];
+    [self setBarrierToBusinessTextField1:nil];
+    [self setBarrierToBusinessButton1:nil];
+    [super viewDidUnload];
+}
 @end

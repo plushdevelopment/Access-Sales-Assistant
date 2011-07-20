@@ -14,14 +14,9 @@
 #import "VisitApplicationPhotosViewController.h"
 
 @interface VisitApplicationViewController : BaseDetailViewController <UIImagePickerControllerDelegate> {
-	
-	UIView *activeVisitFormView;
-	VisitApplicationProfileViewController *profileApplicationViewController;
-	VisitApplicationSummaryTableViewController *summaryApplicationViewController;
-	VisitApplicationNotesViewController *notesApplicationViewController;
-	VisitApplicationPhotosViewController *photoApplicationViewController;
-
 }
+
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 
 @property (nonatomic, strong) IBOutlet UIView *activeVisitFormView;
 

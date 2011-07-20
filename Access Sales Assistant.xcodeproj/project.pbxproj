@@ -204,11 +204,13 @@
 		FFA0709813D5EC330021E412 /* FeaturesAndBenefitsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA0708E13D5EC330021E412 /* FeaturesAndBenefitsViewController.xib */; };
 		FFA0709913D5EC330021E412 /* FeaturesAndBenefitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0708F13D5EC330021E412 /* FeaturesAndBenefitsViewController.m */; };
 		FFA0709A13D5EC330021E412 /* StateSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0709213D5EC330021E412 /* StateSelectionTableViewController.m */; };
-		FFA0709B13D5EC330021E412 /* FeaturesAndBenefits.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFA0709313D5EC330021E412 /* FeaturesAndBenefits.plist */; };
 		FFA0709C13D5EC330021E412 /* FeaturesAndBenefitsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFA0709413D5EC330021E412 /* FeaturesAndBenefitsList.plist */; };
 		FFA0709D13D5EC330021E412 /* States.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFA0709513D5EC330021E412 /* States.plist */; };
 		FFA0709E13D5EC330021E412 /* Features.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0709713D5EC330021E412 /* Features.m */; };
 		FFA070A113D5EC500021E412 /* MainViewSectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA070A013D5EC500021E412 /* MainViewSectionInfo.m */; };
+		FFA070A413D5F8EE0021E412 /* CircleArrowDown_sml.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA070A213D5F8EE0021E412 /* CircleArrowDown_sml.png */; };
+		FFA070A513D5F8EE0021E412 /* CircleArrowRight_sml.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA070A313D5F8EE0021E412 /* CircleArrowRight_sml.png */; };
+		FFA070A613D60DEA0021E412 /* VisitApplicationSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF2D89413D5ADB00098609D /* VisitApplicationSummaryViewController.m */; };
 		FFA1A31913AF922200434B93 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA1A31713AF922200434B93 /* LoginViewController.m */; };
 		FFA1A31A13AF922200434B93 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA1A31813AF922200434B93 /* LoginViewController.xib */; };
 		FFA1A31E13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFA1A31C13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld */; };
@@ -647,13 +649,14 @@
 		FFA0709013D5EC330021E412 /* FeaturesAndBenefitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesAndBenefitsViewController.h; sourceTree = "<group>"; };
 		FFA0709113D5EC330021E412 /* StateSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateSelectionTableViewController.h; sourceTree = "<group>"; };
 		FFA0709213D5EC330021E412 /* StateSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateSelectionTableViewController.m; sourceTree = "<group>"; };
-		FFA0709313D5EC330021E412 /* FeaturesAndBenefits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeaturesAndBenefits.plist; sourceTree = "<group>"; };
 		FFA0709413D5EC330021E412 /* FeaturesAndBenefitsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeaturesAndBenefitsList.plist; sourceTree = "<group>"; };
 		FFA0709513D5EC330021E412 /* States.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = States.plist; sourceTree = "<group>"; };
 		FFA0709613D5EC330021E412 /* Features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Features.h; sourceTree = "<group>"; };
 		FFA0709713D5EC330021E412 /* Features.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Features.m; sourceTree = "<group>"; };
 		FFA0709F13D5EC500021E412 /* MainViewSectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewSectionInfo.h; sourceTree = "<group>"; };
 		FFA070A013D5EC500021E412 /* MainViewSectionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewSectionInfo.m; sourceTree = "<group>"; };
+		FFA070A213D5F8EE0021E412 /* CircleArrowDown_sml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleArrowDown_sml.png; sourceTree = "<group>"; };
+		FFA070A313D5F8EE0021E412 /* CircleArrowRight_sml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleArrowRight_sml.png; sourceTree = "<group>"; };
 		FFA1A31613AF922200434B93 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FFA1A31713AF922200434B93 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FFA1A31813AF922200434B93 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -938,7 +941,6 @@
 				FFA0709013D5EC330021E412 /* FeaturesAndBenefitsViewController.h */,
 				FFA0709113D5EC330021E412 /* StateSelectionTableViewController.h */,
 				FFA0709213D5EC330021E412 /* StateSelectionTableViewController.m */,
-				FFA0709313D5EC330021E412 /* FeaturesAndBenefits.plist */,
 				FFA0709413D5EC330021E412 /* FeaturesAndBenefitsList.plist */,
 				FFA0709513D5EC330021E412 /* States.plist */,
 				FFA0709613D5EC330021E412 /* Features.h */,
@@ -1568,6 +1570,8 @@
 		FFA0707913D5EBA60021E412 /* Access Academy */ = {
 			isa = PBXGroup;
 			children = (
+				FFA070A213D5F8EE0021E412 /* CircleArrowDown_sml.png */,
+				FFA070A313D5F8EE0021E412 /* CircleArrowRight_sml.png */,
 				FFA0707113D5EB930021E412 /* MyTreeViewCell.m */,
 				FFA0707213D5EB930021E412 /* MyTreeViewCell.h */,
 				FFA0707313D5EB930021E412 /* MyTreeNode.m */,
@@ -2078,9 +2082,10 @@
 				FFA0708013D5EBC00021E412 /* ContactsViewController.xib in Resources */,
 				FFA0708213D5EBC00021E412 /* ContactQAFormView.xib in Resources */,
 				FFA0709813D5EC330021E412 /* FeaturesAndBenefitsViewController.xib in Resources */,
-				FFA0709B13D5EC330021E412 /* FeaturesAndBenefits.plist in Resources */,
 				FFA0709C13D5EC330021E412 /* FeaturesAndBenefitsList.plist in Resources */,
 				FFA0709D13D5EC330021E412 /* States.plist in Resources */,
+				FFA070A413D5F8EE0021E412 /* CircleArrowDown_sml.png in Resources */,
+				FFA070A513D5F8EE0021E412 /* CircleArrowRight_sml.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2279,6 +2284,7 @@
 				FFA0709A13D5EC330021E412 /* StateSelectionTableViewController.m in Sources */,
 				FFA0709E13D5EC330021E412 /* Features.m in Sources */,
 				FFA070A113D5EC500021E412 /* MainViewSectionInfo.m in Sources */,
+				FFA070A613D60DEA0021E412 /* VisitApplicationSummaryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -303,7 +303,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     switch (self.openSectionIndex) {
-        case VISIT_APP_INDEX:
+        case VISIT_APP_INDEX: {
+			AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
+			[self.navigationController pushViewController:viewController animated:YES];
+			viewController.detailViewController = self.detailViewController;
+		}
             break;
         case CONTACTS_OPTIONS_INDEX:
         {
@@ -468,9 +472,6 @@
 			VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
             NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
             self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-			if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
-				[detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-			}
 			self.detailViewController = detailViewController;
         }
             break;
@@ -512,7 +513,9 @@
         default:
             break;
     }
-	
+	if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
+		[self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+	}
     
     //[self.popoverController dismissPopoverAnimated:YES];
 }

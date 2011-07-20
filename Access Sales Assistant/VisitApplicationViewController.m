@@ -16,15 +16,17 @@
 
 @implementation VisitApplicationViewController
 
-@synthesize activeVisitFormView;
+@synthesize titleLabel=_titleLabel;
 
-@synthesize profileApplicationViewController;
+@synthesize activeVisitFormView=_activeVisitFormView;
 
-@synthesize summaryApplicationViewController;
+@synthesize profileApplicationViewController=_profileApplicationViewController;
 
-@synthesize notesApplicationViewController;
+@synthesize summaryApplicationViewController=_summaryApplicationViewController;
 
-@synthesize photoApplicationViewController;
+@synthesize notesApplicationViewController=_notesApplicationViewController;
+
+@synthesize photoApplicationViewController=_photoApplicationViewController;
 
 @synthesize detailItem=_detailItem;
 
@@ -40,49 +42,49 @@
 			for (UIView *view in [self.activeVisitFormView subviews]) {
 				[view removeFromSuperview];
 			}
-			[self.activeVisitFormView addSubview:profileApplicationViewController.view];
+			[self.activeVisitFormView addSubview:_profileApplicationViewController.view];
 			float contentWidth = self.activeVisitFormView.frame.size.width;
-			[(UIScrollView *)profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
-			profileApplicationViewController.detailItem = self.detailItem;
-			self.currentController = profileApplicationViewController;
+			[(UIScrollView *)_profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
+			_profileApplicationViewController.detailItem = self.detailItem;
+			self.currentController = _profileApplicationViewController;
 			break;
 		case 3: {
 			for (UIView *view in [self.activeVisitFormView subviews]) {
 				[view removeFromSuperview];
 			}
-			[self.activeVisitFormView addSubview:summaryApplicationViewController.view];
+			[self.activeVisitFormView addSubview:_summaryApplicationViewController.view];
 			DailySummary *summary = [(Producer *)self.detailItem dailySummary];
 			if (!summary) {
 				summary = [DailySummary createEntity];
 				[(Producer *)self.detailItem setDailySummary:summary];
 				[[NSManagedObjectContext defaultContext] save];
 			}
-			summaryApplicationViewController.detailItem = summary;
-			self.currentController = summaryApplicationViewController;
+			_summaryApplicationViewController.detailItem = summary;
+			self.currentController = _summaryApplicationViewController;
 		}
 			break;
 		case 4: {
 			for (UIView *view in [self.activeVisitFormView subviews]) {
 				[view removeFromSuperview];
 			}
-			[self.activeVisitFormView addSubview:notesApplicationViewController.view];
+			[self.activeVisitFormView addSubview:_notesApplicationViewController.view];
 			DailySummary *summary = [(Producer *)self.detailItem dailySummary];
 			if (!summary) {
 				summary = [DailySummary createEntity];
 				[(Producer *)self.detailItem setDailySummary:summary];
 				[[NSManagedObjectContext defaultContext] save];
 			}
-			notesApplicationViewController.detailItem = summary;
-			self.currentController = notesApplicationViewController;
+			_notesApplicationViewController.detailItem = summary;
+			self.currentController = _notesApplicationViewController;
 		}
 			break;
 		case 5:
 			for (UIView *view in [self.activeVisitFormView subviews]) {
 				[view removeFromSuperview];
 			}
-			[self.activeVisitFormView addSubview:photoApplicationViewController.view];
-			photoApplicationViewController.detailItem = self.detailItem;
-			self.currentController = photoApplicationViewController;
+			[self.activeVisitFormView addSubview:_photoApplicationViewController.view];
+			_photoApplicationViewController.detailItem = self.detailItem;
+			self.currentController = _photoApplicationViewController;
 			self.photoApplicationViewController.parent = self;
 			break;
 		default:
@@ -127,11 +129,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	self.baseToolbar = self.toolBar;
-	[self.activeVisitFormView addSubview:profileApplicationViewController.view];
+	[self.activeVisitFormView addSubview:_profileApplicationViewController.view];
 	float contentWidth = self.activeVisitFormView.frame.size.width;
-	[(UIScrollView *)profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
-	profileApplicationViewController.detailItem = self.detailItem;
-	self.currentController = profileApplicationViewController;
+	[(UIScrollView *)_profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
+	_profileApplicationViewController.detailItem = self.detailItem;
+	self.currentController = _profileApplicationViewController;
 }
 
 - (void)viewDidUnload
@@ -140,6 +142,7 @@
 	[self setProfileApplicationViewController:nil];
 	[self setSummaryApplicationViewController:nil];
 	[self setPhotoApplicationViewController:nil];
+	[self setTitleLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -177,10 +180,10 @@
     // Update the user interface for the detail item.
 	
 	if (self.detailItem) {
-	    [profileApplicationViewController setDetailItem:self.detailItem];
-		[summaryApplicationViewController setDetailItem:[(Producer *)self.detailItem dailySummary]];
-		[notesApplicationViewController setDetailItem:[(Producer *)self.detailItem dailySummary]];
-		[photoApplicationViewController setDetailItem:self.detailItem];
+	    [_profileApplicationViewController setDetailItem:self.detailItem];
+		[_summaryApplicationViewController setDetailItem:[(Producer *)self.detailItem dailySummary]];
+		[_notesApplicationViewController setDetailItem:[(Producer *)self.detailItem dailySummary]];
+		[_photoApplicationViewController setDetailItem:self.detailItem];
 	}
 }
 

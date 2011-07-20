@@ -93,8 +93,9 @@
 #if TARGET_IPHONE_SIMULATOR
     [self selectedState:@"Georgia" :@"GA"];
 #else
-    [[SSLocationManager sharedManager] addDelegate:self];
-    [[SSLocationManager sharedManager] startUpdatingCurrentLocation];
+	[self selectedState:@"Georgia" :@"GA"];
+    //[[SSLocationManager sharedManager] addDelegate:self];
+    //[[SSLocationManager sharedManager] startUpdatingCurrentLocation];
 #endif
     
     
