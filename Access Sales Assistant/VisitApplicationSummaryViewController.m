@@ -39,8 +39,48 @@
 @synthesize competitorPercentRenewalTextField1 = _competitorPercentRenewalTextField1;
 @synthesize competitorNameButton1 = _competitorNameButton1;
 @synthesize competitorCommissionStructureButton1 = _competitorCommissionStructureButton1;
+@synthesize competitorNameTextField2 = _competitorNameTextField2;
+@synthesize competitorAppsPerMonthTextField2 = _competitorAppsPerMonthTextField2;
+@synthesize competitorCommissionStructureTextField2 = _competitorCommissionStructureTextField2;
+@synthesize competitorPercentNewTextField2 = _competitorPercentNewTextField2;
+@synthesize competitorPercentRenewalTextField2 = _competitorPercentRenewalTextField2;
+@synthesize competitorNameButton2 = _competitorNameButton2;
+@synthesize competitorCommissionStructureButton2 = _competitorCommissionStructureButton2;
+@synthesize competitorNameTextField3 = _competitorNameTextField3;
+@synthesize competitorAppsPerMonthTextField3 = _competitorAppsPerMonthTextField3;
+@synthesize competitorCommissionStructureTextField3 = _competitorCommissionStructureTextField3;
+@synthesize competitorPercentNewTextField3 = _competitorPercentNewTextField3;
+@synthesize competitorPercentRenewalTextField3 = _competitorPercentRenewalTextField3;
+@synthesize competitorNameButton3 = _competitorNameButton3;
+@synthesize competitorCommissionStructureButton3 = _competitorCommissionStructureButton3;
 @synthesize barrierToBusinessTextField1 = _barrierToBusinessTextField1;
 @synthesize barrierToBusinessButton1 = _barrierToBusinessButton1;
+@synthesize barrierToBusinessTextField2 = _barrierToBusinessTextField2;
+@synthesize barrierToBusinessButton2 = _barrierToBusinessButton2;
+@synthesize barrierToBusinessTextField3 = _barrierToBusinessTextField3;
+@synthesize barrierToBusinessButton3 = _barrierToBusinessButton3;
+@synthesize nsbsTotalAppsPerMonthTextField = _nsbsTotalAppsPerMonthTextField;
+@synthesize nsbsPercentLiabTextField = _nsbsPercentLiabTextField;
+@synthesize producerAddOnTextField = _producerAddOnTextField;
+@synthesize rdFollowUpTextField = _rdFollowUpTextField;
+@synthesize nsbsMonthlyGoalTextField = _nsbsMonthlyGoalTextField;
+@synthesize nsbsPercentFDLTextField = _nsbsPercentFDLTextField;
+@synthesize rdFollowUpButton = _rdFollowUpButton;
+@synthesize producerAddOnButton = _producerAddOnButton;
+@synthesize addPersonButton = _addPersonButton;
+@synthesize addCompetitorButton = _addCompetitorButton;
+@synthesize addBarrierButton = _addBarrierButton;
+@synthesize nsbsLabel = _nsbsLabel;
+@synthesize barriersToBusinessLabel = _barriersToBusinessLabel;
+@synthesize competitorsLabel = _competitorsLabel;
+@synthesize personSpokeWithLabel = _personSpokeWithLabel;
+@synthesize generalLabel = _generalLabel;
+@synthesize addPersonPlusSignButton = _addPersonPlusSignButton;
+@synthesize addCompetitorPlusSignButton = _addCompetitorPlusSignButton;
+@synthesize addBarrierPlusSignButton = _addBarrierPlusSignButton;
+@synthesize addPersonLabel = _addPersonLabel;
+@synthesize addCompetitorLabel = _addCompetitorLabel;
+@synthesize addBarrierLabel = _addBarrierLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -84,6 +124,28 @@
     [self setCompetitorCommissionStructureButton1:nil];
     [self setBarrierToBusinessTextField1:nil];
     [self setBarrierToBusinessButton1:nil];
+	[self setNsbsTotalAppsPerMonthTextField:nil];
+	[self setNsbsPercentLiabTextField:nil];
+	[self setProducerAddOnTextField:nil];
+	[self setRdFollowUpTextField:nil];
+	[self setNsbsMonthlyGoalTextField:nil];
+	[self setNsbsPercentFDLTextField:nil];
+	[self setRdFollowUpButton:nil];
+	[self setProducerAddOnButton:nil];
+	[self setAddPersonButton:nil];
+	[self setAddCompetitorButton:nil];
+	[self setAddBarrierButton:nil];
+	[self setNsbsLabel:nil];
+	[self setBarriersToBusinessLabel:nil];
+	[self setCompetitorsLabel:nil];
+	[self setPersonSpokeWithLabel:nil];
+	[self setGeneralLabel:nil];
+	[self setAddPersonPlusSignButton:nil];
+	[self setAddCompetitorPlusSignButton:nil];
+	[self setAddBarrierPlusSignButton:nil];
+	[self setAddPersonLabel:nil];
+	[self setAddCompetitorLabel:nil];
+	[self setAddBarrierLabel:nil];
     [super viewDidUnload];
 }
 @end

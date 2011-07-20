@@ -1915,18 +1915,18 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
-					<object class="IBUIView" id="876721985">
+					<object class="IBUIView" id="195086426">
 						<reference key="NSNextResponder" ref="1042179206"/>
-						<int key="NSvFlags">258</int>
+						<int key="NSvFlags">-2147483390</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUITextField" id="89864529">
-								<reference key="NSNextResponder" ref="876721985"/>
+							<object class="IBUITextField" id="853932642">
+								<reference key="NSNextResponder" ref="195086426"/>
 								<int key="NSvFlags">290</int>
 								<string key="NSFrame">{{157, 6}, {591, 31}}</string>
-								<reference key="NSSuperview" ref="876721985"/>
+								<reference key="NSSuperview" ref="195086426"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="665380904"/>
+								<reference key="NSNextKeyView" ref="207704305"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -1947,13 +1947,12 @@
 								<reference key="IBUIFontDescription" ref="1055604958"/>
 								<reference key="IBUIFont" ref="824588546"/>
 							</object>
-							<object class="IBUIButton" id="665380904">
-								<reference key="NSNextResponder" ref="876721985"/>
+							<object class="IBUIButton" id="207704305">
+								<reference key="NSNextResponder" ref="195086426"/>
 								<int key="NSvFlags">290</int>
 								<string key="NSFrame">{{157, 6}, {591, 31}}</string>
-								<reference key="NSSuperview" ref="876721985"/>
+								<reference key="NSSuperview" ref="195086426"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="442589669"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<int key="IBUITag">1</int>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -1968,13 +1967,13 @@
 								<reference key="IBUIFontDescription" ref="313585767"/>
 								<reference key="IBUIFont" ref="1026019299"/>
 							</object>
-							<object class="IBUILabel" id="412089322">
-								<reference key="NSNextResponder" ref="876721985"/>
+							<object class="IBUILabel" id="156792687">
+								<reference key="NSNextResponder" ref="195086426"/>
 								<int key="NSvFlags">290</int>
 								<string key="NSFrame">{{20, 6}, {129, 31}}</string>
-								<reference key="NSSuperview" ref="876721985"/>
+								<reference key="NSSuperview" ref="195086426"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="89864529"/>
+								<reference key="NSNextKeyView" ref="853932642"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -1991,10 +1990,10 @@
 								<reference key="IBUIFont" ref="98828665"/>
 							</object>
 						</object>
-						<string key="NSFrame">{{0, 590}, {768, 44}}</string>
+						<string key="NSFrame">{{0, 662}, {768, 44}}</string>
 						<reference key="NSSuperview" ref="1042179206"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="412089322"/>
+						<reference key="NSNextKeyView" ref="156792687"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -2082,6 +2081,93 @@
 						<reference key="NSSuperview" ref="1042179206"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="717795481"/>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MQA</bytes>
+							<reference key="NSCustomColorSpace" ref="65152229"/>
+						</object>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+					</object>
+					<object class="IBUIView" id="876721985">
+						<reference key="NSNextResponder" ref="1042179206"/>
+						<int key="NSvFlags">258</int>
+						<object class="NSMutableArray" key="NSSubviews">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUITextField" id="89864529">
+								<reference key="NSNextResponder" ref="876721985"/>
+								<int key="NSvFlags">290</int>
+								<string key="NSFrame">{{157, 6}, {591, 31}}</string>
+								<reference key="NSSuperview" ref="876721985"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="665380904"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<string key="IBUIText"/>
+								<int key="IBUIBorderStyle">3</int>
+								<string key="IBUIPlaceholder">Barrier to Business</string>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MAA</bytes>
+									<reference key="NSCustomColorSpace" ref="65152229"/>
+								</object>
+								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
+								<float key="IBUIMinimumFontSize">17</float>
+								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								</object>
+								<reference key="IBUIFontDescription" ref="1055604958"/>
+								<reference key="IBUIFont" ref="824588546"/>
+							</object>
+							<object class="IBUIButton" id="665380904">
+								<reference key="NSNextResponder" ref="876721985"/>
+								<int key="NSvFlags">290</int>
+								<string key="NSFrame">{{157, 6}, {591, 31}}</string>
+								<reference key="NSSuperview" ref="876721985"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="442589669"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<int key="IBUITag">1</int>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<reference key="IBUIHighlightedTitleColor" ref="162310864"/>
+								<object class="NSColor" key="IBUINormalTitleColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+								</object>
+								<reference key="IBUINormalTitleShadowColor" ref="518518363"/>
+								<reference key="IBUIFontDescription" ref="313585767"/>
+								<reference key="IBUIFont" ref="1026019299"/>
+							</object>
+							<object class="IBUILabel" id="412089322">
+								<reference key="NSNextResponder" ref="876721985"/>
+								<int key="NSvFlags">290</int>
+								<string key="NSFrame">{{20, 6}, {129, 31}}</string>
+								<reference key="NSSuperview" ref="876721985"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="89864529"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">7</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<string key="IBUIText">Barrier to Business</string>
+								<reference key="IBUITextColor" ref="982225716"/>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">1</int>
+								<float key="IBUIMinimumFontSize">9</float>
+								<int key="IBUINumberOfLines">3</int>
+								<int key="IBUILineBreakMode">0</int>
+								<reference key="IBUIFontDescription" ref="746630722"/>
+								<reference key="IBUIFont" ref="98828665"/>
+							</object>
+						</object>
+						<string key="NSFrame">{{0, 590}, {768, 44}}</string>
+						<reference key="NSSuperview" ref="1042179206"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="412089322"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -2901,46 +2987,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">firstNameTextField3</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="921780415"/>
-					</object>
-					<int key="connectionID">140</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">titleTextField3</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="121470437"/>
-					</object>
-					<int key="connectionID">141</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">titleButton3</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="644496545"/>
-					</object>
-					<int key="connectionID">142</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">emailAddressTextField3</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="186064754"/>
-					</object>
-					<int key="connectionID">143</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">lastNameTextField3</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="384729060"/>
-					</object>
-					<int key="connectionID">144</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">competitorNameTextField1</string>
 						<reference key="source" ref="841351856"/>
 						<reference key="destination" ref="620764309"/>
@@ -3011,6 +3057,334 @@
 					</object>
 					<int key="connectionID">158</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nsbsTotalAppsPerMonthTextField</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="254910620"/>
+					</object>
+					<int key="connectionID">159</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nsbsPercentLiabTextField</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="194280541"/>
+					</object>
+					<int key="connectionID">160</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">producerAddOnTextField</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="773338283"/>
+					</object>
+					<int key="connectionID">161</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">rdFollowUpTextField</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="648501480"/>
+					</object>
+					<int key="connectionID">162</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nsbsMonthlyGoalTextField</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="348873251"/>
+					</object>
+					<int key="connectionID">163</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nsbsPercentFDLTextField</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="574599022"/>
+					</object>
+					<int key="connectionID">164</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">rdFollowUpButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="151878551"/>
+					</object>
+					<int key="connectionID">165</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">producerAddOnButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="896714757"/>
+					</object>
+					<int key="connectionID">166</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addPersonButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="626696037"/>
+					</object>
+					<int key="connectionID">167</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addCompetitorButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="181990871"/>
+					</object>
+					<int key="connectionID">168</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addBarrierButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="390117843"/>
+					</object>
+					<int key="connectionID">169</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nsbsLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="432233541"/>
+					</object>
+					<int key="connectionID">170</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">barriersToBusinessLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="424995013"/>
+					</object>
+					<int key="connectionID">171</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorsLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="600196640"/>
+					</object>
+					<int key="connectionID">172</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">personSpokeWithLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="509789280"/>
+					</object>
+					<int key="connectionID">173</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">generalLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="60816465"/>
+					</object>
+					<int key="connectionID">174</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addPersonPlusSignButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="1002678681"/>
+					</object>
+					<int key="connectionID">175</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addCompetitorPlusSignButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="850980155"/>
+					</object>
+					<int key="connectionID">176</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addBarrierPlusSignButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="442589669"/>
+					</object>
+					<int key="connectionID">177</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addPersonLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="691970619"/>
+					</object>
+					<int key="connectionID">178</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addCompetitorLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="193096005"/>
+					</object>
+					<int key="connectionID">179</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addBarrierLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="23872620"/>
+					</object>
+					<int key="connectionID">180</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">firstNameTextField3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="921780415"/>
+					</object>
+					<int key="connectionID">181</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">titleTextField3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="121470437"/>
+					</object>
+					<int key="connectionID">182</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">titleButton3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="644496545"/>
+					</object>
+					<int key="connectionID">183</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">emailAddressTextField3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="186064754"/>
+					</object>
+					<int key="connectionID">184</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lastNameTextField3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="384729060"/>
+					</object>
+					<int key="connectionID">185</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorNameTextField3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="52099772"/>
+					</object>
+					<int key="connectionID">186</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorAppsPerMonthTextField3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="670043629"/>
+					</object>
+					<int key="connectionID">187</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorCommissionStructureTextField3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="51425928"/>
+					</object>
+					<int key="connectionID">188</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorPercentNewTextField3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="988200151"/>
+					</object>
+					<int key="connectionID">189</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorPercentRenewalTextField3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="169366948"/>
+					</object>
+					<int key="connectionID">190</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorNameButton3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="205125862"/>
+					</object>
+					<int key="connectionID">191</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorCommissionStructureButton3</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="860061626"/>
+					</object>
+					<int key="connectionID">192</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorNameTextField2</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="55882288"/>
+					</object>
+					<int key="connectionID">193</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorAppsPerMonthTextField2</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="982735460"/>
+					</object>
+					<int key="connectionID">194</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorCommissionStructureTextField2</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="452197004"/>
+					</object>
+					<int key="connectionID">195</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorPercentNewTextField2</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="243007139"/>
+					</object>
+					<int key="connectionID">196</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorPercentRenewalTextField2</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="7239528"/>
+					</object>
+					<int key="connectionID">197</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorNameButton2</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="954673389"/>
+					</object>
+					<int key="connectionID">198</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">competitorCommissionStructureButton2</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="525184891"/>
+					</object>
+					<int key="connectionID">199</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3063,6 +3437,7 @@
 							<reference ref="282959534"/>
 							<reference ref="937554939"/>
 							<reference ref="939668277"/>
+							<reference ref="195086426"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -3759,6 +4134,32 @@
 						<reference key="object" ref="717795481"/>
 						<reference key="parent" ref="937554939"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">204</int>
+						<reference key="object" ref="195086426"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="853932642"/>
+							<reference ref="207704305"/>
+							<reference ref="156792687"/>
+						</object>
+						<reference key="parent" ref="1042179206"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">207</int>
+						<reference key="object" ref="853932642"/>
+						<reference key="parent" ref="195086426"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">206</int>
+						<reference key="object" ref="207704305"/>
+						<reference key="parent" ref="195086426"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">205</int>
+						<reference key="object" ref="156792687"/>
+						<reference key="parent" ref="195086426"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -3807,6 +4208,10 @@
 					<string>16.IBPluginDependency</string>
 					<string>17.IBPluginDependency</string>
 					<string>20.IBPluginDependency</string>
+					<string>204.IBPluginDependency</string>
+					<string>205.IBPluginDependency</string>
+					<string>206.IBPluginDependency</string>
+					<string>207.IBPluginDependency</string>
 					<string>21.IBPluginDependency</string>
 					<string>22.IBPluginDependency</string>
 					<string>23.IBPluginDependency</string>
@@ -4006,6 +4411,10 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -4020,7 +4429,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">158</int>
+			<int key="maxID">207</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4032,12 +4441,22 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addBarrierButton</string>
+							<string>addBarrierLabel</string>
+							<string>addBarrierPlusSignButton</string>
+							<string>addCompetitorButton</string>
+							<string>addCompetitorLabel</string>
+							<string>addCompetitorPlusSignButton</string>
+							<string>addPersonButton</string>
+							<string>addPersonLabel</string>
+							<string>addPersonPlusSignButton</string>
 							<string>barrierToBusinessButton1</string>
 							<string>barrierToBusinessButton2</string>
 							<string>barrierToBusinessButton3</string>
 							<string>barrierToBusinessTextField1</string>
 							<string>barrierToBusinessTextField2</string>
 							<string>barrierToBusinessTextField3</string>
+							<string>barriersToBusinessLabel</string>
 							<string>callTypeTextField</string>
 							<string>competitorAppsPerMonthTextField1</string>
 							<string>competitorAppsPerMonthTextField2</string>
@@ -4060,20 +4479,32 @@
 							<string>competitorPercentRenewalTextField1</string>
 							<string>competitorPercentRenewalTextField2</string>
 							<string>competitorPercentRenewalTextField3</string>
+							<string>competitorsLabel</string>
 							<string>emailAddressTextField1</string>
 							<string>emailAddressTextField2</string>
 							<string>emailAddressTextField3</string>
 							<string>firstNameTextField1</string>
 							<string>firstNameTextField2</string>
 							<string>firstNameTextField3</string>
+							<string>generalLabel</string>
 							<string>generalView</string>
 							<string>lastNameTextField1</string>
 							<string>lastNameTextField2</string>
 							<string>lastNameTextField3</string>
+							<string>nsbsLabel</string>
+							<string>nsbsMonthlyGoalTextField</string>
+							<string>nsbsPercentFDLTextField</string>
+							<string>nsbsPercentLiabTextField</string>
+							<string>nsbsTotalAppsPerMonthTextField</string>
+							<string>personSpokeWithLabel</string>
 							<string>personSpokeWithView1</string>
 							<string>personSpokeWithView2</string>
 							<string>personSpokeWithView3</string>
+							<string>producerAddOnButton</string>
+							<string>producerAddOnTextField</string>
 							<string>producerNameTextField</string>
+							<string>rdFollowUpButton</string>
+							<string>rdFollowUpTextField</string>
 							<string>reportDateButton</string>
 							<string>reportDateTextField</string>
 							<string>titleButton1</string>
@@ -4086,27 +4517,34 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIButton</string>
+							<string>UILabel</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
+							<string>UILabel</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
+							<string>UILabel</string>
 							<string>UIButton</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
+							<string>UILabel</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
@@ -4116,16 +4554,31 @@
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
+							<string>UILabel</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UILabel</string>
 							<string>UIView</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
+							<string>UILabel</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UILabel</string>
 							<string>UIView</string>
 							<string>UIView</string>
 							<string>UIView</string>
+							<string>UIButton</string>
+							<string>UITextField</string>
+							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
 							<string>UITextField</string>
@@ -4141,12 +4594,22 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addBarrierButton</string>
+							<string>addBarrierLabel</string>
+							<string>addBarrierPlusSignButton</string>
+							<string>addCompetitorButton</string>
+							<string>addCompetitorLabel</string>
+							<string>addCompetitorPlusSignButton</string>
+							<string>addPersonButton</string>
+							<string>addPersonLabel</string>
+							<string>addPersonPlusSignButton</string>
 							<string>barrierToBusinessButton1</string>
 							<string>barrierToBusinessButton2</string>
 							<string>barrierToBusinessButton3</string>
 							<string>barrierToBusinessTextField1</string>
 							<string>barrierToBusinessTextField2</string>
 							<string>barrierToBusinessTextField3</string>
+							<string>barriersToBusinessLabel</string>
 							<string>callTypeTextField</string>
 							<string>competitorAppsPerMonthTextField1</string>
 							<string>competitorAppsPerMonthTextField2</string>
@@ -4169,20 +4632,32 @@
 							<string>competitorPercentRenewalTextField1</string>
 							<string>competitorPercentRenewalTextField2</string>
 							<string>competitorPercentRenewalTextField3</string>
+							<string>competitorsLabel</string>
 							<string>emailAddressTextField1</string>
 							<string>emailAddressTextField2</string>
 							<string>emailAddressTextField3</string>
 							<string>firstNameTextField1</string>
 							<string>firstNameTextField2</string>
 							<string>firstNameTextField3</string>
+							<string>generalLabel</string>
 							<string>generalView</string>
 							<string>lastNameTextField1</string>
 							<string>lastNameTextField2</string>
 							<string>lastNameTextField3</string>
+							<string>nsbsLabel</string>
+							<string>nsbsMonthlyGoalTextField</string>
+							<string>nsbsPercentFDLTextField</string>
+							<string>nsbsPercentLiabTextField</string>
+							<string>nsbsTotalAppsPerMonthTextField</string>
+							<string>personSpokeWithLabel</string>
 							<string>personSpokeWithView1</string>
 							<string>personSpokeWithView2</string>
 							<string>personSpokeWithView3</string>
+							<string>producerAddOnButton</string>
+							<string>producerAddOnTextField</string>
 							<string>producerNameTextField</string>
+							<string>rdFollowUpButton</string>
+							<string>rdFollowUpTextField</string>
 							<string>reportDateButton</string>
 							<string>reportDateTextField</string>
 							<string>titleButton1</string>
@@ -4194,6 +4669,42 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">addBarrierButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">addBarrierLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">addBarrierPlusSignButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">addCompetitorButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">addCompetitorLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">addCompetitorPlusSignButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">addPersonButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">addPersonLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">addPersonPlusSignButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">barrierToBusinessButton1</string>
 								<string key="candidateClassName">UIButton</string>
@@ -4217,6 +4728,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">barrierToBusinessTextField3</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">barriersToBusinessLabel</string>
+								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">callTypeTextField</string>
@@ -4307,6 +4822,10 @@
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">competitorsLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">emailAddressTextField1</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
@@ -4331,6 +4850,10 @@
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">generalLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">generalView</string>
 								<string key="candidateClassName">UIView</string>
 							</object>
@@ -4347,6 +4870,30 @@
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">nsbsLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">nsbsMonthlyGoalTextField</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">nsbsPercentFDLTextField</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">nsbsPercentLiabTextField</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">nsbsTotalAppsPerMonthTextField</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">personSpokeWithLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">personSpokeWithView1</string>
 								<string key="candidateClassName">UIView</string>
 							</object>
@@ -4359,7 +4906,23 @@
 								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">producerAddOnButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">producerAddOnTextField</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">producerNameTextField</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">rdFollowUpButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">rdFollowUpTextField</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">

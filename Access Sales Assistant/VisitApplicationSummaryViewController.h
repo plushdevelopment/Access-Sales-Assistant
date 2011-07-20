@@ -9,16 +9,30 @@
 #import <UIKit/UIKit.h>
 
 @interface VisitApplicationSummaryViewController : UIViewController {
-	UITextField *_competitorNameTextField1;
-	UITextField *_competitorAppsPerMonthTextField1;
-	UITextField *_competitorCommissionStructureTextField1;
-	UITextField *_competitorPercentNewTextField1;
-	UITextField *_competitorPercentRenewalTextField1;
-	UIButton *_competitorNameButton1;
-	UIButton *_competitorCommissionStructureButton1;
-	UITextField *_barrierToBusinessTextField1;
-	UIButton *_barrierToBusinessButton1;
+	UITextField *_nsbsTotalAppsPerMonthTextField;
+	UITextField *_nsbsPercentLiabTextField;
+	UITextField *_producerAddOnTextField;
+	UITextField *_rdFollowUpTextField;
+	UITextField *_nsbsMonthlyGoalTextField;
+	UITextField *_nsbsPercentFDLTextField;
+	UIButton *_rdFollowUpButton;
+	UIButton *_producerAddOnButton;
+	UIButton *_addPersonButton;
+	UIButton *_addCompetitorButton;
+	UIButton *_addBarrierButton;
+	UILabel *_nsbsLabel;
+	UILabel *_barriersToBusinessLabel;
+	UILabel *_competitorsLabel;
+	UILabel *_personSpokeWithLabel;
+	UILabel *_generalLabel;
+	UIButton *_addPersonPlusSignButton;
+	UIButton *_addCompetitorPlusSignButton;
+	UIButton *_addBarrierPlusSignButton;
+	UILabel *_addPersonLabel;
+	UILabel *_addCompetitorLabel;
+	UILabel *_addBarrierLabel;
 }
+
 
  
 
@@ -53,8 +67,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *competitorPercentRenewalTextField1;
 @property (nonatomic, strong) IBOutlet UIButton *competitorNameButton1;
 @property (nonatomic, strong) IBOutlet UIButton *competitorCommissionStructureButton1;
-@property (nonatomic, strong) IBOutlet UITextField *barrierToBusinessTextField1;
-@property (nonatomic, strong) IBOutlet UIButton *barrierToBusinessButton1;
+
 @property (nonatomic, strong) IBOutlet UITextField *competitorNameTextField2;
 @property (nonatomic, strong) IBOutlet UITextField *competitorAppsPerMonthTextField2;
 @property (nonatomic, strong) IBOutlet UITextField *competitorCommissionStructureTextField2;
@@ -62,8 +75,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *competitorPercentRenewalTextField2;
 @property (nonatomic, strong) IBOutlet UIButton *competitorNameButton2;
 @property (nonatomic, strong) IBOutlet UIButton *competitorCommissionStructureButton2;
-@property (nonatomic, strong) IBOutlet UITextField *barrierToBusinessTextField2;
-@property (nonatomic, strong) IBOutlet UIButton *barrierToBusinessButton2;
+
 @property (nonatomic, strong) IBOutlet UITextField *competitorNameTextField3;
 @property (nonatomic, strong) IBOutlet UITextField *competitorAppsPerMonthTextField3;
 @property (nonatomic, strong) IBOutlet UITextField *competitorCommissionStructureTextField3;
@@ -71,7 +83,38 @@
 @property (nonatomic, strong) IBOutlet UITextField *competitorPercentRenewalTextField3;
 @property (nonatomic, strong) IBOutlet UIButton *competitorNameButton3;
 @property (nonatomic, strong) IBOutlet UIButton *competitorCommissionStructureButton3;
+
+@property (nonatomic, strong) IBOutlet UITextField *barrierToBusinessTextField1;
+@property (nonatomic, strong) IBOutlet UIButton *barrierToBusinessButton1;
+
+@property (nonatomic, strong) IBOutlet UITextField *barrierToBusinessTextField2;
+@property (nonatomic, strong) IBOutlet UIButton *barrierToBusinessButton2;
+
 @property (nonatomic, strong) IBOutlet UITextField *barrierToBusinessTextField3;
 @property (nonatomic, strong) IBOutlet UIButton *barrierToBusinessButton3;
+
+@property (nonatomic, strong) IBOutlet UITextField *nsbsTotalAppsPerMonthTextField;
+@property (nonatomic, strong) IBOutlet UITextField *nsbsPercentLiabTextField;
+@property (nonatomic, strong) IBOutlet UITextField *producerAddOnTextField;
+@property (nonatomic, strong) IBOutlet UITextField *rdFollowUpTextField;
+@property (nonatomic, strong) IBOutlet UITextField *nsbsMonthlyGoalTextField;
+@property (nonatomic, strong) IBOutlet UITextField *nsbsPercentFDLTextField;
+@property (nonatomic, strong) IBOutlet UIButton *rdFollowUpButton;
+@property (nonatomic, strong) IBOutlet UIButton *producerAddOnButton;
+@property (nonatomic, strong) IBOutlet UIButton *addPersonButton;
+@property (nonatomic, strong) IBOutlet UIButton *addCompetitorButton;
+@property (nonatomic, strong) IBOutlet UIButton *addBarrierButton;
+@property (nonatomic, strong) IBOutlet UILabel *nsbsLabel;
+@property (nonatomic, strong) IBOutlet UILabel *barriersToBusinessLabel;
+@property (nonatomic, strong) IBOutlet UILabel *competitorsLabel;
+@property (nonatomic, strong) IBOutlet UILabel *personSpokeWithLabel;
+@property (nonatomic, strong) IBOutlet UILabel *generalLabel;
+@property (nonatomic, strong) IBOutlet UIButton *addPersonPlusSignButton;
+@property (nonatomic, strong) IBOutlet UIButton *addCompetitorPlusSignButton;
+@property (nonatomic, strong) IBOutlet UIButton *addBarrierPlusSignButton;
+@property (nonatomic, strong) IBOutlet UILabel *addPersonLabel;
+@property (nonatomic, strong) IBOutlet UILabel *addCompetitorLabel;
+@property (nonatomic, strong) IBOutlet UILabel *addBarrierLabel;
+
 
 @end
