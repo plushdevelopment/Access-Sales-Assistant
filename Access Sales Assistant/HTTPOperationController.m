@@ -56,6 +56,8 @@
 
 #import "ProducerImage.h"
 
+#import "NSManagedObject+Lidenbrock.h"
+
 #define kPAGESIZE 1
 
 @implementation HTTPOperationController
@@ -189,7 +191,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSString *urlString = [NSString 
 						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Picklists?token=%@",
 						   [user token]];
-	
+	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -210,6 +212,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		for (NSDictionary *itemDict in pickListItems) {
 			NSManagedObject *item = [NSClassFromString(pickListType) ai_objectForProperty:@"uid" value:[itemDict valueForKey:@"uid"]];
 			[item safeSetValuesForKeysWithDictionary:itemDict dateFormatter:nil];
+			/*
+			NSManagedObject *item = [NSClassFromString(pickListType) entityFromJson:dict.description];
+			NSLog(@"%@", item);
+			 */
 		}
 	}
 	
@@ -237,7 +243,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], kPAGESIZE, [user token]];
-	//NSLog(@"%@", urlString);
+	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -262,7 +268,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		}
 		
 	}
-	//[self.managedObjectContext saveOnBackgroundThread];
+	
 	[self.managedObjectContext save];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:request];

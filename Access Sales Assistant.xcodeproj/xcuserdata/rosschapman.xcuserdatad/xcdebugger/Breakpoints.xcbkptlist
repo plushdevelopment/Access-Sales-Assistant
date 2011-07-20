@@ -121,11 +121,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/HTTPOperationController.m"
-         timestampString = "332726381.477506"
+         timestampString = "332875778.200974"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
          landmarkName = "-requestFailed:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -135,11 +135,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/HTTPOperationController.m"
-         timestampString = "332726381.477506"
+         timestampString = "332875778.200974"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "92"
-         endingLineNumber = "92"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
          landmarkName = "-requestFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -149,11 +149,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/HTTPOperationController.m"
-         timestampString = "332726381.477506"
+         timestampString = "332876522.947963"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "273"
-         endingLineNumber = "273"
+         startingLineNumber = "276"
+         endingLineNumber = "276"
          landmarkName = "-requestProducersFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -228,20 +228,6 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Access Sales Assistant/Access_Sales_AssistantAppDelegate.m"
-         timestampString = "332721874.924625"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "38"
-         endingLineNumber = "38"
-         landmarkName = "-showError:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
@@ -275,11 +261,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/HTTPOperationController.m"
-         timestampString = "332728287.340725"
+         timestampString = "332876522.947963"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "490"
-         endingLineNumber = "490"
+         startingLineNumber = "493"
+         endingLineNumber = "493"
          landmarkName = "-getImageFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -289,11 +275,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/HTTPOperationController.m"
-         timestampString = "332727780.098163"
+         timestampString = "332876522.947963"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "472"
-         endingLineNumber = "472"
+         startingLineNumber = "475"
+         endingLineNumber = "475"
          landmarkName = "-getImage:forProducer:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -303,12 +289,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/HTTPOperationController.m"
-         timestampString = "332727385.396279"
+         timestampString = "332876522.947963"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "431"
-         endingLineNumber = "431"
-         landmarkName = "-getImagesForProducerFinished:"
+         startingLineNumber = "434"
+         endingLineNumber = "434"
+         landmarkName = "-getImagesForProducer:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -317,11 +303,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/HTTPOperationController.m"
-         timestampString = "332727444.252822"
+         timestampString = "332876522.947963"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "440"
-         endingLineNumber = "440"
+         startingLineNumber = "443"
+         endingLineNumber = "443"
          landmarkName = "-getImagesForProducerFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -331,12 +317,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/VisitApplicationViewController.m"
-         timestampString = "332796045.655645"
+         timestampString = "332877635.217106"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "156"
-         endingLineNumber = "156"
-         landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
+         landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -435,6 +421,48 @@
          startingLineNumber = "106"
          endingLineNumber = "106"
          landmarkName = "-safeSetValuesForKeysWithDictionary:dateFormatter:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Access Sales Assistant/HTTPOperationController.m"
+         timestampString = "332879092.4771"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "379"
+         endingLineNumber = "379"
+         landmarkName = "-postImage:forProducer:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Access Sales Assistant/HTTPOperationController.m"
+         timestampString = "332879097.394935"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "416"
+         endingLineNumber = "416"
+         landmarkName = "-getImagesForProducer:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Access Sales Assistant/HTTPOperationController.m"
+         timestampString = "332879103.155232"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "461"
+         endingLineNumber = "461"
+         landmarkName = "-getImage:forProducer:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

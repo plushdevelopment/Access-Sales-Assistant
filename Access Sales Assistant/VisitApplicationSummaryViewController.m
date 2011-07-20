@@ -8,11 +8,61 @@
 
 #import "VisitApplicationSummaryViewController.h"
 
+enum PRPFieldTags {
+    PRPFieldProducerName = 1,
+    PRPFieldCallType,
+	PRPFieldReportDate,
+	PRPFieldPersonSpokeWithFirstName1,
+	PRPFieldPersonSpokeWithTitle1,
+    PRPFieldPersonSpokeWithLastName1,
+	PRPFieldPersonSpokeWithEmail1,
+	PRPFieldPersonSpokeWithFirstName2,
+	PRPFieldPersonSpokeWithTitle2,
+    PRPFieldPersonSpokeWithLastName2,
+	PRPFieldPersonSpokeWithEmail2,
+	PRPFieldPersonSpokeWithFirstName3,
+	PRPFieldPersonSpokeWithTitle3,
+    PRPFieldPersonSpokeWithLastName3,
+	PRPFieldPersonSpokeWithEmail3,
+	PRPFieldCompetitorName1,
+	PRPFieldCompetitorAppsPerMonth1,
+	PRPFieldCompetitorPercentNew1,
+	PRPFieldCompetitorPercentRenewal1,
+	PRPFieldCompetitorCommissionStructure1,
+	PRPFieldCompetitorName2,
+	PRPFieldCompetitorAppsPerMonth2,
+	PRPFieldCompetitorPercentNew2,
+	PRPFieldCompetitorPercentRenewal2,
+	PRPFieldCompetitorCommissionStructure2,
+	PRPFieldCompetitorName3,
+	PRPFieldCompetitorAppsPerMonth3,
+	PRPFieldCompetitorPercentNew3,
+	PRPFieldCompetitorPercentRenewal3,
+	PRPFieldCompetitorCommissionStructure3,
+	PRPFieldBarrierToBusiness1,
+	PRPFieldBarrierToBusiness2,
+	PRPFieldBarrierToBusiness3,
+	PRPFieldNSBSTotalAppsPerMonth,
+	PRPFieldNSBSMonthlyGoal,
+	PRPFieldNSBSPercentLiab,
+	PRPFieldNSBSPercentFDL,
+	PRPFieldProducerAddOn,
+	PRPFieldRDFollowUp
+};
+
 @implementation VisitApplicationSummaryViewController
+
 @synthesize generalView=_generalView;
 @synthesize personSpokeWithView1 = _personSpokeWithView1;
 @synthesize personSpokeWithView2 = _personSpokeWithView2;
 @synthesize personSpokeWithView3 = _personSpokeWithView3;
+@synthesize competitorView1 = _competitorView1;
+@synthesize competitorView2 = _competitorView2;
+@synthesize competitorView3 = _competitorView3;
+@synthesize barriersToBusinessView1 = _barriersToBusinessView1;
+@synthesize barriersToBusinessView2 = _barriersToBusinessView2;
+@synthesize barriersToBusiness3 = _barriersToBusiness3;
+@synthesize nsbsView = _nsbsView;
 @synthesize producerNameTextField = _producerNameTextField;
 @synthesize reportDateTextField = _reportDateTextField;
 @synthesize callTypeTextField = _callTypeTextField;
@@ -146,6 +196,13 @@
 	[self setAddPersonLabel:nil];
 	[self setAddCompetitorLabel:nil];
 	[self setAddBarrierLabel:nil];
+    [self setCompetitorView1:nil];
+    [self setCompetitorView2:nil];
+    [self setCompetitorView3:nil];
+    [self setBarriersToBusinessView1:nil];
+    [self setBarriersToBusinessView2:nil];
+	[self setBarriersToBusiness3:nil];
+	[self setNsbsView:nil];
     [super viewDidUnload];
 }
 @end
