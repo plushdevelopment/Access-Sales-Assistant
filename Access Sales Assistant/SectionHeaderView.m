@@ -166,6 +166,8 @@
                
                 [delegate sectionHeaderView:self sectionOpened:section];
                 
+                self.lightColor = RGB(154,255,154);
+                
                 self.darkColor = RGB(73,103,22);
                 [self setNeedsDisplay];
                 //self.backgroundColor = RGB(73,103,22);
@@ -183,6 +185,7 @@
                 [delegate sectionHeaderView:self sectionClosed:section];
                 //self.backgroundColor = RGB(0,111,162);
                 //_titleLabel.textColor = RGB(230,230,230);
+                self.lightColor =RGB(105,179,216);//[UIColor colorWithRed:105.0f/255.0f green:179.0f/255.0f blue:216.0f/255.0f alpha:1.0];;
                 self.darkColor = RGB(0,111,162);
                                 [self setNeedsDisplay];
                 
@@ -192,6 +195,7 @@
     }
     else
     {
+        self.lightColor =RGB(105,179,216);
         self.darkColor =  RGB(0,111,162);
         [self setNeedsDisplay];
          //self.backgroundColor = RGB(0,111,162);

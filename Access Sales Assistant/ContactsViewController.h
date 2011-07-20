@@ -18,6 +18,7 @@
 
 @property(nonatomic,strong) IBOutlet UIToolbar *toolBar;
 @property(nonatomic) NSInteger selectedContactOption;
+@property (nonatomic, strong) UIBarButtonItem *rootPopoverButtonItem;
 
 -(void)displayComposerSheet;
 -(void)launchMailAppOnDevice;

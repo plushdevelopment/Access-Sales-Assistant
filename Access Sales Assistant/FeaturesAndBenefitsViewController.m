@@ -262,11 +262,13 @@
         if(tFeaturesObj.bIsFeatureTitle)
         {
             featureLabel.text = tFeaturesObj.strFeature;
+            
 
             featureLabel.textColor = [UIColor orangeColor];
              featureLabel.textAlignment=UITextAlignmentLeft;
             
-            featureLabel.font = [UIFont boldSystemFontOfSize:20];
+            //featureLabel.font = [UIFont boldSystemFontOfSize:20];
+             featureLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
             
             [_fnbScrollview addSubview:featureLabel];
            //  NSLog(tFeaturesObj.strFeature);
@@ -274,7 +276,10 @@
         else
         {
             featureLabel.text = tFeaturesObj.strFeature;
+            
+            featureLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:16.0];
             benefitLabel.text = tFeaturesObj.strBenefit;
+            benefitLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:16.0];
             benefitLabel.textColor = RGB(0,111,162);
                  
             [_fnbScrollview addSubview:featureLabel];

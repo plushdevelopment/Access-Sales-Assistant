@@ -12,5 +12,6 @@
 @interface SplashViewController : BaseDetailViewController
 
 @property(nonatomic,strong) IBOutlet UIToolbar* toolBar; 
+@property(nonatomic,strong) IBOutlet UILabel* titleLabel;
 
 @end
