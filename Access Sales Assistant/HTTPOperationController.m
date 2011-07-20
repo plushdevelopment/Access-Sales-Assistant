@@ -56,6 +56,8 @@
 
 #import "ProducerImage.h"
 
+#import "NSManagedObject+Lidenbrock.h"
+
 #define kPAGESIZE 1
 
 @implementation HTTPOperationController
@@ -210,6 +212,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		for (NSDictionary *itemDict in pickListItems) {
 			NSManagedObject *item = [NSClassFromString(pickListType) ai_objectForProperty:@"uid" value:[itemDict valueForKey:@"uid"]];
 			[item safeSetValuesForKeysWithDictionary:itemDict dateFormatter:nil];
+			/*
+			NSManagedObject *item = [NSClassFromString(pickListType) entityFromJson:dict.description];
+			NSLog(@"%@", item);
+			 */
 		}
 	}
 	
@@ -262,7 +268,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		}
 		
 	}
-	//[self.managedObjectContext saveOnBackgroundThread];
+	
 	[self.managedObjectContext save];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:request];

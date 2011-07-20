@@ -20,6 +20,9 @@
 		FF0A17FE13BC944E00ECF9F6 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F113BC944E00ECF9F6 /* CJSONDeserializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17FF13BC944E00ECF9F6 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F313BC944E00ECF9F6 /* CJSONScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A180013BC944E00ECF9F6 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F513BC944E00ECF9F6 /* CJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A4C8013D74495001FEC8B /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A4C7813D74495001FEC8B /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A4C8113D74495001FEC8B /* LBObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A4C7A13D74495001FEC8B /* LBObjectManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF0A4C8213D74495001FEC8B /* NSManagedObject+Lidenbrock.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A4C7D13D74495001FEC8B /* NSManagedObject+Lidenbrock.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF21973E13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21973C13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m */; };
 		FF21973F13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF21973D13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib */; };
 		FF21974513CF541F001F1B0D /* SummaryGeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21974413CF541F001F1B0D /* SummaryGeneralTableViewCell.m */; };
@@ -386,6 +389,13 @@
 		FF0A17F413BC944E00ECF9F6 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		FF0A17F513BC944E00ECF9F6 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		FF0A17F613BC944E00ECF9F6 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		FF0A4C7713D74495001FEC8B /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		FF0A4C7813D74495001FEC8B /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		FF0A4C7913D74495001FEC8B /* LBObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBObjectManager.h; sourceTree = "<group>"; };
+		FF0A4C7A13D74495001FEC8B /* LBObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBObjectManager.m; sourceTree = "<group>"; };
+		FF0A4C7B13D74495001FEC8B /* Lidenbrock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lidenbrock.h; sourceTree = "<group>"; };
+		FF0A4C7C13D74495001FEC8B /* NSManagedObject+Lidenbrock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Lidenbrock.h"; sourceTree = "<group>"; };
+		FF0A4C7D13D74495001FEC8B /* NSManagedObject+Lidenbrock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Lidenbrock.m"; sourceTree = "<group>"; };
 		FF21973B13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationSummaryTableViewController.h; sourceTree = "<group>"; };
 		FF21973C13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationSummaryTableViewController.m; sourceTree = "<group>"; };
 		FF21973D13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationSummaryTableViewController.xib; sourceTree = "<group>"; };
@@ -1006,6 +1016,20 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		FF0A4C8513D7449E001FEC8B /* lidenbrock */ = {
+			isa = PBXGroup;
+			children = (
+				FF0A4C7713D74495001FEC8B /* JSONKit.h */,
+				FF0A4C7813D74495001FEC8B /* JSONKit.m */,
+				FF0A4C7913D74495001FEC8B /* LBObjectManager.h */,
+				FF0A4C7A13D74495001FEC8B /* LBObjectManager.m */,
+				FF0A4C7B13D74495001FEC8B /* Lidenbrock.h */,
+				FF0A4C7C13D74495001FEC8B /* NSManagedObject+Lidenbrock.h */,
+				FF0A4C7D13D74495001FEC8B /* NSManagedObject+Lidenbrock.m */,
+			);
+			name = lidenbrock;
+			sourceTree = "<group>";
+		};
 		FF21974113CF53DF001F1B0D /* Producer Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1355,6 +1379,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FF0A4C8513D7449E001FEC8B /* lidenbrock */,
 				FFA0705013D5EB650021E412 /* SSLocationManager */,
 				FF9ED81B13D4EF6A006105C7 /* AQGridView */,
 				FF56A25613CC888D00FF159A /* SynthesizeSingleton.h */,
@@ -2295,6 +2320,9 @@
 				FFA070A113D5EC500021E412 /* MainViewSectionInfo.m in Sources */,
 				FFA070A613D60DEA0021E412 /* VisitApplicationSummaryViewController.m in Sources */,
 				6D0EF48413D713F600745307 /* SplashViewController.m in Sources */,
+				FF0A4C8013D74495001FEC8B /* JSONKit.m in Sources */,
+				FF0A4C8113D74495001FEC8B /* LBObjectManager.m in Sources */,
+				FF0A4C8213D74495001FEC8B /* NSManagedObject+Lidenbrock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
