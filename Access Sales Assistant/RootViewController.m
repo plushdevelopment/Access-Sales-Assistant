@@ -34,6 +34,8 @@
 
 #import "MyTreeViewCell.h"
 
+#import "SplashViewController.h"
+
 #define SECTION_HEADER_HEIGHT 50
 #define VISIT_APPLICATION_DAYS @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
 #define CONTACT_OPTIONS @"EMAIL SSC",@"EMAIL CUSTOMER SERVICE",@"EMAIL NSF",@"EMAIL PRODUCT",@"EMAIL QA FORM",@"EMAIL FACILITIES",@"QA RESOLUTION TIMETABLE",@"EMAIL HELP DESK",nil
@@ -132,13 +134,13 @@
     [fCardNode addChild:fCardZeroProducerNode];
     MyTreeNode* fCardProducerNode = [[MyTreeNode alloc] initWithValue:@"PRODUCER"];
     [fCardNode addChild:fCardProducerNode];
-    MyTreeNode* tVideosExternalNode = [[MyTreeNode alloc] initWithValue:@"EXTERNAL VIDEOS"];
-    [tVideosNode addChild:tVideosExternalNode];
-    MyTreeNode* tVideosInternalNode = [[MyTreeNode alloc] initWithValue:@"INTERNAL VIDEOS"];
-    [tVideosNode addChild:tVideosInternalNode];
+  //  MyTreeNode* tVideosExternalNode = [[MyTreeNode alloc] initWithValue:@"EXTERNAL VIDEOS"];
+   // [tVideosNode addChild:tVideosExternalNode];
+   // MyTreeNode* tVideosInternalNode = [[MyTreeNode alloc] initWithValue:@"INTERNAL VIDEOS"];
+   // [tVideosNode addChild:tVideosInternalNode];
     
     fCardNode.inclusive = !fCardNode.inclusive;
-    tVideosNode.inclusive = !tVideosNode.inclusive;
+  //  tVideosNode.inclusive = !tVideosNode.inclusive;
     
     [treeNode flattenElementsWithCacheRefresh:YES];
 	
@@ -337,11 +339,13 @@
                 NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
                 self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                 
+                detailViewController.rootPopoverButtonItem = self.rootPopoverButtonItem;
                 self.detailViewController = detailViewController;
                 
                 
 				//    ContactsViewController* contactDetailView = (ContactsViewController*) self.detailViewController;
 				detailViewController.selectedContactOption = indexPath.row;
+                
 				[detailViewController launchMailComposer];
             }
         }
@@ -486,21 +490,51 @@
 			self.detailViewController = detailViewController;
             detailViewController.pc = self.popoverController;
          */
+            
+            SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+            NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+            self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+            
+            detailViewController.titleLabel.text = @"HOME SCREEN";
+			
+            self.detailViewController = detailViewController;
+
         }
             break;
         case APPOINTMENTAPP_INDEX:
         {
+            SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+            NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+            self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+            detailViewController.titleLabel.text = @"APPOINTMENT APPLICATION";
+			
+            self.detailViewController = detailViewController;
+
             closePopOver = TRUE;
            // [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
         }
             break;
         case PROSPECT_APP_INDEX:
         {
+            SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+            NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+            self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+             detailViewController.titleLabel.text = @"PROSPECT APPLICATION";
+			
+            self.detailViewController = detailViewController;
+
                         closePopOver = TRUE;
         }
             break;
         case CONTACTS_OPTIONS_INDEX:
         {
+            SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+            NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+            self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+            detailViewController.titleLabel.text = @"CONTACTS";
+			
+            self.detailViewController = detailViewController;
+
             break;
         }
         case FEATURES_AND_BENEFITS_INDEX:
@@ -515,6 +549,19 @@
             closePopOver = TRUE;
         }
             break;
+        case ACCESS_ACADEMY_INDEX:
+        {
+            SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+            NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+            self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+            
+             detailViewController.titleLabel.text = @"ACCESS ACADEMY";
+			
+            self.detailViewController = detailViewController;
+
+        }
+            break;
+            
         case GPS_INDEX:
         {
             UIApplication *app = [UIApplication sharedApplication];

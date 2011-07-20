@@ -20,10 +20,11 @@
     // Add the popover button to the left navigation item.
     //[baseNavigationBar.topItem setLeftBarButtonItem:barButtonItem animated:NO];
     
-    NSMutableArray *items = [[self.baseToolbar items] mutableCopy];
+    /*NSMutableArray *items = [[self.baseToolbar items] mutableCopy];
     if([items count])
         [items removeObjectAtIndex:0];
     [self.baseToolbar setItems:items animated:YES];
+    */
     
     NSMutableArray *items1 = [[self.baseToolbar items] mutableCopy];
     [items1 insertObject:barButtonItem atIndex:0];

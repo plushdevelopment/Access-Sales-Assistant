@@ -10,6 +10,7 @@
 
 @implementation SplashViewController
 @synthesize toolBar = _toolBar;
+@synthesize titleLabel = _titleLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

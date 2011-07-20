@@ -12,6 +12,7 @@
 
 @synthesize toolBar=_toolBar;
 @synthesize selectedContactOption;
+@synthesize rootPopoverButtonItem;
 
 #define EMAIL_SSC 0
 #define EMAIL_CUSTOMER_SERVICE 1
@@ -109,24 +110,28 @@
 {	
 //	message.hidden = NO;
 	// Notifies users about errors associated with the interface
+    
+    NSString* message = @"";
 	switch (result)
 	{
 		case MFMailComposeResultCancelled:
-//			message.text = @"Result: canceled";
+			message = @"Result: canceled";
 			break;
 		case MFMailComposeResultSaved:
-	//		message.text = @"Result: saved";
+			message = @"Result: saved";
 			break;
 		case MFMailComposeResultSent:
-	//		message.text = @"Result: sent";
+			message = @"Result: sent";
 			break;
 		case MFMailComposeResultFailed:
-	//		message.text = @"Result: failed";
+			message = @"Result: failed";
 			break;
 		default:
-	//		message.text = @"Result: not sent";
+			message = @"Result: not sent";
 			break;
 	}
+  //  [self showAlert:message];
+    [self showRootPopoverButtonItem:rootPopoverButtonItem];
 	[self dismissModalViewControllerAnimated:YES];
 }
 
