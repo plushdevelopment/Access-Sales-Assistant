@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D0EF48413D713F600745307 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0EF48213D713F600745307 /* SplashViewController.m */; };
+		6D0EF48513D713F600745307 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0EF48313D713F600745307 /* SplashViewController.xib */; };
 		FF0A17DC13BC940D00ECF9F6 /* NSManagedObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */; };
 		FF0A17F713BC944E00ECF9F6 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E013BC944E00ECF9F6 /* CDataScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17F813BC944E00ECF9F6 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E313BC944E00ECF9F6 /* CFilteringJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -358,6 +360,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D0EF48113D713F600745307 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		6D0EF48213D713F600745307 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		6D0EF48313D713F600745307 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		FF0A17DA13BC940D00ECF9F6 /* NSManagedObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JSON.h"; sourceTree = "<group>"; };
 		FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+JSON.m"; sourceTree = "<group>"; };
 		FF0A17DF13BC944E00ECF9F6 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
@@ -1885,6 +1890,9 @@
 				FF641CF013B9094400CC0B61 /* PickerViewController.h */,
 				FF641CF113B9094400CC0B61 /* PickerViewController.m */,
 				FF641CF213B9094400CC0B61 /* PickerViewController.xib */,
+				6D0EF48113D713F600745307 /* SplashViewController.h */,
+				6D0EF48213D713F600745307 /* SplashViewController.m */,
+				6D0EF48313D713F600745307 /* SplashViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -2086,6 +2094,7 @@
 				FFA0709D13D5EC330021E412 /* States.plist in Resources */,
 				FFA070A413D5F8EE0021E412 /* CircleArrowDown_sml.png in Resources */,
 				FFA070A513D5F8EE0021E412 /* CircleArrowRight_sml.png in Resources */,
+				6D0EF48513D713F600745307 /* SplashViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2285,6 +2294,7 @@
 				FFA0709E13D5EC330021E412 /* Features.m in Sources */,
 				FFA070A113D5EC500021E412 /* MainViewSectionInfo.m in Sources */,
 				FFA070A613D60DEA0021E412 /* VisitApplicationSummaryViewController.m in Sources */,
+				6D0EF48413D713F600745307 /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
