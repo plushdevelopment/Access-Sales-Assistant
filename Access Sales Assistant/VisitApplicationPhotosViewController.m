@@ -151,18 +151,23 @@
 // Called after the user changes the selection
 - (void) gridView: (AQGridView *) gridView didSelectItemAtIndex: (NSUInteger) index
 {
-	[gridView deselectItemAtIndex:index animated:YES];
-	if (index == self.images.count) {
-		// Create image picker controller
-		UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-		
-		// Delegate is self
-		imagePicker.delegate = self;
-		
-		[imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-		
-		// Show image picker
-		[self.parent presentModalViewController:imagePicker animated:YES];
+	if (!self.detailItem) {
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select a producer from the menu" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+		[alertView show];
+	} else {
+		[gridView deselectItemAtIndex:index animated:YES];
+		if (index == self.images.count) {
+			// Create image picker controller
+			UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+			
+			// Delegate is self
+			imagePicker.delegate = self;
+			
+			[imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+			
+			// Show image picker
+			[self.parent presentModalViewController:imagePicker animated:YES];
+		}
 	}
 }
 

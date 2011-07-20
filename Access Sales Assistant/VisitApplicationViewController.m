@@ -97,13 +97,18 @@
 
 - (IBAction)submitApplicationForm:(id)sender
 {
-	Producer *producer = (Producer *)self.detailItem;
-	if ([self.currentController isEqual:self.profileApplicationViewController]) {
-		[[HTTPOperationController sharedHTTPOperationController] postProducerProfile:[producer jsonStringValue]];
-	} else if ([self.currentController isEqual:self.summaryApplicationViewController]) {
-		[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[producer.dailySummary jsonStringValue]];
-	} else if ([self.currentController isEqual:self.notesApplicationViewController]) {
-		[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[producer.dailySummary jsonStringValue]];
+	if (!self.detailItem) {
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select a producer from the menu" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+		[alertView show];
+	} else {
+		Producer *producer = (Producer *)self.detailItem;
+		if ([self.currentController isEqual:self.profileApplicationViewController]) {
+			[[HTTPOperationController sharedHTTPOperationController] postProducerProfile:[producer jsonStringValue]];
+		} else if ([self.currentController isEqual:self.summaryApplicationViewController]) {
+			[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[producer.dailySummary jsonStringValue]];
+		} else if ([self.currentController isEqual:self.notesApplicationViewController]) {
+			[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[producer.dailySummary jsonStringValue]];
+		}
 	}
 }
 
