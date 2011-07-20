@@ -16,6 +16,8 @@
 
 #import "VisitApplicationViewController.h"
 
+#import "SplashViewController.h"
+
 #import "LoginViewController.h"
 
 #import "User.h"
@@ -63,7 +65,9 @@
 	RootViewController *controller = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
 	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
 	
-	VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
+	//VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
+    
+    SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
 	
 	self.splitViewController = [[UISplitViewController alloc] init];
 	self.splitViewController.delegate = controller;

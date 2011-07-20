@@ -304,6 +304,15 @@
     
     switch (self.openSectionIndex) {
         case VISIT_APP_INDEX: {
+            
+            VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
+            NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+            self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+			self.detailViewController = detailViewController;
+            detailViewController.pc = self.popoverController;
+            
+            [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+            
 			AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
 			[self.navigationController pushViewController:viewController animated:YES];
 			viewController.detailViewController = self.detailViewController;
@@ -319,6 +328,7 @@
                 self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                 
                 self.detailViewController = detailViewController;
+                [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
             }
             else
             {
@@ -465,30 +475,32 @@
     
 	// if(sectInfo.headerView.disclosureButton)
     //    return;
+    BOOL closePopOver = FALSE;
     
     switch (sectionOpened) {
         case VISIT_APP_INDEX:
         {
-			VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
+		/*	VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
             NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
             self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
 			self.detailViewController = detailViewController;
+            detailViewController.pc = self.popoverController;
+         */
         }
             break;
         case APPOINTMENTAPP_INDEX:
+        {
+            closePopOver = TRUE;
+           // [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+        }
             break;
         case PROSPECT_APP_INDEX:
+        {
+                        closePopOver = TRUE;
+        }
             break;
         case CONTACTS_OPTIONS_INDEX:
         {
-            
-			/*    ContactsViewController * detailViewController = [[ContactsViewController alloc] initWithNibName:@"ContactsViewController" bundle:nil];
-			 NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-			 self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-			 
-			 self.detailViewController = detailViewController;
-			 */
-			
             break;
         }
         case FEATURES_AND_BENEFITS_INDEX:
@@ -500,12 +512,14 @@
             self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
 			
             self.detailViewController = detailViewController;
+            closePopOver = TRUE;
         }
             break;
         case GPS_INDEX:
         {
             UIApplication *app = [UIApplication sharedApplication];
             [app openURL:[NSURL URLWithString: @"http://maps.google.com/"]];
+            closePopOver = TRUE;
         }
             break;
             
@@ -516,8 +530,8 @@
 	if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
 		[self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
 	}
-    
-    //[self.popoverController dismissPopoverAnimated:YES];
+    if(closePopOver)
+        [self.popoverController dismissPopoverAnimated:YES];
 }
 
 - (void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)sectionClosed {

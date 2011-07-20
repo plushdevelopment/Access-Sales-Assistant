@@ -34,6 +34,8 @@
 
 @synthesize toolBar=_toolBar;
 
+@synthesize pc =_pc;
+
 - (IBAction)loadApplicationForm:(id)sender
 {
 	UIButton *button = (UIButton *)sender;
@@ -171,6 +173,7 @@
         
         // Update the view.
         [self configureView];
+        [self.pc dismissPopoverAnimated:YES];
     }
 	
 }

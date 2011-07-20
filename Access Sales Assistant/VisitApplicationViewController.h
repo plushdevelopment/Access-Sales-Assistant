@@ -31,6 +31,8 @@
 
 @property (nonatomic, strong) IBOutlet UIToolbar *toolBar;
 
+@property(nonatomic,strong)UIPopoverController *pc;
+
 - (IBAction)loadApplicationForm:(id)sender;
 
 - (IBAction)submitApplicationForm:(id)sender;

@@ -21,8 +21,13 @@
     //[baseNavigationBar.topItem setLeftBarButtonItem:barButtonItem animated:NO];
     
     NSMutableArray *items = [[self.baseToolbar items] mutableCopy];
-    [items insertObject:barButtonItem atIndex:0];
+    if([items count])
+        [items removeObjectAtIndex:0];
     [self.baseToolbar setItems:items animated:YES];
+    
+    NSMutableArray *items1 = [[self.baseToolbar items] mutableCopy];
+    [items1 insertObject:barButtonItem atIndex:0];
+    [self.baseToolbar setItems:items1 animated:YES];
 	
 }
 
