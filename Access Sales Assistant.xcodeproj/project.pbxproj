@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6D0EF48413D713F600745307 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0EF48213D713F600745307 /* SplashViewController.m */; };
 		6D0EF48513D713F600745307 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0EF48313D713F600745307 /* SplashViewController.xib */; };
+		6D0EF49313D7479600745307 /* FlashCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0EF49113D7479600745307 /* FlashCardsViewController.m */; };
+		6D0EF49413D7479600745307 /* FlashCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0EF49213D7479600745307 /* FlashCardsViewController.xib */; };
 		FF0A17DC13BC940D00ECF9F6 /* NSManagedObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */; };
 		FF0A17F713BC944E00ECF9F6 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E013BC944E00ECF9F6 /* CDataScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17F813BC944E00ECF9F6 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E313BC944E00ECF9F6 /* CFilteringJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -363,6 +365,9 @@
 		6D0EF48113D713F600745307 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		6D0EF48213D713F600745307 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		6D0EF48313D713F600745307 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		6D0EF49013D7479600745307 /* FlashCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCardsViewController.h; sourceTree = "<group>"; };
+		6D0EF49113D7479600745307 /* FlashCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCardsViewController.m; sourceTree = "<group>"; };
+		6D0EF49213D7479600745307 /* FlashCardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlashCardsViewController.xib; sourceTree = "<group>"; };
 		FF0A17DA13BC940D00ECF9F6 /* NSManagedObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JSON.h"; sourceTree = "<group>"; };
 		FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+JSON.m"; sourceTree = "<group>"; };
 		FF0A17DF13BC944E00ECF9F6 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
@@ -1582,6 +1587,9 @@
 				FFA0707313D5EB930021E412 /* MyTreeNode.m */,
 				FFA0707413D5EB930021E412 /* MyTreeNode.h */,
 				FFA0707513D5EB930021E412 /* AccessAcademy.plist */,
+				6D0EF49013D7479600745307 /* FlashCardsViewController.h */,
+				6D0EF49113D7479600745307 /* FlashCardsViewController.m */,
+				6D0EF49213D7479600745307 /* FlashCardsViewController.xib */,
 			);
 			name = "Access Academy";
 			sourceTree = "<group>";
@@ -2095,6 +2103,7 @@
 				FFA070A413D5F8EE0021E412 /* CircleArrowDown_sml.png in Resources */,
 				FFA070A513D5F8EE0021E412 /* CircleArrowRight_sml.png in Resources */,
 				6D0EF48513D713F600745307 /* SplashViewController.xib in Resources */,
+				6D0EF49413D7479600745307 /* FlashCardsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2295,6 +2304,7 @@
 				FFA070A113D5EC500021E412 /* MainViewSectionInfo.m in Sources */,
 				FFA070A613D60DEA0021E412 /* VisitApplicationSummaryViewController.m in Sources */,
 				6D0EF48413D713F600745307 /* SplashViewController.m in Sources */,
+				6D0EF49313D7479600745307 /* FlashCardsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
