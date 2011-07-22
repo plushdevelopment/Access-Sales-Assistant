@@ -14,6 +14,8 @@
 
 #import "DailySummary.h"
 
+#import "ProfileTableViewController.h"
+
 @implementation VisitApplicationViewController
 
 @synthesize titleLabel=_titleLabel;
@@ -136,11 +138,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	self.baseToolbar = self.toolBar;
+	
 	[self.activeVisitFormView addSubview:_profileApplicationViewController.view];
 	float contentWidth = self.activeVisitFormView.frame.size.width;
 	[(UIScrollView *)_profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
 	_profileApplicationViewController.detailItem = self.detailItem;
 	self.currentController = _profileApplicationViewController;
+	
+	/*
+	ProfileTableViewController *profileTableViewController = [[ProfileTableViewController alloc] initWithNibName:@"ProfileTableViewController" bundle:nil];
+	[self.activeVisitFormView addSubview:profileTableViewController.view];
+	self.currentController = profileTableViewController;
+	 */
 }
 
 - (void)viewDidUnload

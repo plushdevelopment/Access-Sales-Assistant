@@ -29,10 +29,6 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"typeValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"type"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
 	if ([key isEqualToString:@"deletedValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"deleted"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -41,35 +37,13 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"edited"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"typeValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"type"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 
 	return keyPaths;
 }
-
-
-
-
-@dynamic type;
-
-
-
-- (short)typeValue {
-	NSNumber *result = [self type];
-	return [result shortValue];
-}
-
-- (void)setTypeValue:(short)value_ {
-	[self setType:[NSNumber numberWithShort:value_]];
-}
-
-- (short)primitiveTypeValue {
-	NSNumber *result = [self primitiveType];
-	return [result shortValue];
-}
-
-- (void)setPrimitiveTypeValue:(short)value_ {
-	[self setPrimitiveType:[NSNumber numberWithShort:value_]];
-}
-
 
 
 
@@ -100,13 +74,6 @@
 
 
 
-@dynamic text;
-
-
-
-
-
-
 @dynamic edited;
 
 
@@ -127,6 +94,39 @@
 
 - (void)setPrimitiveEditedValue:(BOOL)value_ {
 	[self setPrimitiveEdited:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic text;
+
+
+
+
+
+
+@dynamic type;
+
+
+
+- (short)typeValue {
+	NSNumber *result = [self type];
+	return [result shortValue];
+}
+
+- (void)setTypeValue:(short)value_ {
+	[self setType:[NSNumber numberWithShort:value_]];
+}
+
+- (short)primitiveTypeValue {
+	NSNumber *result = [self primitiveType];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveTypeValue:(short)value_ {
+	[self setPrimitiveType:[NSNumber numberWithShort:value_]];
 }
 
 

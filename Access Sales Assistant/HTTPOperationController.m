@@ -18,6 +18,8 @@
 
 #import "JSON.h"
 
+#import "JSONKit.h"
+
 #import "NSData+Base64.h"
 
 #import "StringEncryption.h"
@@ -56,7 +58,11 @@
 
 #import "ProducerImage.h"
 
+#import "Competitor.h"
+
 #import "NSManagedObject+Lidenbrock.h"
+
+#import "GetProducerRequest.h"
 
 #define kPAGESIZE 1
 
@@ -115,7 +121,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 - (void)queueFinished:(ASINetworkQueue *)queue
 {
 	[[self networkQueue] setSuspended:YES];
-	//NSLog(@"Queue finished");
+	NSLog(@"Queue finished");
 }
 
 
@@ -205,13 +211,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 - (void)requestPickListsFinished:(ASIHTTPRequest *)request
 {
 	NSString *responseString = [request responseString];
-	NSArray *results = [responseString JSONValue];
+	NSArray *results = [responseString objectFromJSONString];
 	for (NSDictionary *dict in results) {
 		NSString *pickListType = [dict valueForKey:@"name"];
 		NSArray *pickListItems = [dict objectForKey:@"pickList"];
 		for (NSDictionary *itemDict in pickListItems) {
-			NSManagedObject *item = [NSClassFromString(pickListType) ai_objectForProperty:@"uid" value:[itemDict valueForKey:@"uid"]];
-			[item safeSetValuesForKeysWithDictionary:itemDict dateFormatter:nil];
+			NSManagedObject *item = [NSClassFromString(pickListType) ai_objectForProperty:@"uid" value:[itemDict valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
+			[item safeSetValuesForKeysWithDictionary:itemDict dateFormatter:nil managedObjectContext:self.managedObjectContext];
 			/*
 			NSManagedObject *item = [NSClassFromString(pickListType) entityFromJson:dict.description];
 			NSLog(@"%@", item);
@@ -224,6 +230,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"PickList Successful" object:request];
 	NSNumber *page = [NSNumber numberWithInt:1];
 	[self requestProducers:page];
+	//[self requestCompetitors:page];
 }
 
 - (void)requestPickListsFailed:(ASIHTTPRequest *)request
@@ -234,20 +241,70 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"PickList Failure" object:request];
 }
 
-// Get Producers
-- (void)requestProducers:(NSNumber *)page
+// Competitors
+- (void)requestCompetitors:(NSNumber *)page
 {
 	if ([[self networkQueue] isSuspended]) {
 		[[self networkQueue] go];
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], kPAGESIZE, [user token]];
+	NSString *urlString = [NSString 
+						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Competitors?pageNbr=%d&pageSize=%dtoken=%@",
+						  [page integerValue], kPAGESIZE, [user token]];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
 	[request addRequestHeader:@"Content-Type" value:@"application/json"];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(requestPickListsFinished:)];
+	[request setDidFailSelector:@selector(requestPickListsFailed:)];
+	[[self networkQueue] addOperation:request];
+}
+
+- (void)requestCompetitorsFinished:(ASIHTTPRequest *)request
+{
+	NSString *responseString = [request responseString];
+	NSDictionary *responseJSON = [responseString objectFromJSONString];
+	NSArray *results = [responseJSON objectForKey:@"results"];
+	for (NSDictionary *dict in results) {
+		Competitor *competitor = [Competitor ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
+		[competitor safeSetValuesForKeysWithDictionary:dict dateFormatter:nil managedObjectContext:self.managedObjectContext];
+	}
+	
+	[self.managedObjectContext save];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Competitors Successful" object:request];
+	NSInteger currentPage = [[responseJSON valueForKey:@"currentPage"] integerValue];
+	NSInteger totalPages = [[responseJSON valueForKey:@"totalPages"] integerValue];
+	if (currentPage == 1) {
+		for (int i = 2; i < totalPages; i++) {
+			[self requestCompetitors:[NSNumber numberWithInt:i]];
+			//[self performSelector:@selector(requestProducers:) withObject:[NSNumber numberWithInteger:i] afterDelay:2];
+		}
+	}
+}
+
+- (void)requestCompetitorsFailed:(ASIHTTPRequest *)request
+{
+	NSError *error = [request error];
+	NSLog(@"Request Error: %@", [error localizedDescription]);
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Competitors Failure" object:request];
+}
+
+// Get Producers
+- (void)requestProducers:(NSNumber *)page
+{
+	if ([[self networkQueue] isSuspended])
+		[[self networkQueue] go];
+	
+	User *user = [User findFirst];
+	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 100, [user token]];
+	NSURL *aURL = [NSURL URLWithString:urlString];
+	
+	GetProducerRequest *request = [[GetProducerRequest alloc] initWithURL:aURL];
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(requestProducersFinished:)];
 	[request setDidFailSelector:@selector(requestProducersFailed:)];
@@ -256,13 +313,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 
 - (void)requestProducersFinished:(ASIHTTPRequest *)request
 {
+	/*
 	NSString *responseString = [request responseString];
 	NSDictionary *responseJSON = [responseString JSONValue];
 	NSArray *results = [responseJSON objectForKey:@"results"];
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
 	for (NSDictionary *dict in results) {
-		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"]];
+		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
 		if (!producer.editedValue) {
 			[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter];
 		}
@@ -270,14 +328,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	[self.managedObjectContext save];
+	*/
+	
+	GetProducerRequest *producerRequest = (GetProducerRequest *)request;
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:request];
-	
-	NSInteger currentPage = [[responseJSON valueForKey:@"currentPage"] integerValue];
-	NSInteger totalPages = [[responseJSON valueForKey:@"totalPages"] integerValue];
-	if (currentPage < totalPages) {
-		currentPage++;
-		[self performSelector:@selector(requestProducers:) withObject:[NSNumber numberWithInteger:currentPage] afterDelay:2];
+	if (producerRequest.currentPage == 1) {
+		for (int i = 2; i < producerRequest.totalPages; i++) {
+			[self requestProducers:[NSNumber numberWithInt:i]];
+			//[self performSelector:@selector(requestProducers:) withObject:[NSNumber numberWithInteger:i] afterDelay:2];
+		}
 	}
 }
 
@@ -314,11 +374,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 {
 	NSString *responseString = [request responseString];
 	NSDictionary *responseJSON = [responseString JSONValue];
-	Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKey:@"uid"]];
+	Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
 	producer.editedValue = NO;
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-	[producer safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter];
+	[producer safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
 	[self.managedObjectContext save];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Successful" object:request];
 }
@@ -357,11 +417,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 {
 	NSString *responseString = [request responseString];
 	NSDictionary *responseJSON = [responseString JSONValue];
-	Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKeyPath:@"producerId.uid"]];
+	Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKeyPath:@"producerId.uid"] managedObjectContext:self.managedObjectContext];
 	producer.dailySummary.editedValue = NO;
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-	[producer.dailySummary safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter];
+	[producer.dailySummary safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
 	[self.managedObjectContext save];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Summary Successful" object:request];
 }
@@ -398,9 +458,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 }
 
 - (void)postImageForProducerFinished:(ASIHTTPRequest *)request
-{
-	NSString *responseString = [request responseString];
-	
+{	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Successful" object:request];
 }
 
@@ -494,14 +552,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		producerUID = [producerIDStringArray objectAtIndex:0];
 	NSLog(@"%@", producerUID);
 	Producer *producer = [Producer findFirstByAttribute:@"uid" withValue:producerUID];
-	ProducerImage *image = [ProducerImage ai_objectForProperty:@"imagePath" value:imagePath];
+	ProducerImage *image = [ProducerImage ai_objectForProperty:@"imagePath" value:imagePath managedObjectContext:self.managedObjectContext];
 	
 	if (![producer.images containsObject:image]) {
 		[producer addImagesObject:image];
 	}
-	
-	NSString *responseString = [request responseString];
-	NSData *responseData = [request responseData];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Get Image Successful" object:request];
 }
 

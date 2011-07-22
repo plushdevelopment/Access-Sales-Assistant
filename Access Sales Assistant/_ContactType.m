@@ -36,14 +36,14 @@
 
 
 
-@dynamic uid;
-
-
-
-
-
-
 @dynamic name;
+
+
+
+
+
+
+@dynamic uid;
 
 
 
@@ -55,7 +55,7 @@
 	
 - (NSMutableSet*)contactsSet {
 	[self willAccessValueForKey:@"contacts"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"contacts"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"contacts"];
 	[self didAccessValueForKey:@"contacts"];
 	return result;
 }

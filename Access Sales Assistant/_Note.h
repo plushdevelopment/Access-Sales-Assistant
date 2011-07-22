@@ -23,17 +23,9 @@
 
 
 
-@property (nonatomic, retain) NSNumber *type;
-
-@property short typeValue;
-- (short)typeValue;
-- (void)setTypeValue:(short)value_;
-
-//- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSNumber *deleted;
+
 
 @property BOOL deletedValue;
 - (BOOL)deletedValue;
@@ -43,13 +35,9 @@
 
 
 
-@property (nonatomic, retain) NSString *text;
-
-//- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSNumber *edited;
+
 
 @property BOOL editedValue;
 - (BOOL)editedValue;
@@ -59,14 +47,38 @@
 
 
 
+
+@property (nonatomic, retain) NSString *text;
+
+
+//- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *type;
+
+
+@property short typeValue;
+- (short)typeValue;
+- (void)setTypeValue:(short)value_;
+
+//- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSString *uid;
+
 
 //- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
 
 
 
 
+
 @property (nonatomic, retain) DailySummary* dailySummary;
+
 //- (BOOL)validateDailySummary:(id*)value_ error:(NSError**)error_;
 
 
@@ -81,20 +93,20 @@
 @interface _Note (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSNumber*)primitiveType;
-- (void)setPrimitiveType:(NSNumber*)value;
-
-- (short)primitiveTypeValue;
-- (void)setPrimitiveTypeValue:(short)value_;
-
-
-
-
 - (NSNumber*)primitiveDeleted;
 - (void)setPrimitiveDeleted:(NSNumber*)value;
 
 - (BOOL)primitiveDeletedValue;
 - (void)setPrimitiveDeletedValue:(BOOL)value_;
+
+
+
+
+- (NSNumber*)primitiveEdited;
+- (void)setPrimitiveEdited:(NSNumber*)value;
+
+- (BOOL)primitiveEditedValue;
+- (void)setPrimitiveEditedValue:(BOOL)value_;
 
 
 
@@ -105,11 +117,11 @@
 
 
 
-- (NSNumber*)primitiveEdited;
-- (void)setPrimitiveEdited:(NSNumber*)value;
+- (NSNumber*)primitiveType;
+- (void)setPrimitiveType:(NSNumber*)value;
 
-- (BOOL)primitiveEditedValue;
-- (void)setPrimitiveEditedValue:(BOOL)value_;
+- (short)primitiveTypeValue;
+- (void)setPrimitiveTypeValue:(short)value_;
 
 
 

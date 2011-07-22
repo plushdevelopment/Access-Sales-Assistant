@@ -626,7 +626,7 @@
 	
 	switch (self.pickerViewController.currentTag) {
 		case SUB_TERRITORY:
-			producer.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:titleForRow];
+			producer.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:titleForRow managedObjectContext:[NSManagedObjectContext defaultContext]];
 			self.subTerritoryTextField.text = titleForRow;
 			break;
 		case NUMBER_OF_LOCATIONS:

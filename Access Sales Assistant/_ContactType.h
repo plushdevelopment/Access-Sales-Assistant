@@ -20,20 +20,26 @@
 
 
 
-@property (nonatomic, retain) NSString *uid;
-
-//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSString *name;
+
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
 
 
 
+@property (nonatomic, retain) NSString *uid;
+
+
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, retain) NSSet* contacts;
+
 - (NSMutableSet*)contactsSet;
 
 
@@ -53,14 +59,14 @@
 @interface _ContactType (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveUid;
-- (void)setPrimitiveUid:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
 
 
 

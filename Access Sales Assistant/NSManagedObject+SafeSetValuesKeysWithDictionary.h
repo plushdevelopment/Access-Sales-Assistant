@@ -11,6 +11,6 @@
 @interface NSManagedObject (NSManagedObject_SafeSetValuesKeysWithDictionary)
 
 - (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues;
-- (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues dateFormatter:(NSDateFormatter *)dateFormatter;
+- (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues dateFormatter:(NSDateFormatter *)dateFormatter managedObjectContext:(NSManagedObjectContext *)context;
 
 @end

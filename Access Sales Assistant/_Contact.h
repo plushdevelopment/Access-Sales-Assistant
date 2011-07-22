@@ -4,10 +4,10 @@
 #import <CoreData/CoreData.h>
 
 
-@class ContactType;
 @class EmailListItem;
-@class Producer;
 @class PhoneListItem;
+@class Producer;
+@class ContactType;
 
 
 
@@ -26,31 +26,25 @@
 
 
 
-@property (nonatomic, retain) NSString *lastName;
-
-//- (BOOL)validateLastName:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *uid;
-
-//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSString *firstName;
+
 
 //- (BOOL)validateFirstName:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *ssn;
 
-//- (BOOL)validateSsn:(id*)value_ error:(NSError**)error_;
+@property (nonatomic, retain) NSString *lastName;
+
+
+//- (BOOL)validateLastName:(id*)value_ error:(NSError**)error_;
+
 
 
 
 @property (nonatomic, retain) NSNumber *rdFollowUp;
+
 
 @property BOOL rdFollowUpValue;
 - (BOOL)rdFollowUpValue;
@@ -61,23 +55,47 @@
 
 
 
-@property (nonatomic, retain) ContactType* type;
-//- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
+@property (nonatomic, retain) NSString *ssn;
+
+
+//- (BOOL)validateSsn:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *uid;
+
+
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
+
+
 
 
 
 @property (nonatomic, retain) NSSet* emailList;
+
 - (NSMutableSet*)emailListSet;
 
 
 
+
+@property (nonatomic, retain) NSSet* phoneList;
+
+- (NSMutableSet*)phoneListSet;
+
+
+
+
 @property (nonatomic, retain) Producer* producer;
+
 //- (BOOL)validateProducer:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSSet* phoneList;
-- (NSMutableSet*)phoneListSet;
+
+@property (nonatomic, retain) ContactType* type;
+
+//- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -101,26 +119,14 @@
 @interface _Contact (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveLastName;
-- (void)setPrimitiveLastName:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveUid;
-- (void)setPrimitiveUid:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveFirstName;
 - (void)setPrimitiveFirstName:(NSString*)value;
 
 
 
 
-- (NSString*)primitiveSsn;
-- (void)setPrimitiveSsn:(NSString*)value;
+- (NSString*)primitiveLastName;
+- (void)setPrimitiveLastName:(NSString*)value;
 
 
 
@@ -134,9 +140,16 @@
 
 
 
+- (NSString*)primitiveSsn;
+- (void)setPrimitiveSsn:(NSString*)value;
 
-- (ContactType*)primitiveType;
-- (void)setPrimitiveType:(ContactType*)value;
+
+
+
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
+
+
 
 
 
@@ -145,13 +158,18 @@
 
 
 
+- (NSMutableSet*)primitivePhoneList;
+- (void)setPrimitivePhoneList:(NSMutableSet*)value;
+
+
+
 - (Producer*)primitiveProducer;
 - (void)setPrimitiveProducer:(Producer*)value;
 
 
 
-- (NSMutableSet*)primitivePhoneList;
-- (void)setPrimitivePhoneList:(NSMutableSet*)value;
+- (ContactType*)primitiveType;
+- (void)setPrimitiveType:(ContactType*)value;
 
 
 @end

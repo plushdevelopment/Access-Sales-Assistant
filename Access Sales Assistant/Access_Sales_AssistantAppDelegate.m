@@ -51,6 +51,7 @@
 	// Setup the Core Data Stack
 	[ActiveRecordHelpers setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Access_Sales_Assistant.sqlite"];
 	
+	[NSManagedObjectContext setDefaultContext:[NSManagedObjectContext context]];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFailed:) name:@"Login Failure" object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Producer Failure" object:nil];

@@ -24,7 +24,17 @@
 
 
 
+
+@property (nonatomic, retain) NSString *answer;
+
+
+//- (BOOL)validateAnswer:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSNumber *deleted;
+
 
 @property BOOL deletedValue;
 - (BOOL)deletedValue;
@@ -34,19 +44,9 @@
 
 
 
-@property (nonatomic, retain) NSString *uid;
-
-//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *text;
-
-//- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSNumber *edited;
+
 
 @property BOOL editedValue;
 - (BOOL)editedValue;
@@ -56,19 +56,33 @@
 
 
 
-@property (nonatomic, retain) NSString *answer;
 
-//- (BOOL)validateAnswer:(id*)value_ error:(NSError**)error_;
+@property (nonatomic, retain) NSString *text;
+
+
+//- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *uid;
+
+
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
+
 
 
 
 
 @property (nonatomic, retain) NSSet* dailySummaries;
+
 - (NSMutableSet*)dailySummariesSet;
 
 
 
+
 @property (nonatomic, retain) NSSet* producers;
+
 - (NSMutableSet*)producersSet;
 
 
@@ -93,23 +107,17 @@
 @interface _QuestionListItem (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSString*)primitiveAnswer;
+- (void)setPrimitiveAnswer:(NSString*)value;
+
+
+
+
 - (NSNumber*)primitiveDeleted;
 - (void)setPrimitiveDeleted:(NSNumber*)value;
 
 - (BOOL)primitiveDeletedValue;
 - (void)setPrimitiveDeletedValue:(BOOL)value_;
-
-
-
-
-- (NSString*)primitiveUid;
-- (void)setPrimitiveUid:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveText;
-- (void)setPrimitiveText:(NSString*)value;
 
 
 
@@ -123,8 +131,14 @@
 
 
 
-- (NSString*)primitiveAnswer;
-- (void)setPrimitiveAnswer:(NSString*)value;
+- (NSString*)primitiveText;
+- (void)setPrimitiveText:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
 
 
 

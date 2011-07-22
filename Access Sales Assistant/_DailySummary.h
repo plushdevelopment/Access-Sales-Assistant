@@ -4,16 +4,16 @@
 #import <CoreData/CoreData.h>
 
 
-@class ProducerAddOn;
-@class Note;
-@class Phase;
-@class PurposeOfCall;
-@class Competitor;
-@class CommissionStructure;
 @class BarrierToBusiness;
+@class CommissionStructure;
+@class Competitor;
+@class Note;
 @class QuestionListItem;
 @class PersonSpokeWith;
+@class Phase;
+@class ProducerAddOn;
 @class Producer;
+@class PurposeOfCall;
 
 
 
@@ -40,63 +40,9 @@
 
 
 
-@property (nonatomic, retain) NSNumber *visitNumber;
-
-@property short visitNumberValue;
-- (short)visitNumberValue;
-- (void)setVisitNumberValue:(short)value_;
-
-//- (BOOL)validateVisitNumber:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *uid;
-
-//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSNumber *edited;
-
-@property BOOL editedValue;
-- (BOOL)editedValue;
-- (void)setEditedValue:(BOOL)value_;
-
-//- (BOOL)validateEdited:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSNumber *nsbsFdl;
-
-@property short nsbsFdlValue;
-- (short)nsbsFdlValue;
-- (void)setNsbsFdlValue:(short)value_;
-
-//- (BOOL)validateNsbsFdl:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSNumber *nsbsPercentLiab;
-
-@property short nsbsPercentLiabValue;
-- (short)nsbsPercentLiabValue;
-- (void)setNsbsPercentLiabValue:(short)value_;
-
-//- (BOOL)validateNsbsPercentLiab:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSNumber *nsbsMonthlyGoal;
-
-@property short nsbsMonthlyGoalValue;
-- (short)nsbsMonthlyGoalValue;
-- (void)setNsbsMonthlyGoalValue:(short)value_;
-
-//- (BOOL)validateNsbsMonthlyGoal:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSNumber *commissionPercentNew;
+
 
 @property short commissionPercentNewValue;
 - (short)commissionPercentNewValue;
@@ -106,33 +52,9 @@
 
 
 
-@property (nonatomic, retain) NSNumber *nsbsTotAppsPerMonth;
-
-@property short nsbsTotAppsPerMonthValue;
-- (short)nsbsTotAppsPerMonthValue;
-- (void)setNsbsTotAppsPerMonthValue:(short)value_;
-
-//- (BOOL)validateNsbsTotAppsPerMonth:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSNumber *deleted;
-
-@property BOOL deletedValue;
-- (BOOL)deletedValue;
-- (void)setDeletedValue:(BOOL)value_;
-
-//- (BOOL)validateDeleted:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSDate *realSubmissionDate;
-
-//- (BOOL)validateRealSubmissionDate:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSNumber *commissionPercentRenewal;
+
 
 @property short commissionPercentRenewalValue;
 - (short)commissionPercentRenewalValue;
@@ -142,7 +64,81 @@
 
 
 
+
+@property (nonatomic, retain) NSNumber *deleted;
+
+
+@property BOOL deletedValue;
+- (BOOL)deletedValue;
+- (void)setDeletedValue:(BOOL)value_;
+
+//- (BOOL)validateDeleted:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *edited;
+
+
+@property BOOL editedValue;
+- (BOOL)editedValue;
+- (void)setEditedValue:(BOOL)value_;
+
+//- (BOOL)validateEdited:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *nsbsFdl;
+
+
+@property short nsbsFdlValue;
+- (short)nsbsFdlValue;
+- (void)setNsbsFdlValue:(short)value_;
+
+//- (BOOL)validateNsbsFdl:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *nsbsMonthlyGoal;
+
+
+@property short nsbsMonthlyGoalValue;
+- (short)nsbsMonthlyGoalValue;
+- (void)setNsbsMonthlyGoalValue:(short)value_;
+
+//- (BOOL)validateNsbsMonthlyGoal:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *nsbsPercentLiab;
+
+
+@property short nsbsPercentLiabValue;
+- (short)nsbsPercentLiabValue;
+- (void)setNsbsPercentLiabValue:(short)value_;
+
+//- (BOOL)validateNsbsPercentLiab:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *nsbsTotAppsPerMonth;
+
+
+@property short nsbsTotAppsPerMonthValue;
+- (short)nsbsTotAppsPerMonthValue;
+- (void)setNsbsTotAppsPerMonthValue:(short)value_;
+
+//- (BOOL)validateNsbsTotAppsPerMonth:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSNumber *rdFollowUp;
+
 
 @property short rdFollowUpValue;
 - (short)rdFollowUpValue;
@@ -152,60 +148,110 @@
 
 
 
+
+@property (nonatomic, retain) NSDate *realSubmissionDate;
+
+
+//- (BOOL)validateRealSubmissionDate:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSDate *reportDate;
+
 
 //- (BOOL)validateReportDate:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) ProducerAddOn* producerAddOn;
-//- (BOOL)validateProducerAddOn:(id*)value_ error:(NSError**)error_;
+@property (nonatomic, retain) NSString *uid;
+
+
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSSet* notes;
-- (NSMutableSet*)notesSet;
+
+@property (nonatomic, retain) NSNumber *visitNumber;
 
 
+@property short visitNumberValue;
+- (short)visitNumberValue;
+- (void)setVisitNumberValue:(short)value_;
 
-@property (nonatomic, retain) Phase* phase;
-//- (BOOL)validatePhase:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) PurposeOfCall* purposeOfCall;
-//- (BOOL)validatePurposeOfCall:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateVisitNumber:(id*)value_ error:(NSError**)error_;
 
 
-
-@property (nonatomic, retain) NSSet* competitors;
-- (NSMutableSet*)competitorsSet;
-
-
-
-@property (nonatomic, retain) CommissionStructure* commissionStructure;
-//- (BOOL)validateCommissionStructure:(id*)value_ error:(NSError**)error_;
 
 
 
 @property (nonatomic, retain) NSSet* barriersToBusiness;
+
 - (NSMutableSet*)barriersToBusinessSet;
 
 
 
+
+@property (nonatomic, retain) CommissionStructure* commissionStructure;
+
+//- (BOOL)validateCommissionStructure:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSSet* competitors;
+
+- (NSMutableSet*)competitorsSet;
+
+
+
+
+@property (nonatomic, retain) NSSet* notes;
+
+- (NSMutableSet*)notesSet;
+
+
+
+
 @property (nonatomic, retain) NSSet* nsbsQuestions;
+
 - (NSMutableSet*)nsbsQuestionsSet;
 
 
 
+
 @property (nonatomic, retain) NSSet* personsSpokeWith;
+
 - (NSMutableSet*)personsSpokeWithSet;
 
 
 
+
+@property (nonatomic, retain) Phase* phase;
+
+//- (BOOL)validatePhase:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) ProducerAddOn* producerAddOn;
+
+//- (BOOL)validateProducerAddOn:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) Producer* producerId;
+
 //- (BOOL)validateProducerId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) PurposeOfCall* purposeOfCall;
+
+//- (BOOL)validatePurposeOfCall:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -214,20 +260,20 @@
 
 @interface _DailySummary (CoreDataGeneratedAccessors)
 
-- (void)addNotes:(NSSet*)value_;
-- (void)removeNotes:(NSSet*)value_;
-- (void)addNotesObject:(Note*)value_;
-- (void)removeNotesObject:(Note*)value_;
+- (void)addBarriersToBusiness:(NSSet*)value_;
+- (void)removeBarriersToBusiness:(NSSet*)value_;
+- (void)addBarriersToBusinessObject:(BarrierToBusiness*)value_;
+- (void)removeBarriersToBusinessObject:(BarrierToBusiness*)value_;
 
 - (void)addCompetitors:(NSSet*)value_;
 - (void)removeCompetitors:(NSSet*)value_;
 - (void)addCompetitorsObject:(Competitor*)value_;
 - (void)removeCompetitorsObject:(Competitor*)value_;
 
-- (void)addBarriersToBusiness:(NSSet*)value_;
-- (void)removeBarriersToBusiness:(NSSet*)value_;
-- (void)addBarriersToBusinessObject:(BarrierToBusiness*)value_;
-- (void)removeBarriersToBusinessObject:(BarrierToBusiness*)value_;
+- (void)addNotes:(NSSet*)value_;
+- (void)removeNotes:(NSSet*)value_;
+- (void)addNotesObject:(Note*)value_;
+- (void)removeNotesObject:(Note*)value_;
 
 - (void)addNsbsQuestions:(NSSet*)value_;
 - (void)removeNsbsQuestions:(NSSet*)value_;
@@ -244,17 +290,29 @@
 @interface _DailySummary (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSNumber*)primitiveVisitNumber;
-- (void)setPrimitiveVisitNumber:(NSNumber*)value;
+- (NSNumber*)primitiveCommissionPercentNew;
+- (void)setPrimitiveCommissionPercentNew:(NSNumber*)value;
 
-- (short)primitiveVisitNumberValue;
-- (void)setPrimitiveVisitNumberValue:(short)value_;
-
-
+- (short)primitiveCommissionPercentNewValue;
+- (void)setPrimitiveCommissionPercentNewValue:(short)value_;
 
 
-- (NSString*)primitiveUid;
-- (void)setPrimitiveUid:(NSString*)value;
+
+
+- (NSNumber*)primitiveCommissionPercentRenewal;
+- (void)setPrimitiveCommissionPercentRenewal:(NSNumber*)value;
+
+- (short)primitiveCommissionPercentRenewalValue;
+- (void)setPrimitiveCommissionPercentRenewalValue:(short)value_;
+
+
+
+
+- (NSNumber*)primitiveDeleted;
+- (void)setPrimitiveDeleted:(NSNumber*)value;
+
+- (BOOL)primitiveDeletedValue;
+- (void)setPrimitiveDeletedValue:(BOOL)value_;
 
 
 
@@ -277,15 +335,6 @@
 
 
 
-- (NSNumber*)primitiveNsbsPercentLiab;
-- (void)setPrimitiveNsbsPercentLiab:(NSNumber*)value;
-
-- (short)primitiveNsbsPercentLiabValue;
-- (void)setPrimitiveNsbsPercentLiabValue:(short)value_;
-
-
-
-
 - (NSNumber*)primitiveNsbsMonthlyGoal;
 - (void)setPrimitiveNsbsMonthlyGoal:(NSNumber*)value;
 
@@ -295,11 +344,11 @@
 
 
 
-- (NSNumber*)primitiveCommissionPercentNew;
-- (void)setPrimitiveCommissionPercentNew:(NSNumber*)value;
+- (NSNumber*)primitiveNsbsPercentLiab;
+- (void)setPrimitiveNsbsPercentLiab:(NSNumber*)value;
 
-- (short)primitiveCommissionPercentNewValue;
-- (void)setPrimitiveCommissionPercentNewValue:(short)value_;
+- (short)primitiveNsbsPercentLiabValue;
+- (void)setPrimitiveNsbsPercentLiabValue:(short)value_;
 
 
 
@@ -313,11 +362,11 @@
 
 
 
-- (NSNumber*)primitiveDeleted;
-- (void)setPrimitiveDeleted:(NSNumber*)value;
+- (NSNumber*)primitiveRdFollowUp;
+- (void)setPrimitiveRdFollowUp:(NSNumber*)value;
 
-- (BOOL)primitiveDeletedValue;
-- (void)setPrimitiveDeletedValue:(BOOL)value_;
+- (short)primitiveRdFollowUpValue;
+- (void)setPrimitiveRdFollowUpValue:(short)value_;
 
 
 
@@ -328,53 +377,30 @@
 
 
 
-- (NSNumber*)primitiveCommissionPercentRenewal;
-- (void)setPrimitiveCommissionPercentRenewal:(NSNumber*)value;
-
-- (short)primitiveCommissionPercentRenewalValue;
-- (void)setPrimitiveCommissionPercentRenewalValue:(short)value_;
-
-
-
-
-- (NSNumber*)primitiveRdFollowUp;
-- (void)setPrimitiveRdFollowUp:(NSNumber*)value;
-
-- (short)primitiveRdFollowUpValue;
-- (void)setPrimitiveRdFollowUpValue:(short)value_;
-
-
-
-
 - (NSDate*)primitiveReportDate;
 - (void)setPrimitiveReportDate:(NSDate*)value;
 
 
 
 
-
-- (ProducerAddOn*)primitiveProducerAddOn;
-- (void)setPrimitiveProducerAddOn:(ProducerAddOn*)value;
-
-
-
-- (NSMutableSet*)primitiveNotes;
-- (void)setPrimitiveNotes:(NSMutableSet*)value;
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
 
 
 
-- (Phase*)primitivePhase;
-- (void)setPrimitivePhase:(Phase*)value;
+
+- (NSNumber*)primitiveVisitNumber;
+- (void)setPrimitiveVisitNumber:(NSNumber*)value;
+
+- (short)primitiveVisitNumberValue;
+- (void)setPrimitiveVisitNumberValue:(short)value_;
 
 
 
-- (PurposeOfCall*)primitivePurposeOfCall;
-- (void)setPrimitivePurposeOfCall:(PurposeOfCall*)value;
 
 
-
-- (NSMutableSet*)primitiveCompetitors;
-- (void)setPrimitiveCompetitors:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveBarriersToBusiness;
+- (void)setPrimitiveBarriersToBusiness:(NSMutableSet*)value;
 
 
 
@@ -383,8 +409,13 @@
 
 
 
-- (NSMutableSet*)primitiveBarriersToBusiness;
-- (void)setPrimitiveBarriersToBusiness:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveCompetitors;
+- (void)setPrimitiveCompetitors:(NSMutableSet*)value;
+
+
+
+- (NSMutableSet*)primitiveNotes;
+- (void)setPrimitiveNotes:(NSMutableSet*)value;
 
 
 
@@ -398,8 +429,23 @@
 
 
 
+- (Phase*)primitivePhase;
+- (void)setPrimitivePhase:(Phase*)value;
+
+
+
+- (ProducerAddOn*)primitiveProducerAddOn;
+- (void)setPrimitiveProducerAddOn:(ProducerAddOn*)value;
+
+
+
 - (Producer*)primitiveProducerId;
 - (void)setPrimitiveProducerId:(Producer*)value;
+
+
+
+- (PurposeOfCall*)primitivePurposeOfCall;
+- (void)setPrimitivePurposeOfCall:(PurposeOfCall*)value;
 
 
 @end

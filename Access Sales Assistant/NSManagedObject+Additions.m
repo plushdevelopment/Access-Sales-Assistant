@@ -11,14 +11,14 @@
 
 @implementation NSManagedObject (NSManagedObject_Additions)
 
-+ (id)ai_objectForProperty:(NSString *)propertyName value:(id)propertyValue
++ (id)ai_objectForProperty:(NSString *)propertyName value:(id)propertyValue managedObjectContext:(NSManagedObjectContext *)context
 {
 	NSManagedObject *object;
 	if (propertyValue) {
-		object = [self findFirstByAttribute:propertyName withValue:propertyValue];
+		object = [self findFirstByAttribute:propertyName withValue:propertyValue inContext:context];
 	}
 	if (!object) {
-		object = [self createEntity];
+		object = [self createInContext:context];
 		NSDictionary *attributes = [[object entity] attributesByName];
 		NSAttributeType attributeType = [[attributes objectForKey:propertyName] attributeType];
         if ((attributeType == NSStringAttributeType) && ([propertyValue isKindOfClass:[NSNumber class]])) {

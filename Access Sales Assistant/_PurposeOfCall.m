@@ -40,6 +40,13 @@
 
 
 
+@dynamic name;
+
+
+
+
+
+
 @dynamic uid;
 
 
@@ -61,13 +68,6 @@
 - (void)setPrimitiveUidValue:(short)value_ {
 	[self setPrimitiveUid:[NSNumber numberWithShort:value_]];
 }
-
-
-
-
-
-@dynamic name;
-
 
 
 

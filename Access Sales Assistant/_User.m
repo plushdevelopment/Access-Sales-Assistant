@@ -43,21 +43,14 @@
 
 
 
-@dynamic password;
-
-
-
-
-
-
-@dynamic username;
-
-
-
-
-
-
 @dynamic organization;
+
+
+
+
+
+
+@dynamic password;
 
 
 
@@ -72,6 +65,13 @@
 
 
 @dynamic token;
+
+
+
+
+
+
+@dynamic username;
 
 
 

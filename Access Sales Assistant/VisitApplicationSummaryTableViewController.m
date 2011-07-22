@@ -40,6 +40,11 @@
 
 #import "PRPSmartTableViewCell.h"
 
+#define VIEW_HIDDEN_FRAME CGRectMake(0.0, 20.0, 768.0, 1004.0)
+#define VIEW_VISIBLE_FRAME CGRectMake(0.0, -239.0, 768.0, 1004.0)
+#define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 605.0, 768.0, 259.0)
+#define PICKER_HIDDEN_FRAME		CGRectMake(0, 864.0, 768.0, 259.0)
+
 enum PRPTableSections {
     PRPTableSectionGeneral = 0,
     PRPTableSectionSpokeWith,
@@ -99,6 +104,8 @@ enum PRPTableStatsTags {
 
 @synthesize pickerViewController=_pickerViewController;
 
+@synthesize datePickerViewController = _datePickerViewController;
+
 @synthesize aPopoverController=_aPopoverController;
 
 @synthesize managedObjectContext=_managedObjectContext;
@@ -106,22 +113,30 @@ enum PRPTableStatsTags {
 #pragma mark -
 #pragma mark IBActions
 
-- (IBAction)cellButtonTapped:(id)sender
-{
-	NSIndexPath *pathForButton = [self.tableView prp_indexPathForRowContainingView:sender];
-}
-
 // Show the pickerView inside of a popover
 - (IBAction)showPickerView:(id)sender
 {
+	[self nextField:0];
 	UIButton *button = (UIButton *)sender;
 	
 	self.pickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
 	self.pickerViewController.currentTag = button.tag;
-	[self.pickerViewController setContentSizeForViewInPopover:CGSizeMake(344.0, 259.0)];
-	_aPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.pickerViewController];
-	[self.aPopoverController presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	
+	
+	
+	//Position the picker out of sight
+	[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	
+	//Add the picker to the view
+	[self.view.superview addSubview:self.pickerViewController.view];
+	
+	//This animation will work on iOS 4
+	//For older iOS, use "beginAnimation:context"
+	[UIView animateWithDuration:0.2 animations:^{
+		//Position of the picker in sight
+		[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		
+	}];
 	UIPickerView *pickerView = self.pickerViewController.pickerView;
 	[pickerView setDelegate:self];
 	[pickerView setDataSource:self];
@@ -134,18 +149,29 @@ enum PRPTableStatsTags {
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
 {
+	[self nextField:0];
 	
 	UIButton *button = (UIButton *)sender;
-	DatePickerViewController *viewController = [[DatePickerViewController alloc] initWithNibName:@"DatePickerViewController" bundle:nil];
-	[viewController.datePicker setDate:[NSDate date]];
-	viewController.delegate = self;
-	viewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
-	viewController.currentTag = button.tag;
-	[viewController setContentSizeForViewInPopover:viewController.view.frame.size];
-	_aPopoverController = [[UIPopoverController alloc] initWithContentViewController:viewController];
-	[self.aPopoverController presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-	[viewController.datePicker setDatePickerMode:UIDatePickerModeDate];
-	[self datePickerViewController:viewController didChangeDate:viewController.datePicker.date forTag:button.tag];
+	[self.datePickerViewController.datePicker setDate:[NSDate date]];
+	self.datePickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
+	self.datePickerViewController.currentTag = button.tag;
+	[self.datePickerViewController.datePicker setDatePickerMode:UIDatePickerModeDate];
+	
+	//Position the picker out of sight
+	[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	
+	//Add the picker to the view
+	[self.view.superview addSubview:self.datePickerViewController.view];
+	
+	//This animation will work on iOS 4
+	//For older iOS, use "beginAnimation:context"
+	[UIView animateWithDuration:0.2 animations:^{
+		//Position of the picker in sight
+		[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		
+	}];
+	
+	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
 }
 
 #pragma mark -
@@ -271,6 +297,7 @@ enum PRPTableStatsTags {
 
 - (void)viewDidUnload
 {
+    [self setDatePickerViewController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -397,6 +424,10 @@ enum PRPTableStatsTags {
 			customCell.reportDateTextField.text = [formatter stringFromDate:self.detailItem.reportDate];
 			customCell.callTypeTextField.text = self.detailItem.purposeOfCall.name;
 			
+			customCell.producerNameTextField.delegate = self;
+			customCell.reportDateTextField.delegate = self;
+			customCell.callTypeTextField.delegate = self;
+			
 			[customCell.reportDateButton addTarget:self action:@selector(showDatePickerView:) forControlEvents:UIControlEventTouchUpInside];
 			
 			cell = customCell;
@@ -418,6 +449,11 @@ enum PRPTableStatsTags {
 				customCell.lastNameTextField.text = [person lastName];
 				customCell.titleTextField.text = [person.title name];
 				customCell.emailAddressTextField.text = [person email];
+				
+				customCell.firstNameTextField.delegate = self;
+				customCell.lastNameTextField.delegate = self;
+				customCell.titleTextField.delegate = self;
+				customCell.emailAddressTextField.delegate = self;
 				
 				[customCell.titleButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
 				
@@ -443,6 +479,12 @@ enum PRPTableStatsTags {
 				customCell.percentNewTextField.text = self.detailItem.commissionPercentNew.stringValue;
 				customCell.percentRenewalTextField.text = self.detailItem.commissionPercentRenewal.stringValue;
 				
+				customCell.competitorNameTextField.delegate = self;
+				customCell.appsPerMonthTextField.delegate = self;
+				customCell.commissionStructureTextField.delegate = self;
+				customCell.percentNewTextField.delegate = self;
+				customCell.percentRenewalTextField.delegate = self;
+				
 				[customCell.competitorNameButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
 				[customCell.commissionStructureButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
 				
@@ -464,6 +506,8 @@ enum PRPTableStatsTags {
 				
 				customCell.barrierToBusinessTextField.text = barrier.name;
 				
+				customCell.barrierToBusinessTextField.delegate = self;
+				
 				[customCell.barrierToBusinessButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
 				
 				cell = customCell;
@@ -480,6 +524,13 @@ enum PRPTableStatsTags {
 			customCell.monthlyGoalTextField.text = self.detailItem.nsbsMonthlyGoal.stringValue;
 			customCell.percentFDLTextField.text = self.detailItem.nsbsFdl.stringValue;
 			
+			customCell.totalAppsPerMonthTextField.delegate = self;
+			customCell.percentLiabTextField.delegate = self;
+			customCell.producerAddOnTextField.delegate = self;
+			customCell.rdFollowUpTextField.delegate = self;
+			customCell.monthlyGoalTextField.delegate = self;
+			customCell.percentFDLTextField.delegate = self;
+			
 			[customCell.rdFollowUpButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
 			[customCell.producerAddOnButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
 			
@@ -490,13 +541,6 @@ enum PRPTableStatsTags {
             NSLog(@"Unexpected section (%d)", indexPath.section);
             break;
     }
-	
-	for (id subview in [cell subviews]) {
-		if ([subview isKindOfClass:[UITextField class]]) {
-			UITextField *textField = (UITextField *)subview;
-			textField.delegate = self;
-		}
-	}
 	
 	return cell;
 }
@@ -569,6 +613,16 @@ enum PRPTableStatsTags {
             break;
     }
     return height;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return YES;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return YES;
 }
 
 #pragma mark -
@@ -674,7 +728,8 @@ enum PRPTableStatsTags {
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
+{	
+	[self nextField:0];
 	return YES;
 }
 
@@ -936,13 +991,23 @@ enum PRPTableStatsTags {
 }
 
 - (void)nextField:(NSInteger)currentTag
-{
-	[self.aPopoverController dismissPopoverAnimated:YES];
-	switch (currentTag) {
-		case 0:
-			break;
-		default:
-			break;
+{	
+	if (self.pickerViewController.view.superview != nil) {
+		self.pickerViewController.currentIndexPath = nil;
+		self.pickerViewController.currentTag = 0;
+		//Position the picker out of sight
+		[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		//This animation will work on iOS 4
+		//For older iOS, use "beginAnimation:context"
+		[UIView animateWithDuration:0.2 animations:^{[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){[self.pickerViewController.view removeFromSuperview];}];
+	} else if (self.datePickerViewController.view.superview != nil) {
+		self.datePickerViewController.currentIndexPath = nil;
+		self.datePickerViewController.currentTag = 0;
+		//Position the picker out of sight
+		[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		//This animation will work on iOS 4
+		//For older iOS, use "beginAnimation:context"
+		[UIView animateWithDuration:0.2 animations:^{[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){[self.datePickerViewController.view removeFromSuperview];}];
 	}
 }
 

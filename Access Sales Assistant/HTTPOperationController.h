@@ -27,6 +27,10 @@
 - (void)requestPickListsFinished:(ASIHTTPRequest *)request;
 - (void)requestPickListsFailed:(ASIHTTPRequest *)request;
 
+- (void)requestCompetitors:(NSNumber *)page;
+- (void)requestCompetitorsFinished:(ASIHTTPRequest *)request;
+- (void)requestCompetitorsFailed:(ASIHTTPRequest *)request;
+
 - (void)requestProducers:(NSNumber *)page;
 - (void)requestProducersFinished:(ASIHTTPRequest *)request;
 - (void)requestProducersFailed:(ASIHTTPRequest *)request;

@@ -40,6 +40,13 @@
 
 
 
+@dynamic name;
+
+
+
+
+
+
 @dynamic uid;
 
 
@@ -66,19 +73,12 @@
 
 
 
-@dynamic name;
-
-
-
-
-
-
 @dynamic producers;
 
 	
 - (NSMutableSet*)producersSet {
 	[self willAccessValueForKey:@"producers"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"producers"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"producers"];
 	[self didAccessValueForKey:@"producers"];
 	return result;
 }

@@ -19,14 +19,18 @@
 
 
 
+
 @property (nonatomic, retain) NSString *imagePath;
+
 
 //- (BOOL)validateImagePath:(id*)value_ error:(NSError**)error_;
 
 
 
 
+
 @property (nonatomic, retain) Producer* producer;
+
 //- (BOOL)validateProducer:(id*)value_ error:(NSError**)error_;
 
 

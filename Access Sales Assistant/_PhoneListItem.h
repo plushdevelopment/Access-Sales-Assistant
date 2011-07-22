@@ -4,8 +4,8 @@
 #import <CoreData/CoreData.h>
 
 
-@class Producer;
 @class Contact;
+@class Producer;
 
 
 
@@ -21,7 +21,17 @@
 
 
 
+
+@property (nonatomic, retain) NSString *number;
+
+
+//- (BOOL)validateNumber:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSNumber *type;
+
 
 @property short typeValue;
 - (short)typeValue;
@@ -31,20 +41,18 @@
 
 
 
-@property (nonatomic, retain) NSString *number;
 
-//- (BOOL)validateNumber:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, retain) Contact* contact;
+
+//- (BOOL)validateContact:(id*)value_ error:(NSError**)error_;
 
 
 
 
 @property (nonatomic, retain) Producer* producer;
+
 //- (BOOL)validateProducer:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) Contact* contact;
-//- (BOOL)validateContact:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -58,6 +66,12 @@
 @interface _PhoneListItem (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSString*)primitiveNumber;
+- (void)setPrimitiveNumber:(NSString*)value;
+
+
+
+
 - (NSNumber*)primitiveType;
 - (void)setPrimitiveType:(NSNumber*)value;
 
@@ -67,20 +81,14 @@
 
 
 
-- (NSString*)primitiveNumber;
-- (void)setPrimitiveNumber:(NSString*)value;
 
-
+- (Contact*)primitiveContact;
+- (void)setPrimitiveContact:(Contact*)value;
 
 
 
 - (Producer*)primitiveProducer;
 - (void)setPrimitiveProducer:(Producer*)value;
-
-
-
-- (Contact*)primitiveContact;
-- (void)setPrimitiveContact:(Contact*)value;
 
 
 @end

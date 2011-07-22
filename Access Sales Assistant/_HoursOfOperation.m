@@ -36,28 +36,14 @@
 
 
 
-@dynamic saturdayOpenTime;
+@dynamic fridayCloseTime;
 
 
 
 
 
 
-@dynamic wednesdayCloseTime;
-
-
-
-
-
-
-@dynamic mondayOpenTime;
-
-
-
-
-
-
-@dynamic tuesdayOpenTime;
+@dynamic fridayOpenTime;
 
 
 
@@ -71,7 +57,7 @@
 
 
 
-@dynamic thursdayOpenTime;
+@dynamic mondayOpenTime;
 
 
 
@@ -85,14 +71,7 @@
 
 
 
-@dynamic tuesdayCloseTime;
-
-
-
-
-
-
-@dynamic fridayOpenTime;
+@dynamic saturdayOpenTime;
 
 
 
@@ -120,7 +99,28 @@
 
 
 
-@dynamic fridayCloseTime;
+@dynamic thursdayOpenTime;
+
+
+
+
+
+
+@dynamic tuesdayCloseTime;
+
+
+
+
+
+
+@dynamic tuesdayOpenTime;
+
+
+
+
+
+
+@dynamic wednesdayCloseTime;
 
 
 
@@ -139,7 +139,7 @@
 	
 - (NSMutableSet*)producerSet {
 	[self willAccessValueForKey:@"producer"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"producer"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"producer"];
 	[self didAccessValueForKey:@"producer"];
 	return result;
 }
