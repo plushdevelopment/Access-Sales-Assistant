@@ -20,6 +20,8 @@
     NSMutableArray* array;
     NSMutableArray* stateCodeArray;
     NSDictionary* dictionary;
+    BOOL isColorChanged;
+    int selectedIndexPath;
     
 }
 

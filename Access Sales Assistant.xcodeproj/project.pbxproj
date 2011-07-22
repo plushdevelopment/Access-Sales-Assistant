@@ -11,6 +11,24 @@
 		6D0EF48513D713F600745307 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0EF48313D713F600745307 /* SplashViewController.xib */; };
 		6D0EF49313D7479600745307 /* FlashCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0EF49113D7479600745307 /* FlashCardsViewController.m */; };
 		6D0EF49413D7479600745307 /* FlashCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0EF49213D7479600745307 /* FlashCardsViewController.xib */; };
+		6D96C92113D8A94300478DD3 /* CustomContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D96C92013D8A94200478DD3 /* CustomContainerView.m */; };
+		6D96C92513D8AB4500478DD3 /* FlashCardTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D96C92413D8AB4500478DD3 /* FlashCardTitleView.m */; };
+		6D96C92813D8AB6700478DD3 /* FlashCardFlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D96C92713D8AB6600478DD3 /* FlashCardFlipView.m */; };
+		6D96C92C13D8AF0900478DD3 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D96C92B13D8AF0900478DD3 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DE4335813D9DF3500BF551E /* Producer_Close_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4334C13D9DF3500BF551E /* Producer_Close_Content.html */; };
+		6DE4335913D9DF3500BF551E /* Producer_Overview_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4334D13D9DF3500BF551E /* Producer_Overview_Content.html */; };
+		6DE4335A13D9DF3500BF551E /* Producer_SalesPitch_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4334E13D9DF3500BF551E /* Producer_SalesPitch_Content.html */; };
+		6DE4335B13D9DF3500BF551E /* Producer_Visit_Questions_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4334F13D9DF3500BF551E /* Producer_Visit_Questions_Content.html */; };
+		6DE4335C13D9DF3500BF551E /* Prospect_Close_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4335013D9DF3500BF551E /* Prospect_Close_Content.html */; };
+		6DE4335D13D9DF3500BF551E /* Prospect_Overview_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4335113D9DF3500BF551E /* Prospect_Overview_Content.html */; };
+		6DE4335E13D9DF3500BF551E /* Prospect_SalesPitch_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4335213D9DF3500BF551E /* Prospect_SalesPitch_Content.html */; };
+		6DE4335F13D9DF3500BF551E /* Prospect_Visit_Questions_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4335313D9DF3500BF551E /* Prospect_Visit_Questions_Content.html */; };
+		6DE4336013D9DF3500BF551E /* ZeroProducer_Close_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4335413D9DF3500BF551E /* ZeroProducer_Close_Content.html */; };
+		6DE4336113D9DF3500BF551E /* ZeroProducer_Overview_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4335513D9DF3500BF551E /* ZeroProducer_Overview_Content.html */; };
+		6DE4336213D9DF3500BF551E /* ZeroProducer_SalesPitch_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4335613D9DF3500BF551E /* ZeroProducer_SalesPitch_Content.html */; };
+		6DE4336313D9DF3500BF551E /* ZeroProducer_Visit_Questions_Content.html in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4335713D9DF3500BF551E /* ZeroProducer_Visit_Questions_Content.html */; };
+		6DE4336613D9DF6100BF551E /* calls-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DE4336513D9DF6100BF551E /* calls-background.png */; };
+		6DE4337213DA012600BF551E /* RoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4337113DA012600BF551E /* RoundedRectView.m */; };
 		FF0A17DC13BC940D00ECF9F6 /* NSManagedObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */; };
 		FF0A17F713BC944E00ECF9F6 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E013BC944E00ECF9F6 /* CDataScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17F813BC944E00ECF9F6 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E313BC944E00ECF9F6 /* CFilteringJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -368,6 +386,29 @@
 		6D0EF49013D7479600745307 /* FlashCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCardsViewController.h; sourceTree = "<group>"; };
 		6D0EF49113D7479600745307 /* FlashCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCardsViewController.m; sourceTree = "<group>"; };
 		6D0EF49213D7479600745307 /* FlashCardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlashCardsViewController.xib; sourceTree = "<group>"; };
+		6D96C91F13D8A94200478DD3 /* CustomContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomContainerView.h; sourceTree = "<group>"; };
+		6D96C92013D8A94200478DD3 /* CustomContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomContainerView.m; sourceTree = "<group>"; };
+		6D96C92313D8AB4500478DD3 /* FlashCardTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCardTitleView.h; sourceTree = "<group>"; };
+		6D96C92413D8AB4500478DD3 /* FlashCardTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCardTitleView.m; sourceTree = "<group>"; };
+		6D96C92613D8AB6600478DD3 /* FlashCardFlipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCardFlipView.h; sourceTree = "<group>"; };
+		6D96C92713D8AB6600478DD3 /* FlashCardFlipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCardFlipView.m; sourceTree = "<group>"; };
+		6D96C92A13D8AF0900478DD3 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		6D96C92B13D8AF0900478DD3 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		6DE4334C13D9DF3500BF551E /* Producer_Close_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Producer_Close_Content.html; sourceTree = "<group>"; };
+		6DE4334D13D9DF3500BF551E /* Producer_Overview_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Producer_Overview_Content.html; sourceTree = "<group>"; };
+		6DE4334E13D9DF3500BF551E /* Producer_SalesPitch_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Producer_SalesPitch_Content.html; sourceTree = "<group>"; };
+		6DE4334F13D9DF3500BF551E /* Producer_Visit_Questions_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Producer_Visit_Questions_Content.html; sourceTree = "<group>"; };
+		6DE4335013D9DF3500BF551E /* Prospect_Close_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Prospect_Close_Content.html; sourceTree = "<group>"; };
+		6DE4335113D9DF3500BF551E /* Prospect_Overview_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Prospect_Overview_Content.html; sourceTree = "<group>"; };
+		6DE4335213D9DF3500BF551E /* Prospect_SalesPitch_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Prospect_SalesPitch_Content.html; sourceTree = "<group>"; };
+		6DE4335313D9DF3500BF551E /* Prospect_Visit_Questions_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Prospect_Visit_Questions_Content.html; sourceTree = "<group>"; };
+		6DE4335413D9DF3500BF551E /* ZeroProducer_Close_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ZeroProducer_Close_Content.html; sourceTree = "<group>"; };
+		6DE4335513D9DF3500BF551E /* ZeroProducer_Overview_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ZeroProducer_Overview_Content.html; sourceTree = "<group>"; };
+		6DE4335613D9DF3500BF551E /* ZeroProducer_SalesPitch_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ZeroProducer_SalesPitch_Content.html; sourceTree = "<group>"; };
+		6DE4335713D9DF3500BF551E /* ZeroProducer_Visit_Questions_Content.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ZeroProducer_Visit_Questions_Content.html; sourceTree = "<group>"; };
+		6DE4336513D9DF6100BF551E /* calls-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calls-background.png"; sourceTree = "<group>"; };
+		6DE4337013DA012600BF551E /* RoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectView.h; sourceTree = "<group>"; };
+		6DE4337113DA012600BF551E /* RoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedRectView.m; sourceTree = "<group>"; };
 		FF0A17DA13BC940D00ECF9F6 /* NSManagedObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JSON.h"; sourceTree = "<group>"; };
 		FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+JSON.m"; sourceTree = "<group>"; };
 		FF0A17DF13BC944E00ECF9F6 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
@@ -959,6 +1000,35 @@
 			name = "Features and Benefits";
 			sourceTree = "<group>";
 		};
+		6D96C92913D8AF0900478DD3 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				6D96C92A13D8AF0900478DD3 /* iCarousel.h */,
+				6D96C92B13D8AF0900478DD3 /* iCarousel.m */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
+		6DE4334B13D9DF3500BF551E /* Flash Cards HTML */ = {
+			isa = PBXGroup;
+			children = (
+				6DE4336513D9DF6100BF551E /* calls-background.png */,
+				6DE4334C13D9DF3500BF551E /* Producer_Close_Content.html */,
+				6DE4334D13D9DF3500BF551E /* Producer_Overview_Content.html */,
+				6DE4334E13D9DF3500BF551E /* Producer_SalesPitch_Content.html */,
+				6DE4334F13D9DF3500BF551E /* Producer_Visit_Questions_Content.html */,
+				6DE4335013D9DF3500BF551E /* Prospect_Close_Content.html */,
+				6DE4335113D9DF3500BF551E /* Prospect_Overview_Content.html */,
+				6DE4335213D9DF3500BF551E /* Prospect_SalesPitch_Content.html */,
+				6DE4335313D9DF3500BF551E /* Prospect_Visit_Questions_Content.html */,
+				6DE4335413D9DF3500BF551E /* ZeroProducer_Close_Content.html */,
+				6DE4335513D9DF3500BF551E /* ZeroProducer_Overview_Content.html */,
+				6DE4335613D9DF3500BF551E /* ZeroProducer_SalesPitch_Content.html */,
+				6DE4335713D9DF3500BF551E /* ZeroProducer_Visit_Questions_Content.html */,
+			);
+			path = "Flash Cards HTML";
+			sourceTree = "<group>";
+		};
 		FF0A17DE13BC944E00ECF9F6 /* TouchJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -1360,6 +1430,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				6D96C92913D8AF0900478DD3 /* iCarousel */,
 				FFA0705013D5EB650021E412 /* SSLocationManager */,
 				FF9ED81B13D4EF6A006105C7 /* AQGridView */,
 				FF56A25613CC888D00FF159A /* SynthesizeSingleton.h */,
@@ -1580,6 +1651,7 @@
 		FFA0707913D5EBA60021E412 /* Access Academy */ = {
 			isa = PBXGroup;
 			children = (
+				6DE4334B13D9DF3500BF551E /* Flash Cards HTML */,
 				FFA070A213D5F8EE0021E412 /* CircleArrowDown_sml.png */,
 				FFA070A313D5F8EE0021E412 /* CircleArrowRight_sml.png */,
 				FFA0707113D5EB930021E412 /* MyTreeViewCell.m */,
@@ -1590,6 +1662,14 @@
 				6D0EF49013D7479600745307 /* FlashCardsViewController.h */,
 				6D0EF49113D7479600745307 /* FlashCardsViewController.m */,
 				6D0EF49213D7479600745307 /* FlashCardsViewController.xib */,
+				6D96C91F13D8A94200478DD3 /* CustomContainerView.h */,
+				6D96C92013D8A94200478DD3 /* CustomContainerView.m */,
+				6D96C92313D8AB4500478DD3 /* FlashCardTitleView.h */,
+				6D96C92413D8AB4500478DD3 /* FlashCardTitleView.m */,
+				6D96C92613D8AB6600478DD3 /* FlashCardFlipView.h */,
+				6D96C92713D8AB6600478DD3 /* FlashCardFlipView.m */,
+				6DE4337013DA012600BF551E /* RoundedRectView.h */,
+				6DE4337113DA012600BF551E /* RoundedRectView.m */,
 			);
 			name = "Access Academy";
 			sourceTree = "<group>";
@@ -2104,6 +2184,19 @@
 				FFA070A513D5F8EE0021E412 /* CircleArrowRight_sml.png in Resources */,
 				6D0EF48513D713F600745307 /* SplashViewController.xib in Resources */,
 				6D0EF49413D7479600745307 /* FlashCardsViewController.xib in Resources */,
+				6DE4335813D9DF3500BF551E /* Producer_Close_Content.html in Resources */,
+				6DE4335913D9DF3500BF551E /* Producer_Overview_Content.html in Resources */,
+				6DE4335A13D9DF3500BF551E /* Producer_SalesPitch_Content.html in Resources */,
+				6DE4335B13D9DF3500BF551E /* Producer_Visit_Questions_Content.html in Resources */,
+				6DE4335C13D9DF3500BF551E /* Prospect_Close_Content.html in Resources */,
+				6DE4335D13D9DF3500BF551E /* Prospect_Overview_Content.html in Resources */,
+				6DE4335E13D9DF3500BF551E /* Prospect_SalesPitch_Content.html in Resources */,
+				6DE4335F13D9DF3500BF551E /* Prospect_Visit_Questions_Content.html in Resources */,
+				6DE4336013D9DF3500BF551E /* ZeroProducer_Close_Content.html in Resources */,
+				6DE4336113D9DF3500BF551E /* ZeroProducer_Overview_Content.html in Resources */,
+				6DE4336213D9DF3500BF551E /* ZeroProducer_SalesPitch_Content.html in Resources */,
+				6DE4336313D9DF3500BF551E /* ZeroProducer_Visit_Questions_Content.html in Resources */,
+				6DE4336613D9DF6100BF551E /* calls-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2305,6 +2398,11 @@
 				FFA070A613D60DEA0021E412 /* VisitApplicationSummaryViewController.m in Sources */,
 				6D0EF48413D713F600745307 /* SplashViewController.m in Sources */,
 				6D0EF49313D7479600745307 /* FlashCardsViewController.m in Sources */,
+				6D96C92113D8A94300478DD3 /* CustomContainerView.m in Sources */,
+				6D96C92513D8AB4500478DD3 /* FlashCardTitleView.m in Sources */,
+				6D96C92813D8AB6700478DD3 /* FlashCardFlipView.m in Sources */,
+				6D96C92C13D8AF0900478DD3 /* iCarousel.m in Sources */,
+				6DE4337213DA012600BF551E /* RoundedRectView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

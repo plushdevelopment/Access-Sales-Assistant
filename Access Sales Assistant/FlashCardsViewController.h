@@ -8,6 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FlashCardsViewController : UIViewController
+#import "BaseDetailViewController.h"
+#import "iCarousel.h"
+@interface FlashCardsViewController : BaseDetailViewController<iCarouselDataSource, iCarouselDelegate>
+{
+    BOOL isFlipped;
+    
+    
+    NSMutableArray *containerArray;
+}
+
+@property(nonatomic,strong) IBOutlet UIView* firstview;
+@property(nonatomic,strong) IBOutlet UIView* secondview;
+@property(nonatomic,strong) IBOutlet UIView* thirdview;
+@property(nonatomic,strong) IBOutlet UIView* fourthview;
+@property(nonatomic,strong) IBOutlet UIView* fifthview;
+@property(nonatomic,strong) IBOutlet UIView* flipview;
+@property(nonatomic,strong) IBOutlet UIView* containerview;
+@property(nonatomic,strong) IBOutlet UIToolbar *toolBar;
+
+@property(nonatomic) NSInteger selectedFlashCard;
+@property(nonatomic,strong) IBOutlet iCarousel* carousel;
+-(void) loadFlashCards:(int) index;
+
 
 @end

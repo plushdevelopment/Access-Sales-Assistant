@@ -241,6 +241,7 @@
         <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="105"/>
         <element name="Producer" positionX="306" positionY="123" width="128" height="465"/>
         <element name="ProducerAddOn" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="ProducerImage" positionX="160" positionY="192" width="128" height="75"/>
         <element name="PurposeOfCall" positionX="160" positionY="192" width="128" height="90"/>
         <element name="QuestionListItem" positionX="-423" positionY="360" width="128" height="105"/>
         <element name="Rater" positionX="684" positionY="354" width="128" height="90"/>
@@ -250,6 +251,5 @@
         <element name="SubTerritory" positionX="628" positionY="135" width="128" height="75"/>
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="90"/>
         <element name="User" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="ProducerImage" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

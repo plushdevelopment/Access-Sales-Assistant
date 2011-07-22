@@ -38,6 +38,8 @@
 {
     [super viewDidLoad];
 
+    isColorChanged = FALSE;
+    selectedIndexPath =-1;
     // Uncomment the following line to preserve selection between presentations.
      self.clearsSelectionOnViewWillAppear = NO;
     self.contentSizeForViewInPopover = CGSizeMake(300.0, 500.0);
@@ -49,29 +51,16 @@
     array = [NSMutableArray array];
     stateCodeArray = [NSMutableArray array];
     
-    NSMutableArray *tempArray = [plistData allValues];
-    NSMutableArray* tempStateCodeArray = [plistData allKeys];
+    NSMutableArray *tempArray = (NSMutableArray*)[plistData allValues];
+    NSMutableArray* tempStateCodeArray = (NSMutableArray*)[plistData allKeys];
     
     
     //[plistData allValues]
-    array = [tempArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    stateCodeArray = [tempStateCodeArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    array = (NSMutableArray*)[tempArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    stateCodeArray = (NSMutableArray*)[tempStateCodeArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
     
-    
-//    array = [plistData allKeys];
-   // [array sort];
-   /* [array addObject:@"Alabama"];
-        [array addObject:@"Arizona"];
-        [array addObject:@"California"];
-        [array addObject:@"Florida"];
-        [array addObject:@"Georgia"];
-        [array addObject:@"Louisiana"];
-        [array addObject:@"Mississippi"];
-        [array addObject:@"Nevada"];
-        [array addObject:@"Oklahoma"];    
-    [array addObject:@"South Carolina"];
-    */
+
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -140,8 +129,20 @@
     NSString *str= [array objectAtIndex:indexPath.row];
     cell.textLabel.text = str;
     
-   // if([str isEqualToString:self.currentSelectedState])
-     //   cell.textLabel.textColor = RGB(0,111,162);
+    if([str isEqualToString:self.currentSelectedState]&&!isColorChanged)
+    {
+        cell.textLabel.textColor = RGB(0,111,162);
+        
+        selectedIndexPath = indexPath.row;
+        isColorChanged = TRUE;
+    }
+    else if(selectedIndexPath == indexPath.row)
+    {
+         cell.textLabel.textColor = RGB(0,111,162);
+        
+    }
+    else
+        cell.textLabel.textColor = RGB(0,0,0);
     
     return cell;
 }
@@ -192,6 +193,8 @@
     if(self.delegate!=nil)
     {
         self.currentSelectedState = [array objectAtIndex:indexPath.row];
+        selectedIndexPath = indexPath.row;
+        [tableView reloadData];
         [self.delegate selectedState:[array objectAtIndex:indexPath.row] :[stateCodeArray objectAtIndex:indexPath.row]];
     }
         //[self.delegate selectedState:[array objectAtIndex:indexPath.row]];

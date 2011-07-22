@@ -36,21 +36,27 @@
 
 #import "SplashViewController.h"
 
-#define SECTION_HEADER_HEIGHT 50
-#define VISIT_APPLICATION_DAYS @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
-#define CONTACT_OPTIONS @"EMAIL SSC",@"EMAIL CUSTOMER SERVICE",@"EMAIL NSF",@"EMAIL PRODUCT",@"EMAIL QA FORM",@"EMAIL FACILITIES",@"QA RESOLUTION TIMETABLE",@"EMAIL HELP DESK",nil
-#define SECTION_TITLES @"Visit Application",@"Appointment Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",nil
-#define SECTION_ROW_COUNT 5,0,0,0,0,5,0,nil
-#define VISIT_APP_INDEX 0
-#define CONTACTS_OPTIONS_INDEX 5
-#define APPOINTMENTAPP_INDEX 1
-#define PROSPECT_APP_INDEX 2
-#define FEATURES_AND_BENEFITS_INDEX 3
-#define ACCESS_ACADEMY_INDEX 4
-#define GPS_INDEX 6
+#import "FlashCardsViewController.h"
 
-#define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
-#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define SECTION_HEADER_HEIGHT       50
+#define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
+#define CONTACT_OPTIONS             @"EMAIL SSC",@"EMAIL CUSTOMER SERVICE",@"EMAIL NSF",@"EMAIL PRODUCT",@"EMAIL QA FORM",@"EMAIL FACILITIES",@"QA RESOLUTION TIMETABLE",@"EMAIL HELP DESK",nil
+#define SECTION_TITLES              @"Visit Application",@"Appointment Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",nil
+#define SECTION_ROW_COUNT           5,0,0,0,0,5,0,nil
+#define VISIT_APP_INDEX             0
+#define CONTACTS_OPTIONS_INDEX      5
+#define APPOINTMENTAPP_INDEX        1
+#define PROSPECT_APP_INDEX          2
+#define FEATURES_AND_BENEFITS_INDEX 3
+#define ACCESS_ACADEMY_INDEX        4
+#define GPS_INDEX                   6
+#define FLASH_CARD_PROSPECT         1
+#define FLASH_CARD_ZERO_PRODUCER    2
+#define FLASH_CARD_PRODUCER         3
+
+
+#define RGB(r, g, b)                [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+#define RGBA(r, g, b, a)            [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 @implementation RootViewController
 
@@ -354,11 +360,37 @@
         case ACCESS_ACADEMY_INDEX:
         {
             MyTreeNode *node = [[treeNode flattenElements] objectAtIndex:indexPath.row + 1];
-            if (!node.hasChildren) return;
-            
+            if (!node.hasChildren) 
+            {
+                
+                FlashCardsViewController* detailViewController = [[FlashCardsViewController alloc] initWithNibName:@"FlashCardsViewController" bundle:nil];
+                NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+             
+                switch(indexPath.row)
+                {
+                    case FLASH_CARD_PROSPECT:
+                        detailViewController.selectedFlashCard = 0;
+                        break;
+                    case FLASH_CARD_ZERO_PRODUCER:
+                        detailViewController.selectedFlashCard = 1;
+                        break;
+                    case FLASH_CARD_PRODUCER:
+                        detailViewController.selectedFlashCard = 2;
+                        break;
+                }
+                self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+                self.detailViewController = detailViewController;
+                [self.popoverController dismissPopoverAnimated:YES];
+                if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
+                    [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+                }
+            }
+            else
+            {
             node.inclusive = !node.inclusive;	
             [treeNode flattenElementsWithCacheRefresh:YES];
             [tableView reloadData];
+            }
             
         }
             break;
