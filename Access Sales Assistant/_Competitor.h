@@ -23,39 +23,9 @@
 
 
 
-@property (nonatomic, retain) NSString *name;
-
-//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSNumber *edited;
-
-@property BOOL editedValue;
-- (BOOL)editedValue;
-- (void)setEditedValue:(BOOL)value_;
-
-//- (BOOL)validateEdited:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSNumber *deleted;
-
-@property BOOL deletedValue;
-- (BOOL)deletedValue;
-- (void)setDeletedValue:(BOOL)value_;
-
-//- (BOOL)validateDeleted:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *uid;
-
-//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSNumber *appsPerMonth;
+
 
 @property short appsPerMonthValue;
 - (short)appsPerMonthValue;
@@ -66,7 +36,49 @@
 
 
 
+@property (nonatomic, retain) NSNumber *deleted;
+
+
+@property BOOL deletedValue;
+- (BOOL)deletedValue;
+- (void)setDeletedValue:(BOOL)value_;
+
+//- (BOOL)validateDeleted:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *edited;
+
+
+@property BOOL editedValue;
+- (BOOL)editedValue;
+- (void)setEditedValue:(BOOL)value_;
+
+//- (BOOL)validateEdited:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *name;
+
+
+//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *uid;
+
+
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, retain) NSSet* dailySummaries;
+
 - (NSMutableSet*)dailySummariesSet;
 
 
@@ -86,17 +98,11 @@
 @interface _Competitor (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveName;
-- (void)setPrimitiveName:(NSString*)value;
+- (NSNumber*)primitiveAppsPerMonth;
+- (void)setPrimitiveAppsPerMonth:(NSNumber*)value;
 
-
-
-
-- (NSNumber*)primitiveEdited;
-- (void)setPrimitiveEdited:(NSNumber*)value;
-
-- (BOOL)primitiveEditedValue;
-- (void)setPrimitiveEditedValue:(BOOL)value_;
+- (short)primitiveAppsPerMonthValue;
+- (void)setPrimitiveAppsPerMonthValue:(short)value_;
 
 
 
@@ -110,17 +116,23 @@
 
 
 
+- (NSNumber*)primitiveEdited;
+- (void)setPrimitiveEdited:(NSNumber*)value;
+
+- (BOOL)primitiveEditedValue;
+- (void)setPrimitiveEditedValue:(BOOL)value_;
+
+
+
+
+- (NSString*)primitiveName;
+- (void)setPrimitiveName:(NSString*)value;
+
+
+
+
 - (NSString*)primitiveUid;
 - (void)setPrimitiveUid:(NSString*)value;
-
-
-
-
-- (NSNumber*)primitiveAppsPerMonth;
-- (void)setPrimitiveAppsPerMonth:(NSNumber*)value;
-
-- (short)primitiveAppsPerMonthValue;
-- (void)setPrimitiveAppsPerMonthValue:(short)value_;
 
 
 

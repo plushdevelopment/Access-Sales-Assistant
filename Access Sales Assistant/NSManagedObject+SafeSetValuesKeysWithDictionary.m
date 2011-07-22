@@ -33,7 +33,7 @@
     }
 }
 
-- (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues dateFormatter:(NSDateFormatter *)dateFormatter
+- (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues dateFormatter:(NSDateFormatter *)dateFormatter managedObjectContext:(NSManagedObjectContext *)context
 {
     NSDictionary *attributes = [[self entity] attributesByName];
     for (NSString *attribute in attributes) {
@@ -78,21 +78,21 @@
 					Class aClass = [NSClassFromString([entityDescription name]) class];
 					for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
 						if ([desc.description isEqualToString:@"uid"]) {
-							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"uid" value:[value valueForKey:@"uid"]];
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"uid" value:[value valueForKey:@"uid"] managedObjectContext:context];
 						} else if ([desc.description isEqualToString:@"addressLine1"]) {
-							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"addressLine1" value:[value valueForKey:@"addressLine1"]];
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"addressLine1" value:[value valueForKey:@"addressLine1"] managedObjectContext:context];
 						} else if ([desc.description isEqualToString:@"number"]) {
-							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"number" value:[value valueForKey:@"number"]];
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"number" value:[value valueForKey:@"number"] managedObjectContext:context];
 						} else if ([desc.description isEqualToString:@"address"]) {
-							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"address" value:[value valueForKey:@"address"]];
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"address" value:[value valueForKey:@"address"] managedObjectContext:context];
 						}  else if ([desc.description isEqualToString:@"text"]) {
-							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"text" value:[value valueForKey:@"text"]];
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"text" value:[value valueForKey:@"text"] managedObjectContext:context];
 						}
 					}
 					if (!object) {
-						object = [aClass createEntity];
+						object = [aClass createInContext:context];
 					}
-					[object safeSetValuesForKeysWithDictionary:value dateFormatter:dateFormatter];
+					[object safeSetValuesForKeysWithDictionary:value dateFormatter:dateFormatter managedObjectContext:context];
 					[self setValue:object forKey:relationship];
 					continue;
 				}
@@ -103,22 +103,22 @@
 					Class aClass = [NSClassFromString([entityDescription name]) class];
 					for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
 						if ([desc.description isEqualToString:@"uid"]) {
-							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"uid" value:[subValue valueForKey:@"uid"]];
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"uid" value:[subValue valueForKey:@"uid"] managedObjectContext:context];
 						} else if ([desc.description isEqualToString:@"addressLine1"]) {
-							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"addressLine1" value:[subValue valueForKey:@"addressLine1"]];
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"addressLine1" value:[subValue valueForKey:@"addressLine1"] managedObjectContext:context];
 						} else if ([desc.description isEqualToString:@"number"]) {
-							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"number" value:[subValue valueForKey:@"number"]];
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"number" value:[subValue valueForKey:@"number"] managedObjectContext:context];
 						} else if ([desc.description isEqualToString:@"address"]) {
-							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"address" value:[subValue valueForKey:@"address"]];
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"address" value:[subValue valueForKey:@"address"] managedObjectContext:context];
 						}  else if ([desc.description isEqualToString:@"text"]) {
-							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"text" value:[subValue valueForKey:@"text"]];
+							object = [[NSClassFromString([entityDescription name]) class] ai_objectForProperty:@"text" value:[subValue valueForKey:@"text"] managedObjectContext:context];
 						}
 					}
 					if (!object) {
-						object = [aClass createEntity];
+						object = [aClass createInContext:context];
 					}
 					
-					[object safeSetValuesForKeysWithDictionary:subValue dateFormatter:dateFormatter];
+					[object safeSetValuesForKeysWithDictionary:subValue dateFormatter:dateFormatter managedObjectContext:context];
 					[relationshipSet addObject:object];
 				}
 			}

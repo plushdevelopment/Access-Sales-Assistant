@@ -29,16 +29,16 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"editedValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"edited"];
+	if ([key isEqualToString:@"appsPerMonthValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"appsPerMonth"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 	if ([key isEqualToString:@"deletedValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"deleted"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
-	if ([key isEqualToString:@"appsPerMonthValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"appsPerMonth"];
+	if ([key isEqualToString:@"editedValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"edited"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 
@@ -48,33 +48,26 @@
 
 
 
-@dynamic name;
+@dynamic appsPerMonth;
 
 
 
-
-
-
-@dynamic edited;
-
-
-
-- (BOOL)editedValue {
-	NSNumber *result = [self edited];
-	return [result boolValue];
+- (short)appsPerMonthValue {
+	NSNumber *result = [self appsPerMonth];
+	return [result shortValue];
 }
 
-- (void)setEditedValue:(BOOL)value_ {
-	[self setEdited:[NSNumber numberWithBool:value_]];
+- (void)setAppsPerMonthValue:(short)value_ {
+	[self setAppsPerMonth:[NSNumber numberWithShort:value_]];
 }
 
-- (BOOL)primitiveEditedValue {
-	NSNumber *result = [self primitiveEdited];
-	return [result boolValue];
+- (short)primitiveAppsPerMonthValue {
+	NSNumber *result = [self primitiveAppsPerMonth];
+	return [result shortValue];
 }
 
-- (void)setPrimitiveEditedValue:(BOOL)value_ {
-	[self setPrimitiveEdited:[NSNumber numberWithBool:value_]];
+- (void)setPrimitiveAppsPerMonthValue:(short)value_ {
+	[self setPrimitiveAppsPerMonth:[NSNumber numberWithShort:value_]];
 }
 
 
@@ -107,34 +100,41 @@
 
 
 
+@dynamic edited;
+
+
+
+- (BOOL)editedValue {
+	NSNumber *result = [self edited];
+	return [result boolValue];
+}
+
+- (void)setEditedValue:(BOOL)value_ {
+	[self setEdited:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveEditedValue {
+	NSNumber *result = [self primitiveEdited];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveEditedValue:(BOOL)value_ {
+	[self setPrimitiveEdited:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic name;
+
+
+
+
+
+
 @dynamic uid;
 
-
-
-
-
-
-@dynamic appsPerMonth;
-
-
-
-- (short)appsPerMonthValue {
-	NSNumber *result = [self appsPerMonth];
-	return [result shortValue];
-}
-
-- (void)setAppsPerMonthValue:(short)value_ {
-	[self setAppsPerMonth:[NSNumber numberWithShort:value_]];
-}
-
-- (short)primitiveAppsPerMonthValue {
-	NSNumber *result = [self primitiveAppsPerMonth];
-	return [result shortValue];
-}
-
-- (void)setPrimitiveAppsPerMonthValue:(short)value_ {
-	[self setPrimitiveAppsPerMonth:[NSNumber numberWithShort:value_]];
-}
 
 
 
@@ -145,7 +145,7 @@
 	
 - (NSMutableSet*)dailySummariesSet {
 	[self willAccessValueForKey:@"dailySummaries"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"dailySummaries"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"dailySummaries"];
 	[self didAccessValueForKey:@"dailySummaries"];
 	return result;
 }

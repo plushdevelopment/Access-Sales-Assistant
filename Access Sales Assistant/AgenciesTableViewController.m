@@ -304,28 +304,6 @@
 {
 	NSString *responseString = [request responseString];
 	NSLog(@"Response String: %@", responseString);
-	
-	/*
-	NSArray *array = [Producer findAll];
-	for (Producer *prod in array) {
-		BOOL success = [prod deleteInContext:self.managedObjectContext];
-		if (!success) {
-			NSLog(@"Delete was unsuccessful");
-		}
-	}
-	*/
-	 
-	NSArray *results = [[responseString JSONValue] objectForKey:@"results"];
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-	for (NSDictionary *dict in results) {
-		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"]];
-		if (!producer.editedValue) {
-			[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter];
-		}
-		
-	}
-	[self.managedObjectContext save];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request

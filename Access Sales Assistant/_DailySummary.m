@@ -29,8 +29,16 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"visitNumberValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"visitNumber"];
+	if ([key isEqualToString:@"commissionPercentNewValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"commissionPercentNew"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"commissionPercentRenewalValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"commissionPercentRenewal"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"deletedValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"deleted"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 	if ([key isEqualToString:@"editedValue"]) {
@@ -41,32 +49,24 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"nsbsFdl"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
-	if ([key isEqualToString:@"nsbsPercentLiabValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"nsbsPercentLiab"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
 	if ([key isEqualToString:@"nsbsMonthlyGoalValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"nsbsMonthlyGoal"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
-	if ([key isEqualToString:@"commissionPercentNewValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"commissionPercentNew"];
+	if ([key isEqualToString:@"nsbsPercentLiabValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"nsbsPercentLiab"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 	if ([key isEqualToString:@"nsbsTotAppsPerMonthValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"nsbsTotAppsPerMonth"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
-	if ([key isEqualToString:@"deletedValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"deleted"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
-	if ([key isEqualToString:@"commissionPercentRenewalValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"commissionPercentRenewal"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
 	if ([key isEqualToString:@"rdFollowUpValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"rdFollowUp"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"visitNumberValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"visitNumber"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 
@@ -76,34 +76,79 @@
 
 
 
-@dynamic visitNumber;
+@dynamic commissionPercentNew;
 
 
 
-- (short)visitNumberValue {
-	NSNumber *result = [self visitNumber];
+- (short)commissionPercentNewValue {
+	NSNumber *result = [self commissionPercentNew];
 	return [result shortValue];
 }
 
-- (void)setVisitNumberValue:(short)value_ {
-	[self setVisitNumber:[NSNumber numberWithShort:value_]];
+- (void)setCommissionPercentNewValue:(short)value_ {
+	[self setCommissionPercentNew:[NSNumber numberWithShort:value_]];
 }
 
-- (short)primitiveVisitNumberValue {
-	NSNumber *result = [self primitiveVisitNumber];
+- (short)primitiveCommissionPercentNewValue {
+	NSNumber *result = [self primitiveCommissionPercentNew];
 	return [result shortValue];
 }
 
-- (void)setPrimitiveVisitNumberValue:(short)value_ {
-	[self setPrimitiveVisitNumber:[NSNumber numberWithShort:value_]];
+- (void)setPrimitiveCommissionPercentNewValue:(short)value_ {
+	[self setPrimitiveCommissionPercentNew:[NSNumber numberWithShort:value_]];
 }
 
 
 
 
 
-@dynamic uid;
+@dynamic commissionPercentRenewal;
 
+
+
+- (short)commissionPercentRenewalValue {
+	NSNumber *result = [self commissionPercentRenewal];
+	return [result shortValue];
+}
+
+- (void)setCommissionPercentRenewalValue:(short)value_ {
+	[self setCommissionPercentRenewal:[NSNumber numberWithShort:value_]];
+}
+
+- (short)primitiveCommissionPercentRenewalValue {
+	NSNumber *result = [self primitiveCommissionPercentRenewal];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveCommissionPercentRenewalValue:(short)value_ {
+	[self setPrimitiveCommissionPercentRenewal:[NSNumber numberWithShort:value_]];
+}
+
+
+
+
+
+@dynamic deleted;
+
+
+
+- (BOOL)deletedValue {
+	NSNumber *result = [self deleted];
+	return [result boolValue];
+}
+
+- (void)setDeletedValue:(BOOL)value_ {
+	[self setDeleted:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveDeletedValue {
+	NSNumber *result = [self primitiveDeleted];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveDeletedValue:(BOOL)value_ {
+	[self setPrimitiveDeleted:[NSNumber numberWithBool:value_]];
+}
 
 
 
@@ -161,32 +206,6 @@
 
 
 
-@dynamic nsbsPercentLiab;
-
-
-
-- (short)nsbsPercentLiabValue {
-	NSNumber *result = [self nsbsPercentLiab];
-	return [result shortValue];
-}
-
-- (void)setNsbsPercentLiabValue:(short)value_ {
-	[self setNsbsPercentLiab:[NSNumber numberWithShort:value_]];
-}
-
-- (short)primitiveNsbsPercentLiabValue {
-	NSNumber *result = [self primitiveNsbsPercentLiab];
-	return [result shortValue];
-}
-
-- (void)setPrimitiveNsbsPercentLiabValue:(short)value_ {
-	[self setPrimitiveNsbsPercentLiab:[NSNumber numberWithShort:value_]];
-}
-
-
-
-
-
 @dynamic nsbsMonthlyGoal;
 
 
@@ -213,26 +232,26 @@
 
 
 
-@dynamic commissionPercentNew;
+@dynamic nsbsPercentLiab;
 
 
 
-- (short)commissionPercentNewValue {
-	NSNumber *result = [self commissionPercentNew];
+- (short)nsbsPercentLiabValue {
+	NSNumber *result = [self nsbsPercentLiab];
 	return [result shortValue];
 }
 
-- (void)setCommissionPercentNewValue:(short)value_ {
-	[self setCommissionPercentNew:[NSNumber numberWithShort:value_]];
+- (void)setNsbsPercentLiabValue:(short)value_ {
+	[self setNsbsPercentLiab:[NSNumber numberWithShort:value_]];
 }
 
-- (short)primitiveCommissionPercentNewValue {
-	NSNumber *result = [self primitiveCommissionPercentNew];
+- (short)primitiveNsbsPercentLiabValue {
+	NSNumber *result = [self primitiveNsbsPercentLiab];
 	return [result shortValue];
 }
 
-- (void)setPrimitiveCommissionPercentNewValue:(short)value_ {
-	[self setPrimitiveCommissionPercentNew:[NSNumber numberWithShort:value_]];
+- (void)setPrimitiveNsbsPercentLiabValue:(short)value_ {
+	[self setPrimitiveNsbsPercentLiab:[NSNumber numberWithShort:value_]];
 }
 
 
@@ -265,65 +284,6 @@
 
 
 
-@dynamic deleted;
-
-
-
-- (BOOL)deletedValue {
-	NSNumber *result = [self deleted];
-	return [result boolValue];
-}
-
-- (void)setDeletedValue:(BOOL)value_ {
-	[self setDeleted:[NSNumber numberWithBool:value_]];
-}
-
-- (BOOL)primitiveDeletedValue {
-	NSNumber *result = [self primitiveDeleted];
-	return [result boolValue];
-}
-
-- (void)setPrimitiveDeletedValue:(BOOL)value_ {
-	[self setPrimitiveDeleted:[NSNumber numberWithBool:value_]];
-}
-
-
-
-
-
-@dynamic realSubmissionDate;
-
-
-
-
-
-
-@dynamic commissionPercentRenewal;
-
-
-
-- (short)commissionPercentRenewalValue {
-	NSNumber *result = [self commissionPercentRenewal];
-	return [result shortValue];
-}
-
-- (void)setCommissionPercentRenewalValue:(short)value_ {
-	[self setCommissionPercentRenewal:[NSNumber numberWithShort:value_]];
-}
-
-- (short)primitiveCommissionPercentRenewalValue {
-	NSNumber *result = [self primitiveCommissionPercentRenewal];
-	return [result shortValue];
-}
-
-- (void)setPrimitiveCommissionPercentRenewalValue:(short)value_ {
-	[self setPrimitiveCommissionPercentRenewal:[NSNumber numberWithShort:value_]];
-}
-
-
-
-
-
 @dynamic rdFollowUp;
 
 
@@ -350,6 +310,13 @@
 
 
 
+@dynamic realSubmissionDate;
+
+
+
+
+
+
 @dynamic reportDate;
 
 
@@ -357,36 +324,46 @@
 
 
 
-@dynamic producerAddOn;
+@dynamic uid;
 
-	
 
-@dynamic notes;
 
-	
-- (NSMutableSet*)notesSet {
-	[self willAccessValueForKey:@"notes"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"notes"];
-	[self didAccessValueForKey:@"notes"];
-	return result;
+
+
+
+@dynamic visitNumber;
+
+
+
+- (short)visitNumberValue {
+	NSNumber *result = [self visitNumber];
+	return [result shortValue];
 }
+
+- (void)setVisitNumberValue:(short)value_ {
+	[self setVisitNumber:[NSNumber numberWithShort:value_]];
+}
+
+- (short)primitiveVisitNumberValue {
+	NSNumber *result = [self primitiveVisitNumber];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveVisitNumberValue:(short)value_ {
+	[self setPrimitiveVisitNumber:[NSNumber numberWithShort:value_]];
+}
+
+
+
+
+
+@dynamic barriersToBusiness;
+
 	
-
-@dynamic phase;
-
-	
-
-@dynamic purposeOfCall;
-
-	
-
-@dynamic competitors;
-
-	
-- (NSMutableSet*)competitorsSet {
-	[self willAccessValueForKey:@"competitors"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"competitors"];
-	[self didAccessValueForKey:@"competitors"];
+- (NSMutableSet*)barriersToBusinessSet {
+	[self willAccessValueForKey:@"barriersToBusiness"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"barriersToBusiness"];
+	[self didAccessValueForKey:@"barriersToBusiness"];
 	return result;
 }
 	
@@ -395,13 +372,24 @@
 
 	
 
-@dynamic barriersToBusiness;
+@dynamic competitors;
 
 	
-- (NSMutableSet*)barriersToBusinessSet {
-	[self willAccessValueForKey:@"barriersToBusiness"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"barriersToBusiness"];
-	[self didAccessValueForKey:@"barriersToBusiness"];
+- (NSMutableSet*)competitorsSet {
+	[self willAccessValueForKey:@"competitors"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"competitors"];
+	[self didAccessValueForKey:@"competitors"];
+	return result;
+}
+	
+
+@dynamic notes;
+
+	
+- (NSMutableSet*)notesSet {
+	[self willAccessValueForKey:@"notes"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"notes"];
+	[self didAccessValueForKey:@"notes"];
 	return result;
 }
 	
@@ -411,7 +399,7 @@
 	
 - (NSMutableSet*)nsbsQuestionsSet {
 	[self willAccessValueForKey:@"nsbsQuestions"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"nsbsQuestions"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"nsbsQuestions"];
 	[self didAccessValueForKey:@"nsbsQuestions"];
 	return result;
 }
@@ -422,13 +410,25 @@
 	
 - (NSMutableSet*)personsSpokeWithSet {
 	[self willAccessValueForKey:@"personsSpokeWith"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"personsSpokeWith"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"personsSpokeWith"];
 	[self didAccessValueForKey:@"personsSpokeWith"];
 	return result;
 }
 	
 
+@dynamic phase;
+
+	
+
+@dynamic producerAddOn;
+
+	
+
 @dynamic producerId;
+
+	
+
+@dynamic purposeOfCall;
 
 	
 

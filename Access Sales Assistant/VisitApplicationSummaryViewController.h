@@ -90,5 +90,9 @@
 @property (nonatomic, strong) IBOutlet UILabel *addCompetitorLabel;
 @property (nonatomic, strong) IBOutlet UILabel *addBarrierLabel;
 
+- (IBAction)addPersonSpokeWith:(id)sender;
+- (IBAction)addCompetitor:(id)sender;
+- (IBAction)addBarrierToBusiness:(id)sender;
+
 
 @end

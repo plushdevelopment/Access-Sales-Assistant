@@ -9,5 +9,5 @@
 #import <CoreData/CoreData.h>
 
 @interface NSManagedObject (NSManagedObject_Additions)
-+ (id)ai_objectForProperty:(NSString *)propertyName value:(id)propertyValue;
++ (id)ai_objectForProperty:(NSString *)propertyName value:(id)propertyValue managedObjectContext:(NSManagedObjectContext *)context;
 @end

@@ -19,7 +19,9 @@
 
 
 
+
 @property (nonatomic, retain) NSNumber *uid;
+
 
 @property short uidValue;
 - (short)uidValue;
@@ -30,7 +32,9 @@
 
 
 
+
 @property (nonatomic, retain) NSSet* producers;
+
 - (NSMutableSet*)producersSet;
 
 

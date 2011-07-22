@@ -20,7 +20,17 @@
 
 
 
+
+@property (nonatomic, retain) NSString *name;
+
+
+//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSNumber *uid;
+
 
 @property short uidValue;
 - (short)uidValue;
@@ -30,14 +40,10 @@
 
 
 
-@property (nonatomic, retain) NSString *name;
-
-//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
-
-
 
 
 @property (nonatomic, retain) DailySummary* dailySummmary;
+
 //- (BOOL)validateDailySummmary:(id*)value_ error:(NSError**)error_;
 
 
@@ -52,17 +58,17 @@
 @interface _PurposeOfCall (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSString*)primitiveName;
+- (void)setPrimitiveName:(NSString*)value;
+
+
+
+
 - (NSNumber*)primitiveUid;
 - (void)setPrimitiveUid:(NSNumber*)value;
 
 - (short)primitiveUidValue;
 - (void)setPrimitiveUidValue:(short)value_;
-
-
-
-
-- (NSString*)primitiveName;
-- (void)setPrimitiveName:(NSString*)value;
 
 
 

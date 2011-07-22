@@ -44,13 +44,6 @@
 
 
 
-@dynamic email;
-
-
-
-
-
-
 @dynamic deleted;
 
 
@@ -72,20 +65,6 @@
 - (void)setPrimitiveDeletedValue:(BOOL)value_ {
 	[self setPrimitiveDeleted:[NSNumber numberWithBool:value_]];
 }
-
-
-
-
-
-@dynamic uid;
-
-
-
-
-
-
-@dynamic lastName;
-
 
 
 
@@ -117,7 +96,28 @@
 
 
 
+@dynamic email;
+
+
+
+
+
+
 @dynamic firstName;
+
+
+
+
+
+
+@dynamic lastName;
+
+
+
+
+
+
+@dynamic uid;
 
 
 
@@ -129,7 +129,7 @@
 	
 - (NSMutableSet*)dailySummariesSet {
 	[self willAccessValueForKey:@"dailySummaries"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"dailySummaries"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"dailySummaries"];
 	[self didAccessValueForKey:@"dailySummaries"];
 	return result;
 }

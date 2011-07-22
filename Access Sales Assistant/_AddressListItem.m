@@ -33,17 +33,38 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"addressType"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
-	if ([key isEqualToString:@"longitudeValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"longitude"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
 	if ([key isEqualToString:@"latitudeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"latitude"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"longitudeValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"longitude"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic addressLine1;
+
+
+
+
+
+
+@dynamic addressLine2;
+
+
+
+
+
+
+@dynamic addressLine3;
+
+
 
 
 
@@ -74,48 +95,8 @@
 
 
 
-@dynamic postalCode;
-
-
-
-
-
-
 @dynamic city;
 
-
-
-
-
-
-@dynamic addressLine1;
-
-
-
-
-
-
-@dynamic longitude;
-
-
-
-- (double)longitudeValue {
-	NSNumber *result = [self longitude];
-	return [result doubleValue];
-}
-
-- (void)setLongitudeValue:(double)value_ {
-	[self setLongitude:[NSNumber numberWithDouble:value_]];
-}
-
-- (double)primitiveLongitudeValue {
-	NSNumber *result = [self primitiveLongitude];
-	return [result doubleValue];
-}
-
-- (void)setPrimitiveLongitudeValue:(double)value_ {
-	[self setPrimitiveLongitude:[NSNumber numberWithDouble:value_]];
-}
 
 
 
@@ -147,14 +128,33 @@
 
 
 
-@dynamic addressLine2;
+@dynamic longitude;
+
+
+
+- (double)longitudeValue {
+	NSNumber *result = [self longitude];
+	return [result doubleValue];
+}
+
+- (void)setLongitudeValue:(double)value_ {
+	[self setLongitude:[NSNumber numberWithDouble:value_]];
+}
+
+- (double)primitiveLongitudeValue {
+	NSNumber *result = [self primitiveLongitude];
+	return [result doubleValue];
+}
+
+- (void)setPrimitiveLongitudeValue:(double)value_ {
+	[self setPrimitiveLongitude:[NSNumber numberWithDouble:value_]];
+}
 
 
 
 
 
-
-@dynamic addressLine3;
+@dynamic postalCode;
 
 
 

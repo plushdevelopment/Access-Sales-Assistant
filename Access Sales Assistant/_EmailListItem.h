@@ -21,7 +21,17 @@
 
 
 
+
+@property (nonatomic, retain) NSString *address;
+
+
+//- (BOOL)validateAddress:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSNumber *type;
+
 
 @property short typeValue;
 - (short)typeValue;
@@ -31,19 +41,17 @@
 
 
 
-@property (nonatomic, retain) NSString *address;
-
-//- (BOOL)validateAddress:(id*)value_ error:(NSError**)error_;
-
-
 
 
 @property (nonatomic, retain) Contact* contact;
+
 //- (BOOL)validateContact:(id*)value_ error:(NSError**)error_;
 
 
 
+
 @property (nonatomic, retain) Producer* producer;
+
 //- (BOOL)validateProducer:(id*)value_ error:(NSError**)error_;
 
 
@@ -58,17 +66,17 @@
 @interface _EmailListItem (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSString*)primitiveAddress;
+- (void)setPrimitiveAddress:(NSString*)value;
+
+
+
+
 - (NSNumber*)primitiveType;
 - (void)setPrimitiveType:(NSNumber*)value;
 
 - (short)primitiveTypeValue;
 - (void)setPrimitiveTypeValue:(short)value_;
-
-
-
-
-- (NSString*)primitiveAddress;
-- (void)setPrimitiveAddress:(NSString*)value;
 
 
 

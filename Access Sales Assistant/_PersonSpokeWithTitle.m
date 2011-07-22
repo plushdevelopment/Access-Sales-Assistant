@@ -40,6 +40,13 @@
 
 
 
+@dynamic name;
+
+
+
+
+
+
 @dynamic uid;
 
 
@@ -66,19 +73,12 @@
 
 
 
-@dynamic name;
-
-
-
-
-
-
 @dynamic personSpokeWith;
 
 	
 - (NSMutableSet*)personSpokeWithSet {
 	[self willAccessValueForKey:@"personSpokeWith"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"personSpokeWith"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"personSpokeWith"];
 	[self didAccessValueForKey:@"personSpokeWith"];
 	return result;
 }

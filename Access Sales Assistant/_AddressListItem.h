@@ -27,7 +27,33 @@
 
 
 
+
+@property (nonatomic, retain) NSString *addressLine1;
+
+
+//- (BOOL)validateAddressLine1:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *addressLine2;
+
+
+//- (BOOL)validateAddressLine2:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *addressLine3;
+
+
+//- (BOOL)validateAddressLine3:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSNumber *addressType;
+
 
 @property short addressTypeValue;
 - (short)addressTypeValue;
@@ -37,35 +63,17 @@
 
 
 
-@property (nonatomic, retain) NSString *postalCode;
-
-//- (BOOL)validatePostalCode:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSString *city;
+
 
 //- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *addressLine1;
-
-//- (BOOL)validateAddressLine1:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSNumber *longitude;
-
-@property double longitudeValue;
-- (double)longitudeValue;
-- (void)setLongitudeValue:(double)value_;
-
-//- (BOOL)validateLongitude:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSNumber *latitude;
+
 
 @property double latitudeValue;
 - (double)latitudeValue;
@@ -75,25 +83,37 @@
 
 
 
-@property (nonatomic, retain) NSString *addressLine2;
 
-//- (BOOL)validateAddressLine2:(id*)value_ error:(NSError**)error_;
-
+@property (nonatomic, retain) NSNumber *longitude;
 
 
-@property (nonatomic, retain) NSString *addressLine3;
+@property double longitudeValue;
+- (double)longitudeValue;
+- (void)setLongitudeValue:(double)value_;
 
-//- (BOOL)validateAddressLine3:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateLongitude:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *postalCode;
+
+
+//- (BOOL)validatePostalCode:(id*)value_ error:(NSError**)error_;
+
 
 
 
 
 @property (nonatomic, retain) Producer* producer;
+
 //- (BOOL)validateProducer:(id*)value_ error:(NSError**)error_;
 
 
 
+
 @property (nonatomic, retain) State* state;
+
 //- (BOOL)validateState:(id*)value_ error:(NSError**)error_;
 
 
@@ -108,6 +128,24 @@
 @interface _AddressListItem (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSString*)primitiveAddressLine1;
+- (void)setPrimitiveAddressLine1:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveAddressLine2;
+- (void)setPrimitiveAddressLine2:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveAddressLine3;
+- (void)setPrimitiveAddressLine3:(NSString*)value;
+
+
+
+
 - (NSNumber*)primitiveAddressType;
 - (void)setPrimitiveAddressType:(NSNumber*)value;
 
@@ -117,29 +155,8 @@
 
 
 
-- (NSString*)primitivePostalCode;
-- (void)setPrimitivePostalCode:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveCity;
 - (void)setPrimitiveCity:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveAddressLine1;
-- (void)setPrimitiveAddressLine1:(NSString*)value;
-
-
-
-
-- (NSNumber*)primitiveLongitude;
-- (void)setPrimitiveLongitude:(NSNumber*)value;
-
-- (double)primitiveLongitudeValue;
-- (void)setPrimitiveLongitudeValue:(double)value_;
 
 
 
@@ -153,14 +170,17 @@
 
 
 
-- (NSString*)primitiveAddressLine2;
-- (void)setPrimitiveAddressLine2:(NSString*)value;
+- (NSNumber*)primitiveLongitude;
+- (void)setPrimitiveLongitude:(NSNumber*)value;
+
+- (double)primitiveLongitudeValue;
+- (void)setPrimitiveLongitudeValue:(double)value_;
 
 
 
 
-- (NSString*)primitiveAddressLine3;
-- (void)setPrimitiveAddressLine3:(NSString*)value;
+- (NSString*)primitivePostalCode;
+- (void)setPrimitivePostalCode:(NSString*)value;
 
 
 

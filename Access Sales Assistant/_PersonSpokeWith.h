@@ -25,13 +25,9 @@
 
 
 
-@property (nonatomic, retain) NSString *email;
-
-//- (BOOL)validateEmail:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSNumber *deleted;
+
 
 @property BOOL deletedValue;
 - (BOOL)deletedValue;
@@ -41,19 +37,9 @@
 
 
 
-@property (nonatomic, retain) NSString *uid;
-
-//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *lastName;
-
-//- (BOOL)validateLastName:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSNumber *edited;
+
 
 @property BOOL editedValue;
 - (BOOL)editedValue;
@@ -63,19 +49,49 @@
 
 
 
+
+@property (nonatomic, retain) NSString *email;
+
+
+//- (BOOL)validateEmail:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSString *firstName;
+
 
 //- (BOOL)validateFirstName:(id*)value_ error:(NSError**)error_;
 
 
 
 
+@property (nonatomic, retain) NSString *lastName;
+
+
+//- (BOOL)validateLastName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *uid;
+
+
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, retain) NSSet* dailySummaries;
+
 - (NSMutableSet*)dailySummariesSet;
 
 
 
+
 @property (nonatomic, retain) PersonSpokeWithTitle* title;
+
 //- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
 
 
@@ -95,29 +111,11 @@
 @interface _PersonSpokeWith (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveEmail;
-- (void)setPrimitiveEmail:(NSString*)value;
-
-
-
-
 - (NSNumber*)primitiveDeleted;
 - (void)setPrimitiveDeleted:(NSNumber*)value;
 
 - (BOOL)primitiveDeletedValue;
 - (void)setPrimitiveDeletedValue:(BOOL)value_;
-
-
-
-
-- (NSString*)primitiveUid;
-- (void)setPrimitiveUid:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveLastName;
-- (void)setPrimitiveLastName:(NSString*)value;
 
 
 
@@ -131,8 +129,26 @@
 
 
 
+- (NSString*)primitiveEmail;
+- (void)setPrimitiveEmail:(NSString*)value;
+
+
+
+
 - (NSString*)primitiveFirstName;
 - (void)setPrimitiveFirstName:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveLastName;
+- (void)setPrimitiveLastName:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
 
 
 

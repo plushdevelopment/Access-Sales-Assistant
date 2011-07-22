@@ -40,6 +40,13 @@
 
 
 
+@dynamic address;
+
+
+
+
+
+
 @dynamic type;
 
 
@@ -61,13 +68,6 @@
 - (void)setPrimitiveTypeValue:(short)value_ {
 	[self setPrimitiveType:[NSNumber numberWithShort:value_]];
 }
-
-
-
-
-
-@dynamic address;
-
 
 
 

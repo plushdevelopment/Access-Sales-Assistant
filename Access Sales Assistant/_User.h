@@ -23,39 +23,51 @@
 
 
 
+
 @property (nonatomic, retain) NSString *domain;
+
 
 //- (BOOL)validateDomain:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *password;
-
-//- (BOOL)validatePassword:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *username;
-
-//- (BOOL)validateUsername:(id*)value_ error:(NSError**)error_;
-
-
 
 @property (nonatomic, retain) NSString *organization;
+
 
 //- (BOOL)validateOrganization:(id*)value_ error:(NSError**)error_;
 
 
 
+
+@property (nonatomic, retain) NSString *password;
+
+
+//- (BOOL)validatePassword:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSString *serviceKey;
+
 
 //- (BOOL)validateServiceKey:(id*)value_ error:(NSError**)error_;
 
 
 
+
 @property (nonatomic, retain) NSString *token;
 
+
 //- (BOOL)validateToken:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *username;
+
+
+//- (BOOL)validateUsername:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -76,20 +88,14 @@
 
 
 
-- (NSString*)primitivePassword;
-- (void)setPrimitivePassword:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveUsername;
-- (void)setPrimitiveUsername:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveOrganization;
 - (void)setPrimitiveOrganization:(NSString*)value;
+
+
+
+
+- (NSString*)primitivePassword;
+- (void)setPrimitivePassword:(NSString*)value;
 
 
 
@@ -102,6 +108,12 @@
 
 - (NSString*)primitiveToken;
 - (void)setPrimitiveToken:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUsername;
+- (void)setPrimitiveUsername:(NSString*)value;
 
 
 

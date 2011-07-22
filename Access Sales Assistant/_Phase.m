@@ -40,6 +40,13 @@
 
 
 
+@dynamic name;
+
+
+
+
+
+
 @dynamic uid;
 
 
@@ -66,19 +73,12 @@
 
 
 
-@dynamic name;
-
-
-
-
-
-
 @dynamic dailySummary;
 
 	
 - (NSMutableSet*)dailySummarySet {
 	[self willAccessValueForKey:@"dailySummary"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"dailySummary"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"dailySummary"];
 	[self didAccessValueForKey:@"dailySummary"];
 	return result;
 }

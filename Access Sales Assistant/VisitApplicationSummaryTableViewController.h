@@ -14,6 +14,7 @@
 
 @interface VisitApplicationSummaryTableViewController : UITableViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate>
 
+
 @property (nonatomic, strong) DailySummary *detailItem;
 @property (nonatomic, strong) UINib *summaryGeneralTableViewCellNib;
 @property (nonatomic, strong) UINib *summarySpokeWithTableViewCellNib;
@@ -21,10 +22,10 @@
 @property (nonatomic, strong) UINib *summaryBarriersToBusinessTableViewCellNib;
 @property (nonatomic, strong) UINib *summaryStatsTableViewCellNib;
 @property (nonatomic, strong) IBOutlet PickerViewController *pickerViewController;
+@property (nonatomic, strong) IBOutlet DatePickerViewController *datePickerViewController;
 @property (nonatomic, strong) UIPopoverController *aPopoverController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
-- (IBAction)cellButtonTapped:(id)sender;
 - (void)configureView;
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;

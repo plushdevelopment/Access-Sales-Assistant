@@ -40,6 +40,13 @@
 
 
 
+@dynamic number;
+
+
+
+
+
+
 @dynamic type;
 
 
@@ -66,18 +73,11 @@
 
 
 
-@dynamic number;
-
-
-
-
-
-
-@dynamic producer;
+@dynamic contact;
 
 	
 
-@dynamic contact;
+@dynamic producer;
 
 	
 

@@ -44,6 +44,13 @@
 
 
 
+@dynamic answer;
+
+
+
+
+
+
 @dynamic deleted;
 
 
@@ -65,20 +72,6 @@
 - (void)setPrimitiveDeletedValue:(BOOL)value_ {
 	[self setPrimitiveDeleted:[NSNumber numberWithBool:value_]];
 }
-
-
-
-
-
-@dynamic uid;
-
-
-
-
-
-
-@dynamic text;
-
 
 
 
@@ -110,7 +103,14 @@
 
 
 
-@dynamic answer;
+@dynamic text;
+
+
+
+
+
+
+@dynamic uid;
 
 
 
@@ -122,7 +122,7 @@
 	
 - (NSMutableSet*)dailySummariesSet {
 	[self willAccessValueForKey:@"dailySummaries"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"dailySummaries"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"dailySummaries"];
 	[self didAccessValueForKey:@"dailySummaries"];
 	return result;
 }
@@ -133,7 +133,7 @@
 	
 - (NSMutableSet*)producersSet {
 	[self willAccessValueForKey:@"producers"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"producers"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"producers"];
 	[self didAccessValueForKey:@"producers"];
 	return result;
 }

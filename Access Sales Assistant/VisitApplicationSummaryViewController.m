@@ -205,4 +205,17 @@ enum PRPFieldTags {
 	[self setNsbsView:nil];
     [super viewDidUnload];
 }
+
+
+- (IBAction)addPersonSpokeWith:(id)sender {
+	
+}
+
+- (IBAction)addCompetitor:(id)sender {
+	
+}
+
+- (IBAction)addBarrierToBusiness:(id)sender {
+	
+}
 @end

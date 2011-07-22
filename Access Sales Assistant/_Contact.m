@@ -40,20 +40,6 @@
 
 
 
-@dynamic lastName;
-
-
-
-
-
-
-@dynamic uid;
-
-
-
-
-
-
 @dynamic firstName;
 
 
@@ -61,7 +47,7 @@
 
 
 
-@dynamic ssn;
+@dynamic lastName;
 
 
 
@@ -94,17 +80,38 @@
 
 
 
-@dynamic type;
+@dynamic ssn;
 
-	
+
+
+
+
+
+@dynamic uid;
+
+
+
+
+
 
 @dynamic emailList;
 
 	
 - (NSMutableSet*)emailListSet {
 	[self willAccessValueForKey:@"emailList"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"emailList"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"emailList"];
 	[self didAccessValueForKey:@"emailList"];
+	return result;
+}
+	
+
+@dynamic phoneList;
+
+	
+- (NSMutableSet*)phoneListSet {
+	[self willAccessValueForKey:@"phoneList"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"phoneList"];
+	[self didAccessValueForKey:@"phoneList"];
 	return result;
 }
 	
@@ -113,15 +120,8 @@
 
 	
 
-@dynamic phoneList;
+@dynamic type;
 
-	
-- (NSMutableSet*)phoneListSet {
-	[self willAccessValueForKey:@"phoneList"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"phoneList"];
-	[self didAccessValueForKey:@"phoneList"];
-	return result;
-}
 	
 
 

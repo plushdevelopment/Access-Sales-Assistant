@@ -294,6 +294,7 @@
 		FFC2815E13BCAC2C00CA3ABB /* total access bar.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814313BCAC2C00CA3ABB /* total access bar.png */; };
 		FFC2815F13BCAC2C00CA3ABB /* total access bar.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814413BCAC2C00CA3ABB /* total access bar.psd */; };
 		FFC2816013BCAC2C00CA3ABB /* visit application icons.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814513BCAC2C00CA3ABB /* visit application icons.psd */; };
+		FFC521CF13D9CC14007CD043 /* GetProducerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC521CE13D9CC14007CD043 /* GetProducerRequest.m */; };
 		FFC9533D13AFCACE000967CB /* ActiveRecordHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9532D13AFCACE000967CB /* ActiveRecordHelpers.m */; };
 		FFC9533E13AFCACE000967CB /* ARCoreDataAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9532F13AFCACE000967CB /* ARCoreDataAction.m */; };
 		FFC9533F13AFCACE000967CB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FFC9533113AFCACE000967CB /* LICENSE */; };
@@ -306,6 +307,7 @@
 		FFCD8B2113C601D3008D8885 /* NSManagedObject+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD8B2013C601D3008D8885 /* NSManagedObject+Additions.m */; };
 		FFD9A8AE13CCA1B9009ACD64 /* Rater2.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD9A8AA13CCA1B9009ACD64 /* Rater2.m */; };
 		FFD9A8AF13CCA1B9009ACD64 /* _Rater2.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD9A8AC13CCA1B9009ACD64 /* _Rater2.m */; };
+		FFDFF26313DA08D600920CBA /* GetCompetitorRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDFF26213DA08D600920CBA /* GetCompetitorRequest.m */; };
 		FFF0D00013BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */; };
 		FFF0D00513BB7ED7008DFA19 /* _Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00213BB7ED7008DFA19 /* _Producer.m */; };
 		FFF0D00613BB7ED7008DFA19 /* Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00413BB7ED7008DFA19 /* Producer.m */; };
@@ -795,6 +797,8 @@
 		FFC2814313BCAC2C00CA3ABB /* total access bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "total access bar.png"; sourceTree = "<group>"; };
 		FFC2814413BCAC2C00CA3ABB /* total access bar.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "total access bar.psd"; sourceTree = "<group>"; };
 		FFC2814513BCAC2C00CA3ABB /* visit application icons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "visit application icons.psd"; sourceTree = "<group>"; };
+		FFC521CD13D9CC14007CD043 /* GetProducerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetProducerRequest.h; sourceTree = "<group>"; };
+		FFC521CE13D9CC14007CD043 /* GetProducerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetProducerRequest.m; sourceTree = "<group>"; };
 		FFC9532C13AFCACE000967CB /* ActiveRecordHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveRecordHelpers.h; sourceTree = "<group>"; };
 		FFC9532D13AFCACE000967CB /* ActiveRecordHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveRecordHelpers.m; sourceTree = "<group>"; };
 		FFC9532E13AFCACE000967CB /* ARCoreDataAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCoreDataAction.h; sourceTree = "<group>"; };
@@ -818,6 +822,8 @@
 		FFD9A8AB13CCA1B9009ACD64 /* Rater2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rater2.h; sourceTree = "<group>"; };
 		FFD9A8AC13CCA1B9009ACD64 /* _Rater2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Rater2.m; sourceTree = "<group>"; };
 		FFD9A8AD13CCA1B9009ACD64 /* _Rater2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Rater2.h; sourceTree = "<group>"; };
+		FFDFF26113DA08D600920CBA /* GetCompetitorRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCompetitorRequest.h; sourceTree = "<group>"; };
+		FFDFF26213DA08D600920CBA /* GetCompetitorRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCompetitorRequest.m; sourceTree = "<group>"; };
 		FFF0CFFE13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.h"; sourceTree = "<group>"; };
 		FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.m"; sourceTree = "<group>"; };
 		FFF0D00113BB7ED7008DFA19 /* _Producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Producer.h; sourceTree = "<group>"; };
@@ -1019,8 +1025,6 @@
 		FF0A4C8513D7449E001FEC8B /* lidenbrock */ = {
 			isa = PBXGroup;
 			children = (
-				FF0A4C7713D74495001FEC8B /* JSONKit.h */,
-				FF0A4C7813D74495001FEC8B /* JSONKit.m */,
 				FF0A4C7913D74495001FEC8B /* LBObjectManager.h */,
 				FF0A4C7A13D74495001FEC8B /* LBObjectManager.m */,
 				FF0A4C7B13D74495001FEC8B /* Lidenbrock.h */,
@@ -1379,6 +1383,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FFC521CA13D9C1BD007CD043 /* JSONKit */,
 				FF0A4C8513D7449E001FEC8B /* lidenbrock */,
 				FFA0705013D5EB650021E412 /* SSLocationManager */,
 				FF9ED81B13D4EF6A006105C7 /* AQGridView */,
@@ -1446,6 +1451,7 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				FFC521CC13D9CBC9007CD043 /* HTTPRequests */,
 				FF9ED82713D4F361006105C7 /* AQGridView Custom Cells */,
 				FF56A25113CC87CA00FF159A /* Controllers */,
 				FF71F52813C63112005CE1DA /* TableViewCells */,
@@ -1759,6 +1765,26 @@
 				FFC2814513BCAC2C00CA3ABB /* visit application icons.psd */,
 			);
 			name = "Access Images";
+			sourceTree = "<group>";
+		};
+		FFC521CA13D9C1BD007CD043 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				FF0A4C7713D74495001FEC8B /* JSONKit.h */,
+				FF0A4C7813D74495001FEC8B /* JSONKit.m */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		FFC521CC13D9CBC9007CD043 /* HTTPRequests */ = {
+			isa = PBXGroup;
+			children = (
+				FFC521CD13D9CC14007CD043 /* GetProducerRequest.h */,
+				FFC521CE13D9CC14007CD043 /* GetProducerRequest.m */,
+				FFDFF26113DA08D600920CBA /* GetCompetitorRequest.h */,
+				FFDFF26213DA08D600920CBA /* GetCompetitorRequest.m */,
+			);
+			name = HTTPRequests;
 			sourceTree = "<group>";
 		};
 		FFC9534613AFCCE2000967CB /* ActiveRecord Helpers */ = {
@@ -2323,6 +2349,8 @@
 				FF0A4C8013D74495001FEC8B /* JSONKit.m in Sources */,
 				FF0A4C8113D74495001FEC8B /* LBObjectManager.m in Sources */,
 				FF0A4C8213D74495001FEC8B /* NSManagedObject+Lidenbrock.m in Sources */,
+				FFC521CF13D9CC14007CD043 /* GetProducerRequest.m in Sources */,
+				FFDFF26313DA08D600920CBA /* GetCompetitorRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
