@@ -143,6 +143,11 @@
 		FF77110813B25A2400E90F4B /* carat.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77110613B25A2400E90F4B /* carat.png */; };
 		FF77110913B25A2400E90F4B /* carat-open.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77110713B25A2400E90F4B /* carat-open.png */; };
 		FF77112113B263AA00E90F4B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF77112013B263AA00E90F4B /* QuartzCore.framework */; };
+		FF846CAF13DD9A2500D59F3E /* GetProducerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF846CA513DD9A2500D59F3E /* GetProducerRequest.m */; };
+		FF846CB013DD9A2500D59F3E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FF846CA713DD9A2500D59F3E /* JSONKit.m */; };
+		FF846CB113DD9A2500D59F3E /* LBObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF846CA913DD9A2500D59F3E /* LBObjectManager.m */; };
+		FF846CB213DD9A2500D59F3E /* NSManagedObject+Lidenbrock.m in Sources */ = {isa = PBXBuildFile; fileRef = FF846CAC13DD9A2500D59F3E /* NSManagedObject+Lidenbrock.m */; };
+		FF846CB313DD9A2500D59F3E /* GetCompetitorRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF846CAE13DD9A2500D59F3E /* GetCompetitorRequest.m */; };
 		FF883BED13D4CD92001C3122 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF883BEB13D4CD92001C3122 /* ProfileTableViewController.m */; };
 		FF883BEE13D4CD92001C3122 /* ProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF883BEC13D4CD92001C3122 /* ProfileTableViewController.xib */; };
 		FF8B415513A8EEF700A05007 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8B415413A8EEF700A05007 /* UIKit.framework */; };
@@ -561,6 +566,17 @@
 		FF77110613B25A2400E90F4B /* carat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carat.png; sourceTree = "<group>"; };
 		FF77110713B25A2400E90F4B /* carat-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carat-open.png"; sourceTree = "<group>"; };
 		FF77112013B263AA00E90F4B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FF846CA413DD9A2500D59F3E /* GetProducerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetProducerRequest.h; sourceTree = "<group>"; };
+		FF846CA513DD9A2500D59F3E /* GetProducerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetProducerRequest.m; sourceTree = "<group>"; };
+		FF846CA613DD9A2500D59F3E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		FF846CA713DD9A2500D59F3E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		FF846CA813DD9A2500D59F3E /* LBObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBObjectManager.h; sourceTree = "<group>"; };
+		FF846CA913DD9A2500D59F3E /* LBObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBObjectManager.m; sourceTree = "<group>"; };
+		FF846CAA13DD9A2500D59F3E /* Lidenbrock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lidenbrock.h; sourceTree = "<group>"; };
+		FF846CAB13DD9A2500D59F3E /* NSManagedObject+Lidenbrock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Lidenbrock.h"; sourceTree = "<group>"; };
+		FF846CAC13DD9A2500D59F3E /* NSManagedObject+Lidenbrock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Lidenbrock.m"; sourceTree = "<group>"; };
+		FF846CAD13DD9A2500D59F3E /* GetCompetitorRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCompetitorRequest.h; sourceTree = "<group>"; };
+		FF846CAE13DD9A2500D59F3E /* GetCompetitorRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCompetitorRequest.m; sourceTree = "<group>"; };
 		FF883BEA13D4CD92001C3122 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
 		FF883BEB13D4CD92001C3122 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		FF883BEC13D4CD92001C3122 /* ProfileTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewController.xib; sourceTree = "<group>"; };
@@ -1430,6 +1446,8 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FF846CB613DD9A5F00D59F3E /* JSONKit */,
+				FF846CB713DD9A7000D59F3E /* Lidenbrock */,
 				6D96C92913D8AF0900478DD3 /* iCarousel */,
 				FFA0705013D5EB650021E412 /* SSLocationManager */,
 				FF9ED81B13D4EF6A006105C7 /* AQGridView */,
@@ -1455,6 +1473,38 @@
 				FF77110713B25A2400E90F4B /* carat-open.png */,
 			);
 			name = "Table View Carat";
+			sourceTree = "<group>";
+		};
+		FF846CB613DD9A5F00D59F3E /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				FF846CA613DD9A2500D59F3E /* JSONKit.h */,
+				FF846CA713DD9A2500D59F3E /* JSONKit.m */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		FF846CB713DD9A7000D59F3E /* Lidenbrock */ = {
+			isa = PBXGroup;
+			children = (
+				FF846CA813DD9A2500D59F3E /* LBObjectManager.h */,
+				FF846CA913DD9A2500D59F3E /* LBObjectManager.m */,
+				FF846CAA13DD9A2500D59F3E /* Lidenbrock.h */,
+				FF846CAB13DD9A2500D59F3E /* NSManagedObject+Lidenbrock.h */,
+				FF846CAC13DD9A2500D59F3E /* NSManagedObject+Lidenbrock.m */,
+			);
+			name = Lidenbrock;
+			sourceTree = "<group>";
+		};
+		FF846CB813DD9A8A00D59F3E /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				FF846CA413DD9A2500D59F3E /* GetProducerRequest.h */,
+				FF846CA513DD9A2500D59F3E /* GetProducerRequest.m */,
+				FF846CAD13DD9A2500D59F3E /* GetCompetitorRequest.h */,
+				FF846CAE13DD9A2500D59F3E /* GetCompetitorRequest.m */,
+			);
+			name = Requests;
 			sourceTree = "<group>";
 		};
 		FF8B414513A8EEF700A05007 = {
@@ -1497,6 +1547,7 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				FF846CB813DD9A8A00D59F3E /* Requests */,
 				FF9ED82713D4F361006105C7 /* AQGridView Custom Cells */,
 				FF56A25113CC87CA00FF159A /* Controllers */,
 				FF71F52813C63112005CE1DA /* TableViewCells */,
@@ -2403,6 +2454,11 @@
 				6D96C92813D8AB6700478DD3 /* FlashCardFlipView.m in Sources */,
 				6D96C92C13D8AF0900478DD3 /* iCarousel.m in Sources */,
 				6DE4337213DA012600BF551E /* RoundedRectView.m in Sources */,
+				FF846CAF13DD9A2500D59F3E /* GetProducerRequest.m in Sources */,
+				FF846CB013DD9A2500D59F3E /* JSONKit.m in Sources */,
+				FF846CB113DD9A2500D59F3E /* LBObjectManager.m in Sources */,
+				FF846CB213DD9A2500D59F3E /* NSManagedObject+Lidenbrock.m in Sources */,
+				FF846CB313DD9A2500D59F3E /* GetCompetitorRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
