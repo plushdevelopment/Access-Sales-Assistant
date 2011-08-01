@@ -78,7 +78,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+   // return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+    return YES;
 }
 
 // Customize the number of sections in the table view.

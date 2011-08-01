@@ -237,7 +237,9 @@
     
     int fObjCount = [featureObjArray count];
     
-     int scrollwidth = 686;
+    int scrollwidth =600;// [_fnbScrollview bounds].size.width;//686;
+    
+    
     
     [_fnbScrollview setBackgroundColor:[UIColor whiteColor]];
 	[_fnbScrollview setCanCancelContentTouches:NO];

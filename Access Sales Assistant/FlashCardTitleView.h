@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "RoundedRectView.h"
-@interface FlashCardTitleView : RoundedRectView
+@interface FlashCardTitleView : UIView//RoundedRectView
 
 {
     UILabel* flashCardTitle;

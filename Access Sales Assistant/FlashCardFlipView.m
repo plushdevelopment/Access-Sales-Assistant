@@ -13,7 +13,7 @@
 @implementation FlashCardFlipView
 
 #define CALLS_TITLES @"Prospect",@"ZeroProducer",@"Producer",nil
-#define FLASH_TITLES @"Overview",@"SalesPitch",@"Visit_Questions",@"Close",nil
+#define FLASH_TITLES@"Objective",@"Overview",@"SalesPitch",@"Visit_Questions",@"Close",nil
 
 - (id)initWithFrame:(CGRect)frame
 {

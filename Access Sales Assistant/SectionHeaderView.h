@@ -66,6 +66,7 @@
 @property (nonatomic, retain) UIButton *disclosureButton;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, assign) id <SectionHeaderViewDelegate> delegate;
+@property (nonatomic,retain) UIImageView* backgroundImage;
 
 -(id)initWithFrame:(CGRect)frame title:(NSString*)title section:(NSInteger)sectionNumber displayDisclosure:(BOOL)isDisclosure  delegate:(id <SectionHeaderViewDelegate>)aDelegate;
 -(void)toggleOpenWithUserAction:(BOOL)userAction;

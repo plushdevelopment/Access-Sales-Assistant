@@ -24,6 +24,7 @@
 @property(nonatomic,strong) IBOutlet UIView* fourthview;
 @property(nonatomic,strong) IBOutlet UIView* fifthview;
 @property(nonatomic,strong) IBOutlet UIView* flipview;
+@property(nonatomic,strong) IBOutlet UILabel* titleLabel;
 @property(nonatomic,strong) IBOutlet UIView* containerview;
 @property(nonatomic,strong) IBOutlet UIToolbar *toolBar;
 

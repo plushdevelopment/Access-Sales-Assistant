@@ -23,6 +23,7 @@
 @synthesize carousel;
 @synthesize toolBar;
 @synthesize selectedFlashCard;
+@synthesize titleLabel;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -69,14 +70,52 @@
     // Return YES for supported orientations
 	return YES;
 }
+-(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+  //  carousel.frame = self.view.frame;
+    [self loadFlashCards:selectedFlashCard];
+    [carousel reloadData];
+    carousel.clipsToBounds = YES;
+}
 
 -(void) loadFlashCards:(int) index
 {
+    if(index == 0)
+    {
+        titleLabel.text = @"Prospect";
+    }
+    else if(index == 1)
+    {
+        titleLabel.text = @"Zero Producer";
+    }
+    else if(index == 2)
+    {
+        titleLabel.text = @"Producer";
+    }
+    
       [containerArray removeAllObjects];
     
-    for(int i=0;i<4;i++)
+  
+    
+    for(int i=0;i<5;i++)
     {
-        CustomContainerView* containerView = [[CustomContainerView alloc] initWithFrame:CGRectMake(0,0,350,600):selectedFlashCard:i];
+        CGSize containerSize;
+        
+        UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+        
+        UIInterfaceOrientation or = self.interfaceOrientation;
+        
+        if(orientation == 0)
+            orientation = or;
+        
+        if(UIDeviceOrientationIsPortrait(orientation))
+            containerSize = CGSizeMake(350, 500);
+        else
+            containerSize = CGSizeMake(500, 350);
+            
+          
+        
+        CustomContainerView* containerView = [[CustomContainerView alloc] initWithFrame:CGRectMake(0,0,containerSize.width,containerSize.height):selectedFlashCard:i];
         
         [containerArray addObject:containerView];
         
@@ -125,8 +164,19 @@
 - (float)carouselItemWidth:(iCarousel *)carousel
 {
     //slightly wider than item view
-    return 400;
-}
+      
+    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+    UIInterfaceOrientation or = self.interfaceOrientation;
+    
+    if(orientation==0)
+        orientation = or;
+   
+        if(UIDeviceOrientationIsPortrait(orientation))
+            return 400;
+        else
+            return 550;
+  }
 
 - (CATransform3D)carousel:(iCarousel *)_carousel transformForItemView:(UIView *)view withOffset:(float)offset
 {

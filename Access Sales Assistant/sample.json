@@ -1,0 +1,36 @@
+{
+	"note":			"This is just a sample json file. Its data is completely silly.",
+    "videos":[
+   {
+        
+        {
+            "title":"video1"
+            "url":"url1"
+        },
+        
+        {
+            "title":"video2"
+            "url":"url2"
+        },
+        
+        {
+            "title":"video3"
+            "url":"url3"
+        },
+       
+        {
+            "title":"video4"
+            "url":"url4"
+        },
+       
+        {
+            "title":"video5"
+            "url":"url5"
+        },
+        
+        {
+            "title":"video5"
+            "url":"url5"
+        }
+    }
+}

@@ -46,9 +46,9 @@
     {
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:1];
-    //    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self cache:YES];
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self cache:YES];
         
-        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self cache:YES];
+      //  [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self cache:YES];
         
         [mainView removeFromSuperview];
         [self addSubview:flipView];
@@ -60,8 +60,8 @@
     {
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:1];
-       // [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:YES];
-        [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self cache:YES];
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:YES];
+      //  [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self cache:YES];
         
         [flipView removeFromSuperview];
         [self addSubview:mainView];

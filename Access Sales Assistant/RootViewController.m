@@ -38,9 +38,13 @@
 
 #import "FlashCardsViewController.h"
 
-#define SECTION_HEADER_HEIGHT       50
+#import "TrainingVideoViewController.h"
+
+#import "ProspectApplicationViewController.h"
+
+#define SECTION_HEADER_HEIGHT       56
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
-#define CONTACT_OPTIONS             @"EMAIL SSC",@"EMAIL CUSTOMER SERVICE",@"EMAIL NSF",@"EMAIL PRODUCT",@"EMAIL QA FORM",@"EMAIL FACILITIES",@"QA RESOLUTION TIMETABLE",@"EMAIL HELP DESK",nil
+#define CONTACT_OPTIONS             @"Email SSC",@"Email Customer Service",@"Email NSF",@"Email Product",@"Email QA Form",@"Email Facilities",@"QA Resolution Timetable",@"Email help desk",nil
 #define SECTION_TITLES              @"Visit Application",@"Appointment Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",nil
 #define SECTION_ROW_COUNT           5,0,0,0,0,5,0,nil
 #define VISIT_APP_INDEX             0
@@ -53,6 +57,8 @@
 #define FLASH_CARD_PROSPECT         1
 #define FLASH_CARD_ZERO_PRODUCER    2
 #define FLASH_CARD_PRODUCER         3
+#define TRAINING_VIDEO              1
+#define TRAINING_VIDEO_EXPANDED     4
 
 
 #define RGB(r, g, b)                [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
@@ -97,14 +103,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    
 	
 	// Add a pinch gesture recognizer to the table view.
 	UIPinchGestureRecognizer* pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
 	[self.tableView addGestureRecognizer:pinchRecognizer];
-	
     
+       
     // Set up default values.
     self.tableView.sectionHeaderHeight = SECTION_HEADER_HEIGHT;
+    
+
+    
+    self.tableView.backgroundColor = [UIColor blackColor];
     
     sectionTitlesArray = [[NSArray alloc] initWithObjects:SECTION_TITLES];
     _openSectionIndex = NSNotFound;
@@ -130,15 +142,15 @@
     ///access academy tree structure
 	
 	treeNode = [[MyTreeNode alloc] initWithValue:@"Root"];
-    MyTreeNode* fCardNode = [[MyTreeNode alloc] initWithValue:@"FLASH CARDS"];
+    MyTreeNode* fCardNode = [[MyTreeNode alloc] initWithValue:@"Flash Cards"];
     [treeNode addChild:fCardNode];
-    MyTreeNode* tVideosNode = [[MyTreeNode alloc] initWithValue:@"TRAINING VIDEOS"];
+    MyTreeNode* tVideosNode = [[MyTreeNode alloc] initWithValue:@"Training Videos"];
     [treeNode addChild:tVideosNode];
-    MyTreeNode* fCardProspectNode = [[MyTreeNode alloc] initWithValue:@"PROSPECT"];
+    MyTreeNode* fCardProspectNode = [[MyTreeNode alloc] initWithValue:@"Prospect"];
     [fCardNode addChild:fCardProspectNode];
-    MyTreeNode* fCardZeroProducerNode = [[MyTreeNode alloc] initWithValue:@"ZERO PRODUCER"];
+    MyTreeNode* fCardZeroProducerNode = [[MyTreeNode alloc] initWithValue:@"Zero Producer"];
     [fCardNode addChild:fCardZeroProducerNode];
-    MyTreeNode* fCardProducerNode = [[MyTreeNode alloc] initWithValue:@"PRODUCER"];
+    MyTreeNode* fCardProducerNode = [[MyTreeNode alloc] initWithValue:@"Producer"];
     [fCardNode addChild:fCardProducerNode];
   //  MyTreeNode* tVideosExternalNode = [[MyTreeNode alloc] initWithValue:@"EXTERNAL VIDEOS"];
    // [tVideosNode addChild:tVideosExternalNode];
@@ -187,7 +199,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+	//return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+    return YES;
 }
 
 - (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc {
@@ -319,7 +332,15 @@
 			self.detailViewController = detailViewController;
             detailViewController.pc = self.popoverController;
             
-            [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+            UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+            
+            if(orientation == 0)
+                orientation = self.interfaceOrientation;
+            CGSize size = self.view.frame.size;
+            if(UIDeviceOrientationIsPortrait(orientation))
+            {
+                [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+            }
             
 			AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
 			[self.navigationController pushViewController:viewController animated:YES];
@@ -360,11 +381,19 @@
         case ACCESS_ACADEMY_INDEX:
         {
             MyTreeNode *node = [[treeNode flattenElements] objectAtIndex:indexPath.row + 1];
+            
+            int levelDepth = [node levelDepth];
+            
+        
             if (!node.hasChildren) 
             {
+                 NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+                int index = indexPath.row;
+                if(indexPath.row >= FLASH_CARD_PROSPECT && indexPath.row <= FLASH_CARD_PRODUCER && levelDepth == 2)
+                {
                 
                 FlashCardsViewController* detailViewController = [[FlashCardsViewController alloc] initWithNibName:@"FlashCardsViewController" bundle:nil];
-                NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+               
              
                 switch(indexPath.row)
                 {
@@ -377,12 +406,32 @@
                     case FLASH_CARD_PRODUCER:
                         detailViewController.selectedFlashCard = 2;
                         break;
+                    
+                        
                 }
                 self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                 self.detailViewController = detailViewController;
+                }
+                else if((indexPath.row == TRAINING_VIDEO || indexPath.row == TRAINING_VIDEO_EXPANDED) && levelDepth == 1)
+                {
+                    TrainingVideoViewController* detailViewController  = [[TrainingVideoViewController alloc] initWithNibName:@"TrainingVideoViewController" bundle:nil];
+                    
+                    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+                    self.detailViewController = detailViewController;
+                    
+                }
                 [self.popoverController dismissPopoverAnimated:YES];
-                if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
+                UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+                if(orientation == 0)
+                    orientation = self.interfaceOrientation;
+                
+                if(UIDeviceOrientationIsPortrait(orientation))
+                {
+                    //if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
                     [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+                //    if(closePopOver)
+                  //      [self.popoverController dismissPopoverAnimated:YES];
+                    //}
                 }
             }
             else
@@ -417,7 +466,7 @@
         BOOL isDisclosure = FALSE;
         if(section == VISIT_APP_INDEX || section == CONTACTS_OPTIONS_INDEX || section == ACCESS_ACADEMY_INDEX)
             isDisclosure = TRUE;
-        sectionInfo.headerView = [[SectionHeaderView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.tableView.bounds.size.width, SECTION_HEADER_HEIGHT) title:playName section:section displayDisclosure:isDisclosure delegate:self];
+        sectionInfo.headerView = [[SectionHeaderView alloc] initWithFrame:CGRectMake(4.0, 4.0, 315, SECTION_HEADER_HEIGHT+4) title:playName section:section displayDisclosure:isDisclosure delegate:self];
     }
     
     return sectionInfo.headerView;
@@ -548,14 +597,14 @@
             break;
         case PROSPECT_APP_INDEX:
         {
-            SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+            ProspectApplicationViewController* detailViewController = [[ProspectApplicationViewController alloc] initWithNibName:@"ProspectApplicationViewController" bundle:nil];
             NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
             self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-             detailViewController.titleLabel.text = @"PROSPECT APPLICATION";
+             
 			
             self.detailViewController = detailViewController;
 
-                        closePopOver = TRUE;
+            closePopOver = TRUE;
         }
             break;
         case CONTACTS_OPTIONS_INDEX:
@@ -606,11 +655,22 @@
         default:
             break;
     }
-	if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
+    
+    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+    if(orientation == 0)
+        orientation = self.interfaceOrientation;
+    
+    if(UIDeviceOrientationIsPortrait(orientation))
+    {
+	//if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
 		[self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-	}
+        	//}
+    }
     if(closePopOver)
         [self.popoverController dismissPopoverAnimated:YES];
+
+    
 }
 
 - (void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)sectionClosed {

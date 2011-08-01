@@ -45,7 +45,7 @@
 		self.valueLabel = 
 			[self newLabelWithPrimaryColor:[UIColor blackColor] 
 							 selectedColor:[UIColor whiteColor] 
-								  fontSize:20.0 bold:YES];
+								  fontSize:17.0 bold:YES];
 		self.valueLabel.textAlignment = UITextAlignmentLeft;
 		[content addSubview:self.valueLabel];
 		
@@ -89,6 +89,7 @@
 						   SCREEN_WIDTH - (self.level * LEVEL_INDENT), 
 						   CELL_HEIGHT);
 		self.valueLabel.frame = frame;
+        self.valueLabel.backgroundColor = [UIColor clearColor];
 		
 		CGRect imgFrame;
 		imgFrame = CGRectMake(((boundsX + self.level + 1) * LEVEL_INDENT) - (IMG_HEIGHT_WIDTH + XOFFSET), 

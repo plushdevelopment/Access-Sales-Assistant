@@ -60,6 +60,7 @@
 
 @synthesize lightColor = _lightColor;
 @synthesize darkColor = _darkColor;
+@synthesize backgroundImage;
 
 + (Class)layerClass {
     
@@ -84,30 +85,18 @@
         
         // Create and configure the title label.
         section = sectionNumber;
-        /*
-        CGRect titleLabelFrame = self.bounds;
-        titleLabelFrame.origin.x += 35.0;
-        titleLabelFrame.size.width -= 35.0;
-        CGRectInset(titleLabelFrame, 0.0, 5.0);
-        titleLabel = [[UILabel alloc] initWithFrame:titleLabelFrame];
-        titleLabel.text = title;
-        titleLabel.font = [UIFont boldSystemFontOfSize:17.0];
         
-          titleLabel.textColor = RGB(230,230,230);
-        titleLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:titleLabel];
-        */
+     //   CGRect backgroundRect = CGRectMake(frame.origin.x+4, frame.origin.y, frame.size.width-8, frame.size.height);
+       backgroundImage = [[UIImageView alloc] initWithFrame:frame];
+        UIImage* image = [UIImage imageNamed:@"MenuButton.png"];
         
+        backgroundImage.image =image;
+        [self addSubview:backgroundImage];
+               
         self.backgroundColor = [UIColor clearColor];
         self.opaque = NO;
         
-      /*  CGRect titleLabelFrame = self.bounds;
-        titleLabelFrame.origin.x += 35.0;
-        titleLabelFrame.size.width -= 35.0;
-        CGRectInset(titleLabelFrame, 0.0, 5.0);
-        _titleLabel = [[UILabel alloc] initWithFrame:titleLabelFrame];
-       */
-        
+             
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textAlignment = UITextAlignmentCenter;
         _titleLabel.text = title;
@@ -127,12 +116,12 @@
         
         // Create and configure the disclosure button.
         disclosureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        disclosureButton.frame = CGRectMake(0.0, 5.0, 35.0, 35.0);
+        disclosureButton.frame = CGRectMake(0.0, 15.0, 35.0, 35.0);
 
         if(isDisclosure)
         {
-                  [disclosureButton setImage:[UIImage imageNamed:@"carat.png"] forState:UIControlStateNormal];
-        [disclosureButton setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
+        [disclosureButton setImage:[UIImage imageNamed:@"CircleArrowRight_sml.png"] forState:UIControlStateNormal];
+        [disclosureButton setImage:[UIImage imageNamed:@"CircleArrowDown_sml.png"] forState:UIControlStateSelected];
           
 
         }
@@ -166,17 +155,18 @@
                
                 [delegate sectionHeaderView:self sectionOpened:section];
                 
-                self.lightColor = RGB(154,255,154);
+      /*          self.lightColor = RGB(154,255,154);
                 
                 self.darkColor = RGB(73,103,22);
                 [self setNeedsDisplay];
+       */
                 //self.backgroundColor = RGB(73,103,22);
                 
                 //_titleLabel.textColor = RGB(255,255,255);
                 
-               
+                UIImage* image = [UIImage imageNamed:@"MenuButton_green.png"];
                 
-
+                backgroundImage.image =image;
                 
             }
         }
@@ -185,19 +175,30 @@
                 [delegate sectionHeaderView:self sectionClosed:section];
                 //self.backgroundColor = RGB(0,111,162);
                 //_titleLabel.textColor = RGB(230,230,230);
-                self.lightColor =RGB(105,179,216);//[UIColor colorWithRed:105.0f/255.0f green:179.0f/255.0f blue:216.0f/255.0f alpha:1.0];;
+   
+                /*self.lightColor =RGB(105,179,216);//[UIColor colorWithRed:105.0f/255.0f green:179.0f/255.0f blue:216.0f/255.0f alpha:1.0];;
                 self.darkColor = RGB(0,111,162);
                                 [self setNeedsDisplay];
+                 */
                 
+                UIImage* image = [UIImage imageNamed:@"MenuButton.png"];
+                
+                backgroundImage.image =image;
+
             }
         }
        
     }
     else
     {
-        self.lightColor =RGB(105,179,216);
+      /*  self.lightColor =RGB(105,179,216);
         self.darkColor =  RGB(0,111,162);
         [self setNeedsDisplay];
+       */
+        
+        UIImage* image = [UIImage imageNamed:@"MenuButton.png"];
+        
+        backgroundImage.image =image;
          //self.backgroundColor = RGB(0,111,162);
        // _titleLabel.textColor = RGB(230,230,230);
     }
@@ -222,22 +223,9 @@
     _titleLabel.frame = _coloredBoxRect;
         
 }
-
+/*
 - (void)drawRect:(CGRect)rect {
-    
-    /*
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGColorRef redColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0].CGColor;
-    CGColorRef greenColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0].CGColor;
-        
-    CGContextSetFillColorWithColor(context, redColor);
-    CGContextFillRect(context, _coloredBoxRect);
-    
-    CGContextSetFillColorWithColor(context, greenColor);
-    CGContextFillRect(context, _paperRect);
-    */
-        
+          
     CGContextRef context = UIGraphicsGetCurrentContext();    
 
     CGColorRef whiteColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0].CGColor;
@@ -264,6 +252,6 @@
     CGContextSetLineWidth(context, 1.0);    
     CGContextStrokeRect(context, rectFor1PxStroke(_coloredBoxRect));    
     
-}
+}*/
 
 @end

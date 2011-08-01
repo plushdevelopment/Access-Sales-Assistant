@@ -175,7 +175,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Login Successful" object:request];
 	
-	[self requestPickLists];
+    //TODO: Commented for temporary purpose. Need to uncomment below line.
+	//[self requestPickLists];
 }
 
 - (void)loginRequestFailed:(ASIHTTPRequest *)request
@@ -344,7 +345,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 - (void)requestProducersFailed:(ASIHTTPRequest *)request
 {
 	NSError *error = [request error];
-	NSLog(@"Request Error: %@", [error localizedDescription]);
+	NSLog(@"Request Producer Error: %@", [error localizedDescription]);
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Failure" object:request];
 }
@@ -566,6 +567,97 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Get Image Failure" object:request];
+}
+#pragma mark - Training Videos
+-(void)getTrainingVideos
+{
+	if ([[self networkQueue] isSuspended]) {
+		[[self networkQueue] go];
+	}
+	
+	
+	NSString *urlString = [NSString 
+						   stringWithFormat:@"http://gdata.youtube.com/feeds/users/eswarilluri/uploads?alt=json-in-script&format=5"];
+	NSLog(@"%@", urlString);
+	NSURL *url = [NSURL URLWithString:urlString];
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+	[request setRequestMethod:@"GET"];
+	[request addRequestHeader:@"Content-Type" value:@"application/json"];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(getTrainingVideosFinished:)];
+	[request setDidFailSelector:@selector(getTrainingVideosFailed:)];
+	[[self networkQueue] addOperation:request];
+}
+-(void)getTrainingVideosFinished:(ASIHTTPRequest *)request
+{
+    NSString* responseString = [request responseString];
+    
+    NSLog(responseString);
+}
+
+-(void)getTrainingVideosFailed:(ASIHTTPRequest *)request
+{
+    NSLog(@"Video Request Failed");
+}
+
+#pragma mark - Search Producer
+
+-(void)searchProducer:(NSString *)searchString
+{
+    
+	if ([[self networkQueue] isSuspended]) {
+		[[self networkQueue] go];
+	}
+	
+	User *user = [User findFirst];
+	NSString *urlString = [NSString 
+						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@",searchString,[user token]];
+	NSLog(@"%@", urlString);
+	NSURL *url = [NSURL URLWithString:urlString];
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+	[request setRequestMethod:@"GET"];
+	[request addRequestHeader:@"Content-Type" value:@"application/json"];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(searchProducerFinished:)];
+	[request setDidFailSelector:@selector(searchProducerFailed:)];
+	[[self networkQueue] addOperation:request];
+
+}
+
+-(void)searchProducerFinished:(ASIHTTPRequest *)request
+{
+    NSManagedObjectContext *context = [NSManagedObjectContext context];
+    NSString* responseString = [request responseString];
+    NSDictionary *responseJSON = [responseString JSONValue];
+    NSLog(@"Response is:%@",responseJSON);
+	NSArray *results = [responseJSON objectForKey:@"results"];
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+        NSMutableArray* producernameArray = [[NSMutableArray alloc] init];
+	for (NSDictionary *dict in results) {
+        NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
+		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:context];
+		if (!producer.editedValue) {
+            
+			[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter managedObjectContext:context];
+		}
+        
+        [newDict setValue:producer.uid forKey:@"uid"];
+        [newDict setValue:producer.name forKey:@"name"];
+        [producernameArray addObject:newDict];
+    //    NSLog(producer.name);
+    }
+
+
+
+   [context save];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"searchProducer" object:producernameArray];
+      //  NSLog(responseString);
+}
+-(void)searchProducerFailed:(ASIHTTPRequest *)request
+{
+ NSLog(@"Search Failed");
 }
 
 @end

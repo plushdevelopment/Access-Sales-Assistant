@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>24 Hours</key>
+	<dict>
+		<key>Description</key>
+		<array>
+			<string>Vehicle or SR-22 filing information not submitted to DMV.</string>
+			<string>Producer inquiry to confirm if risk is acceptable prior to or after processing an edorsement.</string>
+			<string>Documentation needed to identify detailed policy information for the DMV or pending court date.</string>
+			<string>Questions regarding the company guidlines or UW processes.</string>
+			<string>Producer is suspended due to NSF payment received. Notification will be faxed and emailed advising of status prior to suspension.</string>
+		</array>
+		<key>QA Escalation</key>
+		<array>
+			<string>DMV Reporting/SR-22 Filings</string>
+			<string>Unacceptable Risk</string>
+			<string>LOE Request</string>
+			<string>General UW Questions</string>
+			<string>Producer NSF</string>
+		</array>
+	</dict>
+	<key>48 Hours</key>
+	<dict>
+		<key>Description</key>
+		<array>
+			<string>Producer forwards a request to terminate new business application on the same day.</string>
+			<string>Producer forwards an insured&apos;s request to terminate a policy mid term.</string>
+			<string>Payment was applied to a policy in error by the producer.</string>
+			<string>A producer&apos;s request is received to change policy information. No additional payment is needed to complete endorsement.</string>
+			<string>An online endorsement was processed and the producer forwards a request to void. This should be received by UW on the same day as processed.</string>
+			<string>Inquiring about the difference in policy premium for a new business or renewal term.</string>
+			<string>Credit or payment request received to be returned to producer or finance company.</string>
+		</array>
+		<key>QA Escalation</key>
+		<array>
+			<string>Void Requests</string>
+			<string>Insured Cancellation Requests</string>
+			<string>Misapplied Payment Corrections</string>
+			<string>Endorsement Requests</string>
+			<string>Void Endorsement Requests</string>
+			<string>Premium Difference</string>
+			<string>Manual Check Requests</string>
+		</array>
+	</dict>
+	<key>72 Hours</key>
+	<dict>
+		<key>Description</key>
+		<array/>
+		<key>QA Escalation</key>
+		<array/>
+	</dict>
+	<key>3-5 Business Days</key>
+	<dict>
+		<key>Description</key>
+		<array/>
+		<key>QA Escalation</key>
+		<array/>
+	</dict>
+	<key>10 Days</key>
+	<dict>
+		<key>Description</key>
+		<array/>
+		<key>QA Escalation</key>
+		<array/>
+	</dict>
+</dict>
+</plist>

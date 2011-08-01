@@ -55,4 +55,12 @@
 - (void)getImageFinished:(ASIHTTPRequest *)request;
 - (void)getImageFailed:(ASIHTTPRequest *)request;
 
+- (void)getTrainingVideos;
+- (void)getTrainingVideosFinished:(ASIHTTPRequest*)request;
+- (void)getTrainingVideosFailed:(ASIHTTPRequest*)request;
+
+-(void)searchProducer:(NSString*)searchString;
+-(void)searchProducerFinished:(ASIHTTPRequest*)request;
+-(void)searchProducerFailed:(ASIHTTPRequest*)request;
+
 @end
