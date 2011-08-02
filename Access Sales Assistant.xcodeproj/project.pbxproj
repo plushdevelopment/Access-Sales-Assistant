@@ -46,8 +46,6 @@
 		6D96C92513D8AB4500478DD3 /* FlashCardTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D96C92413D8AB4500478DD3 /* FlashCardTitleView.m */; };
 		6D96C92813D8AB6700478DD3 /* FlashCardFlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D96C92713D8AB6600478DD3 /* FlashCardFlipView.m */; };
 		6D96C92C13D8AF0900478DD3 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D96C92B13D8AF0900478DD3 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6DDB6B7E13E71010009AA880 /* QATimeTableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB6B7D13E7100F009AA880 /* QATimeTableObject.m */; };
-		6DDB6B8313E73572009AA880 /* search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DDB6B8213E73572009AA880 /* search.jpg */; };
 		6DE4337213DA012600BF551E /* RoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4337113DA012600BF551E /* RoundedRectView.m */; };
 		FF0A17DC13BC940D00ECF9F6 /* NSManagedObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */; };
 		FF0A17F713BC944E00ECF9F6 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E013BC944E00ECF9F6 /* CDataScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -458,9 +456,6 @@
 		6D96C92713D8AB6600478DD3 /* FlashCardFlipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCardFlipView.m; sourceTree = "<group>"; };
 		6D96C92A13D8AF0900478DD3 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		6D96C92B13D8AF0900478DD3 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
-		6DDB6B7C13E7100F009AA880 /* QATimeTableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QATimeTableObject.h; sourceTree = "<group>"; };
-		6DDB6B7D13E7100F009AA880 /* QATimeTableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QATimeTableObject.m; sourceTree = "<group>"; };
-		6DDB6B8213E73572009AA880 /* search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = search.jpg; sourceTree = "<group>"; };
 		6DE4337013DA012600BF551E /* RoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectView.h; sourceTree = "<group>"; };
 		6DE4337113DA012600BF551E /* RoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedRectView.m; sourceTree = "<group>"; };
 		FF0A17DA13BC940D00ECF9F6 /* NSManagedObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JSON.h"; sourceTree = "<group>"; };
@@ -1094,7 +1089,6 @@
 		6D966D5513DF0E0000DAF04B /* Prospect Application */ = {
 			isa = PBXGroup;
 			children = (
-				6DDB6B8213E73572009AA880 /* search.jpg */,
 				6D966D5013DDFC6400DAF04B /* ProspectApplicationViewController.h */,
 				6D966D5113DDFC6500DAF04B /* ProspectApplicationViewController.m */,
 				6D966D5213DDFC6600DAF04B /* ProspectApplicationViewController.xib */,
@@ -1818,8 +1812,6 @@
 				6D7E43BB13E31D44002832C6 /* ContactsQATimeTableViewController.h */,
 				6D7E43BC13E31D44002832C6 /* ContactsQATimeTableViewController.m */,
 				6D7E43BD13E31D44002832C6 /* ContactsQATimeTableViewController.xib */,
-				6DDB6B7C13E7100F009AA880 /* QATimeTableObject.h */,
-				6DDB6B7D13E7100F009AA880 /* QATimeTableObject.m */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -2360,7 +2352,6 @@
 				6D7CC7AF13E1F10F00B0FE43 /* ProducerListTableViewController.xib in Resources */,
 				6D7E43B913E3168F002832C6 /* QATimeTable.plist in Resources */,
 				6D7E43BF13E31D44002832C6 /* ContactsQATimeTableViewController.xib in Resources */,
-				6DDB6B8313E73572009AA880 /* search.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2578,12 +2569,8 @@
 				6D966D5313DDFC6800DAF04B /* ProspectApplicationViewController.m in Sources */,
 				6D7CC7AE13E1F10F00B0FE43 /* ProducerListTableViewController.m in Sources */,
 				6D7E43BE13E31D44002832C6 /* ContactsQATimeTableViewController.m in Sources */,
-<<<<<<< HEAD
-				6DDB6B7E13E71010009AA880 /* QATimeTableObject.m in Sources */,
-=======
 				FFBE682613E844F900013066 /* SmartTableView.m in Sources */,
 				FFBE682913E845A000013066 /* SmartScrollView.m in Sources */,
->>>>>>> 972aef9e4d896899cdc89a70afd513a8b214b9dc
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
