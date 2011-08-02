@@ -163,6 +163,8 @@
     
     featureObjArray = [NSMutableArray array];
     NSArray* fnbFeaturesArray = [[NSArray alloc] initWithObjects:FNBFEATURES];
+    
+    //Fetching features & benefits from .plist file
 
     for(int fKey = 0; fKey<[plistData count];fKey++)
     {
@@ -252,6 +254,8 @@
     int xPos = [_fnbScrollview bounds].origin.x;
     int orgYPos = [_fnbScrollview bounds].origin.y;
     
+    
+    //Displaying Features & benefits on screen
     for(int fLabel =0; fLabel<[featureObjArray count];fLabel++)
     {
         Features *tFeaturesObj = [featureObjArray objectAtIndex:fLabel];
@@ -269,17 +273,17 @@
             featureLabel.textColor = [UIColor orangeColor];
              featureLabel.textAlignment=UITextAlignmentLeft;
             
-            //featureLabel.font = [UIFont boldSystemFontOfSize:20];
+           
              featureLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
             
             [_fnbScrollview addSubview:featureLabel];
-           //  NSLog(tFeaturesObj.strFeature);
         }
         else
         {
             featureLabel.text = tFeaturesObj.strFeature;
             
             featureLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:16.0];
+            featureLabel.textColor = [UIColor grayColor];
             benefitLabel.text = tFeaturesObj.strBenefit;
             benefitLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:16.0];
             benefitLabel.textColor = RGB(0,111,162);

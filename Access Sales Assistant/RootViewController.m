@@ -42,6 +42,8 @@
 
 #import "ProspectApplicationViewController.h"
 
+#import "ContactsQATimeTableViewController.h"
+
 #define SECTION_HEADER_HEIGHT       56
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
 #define CONTACT_OPTIONS             @"Email SSC",@"Email Customer Service",@"Email NSF",@"Email Product",@"Email QA Form",@"Email Facilities",@"QA Resolution Timetable",@"Email help desk",nil
@@ -59,6 +61,7 @@
 #define FLASH_CARD_PRODUCER         3
 #define TRAINING_VIDEO              1
 #define TRAINING_VIDEO_EXPANDED     4
+#define CONTACT_QA_TABLE            6
 
 
 #define RGB(r, g, b)                [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
@@ -334,7 +337,7 @@
             
             UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
             
-            if(orientation == 0)
+         //   if(orientation == 0)
                 orientation = self.interfaceOrientation;
             CGSize size = self.view.frame.size;
             if(UIDeviceOrientationIsPortrait(orientation))
@@ -358,6 +361,18 @@
                 
                 self.detailViewController = detailViewController;
                 [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+                [self.popoverController dismissPopoverAnimated:YES];
+            }
+            else if(indexPath.row == CONTACT_QA_TABLE)
+            {
+                ContactsQATimeTableViewController* detailViewController = [[ContactsQATimeTableViewController alloc] initWithNibName:@"ContactsQATimeTableViewController" bundle:nil];
+                NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+                self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+                
+                self.detailViewController = detailViewController;
+                [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+                [self.popoverController dismissPopoverAnimated:YES];
+                
             }
             else
             {
@@ -372,7 +387,7 @@
                 
 				//    ContactsViewController* contactDetailView = (ContactsViewController*) self.detailViewController;
 				detailViewController.selectedContactOption = indexPath.row;
-                
+                [self.popoverController dismissPopoverAnimated:YES];
 				[detailViewController launchMailComposer];
             }
         }
@@ -447,11 +462,7 @@
         default:
             break;
     }
-	/*	
-	 AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
-	 [self.navigationController pushViewController:viewController animated:YES];
-	 viewController.detailViewController = self.detailViewController;
-	 */
+	
     
 	
 }
@@ -658,7 +669,7 @@
     
     UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
     
-    if(orientation == 0)
+ //   if(orientation == 0)
         orientation = self.interfaceOrientation;
     
     if(UIDeviceOrientationIsPortrait(orientation))

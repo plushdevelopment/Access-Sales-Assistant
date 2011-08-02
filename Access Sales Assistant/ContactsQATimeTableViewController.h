@@ -8,6 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContactsQATimeTableViewController : UIViewController
+#import "BaseDetailViewController.h"
+#import "StateSelectionTableViewController.h"
+#import "SSLocationManager.h"
+#import "YahooPlaceData.h"
+#import "YahooPlaceFinder.h"
+@interface ContactsQATimeTableViewController : BaseDetailViewController<stateChangedDelegate,SSLocationManagerDelegate>
+{
+    UIPopoverController* popOverController;
+}
+
+@property(nonatomic,strong) IBOutlet UIToolbar* toolBar;
+@property(nonatomic,strong) IBOutlet UIButton* stateChangeButton;
+@property(nonatomic,strong) IBOutlet UIScrollView* scrollView;
+@property (nonatomic,strong)StateSelectionTableViewController* stateViewController;
+@property (nonatomic,strong) NSString* currentStateName;
+@property (nonatomic,strong) NSString* currentStateCode;
+-(IBAction)stateChanged:(id)sender;
+-(void) selectedState:(NSString*) stateName:(NSString *)stateCode;
 
 @end

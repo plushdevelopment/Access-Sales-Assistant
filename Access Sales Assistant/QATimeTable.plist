@@ -47,23 +47,35 @@
 	<key>72 Hours</key>
 	<dict>
 		<key>Description</key>
-		<array/>
+		<array>
+			<string>Additional payment request received to be returned to producer or finance company.</string>
+		</array>
 		<key>QA Escalation</key>
-		<array/>
+		<array>
+			<string>Premium Generating</string>
+		</array>
 	</dict>
 	<key>3-5 Business Days</key>
 	<dict>
 		<key>Description</key>
-		<array/>
+		<array>
+			<string>Buy/sell has been completed and policies are to be transferred to the new producer code.</string>
+		</array>
 		<key>QA Escalation</key>
-		<array/>
+		<array>
+			<string>Broker of Record Change</string>
+		</array>
 	</dict>
 	<key>10 Days</key>
 	<dict>
 		<key>Description</key>
-		<array/>
+		<array>
+			<string>Finance company has submitted a request to cancel a policy. A wait period is enforced to allow for potential reinstatements.</string>
+		</array>
 		<key>QA Escalation</key>
-		<array/>
+		<array>
+			<string>Premium Finance Cancellation Requests</string>
+		</array>
 	</dict>
 </dict>
 </plist>

@@ -26,19 +26,20 @@
     [self.baseToolbar setItems:items animated:YES];
     */
     
-    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+   /* UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
     if(orientation == 0)
         orientation = self.interfaceOrientation;
     
-  //  if(UIDeviceOrientationIsPortrait(orientation))
+
 
     
     if(UIInterfaceOrientationIsPortrait(orientation))
     {
+    */
     NSMutableArray *items1 = [[self.baseToolbar items] mutableCopy];
     [items1 insertObject:barButtonItem atIndex:0];
     [self.baseToolbar setItems:items1 animated:YES];
-    }
+  //  }
 	
 }
 

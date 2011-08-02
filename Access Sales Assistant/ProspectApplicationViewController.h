@@ -34,6 +34,15 @@
 @property(nonatomic,strong) IBOutlet UIButton* raterWeb;
 @property(nonatomic,strong) IBOutlet UIButton* rater2;
 
+@property(nonatomic,strong) IBOutlet UITextField* subTerritoryText;
+@property(nonatomic,strong) IBOutlet UITextField* mailingStateText;
+@property(nonatomic,strong) IBOutlet UITextField* commissionStateText;
+@property(nonatomic,strong) IBOutlet UITextField* physicalStateText;
+@property(nonatomic,strong) IBOutlet UITextField* raterWebText;
+@property(nonatomic,strong) IBOutlet UITextField* rater2Text;
+
+
+
 @property(nonatomic,strong) IBOutlet UITextField *agencyName;
 @property(nonatomic,strong) IBOutlet UITextField *tsmName;
 @property(nonatomic,strong) IBOutlet UITextField *sourceText;
@@ -55,6 +64,7 @@
 @property(nonatomic,strong) IBOutlet UITextField *ownerLastName;
 @property(nonatomic,strong) IBOutlet UITextField *primaryContactFirstName;
 @property(nonatomic,strong) IBOutlet UITextField *primaryContactLastName;
+@property(nonatomic,strong) IBOutlet UITextField *statusText;
 
 @property (nonatomic, strong) UIPopoverController *prospectPopoverController;
 @property (nonatomic,strong) UITableView* producerListTableView;

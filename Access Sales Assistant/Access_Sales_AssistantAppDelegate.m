@@ -78,7 +78,7 @@
 	self.window.rootViewController = self.splitViewController;
     [self.window makeKeyAndVisible];
 	
-	//[self loginFailed:nil];
+	[self loginFailed:nil];
 	
     return YES;
 }

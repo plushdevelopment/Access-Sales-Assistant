@@ -11,6 +11,12 @@
 #import "HTTPOperationController.h"
 #import "Producer.h"
 #import "User.h"
+#import "DailySummary.h"
+#import "PurposeOfCall.h"
+#import "Status.h"
+#import "AddressListItem.h"
+#import "State.h"
+#import "SubTerritory.h"
 //#import ""
 @implementation ProspectApplicationViewController
 
@@ -25,6 +31,14 @@
 @synthesize physicalState = _physicalState;
 @synthesize raterWeb = _raterWeb;
 @synthesize rater2 = _rater2;
+
+
+@synthesize subTerritoryText = _subTerritoryText;
+@synthesize mailingStateText = _mailingStateText;
+@synthesize commissionStateText = _commissionStateText;
+@synthesize physicalStateText = _physicalStateText;
+@synthesize raterWebText = _raterWebText;
+@synthesize rater2Text = _rater2Text;
 
 @synthesize agencyName = _agencyName;
 @synthesize tsmName = _tsmName;
@@ -46,6 +60,7 @@
 @synthesize ownerLastName = _ownerLastName;
 @synthesize primaryContactFirstName = _primaryContactFirstName;
 @synthesize primaryContactLastName = _primaryContactLastName;
+@synthesize statusText = _statusText;
 
 @synthesize prospectPopoverController = _prospectPopoverController;
 @synthesize producerListTableView = _producerListTableView;
@@ -105,6 +120,31 @@
     [[NSNotificationCenter defaultCenter] removeObserver: self
                                                     name: UIKeyboardWillHideNotification
                                                   object: nil];
+    
+    [self setToolBar:nil];
+    [self setAgencyName:nil];
+    [self setTsmName:nil];
+    [self setSubTerritory:nil];
+    [self setSourceText:nil];
+    [self setMailingStreet:nil];
+    [self setMailingCity:nil];
+    [self setMailingState:nil];
+    [self setMailingZip:nil];
+    [self setCommissionStreet:nil];
+    [self setCommissionCity:nil];
+    [self setCommissionState:nil];
+    [self setCommissionZip:nil];
+    [self setPhysicalStreet:nil];
+    [self setPhysicalCity:nil];
+    [self setPhysicalState:nil];
+    [self setPhysicalZip:nil];
+    [self setPhone:nil];
+    [self setEmail:nil];
+    [self setFax:nil];
+    [self setRaterWeb:nil];
+    [self setRater2:nil];
+    [self setOwnerFirstName:nil];
+    [self setPrimaryContactFirstName:nil];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -244,11 +284,50 @@
      NSManagedObjectContext *context = [NSManagedObjectContext context];
     NSDictionary* dict = [producerNamesArray objectAtIndex:indexPath.row];
     
-    _detailItem = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:context];
+    _detailItem = (Producer*)[Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:context];
     
+    //TSM name
     User *user = [User findFirst];
     
     _tsmName.text =  [user username];
+    
+    //Producer Name
+    [self.agencyName setText:_detailItem.name];
+    
+    //Sub Territory
+    NSString* subterritory = [[NSString alloc] initWithFormat:@"%d",_detailItem.subTerritory.uid];
+    [self.subTerritoryText setText:subterritory];
+    //Source
+    [self.sourceText setText:_detailItem.dailySummary.purposeOfCall.name];
+    
+    //Status
+    [self.statusText setText:_detailItem.status.name];
+    
+    
+    //Addresses
+    for (AddressListItem *address in _detailItem.addresses) {
+        if (address.addressTypeValue == 1) {
+            [self.mailingStreet setText:address.addressLine1];
+            [self.mailingCity setText:address.city];
+         
+            
+            [self.mailingStateText setText:address.state.name];
+            [self.mailingZip setText:address.postalCode];
+        } else if (address.addressTypeValue == 2) {
+            [self.commissionStreet setText:address.addressLine1];
+            [self.commissionCity setText:address.city];
+            [self.commissionStateText setText:address.state.name];
+            [self.commissionZip setText:address.postalCode];
+        } else if (address.addressTypeValue == 3) {
+            [self.physicalStreet setText:address.addressLine1];
+            [self.physicalCity setText:address.city];
+            [self.physicalStateText setText:address.state.name];
+            [self.physicalZip setText:address.postalCode];
+        }
+    }
+
+    
+    
     
     
 }
