@@ -307,7 +307,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		[[self networkQueue] go];
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 50, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 20, [user token]];
 	NSURL *aURL = [NSURL URLWithString:urlString];
 	
 	GetProducerRequest *request = [[GetProducerRequest alloc] initWithURL:aURL];

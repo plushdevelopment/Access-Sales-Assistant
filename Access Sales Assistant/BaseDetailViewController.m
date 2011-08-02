@@ -19,17 +19,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-    
-    if(orientation == 0)
-        orientation = self.interfaceOrientation;
-    
-    if(UIDeviceOrientationIsPortrait(orientation))
-    {
-		//if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
-		[self showRootPopoverButtonItem:[self.toolbarItems lastObject]];
-		//}
-    }
 }
 
 - (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem {

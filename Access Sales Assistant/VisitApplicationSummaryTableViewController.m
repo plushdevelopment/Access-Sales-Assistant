@@ -236,8 +236,6 @@ enum PRPTableStatsTags {
 #pragma mark -
 #pragma mark Detail item
 
-#pragma mark - Managing the detail item
-
 - (void)setDetailItem:(id)newDetailItem
 {
 	if (self.detailItem) {
@@ -261,6 +259,8 @@ enum PRPTableStatsTags {
 {
 	[self.tableView reloadData];
 }
+
+
 
 #pragma mark -
 #pragma mark Memory Management
