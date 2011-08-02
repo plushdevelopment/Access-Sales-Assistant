@@ -18,6 +18,8 @@
 
 @synthesize totalPages=_totalPages;
 
+@synthesize context=_context;
+
 - (id)initWithURL:(NSURL *)newURL
 {
 	self = [super initWithURL:newURL];
@@ -31,7 +33,7 @@
 
 - (void)requestFinished
 {
-	NSManagedObjectContext *context = [NSManagedObjectContext context];
+	self.context = [NSManagedObjectContext contextForCurrentThread];
 	NSDictionary *responseJSON = [[self responseString] JSONValue];
 	NSArray *results = [responseJSON objectForKey:@"results"];
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -40,13 +42,13 @@
 		
 			Producer *producer = [Producer ai_objectForProperty:@"uid"
 														  value:[dict valueForKey:@"uid"] 
-										   managedObjectContext:context];
+										   managedObjectContext:self.context];
 			if (!producer.editedValue) {
 				[producer safeSetValuesForKeysWithDictionary:dict
-											   dateFormatter:formatter managedObjectContext:context];
+											   dateFormatter:formatter managedObjectContext:self.context];
 			}
 	}
-	[context save];
+	[self.context save:nil];
 	
 	self.currentPage = [[responseJSON valueForKey:@"currentPage"] integerValue];
 	self.totalPages = [[responseJSON valueForKey:@"totalPages"] integerValue];

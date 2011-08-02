@@ -233,11 +233,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/HTTPOperationController.m"
-         timestampString = "333050001.66144"
+         timestampString = "333901471.564596"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "551"
-         endingLineNumber = "551"
+         startingLineNumber = "567"
+         endingLineNumber = "567"
          landmarkName = "-getImageFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -247,16 +247,16 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/HTTPOperationController.m"
-         timestampString = "333050001.66144"
+         timestampString = "333901471.564596"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "533"
-         endingLineNumber = "533"
+         startingLineNumber = "548"
+         endingLineNumber = "548"
          landmarkName = "-getImage:forProducer:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
@@ -275,11 +275,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/NSManagedObject+SafeSetValuesKeysWithDictionary.m"
-         timestampString = "332784997.958741"
+         timestampString = "333986505.943612"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "112"
-         endingLineNumber = "112"
+         startingLineNumber = "162"
+         endingLineNumber = "162"
          landmarkName = "-safeSetValuesForKeysWithDictionary:dateFormatter:managedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -289,11 +289,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/NSManagedObject+SafeSetValuesKeysWithDictionary.m"
-         timestampString = "332784997.958741"
+         timestampString = "333986505.943612"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "110"
-         endingLineNumber = "110"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
          landmarkName = "-safeSetValuesForKeysWithDictionary:dateFormatter:managedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -303,11 +303,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/NSManagedObject+SafeSetValuesKeysWithDictionary.m"
-         timestampString = "332784997.958741"
+         timestampString = "333986505.943612"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "108"
-         endingLineNumber = "108"
+         startingLineNumber = "158"
+         endingLineNumber = "158"
          landmarkName = "-safeSetValuesForKeysWithDictionary:dateFormatter:managedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -317,26 +317,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Access Sales Assistant/NSManagedObject+SafeSetValuesKeysWithDictionary.m"
-         timestampString = "332784997.958741"
+         timestampString = "333986505.943612"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
          landmarkName = "-safeSetValuesForKeysWithDictionary:dateFormatter:managedObjectContext:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Access Sales Assistant/HTTPOperationController.m"
-         timestampString = "333050001.66144"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "439"
-         endingLineNumber = "439"
-         landmarkName = "-postImage:forProducer:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -379,6 +365,48 @@
          startingLineNumber = "623"
          endingLineNumber = "623"
          landmarkName = "-tableView:canMoveRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Access Sales Assistant/HTTPOperationController.m"
+         timestampString = "333910675.453476"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "169"
+         endingLineNumber = "169"
+         landmarkName = "-loginRequestFinished:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Access Sales Assistant/RootViewController.m"
+         timestampString = "333989401.130646"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "212"
+         endingLineNumber = "212"
+         landmarkName = "-splitViewController:willShowViewController:invalidatingBarButtonItem:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Access Sales Assistant/RootViewController.m"
+         timestampString = "333989401.130646"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "201"
+         endingLineNumber = "201"
+         landmarkName = "-splitViewController:willHideViewController:withBarButtonItem:forPopoverController:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

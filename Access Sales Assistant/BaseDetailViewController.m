@@ -16,6 +16,11 @@
 
 @synthesize baseToolbar;
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+}
+
 - (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem {
     // Add the popover button to the left navigation item.
     //[baseNavigationBar.topItem setLeftBarButtonItem:barButtonItem animated:NO];

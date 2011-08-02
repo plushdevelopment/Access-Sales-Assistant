@@ -161,6 +161,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(loginRequestFinished:)];
 	[request setDidFailSelector:@selector(loginRequestFailed:)];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -175,8 +177,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Login Successful" object:request];
 	
-    //TODO: Commented for temporary purpose. Need to uncomment below line.
-	//[self requestPickLists];
+	[self requestPickLists];
 }
 
 - (void)loginRequestFailed:(ASIHTTPRequest *)request
@@ -206,6 +207,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(requestPickListsFinished:)];
 	[request setDidFailSelector:@selector(requestPickListsFailed:)];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -261,6 +264,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(requestPickListsFinished:)];
 	[request setDidFailSelector:@selector(requestPickListsFailed:)];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryLow];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -302,13 +307,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		[[self networkQueue] go];
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/ProducerService/Producers?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 100, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 20, [user token]];
 	NSURL *aURL = [NSURL URLWithString:urlString];
 	
 	GetProducerRequest *request = [[GetProducerRequest alloc] initWithURL:aURL];
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(requestProducersFinished:)];
 	[request setDidFailSelector:@selector(requestProducersFailed:)];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryLow];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -368,6 +375,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDidFinishSelector:@selector(postProducerProfileFinished:)];
 	[request setDidFailSelector:@selector(postProducerProfileFailed:)];
 	[request setPostBody:[NSMutableData dataWithData:[profile dataUsingEncoding:NSASCIIStringEncoding]]];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -411,6 +420,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDidFinishSelector:@selector(postDailySummaryFinished:)];
 	[request setDidFailSelector:@selector(postDailySummaryFailed:)];
 	[request setPostBody:[NSMutableData dataWithData:[summary dataUsingEncoding:NSASCIIStringEncoding]]];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -455,6 +466,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(postImageForProducerFinished:)];
 	[request setDidFailSelector:@selector(postImageForProducerFailed:)];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -490,6 +503,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDidFailSelector:@selector(getImagesForProducerFailed:)];
 	NSDictionary *userInfoDict = [NSDictionary dictionaryWithObjectsAndKeys:producerID, @"producerUID", nil];
 	[request setUserInfo:userInfoDict];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -536,7 +551,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSString *documentsDir = [documentPaths objectAtIndex:0];
 	NSString *imagePath = [documentsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", [pathComps lastObject]]];
 	[request setDownloadDestinationPath:imagePath];
-	
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -586,6 +602,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(getTrainingVideosFinished:)];
 	[request setDidFailSelector:@selector(getTrainingVideosFailed:)];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[[self networkQueue] addOperation:request];
 }
 -(void)getTrainingVideosFinished:(ASIHTTPRequest *)request

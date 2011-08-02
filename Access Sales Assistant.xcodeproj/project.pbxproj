@@ -309,6 +309,8 @@
 		FFB56A3613D07CA100B980EE /* SummaryBarriersToBusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB56A3513D07CA100B980EE /* SummaryBarriersToBusinessTableViewCell.xib */; };
 		FFB56A3913D07FFE00B980EE /* SummaryStatsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB56A3813D07FFD00B980EE /* SummaryStatsTableViewCell.m */; };
 		FFB56A3B13D0802F00B980EE /* SummaryStatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB56A3A13D0802E00B980EE /* SummaryStatsTableViewCell.xib */; };
+		FFBE682613E844F900013066 /* SmartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBE682513E844F900013066 /* SmartTableView.m */; };
+		FFBE682913E845A000013066 /* SmartScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBE682813E845A000013066 /* SmartScrollView.m */; };
 		FFC2814613BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812B13BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png */; };
 		FFC2814713BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812C13BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png */; };
 		FFC2814813BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812D13BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png */; };
@@ -867,6 +869,10 @@
 		FFB56A3713D07FFD00B980EE /* SummaryStatsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryStatsTableViewCell.h; sourceTree = "<group>"; };
 		FFB56A3813D07FFD00B980EE /* SummaryStatsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryStatsTableViewCell.m; sourceTree = "<group>"; };
 		FFB56A3A13D0802E00B980EE /* SummaryStatsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryStatsTableViewCell.xib; sourceTree = "<group>"; };
+		FFBE682413E844F900013066 /* SmartTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartTableView.h; sourceTree = "<group>"; };
+		FFBE682513E844F900013066 /* SmartTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartTableView.m; sourceTree = "<group>"; };
+		FFBE682713E845A000013066 /* SmartScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartScrollView.h; sourceTree = "<group>"; };
+		FFBE682813E845A000013066 /* SmartScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartScrollView.m; sourceTree = "<group>"; };
 		FFC2812B13BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalRGB2.png; sourceTree = "<group>"; };
 		FFC2812C13BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalRGB3.png; sourceTree = "<group>"; };
 		FFC2812D13BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalwhite2.png; sourceTree = "<group>"; };
@@ -1614,6 +1620,7 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				FFBE682213E844C400013066 /* View Classes */,
 				FF846CB813DD9A8A00D59F3E /* Requests */,
 				FF9ED82713D4F361006105C7 /* AQGridView Custom Cells */,
 				FF56A25113CC87CA00FF159A /* Controllers */,
@@ -1920,6 +1927,17 @@
 				FFB56A2613D069DB00B980EE /* UITableView+PRPSubviewAdditions.m */,
 			);
 			name = "TableView Categories";
+			sourceTree = "<group>";
+		};
+		FFBE682213E844C400013066 /* View Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FFBE682413E844F900013066 /* SmartTableView.h */,
+				FFBE682513E844F900013066 /* SmartTableView.m */,
+				FFBE682713E845A000013066 /* SmartScrollView.h */,
+				FFBE682813E845A000013066 /* SmartScrollView.m */,
+			);
+			name = "View Classes";
 			sourceTree = "<group>";
 		};
 		FFC2816113BCAC3200CA3ABB /* Access Images */ = {
@@ -2560,7 +2578,12 @@
 				6D966D5313DDFC6800DAF04B /* ProspectApplicationViewController.m in Sources */,
 				6D7CC7AE13E1F10F00B0FE43 /* ProducerListTableViewController.m in Sources */,
 				6D7E43BE13E31D44002832C6 /* ContactsQATimeTableViewController.m in Sources */,
+<<<<<<< HEAD
 				6DDB6B7E13E71010009AA880 /* QATimeTableObject.m in Sources */,
+=======
+				FFBE682613E844F900013066 /* SmartTableView.m in Sources */,
+				FFBE682913E845A000013066 /* SmartScrollView.m in Sources */,
+>>>>>>> 972aef9e4d896899cdc89a70afd513a8b214b9dc
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

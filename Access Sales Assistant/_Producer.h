@@ -34,6 +34,8 @@
 
 
 
+
+
 @interface ProducerID : NSManagedObjectID {}
 @end
 
@@ -106,10 +108,26 @@
 
 
 
+@property (nonatomic, retain) NSDate *lastVisit;
+
+
+//- (BOOL)validateLastVisit:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSString *name;
 
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSDate *nextScheduledVisit;
+
+
+//- (BOOL)validateNextScheduledVisit:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -361,8 +379,20 @@
 
 
 
+- (NSDate*)primitiveLastVisit;
+- (void)setPrimitiveLastVisit:(NSDate*)value;
+
+
+
+
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
+
+
+
+
+- (NSDate*)primitiveNextScheduledVisit;
+- (void)setPrimitiveNextScheduledVisit:(NSDate*)value;
 
 
 
