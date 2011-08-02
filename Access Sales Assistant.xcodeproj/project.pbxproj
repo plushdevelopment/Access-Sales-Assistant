@@ -11,6 +11,8 @@
 		6D0EF48513D713F600745307 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0EF48313D713F600745307 /* SplashViewController.xib */; };
 		6D0EF49313D7479600745307 /* FlashCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0EF49113D7479600745307 /* FlashCardsViewController.m */; };
 		6D0EF49413D7479600745307 /* FlashCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0EF49213D7479600745307 /* FlashCardsViewController.xib */; };
+		6D167FC813E8515500425F49 /* QATimeTableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D167FC713E8515500425F49 /* QATimeTableObject.m */; };
+		6D167FCB13E8518900425F49 /* search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D167FCA13E8518900425F49 /* search.jpg */; };
 		6D7B83EB13E04BFD00A009A1 /* curl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7B83EA13E04BFD00A009A1 /* curl.png */; };
 		6D7CC79F13E1A2F800B0FE43 /* indexCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7CC79E13E1A2F800B0FE43 /* indexCard.png */; };
 		6D7CC7A813E1E74800B0FE43 /* MenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7CC7A713E1E74800B0FE43 /* MenuButton.png */; };
@@ -411,6 +413,9 @@
 		6D0EF49013D7479600745307 /* FlashCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCardsViewController.h; sourceTree = "<group>"; };
 		6D0EF49113D7479600745307 /* FlashCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlashCardsViewController.m; sourceTree = "<group>"; };
 		6D0EF49213D7479600745307 /* FlashCardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlashCardsViewController.xib; sourceTree = "<group>"; };
+		6D167FC613E8515500425F49 /* QATimeTableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QATimeTableObject.h; sourceTree = "<group>"; };
+		6D167FC713E8515500425F49 /* QATimeTableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QATimeTableObject.m; sourceTree = "<group>"; };
+		6D167FCA13E8518900425F49 /* search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = search.jpg; sourceTree = "<group>"; };
 		6D7B83EA13E04BFD00A009A1 /* curl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = curl.png; sourceTree = "<group>"; };
 		6D7CC79E13E1A2F800B0FE43 /* indexCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indexCard.png; sourceTree = "<group>"; };
 		6D7CC7A713E1E74800B0FE43 /* MenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuButton.png; sourceTree = "<group>"; };
@@ -1089,6 +1094,7 @@
 		6D966D5513DF0E0000DAF04B /* Prospect Application */ = {
 			isa = PBXGroup;
 			children = (
+				6D167FCA13E8518900425F49 /* search.jpg */,
 				6D966D5013DDFC6400DAF04B /* ProspectApplicationViewController.h */,
 				6D966D5113DDFC6500DAF04B /* ProspectApplicationViewController.m */,
 				6D966D5213DDFC6600DAF04B /* ProspectApplicationViewController.xib */,
@@ -1802,6 +1808,8 @@
 		FFA0708413D5EBC70021E412 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				6D167FC613E8515500425F49 /* QATimeTableObject.h */,
+				6D167FC713E8515500425F49 /* QATimeTableObject.m */,
 				FFA0707A13D5EBC00021E412 /* ContactsViewController.xib */,
 				FFA0707B13D5EBC00021E412 /* ContactsViewController.m */,
 				FFA0707C13D5EBC00021E412 /* ContactsViewController.h */,
@@ -2352,6 +2360,7 @@
 				6D7CC7AF13E1F10F00B0FE43 /* ProducerListTableViewController.xib in Resources */,
 				6D7E43B913E3168F002832C6 /* QATimeTable.plist in Resources */,
 				6D7E43BF13E31D44002832C6 /* ContactsQATimeTableViewController.xib in Resources */,
+				6D167FCB13E8518900425F49 /* search.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2571,6 +2580,7 @@
 				6D7E43BE13E31D44002832C6 /* ContactsQATimeTableViewController.m in Sources */,
 				FFBE682613E844F900013066 /* SmartTableView.m in Sources */,
 				FFBE682913E845A000013066 /* SmartScrollView.m in Sources */,
+				6D167FC813E8515500425F49 /* QATimeTableObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
