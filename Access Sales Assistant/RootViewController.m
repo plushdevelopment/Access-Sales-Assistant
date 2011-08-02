@@ -97,18 +97,13 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    
-	
-	// Add a pinch gesture recognizer to the table view.
-	UIPinchGestureRecognizer* pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
-	[self.tableView addGestureRecognizer:pinchRecognizer];
     
        
     // Set up default values.

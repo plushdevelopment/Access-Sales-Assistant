@@ -155,7 +155,21 @@
 
 
 
+@dynamic lastVisit;
+
+
+
+
+
+
 @dynamic name;
+
+
+
+
+
+
+@dynamic nextScheduledVisit;
 
 
 

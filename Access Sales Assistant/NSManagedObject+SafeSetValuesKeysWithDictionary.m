@@ -67,7 +67,57 @@
 			continue;
 		}
 		
-		NSManagedObjectModel *model = [NSManagedObjectModel managedObjectModelNamed:@"Access_Sales_Assistant.momd"];
+		NSEntityDescription *entityDesc = [[[[self entity] relationshipsByName] objectForKey:relationship] destinationEntity];
+		if (![[relationships objectForKey:relationship] isToMany]) {
+			NSManagedObject *object;
+			Class aClass = [NSClassFromString([entityDesc name]) class];
+			for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
+				if ([desc.description isEqualToString:@"uid"]) {
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"uid" value:[value valueForKey:@"uid"] managedObjectContext:context];
+				} else if ([desc.description isEqualToString:@"addressLine1"]) {
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"addressLine1" value:[value valueForKey:@"addressLine1"] managedObjectContext:context];
+				} else if ([desc.description isEqualToString:@"number"]) {
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"number" value:[value valueForKey:@"number"] managedObjectContext:context];
+				} else if ([desc.description isEqualToString:@"address"]) {
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"address" value:[value valueForKey:@"address"] managedObjectContext:context];
+				}  else if ([desc.description isEqualToString:@"text"]) {
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[value valueForKey:@"text"] managedObjectContext:context];
+				}
+			}
+			if (!object) {
+				object = [aClass createInContext:context];
+			}
+			[object safeSetValuesForKeysWithDictionary:value dateFormatter:dateFormatter managedObjectContext:context];
+			[self setValue:object forKey:relationship];
+			continue;
+		}
+		
+		NSMutableSet *relationshipSet = [self mutableSetValueForKey:relationship];
+		for (id subValue in value) {
+			NSManagedObject *object;
+			Class aClass = [NSClassFromString([entityDesc name]) class];
+			for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
+				if ([desc.description isEqualToString:@"uid"]) {
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"uid" value:[subValue valueForKey:@"uid"] managedObjectContext:context];
+				} else if ([desc.description isEqualToString:@"addressLine1"]) {
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"addressLine1" value:[subValue valueForKey:@"addressLine1"] managedObjectContext:context];
+				} else if ([desc.description isEqualToString:@"number"]) {
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"number" value:[subValue valueForKey:@"number"] managedObjectContext:context];
+				} else if ([desc.description isEqualToString:@"address"]) {
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"address" value:[subValue valueForKey:@"address"] managedObjectContext:context];
+				}  else if ([desc.description isEqualToString:@"text"]) {
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[subValue valueForKey:@"text"] managedObjectContext:context];
+				}
+			}
+			if (!object) {
+				object = [aClass createInContext:context];
+			}
+			
+			[object safeSetValuesForKeysWithDictionary:subValue dateFormatter:dateFormatter managedObjectContext:context];
+			[relationshipSet addObject:object];
+		}
+		/*
+		NSManagedObjectModel *model = [NSManagedObjectModel newManagedObjectModelNamed:@"Access_Sales_Assistant.momd"];
 		NSArray *entities = [model entities];
 		
 		for (NSEntityDescription *entityDescription in entities) {
@@ -123,7 +173,82 @@
 				}
 			}
 		}
+		 */
 	}
+}
+
+- (NSDictionary*)dataStructureFromManagedObject:(NSManagedObject*)managedObject
+{
+	NSDictionary *attributesByName = [[managedObject entity] attributesByName];
+	NSDictionary *relationshipsByName = [[managedObject entity] relationshipsByName];
+	NSMutableDictionary *valuesDictionary = [[managedObject dictionaryWithValuesForKeys:[attributesByName allKeys]] mutableCopy];
+	[valuesDictionary setObject:[[managedObject entity] name] forKey:@"ManagedObjectName"];
+	for (NSString *relationshipName in [relationshipsByName allKeys]) {
+		NSRelationshipDescription *description = [[[managedObject entity] relationshipsByName] objectForKey:relationshipName];
+		if (![description isToMany]) {
+			//[valuesDictionary setValue:[managedObject dataStructureFromManagedObject:[self valueForKey:relationshipName] forKey:relationshipName]];
+			continue;
+		}
+		NSSet *relationshipObjects = [[[managedObject entity] relationshipsByName] objectForKey:relationshipName];
+		NSMutableArray *relationshipArray = [[NSMutableArray alloc] init];
+		for (NSManagedObject *relationshipObject in relationshipObjects) {
+			[relationshipArray addObject:[self dataStructureFromManagedObject:relationshipObject]];
+		}
+		[valuesDictionary setObject:relationshipArray forKey:relationshipName];
+	}
+	return valuesDictionary;
+}
+
+- (NSArray*)dataStructuresFromManagedObjects:(NSArray*)managedObjects
+{
+	NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+	for (NSManagedObject *managedObject in managedObjects) {
+		[dataArray addObject:[self dataStructureFromManagedObject:managedObject]];
+	}
+	return dataArray;
+}
+
+- (NSString*)jsonStructureFromManagedObjects:(NSArray*)managedObjects
+{
+	NSArray *objectsArray = [self dataStructuresFromManagedObjects:managedObjects];
+	NSString *jsonString = [objectsArray JSONString];
+	return jsonString;
+}
+
+- (NSManagedObject*)managedObjectFromStructure:(NSDictionary*)structureDictionary withManagedObjectContext:(NSManagedObjectContext*)moc
+{
+	NSString *objectName = [structureDictionary objectForKey:@"ManagedObjectName"];
+	NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:objectName inManagedObjectContext:moc];
+	[managedObject setValuesForKeysWithDictionary:structureDictionary];
+	
+	for (NSString *relationshipName in [[[managedObject entity] relationshipsByName] allKeys]) {
+		NSRelationshipDescription *description = [[[managedObject entity] relationshipsByName] objectForKey:relationshipName];
+		if (![description isToMany]) {
+			NSDictionary *childStructureDictionary = [structureDictionary objectForKey:relationshipName];
+			NSManagedObject *childObject = [self managedObjectFromStructure:childStructureDictionary withManagedObjectContext:moc];
+			[managedObject setValue:childObject forKey:relationshipName];
+			continue;
+		}
+		NSMutableSet *relationshipSet = [managedObject mutableSetValueForKey:relationshipName];
+		NSArray *relationshipArray = [structureDictionary objectForKey:relationshipName];
+		for (NSDictionary *childStructureDictionary in relationshipArray) {
+			NSManagedObject *childObject = [self managedObjectFromStructure:childStructureDictionary withManagedObjectContext:moc];
+			[relationshipSet addObject:childObject];
+		}
+	}
+	return managedObject;
+}
+
+- (NSArray*)managedObjectsFromJSONStructure:(NSString*)json withManagedObjectContext:(NSManagedObjectContext*)moc
+{
+	NSError *error = nil;
+	NSArray *structureArray = [json objectFromJSONString];
+	NSAssert2(error == nil, @"Failed to deserialize\n%@\n%@", [error localizedDescription], json);
+	NSMutableArray *objectArray = [[NSMutableArray alloc] init];
+	for (NSDictionary *structureDictionary in structureArray) {
+		[objectArray addObject:[self managedObjectFromStructure:structureDictionary withManagedObjectContext:moc]];
+	}
+	return objectArray;
 }
 
 @end

@@ -16,6 +16,22 @@
 
 @synthesize baseToolbar;
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+    if(orientation == 0)
+        orientation = self.interfaceOrientation;
+    
+    if(UIDeviceOrientationIsPortrait(orientation))
+    {
+		//if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
+		[self showRootPopoverButtonItem:[self.toolbarItems lastObject]];
+		//}
+    }
+}
+
 - (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem {
     // Add the popover button to the left navigation item.
     //[baseNavigationBar.topItem setLeftBarButtonItem:barButtonItem animated:NO];

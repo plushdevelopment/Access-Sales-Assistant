@@ -140,7 +140,9 @@
         <attribute name="edited" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="hasAccessSign" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="isEligible" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
+        <attribute name="lastVisit" optional="YES" attributeType="Date"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nextScheduledVisit" optional="YES" attributeType="Date"/>
         <attribute name="numberOfEmployees" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="numberOfLocations" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="primaryContact" optional="YES" attributeType="String"/>
@@ -243,7 +245,7 @@
         <element name="PersonSpokeWithTitle" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Phase" positionX="160" positionY="192" width="128" height="90"/>
         <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="105"/>
-        <element name="Producer" positionX="306" positionY="123" width="128" height="465"/>
+        <element name="Producer" positionX="306" positionY="123" width="128" height="495"/>
         <element name="ProducerAddOn" positionX="160" positionY="192" width="128" height="90"/>
         <element name="ProducerImage" positionX="160" positionY="192" width="128" height="75"/>
         <element name="PurposeOfCall" positionX="160" positionY="192" width="128" height="90"/>
@@ -254,7 +256,7 @@
         <element name="Status" positionX="475" positionY="27" width="128" height="90"/>
         <element name="SubTerritory" positionX="628" positionY="135" width="128" height="75"/>
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="90"/>
-        <element name="User" positionX="160" positionY="192" width="128" height="135"/>
         <element name="TrainingVideo" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="User" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>
