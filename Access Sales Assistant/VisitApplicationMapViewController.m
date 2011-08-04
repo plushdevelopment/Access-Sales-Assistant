@@ -167,7 +167,7 @@
 	VisitApplicationViewController *viewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
 	[viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
 	[viewController setModalPresentationStyle:UIModalPresentationCurrentContext];
-	[self.splitViewController presentModalViewController:viewController animated:YES];
+	[self presentModalViewController:viewController animated:YES];
 	[viewController setDetailItem:producer];
 }
 
