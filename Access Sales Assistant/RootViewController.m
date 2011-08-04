@@ -667,7 +667,7 @@
       //      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
         //    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
-            [self changeDetailViewController:detailViewController];
+          //  [self changeDetailViewController:detailViewController];
             detailViewController.titleLabel.text = @"CONTACTS";
 			
             self.detailViewController = detailViewController;
@@ -695,7 +695,7 @@
         //    NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
         //    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
-            [self changeDetailViewController:detailViewController];
+          //  [self changeDetailViewController:detailViewController];
             
              detailViewController.titleLabel.text = @"ACCESS ACADEMY";
 			
