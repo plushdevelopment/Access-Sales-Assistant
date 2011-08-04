@@ -87,7 +87,8 @@
 
 @synthesize treeNode;
 
-<<<<<<< HEAD
+@synthesize mgSplitViewController = _mgSplitViewController;
+
 - (void)producersSuccessful
 {
 	NSArray *producersArray = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES];
@@ -101,9 +102,6 @@
 	
 	[self.tableView reloadData];
 }
-=======
-@synthesize mgSplitViewController = _mgSplitViewController;
->>>>>>> 5b0a8a17bbe414ea06088acbf1f53103997db0b6
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -343,37 +341,16 @@
     switch (self.openSectionIndex) {
         case VISIT_APP_INDEX: {
             
-<<<<<<< HEAD
             //VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
 			VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
-            NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-            self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+            //NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+            [self changeDetailViewController:detailViewController];
 			self.detailViewController = detailViewController;
             [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
 			[self.popoverController dismissPopoverAnimated:YES];
 			NSLog(@"%@", [visitApplicationDaysArray objectAtIndex:indexPath.row]);
             [detailViewController setSelectedDay:[visitApplicationDaysArray objectAtIndex:indexPath.row]];
             /*
-=======
-            VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
-         //   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-          //  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-            
-            
-			self.detailViewController = detailViewController;
-            detailViewController.pc = self.popoverController;
-         //  [self changeDetailViewController:detailViewController];
-            UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-            
-            if(orientation == 0)
-                orientation = self.detailViewController.interfaceOrientation;
-            CGSize size = self.view.frame.size;
-            if(UIDeviceOrientationIsPortrait(orientation))
-            {
-                [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-            }
-            
->>>>>>> 5b0a8a17bbe414ea06088acbf1f53103997db0b6
 			AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
 			[self.navigationController pushViewController:viewController animated:YES];
 			viewController.detailViewController = self.detailViewController;
