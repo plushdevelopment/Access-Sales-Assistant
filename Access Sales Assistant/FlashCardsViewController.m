@@ -52,7 +52,7 @@
     [self loadFlashCards:selectedFlashCard];
     if([containerArray count])
         [carousel reloadData];
-  
+	
     isFlipped = FALSE;
     [flipview removeFromSuperview];
     // Do any additional setup after loading the view from its nib.
@@ -72,7 +72,7 @@
 }
 -(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-  //  carousel.frame = self.view.frame;
+	//  carousel.frame = self.view.frame;
     [self loadFlashCards:selectedFlashCard];
     [carousel reloadData];
     carousel.clipsToBounds = YES;
@@ -95,9 +95,9 @@
         titleLabel.text = @"Producer";
     }
     
-      [containerArray removeAllObjects];
+	[containerArray removeAllObjects];
     
-  
+	
     
     NSString *path = [[NSBundle mainBundle] pathForResource:
                       @"Flashcards" ofType:@"plist"];
@@ -106,7 +106,7 @@
     NSDictionary* callDictionary = [plistData objectForKey:titleLabel.text];
     
     NSArray* indexTitleArray = [callDictionary objectForKey:@"Questions"];
-   
+	
     
     
     
@@ -125,15 +125,15 @@
             containerSize = CGSizeMake(350, 500);
         else
             containerSize = CGSizeMake(500, 350);
-            
-          
+		
+		
         
         CustomContainerView* containerView = [[CustomContainerView alloc] initWithFrame:CGRectMake(0,0,containerSize.width,containerSize.height):selectedFlashCard:i];
         
         [containerArray addObject:containerView];
         
     }
-
+	
 }
 
 
@@ -150,7 +150,7 @@
 {
     UIView * container = [containerArray objectAtIndex:index];
     return container;
-   // return nil;
+	// return nil;
 }
 
 - (NSUInteger)numberOfPlaceholdersInCarousel:(iCarousel *)carousel
@@ -177,19 +177,19 @@
 - (float)carouselItemWidth:(iCarousel *)carousel
 {
     //slightly wider than item view
-      
+	
     UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
     
     UIInterfaceOrientation or = self.interfaceOrientation;
     
     if(orientation==0)
         orientation = or;
-   
-        if(UIDeviceOrientationIsPortrait(orientation))
-            return 400;
-        else
-            return 550;
-  }
+	
+	if(UIDeviceOrientationIsPortrait(orientation))
+		return 400;
+	else
+		return 550;
+}
 
 - (CATransform3D)carousel:(iCarousel *)_carousel transformForItemView:(UIView *)view withOffset:(float)offset
 {
@@ -219,6 +219,16 @@
 - (void)carouselDidEndDragging:(iCarousel *)carousel willDecelerate:(BOOL)decelerate
 {
 	NSLog(@"Carousel did end dragging and %@ decelerate", decelerate? @"will": @"won't");
+	for(int cContainer = 0; cContainer<[containerArray count];cContainer++)
+	{
+		CustomContainerView* view = [containerArray objectAtIndex:cContainer];
+		
+		
+		
+		if(view.flipped)
+			[view flipCurrentView:YES];
+		
+	}
 }
 
 - (void)carouselWillBeginDecelerating:(iCarousel *)carousel
@@ -248,7 +258,7 @@
 		//note, this will only ever happen if USE_BUTTONS == NO
 		//otherwise the button intercepts the tap event
 		NSLog(@"Selected current item");
-      //  CustomContainerView* view = (CustomContainerView*)[_carousel viewAtIndex:index];
+		//  CustomContainerView* view = (CustomContainerView*)[_carousel viewAtIndex:index];
         
         for(int cContainer = 0; cContainer<[containerArray count];cContainer++)
         {
