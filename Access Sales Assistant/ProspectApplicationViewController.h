@@ -59,6 +59,8 @@
 @property(nonatomic,strong) IBOutlet UITextField *physicalStreet2;
 @property(nonatomic,strong) IBOutlet UITextField *phone;
 @property(nonatomic,strong) IBOutlet UITextField *email;
+@property(nonatomic,strong) IBOutlet UITextField *customerEmail;
+
 @property(nonatomic,strong) IBOutlet UITextField *fax;
 @property(nonatomic,strong) IBOutlet UITextField *ownerFirstName;
 @property(nonatomic,strong) IBOutlet UITextField *ownerLastName;

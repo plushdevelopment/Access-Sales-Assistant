@@ -86,7 +86,7 @@
         // Create and configure the title label.
         section = sectionNumber;
         
-     //   CGRect backgroundRect = CGRectMake(frame.origin.x+4, frame.origin.y, frame.size.width-8, frame.size.height);
+     
        backgroundImage = [[UIImageView alloc] initWithFrame:frame];
         UIImage* image = [UIImage imageNamed:@"MenuButton.png"];
         

@@ -16,34 +16,43 @@
 
 @synthesize baseToolbar;
 
+@synthesize hidemaster;
+
+@synthesize showHideMaster;
+
+@synthesize splitviewcontroller;
+
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 }
 
 - (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem {
-    // Add the popover button to the left navigation item.
-    //[baseNavigationBar.topItem setLeftBarButtonItem:barButtonItem animated:NO];
+ 
     
-    /*NSMutableArray *items = [[self.baseToolbar items] mutableCopy];
-    if([items count])
-        [items removeObjectAtIndex:0];
-    [self.baseToolbar setItems:items animated:YES];
-    */
-    
-   /* UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if(orientation == 0)
-        orientation = self.interfaceOrientation;
-    
-
-
-    
-    if(UIInterfaceOrientationIsPortrait(orientation))
-    {
-    */
     NSMutableArray *items1 = [[self.baseToolbar items] mutableCopy];
+    
+    if(items1)
+        [items1 removeAllObjects];
     [items1 insertObject:barButtonItem atIndex:0];
+    
+    if([self isShowMaster])
+    {    
+    showHideMaster = [[UIBarButtonItem alloc] initWithTitle:@"Hide Menu"
+                                                      style:UIBarButtonItemStyleBordered
+                                                     target:self
+                                                     action:@selector(toggleMaster:)];
+    
+
+    [items1 insertObject:showHideMaster atIndex:1];
+    }
+
     [self.baseToolbar setItems:items1 animated:YES];
+    
+   
+    
+   
+
   //  }
 	
 }
@@ -55,11 +64,52 @@
     
     NSMutableArray *items = [[self.baseToolbar items] mutableCopy];
     if([items count])
-        [items removeObjectAtIndex:0];
+        [items removeAllObjects];
+    if([self isShowMaster])
+    {
+      
+    showHideMaster = [[UIBarButtonItem alloc] initWithTitle:@"Hide Menu"
+                                                                    style:UIBarButtonItemStyleBordered
+                                                                   target:self
+                                                                   action:@selector(toggleMaster:)];
+    
+      
+    [items insertObject:showHideMaster atIndex:0];
+    }
+
     [self.baseToolbar setItems:items animated:YES];
+
     
 }
 
+
+-(void)insertBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    
+    NSMutableArray *items = [[self.baseToolbar items] mutableCopy];
+    [items insertObject:barButtonItem atIndex:[items count]];
+    [self.baseToolbar setItems:items animated:YES];
+}
+
+-(void) toggleMaster:(id) sender
+{
+    hidemaster = !hidemaster;
+    
+    [splitviewcontroller toggleMasterView:sender];
+    
+    NSString* title = hidemaster?@"Show Menu":@"Hide Menu";
+    
+    [self.showHideMaster setTitle:title];
+    [self.view setNeedsDisplay];
+    
+    
+    
+    
+}
+-(BOOL) isShowMaster
+{
+    return UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
+}
 -(void) showAlert:(NSString *)alertText
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:alertText delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];

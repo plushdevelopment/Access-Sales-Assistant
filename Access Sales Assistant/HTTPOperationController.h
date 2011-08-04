@@ -63,4 +63,6 @@
 -(void)searchProducerFinished:(ASIHTTPRequest*)request;
 -(void)searchProducerFailed:(ASIHTTPRequest*)request;
 
+-(NSString *) urlencode: (NSString *) url;
+
 @end

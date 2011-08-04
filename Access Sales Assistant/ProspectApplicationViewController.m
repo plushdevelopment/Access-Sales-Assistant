@@ -17,6 +17,12 @@
 #import "AddressListItem.h"
 #import "State.h"
 #import "SubTerritory.h"
+#import "PhoneListItem.h"
+#import "EmailListItem.h"
+#import "Rater.h"
+#import "Rater2.h"
+#import "Contact.h"
+#import "ContactType.h"
 //#import ""
 @implementation ProspectApplicationViewController
 
@@ -61,6 +67,7 @@
 @synthesize primaryContactFirstName = _primaryContactFirstName;
 @synthesize primaryContactLastName = _primaryContactLastName;
 @synthesize statusText = _statusText;
+@synthesize customerEmail = _customerEmail;
 
 @synthesize prospectPopoverController = _prospectPopoverController;
 @synthesize producerListTableView = _producerListTableView;
@@ -199,6 +206,9 @@
                                              selector:@selector(searchProducerDone:) 
                                                  name:@"searchProducer"
                                                object:nil];
+    [_agencyName resignFirstResponder];
+    
+  //  NSString* escapedString = [self.agencyName.text st]
     [[HTTPOperationController sharedHTTPOperationController] searchProducer:self.agencyName.text];  
 }
 -(void) searchProducerDone:(NSNotification*) notification
@@ -325,11 +335,52 @@
             [self.physicalZip setText:address.postalCode];
         }
     }
+    
+    for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers) {
+        if (phoneNumber.typeValue == 1) {
+         
+        } else if (phoneNumber.typeValue == 2) {
+           
+        } else if (phoneNumber.typeValue == 3) {
+            [self.phone setText:phoneNumber.number];
+        } else if (phoneNumber.typeValue == 4) {
+            [self.fax setText:phoneNumber.number];
+        }
+    }
+    for (EmailListItem *email in _detailItem.emails) {
+        if (email.typeValue == 1) {
+          //  [self.emailAddressTextField setText:email.address];
+        } else if (email.typeValue == 2) {
+           
+        } else if (email.typeValue == 3) {
+            [self.email setText:email.address];
+        } else if (email.typeValue == 4) {
+            [self.customerEmail setText:email.address];
+        } else if (email.typeValue == 5) {
+          
+        }
+    }
+    
+    [self.raterWebText setText:_detailItem.rater.name];
+    [self.rater2Text setText:_detailItem.rater2.name];
+    
+    
+    for (Contact *cnt in _detailItem.contacts)
+    {
+        NSLog(cnt.type.name);
+        if(cnt.type.name == @"Owner" )
+        {
+            [self.ownerFirstName setText:cnt.firstName];
+        }
+    else if(cnt.type.name == @"Primary Contact")
+    {
+        [self.primaryContactFirstName setText:cnt.firstName];
+    }
+}
 
+   // [self.ownerLastName setText:_detailItem.co]
     
-    
-    
-    
+
 }
 -(void) showTableView
 {

@@ -28,6 +28,7 @@
 
 @synthesize window = _window;
 @synthesize splitViewController = _splitViewController;
+@synthesize mgSplitViewController = _mgSplitViewController;
 
 - (void)loginFailed:(ASIHTTPRequest *)request
 {
@@ -70,14 +71,38 @@
     
     SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
 	
-	self.splitViewController = [[UISplitViewController alloc] init];
+    //TODO: Need to uncomment below code
+/*	self.splitViewController = [[UISplitViewController alloc] init];
 	self.splitViewController.delegate = controller;
 	controller.splitViewController = self.splitViewController;
 	self.splitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
 	controller.detailViewController = detailViewController;
-	self.window.rootViewController = self.splitViewController;
+     */
+    
+    //MGSplitviewcontroller 
+    self.mgSplitViewController = [[MGSplitViewController alloc] init];
+    self.mgSplitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
+    self.mgSplitViewController.delegate = controller;
+    controller.mgSplitViewController = self.mgSplitViewController;
+    detailViewController.splitviewcontroller = self.mgSplitViewController;
+   controller.detailViewController = detailViewController;
+    
+    
+    
+  /*  MGSplitViewDividerStyle newStyle = ((self.mgSplitViewController.dividerStyle == MGSplitViewDividerStyleThin) ? MGSplitViewDividerStylePaneSplitter : MGSplitViewDividerStyleThin);
+	[self.mgSplitViewController setDividerStyle:newStyle animated:YES];
+    */
+    
+
+    self.window.rootViewController = self.mgSplitViewController;
+    
+    
+    
+	//self.window.rootViewController = self.splitViewController;
     [self.window makeKeyAndVisible];
 	
+    
+  
 	[self loginFailed:nil];
 	
     return YES;

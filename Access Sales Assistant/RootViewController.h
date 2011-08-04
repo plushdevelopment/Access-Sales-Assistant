@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "VisitApplicationViewController.h"
 #import "MyTreeNode.h"
+#import "MGSplitViewController.h"
 
 @class  BaseDetailViewController;
 
-@interface RootViewController : UITableViewController <UISplitViewControllerDelegate>
+@interface RootViewController : UITableViewController <UISplitViewControllerDelegate,MGSplitViewControllerDelegate>
 {
 	NSMutableIndexSet *expandedSections;
     NSArray* sectionTitlesArray;
@@ -27,8 +28,12 @@
 @property(nonatomic,strong) NSMutableArray *sectionInfoArray;
 @property (nonatomic, strong) UIPopoverController *popoverController;
 @property (nonatomic, strong) UIBarButtonItem *rootPopoverButtonItem;
+@property (nonatomic,strong) UIBarButtonItem* showHideMaster;
 
 @property (nonatomic, assign) UISplitViewController *splitViewController;
+@property (nonatomic,assign) MGSplitViewController* mgSplitViewController;
 @property (nonatomic,strong) MyTreeNode* treeNode;
+
+-(void) changeDetailViewController:(BaseDetailViewController*)detailViewController;
 
 @end

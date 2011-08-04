@@ -38,19 +38,34 @@
         
         
      //   self.rectColor = [UIColor clearColor];//RGB(238,224,229);
+        NSString* str = [[NSString alloc] init];
         
+        if(forFlashCard == 0)
+        {
+            str = @"Prospect";
+        }
+        else if(forFlashCard == 1)
+        {
+           str = @"Zero Producer";
+        }
+        else if(forFlashCard == 2)
+        {
+            str = @"Producer";
+        }
         
-         prospectFlashTitleArray = [[NSArray alloc] initWithObjects:FLASH_PROSPECT_TITLES];
+        NSString *path = [[NSBundle mainBundle] pathForResource:
+                          @"Flashcards" ofType:@"plist"];
+        NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:path];
+        
+        NSDictionary* callDictionary = [plistData objectForKey:str];
+        
+        NSArray* indexTitleArray = [callDictionary objectForKey:@"Questions"];
+
+      //   prospectFlashTitleArray = [[NSArray alloc] initWithObjects:FLASH_PROSPECT_TITLES];
         
         
         UIImageView* background = [[UIImageView alloc] initWithFrame:frame];
-    //    UIImage* bgImage = [UIImage imageNamed:@"ipad background - cars (black).png"];
-       //  UIImage* bgImage = [UIImage imageNamed:@"calls-background.png"];
-        //background.image = bgImage;
-
-        //[self addSubview:background];
-        self.backgroundColor = [UIColor clearColor];
-
+         self.backgroundColor = [UIColor clearColor];
         
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:frame];
         UIImage* image = [UIImage imageNamed:@"indexCard.png"];
@@ -58,14 +73,13 @@
       //  imageView.alpha = 0.9;
         [self addSubview:imageView];
         UILabel *label = [[UILabel alloc] initWithFrame:frame];
-        label.text = [prospectFlashTitleArray objectAtIndex:forIndex];
+        label.text = [indexTitleArray objectAtIndex:forIndex];//[prospectFlashTitleArray objectAtIndex:forIndex];
         label.lineBreakMode = UILineBreakModeWordWrap;
         label.numberOfLines = 0;
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = UITextAlignmentCenter;
-//        label.font = [UIFont fontWithName:@"Trebuchet MS" size:25];//[label.font fontWithSize:15];
-        // label.font = [UIFont fontWithName:@"SnellRoundhand-Bold" size:50];//[label.font fontWithSize:15];
-         label.font = [UIFont fontWithName:@"BradleyHandITCTT-Bold" size:50];//[label.font fontWithSize:15];
+
+         label.font = [UIFont fontWithName:@"BradleyHandITCTT-Bold" size:40];//[label.font fontWithSize:15];
         
         [self addSubview:label];
 
