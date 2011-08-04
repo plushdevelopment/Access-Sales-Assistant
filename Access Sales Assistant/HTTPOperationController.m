@@ -6,6 +6,8 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+
+
 #import "HTTPOperationController.h"
 
 #import "SynthesizeSingleton.h"
@@ -618,8 +620,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
+    
+    NSString* escapedString = [self urlencode:searchString];
+
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@",searchString,[user token]];
+                            stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@",escapedString,[user token]]; //stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -653,19 +658,50 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
         [newDict setValue:producer.uid forKey:@"uid"];
         [newDict setValue:producer.name forKey:@"name"];
         [producernameArray addObject:newDict];
-    //    NSLog(producer.name);
     }
-
-
-
+    
    [context save];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"searchProducer" object:producernameArray];
-      //  NSLog(responseString);
+     
 }
 -(void)searchProducerFailed:(ASIHTTPRequest *)request
 {
  NSLog(@"Search Failed");
+}
+
+-(NSString *) urlencode: (NSString *) url
+{
+    NSArray *escapeChars = [NSArray arrayWithObjects:@";" , @"/" , @"?" , @":" ,
+                            @"@" , @"&" , @"=" , @"+" ,
+                            @"$" , @"," , @"[" , @"]",
+                            @"#", @"!", @"'", @"(", 
+                            @")", @"*", @" ",nil];
+    
+    NSArray *replaceChars = [NSArray arrayWithObjects:@"%3B" , @"%2F" , @"%3F" ,
+                             @"%3A" , @"%40" , @"%26" ,
+                             @"%3D" , @"%2B" , @"%24" ,
+                             @"%2C" , @"%5B" , @"%5D", 
+                             @"%23", @"%21", @"%27",
+                             @"%28", @"%29", @"%2A", @"%20",nil];
+    
+    int len = [escapeChars count];
+    
+    NSMutableString *temp = [url mutableCopy];
+    
+    int i;
+    for(i = 0; i < len; i++)
+    {
+        
+        [temp replaceOccurrencesOfString: [escapeChars objectAtIndex:i]
+                              withString:[replaceChars objectAtIndex:i]
+                                 options:NSLiteralSearch
+                                   range:NSMakeRange(0, [temp length])];
+    }
+    
+    NSString *out = [NSString stringWithString: temp];
+    
+    return out;
 }
 
 @end

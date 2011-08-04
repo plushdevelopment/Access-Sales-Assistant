@@ -80,6 +80,8 @@
 
 -(void) loadFlashCards:(int) index
 {
+    
+    
     if(index == 0)
     {
         titleLabel.text = @"Prospect";
@@ -97,7 +99,18 @@
     
   
     
-    for(int i=0;i<5;i++)
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"Flashcards" ofType:@"plist"];
+    NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:path];
+    
+    NSDictionary* callDictionary = [plistData objectForKey:titleLabel.text];
+    
+    NSArray* indexTitleArray = [callDictionary objectForKey:@"Questions"];
+   
+    
+    
+    
+    for(int i=0;i<[indexTitleArray count];i++)
     {
         CGSize containerSize;
         
@@ -237,8 +250,21 @@
 		NSLog(@"Selected current item");
       //  CustomContainerView* view = (CustomContainerView*)[_carousel viewAtIndex:index];
         
-        CustomContainerView* view = [containerArray objectAtIndex:index];
-        [view flipCurrentView:YES];
+        for(int cContainer = 0; cContainer<[containerArray count];cContainer++)
+        {
+            CustomContainerView* view = [containerArray objectAtIndex:cContainer];
+            if(index == cContainer)
+            {
+                [view flipCurrentView:YES];
+            }
+            else
+            {
+                if(view.flipped)
+                    [view flipCurrentView:YES];
+                
+            }
+        }
+        
 	}
 	else
 	{

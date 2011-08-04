@@ -88,14 +88,14 @@
     
     self.baseNavigationBar = self.navigationBar;
     self.baseToolbar = self.toolBar;
-    [_fnbScrollview setBackgroundColor:[UIColor blackColor]];
+    [_fnbScrollview setBackgroundColor:[UIColor clearColor]];
     
 #if TARGET_IPHONE_SIMULATOR
     [self selectedState:@"Georgia" :@"GA"];
 #else
-	[self selectedState:@"Georgia" :@"GA"];
-    //[[SSLocationManager sharedManager] addDelegate:self];
-    //[[SSLocationManager sharedManager] startUpdatingCurrentLocation];
+//	[self selectedState:@"Georgia" :@"GA"];
+    [[SSLocationManager sharedManager] addDelegate:self];
+    [[SSLocationManager sharedManager] startUpdatingCurrentLocation];
 #endif
     
     
@@ -144,7 +144,7 @@
 }
 -(void) selectedState:(NSString*) stateName:(NSString*) stateCode
 {
-    [self.fnbScrollview setNeedsDisplay];
+    
     
     self.currentStateCode = stateCode;
     self.currentStateName = stateName;
@@ -162,6 +162,7 @@
     NSMutableArray* featureObjArray;
     
     featureObjArray = [NSMutableArray array];
+    [featureObjArray removeAllObjects];
     NSArray* fnbFeaturesArray = [[NSArray alloc] initWithObjects:FNBFEATURES];
     
     //Fetching features & benefits from .plist file
@@ -234,16 +235,21 @@
     }
     
     [_fnbScrollview clearsContextBeforeDrawing];
-    
+   
+    for (UIView *subview in _fnbScrollview.subviews) {
+        if([subview isKindOfClass:[UILabel class]])
+            [subview removeFromSuperview];
+    }
+  
  //   NSLog(@"array is: %@",featureObjArray);
     
     int fObjCount = [featureObjArray count];
     
-    int scrollwidth =600;// [_fnbScrollview bounds].size.width;//686;
+    int scrollwidth = 600;//[_fnbScrollview bounds].size.width;//686;
     
     
     
-    [_fnbScrollview setBackgroundColor:[UIColor whiteColor]];
+  //  [_fnbScrollview setBackgroundColor:[UIColor whiteColor]];
 	[_fnbScrollview setCanCancelContentTouches:NO];
 	_fnbScrollview.clipsToBounds = YES;	// default is NO, we want to restrict drawing within our scrollview
 	_fnbScrollview.indicatorStyle = UIScrollViewIndicatorStyleWhite;
@@ -272,6 +278,7 @@
 
             featureLabel.textColor = [UIColor orangeColor];
              featureLabel.textAlignment=UITextAlignmentLeft;
+            featureLabel.backgroundColor = [UIColor clearColor];
             
            
              featureLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
@@ -282,19 +289,22 @@
         {
             featureLabel.text = tFeaturesObj.strFeature;
             
-            featureLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:16.0];
-            featureLabel.textColor = [UIColor grayColor];
+            featureLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
+            featureLabel.textColor = [UIColor lightGrayColor];
             benefitLabel.text = tFeaturesObj.strBenefit;
-            benefitLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:16.0];
-            benefitLabel.textColor = RGB(0,111,162);
+            benefitLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
+           // benefitLabel.textColor = RGB(0,111,162);
+            benefitLabel.textColor = RGB(0,178,238);
+            
+             featureLabel.backgroundColor = [UIColor clearColor];
+            benefitLabel.backgroundColor = [UIColor clearColor];
                  
             [_fnbScrollview addSubview:featureLabel];
             [_fnbScrollview addSubview:benefitLabel];
         }
-        
-        
     }
     _fnbScrollview.contentSize = CGSizeMake(scrollwidth, fObjCount*30);
+   
     [_popOverController dismissPopoverAnimated:YES];
 }
 

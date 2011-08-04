@@ -47,12 +47,36 @@
         
         [self addSubview:webView];
         
-        NSString *urlAddress = [[NSString alloc] initWithFormat:@"%@_%@_Content",[callTitleArray objectAtIndex:forFlashCard],[flashTitleArray objectAtIndex:forIndex]];
+        NSString* str = [[NSString alloc] init];
+        
+        if(forFlashCard == 0)
+        {
+            str = @"Prospect";
+        }
+        else if(forFlashCard == 1)
+        {
+            str = @"Zero Producer";
+        }
+        else if(forFlashCard == 2)
+        {
+            str = @"Producer";
+        }
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:
+                          @"Flashcards" ofType:@"plist"];
+        NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:path];
+        
+        NSDictionary* callDictionary = [plistData objectForKey:str];
+        
+        NSArray* answersArray = [callDictionary objectForKey:@"Answers"];
+
+        
+      //  NSString *urlAddress = [[NSString alloc] initWithFormat:@"%@_%@_Content",[callTitleArray objectAtIndex:forFlashCard],[flashTitleArray objectAtIndex:forIndex]];
      //   NSURL *url = [NSURL URLWithString:urlAddress];
         
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:urlAddress ofType:@"html"];
-        NSURL *url = [NSURL fileURLWithPath:path];
+        NSString *urlPath = [[NSBundle mainBundle] pathForResource:[answersArray objectAtIndex:forIndex] ofType:@"html"];
+        NSURL *url = [NSURL fileURLWithPath:urlPath];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [webView loadRequest:request];
             

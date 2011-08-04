@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Prospect</key>
+	<dict>
+		<key>Questions</key>
+		<array>
+			<string>What is your objective for a Prospect call?</string>
+			<string>What attributes are required of a producer to qualify as a potential prospect?</string>
+			<string>What are at least three key points to mention in your Prospect Call Sales Pitch?</string>
+			<string>To learn about a producer&apos;s needs, what are some questions you should ask?</string>
+			<string>What are key phrases or questions to wrap up a prospect call?</string>
+		</array>
+		<key>Answers</key>
+		<array>
+			<string>Prospect_1</string>
+			<string>Prospect_2</string>
+			<string>Prospect_3</string>
+			<string>Prospect_4</string>
+			<string>Prospect_5</string>
+		</array>
+	</dict>
+	<key>Zero Producer</key>
+	<dict>
+		<key>Questions</key>
+		<array>
+			<string>What is your objective in a Zero Producer call?</string>
+			<string>What are some reasons why an agency has not produced for us?</string>
+			<string>What should you do if a barrier is raised that you cannot overcome?</string>
+			<string>What Access features and benefits can you highlight in your Zero Producer sales pitch in order to get them producing?</string>
+			<string>What questions should you ask in a Zero Producer call?</string>
+			<string>How should you close this sales call?</string>
+		</array>
+		<key>Answers</key>
+		<array>
+			<string>ZeroProducer_1</string>
+			<string>ZeroProducer_2</string>
+			<string>ZeroProducer_3</string>
+			<string>ZeroProducer_4</string>
+			<string>ZeroProducer_5</string>
+			<string>ZeroProducer_6</string>
+		</array>
+	</dict>
+	<key>Producer</key>
+	<dict>
+		<key>Questions</key>
+		<array>
+			<string>What should your objective be in a Producer call?</string>
+			<string>What are the two types of calls under this category?</string>
+			<string>What is a Production call?</string>
+			<string>What is a Service call?</string>
+			<string>What are at least three key points to mention in your Producer Call?</string>
+			<string>What questions should you ask in a Producer call?</string>
+			<string>What should you always ask for when closing a Producer call?</string>
+		</array>
+		<key>Answers</key>
+		<array>
+			<string>Producer_1</string>
+			<string>Producer_2</string>
+			<string>Producer_3</string>
+			<string>Producer_4</string>
+			<string>Producer_5</string>
+			<string>Producer_6</string>
+			<string>Producer_7</string>
+		</array>
+	</dict>
+</dict>
+</plist>

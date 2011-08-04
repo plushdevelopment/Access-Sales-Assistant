@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MGSplitViewController.h"
 @protocol SubstitutableDetailViewController
 - (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
 - (void)invalidateRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
+- (void) insertBarButtonItem:(UIBarButtonItem*)barButtonItem;
 @end
 
 @interface BaseDetailViewController : UIViewController<SubstitutableDetailViewController> {
@@ -20,6 +21,13 @@
 @property(nonatomic,strong) UINavigationBar *baseNavigationBar;
 @property(nonatomic,strong) UIToolbar *baseToolbar;
 
+@property(nonatomic,strong) UIBarButtonItem *showHideMaster;
+
+@property (nonatomic,strong) MGSplitViewController* splitviewcontroller;
+
+@property (nonatomic) BOOL hidemaster;
+
 -(void) showAlert:(NSString*) alertText;
+-(BOOL) isShowMaster;
 @end
 
