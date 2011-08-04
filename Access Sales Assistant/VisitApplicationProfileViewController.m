@@ -23,6 +23,7 @@
 #import "State.h"
 #import "Status.h"
 #import "ContactType.h"
+#import "OperationHour.h"
 
 
 #define PRODUCER_CODE					0
@@ -605,6 +606,48 @@
 		case NUMBER_OF_LOCATIONS:
 			rows = 100;
 			break;
+		case MONDAY_START:
+			rows = [[OperationHour findAll] count];
+			break;
+		case MONDAY_STOP:
+			rows = [[OperationHour findAll] count];
+			break;
+		case TUESDAY_START:
+			rows = [[OperationHour findAll] count];
+			break;
+		case TUESDAY_STOP:
+			rows = [[OperationHour findAll] count];
+			break;
+		case WEDNESDAY_START:
+			rows = [[OperationHour findAll] count];
+			break;
+		case WEDNESDAY_STOP:
+			rows = [[OperationHour findAll] count];
+			break;
+		case THURSDAY_START:
+			rows = [[OperationHour findAll] count];
+			break;
+		case THURSDAY_STOP:
+			rows = [[OperationHour findAll] count];
+			break;
+		case FRIDAY_START:
+			rows = [[OperationHour findAll] count];
+			break;
+		case FRIDAY_STOP:
+			rows = [[OperationHour findAll] count];
+			break;
+		case SATURDAY_START:
+			rows = [[OperationHour findAll] count];
+			break;
+		case SATURDAY_STOP:
+			rows = [[OperationHour findAll] count];
+			break;
+		case SUNDAY_START:
+			rows = [[OperationHour findAll] count];
+			break;
+		case SUNDAY_STOP:
+			rows = [[OperationHour findAll] count];
+			break;
 		default:
 			break;
 	}
@@ -694,6 +737,62 @@
 			producer.numberOfEmployeesValue = [titleForRow integerValue];
 			self.numberOfEmployeesTextField.text = titleForRow;
 			break;
+		case MONDAY_START:
+			producer.hoursOfOperation.mondayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.mondayStartTextField.text = titleForRow;
+			break;
+		case MONDAY_STOP:
+			producer.hoursOfOperation.mondayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.mondayStopTextField.text = titleForRow;
+			break;
+		case TUESDAY_START:
+			producer.hoursOfOperation.tuesdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.tuesdayStartTextField.text = titleForRow;
+			break;
+		case TUESDAY_STOP:
+			producer.hoursOfOperation.tuesdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.tuesdayStopTextField.text = titleForRow;
+			break;
+		case WEDNESDAY_START:
+			producer.hoursOfOperation.wednesdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.wednesdayStartTextField.text = titleForRow;
+			break;
+		case WEDNESDAY_STOP:
+			producer.hoursOfOperation.wednesdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.wednesdayStopTextField.text = titleForRow;
+			break;
+		case THURSDAY_START:
+			producer.hoursOfOperation.thursdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.thursdayStartTextField.text = titleForRow;
+			break;
+		case THURSDAY_STOP:
+			producer.hoursOfOperation.thursdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.thursdayStopTextField.text = titleForRow;
+			break;
+		case FRIDAY_START:
+			producer.hoursOfOperation.fridayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.fridayStartTextField.text = titleForRow;
+			break;
+		case FRIDAY_STOP:
+			producer.hoursOfOperation.fridayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.fridayStopTextField.text = titleForRow;
+			break;
+		case SATURDAY_START:
+			producer.hoursOfOperation.saturdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.saturdayStartTextField.text = titleForRow;
+			break;
+		case SATURDAY_STOP:
+			producer.hoursOfOperation.saturdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.saturdayStopTextField.text = titleForRow;
+			break;
+		case SUNDAY_START:
+			producer.hoursOfOperation.sundayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.sundayStartTextField.text = titleForRow;
+			break;
+		case SUNDAY_STOP:
+			producer.hoursOfOperation.sundayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+			self.sundayStopTextField.text = titleForRow;
+			break;
 		default:
 			break;
 	}
@@ -761,6 +860,48 @@
 		case NUMBER_OF_LOCATIONS:
 			theTitle = [NSString stringWithFormat:@"%d", row];
 			break;
+		case MONDAY_START:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case MONDAY_STOP:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case TUESDAY_START:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case TUESDAY_STOP:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case WEDNESDAY_START:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case WEDNESDAY_STOP:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case THURSDAY_START:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case THURSDAY_STOP:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case FRIDAY_START:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case FRIDAY_STOP:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case SATURDAY_START:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case SATURDAY_STOP:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case SUNDAY_START:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
+		case SUNDAY_STOP:
+			theTitle = [[[OperationHour findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
+			break;
 		default:
 			break;
 	}
@@ -804,76 +945,6 @@
 			producer.statusDate = toDate;
 			[formatter setDateFormat:@"MM-dd-yyyy"];
 			self.statusDateTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case MONDAY_START:
-			producer.hoursOfOperation.mondayOpenTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.mondayStartTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case MONDAY_STOP:
-			producer.hoursOfOperation.mondayCloseTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.mondayStopTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case TUESDAY_START:
-			producer.hoursOfOperation.tuesdayOpenTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.tuesdayStartTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case TUESDAY_STOP:
-			producer.hoursOfOperation.tuesdayCloseTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.tuesdayStopTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case WEDNESDAY_START:
-			producer.hoursOfOperation.wednesdayOpenTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.wednesdayStartTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case WEDNESDAY_STOP:
-			producer.hoursOfOperation.wednesdayCloseTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.wednesdayStopTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case THURSDAY_START:
-			producer.hoursOfOperation.thursdayOpenTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.thursdayStartTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case THURSDAY_STOP:
-			producer.hoursOfOperation.thursdayCloseTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.thursdayStopTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case FRIDAY_START:
-			producer.hoursOfOperation.fridayOpenTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.fridayStartTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case FRIDAY_STOP:
-			producer.hoursOfOperation.fridayCloseTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.fridayStopTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case SATURDAY_START:
-			producer.hoursOfOperation.saturdayOpenTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.saturdayStartTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case SATURDAY_STOP:
-			producer.hoursOfOperation.saturdayCloseTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.saturdayStopTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case SUNDAY_START:
-			producer.hoursOfOperation.sundayOpenTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.sundayStartTextField.text = [formatter stringFromDate:toDate];
-			break;
-		case SUNDAY_STOP:
-			producer.hoursOfOperation.sundayCloseTime = toDate;
-			[formatter setDateFormat:@"hh:mm a"];
-			self.sundayStopTextField.text = [formatter stringFromDate:toDate];
 			break;
 		default:
 			break;

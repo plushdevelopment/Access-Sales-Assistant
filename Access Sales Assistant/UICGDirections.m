@@ -8,7 +8,7 @@
 
 #import "UICGDirections.h"
 #import "UICGRoute.h"
-#import "JSON.h"
+#import "JSONKit.h"
 
 static UICGDirections *sharedDirections;
 
@@ -93,7 +93,7 @@ static UICGDirections *sharedDirections;
 
 - (void)loadFromWaypoints:(NSArray *)waypoints options:(UICGDirectionsOptions *)options {
 	[googleMapsAPI stringByEvaluatingJavaScriptFromString:
-	 [NSString stringWithFormat:@"loadFromWaypoints(%@, %@)", [waypoints JSONRepresentation], [options JSONRepresentation]]];
+	 [NSString stringWithFormat:@"loadFromWaypoints(%@, %@)", [waypoints JSONString], [options JSONRepresentation]]];
 }
 
 - (void)clear {

@@ -41,6 +41,14 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"isEligible"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"latitudeValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"latitude"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"longitudeValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"longitude"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"numberOfEmployeesValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"numberOfEmployees"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -49,9 +57,20 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"numberOfLocations"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"submittedValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"submitted"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic address;
+
+
 
 
 
@@ -162,6 +181,58 @@
 
 
 
+@dynamic latitude;
+
+
+
+- (float)latitudeValue {
+	NSNumber *result = [self latitude];
+	return [result floatValue];
+}
+
+- (void)setLatitudeValue:(float)value_ {
+	[self setLatitude:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveLatitudeValue {
+	NSNumber *result = [self primitiveLatitude];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveLatitudeValue:(float)value_ {
+	[self setPrimitiveLatitude:[NSNumber numberWithFloat:value_]];
+}
+
+
+
+
+
+@dynamic longitude;
+
+
+
+- (float)longitudeValue {
+	NSNumber *result = [self longitude];
+	return [result floatValue];
+}
+
+- (void)setLongitudeValue:(float)value_ {
+	[self setLongitude:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveLongitudeValue {
+	NSNumber *result = [self primitiveLongitude];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveLongitudeValue:(float)value_ {
+	[self setPrimitiveLongitude:[NSNumber numberWithFloat:value_]];
+}
+
+
+
+
+
 @dynamic name;
 
 
@@ -170,6 +241,20 @@
 
 
 @dynamic nextScheduledVisit;
+
+
+
+
+
+
+@dynamic nextScheduledVisitDate;
+
+
+
+
+
+
+@dynamic nextScheduledVisitTime;
 
 
 
@@ -244,6 +329,32 @@
 
 @dynamic statusDate;
 
+
+
+
+
+
+@dynamic submitted;
+
+
+
+- (BOOL)submittedValue {
+	NSNumber *result = [self submitted];
+	return [result boolValue];
+}
+
+- (void)setSubmittedValue:(BOOL)value_ {
+	[self setSubmitted:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveSubmittedValue {
+	NSNumber *result = [self primitiveSubmitted];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveSubmittedValue:(BOOL)value_ {
+	[self setPrimitiveSubmitted:[NSNumber numberWithBool:value_]];
+}
 
 
 

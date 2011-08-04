@@ -34,16 +34,16 @@
 }
 
 - (void)webView:(UIWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(id)frame {
-	//NSLog(@"%@", message);
-	id JSONValue = [message JSONValue];
-	if (!JSONValue) {
+	NSLog(@"%@", message);
+	id value = [message JSONValue];
+	if (!value) {
 		if ([self.delegate respondsToSelector:@selector(goolgeMapsAPI:didFailWithMessage:)]) {
 			[(id<UICGoogleMapsAPIDelegate>)self.delegate goolgeMapsAPI:self didFailWithMessage:message];
 		}
 		return;
 	}
 	if ([self.delegate respondsToSelector:@selector(goolgeMapsAPI:didGetObject:)]) {
-		[(id<UICGoogleMapsAPIDelegate>)self.delegate goolgeMapsAPI:self didGetObject:JSONValue];
+		[(id<UICGoogleMapsAPIDelegate>)self.delegate goolgeMapsAPI:self didGetObject:value];
 	}
 }
 

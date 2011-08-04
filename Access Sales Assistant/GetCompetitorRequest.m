@@ -18,6 +18,8 @@
 
 @synthesize totalPages=_totalPages;
 
+@synthesize context=_context;
+
 - (id)initWithURL:(NSURL *)newURL
 {
 	self = [super initWithURL:newURL];
@@ -25,26 +27,28 @@
 		_currentPage = 0;
 		_totalPages = 0;
 		[self addRequestHeader:@"Content-Type" value:@"application/json"];
+		[self setNumberOfTimesToRetryOnTimeout:3];
+		[self setQueuePriority:NSOperationQueuePriorityVeryLow];
 	}
 	return self;
 }
 
 - (void)requestFinished
 {
-	NSManagedObjectContext *context = [NSManagedObjectContext context];
+	self.context = [NSManagedObjectContext contextForCurrentThread];
 	NSDictionary *responseJSON = [[self responseString] JSONValue];
 	NSArray *results = [responseJSON objectForKey:@"results"];
 	for (NSDictionary *dict in results) {
 		
 		Competitor *competitor = [Competitor ai_objectForProperty:@"uid"
 													  value:[dict valueForKey:@"uid"] 
-									   managedObjectContext:context];
+									   managedObjectContext:self.context];
 		if (!competitor.editedValue) {
 			[competitor safeSetValuesForKeysWithDictionary:dict
-										   dateFormatter:nil managedObjectContext:context];
+										   dateFormatter:nil managedObjectContext:self.context];
 		}
 	}
-	[context save];
+	[self.context save:nil];
 	
 	self.currentPage = [[responseJSON valueForKey:@"currentPage"] integerValue];
 	self.totalPages = [[responseJSON valueForKey:@"totalPages"] integerValue];

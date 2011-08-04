@@ -12,5 +12,6 @@
 
 @property (nonatomic) NSInteger currentPage;
 @property (nonatomic) NSInteger totalPages;
+@property (atomic, strong) NSManagedObjectContext *context;
 
 @end

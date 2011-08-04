@@ -29,4 +29,6 @@ typedef enum UICGTravelModes {
 @property (nonatomic) BOOL getSteps;
 @property (nonatomic) BOOL preserveViewport;
 
+- (NSString *)JSONRepresentation;
+
 @end

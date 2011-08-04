@@ -170,6 +170,11 @@
 		FF846CB313DD9A2500D59F3E /* GetCompetitorRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF846CAE13DD9A2500D59F3E /* GetCompetitorRequest.m */; };
 		FF883BED13D4CD92001C3122 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF883BEB13D4CD92001C3122 /* ProfileTableViewController.m */; };
 		FF883BEE13D4CD92001C3122 /* ProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF883BEC13D4CD92001C3122 /* ProfileTableViewController.xib */; };
+		FF8AC3B913EADDC500212201 /* _OperationHour.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AC3B613EADDC500212201 /* _OperationHour.m */; };
+		FF8AC3BA13EADDC500212201 /* OperationHour.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AC3B813EADDC500212201 /* OperationHour.m */; };
+		FF8AC3BD13EB0EBA00212201 /* GetPickListsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AC3BC13EB0EBA00212201 /* GetPickListsRequest.m */; };
+		FF8AC3C013EB0FA400212201 /* GetContactsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AC3BF13EB0FA400212201 /* GetContactsRequest.m */; };
+		FF8AC3C313EB11C100212201 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AC3C213EB11C100212201 /* LoginRequest.m */; };
 		FF8B415513A8EEF700A05007 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8B415413A8EEF700A05007 /* UIKit.framework */; };
 		FF8B415713A8EEF700A05007 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8B415613A8EEF700A05007 /* Foundation.framework */; };
 		FF8B415913A8EEF700A05007 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8B415813A8EEF700A05007 /* CoreGraphics.framework */; };
@@ -350,6 +355,8 @@
 		FFCD8B2113C601D3008D8885 /* NSManagedObject+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD8B2013C601D3008D8885 /* NSManagedObject+Additions.m */; };
 		FFD9A8AE13CCA1B9009ACD64 /* Rater2.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD9A8AA13CCA1B9009ACD64 /* Rater2.m */; };
 		FFD9A8AF13CCA1B9009ACD64 /* _Rater2.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD9A8AC13CCA1B9009ACD64 /* _Rater2.m */; };
+		FFE2D1FF13E96EE000E6A77B /* VisitApplicationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE2D1FD13E96EE000E6A77B /* VisitApplicationMapViewController.m */; };
+		FFE2D20013E96EE000E6A77B /* VisitApplicationMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE2D1FE13E96EE000E6A77B /* VisitApplicationMapViewController.xib */; };
 		FFF0D00013BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */; };
 		FFF0D00513BB7ED7008DFA19 /* _Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00213BB7ED7008DFA19 /* _Producer.m */; };
 		FFF0D00613BB7ED7008DFA19 /* Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00413BB7ED7008DFA19 /* Producer.m */; };
@@ -629,6 +636,16 @@
 		FF883BEA13D4CD92001C3122 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
 		FF883BEB13D4CD92001C3122 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 		FF883BEC13D4CD92001C3122 /* ProfileTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewController.xib; sourceTree = "<group>"; };
+		FF8AC3B513EADDC500212201 /* _OperationHour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _OperationHour.h; sourceTree = "<group>"; };
+		FF8AC3B613EADDC500212201 /* _OperationHour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _OperationHour.m; sourceTree = "<group>"; };
+		FF8AC3B713EADDC500212201 /* OperationHour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationHour.h; sourceTree = "<group>"; };
+		FF8AC3B813EADDC500212201 /* OperationHour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationHour.m; sourceTree = "<group>"; };
+		FF8AC3BB13EB0EB900212201 /* GetPickListsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPickListsRequest.h; sourceTree = "<group>"; };
+		FF8AC3BC13EB0EBA00212201 /* GetPickListsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPickListsRequest.m; sourceTree = "<group>"; };
+		FF8AC3BE13EB0FA400212201 /* GetContactsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetContactsRequest.h; sourceTree = "<group>"; };
+		FF8AC3BF13EB0FA400212201 /* GetContactsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetContactsRequest.m; sourceTree = "<group>"; };
+		FF8AC3C113EB11C100212201 /* LoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRequest.h; sourceTree = "<group>"; };
+		FF8AC3C213EB11C100212201 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequest.m; sourceTree = "<group>"; };
 		FF8B415013A8EEF700A05007 /* Access Sales Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Access Sales Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8B415413A8EEF700A05007 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FF8B415613A8EEF700A05007 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -923,6 +940,9 @@
 		FFD9A8AB13CCA1B9009ACD64 /* Rater2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rater2.h; sourceTree = "<group>"; };
 		FFD9A8AC13CCA1B9009ACD64 /* _Rater2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Rater2.m; sourceTree = "<group>"; };
 		FFD9A8AD13CCA1B9009ACD64 /* _Rater2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Rater2.h; sourceTree = "<group>"; };
+		FFE2D1FC13E96EE000E6A77B /* VisitApplicationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationMapViewController.h; sourceTree = "<group>"; };
+		FFE2D1FD13E96EE000E6A77B /* VisitApplicationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationMapViewController.m; sourceTree = "<group>"; };
+		FFE2D1FE13E96EE000E6A77B /* VisitApplicationMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationMapViewController.xib; sourceTree = "<group>"; };
 		FFF0CFFE13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.h"; sourceTree = "<group>"; };
 		FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.m"; sourceTree = "<group>"; };
 		FFF0D00113BB7ED7008DFA19 /* _Producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Producer.h; sourceTree = "<group>"; };
@@ -1243,6 +1263,9 @@
 				FFF2D89313D5ADB00098609D /* VisitApplicationSummaryViewController.h */,
 				FFF2D89413D5ADB00098609D /* VisitApplicationSummaryViewController.m */,
 				FFF2D89513D5ADB00098609D /* VisitApplicationSummaryViewController.xib */,
+				FFE2D1FC13E96EE000E6A77B /* VisitApplicationMapViewController.h */,
+				FFE2D1FD13E96EE000E6A77B /* VisitApplicationMapViewController.m */,
+				FFE2D1FE13E96EE000E6A77B /* VisitApplicationMapViewController.xib */,
 			);
 			name = "Visit Application";
 			sourceTree = "<group>";
@@ -1269,6 +1292,8 @@
 		FF697AD813AFB8E500B66202 /* Human Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FF8AC3B713EADDC500212201 /* OperationHour.h */,
+				FF8AC3B813EADDC500212201 /* OperationHour.m */,
 				6D966D4213DDCF2000DAF04B /* TrainingVideo.h */,
 				6D966D4313DDCF2000DAF04B /* TrainingVideo.m */,
 				FF9ED82813D4F60D006105C7 /* ProducerImage.m */,
@@ -1332,6 +1357,8 @@
 		FF697AD913AFB8F200B66202 /* Machine Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FF8AC3B513EADDC500212201 /* _OperationHour.h */,
+				FF8AC3B613EADDC500212201 /* _OperationHour.m */,
 				6D966D4013DDCF2000DAF04B /* _TrainingVideo.h */,
 				6D966D4113DDCF2000DAF04B /* _TrainingVideo.m */,
 				FF9ED82A13D4F60D006105C7 /* _ProducerImage.m */,
@@ -1576,6 +1603,12 @@
 				FF846CA513DD9A2500D59F3E /* GetProducerRequest.m */,
 				FF846CAD13DD9A2500D59F3E /* GetCompetitorRequest.h */,
 				FF846CAE13DD9A2500D59F3E /* GetCompetitorRequest.m */,
+				FF8AC3BB13EB0EB900212201 /* GetPickListsRequest.h */,
+				FF8AC3BC13EB0EBA00212201 /* GetPickListsRequest.m */,
+				FF8AC3BE13EB0FA400212201 /* GetContactsRequest.h */,
+				FF8AC3BF13EB0FA400212201 /* GetContactsRequest.m */,
+				FF8AC3C113EB11C100212201 /* LoginRequest.h */,
+				FF8AC3C213EB11C100212201 /* LoginRequest.m */,
 			);
 			name = Requests;
 			sourceTree = "<group>";
@@ -2361,6 +2394,7 @@
 				6D7E43B913E3168F002832C6 /* QATimeTable.plist in Resources */,
 				6D7E43BF13E31D44002832C6 /* ContactsQATimeTableViewController.xib in Resources */,
 				6D167FCB13E8518900425F49 /* search.jpg in Resources */,
+				FFE2D20013E96EE000E6A77B /* VisitApplicationMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2581,6 +2615,12 @@
 				FFBE682613E844F900013066 /* SmartTableView.m in Sources */,
 				FFBE682913E845A000013066 /* SmartScrollView.m in Sources */,
 				6D167FC813E8515500425F49 /* QATimeTableObject.m in Sources */,
+				FFE2D1FF13E96EE000E6A77B /* VisitApplicationMapViewController.m in Sources */,
+				FF8AC3B913EADDC500212201 /* _OperationHour.m in Sources */,
+				FF8AC3BA13EADDC500212201 /* OperationHour.m in Sources */,
+				FF8AC3BD13EB0EBA00212201 /* GetPickListsRequest.m in Sources */,
+				FF8AC3C013EB0FA400212201 /* GetContactsRequest.m in Sources */,
+				FF8AC3C313EB11C100212201 /* LoginRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

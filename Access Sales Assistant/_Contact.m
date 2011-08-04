@@ -29,6 +29,10 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"editedValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"edited"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"rdFollowUpValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"rdFollowUp"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -36,6 +40,32 @@
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic edited;
+
+
+
+- (BOOL)editedValue {
+	NSNumber *result = [self edited];
+	return [result boolValue];
+}
+
+- (void)setEditedValue:(BOOL)value_ {
+	[self setEdited:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveEditedValue {
+	NSNumber *result = [self primitiveEdited];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveEditedValue:(BOOL)value_ {
+	[self setPrimitiveEdited:[NSNumber numberWithBool:value_]];
+}
+
 
 
 

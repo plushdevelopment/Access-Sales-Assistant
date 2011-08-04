@@ -112,7 +112,7 @@
 		[[self user] setServiceKey:self.serviceKeyField.text];
 		[self.managedObjectContext save];
 		
-		[[HTTPOperationController sharedHTTPOperationController] login];
+		//[[HTTPOperationController sharedHTTPOperationController] login];
 		
 		
 		NSString * _key = @"wTGMqLubzizPgylAsHGgfPfLDoclQt+YAIzM1ugFMko=";

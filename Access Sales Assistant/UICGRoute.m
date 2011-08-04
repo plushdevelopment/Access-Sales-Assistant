@@ -44,7 +44,7 @@
 		
 		distance = [k objectForKey:@"Distance"];
 		duration = [k objectForKey:@"Duration"];
-		NSDictionary *endLocationDic = [k objectForKey:@"End"];
+		NSDictionary *endLocationDic = [k objectForKey:@"Point"];
 		NSArray *coordinates = [endLocationDic objectForKey:@"coordinates"];
 		CLLocationDegrees longitude = [[coordinates objectAtIndex:0] doubleValue];
 		CLLocationDegrees latitude  = [[coordinates objectAtIndex:1] doubleValue];

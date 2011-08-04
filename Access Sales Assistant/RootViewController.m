@@ -44,6 +44,10 @@
 
 #import "ContactsQATimeTableViewController.h"
 
+#import "Producer.h"
+
+#import "VisitApplicationMapViewController.h"
+
 #define SECTION_HEADER_HEIGHT       56
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
 #define CONTACT_OPTIONS             @"Email SSC",@"Email Customer Service",@"Email NSF",@"Email Product",@"Email QA Form",@"Email Facilities",@"QA Resolution Timetable",@"Email help desk",nil
@@ -83,6 +87,20 @@
 
 @synthesize treeNode;
 
+- (void)producersSuccessful
+{
+	NSArray *producersArray = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES];
+	NSMutableArray *daysArray = [NSMutableArray arrayWithCapacity:[producersArray count]];
+	for (Producer *producer in producersArray) {
+		if (![daysArray containsObject:producer.nextScheduledVisitDate]) {
+			[daysArray addObject:producer.nextScheduledVisitDate];
+		}
+	}
+	visitApplicationDaysArray = [NSArray arrayWithArray:daysArray];
+	
+	[self.tableView reloadData];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -120,7 +138,12 @@
     _openSectionIndex = NSNotFound;
     
     sectionIdsArray = [NSMutableArray array];
-    visitApplicationDaysArray = [[NSArray alloc] initWithObjects:VISIT_APPLICATION_DAYS];
+    
+	//visitApplicationDaysArray = [[NSArray alloc] initWithObjects:VISIT_APPLICATION_DAYS];
+	[self producersSuccessful];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(producersSuccessful) name:@"Producers Successful" object:nil];
+	
     contactOptionsArray= [[NSArray alloc] initWithObjects:CONTACT_OPTIONS];
 	
     
@@ -172,6 +195,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"Producers Successful" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -324,25 +348,20 @@
     switch (self.openSectionIndex) {
         case VISIT_APP_INDEX: {
             
-            VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
+            //VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
+			VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
             NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
             self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
 			self.detailViewController = detailViewController;
-            detailViewController.pc = self.popoverController;
-            
-            UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-            
-         //   if(orientation == 0)
-                orientation = self.interfaceOrientation;
-            CGSize size = self.view.frame.size;
-            if(UIDeviceOrientationIsPortrait(orientation))
-            {
-                [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-            }
-            
+            [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+			[self.popoverController dismissPopoverAnimated:YES];
+			NSLog(@"%@", [visitApplicationDaysArray objectAtIndex:indexPath.row]);
+            [detailViewController setSelectedDay:[visitApplicationDaysArray objectAtIndex:indexPath.row]];
+            /*
 			AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
 			[self.navigationController pushViewController:viewController animated:YES];
 			viewController.detailViewController = self.detailViewController;
+			 */
 		}
             break;
         case CONTACTS_OPTIONS_INDEX:

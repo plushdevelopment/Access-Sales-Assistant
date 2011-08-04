@@ -93,7 +93,7 @@ static char ctrl[0x22];
         return nil;
     }
         
-    NSAssert1(o, @"Should have a valid object from %@", repr);
+    //NSAssert1(o, @"Should have a valid object from %@", repr);
     return o;    
 }
 
@@ -157,7 +157,7 @@ static char ctrl[0x22];
             break;
     }
     
-    NSAssert(0, @"Should never get here");
+    //NSAssert(0, @"Should never get here");
     return NO;
 }
 

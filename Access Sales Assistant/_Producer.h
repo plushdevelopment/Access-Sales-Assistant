@@ -36,6 +36,12 @@
 
 
 
+
+
+
+
+
+
 @interface ProducerID : NSManagedObjectID {}
 @end
 
@@ -44,6 +50,14 @@
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (ProducerID*)objectID;
+
+
+
+
+@property (nonatomic, retain) NSString *address;
+
+
+//- (BOOL)validateAddress:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -116,6 +130,30 @@
 
 
 
+@property (nonatomic, retain) NSNumber *latitude;
+
+
+@property float latitudeValue;
+- (float)latitudeValue;
+- (void)setLatitudeValue:(float)value_;
+
+//- (BOOL)validateLatitude:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *longitude;
+
+
+@property float longitudeValue;
+- (float)longitudeValue;
+- (void)setLongitudeValue:(float)value_;
+
+//- (BOOL)validateLongitude:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, retain) NSString *name;
 
 
@@ -128,6 +166,22 @@
 
 
 //- (BOOL)validateNextScheduledVisit:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *nextScheduledVisitDate;
+
+
+//- (BOOL)validateNextScheduledVisitDate:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *nextScheduledVisitTime;
+
+
+//- (BOOL)validateNextScheduledVisitTime:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -176,6 +230,18 @@
 
 
 //- (BOOL)validateStatusDate:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *submitted;
+
+
+@property BOOL submittedValue;
+- (BOOL)submittedValue;
+- (void)setSubmittedValue:(BOOL)value_;
+
+//- (BOOL)validateSubmitted:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -334,6 +400,12 @@
 @interface _Producer (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSString*)primitiveAddress;
+- (void)setPrimitiveAddress:(NSString*)value;
+
+
+
+
 - (NSDate*)primitiveAppointedDate;
 - (void)setPrimitiveAppointedDate:(NSDate*)value;
 
@@ -385,6 +457,24 @@
 
 
 
+- (NSNumber*)primitiveLatitude;
+- (void)setPrimitiveLatitude:(NSNumber*)value;
+
+- (float)primitiveLatitudeValue;
+- (void)setPrimitiveLatitudeValue:(float)value_;
+
+
+
+
+- (NSNumber*)primitiveLongitude;
+- (void)setPrimitiveLongitude:(NSNumber*)value;
+
+- (float)primitiveLongitudeValue;
+- (void)setPrimitiveLongitudeValue:(float)value_;
+
+
+
+
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
 
@@ -393,6 +483,18 @@
 
 - (NSDate*)primitiveNextScheduledVisit;
 - (void)setPrimitiveNextScheduledVisit:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveNextScheduledVisitDate;
+- (void)setPrimitiveNextScheduledVisitDate:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveNextScheduledVisitTime;
+- (void)setPrimitiveNextScheduledVisitTime:(NSString*)value;
 
 
 
@@ -429,6 +531,15 @@
 
 - (NSDate*)primitiveStatusDate;
 - (void)setPrimitiveStatusDate:(NSDate*)value;
+
+
+
+
+- (NSNumber*)primitiveSubmitted;
+- (void)setPrimitiveSubmitted:(NSNumber*)value;
+
+- (BOOL)primitiveSubmittedValue;
+- (void)setPrimitiveSubmittedValue:(BOOL)value_;
 
 
 

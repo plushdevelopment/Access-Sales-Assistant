@@ -64,7 +64,9 @@
 
 #import "GetProducerRequest.h"
 
-#define kPAGESIZE 1
+#import "GetCompetitorRequest.h"
+
+#define kPAGESIZE 20
 
 @implementation HTTPOperationController
 
@@ -233,8 +235,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"PickList Successful" object:request];
 	NSNumber *page = [NSNumber numberWithInt:1];
-	[self requestProducers:page];
-	//[self requestCompetitors:page];
+	
+	[self requestCompetitors:page];
 }
 
 - (void)requestPickListsFailed:(ASIHTTPRequest *)request
@@ -254,41 +256,31 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Competitors?pageNbr=%d&pageSize=%dtoken=%@",
+						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Competitors?pageNbr=%d&pageSize=%d&token=%@",
 						  [page integerValue], kPAGESIZE, [user token]];
-	NSLog(@"%@", urlString);
+	//NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
-	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
-	[request setRequestMethod:@"GET"];
-	[request addRequestHeader:@"Content-Type" value:@"application/json"];
+	GetCompetitorRequest *request = [[GetCompetitorRequest alloc] initWithURL:url];
 	[request setDelegate:self];
-	[request setDidFinishSelector:@selector(requestPickListsFinished:)];
-	[request setDidFailSelector:@selector(requestPickListsFailed:)];
-	[request setNumberOfTimesToRetryOnTimeout:3];
-	[request setQueuePriority:NSOperationQueuePriorityVeryLow];
+	[request setDidFinishSelector:@selector(requestCompetitorsFinished:)];
+	[request setDidFailSelector:@selector(requestCompetitorsFailed:)];
+	
 	[[self networkQueue] addOperation:request];
 }
 
 - (void)requestCompetitorsFinished:(ASIHTTPRequest *)request
-{
-	NSString *responseString = [request responseString];
-	NSDictionary *responseJSON = [responseString objectFromJSONString];
-	NSArray *results = [responseJSON objectForKey:@"results"];
-	for (NSDictionary *dict in results) {
-		Competitor *competitor = [Competitor ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
-		[competitor safeSetValuesForKeysWithDictionary:dict dateFormatter:nil managedObjectContext:self.managedObjectContext];
-	}
-	
-	[self.managedObjectContext save];
-	
+{	
+	GetCompetitorRequest *competitorRequest = (GetCompetitorRequest *)request;
+	NSLog(@"%d", competitorRequest.currentPage);
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Competitors Successful" object:request];
-	NSInteger currentPage = [[responseJSON valueForKey:@"currentPage"] integerValue];
-	NSInteger totalPages = [[responseJSON valueForKey:@"totalPages"] integerValue];
-	if (currentPage == 1) {
-		for (int i = 2; i < totalPages; i++) {
+	if (competitorRequest.currentPage == 1) {
+		for (int i = 2; i <= competitorRequest.totalPages; i++) {
 			[self requestCompetitors:[NSNumber numberWithInt:i]];
-			//[self performSelector:@selector(requestProducers:) withObject:[NSNumber numberWithInteger:i] afterDelay:2];
+			//NSLog(@"%d", i);
 		}
+	} else if (competitorRequest.currentPage == competitorRequest.totalPages) {
+		NSNumber *page = [NSNumber numberWithInt:1];
+		[self requestProducers:page];
 	}
 }
 
@@ -307,15 +299,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		[[self networkQueue] go];
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 20, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 1, [user token]];
 	NSURL *aURL = [NSURL URLWithString:urlString];
 	
 	GetProducerRequest *request = [[GetProducerRequest alloc] initWithURL:aURL];
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(requestProducersFinished:)];
 	[request setDidFailSelector:@selector(requestProducersFailed:)];
-	[request setNumberOfTimesToRetryOnTimeout:3];
-	[request setQueuePriority:NSOperationQueuePriorityVeryLow];
+	
 	[[self networkQueue] addOperation:request];
 }
 
@@ -342,9 +333,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:request];
 	if (producerRequest.currentPage == 1) {
-		for (int i = 2; i < producerRequest.totalPages; i++) {
+		for (int i = 2; i <= producerRequest.totalPages; i++) {
 			[self requestProducers:[NSNumber numberWithInt:i]];
-			//[self performSelector:@selector(requestProducers:) withObject:[NSNumber numberWithInteger:i] afterDelay:2];
 		}
 	}
 }

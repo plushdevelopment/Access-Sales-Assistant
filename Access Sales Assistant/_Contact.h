@@ -15,6 +15,7 @@
 
 
 
+
 @interface ContactID : NSManagedObjectID {}
 @end
 
@@ -23,6 +24,18 @@
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (ContactID*)objectID;
+
+
+
+
+@property (nonatomic, retain) NSNumber *edited;
+
+
+@property BOOL editedValue;
+- (BOOL)editedValue;
+- (void)setEditedValue:(BOOL)value_;
+
+//- (BOOL)validateEdited:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -117,6 +130,15 @@
 @end
 
 @interface _Contact (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveEdited;
+- (void)setPrimitiveEdited:(NSNumber*)value;
+
+- (BOOL)primitiveEditedValue;
+- (void)setPrimitiveEditedValue:(BOOL)value_;
+
+
 
 
 - (NSString*)primitiveFirstName;

@@ -35,6 +35,8 @@
 
 - (IBAction)loadApplicationForm:(id)sender;
 
+- (IBAction)cancelApplicationForm:(id)sender;
+
 - (IBAction)submitApplicationForm:(id)sender;
 
 - (void)configureView;

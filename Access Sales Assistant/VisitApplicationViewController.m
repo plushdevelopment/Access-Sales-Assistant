@@ -97,6 +97,11 @@
 	NSLog(@"Button Label: %@ Button Tag: %d", button.titleLabel.text, button.tag);
 }
 
+- (IBAction)cancelApplicationForm:(id)sender
+{
+	[self dismissModalViewControllerAnimated:YES];
+}
+
 - (IBAction)submitApplicationForm:(id)sender
 {
 	if (!self.detailItem) {
@@ -108,8 +113,10 @@
 			[[HTTPOperationController sharedHTTPOperationController] postProducerProfile:[producer jsonStringValue]];
 		} else if ([self.currentController isEqual:self.summaryApplicationViewController]) {
 			[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[producer.dailySummary jsonStringValue]];
+			producer.submittedValue = YES;
 		} else if ([self.currentController isEqual:self.notesApplicationViewController]) {
 			[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[producer.dailySummary jsonStringValue]];
+			producer.submittedValue = YES;
 		}
 	}
 }

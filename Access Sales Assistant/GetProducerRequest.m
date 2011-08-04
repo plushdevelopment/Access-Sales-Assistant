@@ -12,6 +12,10 @@
 
 #import "Producer.h"
 
+#import "AddressListItem.h"
+
+#import "State.h"
+
 @implementation GetProducerRequest
 
 @synthesize currentPage=_currentPage;
@@ -27,6 +31,8 @@
 		_currentPage = 0;
 		_totalPages = 0;
 		[self addRequestHeader:@"Content-Type" value:@"application/json"];
+		[self setNumberOfTimesToRetryOnTimeout:3];
+		[self setQueuePriority:NSOperationQueuePriorityLow];
 	}
 	return self;
 }
@@ -46,9 +52,24 @@
 			if (!producer.editedValue) {
 				[producer safeSetValuesForKeysWithDictionary:dict
 											   dateFormatter:formatter managedObjectContext:self.context];
+				
+				//NSLog(@"%@", producer.nextScheduledVisit.debugDescription);
+				
+				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+				[dateFormatter setDateFormat:@"EEEE, MM-dd-yyyy"];
+				producer.nextScheduledVisitDate = [dateFormatter stringFromDate:[producer nextScheduledVisit]];
+				NSLog(@"%@", producer.nextScheduledVisitDate);
+				NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+				[timeFormatter setDateFormat:@"hh:mm a"];
+				producer.nextScheduledVisitTime = [timeFormatter stringFromDate:[producer nextScheduledVisit]];
+				
+				producer.address = [NSString stringWithFormat:@"%@,%@", producer.latitude, producer.longitude];
+				NSLog(@"%@", producer.producerCode);
+				NSLog(@"%@", producer.address);
 			}
 	}
-	[self.context save:nil];
+	NSError *saveError = nil;
+	[self.context save:&saveError];
 	
 	self.currentPage = [[responseJSON valueForKey:@"currentPage"] integerValue];
 	self.totalPages = [[responseJSON valueForKey:@"totalPages"] integerValue];

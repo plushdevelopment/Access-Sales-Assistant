@@ -38,101 +38,19 @@
 
 @dynamic fridayCloseTime;
 
-
-
-
-
+	
 
 @dynamic fridayOpenTime;
 
-
-
-
-
+	
 
 @dynamic mondayCloseTime;
 
-
-
-
-
+	
 
 @dynamic mondayOpenTime;
 
-
-
-
-
-
-@dynamic saturdayCloseTime;
-
-
-
-
-
-
-@dynamic saturdayOpenTime;
-
-
-
-
-
-
-@dynamic sundayCloseTime;
-
-
-
-
-
-
-@dynamic sundayOpenTime;
-
-
-
-
-
-
-@dynamic thursdayCloseTime;
-
-
-
-
-
-
-@dynamic thursdayOpenTime;
-
-
-
-
-
-
-@dynamic tuesdayCloseTime;
-
-
-
-
-
-
-@dynamic tuesdayOpenTime;
-
-
-
-
-
-
-@dynamic wednesdayCloseTime;
-
-
-
-
-
-
-@dynamic wednesdayOpenTime;
-
-
-
-
-
+	
 
 @dynamic producer;
 
@@ -143,6 +61,46 @@
 	[self didAccessValueForKey:@"producer"];
 	return result;
 }
+	
+
+@dynamic saturdayCloseTime;
+
+	
+
+@dynamic saturdayOpenTime;
+
+	
+
+@dynamic sundayCloseTime;
+
+	
+
+@dynamic sundayOpenTime;
+
+	
+
+@dynamic thursdayCloseTime;
+
+	
+
+@dynamic thursdayOpenTime;
+
+	
+
+@dynamic tuesdayCloseTime;
+
+	
+
+@dynamic tuesdayOpenTime;
+
+	
+
+@dynamic wednesdayCloseTime;
+
+	
+
+@dynamic wednesdayOpenTime;
+
 	
 
 
