@@ -1,22 +1,47 @@
-<!doctype html>
+
 <html>
-	<head>
-		<style type="text/css">
-			body {
-				background: url('calls-background.png') top center no-repeat;
-				color:#696969;
-				font-family:Verdana;
-				font-size:13pt;
-				padding: 30px 75px;
-			}
-			</style>
-	</head>
-	<body>
+    <head>
+        <style type="text/css">
+            .v-outer {
+                display: table;
+                #position: relative;
+                overflow: hidden;
+                height: 100%;
+                background: url('calls-background.png') top center no-repeat;
+                color:#696969;
+                font-family:"BradleyHandITCTT-Bold";
+                font-size:15pt; 
+                padding: 5px 20px;
+                width: 100%;
+            }
+            
+            .v-middle {
+                display: table-cell;
+                #position: absolute;
+                #top: 50%;
+                vertical-align: middle;
+            }
+            
+            .v-inner {
+                #position: relative;
+                #top: -50%;
+            }
+            </style>
+    </head>	
+    <body>
+        <div class="border v-outer">
+            <div class="v-middle">
+                <div class="v-inner">
+
 		<ul>
 			<li>They aren't comfortable with our program.</li>
 			<li>They write little or no nonstandard auto.</li>
 			<li>Our rates are not competitive.</li>
 			<li>Our commission does not meet their requirements.</li>
 		</ul>
+                </div>
+            </div>
+        </div>
+
 	</body>
 </html>
