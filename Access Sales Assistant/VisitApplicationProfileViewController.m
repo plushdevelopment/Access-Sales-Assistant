@@ -560,8 +560,7 @@
 	return 1;
 }
 
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
 	NSInteger rows = 0;
 	switch (self.pickerViewController.currentTag) {
 		case SUB_TERRITORY:
@@ -800,11 +799,11 @@
 }
 
 /*
-- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
-{
-	
-}
-*/
+ - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
+ {
+ 
+ }
+ */
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
@@ -909,18 +908,18 @@
 }
 
 /*
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
-{
-	
-}
-*/
+ - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+ {
+ 
+ }
+ */
 
 /*
-- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
-{
-	
-}
-*/
+ - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
+ {
+ 
+ }
+ */
 
 #pragma mark -
 #pragma mark DatePickerViewControllerDelegate

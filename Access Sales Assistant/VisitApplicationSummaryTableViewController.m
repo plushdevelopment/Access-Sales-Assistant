@@ -122,7 +122,13 @@ enum PRPTableStatsTags {
 	self.pickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
 	self.pickerViewController.currentTag = button.tag;
 	
-	
+	UIPickerView *pickerView = self.pickerViewController.pickerView;
+	[pickerView setDelegate:self];
+	[pickerView setDataSource:self];
+	[pickerView setShowsSelectionIndicator:YES];
+	[pickerView selectRow:0 inComponent:0 animated:NO];
+	[pickerView reloadAllComponents];
+	[self pickerView:pickerView didSelectRow:0 inComponent:0];
 	
 	//Position the picker out of sight
 	[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
@@ -136,14 +142,12 @@ enum PRPTableStatsTags {
 		//Position of the picker in sight
 		[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
 		
+	} completion:^(BOOL finished){
+		CIVector *frameVector = [CIVector vectorWithCGRect:self.pickerViewController.view.frame];
+		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:frameVector, UIKeyboardFrameEndUserInfoKey, nil];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
 	}];
-	UIPickerView *pickerView = self.pickerViewController.pickerView;
-	[pickerView setDelegate:self];
-	[pickerView setDataSource:self];
-	[pickerView setShowsSelectionIndicator:YES];
-	[pickerView selectRow:0 inComponent:0 animated:NO];
-	[pickerView reloadAllComponents];
-	[self pickerView:pickerView didSelectRow:0 inComponent:0];
+	
 }
 
 // Show the Date picker in Date mode in a popover
@@ -169,8 +173,11 @@ enum PRPTableStatsTags {
 		//Position of the picker in sight
 		[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
 		
+	} completion:^(BOOL finished){
+		NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
+		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:UIKeyboardFrameEndUserInfoKey, pickerFrame, nil];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
 	}];
-	
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
 }
 
@@ -992,6 +999,7 @@ enum PRPTableStatsTags {
 
 - (void)nextField:(NSInteger)currentTag
 {	
+	
 	if (self.pickerViewController.view.superview != nil) {
 		self.pickerViewController.currentIndexPath = nil;
 		self.pickerViewController.currentTag = 0;
@@ -999,7 +1007,9 @@ enum PRPTableStatsTags {
 		[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
 		//This animation will work on iOS 4
 		//For older iOS, use "beginAnimation:context"
-		[UIView animateWithDuration:0.2 animations:^{[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){[self.pickerViewController.view removeFromSuperview];}];
+		[UIView animateWithDuration:0.2 animations:^{[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){
+			[[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillHideNotification object:nil];
+			[self.pickerViewController.view removeFromSuperview];}];
 	} else if (self.datePickerViewController.view.superview != nil) {
 		self.datePickerViewController.currentIndexPath = nil;
 		self.datePickerViewController.currentTag = 0;
@@ -1007,7 +1017,9 @@ enum PRPTableStatsTags {
 		[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
 		//This animation will work on iOS 4
 		//For older iOS, use "beginAnimation:context"
-		[UIView animateWithDuration:0.2 animations:^{[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){[self.datePickerViewController.view removeFromSuperview];}];
+		[UIView animateWithDuration:0.2 animations:^{[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){
+			[[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillHideNotification object:nil];
+			[self.datePickerViewController.view removeFromSuperview];}];
 	}
 }
 

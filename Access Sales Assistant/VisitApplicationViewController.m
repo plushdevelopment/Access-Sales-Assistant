@@ -48,7 +48,7 @@
 			}
 			[self.activeVisitFormView addSubview:_profileApplicationViewController.view];
 			float contentWidth = self.activeVisitFormView.frame.size.width;
-			[(UIScrollView *)_profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
+			//[(UIScrollView *)_profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
 			_profileApplicationViewController.detailItem = self.detailItem;
 			self.currentController = _profileApplicationViewController;
 			break;

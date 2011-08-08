@@ -65,7 +65,6 @@
 		FF21977513CF79DB001F1B0D /* _PersonSpokeWith.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21976F13CF79DB001F1B0D /* _PersonSpokeWith.m */; };
 		FF21977613CF79DB001F1B0D /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21977113CF79DB001F1B0D /* Note.m */; };
 		FF21977713CF79DB001F1B0D /* PersonSpokeWith.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21977313CF79DB001F1B0D /* PersonSpokeWith.m */; };
-		FF374DF813D50CC000C170EB /* button-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FF374DF713D50CC000C170EB /* button-plus.png */; };
 		FF56A25513CC883B00FF159A /* HTTPOperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56A25413CC883B00FF159A /* HTTPOperationController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF641CF113B9094400CC0B61 /* PickerViewController.m */; };
 		FF641CF413B9094400CC0B61 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF641CF213B9094400CC0B61 /* PickerViewController.xib */; };
@@ -284,6 +283,10 @@
 		FFAE77EA13BD001800183FA9 /* SCTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77DF13BD001800183FA9 /* SCTableViewModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FFAE77EB13BD001800183FA9 /* SCTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77E113BD001800183FA9 /* SCTableViewSection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FFAE77EC13BD001800183FA9 /* SCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAE77E313BD001800183FA9 /* SCViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFB4C56213F0258500ADBBB1 /* VideosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4C56013F0258500ADBBB1 /* VideosTableViewController.m */; };
+		FFB4C56313F0258500ADBBB1 /* VideosTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB4C56113F0258500ADBBB1 /* VideosTableViewController.xib */; };
+		FFB4C56713F026AB00ADBBB1 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4C56513F026AA00ADBBB1 /* VideoViewController.m */; };
+		FFB4C56813F026AB00ADBBB1 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB4C56613F026AA00ADBBB1 /* VideoViewController.xib */; };
 		FFB56A0E13CF8DCE00B980EE /* _BarrierToBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB56A0713CF8DCE00B980EE /* _BarrierToBusiness.m */; };
 		FFB56A0F13CF8DCE00B980EE /* _ContactType.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB56A0913CF8DCE00B980EE /* _ContactType.m */; };
 		FFB56A1013CF8DCE00B980EE /* BarrierToBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB56A0B13CF8DCE00B980EE /* BarrierToBusiness.m */; };
@@ -303,6 +306,7 @@
 		FFB56A3613D07CA100B980EE /* SummaryBarriersToBusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB56A3513D07CA100B980EE /* SummaryBarriersToBusinessTableViewCell.xib */; };
 		FFB56A3913D07FFE00B980EE /* SummaryStatsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB56A3813D07FFD00B980EE /* SummaryStatsTableViewCell.m */; };
 		FFB56A3B13D0802F00B980EE /* SummaryStatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB56A3A13D0802E00B980EE /* SummaryStatsTableViewCell.xib */; };
+		FFBD963513EC795C00586658 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFBD963413EC795C00586658 /* CoreImage.framework */; };
 		FFBE682613E844F900013066 /* SmartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBE682513E844F900013066 /* SmartTableView.m */; };
 		FFBE682913E845A000013066 /* SmartScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBE682813E845A000013066 /* SmartScrollView.m */; };
 		FFC2814613BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812B13BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png */; };
@@ -854,6 +858,12 @@
 		FFAE77E113BD001800183FA9 /* SCTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTableViewSection.m; sourceTree = "<group>"; };
 		FFAE77E213BD001800183FA9 /* SCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCViewController.h; sourceTree = "<group>"; };
 		FFAE77E313BD001800183FA9 /* SCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCViewController.m; sourceTree = "<group>"; };
+		FFB4C55F13F0258500ADBBB1 /* VideosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideosTableViewController.h; sourceTree = "<group>"; };
+		FFB4C56013F0258500ADBBB1 /* VideosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideosTableViewController.m; sourceTree = "<group>"; };
+		FFB4C56113F0258500ADBBB1 /* VideosTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideosTableViewController.xib; sourceTree = "<group>"; };
+		FFB4C56413F026AA00ADBBB1 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		FFB4C56513F026AA00ADBBB1 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		FFB4C56613F026AA00ADBBB1 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		FFB56A0613CF8DCE00B980EE /* _BarrierToBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _BarrierToBusiness.h; sourceTree = "<group>"; };
 		FFB56A0713CF8DCE00B980EE /* _BarrierToBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _BarrierToBusiness.m; sourceTree = "<group>"; };
 		FFB56A0813CF8DCE00B980EE /* _ContactType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ContactType.h; sourceTree = "<group>"; };
@@ -888,6 +898,7 @@
 		FFB56A3713D07FFD00B980EE /* SummaryStatsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryStatsTableViewCell.h; sourceTree = "<group>"; };
 		FFB56A3813D07FFD00B980EE /* SummaryStatsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryStatsTableViewCell.m; sourceTree = "<group>"; };
 		FFB56A3A13D0802E00B980EE /* SummaryStatsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryStatsTableViewCell.xib; sourceTree = "<group>"; };
+		FFBD963413EC795C00586658 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		FFBE682413E844F900013066 /* SmartTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartTableView.h; sourceTree = "<group>"; };
 		FFBE682513E844F900013066 /* SmartTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartTableView.m; sourceTree = "<group>"; };
 		FFBE682713E845A000013066 /* SmartScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartScrollView.h; sourceTree = "<group>"; };
@@ -1082,6 +1093,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFBD963513EC795C00586658 /* CoreImage.framework in Frameworks */,
 				FF77112113B263AA00E90F4B /* QuartzCore.framework in Frameworks */,
 				FF7710FF13B255F400E90F4B /* MessageUI.framework in Frameworks */,
 				FFA1A36113AFB55E00434B93 /* libz.1.2.5.dylib in Frameworks */,
@@ -1670,6 +1682,7 @@
 		FF8B415313A8EEF700A05007 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFBD963413EC795C00586658 /* CoreImage.framework */,
 				FF77112013B263AA00E90F4B /* QuartzCore.framework */,
 				FF7710FE13B255F400E90F4B /* MessageUI.framework */,
 				FFA1A36013AFB55E00434B93 /* libz.1.2.5.dylib */,
@@ -1847,31 +1860,8 @@
 		FFA0707913D5EBA60021E412 /* Access Academy */ = {
 			isa = PBXGroup;
 			children = (
-				FFDFB56113EB23D100B540E1 /* Flashcards.plist */,
-				6D7CC79E13E1A2F800B0FE43 /* indexCard.png */,
-				6D7B83EA13E04BFD00A009A1 /* curl.png */,
-				6D966D1D13DDB64000DAF04B /* Flash Cards HTML */,
-				FFA070A213D5F8EE0021E412 /* CircleArrowDown_sml.png */,
-				FFA070A313D5F8EE0021E412 /* CircleArrowRight_sml.png */,
-				FFA0707113D5EB930021E412 /* MyTreeViewCell.m */,
-				FFA0707213D5EB930021E412 /* MyTreeViewCell.h */,
-				FFA0707313D5EB930021E412 /* MyTreeNode.m */,
-				FFA0707413D5EB930021E412 /* MyTreeNode.h */,
-				FFA0707513D5EB930021E412 /* AccessAcademy.plist */,
-				6D0EF49013D7479600745307 /* FlashCardsViewController.h */,
-				6D0EF49113D7479600745307 /* FlashCardsViewController.m */,
-				6D0EF49213D7479600745307 /* FlashCardsViewController.xib */,
-				6D96C91F13D8A94200478DD3 /* CustomContainerView.h */,
-				6D96C92013D8A94200478DD3 /* CustomContainerView.m */,
-				6D96C92313D8AB4500478DD3 /* FlashCardTitleView.h */,
-				6D96C92413D8AB4500478DD3 /* FlashCardTitleView.m */,
-				6D96C92613D8AB6600478DD3 /* FlashCardFlipView.h */,
-				6D96C92713D8AB6600478DD3 /* FlashCardFlipView.m */,
-				6DE4337013DA012600BF551E /* RoundedRectView.h */,
-				6DE4337113DA012600BF551E /* RoundedRectView.m */,
-				6D966D4613DDD1DE00DAF04B /* TrainingVideoViewController.h */,
-				6D966D4713DDD1DF00DAF04B /* TrainingVideoViewController.m */,
-				6D966D4813DDD1E000DAF04B /* TrainingVideoViewController.xib */,
+				FFB4C55E13F0252500ADBBB1 /* Videos */,
+				FFB4C55C13F0251400ADBBB1 /* Flash Cards */,
 			);
 			name = "Access Academy";
 			sourceTree = "<group>";
@@ -1989,6 +1979,51 @@
 				FFAE77E313BD001800183FA9 /* SCViewController.m */,
 			);
 			name = "Sensible TableView";
+			sourceTree = "<group>";
+		};
+		FFB4C55C13F0251400ADBBB1 /* Flash Cards */ = {
+			isa = PBXGroup;
+			children = (
+				FFDFB56113EB23D100B540E1 /* Flashcards.plist */,
+				6D7CC79E13E1A2F800B0FE43 /* indexCard.png */,
+				6D7B83EA13E04BFD00A009A1 /* curl.png */,
+				6D966D1D13DDB64000DAF04B /* Flash Cards HTML */,
+				FFA070A213D5F8EE0021E412 /* CircleArrowDown_sml.png */,
+				FFA070A313D5F8EE0021E412 /* CircleArrowRight_sml.png */,
+				FFA0707113D5EB930021E412 /* MyTreeViewCell.m */,
+				FFA0707213D5EB930021E412 /* MyTreeViewCell.h */,
+				FFA0707313D5EB930021E412 /* MyTreeNode.m */,
+				FFA0707413D5EB930021E412 /* MyTreeNode.h */,
+				FFA0707513D5EB930021E412 /* AccessAcademy.plist */,
+				6D0EF49013D7479600745307 /* FlashCardsViewController.h */,
+				6D0EF49113D7479600745307 /* FlashCardsViewController.m */,
+				6D0EF49213D7479600745307 /* FlashCardsViewController.xib */,
+				6D96C91F13D8A94200478DD3 /* CustomContainerView.h */,
+				6D96C92013D8A94200478DD3 /* CustomContainerView.m */,
+				6D96C92313D8AB4500478DD3 /* FlashCardTitleView.h */,
+				6D96C92413D8AB4500478DD3 /* FlashCardTitleView.m */,
+				6D96C92613D8AB6600478DD3 /* FlashCardFlipView.h */,
+				6D96C92713D8AB6600478DD3 /* FlashCardFlipView.m */,
+				6DE4337013DA012600BF551E /* RoundedRectView.h */,
+				6DE4337113DA012600BF551E /* RoundedRectView.m */,
+				6D966D4613DDD1DE00DAF04B /* TrainingVideoViewController.h */,
+				6D966D4713DDD1DF00DAF04B /* TrainingVideoViewController.m */,
+				6D966D4813DDD1E000DAF04B /* TrainingVideoViewController.xib */,
+			);
+			name = "Flash Cards";
+			sourceTree = "<group>";
+		};
+		FFB4C55E13F0252500ADBBB1 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				FFB4C55F13F0258500ADBBB1 /* VideosTableViewController.h */,
+				FFB4C56013F0258500ADBBB1 /* VideosTableViewController.m */,
+				FFB4C56113F0258500ADBBB1 /* VideosTableViewController.xib */,
+				FFB4C56413F026AA00ADBBB1 /* VideoViewController.h */,
+				FFB4C56513F026AA00ADBBB1 /* VideoViewController.m */,
+				FFB4C56613F026AA00ADBBB1 /* VideoViewController.xib */,
+			);
+			name = Videos;
 			sourceTree = "<group>";
 		};
 		FFB56A2413D069A200B980EE /* TableView Categories */ = {
@@ -2407,7 +2442,6 @@
 				FF95E22F13D4B1540098D41F /* VisitApplicationPhotosViewController.xib in Resources */,
 				FF883BEE13D4CD92001C3122 /* ProfileTableViewController.xib in Resources */,
 				FF9ED83713D50BAD006105C7 /* accessicon.png in Resources */,
-				FF374DF813D50CC000C170EB /* button-plus.png in Resources */,
 				FFF2D89713D5ADB00098609D /* VisitApplicationSummaryViewController.xib in Resources */,
 				FFA0707813D5EB930021E412 /* AccessAcademy.plist in Resources */,
 				FFA0708013D5EBC00021E412 /* ContactsViewController.xib in Resources */,
@@ -2450,8 +2484,13 @@
 				FFDFB58413EB25CA00B540E1 /* ZeroProducer_4.html in Resources */,
 				FFDFB58513EB25CA00B540E1 /* ZeroProducer_5.html in Resources */,
 				FFDFB58613EB25CA00B540E1 /* ZeroProducer_6.html in Resources */,
+<<<<<<< HEAD
 				6D77BC6B13EC49D200B7FB3B /* ProducerContactInfoTableViewCell.xib in Resources */,
 				6D77BC7513EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.xib in Resources */,
+=======
+				FFB4C56313F0258500ADBBB1 /* VideosTableViewController.xib in Resources */,
+				FFB4C56813F026AB00ADBBB1 /* VideoViewController.xib in Resources */,
+>>>>>>> 5fb5bf63ab29b9f9618a0d5512a9b105d8acbc98
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2681,8 +2720,13 @@
 				FFDFB55C13EB239E00B540E1 /* MGSplitCornersView.m in Sources */,
 				FFDFB55D13EB239E00B540E1 /* MGSplitDividerView.m in Sources */,
 				FFDFB55E13EB239E00B540E1 /* MGSplitViewController.m in Sources */,
+<<<<<<< HEAD
 				6D77BC6913EC49AA00B7FB3B /* ProducerContactInfoTableViewCell.m in Sources */,
 				6D77BC7413EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.m in Sources */,
+=======
+				FFB4C56213F0258500ADBBB1 /* VideosTableViewController.m in Sources */,
+				FFB4C56713F026AB00ADBBB1 /* VideoViewController.m in Sources */,
+>>>>>>> 5fb5bf63ab29b9f9618a0d5512a9b105d8acbc98
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2776,6 +2820,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
 				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -2800,6 +2846,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
 				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
