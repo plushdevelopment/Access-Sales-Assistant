@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProducerStatusTableViewCell : UITableViewCell
+#import "PRPNibBasedTableViewCell.h"
+@interface ProducerStatusTableViewCell : PRPNibBasedTableViewCell
 
 
 @property (nonatomic, strong) IBOutlet UITextField *appointedDateTextField;

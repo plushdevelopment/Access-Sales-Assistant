@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProducerQuestionTableViewCell : UITableViewCell
+#import "PRPNibBasedTableViewCell.h"
+@interface ProducerQuestionTableViewCell : PRPNibBasedTableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *questionLabel;
 @property (nonatomic, strong) IBOutlet UITextField *answerTextField;

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProducerGeneralTableViewCell : UITableViewCell
+#import "PRPNibBasedTableViewCell.h"
+@interface ProducerGeneralTableViewCell : PRPNibBasedTableViewCell
 
 @property (nonatomic, strong) IBOutlet UITextField *producerCodeTextField;
 @property (nonatomic, strong) IBOutlet UITextField *subTerritoryTextField;

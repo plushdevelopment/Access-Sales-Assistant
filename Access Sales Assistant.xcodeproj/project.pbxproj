@@ -13,6 +13,10 @@
 		6D0EF49413D7479600745307 /* FlashCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0EF49213D7479600745307 /* FlashCardsViewController.xib */; };
 		6D167FC813E8515500425F49 /* QATimeTableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D167FC713E8515500425F49 /* QATimeTableObject.m */; };
 		6D167FCB13E8518900425F49 /* search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D167FCA13E8518900425F49 /* search.jpg */; };
+		6D77BC6913EC49AA00B7FB3B /* ProducerContactInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D77BC6813EC49AA00B7FB3B /* ProducerContactInfoTableViewCell.m */; };
+		6D77BC6B13EC49D200B7FB3B /* ProducerContactInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D77BC6A13EC49D200B7FB3B /* ProducerContactInfoTableViewCell.xib */; };
+		6D77BC7413EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D77BC7213EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.m */; };
+		6D77BC7513EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D77BC7313EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.xib */; };
 		6D7B83EB13E04BFD00A009A1 /* curl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7B83EA13E04BFD00A009A1 /* curl.png */; };
 		6D7CC79F13E1A2F800B0FE43 /* indexCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7CC79E13E1A2F800B0FE43 /* indexCard.png */; };
 		6D7CC7A813E1E74800B0FE43 /* MenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7CC7A713E1E74800B0FE43 /* MenuButton.png */; };
@@ -430,6 +434,12 @@
 		6D167FC613E8515500425F49 /* QATimeTableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QATimeTableObject.h; sourceTree = "<group>"; };
 		6D167FC713E8515500425F49 /* QATimeTableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QATimeTableObject.m; sourceTree = "<group>"; };
 		6D167FCA13E8518900425F49 /* search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = search.jpg; sourceTree = "<group>"; };
+		6D77BC6713EC49AA00B7FB3B /* ProducerContactInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerContactInfoTableViewCell.h; sourceTree = "<group>"; };
+		6D77BC6813EC49AA00B7FB3B /* ProducerContactInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerContactInfoTableViewCell.m; sourceTree = "<group>"; };
+		6D77BC6A13EC49D200B7FB3B /* ProducerContactInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerContactInfoTableViewCell.xib; sourceTree = "<group>"; };
+		6D77BC7113EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationProducerProfileTableViewController.h; sourceTree = "<group>"; };
+		6D77BC7213EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationProducerProfileTableViewController.m; sourceTree = "<group>"; };
+		6D77BC7313EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationProducerProfileTableViewController.xib; sourceTree = "<group>"; };
 		6D7B83EA13E04BFD00A009A1 /* curl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = curl.png; sourceTree = "<group>"; };
 		6D7CC79E13E1A2F800B0FE43 /* indexCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indexCard.png; sourceTree = "<group>"; };
 		6D7CC7A713E1E74800B0FE43 /* MenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuButton.png; sourceTree = "<group>"; };
@@ -1236,6 +1246,9 @@
 				FF9A1DCE13C746F200BAA6F2 /* ProducerContactTableViewCell.h */,
 				FF9A1DCF13C746F200BAA6F2 /* ProducerContactTableViewCell.m */,
 				FF9A1DD113C7472700BAA6F2 /* ProducerContactTableViewCell.xib */,
+				6D77BC6713EC49AA00B7FB3B /* ProducerContactInfoTableViewCell.h */,
+				6D77BC6813EC49AA00B7FB3B /* ProducerContactInfoTableViewCell.m */,
+				6D77BC6A13EC49D200B7FB3B /* ProducerContactInfoTableViewCell.xib */,
 			);
 			name = "Producer Profile";
 			sourceTree = "<group>";
@@ -1286,6 +1299,9 @@
 				FFE2D1FC13E96EE000E6A77B /* VisitApplicationMapViewController.h */,
 				FFE2D1FD13E96EE000E6A77B /* VisitApplicationMapViewController.m */,
 				FFE2D1FE13E96EE000E6A77B /* VisitApplicationMapViewController.xib */,
+				6D77BC7113EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.h */,
+				6D77BC7213EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.m */,
+				6D77BC7313EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.xib */,
 			);
 			name = "Visit Application";
 			sourceTree = "<group>";
@@ -2179,8 +2195,8 @@
 				FF95E22913D4B03E0098D41F /* Sensible TableView Alternatives */,
 				6D317E2A13C7422900CD647E /* Features and Benefits */,
 				FF374DFA13D5142200C170EB /* Visit Application */,
-				FF8B416613A8EEF700A05007 /* RootViewController.h */,
 				FF8B416713A8EEF700A05007 /* RootViewController.m */,
+				FF8B416613A8EEF700A05007 /* RootViewController.h */,
 				FF8B416D13A8EEF700A05007 /* RootViewController.xib */,
 				FF8B416913A8EEF700A05007 /* BaseDetailViewController.h */,
 				FF8B416B13A8EEF700A05007 /* BaseDetailViewController.m */,
@@ -2434,6 +2450,8 @@
 				FFDFB58413EB25CA00B540E1 /* ZeroProducer_4.html in Resources */,
 				FFDFB58513EB25CA00B540E1 /* ZeroProducer_5.html in Resources */,
 				FFDFB58613EB25CA00B540E1 /* ZeroProducer_6.html in Resources */,
+				6D77BC6B13EC49D200B7FB3B /* ProducerContactInfoTableViewCell.xib in Resources */,
+				6D77BC7513EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2663,6 +2681,8 @@
 				FFDFB55C13EB239E00B540E1 /* MGSplitCornersView.m in Sources */,
 				FFDFB55D13EB239E00B540E1 /* MGSplitDividerView.m in Sources */,
 				FFDFB55E13EB239E00B540E1 /* MGSplitViewController.m in Sources */,
+				6D77BC6913EC49AA00B7FB3B /* ProducerContactInfoTableViewCell.m in Sources */,
+				6D77BC7413EC554100B7FB3B /* VisitApplicationProducerProfileTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2757,7 +2777,7 @@
 				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
@@ -2781,7 +2801,7 @@
 				GCC_PREFIX_HEADER = "Access Sales Assistant/Access Sales Assistant-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Access Sales Assistant/Access Sales Assistant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",

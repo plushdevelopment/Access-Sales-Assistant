@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ProducerContactTableViewCell : UITableViewCell
+#import "PRPNibBasedTableViewCell.h"
+@interface ProducerContactTableViewCell : PRPNibBasedTableViewCell
 
 
 @property (nonatomic, strong) IBOutlet UITextField *titleTextField;
