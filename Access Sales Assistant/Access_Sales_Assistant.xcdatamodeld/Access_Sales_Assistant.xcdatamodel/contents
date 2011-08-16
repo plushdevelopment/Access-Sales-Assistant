@@ -266,6 +266,7 @@
         <element name="HoursOfOperation" positionX="0" positionY="-45" width="128" height="270"/>
         <element name="IneligibleReason" positionX="43" positionY="561" width="128" height="90"/>
         <element name="Note" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="OperationHour" positionX="160" positionY="192" width="128" height="285"/>
         <element name="PersonSpokeWith" positionX="160" positionY="192" width="128" height="165"/>
         <element name="PersonSpokeWithTitle" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Phase" positionX="160" positionY="192" width="128" height="90"/>
@@ -281,7 +282,6 @@
         <element name="Status" positionX="475" positionY="27" width="128" height="90"/>
         <element name="SubTerritory" positionX="628" positionY="135" width="128" height="75"/>
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="90"/>
-        <element name="OperationHour" positionX="160" positionY="192" width="128" height="285"/>
         <element name="TrainingVideo" positionX="160" positionY="192" width="128" height="75"/>
         <element name="User" positionX="160" positionY="192" width="128" height="135"/>
     </elements>

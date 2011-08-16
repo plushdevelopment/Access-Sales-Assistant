@@ -10,20 +10,11 @@
 
 @implementation ProducerContactInfoTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
+@synthesize phone1TextField = _phone1TextField;
+@synthesize faxTextField = _faxTextField;
+@synthesize mainMailTextField = _mainMailTextField;
+@synthesize claimsMailTextField = _claimsMailTextField;
+@synthesize acctMailTextField = _acctMailTextField;
+@synthesize custServMailTextField = _custServMailTextField;
+@synthesize webAddrTextField = _webAddrTextField;
 @end

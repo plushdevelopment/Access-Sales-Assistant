@@ -146,17 +146,12 @@
     // Do any additional setup after loading the view from its nib.
 	self.baseToolbar = self.toolBar;
 	
+    _profileApplicationViewController.view.frame = CGRectMake(0,20,  768, 800);
 	[self.activeVisitFormView addSubview:_profileApplicationViewController.view];
-	float contentWidth = self.activeVisitFormView.frame.size.width;
-	[(UIScrollView *)_profileApplicationViewController.view setContentSize:CGSizeMake(contentWidth, 1500.0)];
+    
+    
 	_profileApplicationViewController.detailItem = self.detailItem;
 	self.currentController = _profileApplicationViewController;
-	
-	/*
-	ProfileTableViewController *profileTableViewController = [[ProfileTableViewController alloc] initWithNibName:@"ProfileTableViewController" bundle:nil];
-	[self.activeVisitFormView addSubview:profileTableViewController.view];
-	self.currentController = profileTableViewController;
-	 */
 }
 
 - (void)viewDidUnload

@@ -17,6 +17,7 @@
 @synthesize numberOfLocationsTextField=_numberOfLocationsTextField;
 @synthesize accessSignTextField=_accessSignTextField;
 @synthesize dateEstablishedTextField=_dateEstablishedTextField;
+@synthesize numberOfEmployeesTextField = _numberOfEmployeesTextField;
 
 @synthesize numberOfLocationsButton=_numberOfLocationsButton;
 @synthesize dateEstablishedButton=_dateEstablishedButton;

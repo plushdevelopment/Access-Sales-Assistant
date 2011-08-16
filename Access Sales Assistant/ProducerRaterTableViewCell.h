@@ -14,4 +14,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *raterTextField;
 @property (nonatomic, strong) IBOutlet UIButton *raterButton;
 
+@property (nonatomic, strong) IBOutlet UITextField *rater2TextField;
+@property (nonatomic, strong) IBOutlet UIButton *rater2Button;
+
 @end

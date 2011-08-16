@@ -175,6 +175,7 @@ enum PRPTableStatsTags {
 		
 	} completion:^(BOOL finished){
 		NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
+        NSLog(@"%@", pickerFrame);
 		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:UIKeyboardFrameEndUserInfoKey, pickerFrame, nil];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
 	}];
