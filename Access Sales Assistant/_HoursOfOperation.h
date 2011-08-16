@@ -62,9 +62,9 @@
 
 
 
-@property (nonatomic, retain) NSSet* producer;
+@property (nonatomic, retain) NSSet* producers;
 
-- (NSMutableSet*)producerSet;
+- (NSMutableSet*)producersSet;
 
 
 
@@ -143,10 +143,10 @@
 
 @interface _HoursOfOperation (CoreDataGeneratedAccessors)
 
-- (void)addProducer:(NSSet*)value_;
-- (void)removeProducer:(NSSet*)value_;
-- (void)addProducerObject:(Producer*)value_;
-- (void)removeProducerObject:(Producer*)value_;
+- (void)addProducers:(NSSet*)value_;
+- (void)removeProducers:(NSSet*)value_;
+- (void)addProducersObject:(Producer*)value_;
+- (void)removeProducersObject:(Producer*)value_;
 
 @end
 
@@ -174,8 +174,8 @@
 
 
 
-- (NSMutableSet*)primitiveProducer;
-- (void)setPrimitiveProducer:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveProducers;
+- (void)setPrimitiveProducers:(NSMutableSet*)value;
 
 
 

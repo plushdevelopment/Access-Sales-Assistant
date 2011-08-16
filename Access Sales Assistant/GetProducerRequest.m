@@ -52,9 +52,6 @@
 			if (!producer.editedValue) {
 				[producer safeSetValuesForKeysWithDictionary:dict
 											   dateFormatter:formatter managedObjectContext:self.context];
-				
-				//NSLog(@"%@", producer.nextScheduledVisit.debugDescription);
-				
 				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 				[dateFormatter setDateFormat:@"EEEE, MM-dd-yyyy"];
 				producer.nextScheduledVisitDate = [dateFormatter stringFromDate:[producer nextScheduledVisit]];
@@ -62,10 +59,7 @@
 				NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
 				[timeFormatter setDateFormat:@"hh:mm a"];
 				producer.nextScheduledVisitTime = [timeFormatter stringFromDate:[producer nextScheduledVisit]];
-				
 				producer.address = [NSString stringWithFormat:@"%@,%@", producer.latitude, producer.longitude];
-				NSLog(@"%@", producer.producerCode);
-				NSLog(@"%@", producer.address);
 			}
 	}
 	NSError *saveError = nil;

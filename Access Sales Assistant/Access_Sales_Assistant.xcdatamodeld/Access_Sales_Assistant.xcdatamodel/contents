@@ -83,7 +83,7 @@
         <relationship name="fridayOpenTime" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="OperationHour" inverseName="fridayOpenTime" inverseEntity="OperationHour"/>
         <relationship name="mondayCloseTime" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="OperationHour" inverseName="mondayCloseTime" inverseEntity="OperationHour"/>
         <relationship name="mondayOpenTime" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="OperationHour" inverseName="mondayOpenTime" inverseEntity="OperationHour"/>
-        <relationship name="producer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="hoursOfOperation" inverseEntity="Producer"/>
+        <relationship name="producers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="hoursOfOperation" inverseEntity="Producer"/>
         <relationship name="saturdayCloseTime" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="OperationHour" inverseName="saturdayCloseTime" inverseEntity="OperationHour"/>
         <relationship name="saturdayOpenTime" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="OperationHour" inverseName="saturdayOpenTime" inverseEntity="OperationHour"/>
         <relationship name="sundayCloseTime" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="OperationHour" inverseName="sundayCloseTime" inverseEntity="OperationHour"/>
@@ -179,7 +179,7 @@
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="producer" inverseEntity="Contact"/>
         <relationship name="dailySummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="producerId" inverseEntity="DailySummary"/>
         <relationship name="emails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EmailListItem" inverseName="producer" inverseEntity="EmailListItem"/>
-        <relationship name="hoursOfOperation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="HoursOfOperation" inverseName="producer" inverseEntity="HoursOfOperation"/>
+        <relationship name="hoursOfOperation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="HoursOfOperation" inverseName="producers" inverseEntity="HoursOfOperation"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProducerImage" inverseName="producer" inverseEntity="ProducerImage"/>
         <relationship name="ineligibleReason" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="IneligibleReason" inverseName="producer" inverseEntity="IneligibleReason"/>
         <relationship name="phoneNumbers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhoneListItem" inverseName="producer" inverseEntity="PhoneListItem"/>
