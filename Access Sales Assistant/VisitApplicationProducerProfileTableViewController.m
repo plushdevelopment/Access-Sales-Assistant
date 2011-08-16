@@ -285,13 +285,16 @@
                 
                 [button addTarget:self action:@selector(AddContact:) forControlEvents:UIControlEventTouchUpInside];
                 
+                [button setEnabled:isContactsEdited?FALSE:TRUE];
+                
                 cell.delRowType.text = @"Delete Person";
                 UIButton *remBtn = cell.editButton;
+                [remBtn setTitle:isContactsEdited?@"Done":@"Edit" forState:UIControlStateNormal];
+                [remBtn setEnabled:isContactsEdited?TRUE:((indexPath.row>0)?TRUE:FALSE)];
                 remBtn.tag = 1002;
                 
                 [remBtn addTarget:self action:@selector(AddContact:) forControlEvents:UIControlEventTouchUpInside];
                 
-            
                 return cell;
 
             }
@@ -312,10 +315,7 @@
 -(void) AddContact:(id) sender
 {
     UIButton* btn = (UIButton*) sender;
-    
-   // NSIndexPath* path = [[NSIndexPath alloc] initWithIndex:_detailItem.contacts.allObjects.count];
-//    AddRowTableViewCell* cell =(AddRowTableViewCell*) [self.tableView cellForRowAtIndexPath:path];
-    //AddRowTableViewCell* cell =(AddRowTableViewCell*) [btn superview];
+ 
     if(btn.tag == 1001)
     {
         Contact* newContact = [Contact createEntity];
@@ -330,16 +330,23 @@
         if(editing)
         {
     [btn setTitle:@"Done" forState:UIControlStateNormal];
+               isContactsEdited = TRUE;
+            
+            
          //   cell.addButton.enabled = FALSE;
             
         }
         else
         {
             [btn setTitle:@"Edit" forState:UIControlStateNormal];
+            isContactsEdited = FALSE;
+         
+            
            // cell.addButton.enabled = TRUE;
         }
         [super setEditing:editing animated:YES];
     }
+    [self.tableView reloadData];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -507,9 +514,12 @@
     
     //if(_detailItem.isEligible)
     {
-        statusCell.reasonIneligibleTextField.hidden = _detailItem.isEligible?TRUE:FALSE;
-        statusCell.reasonIneligibleButton.hidden = _detailItem.isEligible?TRUE:FALSE;
-        statusCell.reasonIneligibleLabel.hidden = _detailItem.isEligible?TRUE:FALSE;
+        statusCell.reasonIneligibleTextField.text = _detailItem.ineligibleReason.name;
+        statusCell.reasonIneligibleTextField.hidden = _detailItem.isEligibleValue?TRUE:FALSE;
+        statusCell.reasonIneligibleButton.hidden = _detailItem.isEligibleValue?TRUE:FALSE;
+        statusCell.reasonIneligibleLabel.hidden = _detailItem.isEligibleValue?TRUE:FALSE;
+        
+   //     [statusCell.reasonIneligibleButton setEnabled:_detailItem.isEligibleValue?FALSE:TRUE];
     }
    
 }
@@ -569,7 +579,10 @@
             
             [cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
             [[NSManagedObjectContext defaultContext] save];
+          //  UITableViewCellEditingStyleNone
+           // [self.tableView set]
             [self.tableView reloadData];
+            
         }
        
        
@@ -1049,7 +1062,7 @@
                                            addrItem = address;
                                            
                                            //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                           continue;
+                                           break;
                                        }
                                    }
                                    if(addrItem != nil)
@@ -1341,7 +1354,46 @@
 #pragma mark - TextField delegate methods
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-	Producer *producer = (Producer *)self.detailItem;
+	[self saveTextFieldToContext:textField];
+	return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+	
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+    [self saveTextFieldToContext:textField];
+ //   [[NSManagedObjectContext defaultContext] save];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+	return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+	return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+	return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+	// Set the next form field active
+	//[self nextField:textField.tag];
+	return YES;
+}
+
+-(void) saveTextFieldToContext:(UITextField*) textField
+{
+    Producer *producer = (Producer *)self.detailItem;
 	if (!producer.editedValue) {
 		producer.editedValue = YES;
 		[[NSManagedObjectContext defaultContext] save];
@@ -1350,11 +1402,11 @@
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
     
-   switch(indexPath.section)
+    switch(indexPath.section)
     {
         case EGeneral:
         {
-        
+            
             switch(tag)
             {
                 case EProducerName:
@@ -1393,14 +1445,14 @@
             {
                 case EPhone1:
                 {
-                     for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers)
-                     {
-                         if(phoneNumber.typeValue == 3)
-                         {
-                             phoneNumber.number = textField.text;
-                             break;
-                         }
-                     }
+                    for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers)
+                    {
+                        if(phoneNumber.typeValue == 3)
+                        {
+                            phoneNumber.number = textField.text;
+                            break;
+                        }
+                    }
                 }
                     break;
                 case EFax:
@@ -1413,22 +1465,22 @@
                             break;
                         }
                     }
-
+                    
                     break;
                 }
                 case EMainEmail:
                 {
                     EmailListItem *newMail=nil;
-                  for (EmailListItem *email in _detailItem.emails)
-                  {
-                      int emailType = email.typeValue;
-                      if(email.typeValue == 3)
-                      {
-                       //   email.address = textField.text;
-                          newMail = email;
-                          break;
-                      }
-                  }
+                    for (EmailListItem *email in _detailItem.emails)
+                    {
+                        int emailType = email.typeValue;
+                        if(email.typeValue == 3)
+                        {
+                            //   email.address = textField.text;
+                            newMail = email;
+                            break;
+                        }
+                    }
                     if(newMail != nil)
                     {
                         newMail.address = textField.text;
@@ -1439,7 +1491,7 @@
                         newMail.typeValue = 3;
                         newMail.address = textField.text;
                         [self.detailItem addEmailsObject:newMail];
-                     
+                        
                     }
                 }
                     break;
@@ -1469,7 +1521,7 @@
                         
                     }
                 }
-
+                    
                     break;
                 case EAccountingEmail:
                 {  
@@ -1497,7 +1549,7 @@
                         
                     }
                 }
-
+                    
                     break;
                 case ECustomerServiceEmail:
                 {  
@@ -1525,7 +1577,7 @@
                         
                     }
                 }
-
+                    
                     break;
                 case EWebsiteAddress:
                     self.detailItem.webAddress = textField.text;
@@ -1536,12 +1588,28 @@
         }
         case EAddresses:
         {
-            
-            /*switch(indexPath.row)
-            {
-                    
-            }
-             */
+          /*  AddressListItem* addrItem = nil;
+            NSArray *addrArray = _detailItem.addresses.allObjects;
+            switch(indexPath.row)
+             {
+                 case 0:
+                 {
+                     
+                   //  int rowInd = indexPath.row;
+                    // rowInd+=1;
+                     for(AddressListItem* addr in addrArray)
+                     {
+                         if(addr.addressTypeValue == 1)
+                         {
+                             addrItem = addr; 
+                             break;
+                         }
+                     }
+
+                 }
+                     
+             }*/
+             
             NSArray *addrArray = _detailItem.addresses.allObjects;
             AddressListItem* addrItem = nil;
             int rowInd = indexPath.row;
@@ -1550,11 +1618,11 @@
             {
                 if(addr.addressTypeValue == rowInd)
                 {
-                    addrItem = [addrArray objectAtIndex:indexPath.row]; 
+                    addrItem = addr;//[addrArray objectAtIndex:indexPath.row]; 
                     break;
                 }
             }
-           
+            
             if(addrItem == nil)
             {
                 addrItem = [AddressListItem createEntity];
@@ -1598,7 +1666,7 @@
                     
                     break;
                 case EContactEmailAddress:
-                  //  cnt.e
+                    //  cnt.e
                     break;
                 case EContactSSN:
                     cnt.ssn = textField.text;
@@ -1608,39 +1676,6 @@
         }
     }
     [[NSManagedObjectContext defaultContext] save];
-	return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-	
-}
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    
-    [[NSManagedObjectContext defaultContext] save];
-}
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-	return YES;
-}
-
-- (BOOL)textFieldShouldClear:(UITextField *)textField
-{
-	return YES;
-}
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
-{
-	return YES;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-	// Set the next form field active
-	//[self nextField:textField.tag];
-	return YES;
 }
 /*
 // Override to support rearranging the table view.

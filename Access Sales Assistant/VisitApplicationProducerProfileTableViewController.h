@@ -24,6 +24,7 @@
 @interface VisitApplicationProducerProfileTableViewController : UITableViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate>
 {
     NSArray* sectionTitleArray;
+    BOOL isContactsEdited;
 }
 
 @property (nonatomic, strong)Producer* detailItem;
@@ -49,7 +50,7 @@
 -(void) raterTableViewCell:(ProducerRaterTableViewCell*) raterCell:(NSInteger)forRow;
 -(void) statusTableViewCell:(ProducerStatusTableViewCell*) statusCell:(NSInteger)forRow;
 -(void) hoursOfOperationCell:(ProducerHoursTableViewCell*)hoursCell:(NSInteger)forRow;
-
+-(void) saveTextFieldToContext:(UITextField*) textField;
 
 - (void)configureView;
 

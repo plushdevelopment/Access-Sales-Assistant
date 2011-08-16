@@ -15,4 +15,5 @@
 @property(nonatomic,strong) IBOutlet UIButton *addButton;
 @property(nonatomic,strong) IBOutlet UIButton *editButton;
 @property(nonatomic,strong) IBOutlet UILabel *delRowType;
+@property(nonatomic) IBOutlet BOOL isContactsEdited;
 @end
