@@ -172,7 +172,7 @@
         <attribute name="primaryContact" optional="YES" attributeType="String"/>
         <attribute name="producerCode" optional="YES" attributeType="String"/>
         <attribute name="statusDate" optional="YES" attributeType="Date"/>
-        <attribute name="submitted" optional="YES" attributeType="Boolean"/>
+        <attribute name="submitted" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="uid" optional="YES" attributeType="String"/>
         <attribute name="webAddress" optional="YES" attributeType="String"/>
         <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AddressListItem" inverseName="producer" inverseEntity="AddressListItem"/>
@@ -271,7 +271,7 @@
         <element name="PersonSpokeWithTitle" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Phase" positionX="160" positionY="192" width="128" height="90"/>
         <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="105"/>
-        <element name="Producer" positionX="306" positionY="123" width="128" height="570"/>
+        <element name="Producer" positionX="306" positionY="123" width="128" height="585"/>
         <element name="ProducerAddOn" positionX="160" positionY="192" width="128" height="90"/>
         <element name="ProducerImage" positionX="160" positionY="192" width="128" height="75"/>
         <element name="PurposeOfCall" positionX="160" positionY="192" width="128" height="90"/>

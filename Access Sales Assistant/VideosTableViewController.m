@@ -10,6 +10,8 @@
 
 #import "VideoViewController.h"
 
+#import "SpringBoardIconCell.h"
+
 @implementation VideosTableViewController
 
 @synthesize videos=_videos;
@@ -17,6 +19,8 @@
 @synthesize tableView=_tableView;
 
 @synthesize toolBar=_toolBar;
+
+@synthesize gridView=_gridView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -31,13 +35,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+	self.baseToolbar = self.toolBar;
+	
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.videos = [NSArray arrayWithObjects:@"http://uatwww.access.com/test/intro_to_c4.mp4", @"http://uatwww.access.com/test/Intro_to_Claims_Assignor_(5-2-11).mp4", @"http://uatwww.access.com/test/Intro_to_ImageRight_(5-2-11).mp4", nil];
+	
+	self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+	self.gridView.autoresizesSubviews = YES;
+	[self.gridView reloadData];
 }
 
 - (void)viewDidUnload
@@ -71,6 +80,66 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+#pragma mark -
+#pragma mark GridView Delegate
+
+
+// Called after the user changes the selection
+- (void) gridView: (AQGridView *) gridView didSelectItemAtIndex: (NSUInteger) index
+{
+	// Navigation logic may go here. Create and push another view controller.
+    
+	VideoViewController *detailViewController = [[VideoViewController alloc] initWithNibName:@"VideoViewController" bundle:nil];
+	// ...
+	// Pass the selected object to the new view controller.
+	[self.splitviewcontroller presentViewController:detailViewController animated:YES completion:NULL];
+	NSURL *url = [NSURL URLWithString:[self.videos objectAtIndex:index]];
+	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	[detailViewController.webView loadRequest:request];
+}
+
+
+- (void) gridView: (AQGridView *) gridView didDeselectItemAtIndex: (NSUInteger) index
+{
+	
+}
+
+
+// Called after animated updates finished
+- (void) gridViewDidEndUpdateAnimation:(AQGridView *) gridView
+{
+	
+}
+
+
+#pragma mark -
+#pragma mark GridView Data Source
+
+- (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
+{
+    return self.videos.count;
+}
+
+- (AQGridViewCell *) gridView: (AQGridView *) gridView cellForItemAtIndex: (NSUInteger) index
+{
+    static NSString * CellIdentifier = @"CellIdentifier";
+    SpringBoardIconCell * cell = (SpringBoardIconCell *)[gridView dequeueReusableCellWithIdentifier: CellIdentifier];
+    if ( cell == nil )
+    {
+        cell = [[SpringBoardIconCell alloc] initWithFrame: CGRectMake(0.0, 0.0, 144.0, 94.0) reuseIdentifier: CellIdentifier];
+    }
+	UIImage *image = [UIImage imageNamed:@"video_icon.png"];
+	
+	[cell setIcon:image];
+    
+    return cell;
+}
+
+- (CGSize) portraitGridCellSizeForGridView: (AQGridView *) gridView
+{
+    return CGSizeMake(144.0, 144.0);
 }
 
 #pragma mark - Table view data source
@@ -152,7 +221,10 @@
      VideoViewController *detailViewController = [[VideoViewController alloc] initWithNibName:@"VideoViewController" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-	[self.navigationController presentViewController:detailViewController animated:YES completion:NULL];
+	[self.splitviewcontroller presentViewController:detailViewController animated:YES completion:NULL];
+	NSURL *url = [NSURL URLWithString:[self.videos objectAtIndex:indexPath.row]];
+	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	[detailViewController.webView loadRequest:request];
      
 }
 

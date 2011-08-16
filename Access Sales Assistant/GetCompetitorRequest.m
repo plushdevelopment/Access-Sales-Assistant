@@ -35,7 +35,7 @@
 
 - (void)requestFinished
 {
-	self.context = [NSManagedObjectContext contextForCurrentThread];
+	self.context = [NSManagedObjectContext contextThatNotifiesDefaultContextOnMainThread];
 	NSDictionary *responseJSON = [[self responseString] JSONValue];
 	NSArray *results = [responseJSON objectForKey:@"results"];
 	for (NSDictionary *dict in results) {

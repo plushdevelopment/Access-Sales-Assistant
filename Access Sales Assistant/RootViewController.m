@@ -96,7 +96,7 @@
 	NSArray *producersArray = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES];
 	NSMutableArray *daysArray = [NSMutableArray arrayWithCapacity:[producersArray count]];
 	for (Producer *producer in producersArray) {
-		if (![daysArray containsObject:producer.nextScheduledVisitDate]) {
+		if (![daysArray containsObject:producer.nextScheduledVisitDate] && (producer.nextScheduledVisitDate != nil)) {
 			[daysArray addObject:producer.nextScheduledVisitDate];
 		}
 	}

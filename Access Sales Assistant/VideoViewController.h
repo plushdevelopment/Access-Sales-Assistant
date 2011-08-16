@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoViewController : UIViewController
+@interface VideoViewController : UIViewController <UIWebViewDelegate>
 
-@property (nonatomic,strong) IBOutlet UIToolbar* toolBar;
+@property (nonatomic,strong) IBOutlet UIWebView *webView;
+
+- (IBAction)doneButtonPress:(id)sender;
 
 @end

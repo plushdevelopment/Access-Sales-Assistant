@@ -73,7 +73,9 @@
 			Class aClass = [NSClassFromString([entityDesc name]) class];
 			for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
 				if ([desc.description isEqualToString:@"uid"]) {
-					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"uid" value:[value valueForKey:@"uid"] managedObjectContext:context];
+					if ([value valueForKey:@"uid"]) {
+						object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"uid" value:[value valueForKey:@"uid"] managedObjectContext:context];
+					}
 				} else if ([desc.description isEqualToString:@"addressLine1"]) {
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"addressLine1" value:[value valueForKey:@"addressLine1"] managedObjectContext:context];
 				} else if ([desc.description isEqualToString:@"number"]) {

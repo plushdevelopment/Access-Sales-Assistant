@@ -22,12 +22,14 @@
 @property (strong, nonatomic) NSString *selectedDay;
 @property (strong, nonatomic) NSArray *producers;
 
-@property (strong, nonatomic) UICRouteOverlayMapView *routeOverlayView;
 @property (strong, nonatomic) UICGDirections *directions;
 @property (strong, nonatomic) NSString *startPoint;
 @property (strong, nonatomic) NSString *endPoint;
 @property (strong, nonatomic) NSArray *wayPoints;
 @property (nonatomic) UICGTravelModes travelMode;
+@property (nonatomic, strong) MKPolyline *polyline;
+@property (nonatomic, strong) MKPolylineView *polylineView;
+@property (nonatomic, strong) UIPopoverController *popoverController;
 
 - (void)configureView;
 - (void)update;

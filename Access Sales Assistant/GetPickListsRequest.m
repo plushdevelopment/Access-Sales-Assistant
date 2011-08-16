@@ -27,7 +27,7 @@
 
 - (void)requestFinished
 {
-	self.context = [NSManagedObjectContext contextForCurrentThread];
+	self.context = [NSManagedObjectContext contextThatNotifiesDefaultContextOnMainThread];
 	
 	NSString *responseString = [self responseString];
 	NSArray *results = [responseString objectFromJSONString];

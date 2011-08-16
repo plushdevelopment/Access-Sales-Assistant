@@ -13,15 +13,17 @@
 @synthesize coordinate;
 @synthesize title;
 @synthesize annotationType;
+@synthesize number;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coord 
 				   title:(NSString *)aTitle 
-		  annotationType:(UICRouteAnnotationType)type {
+		  annotationType:(UICRouteAnnotationType)type number:(NSUInteger)newNumber {
 	self = [super init];
 	if (self != nil) {
 		coordinate = coord;
 		title = aTitle;
 		annotationType = type;
+		number = newNumber;
 	}
 	return self;
 }
