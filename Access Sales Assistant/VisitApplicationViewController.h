@@ -12,6 +12,7 @@
 #import "VisitApplicationSummaryTableViewController.h"
 #import "VisitApplicationNotesViewController.h"
 #import "VisitApplicationPhotosViewController.h"
+#import "VisitApplicationProducerProfileTableViewController.h"
 
 @interface VisitApplicationViewController : BaseDetailViewController <UIImagePickerControllerDelegate> {
 }
@@ -20,7 +21,8 @@
 
 @property (nonatomic, strong) IBOutlet UIView *activeVisitFormView;
 
-@property (nonatomic, strong) IBOutlet VisitApplicationProfileViewController *profileApplicationViewController;
+//@property (nonatomic, strong) IBOutlet VisitApplicationProfileViewController *profileApplicationViewController;
+@property (nonatomic, strong) IBOutlet VisitApplicationProducerProfileTableViewController *profileApplicationViewController;
 @property (nonatomic, strong) IBOutlet VisitApplicationSummaryTableViewController *summaryApplicationViewController;
 @property (nonatomic, strong) IBOutlet VisitApplicationNotesViewController *notesApplicationViewController;
 @property (nonatomic, strong) IBOutlet VisitApplicationPhotosViewController *photoApplicationViewController;

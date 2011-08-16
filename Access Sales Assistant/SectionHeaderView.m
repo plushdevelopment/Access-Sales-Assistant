@@ -97,7 +97,8 @@
         self.opaque = NO;
         
              
-        _titleLabel = [[UILabel alloc] init];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, self.frame.origin.y+5, self.frame.size.width-35, self.frame.size.height)];
+      //  _titleLabel.
         _titleLabel.textAlignment = UITextAlignmentCenter;
         _titleLabel.text = title;
         _titleLabel.opaque = NO;
@@ -106,6 +107,7 @@
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
         _titleLabel.shadowOffset = CGSizeMake(0, -1);
+       // _titleLabel.frame = CGRectMake(35, self.frame.origin.y, self.frame.size.width-35, self.frame.size.height);
         [self addSubview:_titleLabel];
         
         self.lightColor = [UIColor colorWithRed:105.0f/255.0f green:179.0f/255.0f blue:216.0f/255.0f alpha:1.0];
@@ -122,6 +124,8 @@
         {
         [disclosureButton setImage:[UIImage imageNamed:@"CircleArrowRight_sml.png"] forState:UIControlStateNormal];
         [disclosureButton setImage:[UIImage imageNamed:@"CircleArrowDown_sml.png"] forState:UIControlStateSelected];
+            disclosureButton.alpha = 0.25;
+            
           
 
         }

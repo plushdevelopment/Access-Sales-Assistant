@@ -24,6 +24,8 @@
 
 #import "ASIHTTPRequest.h"
 
+#import "VisitApplicationProducerProfileTableViewController.h"
+
 @implementation Access_Sales_AssistantAppDelegate
 
 @synthesize window = _window;
@@ -70,6 +72,8 @@
 	//VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
     
     SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+    
+   // VisitApplicationProducerProfileTableViewController* detailViewController = [[VisitApplicationProducerProfileTableViewController alloc] initWithNibName:@"VisitApplicationProducerProfileTableViewController" bundle:nil];
 	
     //TODO: Need to uncomment below code
 /*	self.splitViewController = [[UISplitViewController alloc] init];

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *reasonIneligibleTextField;
 @property (nonatomic, strong) IBOutlet UITextField *suspensionReasonTextField;
 @property (nonatomic, strong) IBOutlet UITextField *eligibleTextField;
+@property (nonatomic, strong) IBOutlet UILabel *reasonIneligibleLabel;
 @property (nonatomic, strong) IBOutlet UIButton *statusButton;
 @property (nonatomic, strong) IBOutlet UIButton *suspensionReasonButton;
 @property (nonatomic, strong) IBOutlet UIButton *eligibleButton;

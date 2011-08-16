@@ -17,5 +17,6 @@
 @property (nonatomic, strong) IBOutlet UITextField *stateTextField;
 @property (nonatomic, strong) IBOutlet UITextField *zipTextField;
 @property (nonatomic, strong) IBOutlet UIButton *stateButton;
+@property (nonatomic, strong) IBOutlet UILabel *addressTitle;
 
 @end

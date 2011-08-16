@@ -37,7 +37,6 @@
 				<string key="NSFrameSize">{768, 1004}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -170,6 +169,7 @@
 						<int key="objectID">15</int>
 						<reference key="object" ref="165759884"/>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Date Picker View Controller</string>
 					</object>
 				</array>
 			</object>

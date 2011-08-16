@@ -24,5 +24,6 @@
 @property (nonatomic, strong) IBOutlet UIButton *subTerritoryButton;
 @property (nonatomic, strong) IBOutlet UIButton *eOExpiresButton;
 @property (nonatomic, strong) IBOutlet UIButton *accessSignButton;
+@property (nonatomic, strong) IBOutlet UITextField * numberOfEmployeesTextField;
 
 @end

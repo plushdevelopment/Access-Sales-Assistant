@@ -16,6 +16,7 @@
 @interface ContactsQATimeTableViewController : BaseDetailViewController<stateChangedDelegate,SSLocationManagerDelegate>
 {
     UIPopoverController* popOverController;
+    UIInterfaceOrientation currentOrientation;
 }
 
 @property(nonatomic,strong) IBOutlet UIToolbar* toolBar;

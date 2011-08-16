@@ -53,6 +53,7 @@
 			[[UIImageView alloc] initWithImage:
 				[UIImage imageNamed:self.expanded ? 
 				 @"CircleArrowDown_sml" : @"CircleArrowRight_sml"]];
+        self.arrowImage.alpha = 0.25;
 		[content addSubview:self.arrowImage];
 		
 		[content release];

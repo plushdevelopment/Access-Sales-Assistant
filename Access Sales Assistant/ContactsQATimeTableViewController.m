@@ -50,6 +50,8 @@
     self.baseToolbar = _toolBar;
     [self selectedState:@"Georgia" :@"GA"];
     
+    currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -67,6 +69,15 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    //[self selectedState:self.currentStateName :self.currentStateCode];
+    
+   // [self.scrollView setNeedsDisplay];
+    
+    currentOrientation = toInterfaceOrientation;
+    [self selectedState:self.currentStateCode :self.currentStateName];
 }
 -(IBAction)stateChanged:(id)sender
 {
@@ -134,13 +145,30 @@
     
     //Display QA timetable objects on screen
     CGRect scrollRect = _scrollView.bounds;
-    int scrollWidth = 650;//scrollRect.size.width;
+    
+    
+    int scrollWidth =0;
+//     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if(UIInterfaceOrientationIsPortrait(currentOrientation))
+        scrollWidth = scrollRect.size.width;
+    else
+        scrollWidth = 650;
+    
+//    int scrollWidth = 650;//scrollRect.size.width;
+    
     int xPosEsc = scrollRect.origin.x;
     int xPosDescr = scrollWidth/2;
     int yStartPos = scrollRect.origin.y;
     _scrollView.contentSize = CGSizeMake(scrollWidth, [timeTableObjArray count]*ROW_HEIGHT + ([timeTableObjArray count]-1)*ROW_OFFSET_TIMETABLE);
+    _scrollView.backgroundColor = [UIColor clearColor];
     
     
+    [_scrollView clearsContextBeforeDrawing];
+    
+    for (UIView *subview in _scrollView.subviews) {
+        if([subview isKindOfClass:[UILabel class]])
+            [subview removeFromSuperview];
+    }
     for(int cLabel = 0; cLabel <[timeTableObjArray count]; cLabel++)
     {
         yStartPos = cLabel * ROW_HEIGHT + ROW_OFFSET_TIMETABLE;
@@ -154,8 +182,9 @@
              UILabel* escalationLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPosEsc+15, yStartPos, xPosDescr-30, ROW_HEIGHT)];
             escalationLabel.text = cQATimetableObj.escalation;
            escalationLabel.textAlignment=UITextAlignmentLeft;
-             escalationLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
+             escalationLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:22.0];
             escalationLabel.textColor = [UIColor orangeColor];
+            escalationLabel.backgroundColor = [UIColor  clearColor];
             
             [_scrollView addSubview:escalationLabel];
            
@@ -168,16 +197,18 @@
              UILabel* descrLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPosDescr-20, yStartPos, xPosDescr+20, ROW_HEIGHT)];
             escalationLabel.text = cQATimetableObj.escalation;
             escalationLabel.textAlignment = UITextAlignmentRight;
-            escalationLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:16.0];
+            escalationLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18.0];
             escalationLabel.numberOfLines =0;
-            escalationLabel.textColor = [UIColor grayColor];
+            escalationLabel.textColor = [UIColor lightGrayColor];
+             escalationLabel.backgroundColor = [UIColor  clearColor];
             //Description
             descrLabel.text = cQATimetableObj.description;
             descrLabel.textAlignment = UITextAlignmentLeft;
-            descrLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:16.0];
+            descrLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18.0];
             descrLabel.numberOfLines = 0;
             
-             descrLabel.textColor = RGB(0,111,162);
+             descrLabel.textColor = RGB(0,178,238);
+             descrLabel.backgroundColor = [UIColor  clearColor];
             [_scrollView addSubview:escalationLabel];
             [_scrollView addSubview:descrLabel];
         }
