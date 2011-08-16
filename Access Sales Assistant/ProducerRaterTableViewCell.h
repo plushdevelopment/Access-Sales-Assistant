@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ProducerRaterTableViewCell : UITableViewCell
+#import "PRPNibBasedTableViewCell.h"
+@interface ProducerRaterTableViewCell : PRPNibBasedTableViewCell
 
 
 @property (nonatomic, strong) IBOutlet UITextField *raterTextField;

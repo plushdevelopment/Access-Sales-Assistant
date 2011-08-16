@@ -24,7 +24,7 @@
 @synthesize eOExpiresButton=_eOExpiresButton;
 @synthesize accessSignButton=_accessSignButton;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+/*- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -38,6 +38,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
+}*/
 
 @end

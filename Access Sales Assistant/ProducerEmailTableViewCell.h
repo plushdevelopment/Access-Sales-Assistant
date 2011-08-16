@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PRPNibBasedTableViewCell.h"
 @interface ProducerEmailTableViewCell : UITableViewCell
 
 

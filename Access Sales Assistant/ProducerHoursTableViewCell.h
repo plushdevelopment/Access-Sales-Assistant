@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ProducerHoursTableViewCell : UITableViewCell {
+#import "PRPNibBasedTableViewCell.h"
+@interface ProducerHoursTableViewCell : PRPNibBasedTableViewCell {
 	UITextField *_startTextField;
 	UITextField *_stopTextField;
 }

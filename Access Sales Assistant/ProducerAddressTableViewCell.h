@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ProducerAddressTableViewCell : UITableViewCell
+#import "PRPNibBasedTableViewCell.h"
+@interface ProducerAddressTableViewCell : PRPNibBasedTableViewCell
 
 
 @property (nonatomic, strong) IBOutlet UITextField *streetAddress1TextField;
