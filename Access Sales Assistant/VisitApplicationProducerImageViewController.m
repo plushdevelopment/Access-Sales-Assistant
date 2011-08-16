@@ -1,16 +1,16 @@
 //
-//  VideoViewController.m
+//  VisitApplicationProducerImageViewController.m
 //  Access Sales Assistant
 //
-//  Created by Ross Chapman on 8/8/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Ross Chapman on 8/9/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "VideoViewController.h"
+#import "VisitApplicationProducerImageViewController.h"
 
-@implementation VideoViewController
+@implementation VisitApplicationProducerImageViewController
 
-@synthesize webView=_webView;
+@synthesize imageView=_imageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +39,7 @@
 
 - (void)viewDidUnload
 {
+    [self setImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -50,14 +51,9 @@
 	return YES;
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (IBAction)doneButtonPress:(id)sender 
 {
-	
+	[self dismissModalViewControllerAnimated:YES];
 }
 
-- (IBAction)doneButtonPress:(id)sender
-{
-	//[self dismissModalViewControllerAnimated:YES];
-	[self dismissViewControllerAnimated:YES completion:NULL];
-}
 @end

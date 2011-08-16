@@ -9,9 +9,12 @@
 #import "VisitApplicationMapViewController.h"
 #import "UICRouteOverlayMapView.h"
 #import "UICRouteAnnotation.h"
+#import "ProducerAnnotationView.h"
 #import "Producer.h"
 #import "AddressListItem.h"
 #import "VisitApplicationViewController.h"
+#import "ProducerDetailViewController.h"
+#import "HTTPOperationController.h"
 
 @implementation VisitApplicationMapViewController
 @synthesize toolBar = _toolBar;
@@ -20,12 +23,14 @@
 @synthesize selectedDay=_selectedDay;
 @synthesize producers=_producers;
 
-@synthesize routeOverlayView=_routeOverlayView;
 @synthesize directions=_directions;
 @synthesize startPoint=_startPoint;
 @synthesize endPoint=_endPoint;
 @synthesize wayPoints=_wayPoints;
 @synthesize travelMode=_travelMode;
+@synthesize polyline=_polyline;
+@synthesize polylineView=_polylineView;
+@synthesize popoverController=popoverController;
 
 - (void)setSelectedDay:(NSString *)selectedDay
 {
@@ -39,11 +44,14 @@
 
 - (void)configureView
 {
+	[self.directionsMapView removeOverlays:self.directionsMapView.overlays];
+	[self.directionsMapView removeAnnotations:self.directionsMapView.annotations];
 	if (self.producers.count > 0) {
 		self.startPoint = [(Producer *)[self.producers objectAtIndex:0] address];
 		self.endPoint = [(Producer *)[self.producers lastObject] address];
 		NSMutableArray *wayPoints = [NSMutableArray array];
 		for (Producer *producer in self.producers) {
+			[[HTTPOperationController sharedHTTPOperationController] getImagesForProducer:producer.uid];
 			if (([self.producers indexOfObject:producer] > 0) && ([self.producers indexOfObject:producer] < self.producers.count - 1)) {
 				[wayPoints addObject:producer.address];
 			}
@@ -76,13 +84,6 @@
 	[_directionsMapView setCenterCoordinate:[_directionsMapView.userLocation coordinate] animated:YES];
 }
 
-- (void)addPinAnnotation:(id)sender {
-	UICRouteAnnotation *pinAnnotation = [[UICRouteAnnotation alloc] initWithCoordinate:[_directionsMapView centerCoordinate]
-																				  title:nil
-																		 annotationType:UICRouteAnnotationTypeWayPoint];
-	[_directionsMapView addAnnotation:pinAnnotation];
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -108,10 +109,13 @@
     // Do any additional setup after loading the view from its nib.
 	self.baseToolbar = _toolBar;
 	
-	_routeOverlayView = [[UICRouteOverlayMapView alloc] initWithMapView:self.directionsMapView];
-	
 	_directions = [UICGDirections sharedDirections];
 	_directions.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self configureView];
 }
 
 - (void)viewDidUnload
@@ -155,6 +159,11 @@
 	cell.textLabel.text = producer.name;
 	cell.detailTextLabel.text = producer.nextScheduledVisitTime;
     
+	if (producer.submittedValue) {
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	} else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}
     return cell;
 }
 
@@ -181,7 +190,19 @@
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {
-	
+	MKAnnotationView *aV; 
+	for (aV in views) {
+		CGRect endFrame = aV.frame;
+		
+		aV.frame = CGRectMake(aV.frame.origin.x, aV.frame.origin.y - 230.0, aV.frame.size.width, aV.frame.size.height);
+		
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDuration:0.45];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		[aV setFrame:endFrame];
+		[UIView commitAnimations];
+		
+	}
 }
 
 - (void)mapView:(MKMapView *)mapView didAddOverlayViews:(NSArray *)overlayViews
@@ -201,7 +222,12 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-	
+	ProducerDetailViewController *viewController = [[ProducerDetailViewController alloc] initWithNibName:@"ProducerDetailViewController" bundle:nil];
+	Producer *producer = [Producer findFirstByAttribute:@"producerCode" withValue:view.annotation.title];
+	[viewController setContentSizeForViewInPopover:CGSizeMake(300.0, 262.0)];
+	self.popoverController = [[UIPopoverController alloc] initWithContentViewController:viewController];
+	[self.popoverController presentPopoverFromRect:view.bounds inView:view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	[viewController setProducer:producer];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -210,12 +236,11 @@
 }
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
-	_routeOverlayView.hidden = YES;
+	
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-	_routeOverlayView.hidden = NO;
-	[_routeOverlayView setNeedsDisplay];
+	
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
@@ -223,26 +248,46 @@
 	static NSString *identifier = @"RoutePinAnnotation";
 	
 	if ([annotation isKindOfClass:[UICRouteAnnotation class]]) {
-		MKPinAnnotationView *pinAnnotation = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+		ProducerAnnotationView *pinAnnotation = (ProducerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
 		if(!pinAnnotation) {
-			pinAnnotation = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+			pinAnnotation = [[ProducerAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
 		}
-		
-		if ([(UICRouteAnnotation *)annotation annotationType] == UICRouteAnnotationTypeStart) {
-			pinAnnotation.pinColor = MKPinAnnotationColorGreen;
-		} else if ([(UICRouteAnnotation *)annotation annotationType] == UICRouteAnnotationTypeEnd) {
-			pinAnnotation.pinColor = MKPinAnnotationColorRed;
+		Producer *producer = [Producer findFirstByAttribute:@"producerCode" withValue:annotation.title];
+		if (producer.submittedValue) {
+			pinAnnotation.image = [UIImage imageNamed:@"grey_square_pin.png"];
 		} else {
-			pinAnnotation.pinColor = MKPinAnnotationColorPurple;
+			pinAnnotation.image = [UIImage imageNamed:@"red_square_pin.png"];
 		}
-		
-		pinAnnotation.animatesDrop = YES;
+		[pinAnnotation setNumber:[(UICRouteAnnotation *)annotation number]];
 		pinAnnotation.enabled = YES;
-		pinAnnotation.canShowCallout = YES;
+		pinAnnotation.canShowCallout = NO;
 		return pinAnnotation;
 	} else {
 		return [_directionsMapView viewForAnnotation:_directionsMapView.userLocation];
 	}
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id )overlay
+{
+	MKOverlayView* overlayView = nil;
+	
+	if(overlay == self.polyline)
+	{
+		//if we have not yet created an overlay view for this overlay, create it now.
+		if(nil == self.polylineView)
+		{
+			self.polylineView = [[MKPolylineView alloc] initWithPolyline:self.polyline];
+			self.polylineView.fillColor = [UIColor blueColor];
+			self.polylineView.strokeColor = [UIColor blueColor];
+			self.polylineView.lineWidth = 3;
+		}
+		
+		overlayView = self.polylineView;
+		
+	}
+	
+	return overlayView;
+	
 }
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error
@@ -272,15 +317,55 @@
 	// Overlay polylines
 	UICGPolyline *polyline = [directions polyline];
 	NSArray *routePoints = [polyline routePoints];
-	[_routeOverlayView setRoutes:routePoints];
+	
+	// create a c array of points.
+	CLLocationCoordinate2D *pointArr = calloc(routePoints.count, sizeof(CLLocationCoordinate2D));
+	
+	CLLocationDegrees maxLat = -90.0f;
+	CLLocationDegrees maxLon = -180.0f;
+	CLLocationDegrees minLat = 90.0f;
+	CLLocationDegrees minLon = 180.0f;
+	
+	for (int i = 0; i < routePoints.count; i++) {
+		CLLocation *currentLocation = [routePoints objectAtIndex:i];
+		if(currentLocation.coordinate.latitude > maxLat) {
+			maxLat = currentLocation.coordinate.latitude;
+		}
+		if(currentLocation.coordinate.latitude < minLat) {
+			minLat = currentLocation.coordinate.latitude;
+		}
+		if(currentLocation.coordinate.longitude > maxLon) {
+			maxLon = currentLocation.coordinate.longitude;
+		}
+		if(currentLocation.coordinate.longitude < minLon) {
+			minLon = currentLocation.coordinate.longitude;
+		}
+	}
+	
+	for (int idx = 0; idx < routePoints.count; idx++) {
+		pointArr[idx] = [(CLLocation *)[routePoints objectAtIndex:idx] coordinate];
+	}
+	
+	self.polyline = [MKPolyline polylineWithCoordinates:pointArr count:routePoints.count];
+	[self.directionsMapView addOverlay:self.polyline];
+	free(pointArr);
+	
+	CLLocationCoordinate2D southWestCoord = CLLocationCoordinate2DMake(maxLat, minLon);
+	MKMapPoint southWestPoint = MKMapPointForCoordinate(southWestCoord);
+	CLLocationCoordinate2D northEastCoord = CLLocationCoordinate2DMake(minLat, maxLon);
+	MKMapPoint northEastPoint = MKMapPointForCoordinate(northEastCoord);
+	
+	MKMapRect rect = MKMapRectMake(southWestPoint.x, southWestPoint.y, northEastPoint.x - southWestPoint.x, northEastPoint.y - southWestPoint.y);
+	
+	[self.directionsMapView setRegion:MKCoordinateRegionForMapRect(rect) animated:YES];
 	
 	// Add annotations
 	UICRouteAnnotation *startAnnotation = [[UICRouteAnnotation alloc] initWithCoordinate:[[routePoints objectAtIndex:0] coordinate]
-																					title:_startPoint
-																		   annotationType:UICRouteAnnotationTypeStart];
+																				   title:[[self.producers objectAtIndex:0] producerCode]
+																		   annotationType:UICRouteAnnotationTypeStart number:1];
 	UICRouteAnnotation *endAnnotation = [[UICRouteAnnotation alloc] initWithCoordinate:[[routePoints lastObject] coordinate]
-																				  title:_endPoint
-																		 annotationType:UICRouteAnnotationTypeEnd];
+																				  title:[[self.producers lastObject] producerCode]
+																		 annotationType:UICRouteAnnotationTypeEnd number:([_wayPoints count] + 2)];
 	
 	if ([_wayPoints count] > 0) {
 		NSInteger numberOfRoutes = [directions numberOfRoutes];
@@ -288,8 +373,8 @@
 			UICGRoute *route = [directions routeAtIndex:index];
 			CLLocation *location = [route endLocation];
 			UICRouteAnnotation *annotation = [[UICRouteAnnotation alloc] initWithCoordinate:[location coordinate]
-																					   title:[[route endGeocode] objectForKey:@"address"]
-																			  annotationType:UICRouteAnnotationTypeEnd];
+																					   title:[[self.producers objectAtIndex:(index + 1)] producerCode]
+																			  annotationType:UICRouteAnnotationTypeEnd number:(index + 2)];
 			[_directionsMapView addAnnotation:annotation];
 		}
 	}

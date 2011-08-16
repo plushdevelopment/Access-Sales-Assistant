@@ -50,7 +50,7 @@
     _iconView = [[UIImageView alloc] initWithFrame: CGRectMake(0.0, 0.0, 144.0, 144.0)];
     
     [self.contentView addSubview: _iconView];
-    
+    [_iconView setContentMode:UIViewContentModeScaleAspectFit];
     self.contentView.backgroundColor = [UIColor clearColor];
     self.backgroundColor = [UIColor clearColor];
     

@@ -16,6 +16,8 @@
 
 #import "SpringBoardIconCell.h"
 
+#import "VisitApplicationProducerImageViewController.h"
+
 @implementation VisitApplicationPhotosViewController
 
 @synthesize detailItem=_detailItem;
@@ -167,6 +169,13 @@
 			
 			// Show image picker
 			[self.parent presentModalViewController:imagePicker animated:YES];
+		} else {
+			VisitApplicationProducerImageViewController *viewController = [[VisitApplicationProducerImageViewController alloc] initWithNibName:@"VisitApplicationProducerImageViewController" bundle:nil];
+			ProducerImage *producerImage = [self.images objectAtIndex:index];
+			NSString *imageName = producerImage.imagePath;
+			UIImage *image = [UIImage imageWithContentsOfFile:imageName];
+			[viewController.imageView setImage:image];
+			[self.parent presentModalViewController:viewController animated:YES];
 		}
 	}
 }

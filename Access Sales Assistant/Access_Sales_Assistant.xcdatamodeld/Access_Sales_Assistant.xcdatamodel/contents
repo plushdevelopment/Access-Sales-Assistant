@@ -172,7 +172,7 @@
         <attribute name="primaryContact" optional="YES" attributeType="String"/>
         <attribute name="producerCode" optional="YES" attributeType="String"/>
         <attribute name="statusDate" optional="YES" attributeType="Date"/>
-        <attribute name="submitted" optional="YES" attributeType="Boolean"/>
+        <attribute name="submitted" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="uid" optional="YES" attributeType="String"/>
         <attribute name="webAddress" optional="YES" attributeType="String"/>
         <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AddressListItem" inverseName="producer" inverseEntity="AddressListItem"/>
@@ -266,11 +266,12 @@
         <element name="HoursOfOperation" positionX="0" positionY="-45" width="128" height="270"/>
         <element name="IneligibleReason" positionX="43" positionY="561" width="128" height="90"/>
         <element name="Note" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="OperationHour" positionX="160" positionY="192" width="128" height="285"/>
         <element name="PersonSpokeWith" positionX="160" positionY="192" width="128" height="165"/>
         <element name="PersonSpokeWithTitle" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Phase" positionX="160" positionY="192" width="128" height="90"/>
         <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="105"/>
-        <element name="Producer" positionX="306" positionY="123" width="128" height="570"/>
+        <element name="Producer" positionX="306" positionY="123" width="128" height="585"/>
         <element name="ProducerAddOn" positionX="160" positionY="192" width="128" height="90"/>
         <element name="ProducerImage" positionX="160" positionY="192" width="128" height="75"/>
         <element name="PurposeOfCall" positionX="160" positionY="192" width="128" height="90"/>
@@ -281,7 +282,6 @@
         <element name="Status" positionX="475" positionY="27" width="128" height="90"/>
         <element name="SubTerritory" positionX="628" positionY="135" width="128" height="75"/>
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="90"/>
-        <element name="OperationHour" positionX="160" positionY="192" width="128" height="285"/>
         <element name="TrainingVideo" positionX="160" positionY="192" width="128" height="75"/>
         <element name="User" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
