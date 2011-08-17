@@ -40,6 +40,17 @@
 		6D9E17C413F0674C00C68AB6 /* ProducerContactInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D9E17BF13F0674C00C68AB6 /* ProducerContactInfoTableViewCell.xib */; };
 		6D9E17C513F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E17C113F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.m */; };
 		6D9E17C613F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D9E17C213F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.xib */; };
+		6DDC3E2413FAAACE005F4DD7 /* grey_square_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E1813FAAACE005F4DD7 /* grey_square_pin.png */; };
+		6DDC3E2513FAAACE005F4DD7 /* ProducerAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDC3E1A13FAAACE005F4DD7 /* ProducerAnnotationView.m */; };
+		6DDC3E2613FAAACE005F4DD7 /* ProducerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDC3E1C13FAAACE005F4DD7 /* ProducerDetailViewController.m */; };
+		6DDC3E2713FAAACE005F4DD7 /* ProducerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E1D13FAAACE005F4DD7 /* ProducerDetailViewController.xib */; };
+		6DDC3E2813FAAACE005F4DD7 /* red_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E1E13FAAACE005F4DD7 /* red_pin.png */; };
+		6DDC3E2913FAAACE005F4DD7 /* red_square_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E1F13FAAACE005F4DD7 /* red_square_pin.png */; };
+		6DDC3E2A13FAAACE005F4DD7 /* video_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E2013FAAACE005F4DD7 /* video_icon.png */; };
+		6DDC3E2B13FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDC3E2213FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.m */; };
+		6DDC3E2C13FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E2313FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.xib */; };
+		6DDC3E3413FBFC53005F4DD7 /* blue background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E3213FBFC53005F4DD7 /* blue background.png */; };
+		6DDC3E3513FBFC53005F4DD7 /* green background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E3313FBFC53005F4DD7 /* green background.png */; };
 		6DE4337213DA012600BF551E /* RoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4337113DA012600BF551E /* RoundedRectView.m */; };
 		FF0A17DC13BC940D00ECF9F6 /* NSManagedObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */; };
 		FF0A17F713BC944E00ECF9F6 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E013BC944E00ECF9F6 /* CDataScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -482,6 +493,20 @@
 		6D9E17C013F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationProducerProfileTableViewController.h; sourceTree = "<group>"; };
 		6D9E17C113F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationProducerProfileTableViewController.m; sourceTree = "<group>"; };
 		6D9E17C213F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationProducerProfileTableViewController.xib; sourceTree = "<group>"; };
+		6DDC3E1813FAAACE005F4DD7 /* grey_square_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey_square_pin.png; sourceTree = "<group>"; };
+		6DDC3E1913FAAACE005F4DD7 /* ProducerAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerAnnotationView.h; sourceTree = "<group>"; };
+		6DDC3E1A13FAAACE005F4DD7 /* ProducerAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerAnnotationView.m; sourceTree = "<group>"; };
+		6DDC3E1B13FAAACE005F4DD7 /* ProducerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerDetailViewController.h; sourceTree = "<group>"; };
+		6DDC3E1C13FAAACE005F4DD7 /* ProducerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerDetailViewController.m; sourceTree = "<group>"; };
+		6DDC3E1D13FAAACE005F4DD7 /* ProducerDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerDetailViewController.xib; sourceTree = "<group>"; };
+		6DDC3E1E13FAAACE005F4DD7 /* red_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_pin.png; sourceTree = "<group>"; };
+		6DDC3E1F13FAAACE005F4DD7 /* red_square_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_square_pin.png; sourceTree = "<group>"; };
+		6DDC3E2013FAAACE005F4DD7 /* video_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_icon.png; sourceTree = "<group>"; };
+		6DDC3E2113FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationProducerImageViewController.h; sourceTree = "<group>"; };
+		6DDC3E2213FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationProducerImageViewController.m; sourceTree = "<group>"; };
+		6DDC3E2313FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationProducerImageViewController.xib; sourceTree = "<group>"; };
+		6DDC3E3213FBFC53005F4DD7 /* blue background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue background.png"; sourceTree = "<group>"; };
+		6DDC3E3313FBFC53005F4DD7 /* green background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green background.png"; sourceTree = "<group>"; };
 		6DE4337013DA012600BF551E /* RoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectView.h; sourceTree = "<group>"; };
 		6DE4337113DA012600BF551E /* RoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedRectView.m; sourceTree = "<group>"; };
 		FF0A17DA13BC940D00ECF9F6 /* NSManagedObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JSON.h"; sourceTree = "<group>"; };
@@ -1123,6 +1148,8 @@
 		6D317E2A13C7422900CD647E /* Features and Benefits */ = {
 			isa = PBXGroup;
 			children = (
+				6DDC3E3213FBFC53005F4DD7 /* blue background.png */,
+				6DDC3E3313FBFC53005F4DD7 /* green background.png */,
 				FFA0708E13D5EC330021E412 /* FeaturesAndBenefitsViewController.xib */,
 				FFA0708F13D5EC330021E412 /* FeaturesAndBenefitsViewController.m */,
 				FFA0709013D5EC330021E412 /* FeaturesAndBenefitsViewController.h */,
@@ -1301,6 +1328,18 @@
 		FF374DFA13D5142200C170EB /* Visit Application */ = {
 			isa = PBXGroup;
 			children = (
+				6DDC3E1813FAAACE005F4DD7 /* grey_square_pin.png */,
+				6DDC3E1913FAAACE005F4DD7 /* ProducerAnnotationView.h */,
+				6DDC3E1A13FAAACE005F4DD7 /* ProducerAnnotationView.m */,
+				6DDC3E1B13FAAACE005F4DD7 /* ProducerDetailViewController.h */,
+				6DDC3E1C13FAAACE005F4DD7 /* ProducerDetailViewController.m */,
+				6DDC3E1D13FAAACE005F4DD7 /* ProducerDetailViewController.xib */,
+				6DDC3E1E13FAAACE005F4DD7 /* red_pin.png */,
+				6DDC3E1F13FAAACE005F4DD7 /* red_square_pin.png */,
+				6DDC3E2013FAAACE005F4DD7 /* video_icon.png */,
+				6DDC3E2113FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.h */,
+				6DDC3E2213FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.m */,
+				6DDC3E2313FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.xib */,
 				FF8CA88113B1256500BA9A7B /* VisitApplicationViewController.h */,
 				FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */,
 				FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */,
@@ -2503,6 +2542,14 @@
 				6D9E17C613F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.xib in Resources */,
 				6D89C30613F18B0800C886BC /* AddRowTableViewCell.xib in Resources */,
 				6D89C30813F18CD500C886BC /* AddIcon-plus.png in Resources */,
+				6DDC3E2413FAAACE005F4DD7 /* grey_square_pin.png in Resources */,
+				6DDC3E2713FAAACE005F4DD7 /* ProducerDetailViewController.xib in Resources */,
+				6DDC3E2813FAAACE005F4DD7 /* red_pin.png in Resources */,
+				6DDC3E2913FAAACE005F4DD7 /* red_square_pin.png in Resources */,
+				6DDC3E2A13FAAACE005F4DD7 /* video_icon.png in Resources */,
+				6DDC3E2C13FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.xib in Resources */,
+				6DDC3E3413FBFC53005F4DD7 /* blue background.png in Resources */,
+				6DDC3E3513FBFC53005F4DD7 /* green background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2737,6 +2784,9 @@
 				6D9E17C313F0674C00C68AB6 /* ProducerContactInfoTableViewCell.m in Sources */,
 				6D9E17C513F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.m in Sources */,
 				6D89C30413F18AEF00C886BC /* AddRowTableViewCell.m in Sources */,
+				6DDC3E2513FAAACE005F4DD7 /* ProducerAnnotationView.m in Sources */,
+				6DDC3E2613FAAACE005F4DD7 /* ProducerDetailViewController.m in Sources */,
+				6DDC3E2B13FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
