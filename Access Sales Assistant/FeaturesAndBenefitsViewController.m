@@ -276,12 +276,12 @@
             featureLabel.text = tFeaturesObj.strFeature;
             
 
-            featureLabel.textColor = [UIColor orangeColor];
+            featureLabel.textColor = RGB(0,178,238);//[UIColor orangeColor];
              featureLabel.textAlignment=UITextAlignmentLeft;
             featureLabel.backgroundColor = [UIColor clearColor];
             
            
-             featureLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
+             featureLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:20.0];
             
             [_fnbScrollview addSubview:featureLabel];
         }
@@ -290,11 +290,11 @@
             featureLabel.text = tFeaturesObj.strFeature;
             
             featureLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
-            featureLabel.textColor = [UIColor lightGrayColor];
+            featureLabel.textColor = [UIColor whiteColor];//[UIColor lightGrayColor];
             benefitLabel.text = tFeaturesObj.strBenefit;
             benefitLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
            // benefitLabel.textColor = RGB(0,111,162);
-            benefitLabel.textColor = RGB(0,178,238);
+            benefitLabel.textColor = [UIColor blackColor]; //RGB(0,178,238);
             
              featureLabel.backgroundColor = [UIColor clearColor];
             benefitLabel.backgroundColor = [UIColor clearColor];

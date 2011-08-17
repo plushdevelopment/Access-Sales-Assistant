@@ -315,6 +315,8 @@
 -(void) AddContact:(id) sender
 {
     UIButton* btn = (UIButton*) sender;
+    
+ //   AddRowTableViewCell* cell = ( AddRowTableViewCell*)[[btn superview] superview];
  
     if(btn.tag == 1001)
     {
@@ -330,6 +332,7 @@
         if(editing)
         {
     [btn setTitle:@"Done" forState:UIControlStateNormal];
+      
                isContactsEdited = TRUE;
             
             
@@ -339,6 +342,7 @@
         else
         {
             [btn setTitle:@"Edit" forState:UIControlStateNormal];
+        
             isContactsEdited = FALSE;
          
             
@@ -609,7 +613,7 @@
 	[pickerView setShowsSelectionIndicator:YES];
 	[pickerView selectRow:0 inComponent:0 animated:NO];
 	[pickerView reloadAllComponents];
-	[self pickerView:pickerView didSelectRow:0 inComponent:0];
+	//[self pickerView:pickerView didSelectRow:0 inComponent:0];
 	
 	//Position the picker out of sight
 	[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
@@ -664,7 +668,7 @@
 		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:UIKeyboardFrameEndUserInfoKey, pickerFrame, nil];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
 	}];
-	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
+	//[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
    
 }
  -(IBAction)showTimePickerView:(id)sender

@@ -112,7 +112,7 @@
 }
 -(void) showAlert:(NSString *)alertText
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Information" message:alertText delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:alertText delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
 	[alertView show];
 }
 @end

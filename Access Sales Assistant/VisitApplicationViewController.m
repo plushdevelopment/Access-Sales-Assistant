@@ -152,6 +152,10 @@
     
 	_profileApplicationViewController.detailItem = self.detailItem;
 	self.currentController = _profileApplicationViewController;
+    
+    	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showInfo:) name:@"Post Producer Successful" object:nil];
+        	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showInfo:) name:@"Post Summary Successful" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showInfo:) name:@"Post Image Successful" object:nil];
 }
 
 - (void)viewDidUnload
@@ -207,4 +211,23 @@
 	}
 }
 
+-(void)showInfo:(id) sender
+{
+    if(self.currentController == _profileApplicationViewController)
+    {
+        [self showAlert:@"Producer profile submitted Successfully!"];
+    }
+    else if(self.currentController == _summaryApplicationViewController)
+    {
+        [self showAlert:@"Producer summary submitted Successfully!"];
+    }
+    else if(self.currentController == _notesApplicationViewController)
+    {
+        [self showAlert:@"Producer notes submitted Successfully!"];
+    }
+    else if(self.currentController == _photoApplicationViewController)
+    {
+        [self showAlert:@"Producer picture submitted Successfully!"];
+    }
+}
 @end
