@@ -52,13 +52,13 @@
 
 	
 
-@dynamic producer;
+@dynamic producers;
 
 	
-- (NSMutableSet*)producerSet {
-	[self willAccessValueForKey:@"producer"];
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"producer"];
-	[self didAccessValueForKey:@"producer"];
+- (NSMutableSet*)producersSet {
+	[self willAccessValueForKey:@"producers"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"producers"];
+	[self didAccessValueForKey:@"producers"];
 	return result;
 }
 	
