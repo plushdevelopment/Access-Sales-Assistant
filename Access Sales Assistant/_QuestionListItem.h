@@ -12,7 +12,6 @@
 
 
 
-
 @interface QuestionListItemID : NSManagedObjectID {}
 @end
 
@@ -61,14 +60,6 @@
 
 
 //- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, retain) NSString *uid;
-
-
-//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -133,12 +124,6 @@
 
 - (NSString*)primitiveText;
 - (void)setPrimitiveText:(NSString*)value;
-
-
-
-
-- (NSString*)primitiveUid;
-- (void)setPrimitiveUid:(NSString*)value;
 
 
 

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VisitApplicationTabBarController.h"
 
 @class DailySummary;
 
-@interface VisitApplicationNotesViewController : UIViewController <UITextFieldDelegate> {
+@interface VisitApplicationNotesViewController : UIViewController <UITextFieldDelegate, DetailViewController> {
 	UITextField *_opportunityTextField;
 	UITextField *_summaryTextField;
 	UITextField *_committmentTextField;
@@ -28,5 +29,7 @@
 
 
 - (void)configureView;
+- (IBAction)dismiss:(id)sender;
+- (IBAction)submit:(id)sender;
 
 @end

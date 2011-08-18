@@ -31,6 +31,7 @@
 @synthesize polyline=_polyline;
 @synthesize polylineView=_polylineView;
 @synthesize popoverController=popoverController;
+@synthesize tabBarController = _tabBarController;
 
 - (void)setSelectedDay:(NSString *)selectedDay
 {
@@ -123,6 +124,7 @@
     [self setProducersTableView:nil];
 	[self setDirectionsMapView:nil];
 	[self setToolBar:nil];
+    [self setTabBarController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -173,11 +175,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Producer *producer = [self.producers objectAtIndex:indexPath.row];
+	/*
 	VisitApplicationViewController *viewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
 	[viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
 	[viewController setModalPresentationStyle:UIModalPresentationCurrentContext];
 	[self presentModalViewController:viewController animated:YES];
 	[viewController setDetailItem:producer];
+	*/
+	[self.tabBarController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+	[self.tabBarController setModalPresentationStyle:UIModalPresentationCurrentContext];
+	[self presentModalViewController:self.tabBarController animated:YES];
+	[self.tabBarController setDetailItem:producer];
 }
 
 #pragma mark -

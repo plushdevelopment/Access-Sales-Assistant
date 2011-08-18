@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ASIHTTPRequest.h"
 #import "AQGridView.h"
+#import "VisitApplicationTabBarController.h"
 
 @class Producer;
 
-@interface VisitApplicationPhotosViewController : UIViewController <UIImagePickerControllerDelegate, AQGridViewDataSource, AQGridViewDelegate>
+@interface VisitApplicationPhotosViewController : UIViewController <UIImagePickerControllerDelegate, AQGridViewDataSource, AQGridViewDelegate, DetailViewController>
 
 @property (nonatomic, strong) Producer *detailItem;
 @property (nonatomic, strong) IBOutlet AQGridView *gridView;
@@ -24,5 +25,6 @@
 - (IBAction)uploadPhoto:(id)sender;
 - (void)getImageSuccess:(ASIHTTPRequest *)request;
 - (NSString *)applicationDocumentsDirectory;
+- (IBAction)dismiss:(id)sender;
 
 @end

@@ -19,7 +19,7 @@
 
 #define VIEW_HIDDEN_FRAME CGRectMake(0.0, 20.0, 768.0, 1004.0)
 #define VIEW_VISIBLE_FRAME CGRectMake(0.0, -239.0, 768.0, 1004.0)
-#define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 605.0, 768.0, 259.0)
+#define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 765.0, 768.0, 259.0)
 #define PICKER_HIDDEN_FRAME		CGRectMake(0, 864.0, 768.0, 259.0)
 
 #pragma mark - enums
