@@ -647,22 +647,19 @@
 	[self.datePickerViewController.datePicker setDatePickerMode:UIDatePickerModeDate];
 	
 	//Position the picker out of sight
-	//[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
     
-    //NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
-	//NSLog(@"%@", pickerFrame);
+    NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
+	NSLog(@"%@", pickerFrame);
 	
 	//Add the picker to the view
-	//[[[[UIApplication sharedApplication] delegate] window] addSubview:self.datePickerViewController.view];
-	[self presentModalViewController:self.datePickerViewController animated:YES];
+	[self.parentViewController.view addSubview:self.datePickerViewController.view];
 	
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"
-	/*
 	[UIView animateWithDuration:0.2 animations:^{
 		//Position of the picker in sight
 		[self.datePickerViewController.view setFrame:CGRectMake(0.0, 765.0, 768.0, 259.0)];
-		
 	} completion:^(BOOL finished){
 		NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
        
@@ -670,7 +667,6 @@
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
 		NSLog(@"%@", pickerFrame);
 	}];
-	 */
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
    
 }
@@ -692,7 +688,7 @@
     
 	
 	//Add the picker to the view
-	[self.view.superview addSubview:self.datePickerViewController.view];
+	[self.parentViewController.view addSubview:self.datePickerViewController.view];
 	
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"
