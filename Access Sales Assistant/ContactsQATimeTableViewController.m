@@ -182,8 +182,8 @@
              UILabel* escalationLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPosEsc+15, yStartPos, xPosDescr-30, ROW_HEIGHT)];
             escalationLabel.text = cQATimetableObj.escalation;
            escalationLabel.textAlignment=UITextAlignmentLeft;
-             escalationLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:22.0];
-            escalationLabel.textColor = [UIColor orangeColor];
+             escalationLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:22.0];
+            escalationLabel.textColor = RGB(60,179,113); //[UIColor orangeColor];
             escalationLabel.backgroundColor = [UIColor  clearColor];
             
             [_scrollView addSubview:escalationLabel];
@@ -199,7 +199,7 @@
             escalationLabel.textAlignment = UITextAlignmentRight;
             escalationLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18.0];
             escalationLabel.numberOfLines =0;
-            escalationLabel.textColor = [UIColor lightGrayColor];
+            escalationLabel.textColor = [UIColor whiteColor];
              escalationLabel.backgroundColor = [UIColor  clearColor];
             //Description
             descrLabel.text = cQATimetableObj.description;
@@ -207,7 +207,7 @@
             descrLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18.0];
             descrLabel.numberOfLines = 0;
             
-             descrLabel.textColor = RGB(0,178,238);
+            descrLabel.textColor =[UIColor blackColor]; //RGB(0,178,238);
              descrLabel.backgroundColor = [UIColor  clearColor];
             [_scrollView addSubview:escalationLabel];
             [_scrollView addSubview:descrLabel];

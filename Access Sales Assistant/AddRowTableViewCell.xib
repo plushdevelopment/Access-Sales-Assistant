@@ -51,6 +51,7 @@
 								<string key="NSFrame">{{503, 0}, {201, 44}}</string>
 								<reference key="NSSuperview" ref="358468923"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="140234975"/>
 								<string key="NSReuseIdentifierKey">_NS:120</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -84,6 +85,7 @@
 								<string key="NSFrame">{{712, 3}, {45, 37}}</string>
 								<reference key="NSSuperview" ref="358468923"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:184</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -121,6 +123,7 @@
 								<string key="NSFrame">{{80, 3}, {181, 30}}</string>
 								<reference key="NSSuperview" ref="358468923"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="562321640"/>
 								<string key="NSReuseIdentifierKey">_NS:120</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -138,22 +141,26 @@
 							<object class="IBUIButton" id="581652499">
 								<reference key="NSNextResponder" ref="358468923"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{14, 6}, {50, 31}}</string>
+								<string key="NSFrame">{{14, 3}, {50, 31}}</string>
 								<reference key="NSSuperview" ref="358468923"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="1033326455"/>
 								<string key="NSReuseIdentifierKey">_NS:184</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<int key="IBUIButtonType">1</int>
 								<string key="IBUINormalTitle">Edit</string>
 								<reference key="IBUIHighlightedTitleColor" ref="1023481224"/>
-								<object class="NSColor" key="IBUINormalTitleColor">
+								<object class="NSColor" key="IBUINormalTitleColor" id="63038771">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
+									<bytes key="NSRGB">MSAxIDEAA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="1021847423"/>
+								<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">dark blue button.png</string>
+								</object>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">2</int>
 									<double key="pointSize">14</double>
@@ -168,7 +175,7 @@
 						<string key="NSFrame">{{1, 0}, {766, 43}}</string>
 						<reference key="NSSuperview" ref="242555319"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="562321640"/>
+						<reference key="NSNextKeyView" ref="581652499"/>
 						<string key="NSReuseIdentifierKey">_NS:314</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -186,10 +193,7 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="358468923"/>
 				<string key="NSReuseIdentifierKey">_NS:303</string>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MSAxIDEAA</bytes>
-				</object>
+				<reference key="IBUIBackgroundColor" ref="63038771"/>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 				<reference key="IBUIContentView" ref="358468923"/>
 				<object class="IBUIFontDescription" key="IBUIFontDescription">
@@ -351,6 +355,7 @@
 							<string>addRowType</string>
 							<string>delRowType</string>
 							<string>editButton</string>
+							<string>isContactsEdited</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -358,6 +363,7 @@
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UIButton</string>
+							<string>BOOL</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -368,6 +374,7 @@
 							<string>addRowType</string>
 							<string>delRowType</string>
 							<string>editButton</string>
+							<string>isContactsEdited</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -386,6 +393,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">editButton</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">isContactsEdited</string>
+								<string key="candidateClassName">BOOL</string>
 							</object>
 						</object>
 					</object>
@@ -413,8 +424,17 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">AddIcon-plus.png</string>
-			<string key="NS.object.0">{40, 37}</string>
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>AddIcon-plus.png</string>
+				<string>dark blue button.png</string>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{40, 37}</string>
+				<string>{154, 52}</string>
+			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">894</string>
 	</data>
