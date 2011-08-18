@@ -98,8 +98,11 @@
 	
 	// Fill out the email body text
 	NSString *emailBody = @"It is raining in sunny California!";
+    
+    [picker setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [picker setModalPresentationStyle:UIModalPresentationFormSheet];
 //	[picker setMessageBody:emailBody isHTML:NO];
-	
+	//[picker SETM
 	[self presentModalViewController:picker animated:YES];
   //  [picker release];
 }

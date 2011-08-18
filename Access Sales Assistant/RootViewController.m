@@ -50,6 +50,8 @@
 
 #import "VideosTableViewController.h"
 
+#import "ContactsQAFormViewController.h"
+
 #define SECTION_HEADER_HEIGHT       56
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
 #define CONTACT_OPTIONS             @"Email SSC",@"Email Customer Service",@"Email NSF",@"Email Product",@"Email QA Form",@"Email Facilities",@"QA Resolution Timetable",@"Email help desk",nil
@@ -363,10 +365,19 @@
         {
             if(indexPath.row == 4)
             {
+                
+                //LoginViewController *viewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+                
+                ContactsQAFormViewController *detailViewController = [[ContactsQAFormViewController alloc] initWithNibName:@"ContactsQAFormViewController" bundle:nil];
+                [detailViewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+                [detailViewController setModalPresentationStyle:UIModalPresentationFormSheet];
+                [self presentModalViewController:detailViewController animated:YES];
 				
-                ContactQAFormView *detailViewController = [[ContactQAFormView alloc] initWithNibName:@"ContactQAFormView" bundle:nil];
+            //    ContactQAFormView *detailViewController = [[ContactQAFormView alloc] initWithNibName:@"ContactQAFormView" bundle:nil];
           //      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
             //    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+                
+             /*   ContactsQAFormViewController *detailViewController = [[ContactsQAFormViewController alloc] initWithNibName:@"ContactsQAFormViewController" bundle:nil];
                 
                 [self changeDetailViewController:detailViewController];
                 self.detailViewController = detailViewController;
@@ -380,7 +391,7 @@
                 {
                     
                     [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-                }
+                }*/
 
                 [self.popoverController dismissPopoverAnimated:YES];
             }
