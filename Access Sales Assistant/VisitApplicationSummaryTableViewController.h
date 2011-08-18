@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "DatePickerViewController.h"
 #import "PickerViewController.h"
+#import "VisitApplicationTabBarController.h"
+#import "SmartTableView.h"
 
 @class DailySummary;
 
-@interface VisitApplicationSummaryTableViewController : UITableViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate>
+@interface VisitApplicationSummaryTableViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDelegate, UITableViewDataSource> {
+	SmartTableView *_tableView;
+}
+
 
 
 @property (nonatomic, strong) DailySummary *detailItem;
@@ -25,9 +30,12 @@
 @property (nonatomic, strong) IBOutlet DatePickerViewController *datePickerViewController;
 @property (nonatomic, strong) UIPopoverController *aPopoverController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) IBOutlet SmartTableView *tableView;
 
 - (void)configureView;
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
+- (IBAction)dismiss:(id)sender;
+- (IBAction)submit:(id)sender;
 
 @end

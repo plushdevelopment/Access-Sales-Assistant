@@ -40,9 +40,11 @@
 
 #import "PRPSmartTableViewCell.h"
 
+#import "HTTPOperationController.h"
+
 #define VIEW_HIDDEN_FRAME CGRectMake(0.0, 20.0, 768.0, 1004.0)
 #define VIEW_VISIBLE_FRAME CGRectMake(0.0, -239.0, 768.0, 1004.0)
-#define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 605.0, 768.0, 259.0)
+#define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 765.0, 768.0, 259.0)
 #define PICKER_HIDDEN_FRAME		CGRectMake(0, 864.0, 768.0, 259.0)
 
 enum PRPTableSections {
@@ -109,9 +111,21 @@ enum PRPTableStatsTags {
 @synthesize aPopoverController=_aPopoverController;
 
 @synthesize managedObjectContext=_managedObjectContext;
+@synthesize tableView = _tableView;
 
 #pragma mark -
 #pragma mark IBActions
+
+- (IBAction)dismiss:(id)sender
+{
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)submit:(id)sender
+{
+	[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[self.detailItem jsonStringValue]];
+	self.detailItem.producerId.submittedValue = YES;
+}
 
 // Show the pickerView inside of a popover
 - (IBAction)showPickerView:(id)sender
@@ -134,7 +148,7 @@ enum PRPTableStatsTags {
 	[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
 	
 	//Add the picker to the view
-	[self.view.superview addSubview:self.pickerViewController.view];
+	[self.parentViewController.view addSubview:self.pickerViewController.view];
 	
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"
@@ -165,8 +179,8 @@ enum PRPTableStatsTags {
 	[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
 	
 	//Add the picker to the view
-	[self.view.superview addSubview:self.datePickerViewController.view];
-	
+	//[self.view.superview addSubview:self.datePickerViewController.view];
+	[self.parentViewController.view addSubview:self.datePickerViewController.view];
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"
 	[UIView animateWithDuration:0.2 animations:^{
@@ -251,8 +265,13 @@ enum PRPTableStatsTags {
 			[[NSManagedObjectContext defaultContext] save];
 		}
 	}
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+	
+	Producer *producer = (Producer *)newDetailItem;
+	if (!producer.dailySummary) {
+		producer.dailySummary = [DailySummary createEntity];
+	}
+    if (_detailItem != producer.dailySummary) {
+        _detailItem = producer.dailySummary;
         
         // Update the view.
         [self configureView];
@@ -273,15 +292,6 @@ enum PRPTableStatsTags {
 #pragma mark -
 #pragma mark Memory Management
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -296,6 +306,7 @@ enum PRPTableStatsTags {
 {
     [super viewDidLoad];
 	
+	self.tableView.allowsSelection = NO;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 	
@@ -306,6 +317,7 @@ enum PRPTableStatsTags {
 - (void)viewDidUnload
 {
     [self setDatePickerViewController:nil];
+	[self setTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -319,6 +331,7 @@ enum PRPTableStatsTags {
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+	[self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated

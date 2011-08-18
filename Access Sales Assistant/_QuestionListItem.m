@@ -110,13 +110,6 @@
 
 
 
-@dynamic uid;
-
-
-
-
-
-
 @dynamic dailySummaries;
 
 	

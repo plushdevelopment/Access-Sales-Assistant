@@ -17,17 +17,19 @@
 #import "ProducerHoursTableViewCell.h"
 #import "ProducerQuestionTableViewCell.h"
 #import "Producer.h"
-
+#import "VisitApplicationTabBarController.h"
 #import "DatePickerViewController.h"
 #import "PickerViewController.h"
+#import "SmartTableView.h"
 
-@interface VisitApplicationProducerProfileTableViewController : UITableViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate>
+@interface VisitApplicationProducerProfileTableViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDataSource, UITableViewDelegate>
 {
     NSArray* sectionTitleArray;
     BOOL isContactsEdited;
+	SmartTableView *_tableView;
 }
 
-@property (nonatomic, strong)Producer* detailItem;
+@property (nonatomic, strong) Producer* detailItem;
 @property (nonatomic, strong) IBOutlet PickerViewController *pickerViewController;
 @property (nonatomic, strong) IBOutlet DatePickerViewController *datePickerViewController;
 @property (nonatomic, strong) UIPopoverController *popoverController;
@@ -40,6 +42,7 @@
 @property (nonatomic, strong) IBOutlet ProducerRaterTableViewCell* raterTableViewCell;
 @property (nonatomic, strong) IBOutlet ProducerHoursTableViewCell* hoursTableViewCell;
 @property (nonatomic, strong) IBOutlet ProducerQuestionTableViewCell *questionTableViewCell;
+@property (strong, nonatomic) IBOutlet SmartTableView *tableView;
 
 
 
@@ -57,4 +60,7 @@
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
 - (IBAction)showTimePickerView:(id)sender;
+- (IBAction)dismiss:(id)sender;
+- (IBAction)submit:(id)sender;
+
 @end

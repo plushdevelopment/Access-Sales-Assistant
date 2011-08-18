@@ -73,9 +73,7 @@
 			Class aClass = [NSClassFromString([entityDesc name]) class];
 			for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
 				if ([desc.description isEqualToString:@"uid"]) {
-					if ([value valueForKey:@"uid"]) {
-						object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"uid" value:[value valueForKey:@"uid"] managedObjectContext:context];
-					}
+					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"uid" value:[value valueForKey:@"uid"] managedObjectContext:context];
 				} else if ([desc.description isEqualToString:@"addressLine1"]) {
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"addressLine1" value:[value valueForKey:@"addressLine1"] managedObjectContext:context];
 				} else if ([desc.description isEqualToString:@"number"]) {
@@ -86,11 +84,15 @@
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[value valueForKey:@"text"] managedObjectContext:context];
 				}
 			}
+			/*
 			if (!object) {
 				object = [aClass createInContext:context];
 			}
-			[object safeSetValuesForKeysWithDictionary:value dateFormatter:dateFormatter managedObjectContext:context];
-			[self setValue:object forKey:relationship];
+			 */
+			if (object) {
+				[object safeSetValuesForKeysWithDictionary:value dateFormatter:dateFormatter managedObjectContext:context];
+				[self setValue:object forKey:relationship];
+			}
 			continue;
 		}
 		
@@ -111,12 +113,15 @@
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[subValue valueForKey:@"text"] managedObjectContext:context];
 				}
 			}
+			/*
 			if (!object) {
 				object = [aClass createInContext:context];
 			}
-			
-			[object safeSetValuesForKeysWithDictionary:subValue dateFormatter:dateFormatter managedObjectContext:context];
-			[relationshipSet addObject:object];
+			*/
+			if (object) {
+				[object safeSetValuesForKeysWithDictionary:subValue dateFormatter:dateFormatter managedObjectContext:context];
+				[relationshipSet addObject:object];
+			}
 		}
 		/*
 		NSManagedObjectModel *model = [NSManagedObjectModel newManagedObjectModelNamed:@"Access_Sales_Assistant.momd"];

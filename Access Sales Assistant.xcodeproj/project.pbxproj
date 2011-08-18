@@ -184,8 +184,6 @@
 		FF8CA83813B0D1AE00BA9A7B /* NSManagedObjectExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA83713B0D1AE00BA9A7B /* NSManagedObjectExtras.m */; };
 		FF8CA83C13B1134B00BA9A7B /* AgenciesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA83A13B1134B00BA9A7B /* AgenciesTableViewController.m */; };
 		FF8CA83D13B1134B00BA9A7B /* AgenciesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8CA83B13B1134B00BA9A7B /* AgenciesTableViewController.xib */; };
-		FF8CA87F13B124C800BA9A7B /* VisitApplicationProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA87D13B124C800BA9A7B /* VisitApplicationProfileViewController.m */; };
-		FF8CA88013B124C800BA9A7B /* VisitApplicationProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8CA87E13B124C800BA9A7B /* VisitApplicationProfileViewController.xib */; };
 		FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */; };
 		FF8CA88513B1256500BA9A7B /* VisitApplicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */; };
 		FF90610B13B3AF8D009DCA0E /* button_menu_off.png in Resources */ = {isa = PBXBuildFile; fileRef = FF90610713B3AF8D009DCA0E /* button_menu_off.png */; };
@@ -252,7 +250,13 @@
 		FFA070A113D5EC500021E412 /* MainViewSectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA070A013D5EC500021E412 /* MainViewSectionInfo.m */; };
 		FFA070A413D5F8EE0021E412 /* CircleArrowDown_sml.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA070A213D5F8EE0021E412 /* CircleArrowDown_sml.png */; };
 		FFA070A513D5F8EE0021E412 /* CircleArrowRight_sml.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA070A313D5F8EE0021E412 /* CircleArrowRight_sml.png */; };
-		FFA070A613D60DEA0021E412 /* VisitApplicationSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF2D89413D5ADB00098609D /* VisitApplicationSummaryViewController.m */; };
+		FFA1779513FAD59000AEE481 /* AddIcon-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA1778A13FAD59000AEE481 /* AddIcon-plus.png */; };
+		FFA1779613FAD59000AEE481 /* AddRowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA1778C13FAD59000AEE481 /* AddRowTableViewCell.m */; };
+		FFA1779713FAD59000AEE481 /* AddRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA1778D13FAD59000AEE481 /* AddRowTableViewCell.xib */; };
+		FFA1779813FAD59000AEE481 /* ProducerContactInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA1778F13FAD59000AEE481 /* ProducerContactInfoTableViewCell.m */; };
+		FFA1779913FAD59000AEE481 /* ProducerContactInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA1779013FAD59000AEE481 /* ProducerContactInfoTableViewCell.xib */; };
+		FFA1779A13FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA1779313FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.m */; };
+		FFA1779B13FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA1779413FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.xib */; };
 		FFA1A31913AF922200434B93 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA1A31713AF922200434B93 /* LoginViewController.m */; };
 		FFA1A31A13AF922200434B93 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA1A31813AF922200434B93 /* LoginViewController.xib */; };
 		FFA1A31E13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFA1A31C13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld */; };
@@ -340,6 +344,9 @@
 		FFC2815E13BCAC2C00CA3ABB /* total access bar.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814313BCAC2C00CA3ABB /* total access bar.png */; };
 		FFC2815F13BCAC2C00CA3ABB /* total access bar.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814413BCAC2C00CA3ABB /* total access bar.psd */; };
 		FFC2816013BCAC2C00CA3ABB /* visit application icons.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814513BCAC2C00CA3ABB /* visit application icons.psd */; };
+		FFC3175413FC352D0011DA51 /* VisitApplicationTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC3175213FC352D0011DA51 /* VisitApplicationTabBarController.m */; };
+		FFC3175513FC352D0011DA51 /* VisitApplicationTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC3175313FC352D0011DA51 /* VisitApplicationTabBarController.xib */; };
+		FFC3175813FC54550011DA51 /* notes_box.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC3175713FC54550011DA51 /* notes_box.png */; };
 		FFC9533D13AFCACE000967CB /* ActiveRecordHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9532D13AFCACE000967CB /* ActiveRecordHelpers.m */; };
 		FFC9533E13AFCACE000967CB /* ARCoreDataAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9532F13AFCACE000967CB /* ARCoreDataAction.m */; };
 		FFC9533F13AFCACE000967CB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FFC9533113AFCACE000967CB /* LICENSE */; };
@@ -350,6 +357,7 @@
 		FFC9534413AFCACE000967CB /* NSPersistentStoreCoordinator+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9533B13AFCACE000967CB /* NSPersistentStoreCoordinator+ActiveRecord.m */; };
 		FFC9534513AFCACE000967CB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FFC9533C13AFCACE000967CB /* README.md */; };
 		FFCD8B2113C601D3008D8885 /* NSManagedObject+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD8B2013C601D3008D8885 /* NSManagedObject+Additions.m */; };
+		FFD03D3013FC27B200476FE6 /* mapShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD03D2F13FC27B200476FE6 /* mapShadow.png */; };
 		FFD9A8AE13CCA1B9009ACD64 /* Rater2.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD9A8AA13CCA1B9009ACD64 /* Rater2.m */; };
 		FFD9A8AF13CCA1B9009ACD64 /* _Rater2.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD9A8AC13CCA1B9009ACD64 /* _Rater2.m */; };
 		FFDFB55C13EB239E00B540E1 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDFB55713EB239E00B540E1 /* MGSplitCornersView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -404,8 +412,6 @@
 		FFF0D05B13BBA529008DFA19 /* _EmailListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03D13BBA528008DFA19 /* _EmailListItem.m */; };
 		FFF0D05C13BBA529008DFA19 /* _Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03F13BBA528008DFA19 /* _Contact.m */; };
 		FFF0D05D13BBA529008DFA19 /* _AddressListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D04113BBA529008DFA19 /* _AddressListItem.m */; };
-		FFF2D89713D5ADB00098609D /* VisitApplicationSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF2D89513D5ADB00098609D /* VisitApplicationSummaryViewController.xib */; };
-		FFFB3BFE13AB94210063E374 /* main_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FFFB3BFD13AB94210063E374 /* main_bg.png */; };
 		FFFB3C0513ABA15C0063E374 /* api.html in Resources */ = {isa = PBXBuildFile; fileRef = FFFB3C0313ABA15C0063E374 /* api.html */; };
 		FFFB3C0613ABA15C0063E374 /* json2.js in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0413ABA15C0063E374 /* json2.js */; };
 		FFFB3C1413ABA17E0063E374 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0913ABA17E0063E374 /* NSObject+SBJSON.m */; };
@@ -691,9 +697,6 @@
 		FF8CA83913B1134B00BA9A7B /* AgenciesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgenciesTableViewController.h; sourceTree = "<group>"; };
 		FF8CA83A13B1134B00BA9A7B /* AgenciesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgenciesTableViewController.m; sourceTree = "<group>"; };
 		FF8CA83B13B1134B00BA9A7B /* AgenciesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgenciesTableViewController.xib; sourceTree = "<group>"; };
-		FF8CA87C13B124C800BA9A7B /* VisitApplicationProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationProfileViewController.h; sourceTree = "<group>"; };
-		FF8CA87D13B124C800BA9A7B /* VisitApplicationProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationProfileViewController.m; sourceTree = "<group>"; };
-		FF8CA87E13B124C800BA9A7B /* VisitApplicationProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationProfileViewController.xib; sourceTree = "<group>"; };
 		FF8CA88113B1256500BA9A7B /* VisitApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationViewController.h; sourceTree = "<group>"; };
 		FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationViewController.m; sourceTree = "<group>"; };
 		FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationViewController.xib; sourceTree = "<group>"; };
@@ -803,6 +806,17 @@
 		FFA070A013D5EC500021E412 /* MainViewSectionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewSectionInfo.m; sourceTree = "<group>"; };
 		FFA070A213D5F8EE0021E412 /* CircleArrowDown_sml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleArrowDown_sml.png; sourceTree = "<group>"; };
 		FFA070A313D5F8EE0021E412 /* CircleArrowRight_sml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleArrowRight_sml.png; sourceTree = "<group>"; };
+		FFA1778A13FAD59000AEE481 /* AddIcon-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddIcon-plus.png"; sourceTree = "<group>"; };
+		FFA1778B13FAD59000AEE481 /* AddRowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRowTableViewCell.h; sourceTree = "<group>"; };
+		FFA1778C13FAD59000AEE481 /* AddRowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRowTableViewCell.m; sourceTree = "<group>"; };
+		FFA1778D13FAD59000AEE481 /* AddRowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddRowTableViewCell.xib; sourceTree = "<group>"; };
+		FFA1778E13FAD59000AEE481 /* ProducerContactInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerContactInfoTableViewCell.h; sourceTree = "<group>"; };
+		FFA1778F13FAD59000AEE481 /* ProducerContactInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerContactInfoTableViewCell.m; sourceTree = "<group>"; };
+		FFA1779013FAD59000AEE481 /* ProducerContactInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerContactInfoTableViewCell.xib; sourceTree = "<group>"; };
+		FFA1779113FAD59000AEE481 /* ProducerProfileConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerProfileConstants.h; sourceTree = "<group>"; };
+		FFA1779213FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationProducerProfileTableViewController.h; sourceTree = "<group>"; };
+		FFA1779313FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationProducerProfileTableViewController.m; sourceTree = "<group>"; };
+		FFA1779413FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationProducerProfileTableViewController.xib; sourceTree = "<group>"; };
 		FFA1A31613AF922200434B93 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FFA1A31713AF922200434B93 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FFA1A31813AF922200434B93 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -940,6 +954,10 @@
 		FFC2814313BCAC2C00CA3ABB /* total access bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "total access bar.png"; sourceTree = "<group>"; };
 		FFC2814413BCAC2C00CA3ABB /* total access bar.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "total access bar.psd"; sourceTree = "<group>"; };
 		FFC2814513BCAC2C00CA3ABB /* visit application icons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "visit application icons.psd"; sourceTree = "<group>"; };
+		FFC3175113FC352D0011DA51 /* VisitApplicationTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationTabBarController.h; sourceTree = "<group>"; };
+		FFC3175213FC352D0011DA51 /* VisitApplicationTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationTabBarController.m; sourceTree = "<group>"; };
+		FFC3175313FC352D0011DA51 /* VisitApplicationTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationTabBarController.xib; sourceTree = "<group>"; };
+		FFC3175713FC54550011DA51 /* notes_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notes_box.png; sourceTree = "<group>"; };
 		FFC9532C13AFCACE000967CB /* ActiveRecordHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveRecordHelpers.h; sourceTree = "<group>"; };
 		FFC9532D13AFCACE000967CB /* ActiveRecordHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveRecordHelpers.m; sourceTree = "<group>"; };
 		FFC9532E13AFCACE000967CB /* ARCoreDataAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCoreDataAction.h; sourceTree = "<group>"; };
@@ -959,6 +977,7 @@
 		FFC9533C13AFCACE000967CB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		FFCD8B1F13C601D3008D8885 /* NSManagedObject+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Additions.h"; sourceTree = "<group>"; };
 		FFCD8B2013C601D3008D8885 /* NSManagedObject+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Additions.m"; sourceTree = "<group>"; };
+		FFD03D2F13FC27B200476FE6 /* mapShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapShadow.png; sourceTree = "<group>"; };
 		FFD9A8AA13CCA1B9009ACD64 /* Rater2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rater2.m; sourceTree = "<group>"; };
 		FFD9A8AB13CCA1B9009ACD64 /* Rater2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rater2.h; sourceTree = "<group>"; };
 		FFD9A8AC13CCA1B9009ACD64 /* _Rater2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Rater2.m; sourceTree = "<group>"; };
@@ -1046,10 +1065,6 @@
 		FFF0D04013BBA529008DFA19 /* _Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Contact.h; sourceTree = "<group>"; };
 		FFF0D04113BBA529008DFA19 /* _AddressListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AddressListItem.m; sourceTree = "<group>"; };
 		FFF0D04213BBA529008DFA19 /* _AddressListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AddressListItem.h; sourceTree = "<group>"; };
-		FFF2D89313D5ADB00098609D /* VisitApplicationSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationSummaryViewController.h; sourceTree = "<group>"; };
-		FFF2D89413D5ADB00098609D /* VisitApplicationSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationSummaryViewController.m; sourceTree = "<group>"; };
-		FFF2D89513D5ADB00098609D /* VisitApplicationSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationSummaryViewController.xib; sourceTree = "<group>"; };
-		FFFB3BFD13AB94210063E374 /* main_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_bg.png; sourceTree = "<group>"; };
 		FFFB3C0313ABA15C0063E374 /* api.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = api.html; sourceTree = "<group>"; };
 		FFFB3C0413ABA15C0063E374 /* json2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = json2.js; sourceTree = "<group>"; };
 		FFFB3C0713ABA17E0063E374 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -1242,6 +1257,9 @@
 		FF21974113CF53DF001F1B0D /* Producer Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FFA1778E13FAD59000AEE481 /* ProducerContactInfoTableViewCell.h */,
+				FFA1778F13FAD59000AEE481 /* ProducerContactInfoTableViewCell.m */,
+				FFA1779013FAD59000AEE481 /* ProducerContactInfoTableViewCell.xib */,
 				FF71F52A13C6314C005CE1DA /* ProducerGeneralTableViewCell.h */,
 				FF71F52B13C6314C005CE1DA /* ProducerGeneralTableViewCell.m */,
 				FF71F52D13C6316C005CE1DA /* ProducerGeneralTableViewCell.xib */,
@@ -1298,12 +1316,13 @@
 		FF374DFA13D5142200C170EB /* Visit Application */ = {
 			isa = PBXGroup;
 			children = (
+				FFA1779113FAD59000AEE481 /* ProducerProfileConstants.h */,
+				FFA1779213FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.h */,
+				FFA1779313FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.m */,
+				FFA1779413FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.xib */,
 				FF8CA88113B1256500BA9A7B /* VisitApplicationViewController.h */,
 				FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */,
 				FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */,
-				FF8CA87C13B124C800BA9A7B /* VisitApplicationProfileViewController.h */,
-				FF8CA87D13B124C800BA9A7B /* VisitApplicationProfileViewController.m */,
-				FF8CA87E13B124C800BA9A7B /* VisitApplicationProfileViewController.xib */,
 				FF21973B13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.h */,
 				FF21973C13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m */,
 				FF21973D13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib */,
@@ -1313,9 +1332,6 @@
 				FF95E22B13D4B1540098D41F /* VisitApplicationPhotosViewController.h */,
 				FF95E22C13D4B1540098D41F /* VisitApplicationPhotosViewController.m */,
 				FF95E22D13D4B1540098D41F /* VisitApplicationPhotosViewController.xib */,
-				FFF2D89313D5ADB00098609D /* VisitApplicationSummaryViewController.h */,
-				FFF2D89413D5ADB00098609D /* VisitApplicationSummaryViewController.m */,
-				FFF2D89513D5ADB00098609D /* VisitApplicationSummaryViewController.xib */,
 				FFE2D1FC13E96EE000E6A77B /* VisitApplicationMapViewController.h */,
 				FFE2D1FD13E96EE000E6A77B /* VisitApplicationMapViewController.m */,
 				FFE2D1FE13E96EE000E6A77B /* VisitApplicationMapViewController.xib */,
@@ -1325,6 +1341,9 @@
 				FFB2DAFC13F5A91D00CFFACC /* ProducerDetailViewController.h */,
 				FFB2DAFD13F5A91D00CFFACC /* ProducerDetailViewController.m */,
 				FFB2DAFE13F5A91D00CFFACC /* ProducerDetailViewController.xib */,
+				FFC3175113FC352D0011DA51 /* VisitApplicationTabBarController.h */,
+				FFC3175213FC352D0011DA51 /* VisitApplicationTabBarController.m */,
+				FFC3175313FC352D0011DA51 /* VisitApplicationTabBarController.xib */,
 			);
 			name = "Visit Application";
 			sourceTree = "<group>";
@@ -1481,6 +1500,9 @@
 		FF71F52813C63112005CE1DA /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				FFA1778B13FAD59000AEE481 /* AddRowTableViewCell.h */,
+				FFA1778C13FAD59000AEE481 /* AddRowTableViewCell.m */,
+				FFA1778D13FAD59000AEE481 /* AddRowTableViewCell.xib */,
 				FFB56A2113D05EC000B980EE /* PRPNibBasedTableViewCell.h */,
 				FFB56A2213D05EC000B980EE /* PRPNibBasedTableViewCell.m */,
 				FFB56A1E13D05E4A00B980EE /* PRPSmartTableViewCell.h */,
@@ -1494,6 +1516,10 @@
 		FF77100213B23DE500E90F4B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FFC3175713FC54550011DA51 /* notes_box.png */,
+				FF374DF713D50CC000C170EB /* button-plus.png */,
+				FFA1778A13FAD59000AEE481 /* AddIcon-plus.png */,
+				FFD03D2F13FC27B200476FE6 /* mapShadow.png */,
 				FFF0C6B513F9951200A8CC0E /* video_icon.png */,
 				FF32FEFA13F975D3008A3514 /* grey_square_pin.png */,
 				FF9379AC13D4A5FB007C95AC /* Icon-72.png */,
@@ -1735,14 +1761,12 @@
 		FF8B415B13A8EEF700A05007 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FF374DF713D50CC000C170EB /* button-plus.png */,
 				FF9ED83613D50BAD006105C7 /* accessicon.png */,
 				FF9379B913D4A620007C95AC /* Icon-72.png */,
 				FF77100213B23DE500E90F4B /* Images */,
 				FFFB3C0313ABA15C0063E374 /* api.html */,
 				6D966D4E13DDF3C100DAF04B /* sample.json */,
 				FFFB3C0413ABA15C0063E374 /* json2.js */,
-				FFFB3BFD13AB94210063E374 /* main_bg.png */,
 				FF8B415C13A8EEF700A05007 /* Access Sales Assistant-Info.plist */,
 				FF8B415D13A8EEF700A05007 /* InfoPlist.strings */,
 				FF8B416013A8EEF700A05007 /* main.m */,
@@ -2326,13 +2350,11 @@
 				FF8B416A13A8EEF700A05007 /* BaseDetailViewController.h in Resources */,
 				FF8B416F13A8EEF700A05007 /* RootViewController.xib in Resources */,
 				FF8B417213A8EEF700A05007 /* BaseDetailViewController.xib in Resources */,
-				FFFB3BFE13AB94210063E374 /* main_bg.png in Resources */,
 				FFFB3C0513ABA15C0063E374 /* api.html in Resources */,
 				FFA1A31A13AF922200434B93 /* LoginViewController.xib in Resources */,
 				FFC9533F13AFCACE000967CB /* LICENSE in Resources */,
 				FFC9534513AFCACE000967CB /* README.md in Resources */,
 				FF8CA83D13B1134B00BA9A7B /* AgenciesTableViewController.xib in Resources */,
-				FF8CA88013B124C800BA9A7B /* VisitApplicationProfileViewController.xib in Resources */,
 				FF8CA88513B1256500BA9A7B /* VisitApplicationViewController.xib in Resources */,
 				FF77100B13B23DFC00E90F4B /* access-logo.png in Resources */,
 				FF77100C13B23DFC00E90F4B /* home-button.png in Resources */,
@@ -2459,7 +2481,6 @@
 				FF95E22F13D4B1540098D41F /* VisitApplicationPhotosViewController.xib in Resources */,
 				FF883BEE13D4CD92001C3122 /* ProfileTableViewController.xib in Resources */,
 				FF9ED83713D50BAD006105C7 /* accessicon.png in Resources */,
-				FFF2D89713D5ADB00098609D /* VisitApplicationSummaryViewController.xib in Resources */,
 				FFA0707813D5EB930021E412 /* AccessAcademy.plist in Resources */,
 				FFA0708013D5EBC00021E412 /* ContactsViewController.xib in Resources */,
 				FFA0708213D5EBC00021E412 /* ContactQAFormView.xib in Resources */,
@@ -2509,6 +2530,13 @@
 				FFB2DB0013F5A91D00CFFACC /* ProducerDetailViewController.xib in Resources */,
 				FF32FEFB13F975D3008A3514 /* grey_square_pin.png in Resources */,
 				FFF0C6B613F9951200A8CC0E /* video_icon.png in Resources */,
+				FFA1779513FAD59000AEE481 /* AddIcon-plus.png in Resources */,
+				FFA1779713FAD59000AEE481 /* AddRowTableViewCell.xib in Resources */,
+				FFA1779913FAD59000AEE481 /* ProducerContactInfoTableViewCell.xib in Resources */,
+				FFA1779B13FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.xib in Resources */,
+				FFD03D3013FC27B200476FE6 /* mapShadow.png in Resources */,
+				FFC3175513FC352D0011DA51 /* VisitApplicationTabBarController.xib in Resources */,
+				FFC3175813FC54550011DA51 /* notes_box.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2578,7 +2606,6 @@
 				FF8CA83113B0D03200BA9A7B /* NSString+BSJSONAdditions.m in Sources */,
 				FF8CA83813B0D1AE00BA9A7B /* NSManagedObjectExtras.m in Sources */,
 				FF8CA83C13B1134B00BA9A7B /* AgenciesTableViewController.m in Sources */,
-				FF8CA87F13B124C800BA9A7B /* VisitApplicationProfileViewController.m in Sources */,
 				FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */,
 				FF99B8AC13B8A3FC00FC1A0B /* DatePickerViewController.m in Sources */,
 				FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */,
@@ -2707,7 +2734,6 @@
 				FFA0709A13D5EC330021E412 /* StateSelectionTableViewController.m in Sources */,
 				FFA0709E13D5EC330021E412 /* Features.m in Sources */,
 				FFA070A113D5EC500021E412 /* MainViewSectionInfo.m in Sources */,
-				FFA070A613D60DEA0021E412 /* VisitApplicationSummaryViewController.m in Sources */,
 				6D0EF48413D713F600745307 /* SplashViewController.m in Sources */,
 				6D0EF49313D7479600745307 /* FlashCardsViewController.m in Sources */,
 				6D96C92113D8A94300478DD3 /* CustomContainerView.m in Sources */,
@@ -2743,6 +2769,10 @@
 				FF3EA2C313F1B98E00C8E563 /* VisitApplicationProducerImageViewController.m in Sources */,
 				FF2582EF13F56A82005B0922 /* ProducerAnnotationView.m in Sources */,
 				FFB2DAFF13F5A91D00CFFACC /* ProducerDetailViewController.m in Sources */,
+				FFA1779613FAD59000AEE481 /* AddRowTableViewCell.m in Sources */,
+				FFA1779813FAD59000AEE481 /* ProducerContactInfoTableViewCell.m in Sources */,
+				FFA1779A13FAD59000AEE481 /* VisitApplicationProducerProfileTableViewController.m in Sources */,
+				FFC3175413FC352D0011DA51 /* VisitApplicationTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

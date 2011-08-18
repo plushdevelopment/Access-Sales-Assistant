@@ -30,6 +30,11 @@
 
 @synthesize parent=_parent;
 
+- (IBAction)dismiss:(id)sender
+{
+	[self dismissModalViewControllerAnimated:YES];
+}
+
 - (NSManagedObjectContext *)managedObjectContext
 {
 	if (_managedObjectContext == nil) {

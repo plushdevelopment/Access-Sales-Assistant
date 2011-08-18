@@ -10,7 +10,11 @@
 
 #import "DailySummary.h"
 
+#import "Producer.h"
+
 #import "Note.h"
+
+#import "HTTPOperationController.h"
 
 @implementation VisitApplicationNotesViewController
 
@@ -22,6 +26,17 @@
 @synthesize committmentTextField = _committmentTextField;
 @synthesize followUpTextField = _followUpTextField;
 
+
+- (IBAction)dismiss:(id)sender
+{
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)submit:(id)sender
+{
+	[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[self.detailItem jsonStringValue]];
+	self.detailItem.producerId.submittedValue = YES;
+}
 
 - (NSManagedObjectContext *)managedObjectContext
 {
@@ -43,8 +58,13 @@
 			[[NSManagedObjectContext defaultContext] save];
 		}
 	}
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+	
+	Producer *producer = (Producer *)newDetailItem;
+	if (!producer.dailySummary) {
+		producer.dailySummary = [DailySummary createEntity];
+	}
+    if (_detailItem != producer.dailySummary) {
+        _detailItem = producer.dailySummary;
         
         // Update the view.
         [self configureView];

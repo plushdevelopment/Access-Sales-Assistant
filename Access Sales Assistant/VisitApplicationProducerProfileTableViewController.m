@@ -32,6 +32,7 @@
 #import "OperationHour.h"
 #import "IneligibleReason.h"
 #import "ProducerProfileConstants.h"
+#import "HTTPOperationController.h"
 
 
 @implementation VisitApplicationProducerProfileTableViewController
@@ -43,6 +44,7 @@
 @synthesize statusCell = _statusCell;
 @synthesize generalTableViewCell = _generalTableViewCell;
 @synthesize questionTableViewCell = _questionTableViewCell;
+@synthesize tableView = _tableView;
 @synthesize raterTableViewCell = _raterTableViewCell;
 @synthesize contactInfoTableViewCell = _contactInfoTableViewCell;
 @synthesize hoursTableViewCell = _hoursTableViewCell;
@@ -50,14 +52,14 @@
 @synthesize contactTableViewCell = _contactTableViewCell;
 //@synthesize producerGeneralTableViewCell = _producerGeneralTableViewCell;
 
-
-- (id)initWithStyle:(UITableViewStyle)style
+- (IBAction)dismiss:(id)sender
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)submit:(id)sender
+{
+	[[HTTPOperationController sharedHTTPOperationController] postProducerProfile:[self.detailItem jsonStringValue]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,6 +89,7 @@
 
 - (void)viewDidUnload
 {
+    [self setTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -615,7 +618,7 @@
 	[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
 	
 	//Add the picker to the view
-	[self.view.superview addSubview:self.pickerViewController.view];
+	[self.parentViewController.view addSubview:self.pickerViewController.view];
 	
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"
@@ -634,7 +637,7 @@
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
 {
-	[self nextField:0];
+	//[self nextField:0];
 	
 
 	UIButton *button = (UIButton *)sender;
@@ -644,26 +647,30 @@
 	[self.datePickerViewController.datePicker setDatePickerMode:UIDatePickerModeDate];
 	
 	//Position the picker out of sight
-	[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	//[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
     
-    NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
-   
+    //NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
+	//NSLog(@"%@", pickerFrame);
 	
 	//Add the picker to the view
-	[self.view.superview addSubview:self.datePickerViewController.view];
+	//[[[[UIApplication sharedApplication] delegate] window] addSubview:self.datePickerViewController.view];
+	[self presentModalViewController:self.datePickerViewController animated:YES];
 	
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"
+	/*
 	[UIView animateWithDuration:0.2 animations:^{
 		//Position of the picker in sight
-		[self.datePickerViewController.view setFrame:CGRectMake(0.0, 605.0, 768.0, 259.0)];
+		[self.datePickerViewController.view setFrame:CGRectMake(0.0, 765.0, 768.0, 259.0)];
 		
 	} completion:^(BOOL finished){
 		NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
        
 		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:UIKeyboardFrameEndUserInfoKey, pickerFrame, nil];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
+		NSLog(@"%@", pickerFrame);
 	}];
+	 */
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
    
 }

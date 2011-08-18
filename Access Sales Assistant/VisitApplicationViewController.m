@@ -18,6 +18,7 @@
 
 @implementation VisitApplicationViewController
 
+@synthesize tabBarController = _tabBarController;
 @synthesize titleLabel=_titleLabel;
 
 @synthesize activeVisitFormView=_activeVisitFormView;
@@ -161,6 +162,7 @@
 	[self setSummaryApplicationViewController:nil];
 	[self setPhotoApplicationViewController:nil];
 	[self setTitleLabel:nil];
+    [self setTabBarController:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

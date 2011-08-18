@@ -209,7 +209,6 @@
         <attribute name="deleted" optional="YES" attributeType="Boolean"/>
         <attribute name="edited" optional="YES" attributeType="Boolean"/>
         <attribute name="text" optional="YES" attributeType="String"/>
-        <attribute name="uid" optional="YES" attributeType="String"/>
         <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="nsbsQuestions" inverseEntity="DailySummary"/>
         <relationship name="producers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="questions" inverseEntity="Producer"/>
     </entity>
@@ -275,7 +274,7 @@
         <element name="ProducerAddOn" positionX="160" positionY="192" width="128" height="90"/>
         <element name="ProducerImage" positionX="160" positionY="192" width="128" height="75"/>
         <element name="PurposeOfCall" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="QuestionListItem" positionX="-423" positionY="360" width="128" height="105"/>
+        <element name="QuestionListItem" positionX="-423" positionY="360" width="128" height="135"/>
         <element name="Rater" positionX="684" positionY="354" width="128" height="90"/>
         <element name="Rater2" positionX="160" positionY="192" width="128" height="90"/>
         <element name="State" positionX="450" positionY="696" width="128" height="90"/>

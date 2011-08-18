@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseDetailViewController.h"
-#import "VisitApplicationProfileViewController.h"
 #import "VisitApplicationSummaryTableViewController.h"
 #import "VisitApplicationNotesViewController.h"
 #import "VisitApplicationPhotosViewController.h"
 #import "VisitApplicationProducerProfileTableViewController.h"
 
-@interface VisitApplicationViewController : BaseDetailViewController <UIImagePickerControllerDelegate> {
-}
+@interface VisitApplicationViewController : BaseDetailViewController <UIImagePickerControllerDelegate>
+
+@property (strong, nonatomic) IBOutlet UITabBarController *tabBarController;
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 

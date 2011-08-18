@@ -9,10 +9,12 @@
 #import "BaseDetailViewController.h"
 #import <MapKit/MapKit.h>
 #import "UICGDirections.h"
+#import "VisitApplicationTabBarController.h"
 
 @class UICRouteOverlayMapView;
 
 @interface VisitApplicationMapViewController : BaseDetailViewController <UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, UICGDirectionsDelegate>
+
 
 
 
@@ -30,6 +32,7 @@
 @property (nonatomic, strong) MKPolyline *polyline;
 @property (nonatomic, strong) MKPolylineView *polylineView;
 @property (nonatomic, strong) UIPopoverController *popoverController;
+@property (strong, nonatomic) IBOutlet VisitApplicationTabBarController *tabBarController;
 
 - (void)configureView;
 - (void)update;
