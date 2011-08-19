@@ -69,7 +69,7 @@
 		
 		NSEntityDescription *entityDesc = [[[[self entity] relationshipsByName] objectForKey:relationship] destinationEntity];
 		if (![[relationships objectForKey:relationship] isToMany]) {
-			NSManagedObject *object;
+			NSManagedObject *object = nil;
 			Class aClass = [NSClassFromString([entityDesc name]) class];
 			for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
 				if ([desc.description isEqualToString:@"uid"]) {
@@ -98,7 +98,7 @@
 		
 		NSMutableSet *relationshipSet = [self mutableSetValueForKey:relationship];
 		for (id subValue in value) {
-			NSManagedObject *object;
+			NSManagedObject *object = nil;
 			Class aClass = [NSClassFromString([entityDesc name]) class];
 			for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
 				if ([desc.description isEqualToString:@"uid"]) {

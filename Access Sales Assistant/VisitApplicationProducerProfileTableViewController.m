@@ -629,7 +629,8 @@
 	} completion:^(BOOL finished){
 		CIVector *frameVector = [CIVector vectorWithCGRect:self.pickerViewController.view.frame];
 		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:frameVector, UIKeyboardFrameEndUserInfoKey, nil];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
+		NSNotification *notification = [NSNotification notificationWithName:UIKeyboardDidShowNotification object:nil userInfo:userInfo];
+		[[NSNotificationCenter defaultCenter] postNotification:notification];
 	}];
 	
 }
@@ -659,13 +660,12 @@
 	//For older iOS, use "beginAnimation:context"
 	[UIView animateWithDuration:0.2 animations:^{
 		//Position of the picker in sight
-		[self.datePickerViewController.view setFrame:CGRectMake(0.0, 765.0, 768.0, 259.0)];
+		[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
 	} completion:^(BOOL finished){
-		NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
-       
-		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:UIKeyboardFrameEndUserInfoKey, pickerFrame, nil];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
-		NSLog(@"%@", pickerFrame);
+		CIVector *frameVector = [CIVector vectorWithCGRect:self.datePickerViewController.view.frame];
+		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:frameVector, UIKeyboardFrameEndUserInfoKey, nil];
+		NSNotification *notification = [NSNotification notificationWithName:UIKeyboardDidShowNotification object:nil userInfo:userInfo];
+		[[NSNotificationCenter defaultCenter] postNotification:notification];
 	}];
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
    
@@ -694,13 +694,13 @@
 	//For older iOS, use "beginAnimation:context"
 	[UIView animateWithDuration:0.2 animations:^{
 		//Position of the picker in sight
-		[self.datePickerViewController.view setFrame:CGRectMake(0.0, 605.0, 768.0, 259.0)];
+		[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
 		
 	} completion:^(BOOL finished){
-		NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
-        
-		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:UIKeyboardFrameEndUserInfoKey, pickerFrame, nil];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
+		CIVector *frameVector = [CIVector vectorWithCGRect:self.datePickerViewController.view.frame];
+		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:frameVector, UIKeyboardFrameEndUserInfoKey, nil];
+		NSNotification *notification = [NSNotification notificationWithName:UIKeyboardDidShowNotification object:nil userInfo:userInfo];
+		[[NSNotificationCenter defaultCenter] postNotification:notification];
 	}];
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
 }
@@ -716,7 +716,10 @@
 		//This animation will work on iOS 4
 		//For older iOS, use "beginAnimation:context"
 		[UIView animateWithDuration:0.2 animations:^{[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){
-			[[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillHideNotification object:nil];
+			CIVector *frameVector = [CIVector vectorWithCGRect:self.pickerViewController.view.frame];
+			NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:frameVector, UIKeyboardFrameEndUserInfoKey, nil];
+			NSNotification *notification = [NSNotification notificationWithName:UIKeyboardWillHideNotification object:nil userInfo:userInfo];
+			[[NSNotificationCenter defaultCenter] postNotification:notification];
 			[self.pickerViewController.view removeFromSuperview];}];
 	} else if (self.datePickerViewController.view.superview != nil) {
 		self.datePickerViewController.currentIndexPath = nil;
@@ -726,7 +729,10 @@
 		//This animation will work on iOS 4
 		//For older iOS, use "beginAnimation:context"
 		[UIView animateWithDuration:0.2 animations:^{[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){
-			[[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillHideNotification object:nil];
+			CIVector *frameVector = [CIVector vectorWithCGRect:self.datePickerViewController.view.frame];
+			NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:frameVector, UIKeyboardFrameEndUserInfoKey, nil];
+			NSNotification *notification = [NSNotification notificationWithName:UIKeyboardWillHideNotification object:nil userInfo:userInfo];
+			[[NSNotificationCenter defaultCenter] postNotification:notification];
 			[self.datePickerViewController.view removeFromSuperview];}];
 	}
 }
@@ -1197,73 +1203,72 @@
             {
         case EMondayStartHour:
                 {
-                    NSArray *hours = [OperationHour findAll];
-                    theTitle = [[hours objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case EMondayEndHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case ETuesdayStartHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case ETuesdayEndHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case EWednesdayStartHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case EWednesdayEndHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case EThursdayStartHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case EThursdayEndHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case EFridayStartHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case EFridayEndHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case ESaturdayStartHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case ESaturdayEndHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case ESundayStartHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
         case ESundayEndHour:
                 {
-                    theTitle = [[[OperationHour findAll] objectAtIndex:row] name];
+                    theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                 }
             break;
             }

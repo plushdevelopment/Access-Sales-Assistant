@@ -58,7 +58,6 @@
 			}
 		}
 		self.wayPoints = wayPoints;
-		NSLog(@"%@", [self.wayPoints debugDescription]);
 		self.travelMode = UICGTravelModeDriving;
 	}
 	[self.producersTableView reloadData];
@@ -116,7 +115,15 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	[self configureView];
+	//[self configureView];
+	NSMutableArray *array = [self.directionsMapView.annotations mutableCopy];
+	for (id<MKAnnotation> annotation in self.directionsMapView.annotations) {
+		Producer *producer = [Producer findFirstByAttribute:@"producerCode" withValue:annotation.title];
+		if (producer.submittedValue) {
+			
+			//pinAnnotation.image = [UIImage imageNamed:@"grey_square_pin.png"];
+		}
+	}
 }
 
 - (void)viewDidUnload
