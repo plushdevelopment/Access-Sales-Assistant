@@ -103,7 +103,7 @@
         return;
     }
 
-    NSLog(@"SSLocationManager::locationManager:didUpdateToLocation:fromLocation - new location: %.02f %.02f%",
+    NSLog(@"SSLocationManager::locationManager:didUpdateToLocation:fromLocation - new location: %.02f %.02f",
           newLocation.coordinate.latitude, newLocation.coordinate.longitude);
 
     //

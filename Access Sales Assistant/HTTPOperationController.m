@@ -601,9 +601,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 }
 -(void)getTrainingVideosFinished:(ASIHTTPRequest *)request
 {
-    NSString* responseString = [request responseString];
     
-    NSLog(responseString);
 }
 
 -(void)getTrainingVideosFailed:(ASIHTTPRequest *)request

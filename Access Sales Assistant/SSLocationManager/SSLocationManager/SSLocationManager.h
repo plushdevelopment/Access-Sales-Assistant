@@ -40,7 +40,7 @@
     YahooPlaceData *currentLocation;
     CLLocationCoordinate2D currentCoordinate;
 
-    MulticastDelegate<SSLocationManagerDelegate> *_multicastDelegate;
+    MulticastDelegate *_multicastDelegate;
 
     BOOL _updateInProgress;
 }

@@ -89,6 +89,12 @@
 				object = [aClass createInContext:context];
 			}
 			 */
+			if (value == nil) {
+				continue;
+			}
+			if (([value isKindOfClass:[NSDictionary class]]) && ([(NSDictionary *)value count] == 0)) {
+				continue;
+			}
 			if (object) {
 				[object safeSetValuesForKeysWithDictionary:value dateFormatter:dateFormatter managedObjectContext:context];
 				[self setValue:object forKey:relationship];
