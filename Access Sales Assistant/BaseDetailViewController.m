@@ -32,6 +32,16 @@
     
     NSMutableArray *items1 = [[self.baseToolbar items] mutableCopy];
     
+    UIBarButtonItem *prospectSubmitBtn = nil;
+    
+    for(UIBarButtonItem* btn in items1)
+    {
+        if(btn.tag == 1001)
+        {
+            prospectSubmitBtn = btn;
+        }
+    }
+    
     if(items1)
         [items1 removeAllObjects];
     [items1 insertObject:barButtonItem atIndex:0];
@@ -47,6 +57,8 @@
     [items1 insertObject:showHideMaster atIndex:1];
     }
 
+    if(prospectSubmitBtn)
+        [items1 insertObject:prospectSubmitBtn atIndex:[items1 count]];
     [self.baseToolbar setItems:items1 animated:YES];
     
    
@@ -63,6 +75,17 @@
 	// [baseNavigationBar.topItem setLeftBarButtonItem:nil animated:NO];
     
     NSMutableArray *items = [[self.baseToolbar items] mutableCopy];
+    
+    UIBarButtonItem *prospectSubmitBtn = nil;
+    
+    for(UIBarButtonItem* btn in items)
+    {
+        if(btn.tag == 1001)
+        {
+            prospectSubmitBtn = btn;
+        }
+    }
+
     if([items count])
         [items removeAllObjects];
     if([self isShowMaster])
@@ -76,6 +99,11 @@
       
     [items insertObject:showHideMaster atIndex:0];
     }
+    
+    
+    if(prospectSubmitBtn)
+        [items insertObject:prospectSubmitBtn atIndex:[items count]];
+
 
     [self.baseToolbar setItems:items animated:YES];
 
