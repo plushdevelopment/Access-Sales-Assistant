@@ -22,6 +22,11 @@
 #define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 765.0, 768.0, 259.0)
 #define PICKER_HIDDEN_FRAME		CGRectMake(0, 864.0, 768.0, 259.0)
 
+#define VALID_EMAIL_ALERT       @"Not a valid email id"
+#define VALID_PHONE_ALERT       @"Not a valid phone number"
+#define VALID_ZIP_CODE_ALERT       @"Not a valid zip code"
+#define VALID_WEB_ADDRESS       @"Invalid Web Address"
+
 #pragma mark - enums
 enum producerProfileSectionIndex
 {

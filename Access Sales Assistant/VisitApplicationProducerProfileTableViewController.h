@@ -21,8 +21,9 @@
 #import "DatePickerViewController.h"
 #import "PickerViewController.h"
 #import "SmartTableView.h"
+#import "BaseDetailViewController.h"
 
-@interface VisitApplicationProducerProfileTableViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDataSource, UITableViewDelegate>
+@interface VisitApplicationProducerProfileTableViewController : BaseDetailViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDataSource, UITableViewDelegate>
 {
     NSArray* sectionTitleArray;
     BOOL isContactsEdited;
@@ -54,6 +55,9 @@
 -(void) statusTableViewCell:(ProducerStatusTableViewCell*) statusCell:(NSInteger)forRow;
 -(void) hoursOfOperationCell:(ProducerHoursTableViewCell*)hoursCell:(NSInteger)forRow;
 -(void) saveTextFieldToContext:(UITextField*) textField;
+
+-(void) modifyEmailItem:(UITextField*) textField:(NSInteger) emailType;
+-(void) modifyPhoneItem:(UITextField*) textField:(NSInteger) phoneType;
 
 - (void)configureView;
 

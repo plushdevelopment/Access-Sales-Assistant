@@ -44,4 +44,16 @@
     return [zipCodeTest evaluateWithObject:self];
     
 }
+-(BOOL) isValidWebSite
+{
+    
+    
+    NSString *webSiteEx =@"(http|https)://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?";
+    
+    // [self stringByMatching:phoneNoRegEx];
+    NSPredicate *webSiteTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", webSiteEx]; 
+    
+    return [webSiteTest evaluateWithObject:self];
+    
+}
 @end

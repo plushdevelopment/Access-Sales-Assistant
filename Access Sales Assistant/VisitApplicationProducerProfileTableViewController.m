@@ -33,6 +33,7 @@
 #import "IneligibleReason.h"
 #import "ProducerProfileConstants.h"
 #import "HTTPOperationController.h"
+#import "NSString-Validation.h"
 
 
 @implementation VisitApplicationProducerProfileTableViewController
@@ -1362,7 +1363,7 @@
 #pragma mark - TextField delegate methods
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-	[self saveTextFieldToContext:textField];
+	//[self saveTextFieldToContext:textField];
 	return YES;
 }
 
@@ -1451,144 +1452,46 @@
         {
             switch(tag)
             {
-                case EPhone1:
+                case EPhone1: //3
                 {
-                    for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers)
-                    {
-                        if(phoneNumber.typeValue == 3)
-                        {
-                            phoneNumber.number = textField.text;
-                            break;
-                        }
-                    }
+                    [self modifyPhoneItem:textField :3];
                 }
                     break;
-                case EFax:
+                case EFax://4
                 {
-                    for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers)
-                    {
-                        if(phoneNumber.typeValue == 4)
-                        {
-                            phoneNumber.number = textField.text;
-                            break;
-                        }
-                    }
-                    
+                    [self modifyPhoneItem:textField :4];                    
                     break;
                 }
-                case EMainEmail:
+                case EMainEmail: //3
                 {
-                    EmailListItem *newMail=nil;
-                    for (EmailListItem *email in _detailItem.emails)
-                    {
-                        int emailType = email.typeValue;
-                        if(email.typeValue == 3)
-                        {
-                            //   email.address = textField.text;
-                            newMail = email;
-                            break;
-                        }
-                    }
-                    if(newMail != nil)
-                    {
-                        newMail.address = textField.text;
-                    }
-                    else
-                    {
-                        newMail = [EmailListItem createEntity];
-                        newMail.typeValue = 3;
-                        newMail.address = textField.text;
-                        [self.detailItem addEmailsObject:newMail];
-                        
-                    }
+                    [self modifyEmailItem:textField :3];
                 }
                     break;
-                case EClaimsEmail:
+                case EClaimsEmail: //5
                 {
-                    EmailListItem *newMail=nil;
-                    for (EmailListItem *email in _detailItem.emails)
-                    {
-                        int emailType = email.typeValue;
-                        if(email.typeValue == 5)
-                        {
-                            //   email.address = textField.text;
-                            newMail = email;
-                            break;
-                        }
-                    }
-                    if(newMail != nil)
-                    {
-                        newMail.address = textField.text;
-                    }
-                    else
-                    {
-                        newMail = [EmailListItem createEntity];
-                        newMail.typeValue = 5;
-                        newMail.address = textField.text;
-                        [self.detailItem addEmailsObject:newMail];
-                        
-                    }
+                    [self modifyEmailItem:textField :5];
                 }
                     
                     break;
-                case EAccountingEmail:
+                case EAccountingEmail: //2
                 {  
-                    EmailListItem *newMail=nil;
-                    for (EmailListItem *email in _detailItem.emails)
-                    {
-                        int emailType = email.typeValue;
-                        if(email.typeValue == 2)
-                        {
-                            //   email.address = textField.text;
-                            newMail = email;
-                            break;
-                        }
-                    }
-                    if(newMail != nil)
-                    {
-                        newMail.address = textField.text;
-                    }
-                    else
-                    {
-                        newMail = [EmailListItem createEntity];
-                        newMail.typeValue = 2;
-                        newMail.address = textField.text;
-                        [self.detailItem addEmailsObject:newMail];
-                        
-                    }
+                    [self modifyEmailItem:textField :2];
                 }
                     
                     break;
-                case ECustomerServiceEmail:
+                case ECustomerServiceEmail: //4
                 {  
-                    EmailListItem *newMail=nil;
-                    for (EmailListItem *email in _detailItem.emails)
-                    {
-                        int emailType = email.typeValue;
-                        if(email.typeValue == 4)
-                        {
-                            //   email.address = textField.text;
-                            newMail = email;
-                            break;
-                        }
-                    }
-                    if(newMail != nil)
-                    {
-                        newMail.address = textField.text;
-                    }
-                    else
-                    {
-                        newMail = [EmailListItem createEntity];
-                        newMail.typeValue = 4;
-                        newMail.address = textField.text;
-                        [self.detailItem addEmailsObject:newMail];
-                        
-                    }
+                    [self modifyEmailItem:textField :4];
                 }
                     
                     break;
                 case EWebsiteAddress:
-                    self.detailItem.webAddress = textField.text;
+                {
+                    if([textField.text isValidWebSite])
+                        self.detailItem.webAddress = textField.text;
+                    else
+                        [self showAlert:VALID_WEB_ADDRESS];
+                }
                     break;
             }
             
@@ -1684,6 +1587,77 @@
         }
     }
     [[NSManagedObjectContext defaultContext] save];
+}
+-(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
+{
+    if([textField.text length]<=0)
+        return;
+    
+    EmailListItem *newMail=nil;
+    for (EmailListItem *email in _detailItem.emails)
+    {
+        int emailType = email.typeValue;
+        if(email.typeValue == emailType)
+        {
+            
+            newMail = email;
+            break;
+        }
+    }
+    if(newMail != nil)
+    {
+        if([textField.text isValidEmail])
+            newMail.address = textField.text;
+        else
+            [self showAlert:VALID_EMAIL_ALERT];
+    }
+    else
+    {
+        if([textField.text isValidEmail])
+        {
+            newMail = [EmailListItem createEntity];
+            newMail.typeValue = emailType;
+            newMail.address = textField.text;
+            [self.detailItem addEmailsObject:newMail];
+        }
+        else
+        {
+            [self showAlert:VALID_EMAIL_ALERT];
+        }
+        
+    }
+
+}
+-(void) modifyPhoneItem:(UITextField *)textField :(NSInteger)phoneType
+{
+    BOOL phoneExists = NO;
+    for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers)
+    {
+        if(phoneNumber.typeValue == phoneType)
+        {
+            phoneExists = YES;
+            if([textField.text isValidPhoneNumber])
+                phoneNumber.number = textField.text;
+            else
+                [self showAlert:VALID_PHONE_ALERT];
+            break;
+        }
+    }
+    if(!phoneExists)
+    {
+        if([textField.text isValidPhoneNumber])
+        {
+        PhoneListItem* newPhoneItem  = [PhoneListItem createEntity];
+        newPhoneItem.typeValue = phoneType;
+        newPhoneItem.number = textField.text;
+        [self.detailItem addPhoneNumbersObject:newPhoneItem];
+        }
+        else
+        {
+            [self showAlert:VALID_PHONE_ALERT];
+        }
+    }
+
 }
 /*
 // Override to support rearranging the table view.

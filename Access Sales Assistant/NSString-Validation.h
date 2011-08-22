@@ -13,5 +13,6 @@
 -(BOOL)isValidEmail;
 -(BOOL) isValidPhoneNumber;
 -(BOOL) isValidZipCode;
+-(BOOL) isValidWebSite;
 
 @end
