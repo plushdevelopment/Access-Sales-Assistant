@@ -52,6 +52,8 @@
 
 #import "ContactsQAFormViewController.h"
 
+#import "ProspectApplicationTableViewController.h"
+
 #define SECTION_HEADER_HEIGHT       56
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
 #define CONTACT_OPTIONS             @"Email SSC",@"Email Customer Service",@"Email NSF",@"Email Product",@"Email QA Form",@"Email Facilities",@"QA Resolution Timetable",@"Email help desk",nil
@@ -662,7 +664,12 @@
             break;
         case PROSPECT_APP_INDEX:
         {
-            ProspectApplicationViewController* detailViewController = [[ProspectApplicationViewController alloc] initWithNibName:@"ProspectApplicationViewController" bundle:nil];
+        //    ProspectApplicationViewController* detailViewController = [[ProspectApplicationViewController alloc] initWithNibName:@"ProspectApplicationViewController" bundle:nil];
+            
+            ProspectApplicationTableViewController* detailViewController = [[ProspectApplicationTableViewController alloc] initWithNibName:@"ProspectApplicationTableViewController" bundle:nil];
+            
+            
+         //   ProspectViewController* detailViewController = [[ProspectApplicationViewController alloc] initWithNibName:@"ProspectApplicationViewController" bundle:nil];
       //      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
        //     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             

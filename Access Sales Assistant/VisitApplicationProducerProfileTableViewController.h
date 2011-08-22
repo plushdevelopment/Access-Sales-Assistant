@@ -59,7 +59,7 @@
 
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
-- (IBAction)showTimePickerView:(id)sender;
+
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;
 
