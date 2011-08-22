@@ -29,8 +29,8 @@
 	self = [super initWithCoder:aDecoder];
     if (self) {
 		NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-		[center addObserver:self selector:@selector(keyboardDidShow:) name:@"Picker Did Show" object:nil];
-		[center addObserver:self selector:@selector(keyboardWillHide:) name:@"Picker Will Hide" object:nil];
+		//[center addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+		//[center addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 	}
 	
 	return self;
@@ -44,7 +44,7 @@
 - (void)keyboardDidShow:(NSNotification *)notification
 {
 	// keyboard frame is in window coordinates
-	NSDictionary *userInfo = [notification object];
+	NSDictionary *userInfo = [notification userInfo];
 	CGRect keyboardFrame = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
 	
 	// convert own frame to window coordinates, frame is in superview's coordinates
@@ -57,14 +57,29 @@
 	coveredFrame = [self.window convertRect:coveredFrame toView:self.superview];
 	
 	// set inset to make up for covered array at bottom
-	self.contentInset = UIEdgeInsetsMake(self.contentInset.top, self.contentInset.left, coveredFrame.size.height, 0);
+	self.contentInset = UIEdgeInsetsMake(0, 0, coveredFrame.size.height, 0);
 	self.scrollIndicatorInsets = self.contentInset;
+	//self.contentOffset = CGPointMake(0.0, coveredFrame.size.height);
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
+	// keyboard frame is in window coordinates
+	NSDictionary *userInfo = [notification userInfo];
+	CGRect keyboardFrame = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+	
+	// convert own frame to window coordinates, frame is in superview's coordinates
+	CGRect ownFrame = [self.window convertRect:self.frame fromView:self.superview];
+	
+	// calculate the area of own frame that is covered by keyboard
+	CGRect coveredFrame = CGRectIntersection(ownFrame, keyboardFrame);
+	
+	// now this might be rotated, so convert it back
+	coveredFrame = [self.window convertRect:coveredFrame toView:self.superview];
+	
 	self.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 	self.scrollIndicatorInsets = self.contentInset;
+	//self.contentOffset = CGPointMake(0.0, (self.contentOffset.x - coveredFrame.size.height));
 }
 
 @end

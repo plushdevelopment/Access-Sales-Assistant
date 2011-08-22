@@ -14,8 +14,6 @@
 
 #import "DailySummary.h"
 
-#import "ProfileTableViewController.h"
-
 @implementation VisitApplicationViewController
 
 @synthesize tabBarController = _tabBarController;
