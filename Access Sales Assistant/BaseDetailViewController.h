@@ -29,5 +29,12 @@
 
 -(void) showAlert:(NSString*) alertText;
 -(BOOL) isShowMaster;
+-(void) changeTextFieldOutline:(UITextField *)textField:(BOOL) toOriginal;
 @end
 
+@interface BaseTextField : UITextField {
+
+  
+}
+@property(nonatomic) BOOL showOriginal;
+@end

@@ -42,6 +42,10 @@
 
 #import "HTTPOperationController.h"
 
+#import "NSString-Validation.h"
+
+#import "ProducerProfileConstants.h"
+
 #define VIEW_HIDDEN_FRAME CGRectMake(0.0, 20.0, 768.0, 1004.0)
 #define VIEW_VISIBLE_FRAME CGRectMake(0.0, -239.0, 768.0, 1004.0)
 #define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 765.0, 768.0, 259.0)
@@ -651,6 +655,18 @@ enum PRPTableStatsTags {
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+		return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+	
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if([textField.text length]<=0)
+        return;
 	DailySummary *summary = self.detailItem;
 	if (!summary.editedValue) {
 		summary.editedValue = YES;
@@ -678,8 +694,15 @@ enum PRPTableStatsTags {
 					break;
 				case PRPTableSpokeWithLastName:
 					person.lastName = textField.text;
+                    break;
 				case PRPTableSpokeWithEmail:
-					person.email = textField.text;
+                {
+                    if([textField.text isValidEmail])
+                        person.email = textField.text;
+                    else
+                        [self showAlert:VALID_EMAIL_ALERT];
+                    
+                }
 				default:
 					break;
 			}
@@ -735,17 +758,7 @@ enum PRPTableStatsTags {
             break;
     }
 	[self.managedObjectContext save];
-	return YES;
-}
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-	
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-	
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField

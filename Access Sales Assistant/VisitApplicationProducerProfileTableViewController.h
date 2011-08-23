@@ -45,6 +45,9 @@
 @property (nonatomic, strong) IBOutlet ProducerQuestionTableViewCell *questionTableViewCell;
 @property (strong, nonatomic) IBOutlet SmartTableView *tableView;
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *dismissButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *submitButton;
+
 
 
 -(UITableViewCell*) tableViewCellForNibName:(NSString*)nibName;
@@ -58,6 +61,8 @@
 
 -(void) modifyEmailItem:(UITextField*) textField:(NSInteger) emailType;
 -(void) modifyPhoneItem:(UITextField*) textField:(NSInteger) phoneType;
+-(void) toggleSubmitButton:(BOOL)isEnable;
+//-(void) changeTextFieldOutline:(UITextField*) textField:(BOOL) toOriginal;
 
 - (void)configureView;
 

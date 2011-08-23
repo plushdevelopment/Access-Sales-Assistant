@@ -34,7 +34,7 @@
 #import "ProducerProfileConstants.h"
 #import "HTTPOperationController.h"
 #import "NSString-Validation.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @implementation VisitApplicationProducerProfileTableViewController
 
@@ -51,6 +51,9 @@
 @synthesize hoursTableViewCell = _hoursTableViewCell;
 @synthesize addressTableViewCell = _addressTableViewCell;
 @synthesize contactTableViewCell = _contactTableViewCell;
+
+@synthesize dismissButton = _dismissButton;
+@synthesize submitButton = _submitButton;
 //@synthesize producerGeneralTableViewCell = _producerGeneralTableViewCell;
 
 - (IBAction)dismiss:(id)sender
@@ -75,11 +78,14 @@
 
 - (void)viewDidLoad
 {
+  //  [_submitButton setEnabled:FALSE];
     [super viewDidLoad];
     
     sectionTitleArray = [[NSArray alloc] initWithObjects:PRODUCER_PROFILE_SECTIONS];
     
     self.tableView.allowsSelection = NO;
+    
+    [self toggleSubmitButton:NO];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -108,6 +114,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    //[self toggleSubmitButton:NO];
     [super viewWillDisappear:animated];
 }
 
@@ -122,20 +129,35 @@
 	return YES;
 }
 
-
+-(void) toggleSubmitButton:(BOOL) isEnable
+{
+    
+    [_submitButton setEnabled:isEnable];
+}
 - (void)setDetailItem:(id)newDetailItem
 {
 	if (self.detailItem) {
 		if ([self.detailItem valueForKey:@"editedValue"]) {
 			[[NSManagedObjectContext defaultContext] save];
+             [self toggleSubmitButton:YES];
 		}
+        else
+            [self toggleSubmitButton:NO];
 	}
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
         
         // Update the view.
         [self configureView];
+     /*   if([self.detailItem valueForKey:@"editedValue"])
+            [self toggleSubmitButton:YES];
+        else
+            [self toggleSubmitButton:NO];
+       */
+            
+        [self toggleSubmitButton:NO];
     }
+   
 	
  //   if (self.aPopoverController != nil) {
    //     [self.aPopoverController dismissPopoverAnimated:YES];
@@ -473,6 +495,7 @@
         } else if (phoneNumber.typeValue == 4) {
             [contactInfoCell.faxTextField setText:phoneNumber.number];
         }
+        
     }
     int eCount  = _detailItem.emails.allObjects.count;
     for (EmailListItem *email in _detailItem.emails) {
@@ -936,6 +959,13 @@
         }
         case EHoursOfOperation:
         {
+            HoursOfOperation *hOfOperation = _detailItem.hoursOfOperation;
+            if(hOfOperation == nil)
+            {
+                HoursOfOperation *hOperation = [HoursOfOperation createEntity];
+                self.detailItem.hoursOfOperation = hOperation;
+            }
+
             
             switch(self.pickerViewController.currentTag)
             {
@@ -1138,7 +1168,9 @@
 	
 	//	[self.managedObjectContext save];
     [[NSManagedObjectContext defaultContext]save];
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    [self toggleSubmitButton:YES];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -1356,7 +1388,9 @@
     }
     
     [[NSManagedObjectContext defaultContext] save];
-	[self.tableView reloadData];
+     [self toggleSubmitButton:YES];
+//	[self.tableView reloadData];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:controller.currentIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 
@@ -1364,6 +1398,12 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
 	//[self saveTextFieldToContext:textField];
+    
+    Producer *producer = (Producer *)self.detailItem;
+	if (!producer.editedValue) {
+		producer.editedValue = YES;
+		[[NSManagedObjectContext defaultContext] save];
+	}
 	return YES;
 }
 
@@ -1402,11 +1442,9 @@
 
 -(void) saveTextFieldToContext:(UITextField*) textField
 {
-    Producer *producer = (Producer *)self.detailItem;
-	if (!producer.editedValue) {
-		producer.editedValue = YES;
-		[[NSManagedObjectContext defaultContext] save];
-	}
+    if([textField.text length]<=0)
+        return;
+   
     
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
@@ -1452,6 +1490,8 @@
         {
             switch(tag)
             {
+                    
+                    
                 case EPhone1: //3
                 {
                     [self modifyPhoneItem:textField :3];
@@ -1488,9 +1528,15 @@
                 case EWebsiteAddress:
                 {
                     if([textField.text isValidWebSite])
+                    {
                         self.detailItem.webAddress = textField.text;
+                        [self changeTextFieldOutline:textField:YES];
+                    }
                     else
+                    {
                         [self showAlert:VALID_WEB_ADDRESS];
+                        [self changeTextFieldOutline:textField:NO];
+                    }
                 }
                     break;
             }
@@ -1586,7 +1632,12 @@
             break;
         }
     }
+    
+    if ([self.detailItem valueForKey:@"editedValue"]) {
     [[NSManagedObjectContext defaultContext] save];
+  
+        [self toggleSubmitButton:YES];
+    }
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
 {
@@ -1596,7 +1647,7 @@
     EmailListItem *newMail=nil;
     for (EmailListItem *email in _detailItem.emails)
     {
-        int emailType = email.typeValue;
+      //  int emailType = email.typeValue;
         if(email.typeValue == emailType)
         {
             
@@ -1607,9 +1658,15 @@
     if(newMail != nil)
     {
         if([textField.text isValidEmail])
+        {
             newMail.address = textField.text;
+            [self changeTextFieldOutline:textField:YES];
+        }
         else
+        {
             [self showAlert:VALID_EMAIL_ALERT];
+            [self changeTextFieldOutline:textField:NO];
+        }
     }
     else
     {
@@ -1619,10 +1676,13 @@
             newMail.typeValue = emailType;
             newMail.address = textField.text;
             [self.detailItem addEmailsObject:newMail];
+            [self changeTextFieldOutline:textField:YES];
         }
         else
         {
             [self showAlert:VALID_EMAIL_ALERT];
+            [self changeTextFieldOutline:textField:NO];
+           
         }
         
     }
@@ -1637,9 +1697,15 @@
         {
             phoneExists = YES;
             if([textField.text isValidPhoneNumber])
+            {
                 phoneNumber.number = textField.text;
+                [self changeTextFieldOutline:textField:YES];
+            }
             else
+            {
                 [self showAlert:VALID_PHONE_ALERT];
+                [self changeTextFieldOutline:textField:NO];
+            }
             break;
         }
     }
@@ -1651,14 +1717,33 @@
         newPhoneItem.typeValue = phoneType;
         newPhoneItem.number = textField.text;
         [self.detailItem addPhoneNumbersObject:newPhoneItem];
+        [self changeTextFieldOutline:textField:YES];
         }
         else
         {
             [self showAlert:VALID_PHONE_ALERT];
+            [self changeTextFieldOutline:textField:NO];
         }
     }
 
 }
+/*
+-(void) changeTextFieldOutline:(UITextField *)textField:(BOOL) toOriginal
+{
+    if(!toOriginal)
+    {
+    [textField.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
+    [textField.layer setBorderColor: [[UIColor redColor] CGColor]];
+    [textField.layer setBorderWidth: 3.0f];
+    [textField.layer setCornerRadius:8.0f];
+    [textField.layer setMasksToBounds:YES];
+    }
+    else
+    {
+        textField.layer.borderColor=[[UIColor clearColor]CGColor];
+    }
+}
+  */  
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
