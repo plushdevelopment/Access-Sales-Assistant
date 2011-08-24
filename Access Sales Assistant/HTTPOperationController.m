@@ -68,6 +68,10 @@
 
 #import "GetCompetitorRequest.h"
 
+#import "UIHelpers.h"
+
+#import "AccessSalesConstants.h"
+
 #define kPAGESIZE 20
 
 @implementation HTTPOperationController
@@ -382,15 +386,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
 	[producer safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
 	[self.managedObjectContext save];
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Successful" object:request];
+    
+    [UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_PROFILE_REQUEST_SUCCESS buttonTitle:@"OK"];
+	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Successful" object:request];
 }
 
 - (void)postProducerProfileFailed:(ASIHTTPRequest *)request
 {
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
+    
+    NSString *profileFailed = [[NSString alloc] initWithFormat:PRODUCER_PROFILE_REQUEST_FAILED,[error localizedDescription]];
+    [UIHelpers showAlertWithTitle:@"Error" msg:profileFailed buttonTitle:@"OK"];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Failure" object:request];
+	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Failure" object:request];
 	//[[self networkQueue] addOperation:request];
 }
 
@@ -428,7 +437,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
 	[producer.dailySummary safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
 	[self.managedObjectContext save];
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Summary Successful" object:request];
+	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Summary Successful" object:request];
+     [UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_SUMMARY_REQUEST_SUCCESS buttonTitle:@"OK"];
 }
 
 - (void)postDailySummaryFailed:(ASIHTTPRequest *)request
@@ -436,7 +446,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Summary Failure" object:request];
+    NSString *summaryFailed = [[NSString alloc] initWithFormat:PRODUCER_SUMMARY_REQUEST_FAILED,[error localizedDescription]];
+    [UIHelpers showAlertWithTitle:@"Error" msg:summaryFailed buttonTitle:@"OK"];
+
+	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Summary Failure" object:request];
 	//[[self networkQueue] addOperation:request];
 }
 
@@ -466,15 +479,22 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 
 - (void)postImageForProducerFinished:(ASIHTTPRequest *)request
 {	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Successful" object:request];
+	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Successful" object:request];
+    
+     [UIHelpers showAlertWithTitle:@"Success" msg:POST_IMAGE_SUCCESS buttonTitle:@"OK"];
+    
 }
 
 - (void)postImageForProducerFailed:(ASIHTTPRequest *)request
 {
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
+    
+    NSString *imageFailed = [[NSString alloc] initWithFormat:POST_IMAGE_FAILED,[error localizedDescription]];
+    [UIHelpers showAlertWithTitle:@"Error" msg:imageFailed buttonTitle:@"OK"];
+
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Failure" object:request];
+//	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Failure" object:request];
 }
 
 // Get Image for Producer

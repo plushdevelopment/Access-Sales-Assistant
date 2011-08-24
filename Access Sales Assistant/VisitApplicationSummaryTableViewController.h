@@ -11,10 +11,11 @@
 #import "PickerViewController.h"
 #import "VisitApplicationTabBarController.h"
 #import "SmartTableView.h"
+#import "BaseDetailViewController.h"
 
 @class DailySummary;
 
-@interface VisitApplicationSummaryTableViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDelegate, UITableViewDataSource> {
+@interface VisitApplicationSummaryTableViewController : BaseDetailViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDelegate, UITableViewDataSource> {
 	SmartTableView *_tableView;
 }
 
@@ -31,6 +32,8 @@
 @property (nonatomic, strong) UIPopoverController *aPopoverController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) IBOutlet SmartTableView *tableView;
+@property (nonatomic) BOOL isCompetetorEdited;
+//@property ()
 
 - (void)configureView;
 - (IBAction)showPickerView:(id)sender;

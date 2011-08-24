@@ -10,6 +10,8 @@
 
 #import "RootViewController.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @implementation BaseDetailViewController
 
 @synthesize baseNavigationBar;
@@ -143,4 +145,44 @@
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:alertText delegate:nil cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
 	[alertView show];
 }
+
+-(void) changeTextFieldOutline:(UITextField *)textField:(BOOL) toOriginal
+{
+    if(!toOriginal)
+    {
+        [textField.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
+        [textField.layer setBorderColor: [[UIColor redColor] CGColor]];
+        [textField.layer setBorderWidth: 3.0f];
+        [textField.layer setCornerRadius:8.0f];
+        [textField.layer setMasksToBounds:YES];
+    }
+    else
+    {
+        textField.layer.borderColor=[[UIColor clearColor]CGColor];
+    }
+}
+
+-(void) disableTextField:(UITextField*) textField: (BOOL) isEnable
+{
+    if(!isEnable)
+    {
+        //[textField.layer setBackgroundColor: [UIColor grayColor]];
+        textField.backgroundColor = [UIColor lightGrayColor];
+      //  [textField.layer setBorderColor: [[UIColor redColor] CGColor]];
+      //  [textField.layer setBorderWidth: 3.0f];
+       // [textField.layer setCornerRadius:8.0f];
+        [textField.layer setMasksToBounds:YES];
+    }
+    else
+    {
+        textField.layer.backgroundColor=[[UIColor clearColor]CGColor];
+    }
+
+}
+@end
+
+@implementation BaseTextField
+
+@synthesize showOriginal;
+
 @end

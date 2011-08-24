@@ -29,5 +29,13 @@
 
 -(void) showAlert:(NSString*) alertText;
 -(BOOL) isShowMaster;
+-(void) changeTextFieldOutline:(UITextField *)textField:(BOOL) toOriginal;
+-(void) disableTextField:(UITextField*) textField: (BOOL) isEnable;
 @end
 
+@interface BaseTextField : UITextField {
+
+  
+}
+@property(nonatomic) BOOL showOriginal;
+@end
