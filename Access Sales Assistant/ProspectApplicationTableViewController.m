@@ -636,7 +636,9 @@
 	
 	//	[self.managedObjectContext save];
     [[NSManagedObjectContext defaultContext]save];
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
+    
+     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
     
  }
 
@@ -870,11 +872,13 @@
                             if([textField.text isValidPhoneNumber])
                             {
                                 phoneNumber.number = textField.text;
+                                [self changeTextFieldOutline:textField:YES];
                             }
                             else
                             {
                                 [self showAlert:VALID_PHONE_ALERT];
-                                textField.text  = @"";
+                                [self changeTextFieldOutline:textField:NO];
+                                //textField.text  = @"";
                             }
                             break;
 
@@ -890,11 +894,13 @@
                             phNo.number = textField.text;
                             
                             [self.detailItem addPhoneNumbersObject:phNo];
+                            [self changeTextFieldOutline:textField:YES];
                         }
                         else
                         {
                             [self showAlert:VALID_PHONE_ALERT];
-                            textField.text  = @"";
+                            [self changeTextFieldOutline:textField:NO];
+                           // textField.text  = @"";
                         }
 
                     }
@@ -911,11 +917,13 @@
                             if([textField.text isValidPhoneNumber])
                             {
                             phoneNumber.number = textField.text;
+                                [self changeTextFieldOutline:textField:YES];
                             }
                             else
                             {
                                 [self showAlert:VALID_PHONE_ALERT];
-                                 textField.text  = @"";
+                                [self changeTextFieldOutline:textField:NO];
+                                // textField.text  = @"";
                             }
                             break;
                         }
@@ -930,11 +938,13 @@
                         phNo.number = textField.text;
                         
                         [self.detailItem addPhoneNumbersObject:phNo];
+                            [self changeTextFieldOutline:textField:YES];
                         }
                         else
                         {
                             [self showAlert:VALID_PHONE_ALERT];
-                            textField.text  = @"";
+                            [self changeTextFieldOutline:textField:NO];
+                           // textField.text  = @"";
                         }
 
                         
@@ -953,11 +963,13 @@
                              {
                             
                              email.address = textField.text;
+                                 [self changeTextFieldOutline:textField:YES];
                              }
                              else
                              {
                                  [self showAlert:VALID_EMAIL_ALERT];
-                                 textField.text  = @"";
+                                 [self changeTextFieldOutline:textField:NO];
+                              //   textField.text  = @"";
                              }
                              break;
                          }
@@ -971,11 +983,13 @@
                     emailItem.typeValue = 3;
                     emailItem.address = textField.text;
                         [self.detailItem addEmailsObject:emailItem];
+                            [self changeTextFieldOutline:textField:YES];
                         }
                         else
                         {
                             [self showAlert:VALID_EMAIL_ALERT];
-                             textField.text  = @"";
+                            [self changeTextFieldOutline:textField:NO];
+                           //  textField.text  = @"";
                         }
                             
                     }

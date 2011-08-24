@@ -46,6 +46,8 @@
 
 #import "ProducerProfileConstants.h"
 
+#import "AddRowTableViewCell.h"
+
 #define VIEW_HIDDEN_FRAME CGRectMake(0.0, 20.0, 768.0, 1004.0)
 #define VIEW_VISIBLE_FRAME CGRectMake(0.0, -239.0, 768.0, 1004.0)
 #define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 765.0, 768.0, 259.0)
@@ -116,6 +118,8 @@ enum PRPTableStatsTags {
 
 @synthesize managedObjectContext=_managedObjectContext;
 @synthesize tableView = _tableView;
+
+@synthesize isCompetetorEdited = _isCompetetorEdited;
 
 #pragma mark -
 #pragma mark IBActions
@@ -460,9 +464,38 @@ enum PRPTableStatsTags {
 			break;
         case PRPTableSectionSpokeWith: {
 			if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
-				PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
+				/*PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
 				customCell.textLabel.text = @"Add a Person";
 				customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+                 
+                 */
+                
+                AddRowTableViewCell* customCell = [AddRowTableViewCell cellForTableView:tableView fromNib:[AddRowTableViewCell nib]];
+                customCell.addRowType.text = @"Add a Person";
+                
+                
+                UIButton *button = customCell.addButton;
+                button.tag = 1003;
+                
+                [button addTarget:self action:@selector(AddPerson:) forControlEvents:UIControlEventTouchUpInside];
+                
+                UIButton *remBtn = customCell.editButton;
+                
+                remBtn.hidden = TRUE;
+                customCell.delRowType.hidden = TRUE;
+                
+                /*    [button setEnabled:_isCompetetorEdited?FALSE:TRUE];
+                 
+                 customCell.delRowType.text = @"Delete Competitors";
+                 UIButton *remBtn = customCell.editButton;
+                 [remBtn setTitle:_isCompetetorEdited?@"Done":@"Edit" forState:UIControlStateNormal];
+                 [remBtn setEnabled:_isCompetetorEdited?TRUE:((indexPath.row>0)?TRUE:FALSE)];
+                 remBtn.tag = 1002;
+                 
+                 [remBtn addTarget:self action:@selector(AddCompetitor:) forControlEvents:UIControlEventTouchUpInside];
+                 */
+
+
 				
 				cell = customCell;
 			} else {
@@ -488,11 +521,39 @@ enum PRPTableStatsTags {
 			break;
 		case PRPTableSectionCompetitor: {
 			if (indexPath.row == self.detailItem.competitors.allObjects.count) {
-				PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
+				/*PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
 				customCell.textLabel.text = @"Add a Competitor";
 				customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+                 */
 				
-				cell = customCell;
+				//cell = customCell;
+                
+                AddRowTableViewCell* customCell = [AddRowTableViewCell cellForTableView:tableView fromNib:[AddRowTableViewCell nib]];
+                customCell.addRowType.text = @"Add a Competitor";
+                
+                
+                UIButton *button = customCell.addButton;
+                button.tag = 1001;
+                
+                [button addTarget:self action:@selector(AddCompetitor:) forControlEvents:UIControlEventTouchUpInside];
+                
+                  UIButton *remBtn = customCell.editButton;
+                
+                remBtn.hidden = TRUE;
+                customCell.delRowType.hidden = TRUE;
+                
+            /*    [button setEnabled:_isCompetetorEdited?FALSE:TRUE];
+                
+                customCell.delRowType.text = @"Delete Competitors";
+                UIButton *remBtn = customCell.editButton;
+               [remBtn setTitle:_isCompetetorEdited?@"Done":@"Edit" forState:UIControlStateNormal];
+                [remBtn setEnabled:_isCompetetorEdited?TRUE:((indexPath.row>0)?TRUE:FALSE)];
+                remBtn.tag = 1002;
+                
+                [remBtn addTarget:self action:@selector(AddCompetitor:) forControlEvents:UIControlEventTouchUpInside];
+             */
+                cell = customCell;
+
 			} else {
 				SummaryCompetitorTableViewCell *customCell = [SummaryCompetitorTableViewCell cellForTableView:tableView fromNib:self.summaryCompetitorTableViewCellNib];
 				
@@ -519,9 +580,24 @@ enum PRPTableStatsTags {
 			break;
 		case PRPTableSectionBarriersToBusiness: {
 			if (indexPath.row == self.detailItem.barriersToBusiness.allObjects.count) {
-				PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
+				/*PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
 				customCell.textLabel.text = @"Add a Barrier to Business";
-				customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+				customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;*/
+                
+                AddRowTableViewCell* customCell = [AddRowTableViewCell cellForTableView:tableView fromNib:[AddRowTableViewCell nib]];
+                customCell.addRowType.text = @"Add a Barrier";
+                
+                
+                UIButton *button = customCell.addButton;
+                button.tag = 1005;
+                
+                [button addTarget:self action:@selector(AddBarrier:) forControlEvents:UIControlEventTouchUpInside];
+                
+                UIButton *remBtn = customCell.editButton;
+                
+                remBtn.hidden = TRUE;
+                customCell.delRowType.hidden = TRUE;
+
 				
 				cell = customCell;
 			} else {
@@ -570,12 +646,126 @@ enum PRPTableStatsTags {
 	return cell;
 }
 
+-(void) AddCompetitor:(id) sender
+{
+    UIButton* btn = (UIButton*) sender;
+    
+    if(btn.tag == 1001)
+    {
+        Competitor* newCompetitor = [Competitor createEntity];
+        [self.detailItem addCompetitorsObject:newCompetitor];
+        [self.tableView reloadData];
+    }
+    else if(btn.tag == 1002)
+    {
+        
+        BOOL editing = [self.tableView isEditing]?NO:YES;
+        
+        if(editing)
+        {
+            [btn setTitle:@"Done" forState:UIControlStateNormal];
+            self.isCompetetorEdited = TRUE;
+            
+            
+            //   cell.addButton.enabled = FALSE;
+            
+        }
+        else
+        {
+            [btn setTitle:@"Edit" forState:UIControlStateNormal];
+            self.isCompetetorEdited = FALSE;
+            
+            
+            // cell.addButton.enabled = TRUE;
+        }
+        [super setEditing:editing animated:YES];
+    }
+    [self.tableView reloadData];
+}
+
+
+-(void) AddPerson:(id) sender
+{
+    UIButton* btn = (UIButton*) sender;
+    
+    if(btn.tag == 1003)
+    {
+        PersonSpokeWith *person = [PersonSpokeWith createEntity];
+        [self.detailItem addPersonsSpokeWithObject:person];
+        [self.managedObjectContext save];
+        [self.tableView reloadData];
+    }
+    else if(btn.tag == 1004)
+    {
+        
+        BOOL editing = [self.tableView isEditing]?NO:YES;
+        
+        if(editing)
+        {
+            [btn setTitle:@"Done" forState:UIControlStateNormal];
+            self.isCompetetorEdited = TRUE;
+            
+            
+            //   cell.addButton.enabled = FALSE;
+            
+        }
+        else
+        {
+            [btn setTitle:@"Edit" forState:UIControlStateNormal];
+            self.isCompetetorEdited = FALSE;
+            
+            
+            // cell.addButton.enabled = TRUE;
+        }
+        [super setEditing:editing animated:YES];
+    }
+    [self.tableView reloadData];
+}
+-(void) AddBarrier:(id) sender
+{
+    UIButton* btn = (UIButton*) sender;
+    
+    if(btn.tag == 1005)
+    {
+        BarrierToBusiness *barrier = [BarrierToBusiness createEntity];
+        [self.detailItem addBarriersToBusinessObject:barrier];
+        [self.managedObjectContext save];
+        [self.tableView reloadData];
+    }
+    else if(btn.tag == 1006)
+    {
+        
+        BOOL editing = [self.tableView isEditing]?NO:YES;
+        
+        if(editing)
+        {
+            [btn setTitle:@"Done" forState:UIControlStateNormal];
+            self.isCompetetorEdited = TRUE;
+            
+            
+            //   cell.addButton.enabled = FALSE;
+            
+        }
+        else
+        {
+            [btn setTitle:@"Edit" forState:UIControlStateNormal];
+            self.isCompetetorEdited = FALSE;
+            
+            
+            // cell.addButton.enabled = TRUE;
+        }
+        [super setEditing:editing animated:YES];
+    }
+    [self.tableView reloadData];
+}
+
+
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	switch (indexPath.section) {
+	/*switch (indexPath.section) {
         case PRPTableSectionSpokeWith:
 			if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
 				PersonSpokeWith *person = [PersonSpokeWith createEntity];
@@ -584,6 +774,7 @@ enum PRPTableStatsTags {
 				[self.tableView reloadData];
 			}
 			break;
+     
 		case PRPTableSectionCompetitor:
 			if (indexPath.row == self.detailItem.competitors.allObjects.count) {
 				Competitor *competitor = [Competitor createEntity];
@@ -592,6 +783,7 @@ enum PRPTableStatsTags {
 				[self.tableView reloadData];
 			}
 			break;
+     
 		case PRPTableSectionBarriersToBusiness:
 			if (indexPath.row == self.detailItem.barriersToBusiness.allObjects.count) {
 				BarrierToBusiness *barrier = [BarrierToBusiness createEntity];
@@ -603,7 +795,7 @@ enum PRPTableStatsTags {
         default:
             break;
     }
-	[self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+	[self.tableView deselectRowAtIndexPath:indexPath animated:NO];*/
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -650,6 +842,33 @@ enum PRPTableStatsTags {
 	return YES;
 }
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        
+        if(indexPath.section == PRPTableSectionCompetitor && indexPath.row < _detailItem.competitors.allObjects.count)
+        {
+            NSArray* arr = _detailItem.competitors.allObjects;
+            
+            Competitor* cToDel = [arr objectAtIndex:indexPath.row];
+            
+            
+            [cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
+            [[NSManagedObjectContext defaultContext] save];
+            //  UITableViewCellEditingStyleNone
+            // [self.tableView set]
+            [self.tableView reloadData];
+            
+        }
+        
+        
+    }   
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
 #pragma mark -
 #pragma mark UITextFieldDelegate
 
@@ -698,9 +917,15 @@ enum PRPTableStatsTags {
 				case PRPTableSpokeWithEmail:
                 {
                     if([textField.text isValidEmail])
+                    {
                         person.email = textField.text;
+                        [self changeTextFieldOutline:textField:YES];
+                    }
                     else
+                    {
                         [self showAlert:VALID_EMAIL_ALERT];
+                        [self changeTextFieldOutline:textField:NO];
+                    }
                     
                 }
 				default:
@@ -934,7 +1159,8 @@ enum PRPTableStatsTags {
 			break;
 	}
 	[self.managedObjectContext save];
-	[self.tableView reloadData];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+	//[self.tableView reloadData];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -1021,7 +1247,8 @@ enum PRPTableStatsTags {
 			break;
 	}
 	[[NSManagedObjectContext defaultContext] save];
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:controller.currentIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)nextField:(NSInteger)currentTag

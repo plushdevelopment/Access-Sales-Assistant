@@ -32,6 +32,8 @@
 @property (nonatomic, strong) UIPopoverController *aPopoverController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) IBOutlet SmartTableView *tableView;
+@property (nonatomic) BOOL isCompetetorEdited;
+//@property ()
 
 - (void)configureView;
 - (IBAction)showPickerView:(id)sender;

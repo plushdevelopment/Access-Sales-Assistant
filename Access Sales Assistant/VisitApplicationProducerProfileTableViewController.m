@@ -219,6 +219,8 @@
             [[NSBundle mainBundle] loadNibNamed:@"ProducerGeneralTableViewCell" owner:self options:nil];
             ProducerGeneralTableViewCell* cell = _generalTableViewCell;//[ProducerGeneralTableViewCell cellForTableView:tableView fromNib:[ProducerGeneralTableViewCell nib]];
                 cell.producerCodeTextField.text = self.detailItem.producerCode;
+            
+            [self disableTextField:cell.producerCodeTextField :NO];
                 cell.producerNameTextField.text = self.detailItem.name;
             cell.numberOfEmployeesTextField.text = [[NSString alloc]initWithFormat:@"%@",_detailItem.numberOfEmployees];
             cell.accessSignTextField.text = _detailItem.hasAccessSignValue?@"Yes":@"No";
@@ -305,7 +307,7 @@
                 AddRowTableViewCell* cell = [AddRowTableViewCell cellForTableView:tableView fromNib:[AddRowTableViewCell nib]];
                 cell.addRowType.text = @"Add Person";
                 
-              //  cell.addButton = (UIButton*)[self editButtonItem];
+             
                 UIButton *button = cell.addButton;
                 button.tag = 1001;
                 
@@ -1628,6 +1630,7 @@
                 case EContactSSN:
                     cnt.ssn = textField.text;
                     break;
+                
             }
             break;
         }
