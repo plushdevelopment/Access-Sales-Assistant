@@ -121,6 +121,12 @@ enum PRPTableStatsTags {
 
 @synthesize isCompetetorEdited = _isCompetetorEdited;
 
+@synthesize isPersonEdited = _isPersonEdited;
+
+@synthesize isBarrierEdited = _isBarrierEdited;
+
+@synthesize submitButton = _submitButton;
+
 #pragma mark -
 #pragma mark IBActions
 
@@ -296,7 +302,11 @@ enum PRPTableStatsTags {
 }
 
 
-
+-(void) toggleSubmitButton:(BOOL) isEnable
+{
+    
+    [_submitButton setEnabled:isEnable];
+}
 #pragma mark -
 #pragma mark Memory Management
 
@@ -315,6 +325,7 @@ enum PRPTableStatsTags {
     [super viewDidLoad];
 	
 	self.tableView.allowsSelection = NO;
+    [self toggleSubmitButton:NO];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 	
@@ -479,24 +490,21 @@ enum PRPTableStatsTags {
                 
                 [button addTarget:self action:@selector(AddPerson:) forControlEvents:UIControlEventTouchUpInside];
                 
-                UIButton *remBtn = customCell.editButton;
+             //   UIButton *remBtn = customCell.editButton;
                 
-                remBtn.hidden = TRUE;
-                customCell.delRowType.hidden = TRUE;
+             //   remBtn.hidden = TRUE;
+             //   customCell.delRowType.hidden = TRUE;
                 
-                /*    [button setEnabled:_isCompetetorEdited?FALSE:TRUE];
+                    [button setEnabled:_isPersonEdited?FALSE:TRUE];
                  
-                 customCell.delRowType.text = @"Delete Competitors";
+                 customCell.delRowType.text = @"Delete Person";
                  UIButton *remBtn = customCell.editButton;
-                 [remBtn setTitle:_isCompetetorEdited?@"Done":@"Edit" forState:UIControlStateNormal];
-                 [remBtn setEnabled:_isCompetetorEdited?TRUE:((indexPath.row>0)?TRUE:FALSE)];
-                 remBtn.tag = 1002;
+                 [remBtn setTitle:_isPersonEdited?@"Done":@"Edit" forState:UIControlStateNormal];
+                 [remBtn setEnabled:_isPersonEdited?TRUE:((indexPath.row>0)?TRUE:FALSE)];
+                 remBtn.tag = 1004;
                  
-                 [remBtn addTarget:self action:@selector(AddCompetitor:) forControlEvents:UIControlEventTouchUpInside];
-                 */
-
-
-				
+                 [remBtn addTarget:self action:@selector(AddPerson:) forControlEvents:UIControlEventTouchUpInside];
+                
 				cell = customCell;
 			} else {
 				SummarySpokeWithTableViewCell *customCell = [SummarySpokeWithTableViewCell cellForTableView:tableView fromNib:self.summarySpokeWithTableViewCellNib];
@@ -537,21 +545,18 @@ enum PRPTableStatsTags {
                 
                 [button addTarget:self action:@selector(AddCompetitor:) forControlEvents:UIControlEventTouchUpInside];
                 
-                  UIButton *remBtn = customCell.editButton;
+           
                 
-                remBtn.hidden = TRUE;
-                customCell.delRowType.hidden = TRUE;
+                [button setEnabled:_isCompetetorEdited?FALSE:TRUE];
                 
-            /*    [button setEnabled:_isCompetetorEdited?FALSE:TRUE];
-                
-                customCell.delRowType.text = @"Delete Competitors";
+                customCell.delRowType.text = @"Delete Competitor";
                 UIButton *remBtn = customCell.editButton;
                [remBtn setTitle:_isCompetetorEdited?@"Done":@"Edit" forState:UIControlStateNormal];
                 [remBtn setEnabled:_isCompetetorEdited?TRUE:((indexPath.row>0)?TRUE:FALSE)];
                 remBtn.tag = 1002;
                 
                 [remBtn addTarget:self action:@selector(AddCompetitor:) forControlEvents:UIControlEventTouchUpInside];
-             */
+             
                 cell = customCell;
 
 			} else {
@@ -593,10 +598,22 @@ enum PRPTableStatsTags {
                 
                 [button addTarget:self action:@selector(AddBarrier:) forControlEvents:UIControlEventTouchUpInside];
                 
-                UIButton *remBtn = customCell.editButton;
+              //  UIButton *remBtn = customCell.editButton;
                 
-                remBtn.hidden = TRUE;
-                customCell.delRowType.hidden = TRUE;
+              //  remBtn.hidden = TRUE;
+              //  customCell.delRowType.hidden = TRUE;
+                
+                
+                [button setEnabled:_isBarrierEdited?FALSE:TRUE];
+                
+                customCell.delRowType.text = @"Delete Barrier";
+                UIButton *remBtn = customCell.editButton;
+                [remBtn setTitle:_isBarrierEdited?@"Done":@"Edit" forState:UIControlStateNormal];
+                [remBtn setEnabled:_isBarrierEdited?TRUE:((indexPath.row>0)?TRUE:FALSE)];
+                remBtn.tag = 1006;
+                
+                [remBtn addTarget:self action:@selector(AddBarrier:) forControlEvents:UIControlEventTouchUpInside];
+
 
 				
 				cell = customCell;
@@ -678,7 +695,9 @@ enum PRPTableStatsTags {
             
             // cell.addButton.enabled = TRUE;
         }
-        [super setEditing:editing animated:YES];
+        //[super setEditing:editing animated:YES];
+        currentSection = PRPTableSectionCompetitor;
+        [self setEditing:editing animated:YES];
     }
     [self.tableView reloadData];
 }
@@ -703,7 +722,7 @@ enum PRPTableStatsTags {
         if(editing)
         {
             [btn setTitle:@"Done" forState:UIControlStateNormal];
-            self.isCompetetorEdited = TRUE;
+            self.isPersonEdited = TRUE;
             
             
             //   cell.addButton.enabled = FALSE;
@@ -712,12 +731,14 @@ enum PRPTableStatsTags {
         else
         {
             [btn setTitle:@"Edit" forState:UIControlStateNormal];
-            self.isCompetetorEdited = FALSE;
+            self.isPersonEdited = FALSE;
             
             
             // cell.addButton.enabled = TRUE;
         }
-        [super setEditing:editing animated:YES];
+      //  [super setEditing:editing animated:YES];
+         currentSection = PRPTableSectionSpokeWith;
+        [self setEditing:editing animated:YES];
     }
     [self.tableView reloadData];
 }
@@ -740,7 +761,7 @@ enum PRPTableStatsTags {
         if(editing)
         {
             [btn setTitle:@"Done" forState:UIControlStateNormal];
-            self.isCompetetorEdited = TRUE;
+            self.isBarrierEdited = TRUE;
             
             
             //   cell.addButton.enabled = FALSE;
@@ -749,12 +770,14 @@ enum PRPTableStatsTags {
         else
         {
             [btn setTitle:@"Edit" forState:UIControlStateNormal];
-            self.isCompetetorEdited = FALSE;
+            self.isBarrierEdited = FALSE;
             
             
             // cell.addButton.enabled = TRUE;
         }
-        [super setEditing:editing animated:YES];
+         currentSection = PRPTableSectionBarriersToBusiness;
+        //[super setEditing:editing animated:YES];
+         [self setEditing:editing animated:YES];
     }
     [self.tableView reloadData];
 }
@@ -831,7 +854,7 @@ enum PRPTableStatsTags {
     }
     return height;
 }
-
+/*
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return YES;
@@ -840,12 +863,46 @@ enum PRPTableStatsTags {
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	return YES;
-}
+}*/
 
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch(currentSection)
+    {
+        case PRPTableSectionSpokeWith:
+        {
+            if(indexPath.section == PRPTableSectionSpokeWith && indexPath.row < _detailItem.personsSpokeWith.allObjects.count)
+                return YES;
+            else
+                return  NO;
+        }
+        case PRPTableSectionCompetitor:
+        {
+            if(indexPath.section == PRPTableSectionCompetitor && indexPath.row < _detailItem.competitors.allObjects.count)
+                return YES;
+            else
+                return  NO;
+        }
+        case PRPTableSectionBarriersToBusiness:
+        {
+            if(indexPath.section == PRPTableSectionBarriersToBusiness && indexPath.row < _detailItem.barriersToBusiness.allObjects.count)
+                return YES;
+            else
+                return  NO;
+        }
+        default:
+            return NO;
+            
+    }
+}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        if(currentSection == PRPTableSectionCompetitor)
+        {
         // Delete the row from the data source
         
         if(indexPath.section == PRPTableSectionCompetitor && indexPath.row < _detailItem.competitors.allObjects.count)
@@ -862,12 +919,43 @@ enum PRPTableStatsTags {
             [self.tableView reloadData];
             
         }
+        }
+        else if(currentSection == PRPTableSectionSpokeWith)
+        {
+            NSArray *arr = _detailItem.personsSpokeWith.allObjects;
+            
+            PersonSpokeWith *pToDel = [arr objectAtIndex:indexPath.row];
+            
+            [pToDel deleteInContext:[NSManagedObjectContext defaultContext]];
+            [[NSManagedObjectContext defaultContext] save];
+            //  UITableViewCellEditingStyleNone
+            // [self.tableView set]
+            [self.tableView reloadData];
+            
+        }
+        else if(currentSection == PRPTableSectionBarriersToBusiness)
+        {
+            NSArray *arr = _detailItem.barriersToBusiness.allObjects;
+            BarrierToBusiness* bToDel = [arr objectAtIndex:indexPath.row];
+            
+            [bToDel deleteInContext:[NSManagedObjectContext defaultContext]];
+            [[NSManagedObjectContext defaultContext] save];
+            //  UITableViewCellEditingStyleNone
+            // [self.tableView set]
+            [self.tableView reloadData];
+            
+        }
         
         
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:YES];
 }
 #pragma mark -
 #pragma mark UITextFieldDelegate
@@ -884,8 +972,8 @@ enum PRPTableStatsTags {
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if([textField.text length]<=0)
-        return;
+  //  if([textField.text length]<=0)
+   //     return;
 	DailySummary *summary = self.detailItem;
 	if (!summary.editedValue) {
 		summary.editedValue = YES;
@@ -983,6 +1071,8 @@ enum PRPTableStatsTags {
             break;
     }
 	[self.managedObjectContext save];
+    
+    [self toggleSubmitButton:YES];
 
 }
 
@@ -1160,6 +1250,7 @@ enum PRPTableStatsTags {
 	}
 	[self.managedObjectContext save];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    [self toggleSubmitButton:YES];
 	//[self.tableView reloadData];
 }
 

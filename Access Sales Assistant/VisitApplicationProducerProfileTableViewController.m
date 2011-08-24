@@ -372,7 +372,8 @@
             
            // cell.addButton.enabled = TRUE;
         }
-        [super setEditing:editing animated:YES];
+       // [super setEditing:editing animated:YES];
+        [self setEditing:editing animated:YES];
     }
     [self.tableView reloadData];
 }
@@ -591,8 +592,21 @@
         return  NO;
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:YES];
+}
+/*
+-(void)tableView:(UITableView*)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
-
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return UITableViewCellEditingStyleDelete;
+}
+*/
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -1444,8 +1458,8 @@
 
 -(void) saveTextFieldToContext:(UITextField*) textField
 {
-    if([textField.text length]<=0)
-        return;
+    //if([textField.text length]<=0)
+      //  return;
    
     
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
@@ -1644,8 +1658,8 @@
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
 {
-    if([textField.text length]<=0)
-        return;
+ //   if([textField.text length]<=0)
+ //       return;
     
     EmailListItem *newMail=nil;
     for (EmailListItem *email in _detailItem.emails)
