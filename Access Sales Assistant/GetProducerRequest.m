@@ -50,8 +50,7 @@
 														  value:[dict valueForKey:@"uid"] 
 										   managedObjectContext:self.context];
 			if (!producer.editedValue) {
-				[producer safeSetValuesForKeysWithDictionary:dict
-											   dateFormatter:formatter managedObjectContext:self.context];
+				[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter managedObjectContext:self.context];
 				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 				[dateFormatter setDateFormat:@"EEEE, MM-dd-yyyy"];
 				producer.nextScheduledVisitDate = [dateFormatter stringFromDate:[producer nextScheduledVisit]];
