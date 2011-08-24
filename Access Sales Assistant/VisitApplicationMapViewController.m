@@ -15,6 +15,8 @@
 #import "VisitApplicationViewController.h"
 #import "ProducerDetailViewController.h"
 #import "HTTPOperationController.h"
+#import "VisitTableViewCell.h"
+#import "UITableView+PRPSubviewAdditions.h"
 
 @implementation VisitApplicationMapViewController
 @synthesize toolBar = _toolBar;
@@ -32,6 +34,15 @@
 @synthesize polylineView=_polylineView;
 @synthesize popoverController=popoverController;
 @synthesize tabBarController = _tabBarController;
+@synthesize visitTableViewCellNib=_visitTableViewCellNib;
+
+- (UINib *)visitTableViewCellNib
+{
+	if (_visitTableViewCellNib == nil) {
+		self.visitTableViewCellNib = [VisitTableViewCell nib];
+	}
+	return _visitTableViewCellNib;
+}
 
 - (void)setSelectedDay:(NSString *)selectedDay
 {
@@ -84,6 +95,17 @@
 	[_directionsMapView setCenterCoordinate:[_directionsMapView.userLocation coordinate] animated:YES];
 }
 
+- (void)selectVisit:(id)sender
+{
+	NSIndexPath *indexPath = [self.producersTableView prp_indexPathForRowContainingView:sender];
+	Producer *producer = [self.producers objectAtIndex:indexPath.row];
+	for (id <MKAnnotation> annotation in self.directionsMapView.annotations) {
+		if ([annotation isKindOfClass:[UICRouteAnnotation class]] && [annotation.title isEqualToString:producer.producerCode]) {
+			[self.directionsMapView selectAnnotation:annotation animated:YES];
+		}
+	}
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -115,15 +137,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	//[self configureView];
-	NSMutableArray *array = [self.directionsMapView.annotations mutableCopy];
-	for (id<MKAnnotation> annotation in self.directionsMapView.annotations) {
-		Producer *producer = [Producer findFirstByAttribute:@"producerCode" withValue:annotation.title];
-		if (producer.submittedValue) {
-			
-			//pinAnnotation.image = [UIImage imageNamed:@"grey_square_pin.png"];
-		}
-	}
+	[self configureView];
 }
 
 - (void)viewDidUnload
@@ -158,22 +172,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
+    VisitTableViewCell *customCell = [VisitTableViewCell cellForTableView:tableView fromNib:self.visitTableViewCellNib];
 	Producer *producer = [self.producers objectAtIndex:indexPath.row];
-	cell.textLabel.text = producer.name;
-	cell.detailTextLabel.text = producer.nextScheduledVisitTime;
-    
+	customCell.producerNameLabel.text = producer.name;
+	customCell.visitNumberLabel.text = [NSString stringWithFormat:@"%d", (indexPath.row + 1)];
 	if (producer.submittedValue) {
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		customCell.iconImageView.image = [UIImage imageNamed:@"grey_square_pin.png"];
 	} else {
-		cell.accessoryType = UITableViewCellAccessoryNone;
+		customCell.iconImageView.image = [UIImage imageNamed:@"red_square_pin.png"];
 	}
-    return cell;
+	[customCell.iconButton addTarget:self action:@selector(selectVisit:) forControlEvents:UIControlEventTouchUpInside];
+    return customCell;
 }
 
 #pragma mark - 

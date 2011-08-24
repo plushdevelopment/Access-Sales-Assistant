@@ -33,8 +33,10 @@
 @property (nonatomic, strong) MKPolylineView *polylineView;
 @property (nonatomic, strong) UIPopoverController *popoverController;
 @property (strong, nonatomic) IBOutlet VisitApplicationTabBarController *tabBarController;
+@property (strong, nonatomic) UINib *visitTableViewCellNib;
 
 - (void)configureView;
 - (void)update;
+- (void)selectVisit:(id)sender;
 
 @end
