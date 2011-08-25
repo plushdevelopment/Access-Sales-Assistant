@@ -17,6 +17,7 @@
 
 @interface VisitApplicationSummaryTableViewController : BaseDetailViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDelegate, UITableViewDataSource> {
 	SmartTableView *_tableView;
+    NSInteger currentSection;
 }
 
 
@@ -33,6 +34,11 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) IBOutlet SmartTableView *tableView;
 @property (nonatomic) BOOL isCompetetorEdited;
+@property (nonatomic) BOOL isPersonEdited;
+@property (nonatomic) BOOL isBarrierEdited;
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *dismissButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *submitButton;
 //@property ()
 
 - (void)configureView;
@@ -40,5 +46,7 @@
 - (IBAction)showDatePickerView:(id)sender;
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;
+
+-(void) toggleSubmitButton:(BOOL)isEnable;
 
 @end
