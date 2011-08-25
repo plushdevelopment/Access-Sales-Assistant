@@ -35,6 +35,7 @@
 #import "HTTPOperationController.h"
 #import "NSString-Validation.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ContactType.h"
 
 @implementation VisitApplicationProducerProfileTableViewController
 
@@ -483,6 +484,7 @@
     contactCell.firstNameTextField.text = tContact.firstName;
     contactCell.lastNameTextField.text = tContact.lastName;
     contactCell.socialSecurityNumberTextField.text = tContact.ssn;
+	contactCell.titleTextField.text = tContact.type.name;
     
     return contactCell;
 }
@@ -883,7 +885,7 @@
             {
                 case EContactTitle:
                 {
-                    rows = 0;
+                    rows = [[ContactType findAll] count];
                     break;
                 }
             }
@@ -1175,7 +1177,12 @@
         {
             switch(self.pickerViewController.currentTag)
             {
-                case EContactTitle:
+                case EContactTitle: {
+					
+					Contact *contact = [self.detailItem.contacts.allObjects objectAtIndex:self.pickerViewController.currentIndexPath.row];
+					contact.type = [ContactType findFirstByAttribute:@"name" withValue:titleForRow];
+					NSLog(@"%@", contact.type.name);
+				}
                     break;
             }       
             break;
@@ -1339,6 +1346,7 @@
             switch(self.pickerViewController.currentTag)
             {
                 case EContactTitle:
+					theTitle = [[[ContactType findAll] objectAtIndex:row] name];
                     break;
             }
             break;
