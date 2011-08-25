@@ -1406,6 +1406,103 @@
 		producer.editedValue = YES;
 		[[NSManagedObjectContext defaultContext] save];
 	}
+	
+    NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
+	NSInteger tag = textField.tag;
+    
+    switch(indexPath.section)
+    {
+        case ECompanyContactInfo:
+        {
+            switch(tag)
+            {
+                case EPhone1: //3
+                {
+					if([textField.text isValidPhoneNumber])
+					{
+						[self changeTextFieldOutline:textField:YES];
+					}
+					else
+					{
+						[self changeTextFieldOutline:textField:NO];
+					}
+                }
+                    break;
+                case EFax://4
+                {
+					
+                }
+					break;
+                case EMainEmail: //3
+                {
+					if([textField.text isValidEmail])
+					{
+						[self changeTextFieldOutline:textField:YES];
+					}
+					else
+					{
+						[self changeTextFieldOutline:textField:NO];
+					}
+                }
+                    break;
+                case EClaimsEmail: //5
+                {
+                    if([textField.text isValidEmail])
+					{
+						[self changeTextFieldOutline:textField:YES];
+					}
+					else
+					{
+						[self changeTextFieldOutline:textField:NO];
+					}
+                }
+                    
+                    break;
+                case EAccountingEmail: //2
+                {  
+                    if([textField.text isValidEmail])
+					{
+						[self changeTextFieldOutline:textField:YES];
+					}
+					else
+					{
+						[self changeTextFieldOutline:textField:NO];
+					}
+                }
+                    
+                    break;
+                case ECustomerServiceEmail: //4
+                {  
+                    if([textField.text isValidEmail])
+					{
+						[self changeTextFieldOutline:textField:YES];
+					}
+					else
+					{
+						[self changeTextFieldOutline:textField:NO];
+					}
+                }
+                    
+                    break;
+                case EWebsiteAddress:
+                {
+                    if([textField.text isValidWebSite])
+                    {
+                        self.detailItem.webAddress = textField.text;
+                        [self changeTextFieldOutline:textField:YES];
+                    }
+                    else
+                    {
+                        [self changeTextFieldOutline:textField:NO];
+                    }
+                }
+                    break;
+            }
+            
+            break;
+        }
+    }
+	
 	return YES;
 }
 

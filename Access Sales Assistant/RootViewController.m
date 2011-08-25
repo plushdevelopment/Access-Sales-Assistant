@@ -54,7 +54,7 @@
 
 #import "ProspectApplicationTableViewController.h"
 
-#define SECTION_HEADER_HEIGHT       56
+#define SECTION_HEADER_HEIGHT       44
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
 #define CONTACT_OPTIONS             @"Email SSC",@"Email Customer Service",@"Email NSF",@"Email Product",@"Email QA Form",@"Email Facilities",@"QA Resolution Timetable",@"Email help desk",nil
 #define SECTION_TITLES              @"Visit Application",@"Appointment Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",nil
@@ -134,6 +134,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+	self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
        
     // Set up default values.
     self.tableView.sectionHeaderHeight = SECTION_HEADER_HEIGHT;
@@ -643,7 +644,7 @@
 			
             self.detailViewController = detailViewController;
             
-            self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
+            //self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
 
         }
             break;
@@ -691,7 +692,7 @@
             detailViewController.titleLabel.text = @"CONTACTS";
 			
             self.detailViewController = detailViewController;
-           self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
+			//self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
 
             break;
         }
@@ -778,7 +779,7 @@
     }
 	self.openSectionIndex = NSNotFound;
     
-     self.contentSizeForViewInPopover = CGSizeMake(320.0, 600);
+	//self.contentSizeForViewInPopover = CGSizeMake(320.0, 600);
     
 }
 

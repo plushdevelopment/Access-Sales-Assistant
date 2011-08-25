@@ -304,6 +304,9 @@
 		FFA1A35E13AFB54E00434B93 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA1A35B13AFB54E00434B93 /* MobileCoreServices.framework */; };
 		FFA1A35F13AFB54E00434B93 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA1A35C13AFB54E00434B93 /* SystemConfiguration.framework */; };
 		FFA1A36113AFB55E00434B93 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA1A36013AFB55E00434B93 /* libz.1.2.5.dylib */; };
+		FFA9F1BE14056D9400817BA6 /* CLLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA9F1B914056D9400817BA6 /* CLLocationController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFA9F1BF14056D9400817BA6 /* VisitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA9F1BC14056D9400817BA6 /* VisitTableViewCell.m */; };
+		FFA9F1C014056D9400817BA6 /* VisitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA9F1BD14056D9400817BA6 /* VisitTableViewCell.xib */; };
 		FFB4C56213F0258500ADBBB1 /* VideosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4C56013F0258500ADBBB1 /* VideosTableViewController.m */; };
 		FFB4C56313F0258500ADBBB1 /* VideosTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB4C56113F0258500ADBBB1 /* VideosTableViewController.xib */; };
 		FFB4C56713F026AB00ADBBB1 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4C56513F026AA00ADBBB1 /* VideoViewController.m */; };
@@ -905,6 +908,11 @@
 		FFA1A35B13AFB54E00434B93 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		FFA1A35C13AFB54E00434B93 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FFA1A36013AFB55E00434B93 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		FFA9F1B914056D9400817BA6 /* CLLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLocationController.m; sourceTree = "<group>"; };
+		FFA9F1BA14056D9400817BA6 /* VisitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitTableViewCell.h; sourceTree = "<group>"; };
+		FFA9F1BB14056D9400817BA6 /* CLLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLocationController.h; sourceTree = "<group>"; };
+		FFA9F1BC14056D9400817BA6 /* VisitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitTableViewCell.m; sourceTree = "<group>"; };
+		FFA9F1BD14056D9400817BA6 /* VisitTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitTableViewCell.xib; sourceTree = "<group>"; };
 		FFB4C55F13F0258500ADBBB1 /* VideosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideosTableViewController.h; sourceTree = "<group>"; };
 		FFB4C56013F0258500ADBBB1 /* VideosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideosTableViewController.m; sourceTree = "<group>"; };
 		FFB4C56113F0258500ADBBB1 /* VideosTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideosTableViewController.xib; sourceTree = "<group>"; };
@@ -1376,6 +1384,7 @@
 			children = (
 				6DB6EBFA13FD647000EE1EA9 /* VisitApplicationTabBarController.m */,
 				6DB6EBFB13FD647000EE1EA9 /* VisitApplicationTabBarController.h */,
+				6DB6EBF713FD647000EE1EA9 /* VisitApplicationTabBarController.xib */,
 				6DDC3E1813FAAACE005F4DD7 /* grey_square_pin.png */,
 				6DDC3E1913FAAACE005F4DD7 /* ProducerAnnotationView.h */,
 				6DDC3E1A13FAAACE005F4DD7 /* ProducerAnnotationView.m */,
@@ -1414,6 +1423,8 @@
 		FF56A25113CC87CA00FF159A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FFA9F1BB14056D9400817BA6 /* CLLocationController.h */,
+				FFA9F1B914056D9400817BA6 /* CLLocationController.m */,
 				FF56A25313CC883B00FF159A /* HTTPOperationController.h */,
 				FF56A25413CC883B00FF159A /* HTTPOperationController.m */,
 			);
@@ -1563,6 +1574,9 @@
 		FF71F52813C63112005CE1DA /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				FFA9F1BA14056D9400817BA6 /* VisitTableViewCell.h */,
+				FFA9F1BC14056D9400817BA6 /* VisitTableViewCell.m */,
+				FFA9F1BD14056D9400817BA6 /* VisitTableViewCell.xib */,
 				6D7AABAE13FD932500F6B361 /* Prospect Application */,
 				FFB56A2113D05EC000B980EE /* PRPNibBasedTableViewCell.h */,
 				FFB56A2213D05EC000B980EE /* PRPNibBasedTableViewCell.m */,
@@ -1577,6 +1591,8 @@
 		FF77100213B23DE500E90F4B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6DB6EBF813FD647000EE1EA9 /* notes_box.png */,
+				6DB6EBF913FD647000EE1EA9 /* mapShadow.png */,
 				6D89C30713F18CD500C886BC /* AddIcon-plus.png */,
 				FF9379AC13D4A5FB007C95AC /* Icon-72.png */,
 				FF9379AD13D4A5FB007C95AC /* Icon-Small-50.png */,
@@ -1797,9 +1813,6 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				6DB6EBF713FD647000EE1EA9 /* VisitApplicationTabBarController.xib */,
-				6DB6EBF813FD647000EE1EA9 /* notes_box.png */,
-				6DB6EBF913FD647000EE1EA9 /* mapShadow.png */,
 				FFBE682213E844C400013066 /* View Classes */,
 				FF846CB813DD9A8A00D59F3E /* Requests */,
 				FF9ED82713D4F361006105C7 /* AQGridView Custom Cells */,
@@ -2572,6 +2585,7 @@
 				6D7AABB813FD96AF00F6B361 /* ProspectAppRaterTableViewCell.xib in Resources */,
 				6D7AABBA13FD96C900F6B361 /* ProspectAppContactTableViewCell.xib in Resources */,
 				6D38EFD21402E11600E4F682 /* VisitApplicationAUNTKViewController.xib in Resources */,
+				FFA9F1C014056D9400817BA6 /* VisitTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2807,6 +2821,8 @@
 				6D38EFCF1402E11600E4F682 /* PCLineChartView.m in Sources */,
 				6D38EFD01402E11600E4F682 /* PCPieChart.m in Sources */,
 				6D38EFD11402E11600E4F682 /* VisitApplicationAUNTKViewController.m in Sources */,
+				FFA9F1BE14056D9400817BA6 /* CLLocationController.m in Sources */,
+				FFA9F1BF14056D9400817BA6 /* VisitTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
