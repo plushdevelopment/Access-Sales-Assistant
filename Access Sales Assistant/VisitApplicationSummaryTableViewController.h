@@ -48,5 +48,6 @@
 - (IBAction)submit:(id)sender;
 
 -(void) toggleSubmitButton:(BOOL)isEnable;
+-(BOOL) isEnableSubmit;
 
 @end

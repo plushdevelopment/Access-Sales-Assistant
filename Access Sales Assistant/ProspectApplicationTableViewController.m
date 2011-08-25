@@ -191,6 +191,10 @@
             
               User *user = [User findFirst];
             cell.tsmNameField.text = [user username];
+            
+            [self disableTextField:cell.sourceField :NO];
+            
+            [self disableTextField:cell.tsmNameField :NO];
             return cell;
         }
             break;

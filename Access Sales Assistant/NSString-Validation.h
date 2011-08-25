@@ -14,5 +14,6 @@
 -(BOOL) isValidPhoneNumber;
 -(BOOL) isValidZipCode;
 -(BOOL) isValidWebSite;
+-(BOOL) isvalidSSN;
 
 @end

@@ -62,6 +62,7 @@
 -(void) modifyEmailItem:(UITextField*) textField:(NSInteger) emailType;
 -(void) modifyPhoneItem:(UITextField*) textField:(NSInteger) phoneType;
 -(void) toggleSubmitButton:(BOOL)isEnable;
+-(BOOL) isEnableSubmit;
 //-(void) changeTextFieldOutline:(UITextField*) textField:(BOOL) toOriginal;
 
 - (void)configureView;

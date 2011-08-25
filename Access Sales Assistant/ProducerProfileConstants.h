@@ -27,6 +27,17 @@
 #define VALID_ZIP_CODE_ALERT       @"Not a valid zip code"
 #define VALID_WEB_ADDRESS       @"Invalid Web Address"
 
+#define COMMISSION_ADDRESS 2
+#define MAILING_ADDRESS 1
+#define PHYSICAL_ADDRESS 3
+
+#define PHONE_1 3
+#define FAX 4
+#define MAIN_EMAIL 3
+#define CLAIMS_EMAIL 5
+#define ACCOUNTING_EMAIL 2
+#define CUSTOMER_SERVICE_EMAIL 4
+
 #pragma mark - enums
 enum producerProfileSectionIndex
 {
@@ -37,7 +48,8 @@ enum producerProfileSectionIndex
     ECompanyContactInfo,
     EHoursOfOperation,
     EAddresses,
-    EContacts
+    EContacts,
+    EAllSectionsCount
 };
 
 enum generalSectionTags

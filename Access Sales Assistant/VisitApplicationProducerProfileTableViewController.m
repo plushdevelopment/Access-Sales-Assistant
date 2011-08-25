@@ -93,6 +93,13 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.detailItem addObserver:self forKeyPath:@"edited" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    
 }
 
 - (void)viewDidUnload
@@ -140,7 +147,8 @@
 	if (self.detailItem) {
 		if ([self.detailItem valueForKey:@"editedValue"]) {
 			[[NSManagedObjectContext defaultContext] save];
-             [self toggleSubmitButton:YES];
+           //  [self toggleSubmitButton:YES];
+             [self toggleSubmitButton:[self isEnableSubmit]];
 		}
         else
             [self toggleSubmitButton:NO];
@@ -229,9 +237,11 @@
             cell.numberOfLocationsTextField.text = _detailItem.numberOfLocations.stringValue;
             
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            
             [dateFormatter setDateFormat:@"MM-dd-yyyy"];
             
             cell.eOExpiresTextField.text = [dateFormatter stringFromDate:_detailItem.eAndOExpires];
+             [self disableTextField:cell.eOExpiresTextField :NO];
             cell.dateEstablishedTextField.text = [dateFormatter stringFromDate:_detailItem.dateEstablished];
             return cell;
         }
@@ -538,11 +548,15 @@
 
     Status * tStatus = _detailItem.status;
     statusCell.statusTextField.text = tStatus.name;
+    [self disableTextField:statusCell.statusTextField :NO];
     statusCell.appointedDateTextField.text = [dateFormatter stringFromDate:_detailItem.appointedDate];
+    [self disableTextField:statusCell.appointedDateTextField :NO];
     BOOL b = _detailItem.isEligibleValue;
     statusCell.eligibleTextField.text = _detailItem.isEligibleValue?@"YES":@"NO";
     statusCell.statusDateTextField.text = [dateFormatter stringFromDate:_detailItem.statusDate];
+    [self disableTextField:statusCell.statusDateTextField :NO];
     statusCell.suspensionReasonTextField.text = _detailItem.suspensionReason.name;
+    [self disableTextField:statusCell.suspensionReasonTextField :NO];
     
     //if(_detailItem.isEligible)
     {
@@ -1193,7 +1207,8 @@
     [[NSManagedObjectContext defaultContext]save];
 	//[self.tableView reloadData];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-    [self toggleSubmitButton:YES];
+   // [self toggleSubmitButton:YES];
+     [self toggleSubmitButton:[self isEnableSubmit]];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -1410,7 +1425,7 @@
             break;
         
     }
-    
+    self.detailItem.edited = [NSNumber numberWithBool:YES];
     [[NSManagedObjectContext defaultContext] save];
      [self toggleSubmitButton:YES];
 //	[self.tableView reloadData];
@@ -1521,6 +1536,23 @@
                     break;
             }
             
+            break;
+        }
+        case EContacts:
+        {
+            switch(tag)
+            {
+                case EContactSSN:
+                {
+                    if([textField.text isvalidSSN])
+                    {
+                        [self changeTextFieldOutline:textField :YES];
+                    }
+                    else
+                        [self changeTextFieldOutline:textField :NO];
+                }
+                    break;
+            }
             break;
         }
     }
@@ -1758,7 +1790,9 @@
     if ([self.detailItem valueForKey:@"editedValue"]) {
     [[NSManagedObjectContext defaultContext] save];
   
-        [self toggleSubmitButton:YES];
+        [self toggleSubmitButton:[self isEnableSubmit]];
+        
+        
     }
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
@@ -1848,6 +1882,143 @@
         }
     }
 
+}
+//Verify producer data and toggle submit button
+-(BOOL) isEnableSubmit
+{
+    if(!_detailItem.editedValue)
+        return FALSE;
+    
+    for(int section = 0 ;section<EAllSectionsCount;section++)
+    {
+        switch(section)
+        {
+            case EGeneral:
+            {
+                if(_detailItem.producerCode  == nil || 
+                   _detailItem.name == nil ||
+                   _detailItem.subTerritory == nil ||
+                   _detailItem.numberOfLocations == nil ||
+                   _detailItem.numberOfEmployees == nil ||
+                   _detailItem.eAndOExpires == nil ||
+                   _detailItem.dateEstablished == nil
+                   )
+                    return FALSE;
+            }
+                break;
+            case EQuestions:
+            {
+                if(_detailItem.questions == nil || [_detailItem.questions.allObjects count]<=0)
+                    return FALSE;
+            }
+                break;
+            case EStatus:
+            {
+                if(_detailItem.appointedDate == nil||
+                   _detailItem.status == nil ||
+                   _detailItem.statusDate == nil ||
+                   _detailItem.suspensionReason == nil ||
+                   _detailItem.isEligible == nil)
+                    return FALSE;
+            }
+                break;
+            case ERater:
+            {
+                if(_detailItem.rater == nil)
+                    return FALSE;
+            
+            }
+                break;
+            case ECompanyContactInfo:
+            {
+                
+                if([_detailItem.phoneNumbers.allObjects count]<=0 || [_detailItem.emails.allObjects count]<=0)
+                    return FALSE;
+                BOOL isPhoneNoFound = FALSE,isEmailFound = FALSE,isFaxFound = FALSE;
+                
+
+                
+                for(PhoneListItem *pItem in _detailItem.phoneNumbers.allObjects)
+                {
+                    if(pItem.typeValue == PHONE_1)
+                    {
+                        if([pItem.number length]>0)
+                            isPhoneNoFound = TRUE;
+                    }
+                    
+                    if(pItem.typeValue == FAX)
+                    {
+                        if([pItem.number length] >0)
+                            isFaxFound = TRUE;
+                    }
+                    
+                }
+                for(EmailListItem *eItem in _detailItem.emails.allObjects)
+                {
+                    if(eItem.typeValue == MAIN_EMAIL)
+                    {
+                        if([eItem.address length]>0)
+                            isEmailFound = TRUE;
+                    }
+                }
+                if(!isPhoneNoFound || !isEmailFound || !isFaxFound) 
+                    return FALSE;
+            }
+                break;
+            case EHoursOfOperation:
+            {
+                if(_detailItem.hoursOfOperation.mondayOpenTime== nil ||
+                   _detailItem.hoursOfOperation.mondayCloseTime == nil||
+                   _detailItem.hoursOfOperation.tuesdayOpenTime== nil ||
+                   _detailItem.hoursOfOperation.tuesdayCloseTime == nil||
+                   _detailItem.hoursOfOperation.wednesdayOpenTime== nil ||
+                   _detailItem.hoursOfOperation.wednesdayCloseTime == nil||
+                   _detailItem.hoursOfOperation.thursdayOpenTime== nil ||
+                   _detailItem.hoursOfOperation.thursdayCloseTime == nil||
+                   _detailItem.hoursOfOperation.fridayOpenTime== nil ||
+                   _detailItem.hoursOfOperation.fridayCloseTime == nil||
+                   _detailItem.hoursOfOperation.saturdayOpenTime== nil ||
+                   _detailItem.hoursOfOperation.saturdayCloseTime == nil||
+                   _detailItem.hoursOfOperation.sundayOpenTime== nil ||
+                   _detailItem.hoursOfOperation.sundayCloseTime == nil)
+                    return FALSE;
+            }
+                break;
+            case EAddresses:
+            {
+                if([_detailItem.addresses.allObjects count]<=0)
+                    return FALSE;
+                
+                for(AddressListItem *addrItem in _detailItem.addresses.allObjects)
+                {
+                    if([addrItem.addressLine1 length]<=0||
+                       [addrItem.addressLine2 length]<=0||
+                       addrItem.state == nil ||
+                       [addrItem.postalCode length]<=0)
+                        return FALSE;
+                }
+            }
+                break;
+            case EContacts:
+            {
+                if([_detailItem.contacts.allObjects count]<=0)
+                    return FALSE;
+                
+                for(Contact *cItem in _detailItem.contacts.allObjects)
+                {
+                    if(cItem.firstName == nil||
+                       cItem.lastName == nil||
+                       cItem.type == nil||
+                       cItem.ssn == nil
+                       )
+                        return FALSE;
+                }
+            }
+                break;
+        }
+    }
+    
+    return TRUE;
 }
 /*
 -(void) changeTextFieldOutline:(UITextField *)textField:(BOOL) toOriginal

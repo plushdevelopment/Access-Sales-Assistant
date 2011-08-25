@@ -49,6 +49,17 @@
     return [zipCodeTest evaluateWithObject:self];
     
 }
+-(BOOL) isvalidSSN
+{
+    if([self length]<=0)
+        return YES;
+    NSString *ssnEx =@"/^([0-6]\\d{2}|7[0-6]\\d|77[0-2])([ \\-]?)(\\d{2})\\2(\\d{4})$/";
+    
+    // [self stringByMatching:phoneNoRegEx];
+    NSPredicate *zipCodeTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", ssnEx]; 
+    
+    return [zipCodeTest evaluateWithObject:self];
+}
 -(BOOL) isValidWebSite
 {
     
