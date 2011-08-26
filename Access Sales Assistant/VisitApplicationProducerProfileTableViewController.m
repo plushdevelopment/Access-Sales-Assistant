@@ -2006,10 +2006,10 @@
                 
                 for(Contact *cItem in _detailItem.contacts.allObjects)
                 {
-                    if(cItem.firstName == nil||
-                       cItem.lastName == nil||
+                    if([cItem.firstName length]<=0||
+                       [cItem.lastName length]<=0||
                        cItem.type == nil||
-                       cItem.ssn == nil
+                       [cItem.ssn length]<=0
                        )
                         return FALSE;
                 }

@@ -463,10 +463,12 @@ enum PRPTableStatsTags {
             SummaryGeneralTableViewCell *customCell = [SummaryGeneralTableViewCell cellForTableView:tableView fromNib:self.summaryGeneralTableViewCellNib];
 			
 			customCell.producerNameTextField.text = self.detailItem.producerId.name;
+            [self disableTextField:customCell.producerNameTextField :NO];
 			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 			[formatter setDateFormat:@"MM-dd-yyyy"];
 			customCell.reportDateTextField.text = [formatter stringFromDate:self.detailItem.reportDate];
 			customCell.callTypeTextField.text = self.detailItem.purposeOfCall.name;
+            [self disableTextField:customCell.callTypeTextField :NO];
 			
 			customCell.producerNameTextField.delegate = self;
 			customCell.reportDateTextField.delegate = self;
@@ -966,6 +968,41 @@ enum PRPTableStatsTags {
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    
+    NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
+	NSInteger tag = textField.tag;
+	
+	switch (indexPath.section) {
+        case PRPTableSectionGeneral:
+             break;
+        case PRPTableSectionSpokeWith: {
+		
+            switch (tag) {
+                case PRPTableSpokeWithEmail:
+                {
+                    if([textField.text isValidEmail])
+                    {
+                       
+                        [self changeTextFieldOutline:textField:YES];
+                    }
+                    else
+                    {
+                        [self changeTextFieldOutline:textField:NO];
+                    }
+                    
+                }
+				default:
+					break;
+			}
+		}
+			break;
+        default:
+            break;
+    }
+	[self.managedObjectContext save];
+    
+    [self toggleSubmitButton:[self isEnableSubmit]];
+
 		return YES;
 }
 
@@ -1211,7 +1248,8 @@ enum PRPTableStatsTags {
 		case PRPTableSectionCompetitor:
 			switch (self.pickerViewController.currentTag) {
 				case PRPTableCompetitorName: {
-					Competitor *competitor = [Competitor findFirstByAttribute:@"name" withValue:titleForRow];
+					Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:indexPath.row];//[Competitor findFirstByAttribute:@"name" withValue:titleForRow];
+                    competitor.name = titleForRow;//[Competitor findFirstByAttribute:@"name" withValue:<#(id)#>]
 					//[self.detailItem.competitorsSet.allObjects removeObjectAtIndex:indexPath.row];
 					
 				}
@@ -1229,7 +1267,8 @@ enum PRPTableStatsTags {
 			switch (self.pickerViewController.currentTag) {
 				case PRPTableBarrierName: {
 					// Change value in model object
-					BarrierToBusiness *barrier = [BarrierToBusiness findFirstByAttribute:@"name" withValue:titleForRow];
+					BarrierToBusiness *barrier = [self.detailItem.barriersToBusiness.allObjects objectAtIndex:indexPath.row];//[BarrierToBusiness findFirstByAttribute:@"name" withValue:titleForRow];
+                    barrier.name = titleForRow;
 					[self.detailItem addBarriersToBusinessObject:barrier];
 				}
 					break;
