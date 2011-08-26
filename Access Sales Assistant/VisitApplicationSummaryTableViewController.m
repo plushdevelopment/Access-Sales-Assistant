@@ -1427,7 +1427,7 @@ enum PRPTableStatsTags {
         {
             case PRPTableSectionGeneral:
             {
-                if(_detailItem.purposeOfCall == nil ||
+                if(/*_detailItem.purposeOfCall == nil ||*/
                    _detailItem.reportDate == nil)
                     return  FALSE;
             }

@@ -63,6 +63,7 @@
 -(void) modifyPhoneItem:(UITextField*) textField:(NSInteger) phoneType;
 -(void) toggleSubmitButton:(BOOL)isEnable;
 -(BOOL) isEnableSubmit;
+-(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem; 
 //-(void) changeTextFieldOutline:(UITextField*) textField:(BOOL) toOriginal;
 
 - (void)configureView;

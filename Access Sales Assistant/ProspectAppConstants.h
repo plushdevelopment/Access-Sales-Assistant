@@ -11,7 +11,7 @@
 
 #pragma mark - constants
 
-#define PROSPECT_APP_SECTIONS @"GENERAL",@"ADDRESSES",@"CONTACT INFO",@"RATER",@"CONTACTS",nil
+#define PROSPECT_APP_SECTIONS @"General",@"Addresses",@"Contact Info",@"Rater",@"Contacts",nil
 
 #define GENERAL_HEIGHT      125.0
 #define ADDRESS_HEIGHT      72.0

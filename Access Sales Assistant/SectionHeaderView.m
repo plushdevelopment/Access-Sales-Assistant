@@ -131,7 +131,7 @@
         }
                
         [disclosureButton addTarget:self action:@selector(toggleOpen:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:disclosureButton];
+      //  [self addSubview:disclosureButton];
          //self.backgroundColor = RGB(0,111,162);
         
     }
