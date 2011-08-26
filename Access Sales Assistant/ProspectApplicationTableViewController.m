@@ -96,7 +96,7 @@
     [self.detailItem addContactsObject:contact];
     
     
-    
+     [self toggleSubmitButton:[self isEnableSubmit]];
 }
 
 - (void)viewDidUnload
@@ -741,6 +741,72 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
 //	[self saveTextFieldToContext:textField];
+    
+    NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
+	NSInteger tag = textField.tag;
+    
+    switch(indexPath.section)
+    {
+        case EContactInfo:
+        {
+            
+            switch(tag)
+            {
+                case EContactInfoPhone:
+                {
+                    if([textField.text isValidPhoneNumber])
+                    {
+                      
+                        [self changeTextFieldOutline:textField:YES];
+                    }
+                    else
+                    {
+                       
+                        [self changeTextFieldOutline:textField:NO];
+                        //textField.text  = @"";
+                    }
+
+                    
+                }
+                    break;
+                case EContactInfoFax:
+                {
+                    if([textField.text isValidPhoneNumber])
+                    {
+                       
+                        [self changeTextFieldOutline:textField:YES];
+                    }
+                    else
+                    {
+                       
+                        [self changeTextFieldOutline:textField:NO];
+                        // textField.text  = @"";
+                    }
+                }
+                                      
+                    break;
+                case EContactInfoEmail:
+                    {
+                        
+                        if([textField.text isValidEmail])
+                        {
+                            
+                          
+                            [self changeTextFieldOutline:textField:YES];
+                        }
+                        else
+                        {
+                          
+                            [self changeTextFieldOutline:textField:NO];
+                            //   textField.text  = @"";
+                        }
+                    }
+                    break;
+                }
+            }
+
+    }
+
 	return YES;
 }
 
@@ -780,8 +846,8 @@
 
 -(void) saveTextFieldToContext:(UITextField*) textField
 {
-    if([textField.text length]<=0)
-        return;
+ //   if([textField.text length]<=0)
+   //     return;
     
     Producer *producer = (Producer *)self.detailItem;
 	if (!producer.editedValue) {
@@ -1013,6 +1079,7 @@
             break;
     }
     [[NSManagedObjectContext defaultContext] save];
+    [self toggleSubmitButton:[self isEnableSubmit]];
   //  [self.tableView reloadData];
 }
 
@@ -1030,6 +1097,89 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"Post Producer Successful" object:nil];
     [self showAlert:@"Prospect Application submitted Successfully!"];
+}
+
+-(void) toggleSubmitButton:(BOOL)isEnabled
+{
+     [_submitButton setEnabled:isEnabled];
+}
+-(BOOL) isEnableSubmit
+{
+    
+    for(int section =0;section<EProspectNumSections;section++)
+    {
+        switch(section)
+        {
+            case EGeneral:
+            {
+                if([_detailItem.name length]<=0||
+                   _detailItem.subTerritory == nil)
+                    return FALSE;
+            }
+                break;
+            case EAddresses:
+            {
+                if([_detailItem.addresses.allObjects count]<=0)
+                    return FALSE;
+                
+                for(AddressListItem *addrItem in _detailItem.addresses.allObjects)
+                {
+                    if([addrItem.addressLine1 length]<=0||
+                       [addrItem.addressLine2 length]<=0||
+                       addrItem.state == nil ||
+                       [addrItem.city length]<=0 ||
+                       [addrItem.postalCode length]<=0)
+                        return FALSE;
+                }
+
+            }
+                break;
+            case EContactInfo:
+            {
+                if([_detailItem.phoneNumbers.allObjects count]<=0 || [_detailItem.emails.allObjects count]<=0)
+                    return FALSE;
+                BOOL isPhoneNoFound = FALSE/*,isEmailFound = FALSE,isFaxFound = FALSE*/;
+                
+                
+                
+                for(PhoneListItem *pItem in _detailItem.phoneNumbers.allObjects)
+                {
+                    if(pItem.typeValue == PHONE_1)
+                    {
+                        if([pItem.number length]>0)
+                            isPhoneNoFound = TRUE;
+                    }
+                    
+                                 
+                }
+             /*   for(EmailListItem *eItem in _detailItem.emails.allObjects)
+                {
+                    if(eItem.typeValue == MAIN_EMAIL)
+                    {
+                        if([eItem.address length]>0)
+                            isEmailFound = TRUE;
+                    }
+                }
+              */
+                if(!isPhoneNoFound ) 
+                    return FALSE;
+
+            }
+                break;
+            case ERater:
+            {
+                if(_detailItem.rater == nil)
+                    return FALSE;
+
+            }
+                break;
+            case EContact:
+                break;
+                
+                
+        }
+    }
+    return TRUE;
 }
 /*
 // Override to support conditional editing of the table view.

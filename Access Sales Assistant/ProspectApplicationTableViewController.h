@@ -55,6 +55,8 @@
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
 - (IBAction)searchProducer:(id)sender;
+-(void) toggleSubmitButton:(BOOL)isEnabled;
+-(BOOL) isEnableSubmit;
 
 -(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell:(NSInteger)forType;
 -(void) saveTextFieldToContext:(UITextField*) textField;
