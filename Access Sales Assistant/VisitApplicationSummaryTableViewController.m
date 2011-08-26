@@ -277,7 +277,10 @@ enum PRPTableStatsTags {
 	if (self.detailItem) {
 		if ([self.detailItem valueForKey:@"editedValue"]) {
 			[[NSManagedObjectContext defaultContext] save];
+            
 		}
+        
+        
 	}
 	
 	Producer *producer = (Producer *)newDetailItem;
@@ -294,6 +297,7 @@ enum PRPTableStatsTags {
 	if (self.aPopoverController != nil) {
         [self.aPopoverController dismissPopoverAnimated:YES];
     } 
+    [self toggleSubmitButton:[self isEnableSubmit]];
 }
 
 - (void)configureView
@@ -1072,7 +1076,7 @@ enum PRPTableStatsTags {
     }
 	[self.managedObjectContext save];
     
-    [self toggleSubmitButton:YES];
+    [self toggleSubmitButton:[self isEnableSubmit]];
 
 }
 
@@ -1250,7 +1254,7 @@ enum PRPTableStatsTags {
 	}
 	[self.managedObjectContext save];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-    [self toggleSubmitButton:YES];
+    [self toggleSubmitButton:[self isEnableSubmit]];
 	//[self.tableView reloadData];
 }
 
@@ -1340,6 +1344,7 @@ enum PRPTableStatsTags {
 	[[NSManagedObjectContext defaultContext] save];
 	//[self.tableView reloadData];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:controller.currentIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    [self toggleSubmitButton:[self isEnableSubmit]];
 }
 
 - (void)nextField:(NSInteger)currentTag
@@ -1372,5 +1377,82 @@ enum PRPTableStatsTags {
 {
 	
 }
-
+-(BOOL) isEnableSubmit
+{
+    if(!_detailItem.editedValue)
+        return FALSE;
+    
+    for(int section =0; section < PRPTableNumSections; section++)
+    {
+        switch(section)
+        {
+            case PRPTableSectionGeneral:
+            {
+                if(_detailItem.purposeOfCall == nil ||
+                   _detailItem.reportDate == nil)
+                    return  FALSE;
+            }
+                break;
+            case PRPTableSectionSpokeWith:
+            {
+                if([_detailItem.personsSpokeWith.allObjects count]<=0)
+                    return FALSE;
+                
+                for(PersonSpokeWith *pSpokeWith in _detailItem.personsSpokeWith.allObjects)
+                {
+                    if([pSpokeWith.firstName length]<= 0 ||
+                       [pSpokeWith.lastName length]<=0 ||
+                       pSpokeWith.title == nil ||
+                       [pSpokeWith.email length]<=0)
+                        return FALSE;
+                }
+            }
+                break;
+            case PRPTableSectionStats:
+            {
+                if(_detailItem.producerAddOn == nil||
+                   _detailItem.nsbsFdl == nil ||
+                   _detailItem.nsbsMonthlyGoal == nil ||
+                   _detailItem.nsbsPercentLiab == nil ||
+                   _detailItem.rdFollowUp == nil ||
+                   _detailItem.nsbsTotAppsPerMonth == nil
+                   )
+                    return FALSE;
+            }
+                break;
+            case PRPTableSectionCompetitor:
+            {
+                if([_detailItem.competitors.allObjects count]<=0)
+                    return FALSE;
+                
+                for(Competitor *comptr in _detailItem.competitors.allObjects)
+                {
+                    if([comptr.name length]<=0 ||
+                       comptr.appsPerMonth == nil ||
+                       _detailItem.commissionStructure == nil ||
+                       [_detailItem.commissionStructure.name  length]<=0 ||
+                       _detailItem.commissionPercentNew == nil ||
+                       _detailItem.commissionPercentRenewal == nil
+                       )
+                        return FALSE;
+                }
+            }
+                break;
+            case PRPTableSectionBarriersToBusiness:
+            {
+                if([_detailItem.barriersToBusiness.allObjects count]<=0)
+                    return FALSE;
+                
+                for(BarrierToBusiness *bBusiness in _detailItem.barriersToBusiness.allObjects)
+                {
+                    if([bBusiness.name length]<=0)
+                        return FALSE;
+                }
+            }
+                break;
+        }
+    }
+    
+    return TRUE;
+}
 @end

@@ -225,7 +225,6 @@
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		[aV setFrame:endFrame];
 		[UIView commitAnimations];
-		
 	}
 }
 

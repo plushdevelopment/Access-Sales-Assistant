@@ -166,10 +166,13 @@
       //  [textField.layer setBorderWidth: 3.0f];
        // [textField.layer setCornerRadius:8.0f];
         [textField.layer setMasksToBounds:YES];
+        [textField setEnabled:FALSE];
     }
     else
     {
         textField.layer.backgroundColor=[[UIColor clearColor]CGColor];
+        
+                [textField setEnabled:TRUE];
     }
 
 }
