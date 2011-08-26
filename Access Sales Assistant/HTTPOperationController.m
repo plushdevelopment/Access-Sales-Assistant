@@ -155,7 +155,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	NSString *encryptedString = [encryptedData base64EncodingWithLineLength:0];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:81/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@",
+						   stringWithFormat:@"https://uatmobile.accessgeneral.com/SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@",
 						   [user username],
 						   encryptedString,
 						   [user domain],
@@ -205,7 +205,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Picklists?token=%@",
+						   stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Picklists?token=%@",
 						   [user token]];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
@@ -262,7 +262,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Competitors?pageNbr=%d&pageSize=%d&token=%@",
+						   stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Competitors?pageNbr=%d&pageSize=%d&token=%@",
 						  [page integerValue], kPAGESIZE, [user token]];
 	//NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
@@ -305,7 +305,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		[[self networkQueue] go];
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 1, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 1, [user token]];
 	NSURL *aURL = [NSURL URLWithString:urlString];
 	
 	GetProducerRequest *request = [[GetProducerRequest alloc] initWithURL:aURL];
@@ -362,7 +362,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers?token=%@", [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Producers?token=%@", [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
@@ -412,7 +412,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/DailySummaryReports?token=%@", [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/DailySummaryReports?token=%@", [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
@@ -462,7 +462,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *imageName = [NSString stringWithFormat:@"%@_%d.png", producerID, [image hash]];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers/%@/Images?fileName=%@&token=%@", producerID, imageName, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Producers/%@/Images?fileName=%@&token=%@", producerID, imageName, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
@@ -505,7 +505,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers/%@/Images?token=%@", producerID, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Producers/%@/Images?token=%@", producerID, [user token]];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -643,7 +643,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     NSString* escapedString = [self urlencode:searchString];
 
 	NSString *urlString = [NSString 
-                            stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@",escapedString,[user token]]; //stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                            stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@",escapedString,[user token]]; //stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];

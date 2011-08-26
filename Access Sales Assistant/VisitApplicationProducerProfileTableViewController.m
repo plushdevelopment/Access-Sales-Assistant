@@ -1427,7 +1427,7 @@
     }
     self.detailItem.edited = [NSNumber numberWithBool:YES];
     [[NSManagedObjectContext defaultContext] save];
-     [self toggleSubmitButton:YES];
+     [self toggleSubmitButton:[self isEnableSubmit]];
 //	[self.tableView reloadData];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:controller.currentIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 }
