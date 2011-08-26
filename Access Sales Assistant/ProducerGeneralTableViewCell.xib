@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
-		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<int key="IBDocument.SystemTarget">0</int>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -48,7 +48,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUITextField" id="169133752">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{152, 59}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -86,7 +86,7 @@
 							</object>
 							<object class="IBUITextField" id="457323493">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{524, 59}, {222, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -113,7 +113,7 @@
 							</object>
 							<object class="IBUITextField" id="106657333">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{524, 98}, {222, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -140,7 +140,7 @@
 							</object>
 							<object class="IBUITextField" id="363367738">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{152, 98}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -167,7 +167,7 @@
 							</object>
 							<object class="IBUITextField" id="1032564092">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{524, 20}, {222, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -194,7 +194,7 @@
 							</object>
 							<object class="IBUITextField" id="958864326">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{152, 20}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -224,7 +224,7 @@
 							</object>
 							<object class="IBUITextField" id="816966570">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{152, 137}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -251,7 +251,7 @@
 							</object>
 							<object class="IBUIButton" id="328704818">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{524, 20}, {222, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -287,7 +287,7 @@
 							</object>
 							<object class="IBUIButton" id="684723690">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{152, 98}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -308,7 +308,7 @@
 							</object>
 							<object class="IBUIButton" id="828431716">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{524, 98}, {222, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -329,7 +329,7 @@
 							</object>
 							<object class="IBUIButton" id="572402317">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{524, 59}, {222, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -350,7 +350,7 @@
 							</object>
 							<object class="IBUIButton" id="985823199">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{152, 137}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -531,7 +531,7 @@
 							</object>
 							<object class="IBUITextField" id="683936421">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{523, 137}, {228, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -558,7 +558,7 @@
 							</object>
 							<object class="IBUIButton" id="869352342">
 								<reference key="NSNextResponder" ref="44182174"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{523, 137}, {228, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
@@ -1071,6 +1071,14 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">BaseTextField</string>
+					<string key="superclassName">UITextField</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BaseTextField.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">DatePickerViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -1321,13 +1329,13 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -1346,31 +1354,31 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">acctMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">claimsMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">custServMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">faxTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">mainMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">phone1TextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">webAddrTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 						</object>
 					</object>
@@ -2207,6 +2215,10 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="0.0" key="NS.object.0"/>
+		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
 			<integer value="3100" key="NS.object.0"/>

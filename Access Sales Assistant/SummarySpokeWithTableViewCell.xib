@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
-		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<int key="IBDocument.SystemTarget">0</int>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -48,7 +48,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUITextField" id="559645431">
 								<reference key="NSNextResponder" ref="560895663"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{157, 20}, {213, 31}}</string>
 								<reference key="NSSuperview" ref="560895663"/>
 								<reference key="NSWindow"/>
@@ -86,7 +86,7 @@
 							</object>
 							<object class="IBUITextField" id="1069535457">
 								<reference key="NSNextResponder" ref="560895663"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{535, 19}, {213, 31}}</string>
 								<reference key="NSSuperview" ref="560895663"/>
 								<reference key="NSWindow"/>
@@ -113,7 +113,7 @@
 							</object>
 							<object class="IBUIButton" id="977842584">
 								<reference key="NSNextResponder" ref="560895663"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{535, 19}, {213, 31}}</string>
 								<reference key="NSSuperview" ref="560895663"/>
 								<reference key="NSWindow"/>
@@ -149,7 +149,7 @@
 							</object>
 							<object class="IBUITextField" id="611418250">
 								<reference key="NSNextResponder" ref="560895663"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{535, 59}, {213, 31}}</string>
 								<reference key="NSSuperview" ref="560895663"/>
 								<reference key="NSWindow"/>
@@ -177,7 +177,7 @@
 							</object>
 							<object class="IBUITextField" id="442697976">
 								<reference key="NSNextResponder" ref="560895663"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{157, 59}, {213, 31}}</string>
 								<reference key="NSSuperview" ref="560895663"/>
 								<reference key="NSWindow"/>
@@ -592,6 +592,10 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="0.0" key="NS.object.0"/>
+		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
 			<integer value="3100" key="NS.object.0"/>

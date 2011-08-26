@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -48,7 +48,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUITextField" id="675329818">
 								<reference key="NSNextResponder" ref="723744712"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{131, 6}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="723744712"/>
 								<reference key="NSWindow"/>
@@ -84,7 +84,7 @@
 							</object>
 							<object class="IBUIButton" id="848754536">
 								<reference key="NSNextResponder" ref="723744712"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{131, 6}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="723744712"/>
 								<reference key="NSWindow"/>
@@ -119,7 +119,7 @@
 							</object>
 							<object class="IBUITextField" id="364550034">
 								<reference key="NSNextResponder" ref="723744712"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{515, 6}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="723744712"/>
 								<reference key="NSWindow"/>
@@ -146,7 +146,7 @@
 							</object>
 							<object class="IBUIButton" id="81405122">
 								<reference key="NSNextResponder" ref="723744712"/>
-								<int key="NSvFlags">290</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{515, 6}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="723744712"/>
 								<reference key="NSWindow"/>
@@ -422,6 +422,22 @@
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
+					<string key="className">BaseDetailViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BaseDetailViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">BaseTextField</string>
+					<string key="superclassName">UITextField</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BaseTextField.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">DatePickerViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -672,13 +688,13 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -697,31 +713,31 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">acctMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">claimsMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">custServMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">faxTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">mainMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">phone1TextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">webAddrTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 						</object>
 					</object>
@@ -950,37 +966,65 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>friStartButton</string>
 							<string>friStartTextField</string>
+							<string>friStopButton</string>
 							<string>friStopTextField</string>
+							<string>monStartButton</string>
 							<string>monStartTextField</string>
+							<string>monStopButton</string>
 							<string>monStopTextField</string>
+							<string>satStartButton</string>
 							<string>satStartTextField</string>
+							<string>satStopButton</string>
 							<string>satStopTextField</string>
+							<string>sunStartButton</string>
 							<string>sunStartTextField</string>
+							<string>sunStopButton</string>
 							<string>sunStopTextField</string>
+							<string>thuStartButton</string>
 							<string>thuStartTextField</string>
+							<string>thuStopButton</string>
 							<string>thuStopTextField</string>
+							<string>tueStartButton</string>
 							<string>tueStartTextField</string>
+							<string>tueStopButton</string>
 							<string>tueStopTextField</string>
+							<string>wedStartButton</string>
 							<string>wedStartTextField</string>
+							<string>wedStopButton</string>
 							<string>wedStopTextField</string>
 							<string>weekdayLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UITextField</string>
 							<string>UILabel</string>
 						</object>
@@ -989,75 +1033,145 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>friStartButton</string>
 							<string>friStartTextField</string>
+							<string>friStopButton</string>
 							<string>friStopTextField</string>
+							<string>monStartButton</string>
 							<string>monStartTextField</string>
+							<string>monStopButton</string>
 							<string>monStopTextField</string>
+							<string>satStartButton</string>
 							<string>satStartTextField</string>
+							<string>satStopButton</string>
 							<string>satStopTextField</string>
+							<string>sunStartButton</string>
 							<string>sunStartTextField</string>
+							<string>sunStopButton</string>
 							<string>sunStopTextField</string>
+							<string>thuStartButton</string>
 							<string>thuStartTextField</string>
+							<string>thuStopButton</string>
 							<string>thuStopTextField</string>
+							<string>tueStartButton</string>
 							<string>tueStartTextField</string>
+							<string>tueStopButton</string>
 							<string>tueStopTextField</string>
+							<string>wedStartButton</string>
 							<string>wedStartTextField</string>
+							<string>wedStopButton</string>
 							<string>wedStopTextField</string>
 							<string>weekdayLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
+								<string key="name">friStartButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">friStartTextField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">friStopButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">friStopTextField</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">monStartButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">monStartTextField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">monStopButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">monStopTextField</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">satStartButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">satStartTextField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">satStopButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">satStopTextField</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">sunStartButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">sunStartTextField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">sunStopButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">sunStopTextField</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">thuStartButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">thuStartTextField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">thuStopButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">thuStopTextField</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">tueStartButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">tueStartTextField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">tueStopButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">tueStopTextField</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">wedStartButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">wedStartTextField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">wedStopButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">wedStopTextField</string>
@@ -1286,17 +1400,29 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">SmartTableView</string>
+					<string key="superclassName">UITableView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SmartTableView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">VisitApplicationProducerProfileTableViewController</string>
-					<string key="superclassName">UITableViewController</string>
+					<string key="superclassName">BaseDetailViewController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dismiss:</string>
 							<string>showDatePickerView:</string>
 							<string>showPickerView:</string>
+							<string>submit:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -1305,17 +1431,27 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dismiss:</string>
 							<string>showDatePickerView:</string>
 							<string>showPickerView:</string>
+							<string>submit:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">dismiss:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">showDatePickerView:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">showPickerView:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">submit:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -1328,12 +1464,15 @@
 							<string>contactInfoTableViewCell</string>
 							<string>contactTableViewCell</string>
 							<string>datePickerViewController</string>
+							<string>dismissButton</string>
 							<string>generalTableViewCell</string>
 							<string>hoursTableViewCell</string>
 							<string>pickerViewController</string>
 							<string>questionTableViewCell</string>
 							<string>raterTableViewCell</string>
 							<string>statusCell</string>
+							<string>submitButton</string>
+							<string>tableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1341,12 +1480,15 @@
 							<string>ProducerContactInfoTableViewCell</string>
 							<string>ProducerContactTableViewCell</string>
 							<string>DatePickerViewController</string>
+							<string>UIBarButtonItem</string>
 							<string>ProducerGeneralTableViewCell</string>
 							<string>ProducerHoursTableViewCell</string>
 							<string>PickerViewController</string>
 							<string>ProducerQuestionTableViewCell</string>
 							<string>ProducerRaterTableViewCell</string>
 							<string>ProducerStatusTableViewCell</string>
+							<string>UIBarButtonItem</string>
+							<string>SmartTableView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -1357,12 +1499,15 @@
 							<string>contactInfoTableViewCell</string>
 							<string>contactTableViewCell</string>
 							<string>datePickerViewController</string>
+							<string>dismissButton</string>
 							<string>generalTableViewCell</string>
 							<string>hoursTableViewCell</string>
 							<string>pickerViewController</string>
 							<string>questionTableViewCell</string>
 							<string>raterTableViewCell</string>
 							<string>statusCell</string>
+							<string>submitButton</string>
+							<string>tableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1381,6 +1526,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">datePickerViewController</string>
 								<string key="candidateClassName">DatePickerViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">dismissButton</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">generalTableViewCell</string>
@@ -1405,6 +1554,14 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">statusCell</string>
 								<string key="candidateClassName">ProducerStatusTableViewCell</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">submitButton</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">tableView</string>
+								<string key="candidateClassName">SmartTableView</string>
 							</object>
 						</object>
 					</object>

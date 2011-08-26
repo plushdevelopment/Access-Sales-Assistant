@@ -56,18 +56,12 @@
                                                      action:@selector(toggleMaster:)];
     
 
-    [items1 insertObject:showHideMaster atIndex:1];
+    [items1 insertObject:showHideMaster atIndex:[items1 indexOfObject:[items1 lastObject]]];
     }
 
     if(prospectSubmitBtn)
-        [items1 insertObject:prospectSubmitBtn atIndex:[items1 count]];
+        [items1 insertObject:prospectSubmitBtn atIndex:[items1 indexOfObject:[items1 lastObject]]];
     [self.baseToolbar setItems:items1 animated:YES];
-    
-   
-    
-   
-
-  //  }
 	
 }
 

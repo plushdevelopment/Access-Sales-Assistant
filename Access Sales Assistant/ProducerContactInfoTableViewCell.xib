@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
-		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<int key="IBDocument.SystemTarget">0</int>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -1017,13 +1017,13 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -1042,31 +1042,31 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">acctMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">claimsMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">custServMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">faxTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">mainMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">phone1TextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">webAddrTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 						</object>
 					</object>
@@ -1903,6 +1903,10 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="0.0" key="NS.object.0"/>
+		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
 			<integer value="3100" key="NS.object.0"/>

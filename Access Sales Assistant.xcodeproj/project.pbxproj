@@ -1385,15 +1385,11 @@
 				6DB6EBFA13FD647000EE1EA9 /* VisitApplicationTabBarController.m */,
 				6DB6EBFB13FD647000EE1EA9 /* VisitApplicationTabBarController.h */,
 				6DB6EBF713FD647000EE1EA9 /* VisitApplicationTabBarController.xib */,
-				6DDC3E1813FAAACE005F4DD7 /* grey_square_pin.png */,
 				6DDC3E1913FAAACE005F4DD7 /* ProducerAnnotationView.h */,
 				6DDC3E1A13FAAACE005F4DD7 /* ProducerAnnotationView.m */,
 				6DDC3E1B13FAAACE005F4DD7 /* ProducerDetailViewController.h */,
 				6DDC3E1C13FAAACE005F4DD7 /* ProducerDetailViewController.m */,
 				6DDC3E1D13FAAACE005F4DD7 /* ProducerDetailViewController.xib */,
-				6DDC3E1E13FAAACE005F4DD7 /* red_pin.png */,
-				6DDC3E1F13FAAACE005F4DD7 /* red_square_pin.png */,
-				6DDC3E2013FAAACE005F4DD7 /* video_icon.png */,
 				6DDC3E2113FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.h */,
 				6DDC3E2213FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.m */,
 				6DDC3E2313FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.xib */,
@@ -1591,6 +1587,10 @@
 		FF77100213B23DE500E90F4B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6DDC3E1813FAAACE005F4DD7 /* grey_square_pin.png */,
+				6DDC3E1E13FAAACE005F4DD7 /* red_pin.png */,
+				6DDC3E1F13FAAACE005F4DD7 /* red_square_pin.png */,
+				6DDC3E2013FAAACE005F4DD7 /* video_icon.png */,
 				6DB6EBF813FD647000EE1EA9 /* notes_box.png */,
 				6DB6EBF913FD647000EE1EA9 /* mapShadow.png */,
 				6D89C30713F18CD500C886BC /* AddIcon-plus.png */,

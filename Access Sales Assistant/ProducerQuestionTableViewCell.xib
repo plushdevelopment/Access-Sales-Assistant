@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -47,7 +47,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUILabel" id="390624173">
 								<reference key="NSNextResponder" ref="325147571"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{20, 11}, {364, 21}}</string>
 								<reference key="NSSuperview" ref="325147571"/>
 								<reference key="NSWindow"/>
@@ -77,7 +77,7 @@
 							</object>
 							<object class="IBUITextField" id="183491166">
 								<reference key="NSNextResponder" ref="325147571"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{392, 6}, {356, 31}}</string>
 								<reference key="NSSuperview" ref="325147571"/>
 								<reference key="NSWindow"/>
@@ -256,6 +256,22 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBPartialClassDescription">
+					<string key="className">BaseDetailViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BaseDetailViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">BaseTextField</string>
+					<string key="superclassName">UITextField</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BaseTextField.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">DatePickerViewController</string>
 					<string key="superclassName">UIViewController</string>
@@ -507,13 +523,13 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -532,31 +548,31 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">acctMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">claimsMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">custServMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">faxTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">mainMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">phone1TextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">webAddrTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 						</object>
 					</object>
@@ -1219,18 +1235,28 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">SmartTableView</string>
+					<string key="superclassName">UITableView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SmartTableView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">VisitApplicationProducerProfileTableViewController</string>
-					<string key="superclassName">UITableViewController</string>
+					<string key="superclassName">BaseDetailViewController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dismiss:</string>
 							<string>showDatePickerView:</string>
 							<string>showPickerView:</string>
-							<string>showTimePickerView:</string>
+							<string>submit:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1240,12 +1266,17 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dismiss:</string>
 							<string>showDatePickerView:</string>
 							<string>showPickerView:</string>
-							<string>showTimePickerView:</string>
+							<string>submit:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">dismiss:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">showDatePickerView:</string>
 								<string key="candidateClassName">id</string>
@@ -1255,7 +1286,7 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">showTimePickerView:</string>
+								<string key="name">submit:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -1268,12 +1299,15 @@
 							<string>contactInfoTableViewCell</string>
 							<string>contactTableViewCell</string>
 							<string>datePickerViewController</string>
+							<string>dismissButton</string>
 							<string>generalTableViewCell</string>
 							<string>hoursTableViewCell</string>
 							<string>pickerViewController</string>
 							<string>questionTableViewCell</string>
 							<string>raterTableViewCell</string>
 							<string>statusCell</string>
+							<string>submitButton</string>
+							<string>tableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1281,12 +1315,15 @@
 							<string>ProducerContactInfoTableViewCell</string>
 							<string>ProducerContactTableViewCell</string>
 							<string>DatePickerViewController</string>
+							<string>UIBarButtonItem</string>
 							<string>ProducerGeneralTableViewCell</string>
 							<string>ProducerHoursTableViewCell</string>
 							<string>PickerViewController</string>
 							<string>ProducerQuestionTableViewCell</string>
 							<string>ProducerRaterTableViewCell</string>
 							<string>ProducerStatusTableViewCell</string>
+							<string>UIBarButtonItem</string>
+							<string>SmartTableView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -1297,12 +1334,15 @@
 							<string>contactInfoTableViewCell</string>
 							<string>contactTableViewCell</string>
 							<string>datePickerViewController</string>
+							<string>dismissButton</string>
 							<string>generalTableViewCell</string>
 							<string>hoursTableViewCell</string>
 							<string>pickerViewController</string>
 							<string>questionTableViewCell</string>
 							<string>raterTableViewCell</string>
 							<string>statusCell</string>
+							<string>submitButton</string>
+							<string>tableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1321,6 +1361,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">datePickerViewController</string>
 								<string key="candidateClassName">DatePickerViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">dismissButton</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">generalTableViewCell</string>
@@ -1345,6 +1389,14 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">statusCell</string>
 								<string key="candidateClassName">ProducerStatusTableViewCell</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">submitButton</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">tableView</string>
+								<string key="candidateClassName">SmartTableView</string>
 							</object>
 						</object>
 					</object>

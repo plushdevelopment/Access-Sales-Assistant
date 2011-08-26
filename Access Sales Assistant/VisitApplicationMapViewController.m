@@ -199,8 +199,8 @@
 	[viewController setDetailItem:producer];
 	*/
 	[self.tabBarController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-	[self.tabBarController setModalPresentationStyle:UIModalPresentationCurrentContext];
-	[self presentModalViewController:self.tabBarController animated:YES];
+	[self.tabBarController setModalPresentationStyle:UIModalPresentationPageSheet];
+	[self.splitviewcontroller presentModalViewController:self.tabBarController animated:YES];
 	[self.tabBarController setDetailItem:producer];
 }
 

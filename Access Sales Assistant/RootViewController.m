@@ -135,11 +135,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
 	self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
-       
+	
     // Set up default values.
     self.tableView.sectionHeaderHeight = SECTION_HEADER_HEIGHT;
     
-
+	
     
     self.tableView.backgroundColor = [UIColor blackColor];
     
@@ -167,7 +167,7 @@
     }
     self.sectionInfoArray = arrayInfo;
     
-   // [self.mgSplitViewController toggleMasterView:@""];
+	// [self.mgSplitViewController toggleMasterView:@""];
     
     ///access academy tree structure
 	
@@ -184,7 +184,7 @@
     [fCardNode addChild:fCardProducerNode];
     
     fCardNode.inclusive = !fCardNode.inclusive;
- 
+	
     
     [treeNode flattenElementsWithCacheRefresh:YES];
 	
@@ -225,26 +225,26 @@
     return YES;
 }
 /*
-- (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc {
-    
-    // Keep references to the popover controller and the popover button, and tell the detail view controller to show the button.
-    barButtonItem.title = @"Menu";
-    self.popoverController = pc;
-    self.rootPopoverButtonItem = barButtonItem;
-    UIViewController <SubstitutableDetailViewController> *detailViewController = [splitViewController.viewControllers objectAtIndex:1];
-    [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-}
-
-
-- (void)splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
-    
-    // Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
-    UIViewController <SubstitutableDetailViewController> *detailViewController = [splitViewController.viewControllers objectAtIndex:1];
-    [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
-    self.popoverController = nil;
-    self.rootPopoverButtonItem = nil;
-}
-*/
+ - (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc {
+ 
+ // Keep references to the popover controller and the popover button, and tell the detail view controller to show the button.
+ barButtonItem.title = @"Menu";
+ self.popoverController = pc;
+ self.rootPopoverButtonItem = barButtonItem;
+ UIViewController <SubstitutableDetailViewController> *detailViewController = [splitViewController.viewControllers objectAtIndex:1];
+ [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+ }
+ 
+ 
+ - (void)splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+ 
+ // Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
+ UIViewController <SubstitutableDetailViewController> *detailViewController = [splitViewController.viewControllers objectAtIndex:1];
+ [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
+ self.popoverController = nil;
+ self.rootPopoverButtonItem = nil;
+ }
+ */
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -347,21 +347,20 @@
     
     switch (self.openSectionIndex) {
         case VISIT_APP_INDEX: {
-            
-            //VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
 			VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
-            //NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
             [self changeDetailViewController:detailViewController];
 			self.detailViewController = detailViewController;
-            [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+            UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+			if(orientation == 0)
+				orientation = self.detailViewController.interfaceOrientation;;
+			
+			if(UIDeviceOrientationIsPortrait(orientation))
+			{
+				
+				[self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+			}
 			[self.popoverController dismissPopoverAnimated:YES];
-			NSLog(@"%@", [visitApplicationDaysArray objectAtIndex:indexPath.row]);
             [detailViewController setSelectedDay:[visitApplicationDaysArray objectAtIndex:indexPath.row]];
-            /*
-			AgenciesTableViewController *viewController = [[AgenciesTableViewController alloc] initWithNibName:@"AgenciesTableViewController" bundle:nil];
-			[self.navigationController pushViewController:viewController animated:YES];
-			viewController.detailViewController = self.detailViewController;
-			 */
 		}
             break;
         case CONTACTS_OPTIONS_INDEX:
@@ -376,37 +375,37 @@
                 [detailViewController setModalPresentationStyle:UIModalPresentationFormSheet];
                 [self presentModalViewController:detailViewController animated:YES];
 				
-            //    ContactQAFormView *detailViewController = [[ContactQAFormView alloc] initWithNibName:@"ContactQAFormView" bundle:nil];
-          //      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-            //    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+				//    ContactQAFormView *detailViewController = [[ContactQAFormView alloc] initWithNibName:@"ContactQAFormView" bundle:nil];
+				//      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+				//    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                 
-             /*   ContactsQAFormViewController *detailViewController = [[ContactsQAFormViewController alloc] initWithNibName:@"ContactsQAFormViewController" bundle:nil];
-                
-                [self changeDetailViewController:detailViewController];
-                self.detailViewController = detailViewController;
-              //  [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-                
-                UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-                if(orientation == 0)
-                    orientation = self.detailViewController.interfaceOrientation;;
-                
-                if(UIDeviceOrientationIsPortrait(orientation))
-                {
-                    
-                    [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-                }*/
-
+				/*   ContactsQAFormViewController *detailViewController = [[ContactsQAFormViewController alloc] initWithNibName:@"ContactsQAFormViewController" bundle:nil];
+				 
+				 [self changeDetailViewController:detailViewController];
+				 self.detailViewController = detailViewController;
+				 //  [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+				 
+				 UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+				 if(orientation == 0)
+				 orientation = self.detailViewController.interfaceOrientation;;
+				 
+				 if(UIDeviceOrientationIsPortrait(orientation))
+				 {
+				 
+				 [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+				 }*/
+				
                 [self.popoverController dismissPopoverAnimated:YES];
             }
             else if(indexPath.row == CONTACT_QA_TABLE)
             {
                 ContactsQATimeTableViewController* detailViewController = [[ContactsQATimeTableViewController alloc] initWithNibName:@"ContactsQATimeTableViewController" bundle:nil];
-             //   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-              //  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+				//   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+				//  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                 
                 [self changeDetailViewController:detailViewController];
                 self.detailViewController = detailViewController;
-               // [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+				// [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
                 UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
                 if(orientation == 0)
                     orientation = self.detailViewController.interfaceOrientation;;
@@ -416,7 +415,7 @@
                     
                     [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
                 }
-
+				
                 [self.popoverController dismissPopoverAnimated:YES];
                 
             }
@@ -424,8 +423,8 @@
             {
                 
                 ContactsViewController * detailViewController = [[ContactsViewController alloc] initWithNibName:@"ContactsViewController" bundle:nil];
-             //   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-              //  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+				//   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+				//  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                 
                 [self changeDetailViewController:detailViewController];
                 
@@ -447,41 +446,41 @@
             
             int levelDepth = [node levelDepth];
             
-        
+			
             if (!node.hasChildren) 
             {
-              //   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+				//   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
                 int index = indexPath.row;
                 if(indexPath.row >= FLASH_CARD_PROSPECT && indexPath.row <= FLASH_CARD_PRODUCER && levelDepth == 2)
                 {
-                
-                FlashCardsViewController* detailViewController = [[FlashCardsViewController alloc] initWithNibName:@"FlashCardsViewController" bundle:nil];
-               
-             
-                switch(indexPath.row)
-                {
-                    case FLASH_CARD_PROSPECT:
-                        detailViewController.selectedFlashCard = 0;
-                        break;
-                    case FLASH_CARD_ZERO_PRODUCER:
-                        detailViewController.selectedFlashCard = 1;
-                        break;
-                    case FLASH_CARD_PRODUCER:
-                        detailViewController.selectedFlashCard = 2;
-                        break;
-                    
-                        
-                }
-             //   self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+					
+					FlashCardsViewController* detailViewController = [[FlashCardsViewController alloc] initWithNibName:@"FlashCardsViewController" bundle:nil];
+					
+					
+					switch(indexPath.row)
+					{
+						case FLASH_CARD_PROSPECT:
+							detailViewController.selectedFlashCard = 0;
+							break;
+						case FLASH_CARD_ZERO_PRODUCER:
+							detailViewController.selectedFlashCard = 1;
+							break;
+						case FLASH_CARD_PRODUCER:
+							detailViewController.selectedFlashCard = 2;
+							break;
+							
+							
+					}
+					//   self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                     
                     [self changeDetailViewController:detailViewController];
-                self.detailViewController = detailViewController;
+					self.detailViewController = detailViewController;
                 }
                 else if((indexPath.row == TRAINING_VIDEO || indexPath.row == TRAINING_VIDEO_EXPANDED) && levelDepth == 1)
                 {
                     VideosTableViewController* detailViewController  = [[VideosTableViewController alloc] initWithNibName:@"VideosTableViewController" bundle:nil];
                     
-                  //  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+					//  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                     
                     [self changeDetailViewController:detailViewController];
                     self.detailViewController = detailViewController;
@@ -494,15 +493,15 @@
                 
                 if(UIDeviceOrientationIsPortrait(orientation))
                 {
-                  
+					
                     [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
                 }
             }
             else
             {
-            node.inclusive = !node.inclusive;	
-            [treeNode flattenElementsWithCacheRefresh:YES];
-            [tableView reloadData];
+				node.inclusive = !node.inclusive;	
+				[treeNode flattenElementsWithCacheRefresh:YES];
+				[tableView reloadData];
             }
             
         }
@@ -625,75 +624,75 @@
     switch (sectionOpened) {
         case VISIT_APP_INDEX:
         {
-		/*	VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
-            NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-            self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-			self.detailViewController = detailViewController;
-            detailViewController.pc = self.popoverController;
-         */
+			/*	VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
+			 NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+			 self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+			 self.detailViewController = detailViewController;
+			 detailViewController.pc = self.popoverController;
+			 */
             
             SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
-          //  NSArray* viewControllerArr =   [ self.mgSplitViewController viewControllers ];
-           // self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+			//  NSArray* viewControllerArr =   [ self.mgSplitViewController viewControllers ];
+			// self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
-           
+			
             
             detailViewController.titleLabel.text = @"HOME SCREEN";
             
-           //  [self changeDetailViewController:detailViewController];
+			//  [self changeDetailViewController:detailViewController];
 			
             self.detailViewController = detailViewController;
             
             //self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
-
+			
         }
             break;
         case APPOINTMENTAPP_INDEX:
         {
             SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
-         //   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-          //  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+			//   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+			//  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
             [self changeDetailViewController:detailViewController];
             detailViewController.titleLabel.text = @"APPOINTMENT APPLICATION";
 			
             self.detailViewController = detailViewController;
-
+			
             closePopOver = TRUE;
-           // [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+			// [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
         }
             break;
         case PROSPECT_APP_INDEX:
         {
-        //    ProspectApplicationViewController* detailViewController = [[ProspectApplicationViewController alloc] initWithNibName:@"ProspectApplicationViewController" bundle:nil];
+			//    ProspectApplicationViewController* detailViewController = [[ProspectApplicationViewController alloc] initWithNibName:@"ProspectApplicationViewController" bundle:nil];
             
             ProspectApplicationTableViewController* detailViewController = [[ProspectApplicationTableViewController alloc] initWithNibName:@"ProspectApplicationTableViewController" bundle:nil];
             
             
-         //   ProspectViewController* detailViewController = [[ProspectApplicationViewController alloc] initWithNibName:@"ProspectApplicationViewController" bundle:nil];
-      //      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-       //     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+			//   ProspectViewController* detailViewController = [[ProspectApplicationViewController alloc] initWithNibName:@"ProspectApplicationViewController" bundle:nil];
+			//      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+			//     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
             [self changeDetailViewController:detailViewController];
-             
+			
 			
             self.detailViewController = detailViewController;
-
+			
             closePopOver = TRUE;
         }
             break;
         case CONTACTS_OPTIONS_INDEX:
         {
             SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
-      //      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-        //    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+			//      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+			//    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
-          //  [self changeDetailViewController:detailViewController];
+			//  [self changeDetailViewController:detailViewController];
             detailViewController.titleLabel.text = @"CONTACTS";
 			
             self.detailViewController = detailViewController;
 			//self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
-
+			
             break;
         }
         case FEATURES_AND_BENEFITS_INDEX:
@@ -701,8 +700,8 @@
 			//[self.splitViewController.viewControllers]
             
             FeaturesAndBenefitsViewController * detailViewController = [[FeaturesAndBenefitsViewController alloc] initWithNibName:@"FeaturesAndBenefitsViewController" bundle:nil];
-     //       NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-       //     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+			//       NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+			//     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
             [self changeDetailViewController:detailViewController];
 			
@@ -713,15 +712,15 @@
         case ACCESS_ACADEMY_INDEX:
         {
             SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
-        //    NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-        //    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+			//    NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+			//    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
-          //  [self changeDetailViewController:detailViewController];
+			//  [self changeDetailViewController:detailViewController];
             
-             detailViewController.titleLabel.text = @"ACCESS ACADEMY";
+			detailViewController.titleLabel.text = @"ACCESS ACADEMY";
 			
             self.detailViewController = detailViewController;
-
+			
         }
             break;
             
@@ -740,20 +739,20 @@
     
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;//[[UIDevice currentDevice] orientation];
     
-   // if(orientation == 0)
-   //     orientation = self.detailViewController.interfaceOrientation;
+	// if(orientation == 0)
+	//     orientation = self.detailViewController.interfaceOrientation;
     
     if(UIDeviceOrientationIsPortrait(orientation))
     {
-	
+		
 		[self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-        	
+		
     }
     else
         [self.detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
     if(closePopOver)
         [self.popoverController dismissPopoverAnimated:YES];
-
+	
     
 }
 
@@ -800,7 +799,7 @@
     self.rootPopoverButtonItem = barButtonItem;
     UIViewController <SubstitutableDetailViewController> *detailViewController = [self.mgSplitViewController.viewControllers objectAtIndex:1];
     [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-
+	
 }
 
 
@@ -810,7 +809,7 @@
   invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
 	//NSLog(@"%@", NSStringFromSelector(_cmd));
-	    // Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
+	// Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
     UIViewController <SubstitutableDetailViewController> *detailViewController = [self.mgSplitViewController.viewControllers objectAtIndex:1];
     [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
     self.popoverController = nil;
