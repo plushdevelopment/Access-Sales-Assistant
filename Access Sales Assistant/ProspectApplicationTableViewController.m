@@ -1125,7 +1125,7 @@
                 for(AddressListItem *addrItem in _detailItem.addresses.allObjects)
                 {
                     if([addrItem.addressLine1 length]<=0||
-                       [addrItem.addressLine2 length]<=0||
+                    //   [addrItem.addressLine2 length]<=0||
                        addrItem.state == nil ||
                        [addrItem.city length]<=0 ||
                        [addrItem.postalCode length]<=0)

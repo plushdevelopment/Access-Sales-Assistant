@@ -11,7 +11,7 @@
 
 #pragma mark - constants
 
-#define PRODUCER_PROFILE_SECTIONS @"GENERAL",@"QUESTIONS",@"STATUS",@"RATER",@"COMPANY CONTACT INFO",@"HOURS OF OPERATION",@"ADDRESSES",@"CONTACTS",nil
+#define PRODUCER_PROFILE_SECTIONS @"General",@"Questions",@"Status",@"Rater",@"Company Contact Info",@"Hours Of Operation",@"Addresses",@"Contacts",nil
 
 #define GENERAL_HEIGHT 188.0
 #define QUESTIONS_HEIGHT 44.0

@@ -86,7 +86,7 @@
     
     self.tableView.allowsSelection = NO;
     
-    [self toggleSubmitButton:NO];
+  //  [self toggleSubmitButton:NO];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -148,10 +148,10 @@
 		if ([self.detailItem valueForKey:@"editedValue"]) {
 			[[NSManagedObjectContext defaultContext] save];
            //  [self toggleSubmitButton:YES];
-             [self toggleSubmitButton:[self isEnableSubmit]];
+           //  [self toggleSubmitButton:[self isEnableSubmit]];
 		}
-        else
-            [self toggleSubmitButton:NO];
+       // else
+        //    [self toggleSubmitButton:NO];
 	}
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
@@ -164,8 +164,11 @@
             [self toggleSubmitButton:NO];
        */
             
-        [self toggleSubmitButton:NO];
+        
+     //   [self toggleSubmitButton:[self.detailItem valueForKey:@"editedValue"]?YES:NO];
     }
+    
+     [self toggleSubmitButton:[self isEnableSubmit]];
    
 	
  //   if (self.aPopoverController != nil) {
@@ -467,21 +470,64 @@
 #pragma mark - Fill the table view cell with entity values
 -(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell:(NSInteger)forType
 {
+    BOOL isCommissionAddrFound = FALSE,isPhysicalAddrFound,isMailingAddrFound=FALSE,isCurrentAddrFound=FALSE;
+    
+    AddressListItem *mailingAddress=nil, *commissionAddress=nil, *physicalAddress=nil;
     for(AddressListItem *addrItem in _detailItem.addresses)
     {
         if(addrItem.addressTypeValue == forType)
         {
-            addressCell.streetAddress1TextField.text = addrItem.addressLine1;
-            addressCell.streetAddress2TextField.text = addrItem.addressLine2;
-            addressCell.cityTextField.text = addrItem.city;
-            addressCell.stateTextField.text = addrItem.state.name;
-            addressCell.zipTextField.text = addrItem.postalCode;
+            [self FillAddressCellForType:addressCell :addrItem];      
+            isCurrentAddrFound= TRUE;
             break;
+        }
+        if(addrItem.addressTypeValue == MAILING_ADDRESS)
+        {
+            isMailingAddrFound = TRUE;
+            mailingAddress = addrItem;
+            
+        }
+        else if(addrItem.addressTypeValue == COMMISSION_ADDRESS)
+        {
+            isCommissionAddrFound = TRUE;
+            commissionAddress = addrItem;
+        }
+        else if(addrItem.addressTypeValue == PHYSICAL_ADDRESS)
+        {
+            isPhysicalAddrFound = TRUE;
+            physicalAddress = addrItem;
         }
         
     }
-    return addressCell;
+    
+   if(isCurrentAddrFound)
+       return addressCell;
+    else
+    {
+        if(isMailingAddrFound)
+        {
+            [self FillAddressCellForType:addressCell :mailingAddress];
+        }
+        else if(isCommissionAddrFound)
+        {
+            [self FillAddressCellForType:addressCell :commissionAddress];
+        }
+        else if(isPhysicalAddrFound)
+        {
+            [self FillAddressCellForType:addressCell :physicalAddress];
+        }
+        return addressCell;
+    }
+     return addressCell;
 
+}
+-(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem
+{
+    addressCell.streetAddress1TextField.text = withAddrItem.addressLine1;
+    addressCell.streetAddress2TextField.text = withAddrItem.addressLine2;
+    addressCell.cityTextField.text = withAddrItem.city;
+    addressCell.stateTextField.text = withAddrItem.state.name;
+    addressCell.zipTextField.text = withAddrItem.postalCode;
 }
 
 -(ProducerContactTableViewCell*) contactTableViewCell:(ProducerContactTableViewCell*) contactCell:(NSInteger)forRow
@@ -1914,10 +1960,10 @@
                 break;
             case EStatus:
             {
-                if(_detailItem.appointedDate == nil||
+                if(/*_detailItem.appointedDate == nil||
                    _detailItem.status == nil ||
                    _detailItem.statusDate == nil ||
-                   _detailItem.suspensionReason == nil ||
+                   _detailItem.suspensionReason == nil ||*/
                    _detailItem.isEligible == nil)
                     return FALSE;
             }
@@ -1992,7 +2038,7 @@
                 for(AddressListItem *addrItem in _detailItem.addresses.allObjects)
                 {
                     if([addrItem.addressLine1 length]<=0||
-                       [addrItem.addressLine2 length]<=0||
+                     //  [addrItem.addressLine2 length]<=0||
                        addrItem.state == nil ||
                        [addrItem.city length]<=0 ||
                        [addrItem.postalCode length]<=0)
