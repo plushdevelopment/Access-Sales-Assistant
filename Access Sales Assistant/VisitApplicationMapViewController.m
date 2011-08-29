@@ -49,7 +49,9 @@
 	if (_selectedDay != selectedDay) {
         _selectedDay = selectedDay;
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate matches %@", _selectedDay];
-		self.producers = [Producer findAllWithPredicate:predicate];
+		NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"nextScheduledVisit" ascending:NO];
+		NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+		self.producers = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES withPredicate:predicate];
 	}
 	[self configureView];
 }
@@ -64,7 +66,7 @@
 		NSMutableArray *wayPoints = [NSMutableArray array];
 		for (Producer *producer in self.producers) {
 			[[HTTPOperationController sharedHTTPOperationController] getImagesForProducer:producer.uid];
-			if (([self.producers indexOfObject:producer] > 0) && ([self.producers indexOfObject:producer] < self.producers.count - 1)) {
+			if (([self.producers indexOfObject:producer] > 0) && ([self.producers indexOfObject:producer] < self.producers.count - 2)) {
 				[wayPoints addObject:producer.address];
 			}
 		}
@@ -175,6 +177,7 @@
     VisitTableViewCell *customCell = [VisitTableViewCell cellForTableView:tableView fromNib:self.visitTableViewCellNib];
 	Producer *producer = [self.producers objectAtIndex:indexPath.row];
 	customCell.producerNameLabel.text = producer.name;
+	customCell.timeLabel.text = producer.nextScheduledVisitTime;
 	customCell.visitNumberLabel.text = [NSString stringWithFormat:@"%d", (indexPath.row + 1)];
 	if (producer.submittedValue) {
 		customCell.iconImageView.image = [UIImage imageNamed:@"grey_square_pin.png"];
@@ -388,7 +391,7 @@
 																		   annotationType:UICRouteAnnotationTypeStart number:1];
 	UICRouteAnnotation *endAnnotation = [[UICRouteAnnotation alloc] initWithCoordinate:[[routePoints lastObject] coordinate]
 																				  title:[[self.producers lastObject] producerCode]
-																		 annotationType:UICRouteAnnotationTypeEnd number:([_wayPoints count] + 2)];
+																		 annotationType:UICRouteAnnotationTypeEnd number:([_wayPoints count] + 3)];
 	
 	if ([_wayPoints count] > 0) {
 		NSInteger numberOfRoutes = [directions numberOfRoutes];

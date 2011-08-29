@@ -107,27 +107,21 @@
 	} else {
 		[[self user] setDomain:self.domainField.text];
 		[[self user] setUsername:self.usernameField.text];
-		[[self user] setPassword:self.passwordField.text];
+		NSString * _key = @"wTGMqLubzizPgylAsHGgfPfLDoclQt+YAIzM1ugFMko=";
+		
+		StringEncryption *crypto = [[StringEncryption alloc] init];
+		NSData *secretData = [self.passwordField.text dataUsingEncoding:NSUTF8StringEncoding];
+		CCOptions padding = kCCOptionPKCS7Padding;
+		NSData *encryptedData = [crypto encrypt:secretData key:[_key dataUsingEncoding:NSUTF8StringEncoding] padding:&padding];
+		NSString *encryptedString = [encryptedData base64EncodingWithLineLength:0];
+		NSString *encryptedEncodedString = [self urlencode:encryptedString];
+		NSLog(@"Encrypted Login: %@", encryptedEncodedString);
+		[[self user] setPassword:encryptedEncodedString];
 		[[self user] setOrganization:self.organizationField.text];
 		[[self user] setServiceKey:self.serviceKeyField.text];
 		[self.managedObjectContext save];
 		
-		//[[HTTPOperationController sharedHTTPOperationController] login];
-		
-		
-		NSString * _key = @"wTGMqLubzizPgylAsHGgfPfLDoclQt+YAIzM1ugFMko=";
-		
-		StringEncryption *crypto = [[StringEncryption alloc] init];
-		NSData *secretData = [[[self user] password] dataUsingEncoding:NSUTF8StringEncoding];
-		CCOptions padding = kCCOptionPKCS7Padding;
-		NSData *encryptedData = [crypto encrypt:secretData key:[_key dataUsingEncoding:NSUTF8StringEncoding] padding:&padding];
-		NSString *encryptedString = [encryptedData base64EncodingWithLineLength:0];
-		NSString *encryptedEncodedString = [encryptedString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-		NSLog(@"Encrypted Login: %@", encryptedEncodedString);
-		
-		
-		
-		NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@", self.user.username, encryptedString, self.user.domain, self.user.organization, self.user.serviceKey];
+		NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@", self.user.username, self.user.password, self.user.domain, self.user.organization, self.user.serviceKey];
 		NSURL *url = [NSURL URLWithString:urlString];
 		ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 		[request setRequestMethod:@"GET"];
@@ -171,6 +165,40 @@
 	
 	[self showError:[error localizedDescription]];
 	//[self dismissModalViewControllerAnimated:YES];
+}
+
+-(NSString *) urlencode: (NSString *) url
+{
+    NSArray *escapeChars = [NSArray arrayWithObjects:@";" , @"/" , @"?" , @":" ,
+                            @"@" , @"&" , @"=" , @"+" ,
+                            @"$" , @"," , @"[" , @"]",
+                            @"#", @"!", @"'", @"(", 
+                            @")", @"*", @" ",nil];
+    
+    NSArray *replaceChars = [NSArray arrayWithObjects:@"%3B" , @"%2F" , @"%3F" ,
+                             @"%3A" , @"%40" , @"%26" ,
+                             @"%3D" , @"%2B" , @"%24" ,
+                             @"%2C" , @"%5B" , @"%5D", 
+                             @"%23", @"%21", @"%27",
+                             @"%28", @"%29", @"%2A", @"%20",nil];
+    
+    int len = [escapeChars count];
+    
+    NSMutableString *temp = [url mutableCopy];
+    
+    int i;
+    for(i = 0; i < len; i++)
+    {
+        
+        [temp replaceOccurrencesOfString: [escapeChars objectAtIndex:i]
+                              withString:[replaceChars objectAtIndex:i]
+                                 options:NSLiteralSearch
+                                   range:NSMakeRange(0, [temp length])];
+    }
+    
+    NSString *out = [NSString stringWithString: temp];
+    
+    return out;
 }
 
 @end

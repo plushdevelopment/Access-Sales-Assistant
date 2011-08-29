@@ -43,7 +43,7 @@
 	NSDictionary *responseJSON = [[self responseString] JSONValue];
 	NSArray *results = [responseJSON objectForKey:@"results"];
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+	[formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
 	for (NSDictionary *dict in results) {
 		
 			Producer *producer = [Producer ai_objectForProperty:@"uid"
@@ -54,7 +54,9 @@
 				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 				[dateFormatter setDateFormat:@"EEEE, MM-dd-yyyy"];
 				producer.nextScheduledVisitDate = [dateFormatter stringFromDate:[producer nextScheduledVisit]];
-				NSLog(@"%@", producer.nextScheduledVisitDate);
+				//NSLog(@"%@", producer.nextScheduledVisitDate);
+				//NSLog(@"%@", producer.nextScheduledVisitTime);
+				NSLog(@"%@", [producer.nextScheduledVisit debugDescription]);
 				NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
 				[timeFormatter setDateFormat:@"hh:mm a"];
 				producer.nextScheduledVisitTime = [timeFormatter stringFromDate:[producer nextScheduledVisit]];
