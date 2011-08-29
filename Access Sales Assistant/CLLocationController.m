@@ -29,7 +29,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(CLLocationController);
         _manager = [[CLLocationManager alloc] init];
 		[_manager setDelegate:self];
 		[_manager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
-		[_manager setPurpose:@"The better to track you with"];
+		//[_manager setPurpose:@"The better to track you with"];
 		_currentLocation = nil;
 		_currentCoordinate = CLLocationCoordinate2DMake(0.0f, 0.0f);
 		_updateInProgress = NO;
@@ -48,6 +48,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(CLLocationController);
     [_manager startUpdatingLocation];
 }
 
+- (void)stopUpdatingCurrentLocation
+{
+    _updateInProgress = NO;
+    [_manager stopUpdatingLocation];
+}
+
 #pragma mark -
 #pragma mark CLLocationManagerDelegate Methods
 
@@ -62,6 +68,21 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(CLLocationController);
 {
 	_updateInProgress = NO;
     _currentCoordinate = CLLocationCoordinate2DMake(0.0f, 0.0f);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+{
+	
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
+{
+	
+}
+
+- (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
+{
+	
 }
 
 @end

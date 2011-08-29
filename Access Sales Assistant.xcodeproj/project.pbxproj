@@ -100,6 +100,7 @@
 		FF21977513CF79DB001F1B0D /* _PersonSpokeWith.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21976F13CF79DB001F1B0D /* _PersonSpokeWith.m */; };
 		FF21977613CF79DB001F1B0D /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21977113CF79DB001F1B0D /* Note.m */; };
 		FF21977713CF79DB001F1B0D /* PersonSpokeWith.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21977313CF79DB001F1B0D /* PersonSpokeWith.m */; };
+		FF317ED1140835FC007D88FD /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF317ED0140835FC007D88FD /* libFlurryAnalytics.a */; };
 		FF56A25513CC883B00FF159A /* HTTPOperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56A25413CC883B00FF159A /* HTTPOperationController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF641CF113B9094400CC0B61 /* PickerViewController.m */; };
 		FF641CF413B9094400CC0B61 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF641CF213B9094400CC0B61 /* PickerViewController.xib */; };
@@ -603,6 +604,8 @@
 		FF21977113CF79DB001F1B0D /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		FF21977213CF79DB001F1B0D /* PersonSpokeWith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonSpokeWith.h; sourceTree = "<group>"; };
 		FF21977313CF79DB001F1B0D /* PersonSpokeWith.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonSpokeWith.m; sourceTree = "<group>"; };
+		FF317ECF140835FC007D88FD /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
+		FF317ED0140835FC007D88FD /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
 		FF374DF713D50CC000C170EB /* button-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-plus.png"; sourceTree = "<group>"; };
 		FF56A25313CC883B00FF159A /* HTTPOperationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPOperationController.h; sourceTree = "<group>"; };
 		FF56A25413CC883B00FF159A /* HTTPOperationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPOperationController.m; sourceTree = "<group>"; };
@@ -1157,6 +1160,7 @@
 				FF8B415513A8EEF700A05007 /* UIKit.framework in Frameworks */,
 				FF8B415713A8EEF700A05007 /* Foundation.framework in Frameworks */,
 				FF8B415913A8EEF700A05007 /* CoreGraphics.framework in Frameworks */,
+				FF317ED1140835FC007D88FD /* libFlurryAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1377,6 +1381,15 @@
 				FFB56A3A13D0802E00B980EE /* SummaryStatsTableViewCell.xib */,
 			);
 			name = "Daily Summary";
+			sourceTree = "<group>";
+		};
+		FF317ECE140835FC007D88FD /* FlurryAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				FF317ECF140835FC007D88FD /* FlurryAnalytics.h */,
+				FF317ED0140835FC007D88FD /* libFlurryAnalytics.a */,
+			);
+			path = FlurryAnalytics;
 			sourceTree = "<group>";
 		};
 		FF374DFA13D5142200C170EB /* Visit Application */ = {
@@ -1705,6 +1718,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FF317ECE140835FC007D88FD /* FlurryAnalytics */,
 				FFDFB56013EB23A500B540E1 /* MGSplitViewController */,
 				FF846CB613DD9A5F00D59F3E /* JSONKit */,
 				FF846CB713DD9A7000D59F3E /* Lidenbrock */,
@@ -2923,6 +2937,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
+					"\"$(SRCROOT)/Access Sales Assistant/FlurryAnalytics\"",
 				);
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2949,6 +2964,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
+					"\"$(SRCROOT)/Access Sales Assistant/FlurryAnalytics\"",
 				);
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

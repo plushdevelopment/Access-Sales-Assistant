@@ -26,6 +26,10 @@
 
 #import "VisitApplicationProducerProfileTableViewController.h"
 
+#import "CLLocationController.h"
+
+#import "FlurryAnalytics.h"
+
 @implementation Access_Sales_AssistantAppDelegate
 
 @synthesize window = _window;
@@ -73,14 +77,14 @@
     
     SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
     
-   // VisitApplicationProducerProfileTableViewController* detailViewController = [[VisitApplicationProducerProfileTableViewController alloc] initWithNibName:@"VisitApplicationProducerProfileTableViewController" bundle:nil];
+	// VisitApplicationProducerProfileTableViewController* detailViewController = [[VisitApplicationProducerProfileTableViewController alloc] initWithNibName:@"VisitApplicationProducerProfileTableViewController" bundle:nil];
 	
     //TODO: Need to uncomment below code
-/*	self.splitViewController = [[UISplitViewController alloc] init];
-	self.splitViewController.delegate = controller;
-	controller.splitViewController = self.splitViewController;
-	self.splitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
-	controller.detailViewController = detailViewController;
+	/*	self.splitViewController = [[UISplitViewController alloc] init];
+	 self.splitViewController.delegate = controller;
+	 controller.splitViewController = self.splitViewController;
+	 self.splitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
+	 controller.detailViewController = detailViewController;
      */
     
     //MGSplitviewcontroller 
@@ -89,15 +93,16 @@
     self.mgSplitViewController.delegate = controller;
     controller.mgSplitViewController = self.mgSplitViewController;
     detailViewController.splitviewcontroller = self.mgSplitViewController;
-   controller.detailViewController = detailViewController;
+	controller.detailViewController = detailViewController;
+    
+	[FlurryAnalytics startSession:@"Y1A8YRZTCUKUTUYY9M43"];
     
     
+	/*  MGSplitViewDividerStyle newStyle = ((self.mgSplitViewController.dividerStyle == MGSplitViewDividerStyleThin) ? MGSplitViewDividerStylePaneSplitter : MGSplitViewDividerStyleThin);
+	 [self.mgSplitViewController setDividerStyle:newStyle animated:YES];
+	 */
     
-  /*  MGSplitViewDividerStyle newStyle = ((self.mgSplitViewController.dividerStyle == MGSplitViewDividerStyleThin) ? MGSplitViewDividerStylePaneSplitter : MGSplitViewDividerStyleThin);
-	[self.mgSplitViewController setDividerStyle:newStyle animated:YES];
-    */
-    
-
+	
     self.window.rootViewController = self.mgSplitViewController;
     
     
@@ -106,7 +111,7 @@
     [self.window makeKeyAndVisible];
 	
     
-  
+	
 	[self loginFailed:nil];
 	
     return YES;
@@ -118,6 +123,7 @@
 	 Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
 	 Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 	 */
+	[[CLLocationController sharedCLLocationController] stopUpdatingCurrentLocation];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -140,6 +146,7 @@
 	/*
 	 Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 	 */
+	[[CLLocationController sharedCLLocationController] startUpdatingCurrentLocation];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

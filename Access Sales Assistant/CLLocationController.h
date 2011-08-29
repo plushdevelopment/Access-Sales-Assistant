@@ -18,5 +18,6 @@
 
 + (CLLocationController *)sharedCLLocationController;
 - (void)startUpdatingCurrentLocation;
+- (void)stopUpdatingCurrentLocation;
 
 @end

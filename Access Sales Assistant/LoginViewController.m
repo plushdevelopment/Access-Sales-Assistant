@@ -127,11 +127,12 @@
 		
 		
 		
-		NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:81/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@", self.user.username, encryptedString, self.user.domain, self.user.organization, self.user.serviceKey];
+		NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@", self.user.username, encryptedString, self.user.domain, self.user.organization, self.user.serviceKey];
 		NSURL *url = [NSURL URLWithString:urlString];
 		ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 		[request setRequestMethod:@"GET"];
 		[request addRequestHeader:@"Content-Type" value:@"application/json"];
+		[request setTimeOutSeconds:60];
 		[request setDelegate:self];
 		[request startAsynchronous];
 		 

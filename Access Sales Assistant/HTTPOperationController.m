@@ -169,6 +169,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(loginRequestFinished:)];
 	[request setDidFailSelector:@selector(loginRequestFailed:)];
+	[request setTimeOutSeconds:60];
 	[request setNumberOfTimesToRetryOnTimeout:3];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[[self networkQueue] addOperation:request];
