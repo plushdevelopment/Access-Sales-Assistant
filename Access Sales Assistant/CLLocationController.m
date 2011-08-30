@@ -74,10 +74,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(CLLocationController);
 		CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:coordinate radius:100.0 identifier:producer.producerCode];
 		[self monitorRegion:region];
 	}
-	for (CLRegion *region in [_manager monitoredRegions]) {
-		NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[region description], @"Region", nil];
-		NSLog(@"%@", dict);
-	}
 }
 
 #pragma mark -
@@ -87,30 +83,33 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(CLLocationController);
      didUpdateToLocation:(CLLocation *)newLocation
             fromLocation:(CLLocation *)oldLocation
 {
-	
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[newLocation description], @"New Location", [oldLocation description], @"Old Location", nil];
+	[FlurryAnalytics logEvent:@"Did update to new location" withParameters:dict];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
 	_updateInProgress = NO;
     _currentCoordinate = CLLocationCoordinate2DMake(0.0f, 0.0f);
+	[FlurryAnalytics logError:@"Location Error" message:[error localizedDescription] error:error];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[region description], @"Region", nil];
-	NSLog(@"%@", dict);
 	[FlurryAnalytics logEvent:@"Did Enter Region" withParameters:dict];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
 {
-	
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[region description], @"Region", nil];
+	[FlurryAnalytics logEvent:@"Did Exit Region" withParameters:dict];
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
 {
-	
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[region description], @"Region", nil];
+	[FlurryAnalytics logEvent:@"Failed Monitoring Region" withParameters:dict];
 }
 
 @end
