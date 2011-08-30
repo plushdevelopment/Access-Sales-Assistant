@@ -1489,19 +1489,42 @@
 		producer.editedValue = YES;
 		[[NSManagedObjectContext defaultContext] save];
 	}
-	
+	// NSString *text = [NSString stringWithFormat:@"%@%@", textField.text, string];
+    NSString *replacementString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
     
     switch(indexPath.section)
     {
+        case EAddresses:
+        {
+            switch(tag)
+            {
+                case EAddressZipCode:
+                {
+                    if([replacementString isValidZipCode])
+                    {
+                        //  addrItem.postalCode =textField.text;
+                        [self changeTextFieldOutline:textField :YES];
+                    }
+                    else
+                    {
+                        //[self showAlert:VALID_ZIP_CODE_ALERT];
+                        [self changeTextFieldOutline:textField :NO];
+                    }
+                }break;
+            }
+            
+            break;
+        }
+
         case ECompanyContactInfo:
         {
             switch(tag)
             {
                 case EPhone1: //3
                 {
-					if([textField.text isValidPhoneNumber])
+					if([replacementString isValidPhoneNumber])
 					{
 						[self changeTextFieldOutline:textField:YES];
 					}
@@ -1513,12 +1536,19 @@
                     break;
                 case EFax://4
                 {
-					
+					if([replacementString isValidPhoneNumber])
+					{
+						[self changeTextFieldOutline:textField:YES];
+					}
+					else
+					{
+						[self changeTextFieldOutline:textField:NO];
+					}
                 }
 					break;
                 case EMainEmail: //3
                 {
-					if([textField.text isValidEmail])
+					if([replacementString isValidEmail])
 					{
 						[self changeTextFieldOutline:textField:YES];
 					}
@@ -1530,7 +1560,7 @@
                     break;
                 case EClaimsEmail: //5
                 {
-                    if([textField.text isValidEmail])
+                    if([replacementString isValidEmail])
 					{
 						[self changeTextFieldOutline:textField:YES];
 					}
@@ -1543,7 +1573,7 @@
                     break;
                 case EAccountingEmail: //2
                 {  
-                    if([textField.text isValidEmail])
+                    if([replacementString isValidEmail])
 					{
 						[self changeTextFieldOutline:textField:YES];
 					}
@@ -1556,7 +1586,7 @@
                     break;
                 case ECustomerServiceEmail: //4
                 {  
-                    if([textField.text isValidEmail])
+                    if([replacementString isValidEmail])
 					{
 						[self changeTextFieldOutline:textField:YES];
 					}
@@ -1569,7 +1599,7 @@
                     break;
                 case EWebsiteAddress:
                 {
-                    if([textField.text isValidWebSite])
+                    if([replacementString isValidWebSite])
                     {
                         self.detailItem.webAddress = textField.text;
                         [self changeTextFieldOutline:textField:YES];
@@ -1590,7 +1620,7 @@
             {
                 case EContactSSN:
                 {
-                    if([textField.text isvalidSSN])
+                    if([replacementString isvalidSSN])
                     {
                         [self changeTextFieldOutline:textField :YES];
                     }
@@ -1801,7 +1831,18 @@
                     addrItem.city = textField.text;
                     break;
                 case EAddressZipCode:
-                    addrItem.postalCode =textField.text;
+                {
+                    if([textField.text isValidZipCode])
+                    {
+                        addrItem.postalCode =textField.text;
+                        [self changeTextFieldOutline:textField :YES];
+                    }
+                    else
+                    {
+                        [self showAlert:VALID_ZIP_CODE_ALERT];
+                        [self changeTextFieldOutline:textField :NO];
+                    }
+                }
                     break;
             }
         }

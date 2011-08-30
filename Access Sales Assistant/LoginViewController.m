@@ -135,13 +135,18 @@
 		[request setTimeOutSeconds:60];
 		[request setDelegate:self];
 		[request startAsynchronous];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Login Success" object:nil];
 		 
 	}
 }
 
 - (void)loginFinished:(ASIHTTPRequest *)request
 {
-	[self dismissModalViewControllerAnimated:YES];
+	
+    
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request

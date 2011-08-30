@@ -34,7 +34,7 @@
     
     NSMutableArray *items1 = [[self.baseToolbar items] mutableCopy];
     
-    UIBarButtonItem *prospectSubmitBtn = nil;
+    UIBarButtonItem *prospectSubmitBtn = nil,*prospectSpaceButton = nil;
     
     for(UIBarButtonItem* btn in items1)
     {
@@ -42,13 +42,20 @@
         {
             prospectSubmitBtn = btn;
         }
+        else if(btn.tag == 1002)
+        {
+            prospectSpaceButton = btn;
+        }
+        
     }
+
     
     if(items1)
         [items1 removeAllObjects];
+  
     [items1 insertObject:barButtonItem atIndex:0];
     
-    if([self isShowMaster])
+ /*   if([self isShowMaster])
     {    
     showHideMaster = [[UIBarButtonItem alloc] initWithTitle:@"Hide Menu"
                                                       style:UIBarButtonItemStyleBordered
@@ -58,9 +65,13 @@
 
     [items1 insertObject:showHideMaster atIndex:[items1 indexOfObject:[items1 lastObject]]];
     }
+  */
 
+    if(prospectSpaceButton)
+        [items1 insertObject:prospectSpaceButton atIndex:[items1 count]]; 
     if(prospectSubmitBtn)
-        [items1 insertObject:prospectSubmitBtn atIndex:[items1 indexOfObject:[items1 lastObject]]];
+        [items1 insertObject:prospectSubmitBtn atIndex:[items1 count]];
+    
     [self.baseToolbar setItems:items1 animated:YES];
 	
 }
@@ -72,7 +83,7 @@
     
     NSMutableArray *items = [[self.baseToolbar items] mutableCopy];
     
-    UIBarButtonItem *prospectSubmitBtn = nil;
+    UIBarButtonItem *prospectSubmitBtn = nil,*prospectSpaceButton = nil;
     
     for(UIBarButtonItem* btn in items)
     {
@@ -80,11 +91,16 @@
         {
             prospectSubmitBtn = btn;
         }
+        else if(btn.tag == 1002)
+        {
+            prospectSpaceButton = btn;
+        }
+     
     }
 
     if([items count])
         [items removeAllObjects];
-    if([self isShowMaster])
+ /*   if([self isShowMaster])
     {
       
     showHideMaster = [[UIBarButtonItem alloc] initWithTitle:@"Hide Menu"
@@ -96,7 +112,9 @@
     [items insertObject:showHideMaster atIndex:0];
     }
     
-    
+    */
+    if(prospectSpaceButton)
+        [items insertObject:prospectSpaceButton atIndex:[items count]];
     if(prospectSubmitBtn)
         [items insertObject:prospectSubmitBtn atIndex:[items count]];
 

@@ -18,7 +18,7 @@
   //  [self lowercaseString];
     if([self length]<=0)
         return YES;
-      
+       NSLog(@"%@",self);
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"; 
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex]; 
     
@@ -41,7 +41,7 @@
 {
     if([self length]<=0)
         return YES;
-    NSString *zipCodeEx =@"/^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/";
+    NSString *zipCodeEx =@"^(\\d{5}-\\d{4}|\\d{5}|\\d{9})$|^([a-zA-Z]\\d[a-zA-Z] \\d[a-zA-Z]\\d)$";
     
     // [self stringByMatching:phoneNoRegEx];
     NSPredicate *zipCodeTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", zipCodeEx]; 
@@ -53,12 +53,16 @@
 {
     if([self length]<=0)
         return YES;
-    NSString *ssnEx =@"^\\d{3}[- ]?\\d{2}[- ]?\\d{4}$";
+    NSString *ssnEx =@"^\\d{3}-\\d{2}-\\d{4}$";
     
+    NSLog(@"%@",self);
+    // NSString *ssnEx =@"^(?!000)([0-6]\\d{2}|7([0-6]\\d|7[012]))([ -]?)(?!00)\\d\\d\\3(?!0000)\\d{4}$";
     // [self stringByMatching:phoneNoRegEx];
     NSPredicate *zipCodeTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", ssnEx]; 
     
-    return [zipCodeTest evaluateWithObject:self];
+    BOOL isValid = [zipCodeTest evaluateWithObject:self];
+    
+    return isValid;
 }
 -(BOOL) isValidWebSite
 {

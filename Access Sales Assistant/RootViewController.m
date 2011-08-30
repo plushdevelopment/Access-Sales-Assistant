@@ -350,15 +350,8 @@
 			VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
             [self changeDetailViewController:detailViewController];
 			self.detailViewController = detailViewController;
-            UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-			if(orientation == 0)
-				orientation = self.detailViewController.interfaceOrientation;;
-			
-			if(UIDeviceOrientationIsPortrait(orientation))
-			{
-				
-				[self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-			}
+          
+            [self displayTopMenuItem];
 			[self.popoverController dismissPopoverAnimated:YES];
             [detailViewController setSelectedDay:[visitApplicationDaysArray objectAtIndex:indexPath.row]];
 		}
@@ -405,17 +398,8 @@
                 
                 [self changeDetailViewController:detailViewController];
                 self.detailViewController = detailViewController;
-				// [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-                UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-                if(orientation == 0)
-                    orientation = self.detailViewController.interfaceOrientation;;
-                
-                if(UIDeviceOrientationIsPortrait(orientation))
-                {
-                    
-                    [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-                }
-				
+			
+                [self displayTopMenuItem];
                 [self.popoverController dismissPopoverAnimated:YES];
                 
             }
@@ -487,15 +471,7 @@
                     
                 }
                 [self.popoverController dismissPopoverAnimated:YES];
-                UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-                if(orientation == 0)
-                    orientation = self.detailViewController.interfaceOrientation;;
-                
-                if(UIDeviceOrientationIsPortrait(orientation))
-                {
-					
-                    [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-                }
+                [self displayTopMenuItem];
             }
             else
             {
@@ -737,6 +713,15 @@
             break;
     }
     
+ 
+    [self displayTopMenuItem];
+    if(closePopOver)
+        [self.popoverController dismissPopoverAnimated:YES];
+	
+    
+}
+-(void) displayTopMenuItem
+{
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;//[[UIDevice currentDevice] orientation];
     
 	// if(orientation == 0)
@@ -750,12 +735,7 @@
     }
     else
         [self.detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
-    if(closePopOver)
-        [self.popoverController dismissPopoverAnimated:YES];
-	
-    
 }
-
 - (void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)sectionClosed {
     
     MainViewSectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:sectionClosed];

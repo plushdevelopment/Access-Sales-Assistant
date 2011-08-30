@@ -41,6 +41,7 @@
 @synthesize popoverController;
 @synthesize toolBar = _toolBar;
 @synthesize submitButton = _submitButton;
+@synthesize spaceButton = _spaceButton;
 
 @synthesize pListTableViewController = _pListTableViewController;
 @synthesize prospectPopoverController = _prospectPopoverController;
@@ -95,7 +96,7 @@
     contact.type = [ContactType findFirstByAttribute:@"name" withValue:@"Owner"];
     [self.detailItem addContactsObject:contact];
     
-    
+   // self.tableView.backgroundColor = [UIColor lightGrayColor];
      [self toggleSubmitButton:[self isEnableSubmit]];
 }
 
@@ -130,6 +131,10 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self.tableView setNeedsDisplay];
 }
 
 #pragma mark - Table view data source
@@ -640,9 +645,9 @@
 	
 	//	[self.managedObjectContext save];
     [[NSManagedObjectContext defaultContext]save];
-	//[self.tableView reloadData];
+	[self.tableView reloadData];
     
-     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+   //  [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
     
  }
 
@@ -741,12 +746,35 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
 //	[self saveTextFieldToContext:textField];
-    
+   // NSString *text = [NSString stringWithFormat:@"%@%@", textField.text, string];
+     NSString *replacementString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    NSLog(@"%@", replacementString);
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
     
     switch(indexPath.section)
     {
+        case EAddresses:
+        {
+            switch(tag)
+            {
+                case EAddressZip:
+                {
+            if([replacementString isValidZipCode])
+            {
+              //  addrItem.postalCode =textField.text;
+                [self changeTextFieldOutline:textField :YES];
+            }
+            else
+            {
+                //[self showAlert:VALID_ZIP_CODE_ALERT];
+                [self changeTextFieldOutline:textField :NO];
+            }
+                }break;
+            }
+
+            break;
+        }
         case EContactInfo:
         {
             
@@ -754,7 +782,7 @@
             {
                 case EContactInfoPhone:
                 {
-                    if([textField.text isValidPhoneNumber])
+                    if([replacementString isValidPhoneNumber])
                     {
                       
                         [self changeTextFieldOutline:textField:YES];
@@ -771,7 +799,8 @@
                     break;
                 case EContactInfoFax:
                 {
-                    if([textField.text isValidPhoneNumber])
+                    if([replacementString isValidPhoneNumber])
+                   // if([text isvalidSSN])
                     {
                        
                         [self changeTextFieldOutline:textField:YES];
@@ -788,7 +817,7 @@
                 case EContactInfoEmail:
                     {
                         
-                        if([textField.text isValidEmail])
+                        if([replacementString isValidEmail])
                         {
                             
                           
@@ -915,10 +944,16 @@
                     break;
                 case EAddressZip:
                 {
-                 //   if([textField.text isValidZipCode])
+                    if([textField.text isValidZipCode])
+                    {
                         addrItem.postalCode =textField.text;
-                   // else
-                     //   [self showAlert:VALID_ZIP_CODE_ALERT];
+                        [self changeTextFieldOutline:textField :YES];
+                    }
+                    else
+                    {
+                        [self showAlert:VALID_ZIP_CODE_ALERT];
+                        [self changeTextFieldOutline:textField :NO];
+                    }
                 }
                     break;
             }
@@ -985,6 +1020,7 @@
                         {
                             phoneExists= TRUE;
                             if([textField.text isValidPhoneNumber])
+                    //        if([textField.text isvalidSSN])
                             {
                             phoneNumber.number = textField.text;
                                 [self changeTextFieldOutline:textField:YES];
@@ -1001,7 +1037,8 @@
                     
                     if(!phoneExists)
                     {
-                        if([textField.text isValidPhoneNumber])
+                   //     if([textField.text isValidPhoneNumber])
+                        if([textField.text isvalidSSN])
                         {
                         PhoneListItem *phNo = [PhoneListItem createEntity];
                         phNo.typeValue = 4;

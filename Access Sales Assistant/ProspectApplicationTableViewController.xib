@@ -96,6 +96,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<array class="NSMutableArray" key="IBUIItems">
 							<object class="IBUIBarButtonItem" id="657974067">
+								<int key="IBUITag">1002</int>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUIToolbar" ref="1062778064"/>
 								<int key="IBUISystemItemIdentifier">5</int>
@@ -215,6 +216,14 @@
 					</object>
 					<int key="connectionID">32</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">spaceButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="657974067"/>
+					</object>
+					<int key="connectionID">34</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -300,7 +309,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">32</int>
+			<int key="maxID">34</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -639,6 +648,7 @@
 						<string key="pListTableViewController">ProducerListTableViewController</string>
 						<string key="pickerViewController">PickerViewController</string>
 						<string key="raterTableViewCell">ProducerRaterTableViewCell</string>
+						<string key="spaceButton">UIBarButtonItem</string>
 						<string key="submitButton">UIBarButtonItem</string>
 						<string key="tableView">UITableView</string>
 						<string key="toolBar">UIToolbar</string>
@@ -675,6 +685,10 @@
 						<object class="IBToOneOutletInfo" key="raterTableViewCell">
 							<string key="name">raterTableViewCell</string>
 							<string key="candidateClassName">ProducerRaterTableViewCell</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="spaceButton">
+							<string key="name">spaceButton</string>
+							<string key="candidateClassName">UIBarButtonItem</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="submitButton">
 							<string key="name">submitButton</string>

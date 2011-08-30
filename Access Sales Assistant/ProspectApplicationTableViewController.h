@@ -47,6 +47,7 @@
 @property (nonatomic, strong) UIPopoverController *popoverController;
 @property (nonatomic, strong) IBOutlet UIToolbar *toolBar;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *submitButton;
+@property (nonatomic,strong) IBOutlet UIBarButtonItem* spaceButton;
 
 @property (nonatomic,strong) UITableView* producerListTableView;
 @property (nonatomic,strong) IBOutlet ProducerListTableViewController *pListTableViewController;

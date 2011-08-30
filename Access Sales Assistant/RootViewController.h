@@ -35,5 +35,6 @@
 @property (nonatomic,strong) MyTreeNode* treeNode;
 
 -(void) changeDetailViewController:(BaseDetailViewController*)detailViewController;
+-(void) displayTopMenuItem;
 
 @end
