@@ -24,5 +24,6 @@
 - (IBAction)submitLogin:(id)sender;
 - (void)loginFinished:(ASIHTTPRequest *)request;
 - (void)showError:(NSString *)message;
+-(NSString *) urlencode: (NSString *) url;
 
 @end

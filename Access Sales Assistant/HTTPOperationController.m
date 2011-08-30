@@ -72,7 +72,7 @@
 
 #import "AccessSalesConstants.h"
 
-#define kPAGESIZE 20
+#define kPAGESIZE 100
 
 @implementation HTTPOperationController
 
@@ -116,6 +116,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 {
 	//... Handle fail notification
 	//NSLog(@"Request did fail");
+	[UIHelpers showAlertWithTitle:@"Error" msg:[[request error] localizedDescription] buttonTitle:@"OK"];
 }
 
 
@@ -157,10 +158,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSString *urlString = [NSString 
 						   stringWithFormat:@"https://uatmobile.accessgeneral.com/SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@",
 						   [user username],
-						   encryptedString,
+						   [user password],
 						   [user domain],
 						   [user organization],
 						   [user serviceKey]];
+	NSLog(@"%@", urlString);
 	
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -172,6 +174,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setTimeOutSeconds:60];
 	[request setNumberOfTimesToRetryOnTimeout:3];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -195,6 +198,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Login Failure" object:request];
+	
 }
 
 // Pick Lists
@@ -215,9 +219,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request addRequestHeader:@"Content-Type" value:@"application/json"];
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(requestPickListsFinished:)];
-	[request setDidFailSelector:@selector(requestPickListsFailed:)];
+	//[request setDidFailSelector:@selector(requestPickListsFailed:)];
 	[request setNumberOfTimesToRetryOnTimeout:3];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -231,10 +236,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		for (NSDictionary *itemDict in pickListItems) {
 			NSManagedObject *item = [NSClassFromString(pickListType) ai_objectForProperty:@"uid" value:[itemDict valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
 			[item safeSetValuesForKeysWithDictionary:itemDict dateFormatter:nil managedObjectContext:self.managedObjectContext];
-			/*
-			NSManagedObject *item = [NSClassFromString(pickListType) entityFromJson:dict.description];
-			NSLog(@"%@", item);
-			 */
 		}
 	}
 	
@@ -270,8 +271,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	GetCompetitorRequest *request = [[GetCompetitorRequest alloc] initWithURL:url];
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(requestCompetitorsFinished:)];
-	[request setDidFailSelector:@selector(requestCompetitorsFailed:)];
-	
+	//[request setDidFailSelector:@selector(requestCompetitorsFailed:)];
+	[request setTimeOutSeconds:60];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -296,7 +298,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Competitors Failure" object:request];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Competitors Failure" object:nil];
 }
 
 // Get Producers
@@ -313,37 +315,22 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(requestProducersFinished:)];
 	[request setDidFailSelector:@selector(requestProducersFailed:)];
-	
+	[request setTimeOutSeconds:60];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 }
 
 - (void)requestProducersFinished:(ASIHTTPRequest *)request
-{
+{	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:nil];
 	/*
-	NSString *responseString = [request responseString];
-	NSDictionary *responseJSON = [responseString JSONValue];
-	NSArray *results = [responseJSON objectForKey:@"results"];
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-	for (NSDictionary *dict in results) {
-		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
-		if (!producer.editedValue) {
-			[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter];
-		}
-		
-	}
-	
-	[self.managedObjectContext save];
-	*/
-	
 	GetProducerRequest *producerRequest = (GetProducerRequest *)request;
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:request];
 	if (producerRequest.currentPage == 1) {
 		for (int i = 2; i <= producerRequest.totalPages; i++) {
 			[self requestProducers:[NSNumber numberWithInt:i]];
 		}
 	}
+	 */
 }
 
 - (void)requestProducersFailed:(ASIHTTPRequest *)request
@@ -374,6 +361,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setPostBody:[NSMutableData dataWithData:[profile dataUsingEncoding:NSASCIIStringEncoding]]];
 	[request setNumberOfTimesToRetryOnTimeout:3];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -401,7 +389,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     [UIHelpers showAlertWithTitle:@"Error" msg:profileFailed buttonTitle:@"OK"];
 	
 	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Failure" object:request];
-	//[[self networkQueue] addOperation:request];
 }
 
 // Post Daily Summary
@@ -424,6 +411,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setPostBody:[NSMutableData dataWithData:[summary dataUsingEncoding:NSASCIIStringEncoding]]];
 	[request setNumberOfTimesToRetryOnTimeout:3];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -451,7 +439,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     [UIHelpers showAlertWithTitle:@"Error" msg:summaryFailed buttonTitle:@"OK"];
 
 	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Summary Failure" object:request];
-	//[[self networkQueue] addOperation:request];
 }
 
 // Post Image for Producer
@@ -475,12 +462,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDidFailSelector:@selector(postImageForProducerFailed:)];
 	[request setNumberOfTimesToRetryOnTimeout:3];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 }
 
 - (void)postImageForProducerFinished:(ASIHTTPRequest *)request
 {	
-	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Successful" object:request];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Successful" object:request];
     
      [UIHelpers showAlertWithTitle:@"Success" msg:POST_IMAGE_SUCCESS buttonTitle:@"OK"];
     
@@ -519,6 +507,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setUserInfo:userInfoDict];
 	[request setNumberOfTimesToRetryOnTimeout:3];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -567,6 +556,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDownloadDestinationPath:imagePath];
 	[request setNumberOfTimesToRetryOnTimeout:3];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 }
 
@@ -618,6 +608,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDidFailSelector:@selector(getTrainingVideosFailed:)];
 	[request setNumberOfTimesToRetryOnTimeout:3];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 }
 -(void)getTrainingVideosFinished:(ASIHTTPRequest *)request
@@ -653,6 +644,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(searchProducerFinished:)];
 	[request setDidFailSelector:@selector(searchProducerFailed:)];
+	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 
 }

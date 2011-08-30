@@ -32,6 +32,7 @@
 
 - (IBAction)dismiss:(id)sender
 {
+	[self.presentingViewController viewWillAppear:YES];
 	[self dismissModalViewControllerAnimated:YES];
 }
 
@@ -148,7 +149,7 @@
 	// Access the uncropped image from info dictionary
 	UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
 	[[HTTPOperationController sharedHTTPOperationController] postImage:image forProducer:self.detailItem.uid];
-	[self.parent dismissModalViewControllerAnimated:YES];
+	[self.tabBarController dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark -
@@ -173,14 +174,14 @@
 			[imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
 			
 			// Show image picker
-			[self.parent presentModalViewController:imagePicker animated:YES];
+			[self.tabBarController presentModalViewController:imagePicker animated:YES];
 		} else {
 			VisitApplicationProducerImageViewController *viewController = [[VisitApplicationProducerImageViewController alloc] initWithNibName:@"VisitApplicationProducerImageViewController" bundle:nil];
 			ProducerImage *producerImage = [self.images objectAtIndex:index];
 			NSString *imageName = producerImage.imagePath;
 			UIImage *image = [UIImage imageWithContentsOfFile:imageName];
 			[viewController.imageView setImage:image];
-			[self.parent presentModalViewController:viewController animated:YES];
+			[self.tabBarController presentModalViewController:viewController animated:YES];
 		}
 	}
 }

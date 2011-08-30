@@ -30,8 +30,6 @@
 
 #import "FlurryAnalytics.h"
 
-#import "VisitApplicationMapViewController.h"
-
 @implementation Access_Sales_AssistantAppDelegate
 
 @synthesize window = _window;
@@ -44,56 +42,8 @@
 	[viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
 	[viewController setModalPresentationStyle:UIModalPresentationFormSheet];
 	[self.mgSplitViewController presentModalViewController:viewController animated:YES];
-    
-    
 }
--(void) loginSuccess:(id) sender
-{
-  //  [[NSNotificationCenter defaultCenter] removeObserver:<#(id)#>]
-    
-    
-    NSArray *producersArray = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES];
-	NSMutableArray *daysArray = [NSMutableArray arrayWithCapacity:[producersArray count]];
-	for (Producer *producer in producersArray) {
-		if (![daysArray containsObject:producer.nextScheduledVisitDate] && (producer.nextScheduledVisitDate != nil)) {
-			[daysArray addObject:producer.nextScheduledVisitDate];
-		}
-	}
-    if([daysArray count])
-    {
-    NSArray* viewControllerArr =   [ self.mgSplitViewController viewControllers ];
-   VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
-    self.mgSplitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-    detailViewController.splitviewcontroller = self.mgSplitViewController;
-    
- 
-    [detailViewController setSelectedDay:[daysArray objectAtIndex:0]];    
 
-    UINavigationController* navController = [viewControllerArr objectAtIndex:0];
-    RootViewController *rootController = (RootViewController *)[navController.viewControllers objectAtIndex:0];
-    if(rootController)
-    {
-    rootController.detailViewController = detailViewController;
-    
-    [rootController displayTopMenuItem];
-    }
-    }
- /*   
-    UIBarButtonItem *rootPopoverButtonItem = controller.rootPopoverButtonItem;
-	// if(orientation == 0)
-	//     orientation = self.detailViewController.interfaceOrientation;
-    
-    if(UIDeviceOrientationIsPortrait(orientation))
-    {
-		
-		[detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-		
-    }
-    else
-        [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
-   */  
- 
-}
 - (void)showError:(id)notification
 {
 	ASIHTTPRequest *request = (ASIHTTPRequest *)[notification object];
@@ -110,15 +60,6 @@
 	
 	[NSManagedObjectContext setDefaultContext:[NSManagedObjectContext context]];
 	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFailed:) name:@"Login Failure" object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Producer Failure" object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Summary Failure" object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Image Failure" object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Get Images Failure" object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Get Image Failure" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"Login Success" object:nil];
-	
     // Override point for customization after application launch.
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
@@ -130,8 +71,6 @@
     SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
     
 	// VisitApplicationProducerProfileTableViewController* detailViewController = [[VisitApplicationProducerProfileTableViewController alloc] initWithNibName:@"VisitApplicationProducerProfileTableViewController" bundle:nil];
-    
-   // VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
 	
     //TODO: Need to uncomment below code
 	/*	self.splitViewController = [[UISplitViewController alloc] init];
@@ -149,17 +88,6 @@
     detailViewController.splitviewcontroller = self.mgSplitViewController;
 	controller.detailViewController = detailViewController;
     
-    //
- /*   NSArray *producersArray = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES];
-	NSMutableArray *daysArray = [NSMutableArray arrayWithCapacity:[producersArray count]];
-	for (Producer *producer in producersArray) {
-		if (![daysArray containsObject:producer.nextScheduledVisitDate] && (producer.nextScheduledVisitDate != nil)) {
-			[daysArray addObject:producer.nextScheduledVisitDate];
-		}
-	}
-    [detailViewController setSelectedDay:[daysArray objectAtIndex:0]];//[visitApplicationDaysArray objectAtIndex:indexPath.row]];
-  */
-    
 	[FlurryAnalytics startSession:@"Y1A8YRZTCUKUTUYY9M43"];
     
     
@@ -175,9 +103,7 @@
 	//self.window.rootViewController = self.splitViewController;
     [self.window makeKeyAndVisible];
 	
-    
-	
-	[self loginFailed:nil];
+	//[self loginFailed:nil];
 	
     return YES;
 }
@@ -189,6 +115,7 @@
 	 Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 	 */
 	[[CLLocationController sharedCLLocationController] stopUpdatingCurrentLocation];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -211,7 +138,16 @@
 	/*
 	 Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 	 */
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFailed:) name:@"Login Failure" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Producer Failure" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Summary Failure" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Image Failure" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Get Images Failure" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Get Image Failure" object:nil];
+	
 	[[CLLocationController sharedCLLocationController] startUpdatingCurrentLocation];
+	
+	[[HTTPOperationController sharedHTTPOperationController] login];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

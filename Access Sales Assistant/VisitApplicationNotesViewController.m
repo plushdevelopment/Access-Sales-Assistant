@@ -29,6 +29,7 @@
 
 - (IBAction)dismiss:(id)sender
 {
+	[self.presentingViewController viewWillAppear:YES];
 	[self dismissModalViewControllerAnimated:YES];
 }
 

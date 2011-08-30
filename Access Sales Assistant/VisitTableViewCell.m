@@ -13,6 +13,7 @@
 @synthesize visitNumberLabel = _visitNumberLabel;
 @synthesize producerNameLabel = _producerNameLabel;
 @synthesize iconButton = _iconButton;
+@synthesize timeLabel = _timeLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

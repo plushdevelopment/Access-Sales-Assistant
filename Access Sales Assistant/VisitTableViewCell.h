@@ -8,7 +8,10 @@
 
 #import "PRPNibBasedTableViewCell.h"
 
-@interface VisitTableViewCell : PRPNibBasedTableViewCell
+@interface VisitTableViewCell : PRPNibBasedTableViewCell {
+	UILabel *_timeLabel;
+}
+
 
 
 
@@ -17,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *visitNumberLabel;
 @property (strong, nonatomic) IBOutlet UILabel *producerNameLabel;
 @property (strong, nonatomic) IBOutlet UIButton *iconButton;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 
 
 @end
