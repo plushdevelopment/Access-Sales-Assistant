@@ -17,4 +17,5 @@
 	#import "NSManagedObject+SafeSetValuesKeysWithDictionary.h"
 	#import "NSManagedObject+Additions.h"
 	#import "NSManagedObjectExtras.h"
+	#import "FlurryAnalytics.h"
 #endif

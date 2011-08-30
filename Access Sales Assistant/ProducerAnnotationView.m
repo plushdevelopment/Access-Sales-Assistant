@@ -26,8 +26,6 @@
 		self.numberLabel.textColor = [UIColor blackColor];
 		self.numberLabel.backgroundColor = [UIColor clearColor];
 		self.numberLabel.textAlignment = UITextAlignmentCenter;
-		NSLog(@"%f, %f, %f, %f", self.frame.origin.x, self.frame.origin.y, self.frame.size.height, self.frame.size.width);
-		NSLog(@"%f, %f, %f, %f", self.numberLabel.frame.origin.x, self.numberLabel.frame.origin.y, self.numberLabel.frame.size.height, self.numberLabel.frame.size.width);
 		[self setCenterOffset:CGPointMake(0.0, -18.0)];
 	}
 	return self;

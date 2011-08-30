@@ -25,5 +25,6 @@
 
 - (void)loginFailed:(ASIHTTPRequest *)request;
 - (void)showError:(id)notification;
+void uncaughtExceptionHandler(NSException *exception);
 
 @end

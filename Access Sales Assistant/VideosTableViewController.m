@@ -42,7 +42,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	self.videos = [NSArray arrayWithObjects:@"http://uatwww.access.com/test/intro_to_c4.mp4", @"http://uatwww.access.com/test/Intro_to_Claims_Assignor_(5-2-11).mp4", @"http://uatwww.access.com/test/Intro_to_ImageRight_(5-2-11).mp4", nil];
+	self.videos = [NSArray arrayWithObjects:@"https://uatwww.access.com/test/intro_to_c4.mp4", @"https://uatwww.access.com/test/Intro_to_Claims_Assignor_(5-2-11).mp4", @"https://uatwww.access.com/test/Intro_to_ImageRight_(5-2-11).mp4", nil];
 	
 	self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	self.gridView.autoresizesSubviews = YES;
