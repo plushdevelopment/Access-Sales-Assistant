@@ -30,15 +30,21 @@
 
 #import "FlurryAnalytics.h"
 
+#import "VisitApplicationMapViewController.h"
+
 @implementation Access_Sales_AssistantAppDelegate
 
 @synthesize window = _window;
 @synthesize splitViewController = _splitViewController;
 @synthesize mgSplitViewController = _mgSplitViewController;
+@synthesize loginController = _loginController;
+@synthesize isDidFinishLaunching;
 
 - (void)loginFailed:(ASIHTTPRequest *)request
 {
-	LoginViewController *viewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+	/*LoginViewController *viewController*/
+    
+    LoginViewController *viewController= [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
 	[viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
 	[viewController setModalPresentationStyle:UIModalPresentationFormSheet];
 	[self.mgSplitViewController presentModalViewController:viewController animated:YES];
@@ -52,6 +58,57 @@
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
 	[alertView show];
 }
+
+-(void) loginSuccess:(id) sender
+{
+   if(isDidFinishLaunching)
+   {
+    
+       NSArray *producersArray = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES];
+	NSMutableArray *daysArray = [NSMutableArray arrayWithCapacity:[producersArray count]];
+	for (Producer *producer in producersArray) {
+		if (![daysArray containsObject:producer.nextScheduledVisitDate] && (producer.nextScheduledVisitDate != nil)) {
+			[daysArray addObject:producer.nextScheduledVisitDate];
+		}
+	}
+    if([daysArray count])
+    {
+        NSArray* viewControllerArr =   [ self.mgSplitViewController viewControllers ];
+        VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
+        self.mgSplitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+        detailViewController.splitviewcontroller = self.mgSplitViewController;
+        
+         if([daysArray count])
+             [detailViewController setSelectedDay:[daysArray objectAtIndex:0]];   
+        
+        
+        UINavigationController* navController = [viewControllerArr objectAtIndex:0];
+        RootViewController *rootController = (RootViewController *)[navController.viewControllers objectAtIndex:0];
+        if(rootController)
+        {
+            rootController.detailViewController = detailViewController;
+            
+            [rootController displayTopMenuItem];
+        }
+    }
+   }
+    /*   
+     UIBarButtonItem *rootPopoverButtonItem = controller.rootPopoverButtonItem;
+     // if(orientation == 0)
+     //     orientation = self.detailViewController.interfaceOrientation;
+     
+     if(UIDeviceOrientationIsPortrait(orientation))
+     {
+     
+     [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+     
+     }
+     else
+     [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
+     */  
+    
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -90,6 +147,8 @@
     
 	[FlurryAnalytics startSession:@"Y1A8YRZTCUKUTUYY9M43"];
     
+    isDidFinishLaunching = TRUE;
+    
     
 	/*  MGSplitViewDividerStyle newStyle = ((self.mgSplitViewController.dividerStyle == MGSplitViewDividerStyleThin) ? MGSplitViewDividerStylePaneSplitter : MGSplitViewDividerStyleThin);
 	 [self.mgSplitViewController setDividerStyle:newStyle animated:YES];
@@ -120,6 +179,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    isDidFinishLaunching = FALSE;
 	/*
 	 Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
 	 If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
@@ -144,6 +204,8 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Post Image Failure" object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Get Images Failure" object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Get Image Failure" object:nil];
+    
+    	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"Launch Map" object:nil];
 	
 	[[CLLocationController sharedCLLocationController] startUpdatingCurrentLocation];
 	

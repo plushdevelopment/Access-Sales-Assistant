@@ -61,7 +61,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFinished:) name:@"Login Successful" object:nil];
+	 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFinished:) name:@"Login Successful" object:nil];
 	if (self.user.domain.length > 0)
 		self.domainField.text = self.user.domain;
 	if (self.user.username.length > 0)
@@ -93,6 +93,7 @@
 
 - (IBAction)submitLogin:(id)sender
 {
+   
 	if (self.domainField.text.length == 0) {
 		[self showError:@"Please enter a Domain"];
 	} else if (self.usernameField.text.length == 0) {
@@ -130,17 +131,19 @@
 		[request setDelegate:self];
 		[request startAsynchronous];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Login Success" object:nil];
+        
 		 
 	}
 }
 
 - (void)loginFinished:(ASIHTTPRequest *)request
 {
-	
+	//if(request!=nil)
     
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Login Success" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Launch Map" object:nil];
     [self dismissModalViewControllerAnimated:YES];
+    
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
@@ -161,6 +164,7 @@
 	[self.managedObjectContext save];
 	[[HTTPOperationController sharedHTTPOperationController] requestPickLists];
 	[self dismissModalViewControllerAnimated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Launch Map" object:nil];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request

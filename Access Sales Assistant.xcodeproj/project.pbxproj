@@ -73,6 +73,7 @@
 		6DDC3E4213FC3CD2005F4DD7 /* ContactsQAFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDC3E4013FC3CD2005F4DD7 /* ContactsQAFormViewController.m */; };
 		6DDC3E4313FC3CD2005F4DD7 /* ContactsQAFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E4113FC3CD2005F4DD7 /* ContactsQAFormViewController.xib */; };
 		6DE4337213DA012600BF551E /* RoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4337113DA012600BF551E /* RoundedRectView.m */; };
+		6DEE3D1F140D3E1C00532F71 /* PhoneNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEE3D1E140D3E1C00532F71 /* PhoneNumberFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17DC13BC940D00ECF9F6 /* NSManagedObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */; };
 		FF0A17F713BC944E00ECF9F6 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E013BC944E00ECF9F6 /* CDataScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17F813BC944E00ECF9F6 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17E313BC944E00ECF9F6 /* CFilteringJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -551,6 +552,8 @@
 		6DDC3E4113FC3CD2005F4DD7 /* ContactsQAFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsQAFormViewController.xib; sourceTree = "<group>"; };
 		6DE4337013DA012600BF551E /* RoundedRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectView.h; sourceTree = "<group>"; };
 		6DE4337113DA012600BF551E /* RoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedRectView.m; sourceTree = "<group>"; };
+		6DEE3D1D140D3E1C00532F71 /* PhoneNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberFormatter.h; sourceTree = "<group>"; };
+		6DEE3D1E140D3E1C00532F71 /* PhoneNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumberFormatter.m; sourceTree = "<group>"; };
 		FF0A17DA13BC940D00ECF9F6 /* NSManagedObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JSON.h"; sourceTree = "<group>"; };
 		FF0A17DB13BC940D00ECF9F6 /* NSManagedObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+JSON.m"; sourceTree = "<group>"; };
 		FF0A17DF13BC944E00ECF9F6 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
@@ -1718,6 +1721,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FFFB3C5813ABE4210063E374 /* Core Graphics Table View */,
 				FF317ECE140835FC007D88FD /* FlurryAnalytics */,
 				FFDFB56013EB23A500B540E1 /* MGSplitViewController */,
 				FF846CB613DD9A5F00D59F3E /* JSONKit */,
@@ -1834,7 +1838,6 @@
 				FF71F52813C63112005CE1DA /* TableViewCells */,
 				FF77110013B257BF00E90F4B /* External */,
 				FF697AD713AFB8DA00B66202 /* Model Classes */,
-				FFFB3C5813ABE4210063E374 /* Core Graphics Table View */,
 				FF8B416313A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.h */,
 				FF8B416413A8EEF700A05007 /* Access_Sales_AssistantAppDelegate.m */,
 				FFFB3C5A13ABE4890063E374 /* View Controllers */,
@@ -1860,6 +1863,8 @@
 				FF8B416213A8EEF700A05007 /* Access Sales Assistant-Prefix.pch */,
 				6D38EFB51402B20300E4F682 /* NSString-Validation.h */,
 				6D38EFB61402B20300E4F682 /* NSString-Validation.m */,
+				6DEE3D1D140D3E1C00532F71 /* PhoneNumberFormatter.h */,
+				6DEE3D1E140D3E1C00532F71 /* PhoneNumberFormatter.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2837,6 +2842,7 @@
 				6D38EFD11402E11600E4F682 /* VisitApplicationAUNTKViewController.m in Sources */,
 				FFA9F1BE14056D9400817BA6 /* CLLocationController.m in Sources */,
 				FFA9F1BF14056D9400817BA6 /* VisitTableViewCell.m in Sources */,
+				6DEE3D1F140D3E1C00532F71 /* PhoneNumberFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

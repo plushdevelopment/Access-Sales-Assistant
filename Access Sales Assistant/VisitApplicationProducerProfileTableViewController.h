@@ -22,12 +22,19 @@
 #import "PickerViewController.h"
 #import "SmartTableView.h"
 #import "BaseDetailViewController.h"
+#import "PhoneNumberFormatter.h"
 
 @interface VisitApplicationProducerProfileTableViewController : BaseDetailViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDataSource, UITableViewDelegate>
 {
     NSArray* sectionTitleArray;
     BOOL isContactsEdited;
 	SmartTableView *_tableView;
+    int myTextFieldSemaphore;
+    
+    PhoneNumberFormatter *myPhoneNumberFormatter;
+    
+    NSString *myLocale; //@"us"
+
 }
 
 @property (nonatomic, strong) Producer* detailItem;
@@ -73,5 +80,6 @@
 
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;
+-(IBAction)autoFormatPhoneNumber:(id) sender;
 
 @end

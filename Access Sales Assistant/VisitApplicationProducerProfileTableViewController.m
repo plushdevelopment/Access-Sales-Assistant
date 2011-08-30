@@ -55,6 +55,7 @@
 
 @synthesize dismissButton = _dismissButton;
 @synthesize submitButton = _submitButton;
+
 //@synthesize producerGeneralTableViewCell = _producerGeneralTableViewCell;
 
 - (IBAction)dismiss:(id)sender
@@ -86,6 +87,9 @@
     sectionTitleArray = [[NSArray alloc] initWithObjects:PRODUCER_PROFILE_SECTIONS];
     
     self.tableView.allowsSelection = NO;
+    
+    myTextFieldSemaphore =0;
+    myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
     
   //  [self toggleSubmitButton:NO];
 
@@ -2108,6 +2112,20 @@
     }
     
     return TRUE;
+}
+
+-(IBAction)autoFormatPhoneNumber:(id)sender
+{
+    if(myTextFieldSemaphore)
+        return;
+    UITextField *textField = (UITextField*)sender;
+    
+    NSLog(textField.text);
+    myTextFieldSemaphore = 1;
+    textField.text = [myPhoneNumberFormatter format:textField.text withLocale:@"us"];
+    myTextFieldSemaphore=0;
+    
+    NSLog(textField.text);
 }
 /*
 -(void) changeTextFieldOutline:(UITextField *)textField:(BOOL) toOriginal

@@ -187,7 +187,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	user.token = encodedString;
 	[self.managedObjectContext save];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Login Successful" object:request];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Launch Map" object:request];
 	
 	[self requestPickLists];
 }
@@ -242,6 +242,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[self.managedObjectContext save];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"PickList Successful" object:request];
+    	
 	NSNumber *page = [NSNumber numberWithInt:1];
 	
 	[self requestCompetitors:page];

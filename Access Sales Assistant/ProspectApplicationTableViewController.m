@@ -80,6 +80,8 @@
     
     
     self.baseToolbar = _toolBar;
+    myTextFieldSemaphore =0;
+    myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
     
     
   //   NSMutableArray *items1 = [[self.baseToolbar items] mutableCopy];
@@ -749,6 +751,8 @@
    // NSString *text = [NSString stringWithFormat:@"%@%@", textField.text, string];
      NSString *replacementString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     NSLog(@"%@", replacementString);
+    
+   // [self autoFormatPhoneNumber:textField];
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
     
@@ -1217,6 +1221,19 @@
         }
     }
     return TRUE;
+}
+-(IBAction)autoFormatPhoneNumber:(id)sender
+{
+    if(myTextFieldSemaphore)
+        return;
+    UITextField *textField = (UITextField*)sender;
+    
+     NSLog(textField.text);
+    myTextFieldSemaphore = 1;
+    textField.text = [myPhoneNumberFormatter format:textField.text withLocale:@"us"];
+    myTextFieldSemaphore=0;
+
+    NSLog(textField.text);
 }
 /*
 // Override to support conditional editing of the table view.

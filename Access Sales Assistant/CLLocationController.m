@@ -51,7 +51,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(CLLocationController);
 - (void)stopUpdatingCurrentLocation
 {
     _updateInProgress = NO;
-    [_manager stopUpdatingLocation];
+    //[_manager stopUpdatingLocation];
 }
 
 #pragma mark -

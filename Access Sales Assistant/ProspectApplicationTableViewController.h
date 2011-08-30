@@ -22,12 +22,20 @@
 #import "BaseDetailViewController.h"
 #import "VisitApplicationTabBarController.h"
 #import "ProducerListTableViewController.h"
+#import "PhoneNumberFormatter.h"
 
 @interface ProspectApplicationTableViewController : BaseDetailViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController,UITableViewDelegate,UITableViewDataSource>// UITableViewController
 {
     NSArray* sectionTitleArray;
     NSMutableArray* producerList;
     NSMutableArray* producerNamesArray;
+    
+    int myTextFieldSemaphore;
+    
+    PhoneNumberFormatter *myPhoneNumberFormatter;
+    
+    NSString *myLocale; //@"us"
+
 
 }
 
@@ -62,4 +70,5 @@
 -(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell:(NSInteger)forType;
 -(void) saveTextFieldToContext:(UITextField*) textField;
 -(IBAction)submitProspectApp:(id)sender;
+-(IBAction)autoFormatPhoneNumber:(id) sender;
 @end
