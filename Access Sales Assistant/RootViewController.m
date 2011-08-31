@@ -54,7 +54,7 @@
 
 #import "ProspectApplicationTableViewController.h"
 
-#define SECTION_HEADER_HEIGHT       44
+#define SECTION_HEADER_HEIGHT       48
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
 #define CONTACT_OPTIONS             @"Email SSC",@"Email Customer Service",@"Email NSF",@"Email Product",@"Email QA Form",@"Email Facilities",@"QA Resolution Timetable",@"Email help desk",nil
 #define SECTION_TITLES              @"Visit Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",nil
@@ -138,6 +138,11 @@
     // Set up default values.
     self.tableView.sectionHeaderHeight = SECTION_HEADER_HEIGHT;
     
+    CGRect rectFrame = self.tableView.frame;
+    
+    [self.tableView setFrame:CGRectMake(0, 60, rectFrame.size.width, rectFrame.size.height)];
+    
+    CGRect rectAfter = self.tableView.frame;
 	
     
     self.tableView.backgroundColor = [UIColor blackColor];
@@ -500,7 +505,7 @@
         BOOL isDisclosure = FALSE;
         if(section == VISIT_APP_INDEX || section == CONTACTS_OPTIONS_INDEX || section == ACCESS_ACADEMY_INDEX)
             isDisclosure = TRUE;
-        sectionInfo.headerView = [[SectionHeaderView alloc] initWithFrame:CGRectMake(4.0, 4.0, 315, SECTION_HEADER_HEIGHT+4) title:playName section:section displayDisclosure:isDisclosure delegate:self];
+        sectionInfo.headerView = [[SectionHeaderView alloc] initWithFrame:CGRectMake(4.0, 2.0, 315, SECTION_HEADER_HEIGHT+2) title:playName section:section displayDisclosure:isDisclosure delegate:self];
     }
     
     return sectionInfo.headerView;
@@ -752,6 +757,30 @@
 #pragma mark Split view support
 
 
+- (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc
+{
+	//NSLog(@"%@", NSStringFromSelector(_cmd));
+    barButtonItem.title = @"Menu";
+    self.popoverController = pc;
+    self.rootPopoverButtonItem = barButtonItem;
+    UIViewController <SubstitutableDetailViewController> *detailViewController = [self.splitViewController.viewControllers objectAtIndex:1];
+    [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+	
+}
+
+
+// Called when the view is shown again in the split view, invalidating the button and popover controller.
+- (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+	//NSLog(@"%@", NSStringFromSelector(_cmd));
+	// Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
+    UIViewController <SubstitutableDetailViewController> *detailViewController = [self.splitViewController.viewControllers objectAtIndex:1];
+    [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
+    self.popoverController = nil;
+    self.rootPopoverButtonItem = nil;
+}
+
+/*
 - (void)splitViewController:(MGSplitViewController*)svc 
 	 willHideViewController:(UIViewController *)aViewController 
 		  withBarButtonItem:(UIBarButtonItem*)barButtonItem 
@@ -806,12 +835,12 @@
 	//NSLog(@"%@", NSStringFromSelector(_cmd));
 	return proposedPosition;
 }
-
+*/
 
 -(void) changeDetailViewController:(BaseDetailViewController *)detailViewController
 {
-    NSArray* viewControllerArr =   [ self.mgSplitViewController viewControllers ];
-    self.mgSplitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-    detailViewController.splitviewcontroller = self.mgSplitViewController;
+    NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+    detailViewController.splitviewcontroller = self.splitViewController;
 }
 @end

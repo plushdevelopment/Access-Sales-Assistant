@@ -135,14 +135,14 @@
 
 -(void) toggleMaster:(id) sender
 {
-    hidemaster = !hidemaster;
+  /*  hidemaster = !hidemaster;
     
     [splitviewcontroller toggleMasterView:sender];
     
     NSString* title = hidemaster?@"Show Menu":@"Hide Menu";
     
     [self.showHideMaster setTitle:title];
-    [self.view setNeedsDisplay];
+    [self.view setNeedsDisplay];*/
     
     
     
