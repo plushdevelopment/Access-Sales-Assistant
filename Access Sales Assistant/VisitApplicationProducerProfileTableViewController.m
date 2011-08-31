@@ -1992,7 +1992,7 @@
                    _detailItem.subTerritory == nil ||
                    _detailItem.numberOfLocations == nil ||
                    _detailItem.numberOfEmployees == nil ||
-                   _detailItem.eAndOExpires == nil ||
+                  // _detailItem.eAndOExpires == nil ||
                    _detailItem.dateEstablished == nil
                    )
                     return FALSE;

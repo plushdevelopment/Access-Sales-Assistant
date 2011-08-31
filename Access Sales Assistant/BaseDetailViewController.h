@@ -23,7 +23,8 @@
 
 @property(nonatomic,strong) UIBarButtonItem *showHideMaster;
 
-@property (nonatomic,strong) MGSplitViewController* splitviewcontroller;
+//@property (nonatomic,strong) MGSplitViewController* splitviewcontroller;
+@property (nonatomic,strong) UISplitViewController* splitviewcontroller;
 
 @property (nonatomic) BOOL hidemaster;
 

@@ -211,8 +211,8 @@
 
 -(void) layoutSubviews {
        
-    CGFloat coloredBoxMargin = 6.0;
-    CGFloat coloredBoxHeight = 40.0;
+    CGFloat coloredBoxMargin = 0;
+    CGFloat coloredBoxHeight = 44.0;
     _coloredBoxRect = CGRectMake(coloredBoxMargin, 
                                  coloredBoxMargin, 
                                  self.bounds.size.width-coloredBoxMargin*2, 

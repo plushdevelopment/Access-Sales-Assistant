@@ -73,10 +73,10 @@
 	}
     if([daysArray count])
     {
-        NSArray* viewControllerArr =   [ self.mgSplitViewController viewControllers ];
+        NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
         VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
-        self.mgSplitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-        detailViewController.splitviewcontroller = self.mgSplitViewController;
+        self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+        detailViewController.splitviewcontroller = self.splitViewController;
         
          if([daysArray count])
              [detailViewController setSelectedDay:[daysArray objectAtIndex:0]];   
@@ -130,21 +130,21 @@
 	// VisitApplicationProducerProfileTableViewController* detailViewController = [[VisitApplicationProducerProfileTableViewController alloc] initWithNibName:@"VisitApplicationProducerProfileTableViewController" bundle:nil];
 	
     //TODO: Need to uncomment below code
-	/*	self.splitViewController = [[UISplitViewController alloc] init];
+		self.splitViewController = [[UISplitViewController alloc] init];
 	 self.splitViewController.delegate = controller;
 	 controller.splitViewController = self.splitViewController;
 	 self.splitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
 	 controller.detailViewController = detailViewController;
-     */
+     
     
     //MGSplitviewcontroller 
-    self.mgSplitViewController = [[MGSplitViewController alloc] init];
+   /* self.mgSplitViewController = [[MGSplitViewController alloc] init];
     self.mgSplitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
     self.mgSplitViewController.delegate = controller;
     controller.mgSplitViewController = self.mgSplitViewController;
     detailViewController.splitviewcontroller = self.mgSplitViewController;
 	controller.detailViewController = detailViewController;
-    
+    */
 	[FlurryAnalytics startSession:@"Y1A8YRZTCUKUTUYY9M43"];
     
     isDidFinishLaunching = TRUE;
@@ -155,11 +155,11 @@
 	 */
     
 	
-    self.window.rootViewController = self.mgSplitViewController;
+   // self.window.rootViewController = self.mgSplitViewController;
     
     
     
-	//self.window.rootViewController = self.splitViewController;
+	self.window.rootViewController = self.splitViewController;
     [self.window makeKeyAndVisible];
 	
 	//[self loginFailed:nil];
