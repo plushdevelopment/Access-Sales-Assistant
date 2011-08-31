@@ -57,15 +57,14 @@
 #define SECTION_HEADER_HEIGHT       48
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
 #define CONTACT_OPTIONS             @"Email SSC",@"Email Customer Service",@"Email NSF",@"Email Product",@"Email QA Form",@"Email Facilities",@"QA Resolution Timetable",@"Email help desk",nil
-#define SECTION_TITLES              @"Visit Application",@"Appointment Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",nil
-#define SECTION_ROW_COUNT           5,0,0,0,0,5,0,nil
+#define SECTION_TITLES              @"Visit Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",nil
+#define SECTION_ROW_COUNT           5,0,0,0,5,0,nil
 #define VISIT_APP_INDEX             0
-#define CONTACTS_OPTIONS_INDEX      5
-#define APPOINTMENTAPP_INDEX        1
-#define PROSPECT_APP_INDEX          2
-#define FEATURES_AND_BENEFITS_INDEX 3
-#define ACCESS_ACADEMY_INDEX        4
-#define GPS_INDEX                   6
+#define CONTACTS_OPTIONS_INDEX      4
+#define PROSPECT_APP_INDEX          1
+#define FEATURES_AND_BENEFITS_INDEX 2
+#define ACCESS_ACADEMY_INDEX        3
+#define GPS_INDEX                   5
 #define FLASH_CARD_PROSPECT         1
 #define FLASH_CARD_ZERO_PRODUCER    2
 #define FLASH_CARD_PRODUCER         3
@@ -162,7 +161,7 @@
 	
     
     NSMutableArray* arrayInfo = [NSMutableArray array];
-    for(int s =0; s<7;s++)
+    for(int s =0; s<6;s++)
     {
         MainViewSectionInfo* tSectionInfo = [[MainViewSectionInfo alloc] init];
         tSectionInfo.sectionName = [sectionTitlesArray objectAtIndex:s];
@@ -626,21 +625,6 @@
             
             //self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
 			
-        }
-            break;
-        case APPOINTMENTAPP_INDEX:
-        {
-            SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
-			//   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-			//  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-            
-            [self changeDetailViewController:detailViewController];
-            detailViewController.titleLabel.text = @"APPOINTMENT APPLICATION";
-			
-            self.detailViewController = detailViewController;
-			
-            closePopOver = TRUE;
-			// [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
         }
             break;
         case PROSPECT_APP_INDEX:

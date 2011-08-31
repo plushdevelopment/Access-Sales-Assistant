@@ -15,9 +15,12 @@
 @property (nonatomic) BOOL updateInProgress;
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (nonatomic) CLLocationCoordinate2D currentCoordinate;
+@property (strong, nonatomic) NSSet *monitoredRegions;
 
 + (CLLocationController *)sharedCLLocationController;
 - (void)startUpdatingCurrentLocation;
 - (void)stopUpdatingCurrentLocation;
+- (void)monitorRegion:(CLRegion *)region;
+- (void)monitorProducers:(NSArray *)producers;
 
 @end

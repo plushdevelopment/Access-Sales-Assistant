@@ -324,6 +324,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 - (void)requestProducersFinished:(ASIHTTPRequest *)request
 {	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:nil];
+	
 	/*
 	GetProducerRequest *producerRequest = (GetProducerRequest *)request;
 	if (producerRequest.currentPage == 1) {

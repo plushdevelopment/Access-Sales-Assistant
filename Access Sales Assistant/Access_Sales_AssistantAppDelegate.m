@@ -73,10 +73,10 @@
 	}
     if([daysArray count])
     {
-        NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
+        NSArray* viewControllerArr =   [ self.mgSplitViewController viewControllers ];
         VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
-        self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-        detailViewController.splitviewcontroller = self.splitViewController;
+        self.mgSplitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+        detailViewController.splitviewcontroller = self.mgSplitViewController;
         
          if([daysArray count])
              [detailViewController setSelectedDay:[daysArray objectAtIndex:0]];   
@@ -109,6 +109,10 @@
     
 }
 
+void uncaughtExceptionHandler(NSException *exception) {
+	[FlurryAnalytics logError:@"Uncaught" message:@"Crash!" exception:exception];
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -130,39 +134,34 @@
 	// VisitApplicationProducerProfileTableViewController* detailViewController = [[VisitApplicationProducerProfileTableViewController alloc] initWithNibName:@"VisitApplicationProducerProfileTableViewController" bundle:nil];
 	
     //TODO: Need to uncomment below code
-		self.splitViewController = [[UISplitViewController alloc] init];
+	/*	self.splitViewController = [[UISplitViewController alloc] init];
 	 self.splitViewController.delegate = controller;
 	 controller.splitViewController = self.splitViewController;
 	 self.splitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
 	 controller.detailViewController = detailViewController;
-     
+     */
     
     //MGSplitviewcontroller 
-   /* self.mgSplitViewController = [[MGSplitViewController alloc] init];
+    self.mgSplitViewController = [[MGSplitViewController alloc] init];
     self.mgSplitViewController.viewControllers = [NSArray arrayWithObjects:navigationController, detailViewController, nil];
     self.mgSplitViewController.delegate = controller;
     controller.mgSplitViewController = self.mgSplitViewController;
     detailViewController.splitviewcontroller = self.mgSplitViewController;
 	controller.detailViewController = detailViewController;
-    */
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 	[FlurryAnalytics startSession:@"Y1A8YRZTCUKUTUYY9M43"];
-    
+    [FlurryAnalytics setSessionReportsOnPauseEnabled:YES];
     isDidFinishLaunching = TRUE;
     
-    
-	/*  MGSplitViewDividerStyle newStyle = ((self.mgSplitViewController.dividerStyle == MGSplitViewDividerStyleThin) ? MGSplitViewDividerStylePaneSplitter : MGSplitViewDividerStyleThin);
-	 [self.mgSplitViewController setDividerStyle:newStyle animated:YES];
-	 */
-    
 	
-   // self.window.rootViewController = self.mgSplitViewController;
+    self.window.rootViewController = self.mgSplitViewController;
     
     
     
-	self.window.rootViewController = self.splitViewController;
+	//self.window.rootViewController = self.splitViewController;
     [self.window makeKeyAndVisible];
 	
-	//[self loginFailed:nil];
+	[[CLLocationController sharedCLLocationController] startUpdatingCurrentLocation];
 	
     return YES;
 }
@@ -173,7 +172,7 @@
 	 Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
 	 Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 	 */
-	[[CLLocationController sharedCLLocationController] stopUpdatingCurrentLocation];
+	//[[CLLocationController sharedCLLocationController] stopUpdatingCurrentLocation];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -205,11 +204,15 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Get Images Failure" object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showError:) name:@"Get Image Failure" object:nil];
     
-    	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"Launch Map" object:nil];
-	
-	[[CLLocationController sharedCLLocationController] startUpdatingCurrentLocation];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"Launch Map" object:nil];
 	
 	[[HTTPOperationController sharedHTTPOperationController] login];
+	
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"EEEE, MM-dd-yyyy"];
+	NSString *currentDate = [dateFormatter stringFromDate:[NSDate date]];
+	NSArray *producers = [Producer findByAttribute:@"nextScheduledVisitDate" withValue:currentDate andOrderBy:@"nextScheduledVisit" ascending:YES];
+	[[CLLocationController sharedCLLocationController] monitorProducers:producers];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

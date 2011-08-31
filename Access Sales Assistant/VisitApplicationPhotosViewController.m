@@ -117,7 +117,6 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(postImageSuccess:) name:@"Post Image Successful" object:nil];
 	
 	self.images = self.detailItem.images.allObjects;
-	NSLog(@"Images Count: %d", self.images.count);
 	
 	self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	self.gridView.autoresizesSubviews = YES;
