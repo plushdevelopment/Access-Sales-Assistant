@@ -47,7 +47,7 @@
     LoginViewController *viewController= [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
 	[viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
 	[viewController setModalPresentationStyle:UIModalPresentationFormSheet];
-	[self.mgSplitViewController presentModalViewController:viewController animated:YES];
+	[self.splitViewController presentModalViewController:viewController animated:YES];
 }
 
 - (void)showError:(id)notification
