@@ -739,12 +739,12 @@
     
     BOOL isMondayHoursExists = ([hOfOperation.mondayOpenTime.name length]>0 && [hOfOperation.mondayCloseTime.name length]>0)?TRUE:NO;
     
-    if(isMondayHoursExists)
-    {
     [hoursCell.monStartTextField setText:hOfOperation.mondayOpenTime.name];
     [hoursCell.monStopTextField setText:hOfOperation.mondayCloseTime.name];
-        
-        
+
+    if(isMondayHoursExists)
+    {
+           
         [self toggleHoursOfOperationCell:hoursCell :TRUE];
         hOfOperation.tuesdayOpenTime = [hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.tuesdayOpenTime :hOfOperation :1 :TRUE];
         [hoursCell.tueStartTextField setText:[hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime.name:hOfOperation.mondayOpenTime.name];
@@ -823,41 +823,6 @@
     toHour = [OperationHour createEntity];
     toHour.name = withHour.name;
     return toHour;
-    
-   /* switch(forDay)
-    {
-        case 1:
-        {
-            break;
-        }
-        case 2:
-        {
-            break;
-        }
-        case 3:
-        {
-            break;
-        }
-        case 4:
-        {
-            break;
-        }
-        case 5:
-        {
-            break;
-        }
-        case 6:
-        {
-            break;
-        }
-    }
-    */
-    
- //   hoursOperation.
-    //[self.detailItem ]
-   // [hoursOperation ad]
-    
-    
 }
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -873,17 +838,7 @@
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:YES];
 }
-/*
--(void)tableView:(UITableView*)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return UITableViewCellEditingStyleDelete;
-}
-*/
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -2282,7 +2237,7 @@
                             isEmailFound = TRUE;
                     }
                 }
-                if(!isPhoneNoFound || !isEmailFound || !isFaxFound) 
+                if(!isPhoneNoFound || !isEmailFound ) 
                     return FALSE;
             }
                 break;
