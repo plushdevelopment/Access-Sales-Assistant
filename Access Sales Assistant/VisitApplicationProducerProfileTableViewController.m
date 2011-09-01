@@ -91,6 +91,8 @@
     myTextFieldSemaphore =0;
     myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
     
+    self.tableView.backgroundColor = MAIN_BACKGROUND_COLOR;
+    
   //  [self toggleSubmitButton:NO];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -563,25 +565,129 @@
         }
         
     }
-    int eCount  = _detailItem.emails.allObjects.count;
+  //  int eCount  = _detailItem.emails.allObjects.count;
+    BOOL isAccountMailFound=FALSE,isMainMailFound=FALSE,isCustServiceMailFound=FALSE,isClaimsMailFound=FALSE;
+    EmailListItem* acctMailItem,*mainMailItem,*custMailItem,*claimsMailItem;
+    
     for (EmailListItem *email in _detailItem.emails) {
         
         int typevalue = email.typeValue;
         if (email.typeValue == 1) {
           //  [self.emailAddressTextField setText:email.address];
-        } else if (email.typeValue == 2) {
-            [contactInfoCell.acctMailTextField setText:email.address];
-        } else if (email.typeValue == 3) {
-            [contactInfoCell.mainMailTextField setText:email.address];
-        } else if (email.typeValue == 4) {
-            [contactInfoCell.custServMailTextField setText:email.address];
-        } else if (email.typeValue == 5) {
-            [contactInfoCell.claimsMailTextField setText:email.address];
+        } else if (email.typeValue == ACCOUNTING_EMAIL) {
+      //      [contactInfoCell.acctMailTextField setText:email.address];
+            if([email.address length]>0)
+                isAccountMailFound = TRUE;
+            acctMailItem = email;
+        } else if (email.typeValue == MAIN_EMAIL) {
+     //       [contactInfoCell.mainMailTextField setText:email.address];
+            if([email.address length]>0)
+                isMainMailFound = TRUE;
+            mainMailItem = email;
+        } else if (email.typeValue == CUSTOMER_SERVICE_EMAIL) {
+     //       [contactInfoCell.custServMailTextField setText:email.address];
+            if([email.address length]>0)
+                isCustServiceMailFound = TRUE;
+            custMailItem = email;
+        } else if (email.typeValue == CLAIMS_EMAIL) {
+     //       [contactInfoCell.claimsMailTextField setText:email.address];
+            if([email.address length]>0)
+                isClaimsMailFound = TRUE;
+            claimsMailItem = email;
         }
     }
     
+     EmailListItem *emailToUse = isMainMailFound?mainMailItem:(isAccountMailFound?acctMailItem:(isCustServiceMailFound?custMailItem:(isClaimsMailFound?claimsMailItem:nil)));
+    
+    NSLog(@"Email Addr: %@",emailToUse.address);
+    
+    if(isAccountMailFound)
+    {
+        [contactInfoCell.acctMailTextField setText:acctMailItem.address];
+    }
+    else
+    {
+        if(emailToUse)
+        {
+            EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :ACCOUNTING_EMAIL];
+            [contactInfoCell.acctMailTextField setText:emailToUse.address];
+          
+            /*EmailListItem* newMailItem = [EmailListItem createEntity];
+            newMailItem.typeValue = ACCOUNTING_EMAIL;
+            newMailItem.address = emailToUse.address;
+            [self.detailItem addEmailsObject:newMailItem];*/
+        }
+    }
+    
+    if(isMainMailFound)
+    {
+        
+        [contactInfoCell.mainMailTextField setText:mainMailItem.address];
+    }
+    else
+    {
+        if(emailToUse)
+        {
+                        EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :MAIN_EMAIL];
+            [contactInfoCell.mainMailTextField setText:newMailItem.address];
+           /* EmailListItem* newMailItem = [EmailListItem createEntity];
+            newMailItem.typeValue = MAIN_EMAIL;
+            newMailItem.address = emailToUse.address;
+            [self.detailItem addEmailsObject:newMailItem];*/
+
+        }
+        
+    }
+    
+    if(isCustServiceMailFound)
+    {
+        [contactInfoCell.custServMailTextField setText:custMailItem.address];
+    }
+    else
+    {
+        if(emailToUse)
+        {
+                        EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :CUSTOMER_SERVICE_EMAIL];
+            [contactInfoCell.custServMailTextField setText:newMailItem.address];
+           /* EmailListItem* newMailItem = [EmailListItem createEntity];
+            newMailItem.typeValue = CUSTOMER_SERVICE_EMAIL;
+            newMailItem.address = emailToUse.address;
+            [self.detailItem addEmailsObject:newMailItem];*/
+
+        }
+    }
+    
+    if(isClaimsMailFound)
+    {
+        [contactInfoCell.claimsMailTextField setText:claimsMailItem.address];
+    }
+    else
+    {
+        if(emailToUse)
+        {
+             EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :CLAIMS_EMAIL];//[EmailListItem createEntity];
+            [contactInfoCell.claimsMailTextField setText:newMailItem.address];
+            
+           
+          /*  newMailItem.typeValue = CLAIMS_EMAIL;
+            newMailItem.address = emailToUse.address;
+            [self.detailItem addEmailsObject:newMailItem];*/
+
+        }
+    }
+    
+    
     [contactInfoCell.webAddrTextField setText:_detailItem.webAddress];
     return contactInfoCell;
+
+}
+-(EmailListItem*)createNewEmailItem:(EmailListItem*) withEmailItem:(NSInteger) forType
+{
+    EmailListItem* newMailItem = [EmailListItem createEntity];
+    newMailItem.typeValue = forType;
+    newMailItem.address = withEmailItem.address;
+    [self.detailItem addEmailsObject:newMailItem];
+    return newMailItem;
 
 }
 
@@ -624,28 +730,132 @@
 -(void) hoursOfOperationCell:(ProducerHoursTableViewCell*)hoursCell:(NSInteger)forRow
 {
     
+    BOOL isMondayOpen=FALSE,isMondayClose=FALSE;
     
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
     [timeFormatter setDateFormat:@"hh:mm a"];
     
     HoursOfOperation *hOfOperation = _detailItem.hoursOfOperation;
     
+    BOOL isMondayHoursExists = ([hOfOperation.mondayOpenTime.name length]>0 && [hOfOperation.mondayCloseTime.name length]>0)?TRUE:NO;
     
+    if(isMondayHoursExists)
+    {
     [hoursCell.monStartTextField setText:hOfOperation.mondayOpenTime.name];
     [hoursCell.monStopTextField setText:hOfOperation.mondayCloseTime.name];
-    [hoursCell.tueStartTextField setText:hOfOperation.tuesdayOpenTime.name];
-    [hoursCell.tueStopTextField setText:hOfOperation.tuesdayCloseTime.name];
-    [hoursCell.wedStartTextField setText:hOfOperation.wednesdayOpenTime.name];
-    [hoursCell.wedStopTextField setText:hOfOperation.wednesdayCloseTime.name];
-    [hoursCell.thuStartTextField setText:hOfOperation.thursdayOpenTime.name];
-    [hoursCell.thuStopTextField setText:hOfOperation.thursdayCloseTime.name];
-    [hoursCell.friStartTextField setText:hOfOperation.fridayOpenTime.name];
+        
+        
+        [self toggleHoursOfOperationCell:hoursCell :TRUE];
+        hOfOperation.tuesdayOpenTime = [hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.tuesdayOpenTime :hOfOperation :1 :TRUE];
+        [hoursCell.tueStartTextField setText:[hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime.name:hOfOperation.mondayOpenTime.name];
+        
+          hOfOperation.tuesdayCloseTime = [hOfOperation.tuesdayCloseTime.name length]>0?hOfOperation.tuesdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.tuesdayCloseTime :hOfOperation :1 :TRUE];
+    [hoursCell.tueStopTextField setText:[hOfOperation.tuesdayCloseTime.name length]>0?hOfOperation.tuesdayCloseTime.name:hOfOperation.mondayCloseTime.name];
+       
+          hOfOperation.wednesdayOpenTime = [hOfOperation.wednesdayOpenTime.name length]>0?hOfOperation.wednesdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.mondayOpenTime :hOfOperation :1 :TRUE];
+    [hoursCell.wedStartTextField setText:[hOfOperation.wednesdayOpenTime.name length]>0?hOfOperation.wednesdayOpenTime.name:hOfOperation.mondayOpenTime.name];
+        
+          hOfOperation.wednesdayCloseTime = [hOfOperation.wednesdayCloseTime.name length]>0?hOfOperation.wednesdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.wednesdayCloseTime :hOfOperation :1 :TRUE];
+    [hoursCell.wedStopTextField setText:[hOfOperation.wednesdayCloseTime.name length]>0?hOfOperation.wednesdayCloseTime.name:hOfOperation.mondayCloseTime.name];
     
-    [hoursCell.friStopTextField setText:hOfOperation.fridayCloseTime.name];
-    [hoursCell.satStartTextField setText:hOfOperation.saturdayOpenTime.name];
-    [hoursCell.satStopTextField setText:hOfOperation.saturdayCloseTime.name];
-    [hoursCell.sunStartTextField setText:hOfOperation.sundayOpenTime.name];
+          hOfOperation.thursdayOpenTime = [hOfOperation.thursdayOpenTime.name length]>0?hOfOperation.thursdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.thursdayOpenTime :hOfOperation :1 :TRUE];
+    [hoursCell.thuStartTextField setText:[hOfOperation.thursdayOpenTime.name length]>0?hOfOperation.thursdayOpenTime.name:hOfOperation.mondayOpenTime.name];
+     
+          hOfOperation.thursdayCloseTime = [hOfOperation.thursdayCloseTime.name length]>0?hOfOperation.thursdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.thursdayCloseTime :hOfOperation :1 :TRUE];
+    [hoursCell.thuStopTextField setText:[hOfOperation.thursdayCloseTime.name length]>0?hOfOperation.thursdayCloseTime.name:hOfOperation.mondayCloseTime.name];
+     
+          hOfOperation.fridayOpenTime = [hOfOperation.fridayOpenTime.name length]>0?hOfOperation.fridayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.fridayOpenTime :hOfOperation :1 :TRUE];
+    [hoursCell.friStartTextField setText:[hOfOperation.fridayOpenTime.name length]>0?hOfOperation.fridayOpenTime.name:hOfOperation.mondayOpenTime.name];
+    
+          hOfOperation.fridayCloseTime = [hOfOperation.fridayCloseTime.name length]>0?hOfOperation.fridayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.fridayCloseTime :hOfOperation :1 :TRUE];
+    [hoursCell.friStopTextField setText:[hOfOperation.fridayCloseTime.name length]>0?hOfOperation.fridayCloseTime.name:hOfOperation.mondayCloseTime.name];
+       
+          hOfOperation.saturdayOpenTime = [hOfOperation.saturdayOpenTime.name length]>0?hOfOperation.saturdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.saturdayOpenTime :hOfOperation :1 :TRUE];
+    [hoursCell.satStartTextField setText:[hOfOperation.saturdayOpenTime.name length]>0?hOfOperation.saturdayOpenTime.name:hOfOperation.mondayOpenTime.name];
+       
+          hOfOperation.saturdayCloseTime = [hOfOperation.saturdayCloseTime.name length]>0?hOfOperation.saturdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.saturdayCloseTime :hOfOperation :1 :TRUE];
+    [hoursCell.satStopTextField setText:hOfOperation.saturdayCloseTime.name ];
+        
+          hOfOperation.sundayOpenTime = [hOfOperation.sundayOpenTime.name length]>0?hOfOperation.sundayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.sundayOpenTime :hOfOperation :1 :TRUE];
+    [hoursCell.sunStartTextField setText:[hOfOperation.sundayOpenTime.name length]>0?hOfOperation.sundayOpenTime.name:hOfOperation.mondayOpenTime.name];
+       
+          hOfOperation.sundayCloseTime = [hOfOperation.sundayCloseTime.name length]>0?hOfOperation.sundayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.sundayCloseTime :hOfOperation :1 :TRUE];
     [hoursCell.sunStopTextField setText:hOfOperation.sundayCloseTime.name];
+    }
+    else 
+    {
+        [self toggleHoursOfOperationCell:hoursCell :FALSE];
+    }
+    
+}
+
+-(void) toggleHoursOfOperationCell:(ProducerHoursTableViewCell*) hoursCell:(BOOL) isEnabled
+{
+    [hoursCell.tueStartTextField setEnabled:isEnabled];
+    [self disableTextField:hoursCell.tueStartTextField :isEnabled];
+    [hoursCell.tueStopTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.tueStopTextField :isEnabled];
+    [hoursCell.wedStartTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.wedStartTextField :isEnabled];
+    [hoursCell.wedStopTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.wedStopTextField :isEnabled];
+    [hoursCell.thuStartTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.thuStartTextField :isEnabled];
+    [hoursCell.thuStopTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.thuStopTextField :isEnabled];
+    [hoursCell.friStartTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.friStartTextField :isEnabled];
+    [hoursCell.friStopTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.friStopTextField :isEnabled];
+    [hoursCell.satStartTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.satStartTextField :isEnabled];
+    [hoursCell.satStopTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.satStopTextField :isEnabled];
+    [hoursCell.sunStartTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.sunStartTextField :isEnabled];
+    [hoursCell.sunStopTextField setEnabled:isEnabled];
+     [self disableTextField:hoursCell.sunStopTextField :isEnabled];
+
+}
+
+-(OperationHour*) assignHour:(OperationHour*) withHour:(OperationHour*) toHour:(HoursOfOperation*) hoursOperation:(NSInteger) forDay:(BOOL) isOpen
+{
+    toHour = [OperationHour createEntity];
+    toHour.name = withHour.name;
+    return toHour;
+    
+   /* switch(forDay)
+    {
+        case 1:
+        {
+            break;
+        }
+        case 2:
+        {
+            break;
+        }
+        case 3:
+        {
+            break;
+        }
+        case 4:
+        {
+            break;
+        }
+        case 5:
+        {
+            break;
+        }
+        case 6:
+        {
+            break;
+        }
+    }
+    */
+    
+ //   hoursOperation.
+    //[self.detailItem ]
+   // [hoursOperation ad]
     
     
 }
@@ -702,6 +912,25 @@
     }   
 }
 
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section 
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(-15, 0, tableView.bounds.size.width+30, 25)];
+    
+    UIImageView* headerBg = [[UIImageView alloc] initWithFrame:headerView.frame];
+    UIImage* hImg = [UIImage imageNamed:@"MenuButton.png"];
+    headerBg.image = hImg;
+    
+    UILabel* headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, tableView.bounds.size.width-5, 20)];
+    headerTitle.text = [sectionTitleArray objectAtIndex:section];
+    headerTitle.font= [UIFont fontWithName:@"TrebuchetMS-Bold" size:16.0];
+    headerTitle.textColor = [UIColor whiteColor];
+    headerTitle.backgroundColor = [UIColor clearColor];
+    [headerView addSubview:headerBg];
+    [headerView addSubview:headerTitle];
+   
+    return headerView;
+}
 #pragma mark - pickerView methods
 
 // Show the pickerView inside of a popover
