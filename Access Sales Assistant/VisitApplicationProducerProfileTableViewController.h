@@ -23,6 +23,7 @@
 #import "SmartTableView.h"
 #import "BaseDetailViewController.h"
 #import "PhoneNumberFormatter.h"
+#import "OperationHour.h"
 
 @interface VisitApplicationProducerProfileTableViewController : BaseDetailViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDataSource, UITableViewDelegate>
 {
@@ -71,6 +72,12 @@
 -(void) toggleSubmitButton:(BOOL)isEnable;
 -(BOOL) isEnableSubmit;
 -(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem; 
+-(void) AutoFillEmailItem:(ProducerContactInfoTableViewCell*)contactInfoCell:(EmailListItem*) withEmailItem;
+-(EmailListItem*)createNewEmailItem:(EmailListItem*) withEmailItem:(NSInteger) forType;
+-(void) AutoFillHoursOfOperation:(HoursOfOperation*) withHours:(HoursOfOperation*) toHours;
+-(void) toggleHoursOfOperationCell:(ProducerHoursTableViewCell*) hoursCell:(BOOL) isEnabled;
+-(OperationHour*) assignHour:(OperationHour*) withHour:(OperationHour*) toHour:(HoursOfOperation*) hoursOperation:(NSInteger) forDay:(BOOL)isOpen;
+
 //-(void) changeTextFieldOutline:(UITextField*) textField:(BOOL) toOriginal;
 
 - (void)configureView;

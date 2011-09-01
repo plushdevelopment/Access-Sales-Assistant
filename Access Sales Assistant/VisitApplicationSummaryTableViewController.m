@@ -1323,7 +1323,7 @@ enum PRPTableStatsTags {
 		case PRPTableSectionCompetitor:
 			switch (self.pickerViewController.currentTag) {
 				case PRPTableCompetitorName:
-					theTitle = [[[Competitor findAll] objectAtIndex:row] name];
+					theTitle = [[[Competitor findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
 					break;
 				case PRPTableCompetitorCommissionStructure:
 					theTitle = [[[CommissionStructure findAll] objectAtIndex:row] name];

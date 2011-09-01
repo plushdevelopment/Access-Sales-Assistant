@@ -38,6 +38,13 @@
 #define ACCOUNTING_EMAIL 2
 #define CUSTOMER_SERVICE_EMAIL 4
 
+#define MAIN_BACKGROUND_COLOR RGB(240,255,255)
+
+
+
+#define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
 #pragma mark - enums
 enum producerProfileSectionIndex
 {
