@@ -15,7 +15,7 @@
 
 @property (nonatomic,strong) SectionHeaderView* headerView;
 
-@property (nonatomic,readonly) NSMutableArray *rowHeights;
+@property (nonatomic, strong, readonly) NSMutableArray *rowHeights;
 
 @property (nonatomic,strong) NSString* sectionName;
 

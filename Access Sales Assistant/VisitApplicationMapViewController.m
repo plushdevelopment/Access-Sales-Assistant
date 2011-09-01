@@ -393,16 +393,29 @@
 																		   annotationType:UICRouteAnnotationTypeStart number:1];
 	UICRouteAnnotation *endAnnotation = [[UICRouteAnnotation alloc] initWithCoordinate:[[routePoints lastObject] coordinate]
 																				  title:[[self.producers lastObject] producerCode]
-																		 annotationType:UICRouteAnnotationTypeEnd number:([_wayPoints count] + 3)];
-	
+																		 annotationType:UICRouteAnnotationTypeEnd number:([self.producers count])];
+	/*
 	if ([_wayPoints count] > 0) {
 		NSInteger numberOfRoutes = [directions numberOfRoutes];
 		for (NSInteger index = 0; index < numberOfRoutes; index++) {
 			UICGRoute *route = [directions routeAtIndex:index];
 			CLLocation *location = [route endLocation];
 			UICRouteAnnotation *annotation = [[UICRouteAnnotation alloc] initWithCoordinate:[location coordinate]
-																					   title:[[self.producers objectAtIndex:(index + 1)] producerCode]
+																					   title:[[self.producers objectAtIndex:(index +1)] producerCode]
 																			  annotationType:UICRouteAnnotationTypeEnd number:(index + 2)];
+			NSLog(@"%@", [[self.producers objectAtIndex:index] producerCode]);
+			[_directionsMapView addAnnotation:annotation];
+		}
+	}
+	*/
+	
+	if ([_wayPoints count] > 0) {
+		NSInteger numberOfRoutes = [directions numberOfRoutes];
+		for (Producer *producer in self.producers) {
+			CLLocation *location = [[CLLocation alloc] initWithLatitude:producer.latitudeValue longitude:producer.longitudeValue];
+			UICRouteAnnotation *annotation = [[UICRouteAnnotation alloc] initWithCoordinate:[location coordinate]
+																					  title:[producer producerCode]
+																			 annotationType:UICRouteAnnotationTypeEnd number:[self.producers indexOfObject:producer]];
 			[_directionsMapView addAnnotation:annotation];
 		}
 	}
