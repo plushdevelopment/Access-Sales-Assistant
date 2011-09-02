@@ -61,6 +61,7 @@
 
 -(void) loginSuccess:(id) sender
 {
+	/*
    if(isDidFinishLaunching)
    {
     
@@ -92,21 +93,7 @@
         }
     }
    }
-    /*   
-     UIBarButtonItem *rootPopoverButtonItem = controller.rootPopoverButtonItem;
-     // if(orientation == 0)
-     //     orientation = self.detailViewController.interfaceOrientation;
-     
-     if(UIDeviceOrientationIsPortrait(orientation))
-     {
-     
-     [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-     
-     }
-     else
-     [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
-     */  
-    
+     */
 }
 
 void uncaughtExceptionHandler(NSException *exception) {

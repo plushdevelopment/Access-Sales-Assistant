@@ -388,13 +388,14 @@
 	[self.directionsMapView setRegion:MKCoordinateRegionForMapRect(rect) animated:YES];
 	
 	// Add annotations
+	/*
 	UICRouteAnnotation *startAnnotation = [[UICRouteAnnotation alloc] initWithCoordinate:[[routePoints objectAtIndex:0] coordinate]
 																				   title:[[self.producers objectAtIndex:0] producerCode]
 																		   annotationType:UICRouteAnnotationTypeStart number:1];
 	UICRouteAnnotation *endAnnotation = [[UICRouteAnnotation alloc] initWithCoordinate:[[routePoints lastObject] coordinate]
 																				  title:[[self.producers lastObject] producerCode]
 																		 annotationType:UICRouteAnnotationTypeEnd number:([self.producers count])];
-	/*
+	
 	if ([_wayPoints count] > 0) {
 		NSInteger numberOfRoutes = [directions numberOfRoutes];
 		for (NSInteger index = 0; index < numberOfRoutes; index++) {
@@ -415,12 +416,12 @@
 			CLLocation *location = [[CLLocation alloc] initWithLatitude:producer.latitudeValue longitude:producer.longitudeValue];
 			UICRouteAnnotation *annotation = [[UICRouteAnnotation alloc] initWithCoordinate:[location coordinate]
 																					  title:[producer producerCode]
-																			 annotationType:UICRouteAnnotationTypeEnd number:[self.producers indexOfObject:producer]];
+																			 annotationType:UICRouteAnnotationTypeEnd number:([self.producers indexOfObject:producer] + 1)];
 			[_directionsMapView addAnnotation:annotation];
 		}
 	}
 	
-	[_directionsMapView addAnnotations:[NSArray arrayWithObjects:startAnnotation, endAnnotation, nil]];
+	//[_directionsMapView addAnnotations:[NSArray arrayWithObjects:startAnnotation, endAnnotation, nil]];
 }
 
 - (void)directions:(UICGDirections *)directions didFailWithMessage:(NSString *)message {

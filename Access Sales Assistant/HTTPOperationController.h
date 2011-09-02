@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "ASIHTTPRequestDelegate.h"
+#import "HUDNetworkQueue.h"
 
-@class ASINetworkQueue;
 @class User;
 
 @interface HTTPOperationController : NSObject <ASIHTTPRequestDelegate>
 
-@property (strong) ASINetworkQueue *networkQueue;
+@property (strong) HUDNetworkQueue *networkQueue;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 + (HTTPOperationController *)sharedHTTPOperationController;
