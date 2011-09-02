@@ -77,6 +77,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     sectionTitleArray = [[NSArray alloc] initWithObjects:PROSPECT_APP_SECTIONS];
     self.tableView.allowsSelection = NO;
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     
     self.baseToolbar = _toolBar;
@@ -258,7 +259,24 @@
  
 }
 
-
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section 
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(-15, 0, tableView.bounds.size.width+30, 25)];
+    
+    UIImageView* headerBg = [[UIImageView alloc] initWithFrame:headerView.frame];
+    UIImage* hImg = [UIImage imageNamed:@"MenuButton_green.png"];
+    headerBg.image = hImg;
+    
+    UILabel* headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, tableView.bounds.size.width-5, 20)];
+    headerTitle.text = [sectionTitleArray objectAtIndex:section];
+    headerTitle.font= [UIFont fontWithName:@"TrebuchetMS-Bold" size:16.0];
+    headerTitle.textColor = [UIColor whiteColor];
+    headerTitle.backgroundColor = [UIColor clearColor];
+    [headerView addSubview:headerBg];
+    [headerView addSubview:headerTitle];
+    
+    return headerView;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	CGFloat height = 0.0;

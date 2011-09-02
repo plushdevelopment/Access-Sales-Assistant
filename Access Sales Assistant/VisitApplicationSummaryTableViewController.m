@@ -333,7 +333,7 @@ enum PRPTableStatsTags {
     [self toggleSubmitButton:NO];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-	
+	 self.tableView.backgroundColor = [UIColor clearColor];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -670,6 +670,50 @@ enum PRPTableStatsTags {
 	return cell;
 }
 
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section 
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(-15, 0, tableView.bounds.size.width+30, 25)];
+    
+    UIImageView* headerBg = [[UIImageView alloc] initWithFrame:headerView.frame];
+    UIImage* hImg = [UIImage imageNamed:@"MenuButton.png"];
+    headerBg.image = hImg;
+    
+    
+    NSString *theTitle = @"";
+	if (self.detailItem) {
+		switch (section) {
+			case PRPTableSectionGeneral:
+				theTitle = @"General";
+				break;
+			case PRPTableSectionSpokeWith:
+				theTitle = @"Who Did You Speak With";
+				break;
+			case PRPTableSectionCompetitor:
+				theTitle = @"Competitors";
+				break;
+			case PRPTableSectionBarriersToBusiness:
+				theTitle = @"Barriers to Business";
+				break;
+			case PRPTableSectionStats:
+				theTitle = @"Non-Standard Business Stats";
+				break;
+			default:
+				NSLog(@"Unexpected section (%d)", section);
+				break;
+		}
+	}
+
+    UILabel* headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, tableView.bounds.size.width-5, 20)];
+    headerTitle.text = theTitle;
+    headerTitle.font= [UIFont fontWithName:@"TrebuchetMS-Bold" size:16.0];
+    headerTitle.textColor = [UIColor whiteColor];
+    headerTitle.backgroundColor = [UIColor clearColor];
+    [headerView addSubview:headerBg];
+    [headerView addSubview:headerTitle];
+    
+    return headerView;
+}
 -(void) AddCompetitor:(id) sender
 {
     UIButton* btn = (UIButton*) sender;

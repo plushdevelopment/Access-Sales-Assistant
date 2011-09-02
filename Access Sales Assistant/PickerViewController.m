@@ -71,5 +71,8 @@
 	}
 }
 
-
+-(IBAction)doneSelected:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Done Selected" object:nil];
+}
 @end
