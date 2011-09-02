@@ -90,7 +90,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		self.managedObjectContext = [NSManagedObjectContext defaultContext];
 		
         // Create the network queue and initialize property
-		[self setNetworkQueue:[ASINetworkQueue queue]];
+		[self setNetworkQueue:[HUDNetworkQueue queue]];
 		[[self networkQueue] setDelegate:self];
 		[[self networkQueue] setQueueDidFinishSelector:@selector(queueFinished:)];
 		[[self networkQueue] setRequestDidStartSelector:@selector(requestDidStart:)];;

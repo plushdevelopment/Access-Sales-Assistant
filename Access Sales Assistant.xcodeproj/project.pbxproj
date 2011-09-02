@@ -425,6 +425,8 @@
 		FFF0D05B13BBA529008DFA19 /* _EmailListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03D13BBA528008DFA19 /* _EmailListItem.m */; };
 		FFF0D05C13BBA529008DFA19 /* _Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D03F13BBA528008DFA19 /* _Contact.m */; };
 		FFF0D05D13BBA529008DFA19 /* _AddressListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D04113BBA529008DFA19 /* _AddressListItem.m */; };
+		FFFACDD01411281B002897C1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDCF1411281B002897C1 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FFFACDD51411288C002897C1 /* HUDNetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDD41411288C002897C1 /* HUDNetworkQueue.m */; };
 		FFFB3C0513ABA15C0063E374 /* api.html in Resources */ = {isa = PBXBuildFile; fileRef = FFFB3C0313ABA15C0063E374 /* api.html */; };
 		FFFB3C0613ABA15C0063E374 /* json2.js in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0413ABA15C0063E374 /* json2.js */; };
 		FFFB3C1413ABA17E0063E374 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0913ABA17E0063E374 /* NSObject+SBJSON.m */; };
@@ -1096,6 +1098,10 @@
 		FFF0D04013BBA529008DFA19 /* _Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Contact.h; sourceTree = "<group>"; };
 		FFF0D04113BBA529008DFA19 /* _AddressListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AddressListItem.m; sourceTree = "<group>"; };
 		FFF0D04213BBA529008DFA19 /* _AddressListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AddressListItem.h; sourceTree = "<group>"; };
+		FFFACDCE1411281B002897C1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		FFFACDCF1411281B002897C1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		FFFACDD31411288C002897C1 /* HUDNetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDNetworkQueue.h; sourceTree = "<group>"; };
+		FFFACDD41411288C002897C1 /* HUDNetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDNetworkQueue.m; sourceTree = "<group>"; };
 		FFFB3C0313ABA15C0063E374 /* api.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = api.html; sourceTree = "<group>"; };
 		FFFB3C0413ABA15C0063E374 /* json2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = json2.js; sourceTree = "<group>"; };
 		FFFB3C0713ABA17E0063E374 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -1439,6 +1445,8 @@
 				FFA9F1B914056D9400817BA6 /* CLLocationController.m */,
 				FF56A25313CC883B00FF159A /* HTTPOperationController.h */,
 				FF56A25413CC883B00FF159A /* HTTPOperationController.m */,
+				FFFACDD31411288C002897C1 /* HUDNetworkQueue.h */,
+				FFFACDD41411288C002897C1 /* HUDNetworkQueue.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1721,6 +1729,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FFFACDD214112822002897C1 /* MBProgressHUD */,
 				FFFB3C5813ABE4210063E374 /* Core Graphics Table View */,
 				FF317ECE140835FC007D88FD /* FlurryAnalytics */,
 				FFDFB56013EB23A500B540E1 /* MGSplitViewController */,
@@ -2227,6 +2236,15 @@
 				FFCD8B2013C601D3008D8885 /* NSManagedObject+Additions.m */,
 			);
 			name = "Core Data JSON Categories";
+			sourceTree = "<group>";
+		};
+		FFFACDD214112822002897C1 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				FFFACDCE1411281B002897C1 /* MBProgressHUD.h */,
+				FFFACDCF1411281B002897C1 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		FFFB3C1A13ABA1860063E374 /* JSON */ = {
@@ -2843,6 +2861,8 @@
 				FFA9F1BE14056D9400817BA6 /* CLLocationController.m in Sources */,
 				FFA9F1BF14056D9400817BA6 /* VisitTableViewCell.m in Sources */,
 				6DEE3D1F140D3E1C00532F71 /* PhoneNumberFormatter.m in Sources */,
+				FFFACDD01411281B002897C1 /* MBProgressHUD.m in Sources */,
+				FFFACDD51411288C002897C1 /* HUDNetworkQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
