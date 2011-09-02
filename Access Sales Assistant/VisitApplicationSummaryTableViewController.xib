@@ -11,12 +11,13 @@
 			<string key="NS.object.0">894</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
+			<string>IBProxyObject</string>
 			<string>IBUIBarButtonItem</string>
 			<string>IBUIViewController</string>
+			<string>IBUIToolbar</string>
+			<string>IBUIImageView</string>
 			<string>IBUITableView</string>
 			<string>IBUIView</string>
-			<string>IBUIToolbar</string>
-			<string>IBProxyObject</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -62,6 +63,21 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
+					<object class="IBUIImageView" id="818226511">
+						<reference key="NSNextResponder" ref="480542238"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{-16, 22}, {800, 960}}</string>
+						<reference key="NSSuperview" ref="480542238"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:364</string>
+						<float key="IBUIAlpha">0.60000002384185791</float>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">MenuButton.png</string>
+						</object>
+					</object>
 					<object class="IBUITableView" id="993928743">
 						<reference key="NSNextResponder" ref="480542238"/>
 						<int key="NSvFlags">274</int>
@@ -257,6 +273,7 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="993928743"/>
 							<reference ref="371977748"/>
+							<reference ref="818226511"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -290,6 +307,12 @@
 						<reference key="object" ref="166291940"/>
 						<reference key="parent" ref="371977748"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">29</int>
+						<reference key="object" ref="818226511"/>
+						<reference key="parent" ref="480542238"/>
+						<string key="objectName">Image View - MenuButton.png</string>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -306,6 +329,7 @@
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="25.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.CustomClassName">SmartTableView</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -313,7 +337,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">28</int>
+			<int key="maxID">29</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -370,10 +394,15 @@
 					<string key="className">PickerViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="doneSelected:">id</string>
 						<string key="nextField:">id</string>
 						<string key="previousField:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="doneSelected:">
+							<string key="name">doneSelected:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="nextField:">
 							<string key="name">nextField:</string>
 							<string key="candidateClassName">id</string>
@@ -481,6 +510,10 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">MenuButton.png</string>
+			<string key="NS.object.0">{1470, 310}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">894</string>
 	</data>
 </archive>

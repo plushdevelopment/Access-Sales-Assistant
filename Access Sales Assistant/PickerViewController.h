@@ -22,6 +22,7 @@
 
 - (IBAction)nextField:(id)sender;
 - (IBAction)previousField:(id)sender;
+- (IBAction)doneSelected:(id)sender;
 
 
 @end

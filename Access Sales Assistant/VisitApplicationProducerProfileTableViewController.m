@@ -55,7 +55,7 @@
 
 @synthesize dismissButton = _dismissButton;
 @synthesize submitButton = _submitButton;
-
+@synthesize isDoneSelected = _isDoneSelected;
 //@synthesize producerGeneralTableViewCell = _producerGeneralTableViewCell;
 
 - (IBAction)dismiss:(id)sender
@@ -91,7 +91,9 @@
     myTextFieldSemaphore =0;
     myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
     
-    self.tableView.backgroundColor = MAIN_BACKGROUND_COLOR;
+  //  self.tableView.backgroundColor = MAIN_BACKGROUND_COLOR;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    _isDoneSelected = TRUE;
     
   //  [self toggleSubmitButton:NO];
 
@@ -729,8 +731,7 @@
 
 -(void) hoursOfOperationCell:(ProducerHoursTableViewCell*)hoursCell:(NSInteger)forRow
 {
-    
-    BOOL isMondayOpen=FALSE,isMondayClose=FALSE;
+      BOOL isMondayOpen=FALSE,isMondayClose=FALSE;
     
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
     [timeFormatter setDateFormat:@"hh:mm a"];
@@ -741,9 +742,17 @@
     
     [hoursCell.monStartTextField setText:hOfOperation.mondayOpenTime.name];
     [hoursCell.monStopTextField setText:hOfOperation.mondayCloseTime.name];
+   
+    if(!_isDoneSelected && self.pickerViewController.currentIndexPath.section == EHoursOfOperation && self.pickerViewController.currentTag == EMondayEndHour)
+    {
+        [self toggleHoursOfOperationCell:hoursCell :FALSE];
+        return;
+    }
 
     if(isMondayHoursExists)
     {
+      //  if(_isDoneSelected)
+        {
            
         [self toggleHoursOfOperationCell:hoursCell :TRUE];
         hOfOperation.tuesdayOpenTime = [hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.tuesdayOpenTime :hOfOperation :1 :TRUE];
@@ -781,6 +790,9 @@
        
           hOfOperation.sundayCloseTime = [hOfOperation.sundayCloseTime.name length]>0?hOfOperation.sundayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.sundayCloseTime :hOfOperation :1 :TRUE];
     [hoursCell.sunStopTextField setText:hOfOperation.sundayCloseTime.name];
+        }
+    //    else
+      //      [self toggleHoursOfOperationCell:hoursCell :FALSE];
     }
     else 
     {
@@ -792,28 +804,48 @@
 -(void) toggleHoursOfOperationCell:(ProducerHoursTableViewCell*) hoursCell:(BOOL) isEnabled
 {
     [hoursCell.tueStartTextField setEnabled:isEnabled];
+    [hoursCell.tueStartButton setEnabled:isEnabled];
     [self disableTextField:hoursCell.tueStartTextField :isEnabled];
+    
     [hoursCell.tueStopTextField setEnabled:isEnabled];
+        [hoursCell.tueStopButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.tueStopTextField :isEnabled];
+    
     [hoursCell.wedStartTextField setEnabled:isEnabled];
+        [hoursCell.wedStartButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.wedStartTextField :isEnabled];
+    
     [hoursCell.wedStopTextField setEnabled:isEnabled];
+        [hoursCell.wedStopButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.wedStopTextField :isEnabled];
+    
     [hoursCell.thuStartTextField setEnabled:isEnabled];
+        [hoursCell.thuStartButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.thuStartTextField :isEnabled];
+    
     [hoursCell.thuStopTextField setEnabled:isEnabled];
+        [hoursCell.thuStopButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.thuStopTextField :isEnabled];
+    
     [hoursCell.friStartTextField setEnabled:isEnabled];
+        [hoursCell.friStartButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.friStartTextField :isEnabled];
+    
     [hoursCell.friStopTextField setEnabled:isEnabled];
+        [hoursCell.friStopButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.friStopTextField :isEnabled];
+    
     [hoursCell.satStartTextField setEnabled:isEnabled];
+        [hoursCell.satStartButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.satStartTextField :isEnabled];
     [hoursCell.satStopTextField setEnabled:isEnabled];
+        [hoursCell.satStopButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.satStopTextField :isEnabled];
     [hoursCell.sunStartTextField setEnabled:isEnabled];
+        [hoursCell.sunStartButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.sunStartTextField :isEnabled];
     [hoursCell.sunStopTextField setEnabled:isEnabled];
+        [hoursCell.sunStopButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.sunStopTextField :isEnabled];
 
 }
@@ -892,6 +924,8 @@
 - (IBAction)showPickerView:(id)sender
 {
 	[self nextField:0];
+    
+    _isDoneSelected = FALSE;
 	UIButton *button = (UIButton *)sender;
 	
 	self.pickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
@@ -924,6 +958,8 @@
 		[[NSNotificationCenter defaultCenter] postNotification:notification];
 	}];
 	
+    
+   // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doneSelection:) name:@"Done Selected" object:nil];
 }
 
 // Show the Date picker in Date mode in a popover
@@ -998,6 +1034,10 @@
 
 - (void)nextField:(NSInteger)currentTag
 {	
+    NSIndexPath *indexPath = self.pickerViewController.currentIndexPath;
+    _isDoneSelected = TRUE;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+
 	
 	if (self.pickerViewController.view.superview != nil) {
 		self.pickerViewController.currentIndexPath = nil;
@@ -1026,7 +1066,8 @@
 			[[NSNotificationCenter defaultCenter] postNotification:notification];
 			[self.datePickerViewController.view removeFromSuperview];}];
 	}
-}
+    
+   }
 
 #pragma mark -
 #pragma mark UIPickerViewDataSource
@@ -1243,7 +1284,8 @@
                 }
                 case EMondayEndHour:
                 {
-                    self.detailItem.hoursOfOperation.mondayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+                   // if(_isDoneSelected)
+                        self.detailItem.hoursOfOperation.mondayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
 
@@ -2311,6 +2353,15 @@
     
     NSLog(textField.text);
 }
+-(void)doneSelection:(id)sender
+{
+    
+    NSIndexPath *indexPath = self.pickerViewController.currentIndexPath;
+    _isDoneSelected = TRUE;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+
 /*
 -(void) changeTextFieldOutline:(UITextField *)textField:(BOOL) toOriginal
 {
