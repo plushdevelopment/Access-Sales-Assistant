@@ -57,7 +57,7 @@
 #define SECTION_HEADER_HEIGHT       48
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
 #define CONTACT_OPTIONS             @"Email SSC",@"Email Customer Service",@"Email NSF",@"Email Product",@"Email QA Form",@"Email Facilities",@"QA Resolution Timetable",@"Email help desk",nil
-#define SECTION_TITLES              @"Visit Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",nil
+#define SECTION_TITLES              @"Visit Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",@"Search",nil
 #define SECTION_ROW_COUNT           5,0,0,0,5,0,nil
 #define VISIT_APP_INDEX             0
 #define CONTACTS_OPTIONS_INDEX      4
@@ -65,6 +65,7 @@
 #define FEATURES_AND_BENEFITS_INDEX 2
 #define ACCESS_ACADEMY_INDEX        3
 #define GPS_INDEX                   5
+#define SEARCH_PRODUCER_INDEX       6
 #define FLASH_CARD_PROSPECT         1
 #define FLASH_CARD_ZERO_PRODUCER    2
 #define FLASH_CARD_PRODUCER         3
@@ -161,7 +162,7 @@
 	
     
     NSMutableArray* arrayInfo = [NSMutableArray array];
-    for(int s =0; s<6;s++)
+    for(int s =0; s<[sectionTitlesArray count];s++)
     {
         MainViewSectionInfo* tSectionInfo = [[MainViewSectionInfo alloc] init];
         tSectionInfo.sectionName = [sectionTitlesArray objectAtIndex:s];

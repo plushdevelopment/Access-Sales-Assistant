@@ -12,12 +12,13 @@
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>IBUITextField</string>
-			<string>IBUIBarButtonItem</string>
-			<string>IBUIToolbar</string>
-			<string>IBUILabel</string>
-			<string>IBUIScrollView</string>
 			<string>IBProxyObject</string>
+			<string>IBUIBarButtonItem</string>
+			<string>IBUILabel</string>
+			<string>IBUIToolbar</string>
+			<string>IBUIImageView</string>
+			<string>IBUITextField</string>
+			<string>IBUIScrollView</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -42,6 +43,21 @@
 				<int key="NSvFlags">284</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
+					<object class="IBUIImageView" id="439932380">
+						<reference key="NSNextResponder" ref="99607656"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{-16, 32}, {800, 1004}}</string>
+						<reference key="NSSuperview" ref="99607656"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:364</string>
+						<float key="IBUIAlpha">0.60000002384185791</float>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<object class="NSCustomResource" key="IBUIImage" id="92962014">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">MenuButton.png</string>
+						</object>
+					</object>
 					<object class="IBUILabel" id="844771667">
 						<reference key="NSNextResponder" ref="99607656"/>
 						<int key="NSvFlags">292</int>
@@ -285,6 +301,16 @@
 				<bool key="IBUIMultipleTouchEnabled">YES</bool>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
+			<object class="IBUIImageView" id="951900956">
+				<nil key="NSNextResponder"/>
+				<int key="NSvFlags">292</int>
+				<string key="NSFrameSize">{800, 1004}</string>
+				<string key="NSReuseIdentifierKey">_NS:364</string>
+				<float key="IBUIAlpha">0.60000002384185791</float>
+				<bool key="IBUIUserInteractionEnabled">NO</bool>
+				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+				<reference key="IBUIImage" ref="92962014"/>
+			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -414,6 +440,7 @@
 							<reference ref="531089515"/>
 							<reference ref="608464694"/>
 							<reference ref="269543227"/>
+							<reference ref="439932380"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -483,6 +510,18 @@
 						<reference key="object" ref="131745441"/>
 						<reference key="parent" ref="269543227"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">42</int>
+						<reference key="object" ref="439932380"/>
+						<reference key="parent" ref="99607656"/>
+						<string key="objectName">Image View - MenuButton.png</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">43</int>
+						<reference key="object" ref="951900956"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Image View - MenuButton.png</string>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -506,12 +545,16 @@
 					<string>38.IBPluginDependency</string>
 					<string>39.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
+					<string>42.IBPluginDependency</string>
+					<string>43.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>VisitApplicationNotesViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -540,7 +583,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">41</int>
+			<int key="maxID">43</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -642,8 +685,17 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">notes_box.png</string>
-			<string key="NS.object.0">{748, 143}</string>
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>MenuButton.png</string>
+				<string>notes_box.png</string>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{1470, 310}</string>
+				<string>{748, 143}</string>
+			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">894</string>
 	</data>
