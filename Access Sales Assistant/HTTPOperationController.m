@@ -101,6 +101,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     return self;
 }
 
+- (void)synchronizeSchedule
+{
+	
+	
+}
+
 #pragma mark -
 #pragma mark ASIHTTPRequest Delegate Methods
 
@@ -242,7 +248,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[self.managedObjectContext save];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"PickList Successful" object:request];
-    	
+	
 	NSNumber *page = [NSNumber numberWithInt:1];
 	
 	[self requestCompetitors:page];
@@ -266,7 +272,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	User *user = [User findFirst];
 	NSString *urlString = [NSString 
 						   stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Competitors?pageNbr=%d&pageSize=%d&token=%@",
-						  [page integerValue], kPAGESIZE, [user token]];
+						   [page integerValue], kPAGESIZE, [user token]];
 	//NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	GetCompetitorRequest *request = [[GetCompetitorRequest alloc] initWithURL:url];
@@ -289,6 +295,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			//NSLog(@"%d", i);
 		}
 	} else if (competitorRequest.currentPage == competitorRequest.totalPages) {
+		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+		[dateFormatter setDateFormat:@"MM-dd-yyyy"];
+		NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate != %@", dateString];
+		NSArray *producers = [Producer findAllWithPredicate:predicate];
+		[producers makeObjectsPerformSelector:@selector(deleteEntity)];
+		[[NSManagedObjectContext defaultContext] save];
 		NSNumber *page = [NSNumber numberWithInt:1];
 		[self requestProducers:page];
 	}
@@ -326,12 +339,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:nil];
 	
 	/*
-	GetProducerRequest *producerRequest = (GetProducerRequest *)request;
-	if (producerRequest.currentPage == 1) {
-		for (int i = 2; i <= producerRequest.totalPages; i++) {
-			[self requestProducers:[NSNumber numberWithInt:i]];
-		}
-	}
+	 GetProducerRequest *producerRequest = (GetProducerRequest *)request;
+	 if (producerRequest.currentPage == 1) {
+	 for (int i = 2; i <= producerRequest.totalPages; i++) {
+	 [self requestProducers:[NSNumber numberWithInt:i]];
+	 }
+	 }
 	 */
 }
 
@@ -429,7 +442,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[producer.dailySummary safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
 	[self.managedObjectContext save];
 	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Summary Successful" object:request];
-     [UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_SUMMARY_REQUEST_SUCCESS buttonTitle:@"OK"];
+	[UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_SUMMARY_REQUEST_SUCCESS buttonTitle:@"OK"];
 }
 
 - (void)postDailySummaryFailed:(ASIHTTPRequest *)request
@@ -439,7 +452,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
     NSString *summaryFailed = [[NSString alloc] initWithFormat:PRODUCER_SUMMARY_REQUEST_FAILED,[error localizedDescription]];
     [UIHelpers showAlertWithTitle:@"Error" msg:summaryFailed buttonTitle:@"OK"];
-
+	
 	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Summary Failure" object:request];
 }
 
@@ -472,7 +485,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 {	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Successful" object:request];
     
-     [UIHelpers showAlertWithTitle:@"Success" msg:POST_IMAGE_SUCCESS buttonTitle:@"OK"];
+	[UIHelpers showAlertWithTitle:@"Success" msg:POST_IMAGE_SUCCESS buttonTitle:@"OK"];
     
 }
 
@@ -483,9 +496,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     
     NSString *imageFailed = [[NSString alloc] initWithFormat:POST_IMAGE_FAILED,[error localizedDescription]];
     [UIHelpers showAlertWithTitle:@"Error" msg:imageFailed buttonTitle:@"OK"];
-
 	
-//	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Failure" object:request];
+	
+	//	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Failure" object:request];
 }
 
 // Get Image for Producer
@@ -635,9 +648,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	User *user = [User findFirst];
     
     NSString* escapedString = [self urlencode:searchString];
-
+	
 	NSString *urlString = [NSString 
-                            stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@",escapedString,[user token]]; //stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+						   stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@",escapedString,[user token]]; //stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -648,7 +661,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDidFailSelector:@selector(searchProducerFailed:)];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
-
+	
 }
 
 -(void)searchProducerFinished:(ASIHTTPRequest *)request
@@ -660,7 +673,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSArray *results = [responseJSON objectForKey:@"results"];
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-        NSMutableArray* producernameArray = [[NSMutableArray alloc] init];
+	NSMutableArray* producernameArray = [[NSMutableArray alloc] init];
 	for (NSDictionary *dict in results) {
         NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
 		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:context];
@@ -674,14 +687,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
         [producernameArray addObject:newDict];
     }
     
-   [context save];
+	[context save];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"searchProducer" object:producernameArray];
-     
+	
 }
 -(void)searchProducerFailed:(ASIHTTPRequest *)request
 {
- NSLog(@"Search Failed");
+	NSLog(@"Search Failed");
 }
 
 -(NSString *) urlencode: (NSString *) url

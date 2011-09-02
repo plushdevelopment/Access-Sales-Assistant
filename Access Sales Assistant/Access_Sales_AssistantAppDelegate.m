@@ -214,6 +214,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 	NSString *currentDate = [dateFormatter stringFromDate:[NSDate date]];
 	NSArray *producers = [Producer findByAttribute:@"nextScheduledVisitDate" withValue:currentDate andOrderBy:@"nextScheduledVisit" ascending:YES];
 	[[CLLocationController sharedCLLocationController] monitorProducers:producers];
+	
+	//[[HTTPOperationController sharedHTTPOperationController] synchronizeSchedule];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

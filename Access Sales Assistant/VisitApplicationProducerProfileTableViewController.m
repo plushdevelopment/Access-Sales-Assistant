@@ -91,7 +91,7 @@
     myTextFieldSemaphore =0;
     myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
     
-    self.tableView.backgroundColor = MAIN_BACKGROUND_COLOR;
+    //self.tableView.backgroundColor = MAIN_BACKGROUND_COLOR;
     
   //  [self toggleSubmitButton:NO];
 

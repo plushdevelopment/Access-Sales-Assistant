@@ -19,6 +19,8 @@
 
 + (HTTPOperationController *)sharedHTTPOperationController;
 
+- (void)synchronizeSchedule;
+
 - (void)login;
 - (void)loginRequestFinished:(ASIHTTPRequest *)request;
 - (void)loginRequestFailed:(ASIHTTPRequest *)request;

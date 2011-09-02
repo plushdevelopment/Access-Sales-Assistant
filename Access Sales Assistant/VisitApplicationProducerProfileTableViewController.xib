@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -69,7 +69,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 44}, {768, 960}}</string>
 						<reference key="NSSuperview" ref="626657145"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -90,6 +90,7 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrameSize">{768, 44}</string>
 						<reference key="NSSuperview" ref="626657145"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="993928743"/>
 						<string key="NSReuseIdentifierKey">_NS:150</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -97,10 +98,10 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<array class="NSMutableArray" key="IBUIItems">
 							<object class="IBUIBarButtonItem" id="243804984">
+								<string key="IBUITitle">Done</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="199136232"/>
-								<int key="IBUISystemItemIdentifier">0</int>
 							</object>
 							<object class="IBUIBarButtonItem" id="428445128">
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -110,7 +111,7 @@
 							<object class="IBUIBarButtonItem" id="572250844">
 								<string key="IBUITitle">Submit</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<int key="IBUIStyle">2</int>
+								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="199136232"/>
 							</object>
 						</array>
@@ -118,6 +119,7 @@
 				</array>
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="199136232"/>
 				<string key="NSReuseIdentifierKey">_NS:49</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -281,8 +283,8 @@
 						<int key="objectID">30</int>
 						<reference key="object" ref="626657145"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="993928743"/>
 							<reference ref="199136232"/>
+							<reference ref="993928743"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -986,12 +988,17 @@
 					<string key="className">VisitApplicationProducerProfileTableViewController</string>
 					<string key="superclassName">BaseDetailViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="autoFormatPhoneNumber:">id</string>
 						<string key="dismiss:">id</string>
 						<string key="showDatePickerView:">id</string>
 						<string key="showPickerView:">id</string>
 						<string key="submit:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="autoFormatPhoneNumber:">
+							<string key="name">autoFormatPhoneNumber:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="dismiss:">
 							<string key="name">dismiss:</string>
 							<string key="candidateClassName">id</string>
