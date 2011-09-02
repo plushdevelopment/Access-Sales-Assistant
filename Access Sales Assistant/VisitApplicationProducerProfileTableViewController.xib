@@ -73,7 +73,7 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="993928743"/>
 						<string key="NSReuseIdentifierKey">_NS:364</string>
-						<float key="IBUIAlpha">0.60000002384185791</float>
+						<float key="IBUIAlpha">0.0</float>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
