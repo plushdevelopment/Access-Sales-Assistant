@@ -845,6 +845,8 @@
     UIImage* hImg = [UIImage imageNamed:@"MenuButton.png"];
     headerBg.image = hImg;
     
+    headerBg.alpha = 0.7;
+    
     UILabel* headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, tableView.bounds.size.width-5, 20)];
     headerTitle.text = [sectionTitleArray objectAtIndex:section];
     headerTitle.font= [UIFont fontWithName:@"TrebuchetMS-Bold" size:16.0];

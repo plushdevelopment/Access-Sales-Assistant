@@ -264,7 +264,7 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(-15, 0, tableView.bounds.size.width+30, 25)];
     
     UIImageView* headerBg = [[UIImageView alloc] initWithFrame:headerView.frame];
-    UIImage* hImg = [UIImage imageNamed:@"MenuButton_green.png"];
+    UIImage* hImg = [UIImage imageNamed:@"MenuButton.png"];
     headerBg.image = hImg;
     
     UILabel* headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, tableView.bounds.size.width-5, 20)];

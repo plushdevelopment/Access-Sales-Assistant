@@ -35,6 +35,7 @@
     // Update the user interface for the detail item.
 	
 	if (self.detailItem) {
+        int viewcount = [self.viewControllers count];
 		for (id<DetailViewController> viewController in self.viewControllers) {
 			[viewController setDetailItem:self.detailItem];
 		}
