@@ -56,7 +56,6 @@
 @synthesize dismissButton = _dismissButton;
 @synthesize submitButton = _submitButton;
 @synthesize isDoneSelected = _isDoneSelected;
-//@synthesize producerGeneralTableViewCell = _producerGeneralTableViewCell;
 
 - (IBAction)dismiss:(id)sender
 {
@@ -81,7 +80,7 @@
 
 - (void)viewDidLoad
 {
-  //  [_submitButton setEnabled:FALSE];
+ 
     [super viewDidLoad];
     
     sectionTitleArray = [[NSArray alloc] initWithObjects:PRODUCER_PROFILE_SECTIONS];
@@ -91,17 +90,10 @@
     myTextFieldSemaphore =0;
     myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
     
-  //  self.tableView.backgroundColor = MAIN_BACKGROUND_COLOR;
+
     self.tableView.backgroundColor = [UIColor clearColor];
     _isDoneSelected = TRUE;
     
-  //  [self toggleSubmitButton:NO];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self.detailItem addObserver:self forKeyPath:@"edited" options:NSKeyValueObservingOptionNew context:nil];
 }
@@ -131,7 +123,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    //[self toggleSubmitButton:NO];
     [super viewWillDisappear:animated];
 }
 
@@ -142,7 +133,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
 	return YES;
 }
 
@@ -156,33 +146,17 @@
 	if (self.detailItem) {
 		if ([self.detailItem valueForKey:@"editedValue"]) {
 			[[NSManagedObjectContext defaultContext] save];
-           //  [self toggleSubmitButton:YES];
-           //  [self toggleSubmitButton:[self isEnableSubmit]];
-		}
-       // else
-        //    [self toggleSubmitButton:NO];
+        }
 	}
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
         
         // Update the view.
         [self configureView];
-     /*   if([self.detailItem valueForKey:@"editedValue"])
-            [self toggleSubmitButton:YES];
-        else
-            [self toggleSubmitButton:NO];
-       */
-            
-        
-     //   [self toggleSubmitButton:[self.detailItem valueForKey:@"editedValue"]?YES:NO];
     }
     
      [self toggleSubmitButton:[self isEnableSubmit]];
    
-	
- //   if (self.aPopoverController != nil) {
-   //     [self.aPopoverController dismissPopoverAnimated:YES];
- //   }        
 }
 
 - (void)configureView
@@ -231,14 +205,14 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  //  static NSString *CellIdentifier = @"Cell";
+
   
     switch(indexPath.section)
     {
         case EGeneral:
         {
             [[NSBundle mainBundle] loadNibNamed:@"ProducerGeneralTableViewCell" owner:self options:nil];
-            ProducerGeneralTableViewCell* cell = _generalTableViewCell;//[ProducerGeneralTableViewCell cellForTableView:tableView fromNib:[ProducerGeneralTableViewCell nib]];
+            ProducerGeneralTableViewCell* cell = _generalTableViewCell;
                 cell.producerCodeTextField.text = self.detailItem.producerCode;
             
             [self disableTextField:cell.producerCodeTextField :NO];
@@ -260,7 +234,7 @@
         case EQuestions:
         {
             [[NSBundle mainBundle] loadNibNamed:@"ProducerQuestionTableViewCell" owner:self options:nil];
-            ProducerQuestionTableViewCell* cell = _questionTableViewCell;//[ProducerQuestionTableViewCell cellForTableView:tableView fromNib:[ProducerQuestionTableViewCell nib]];
+            ProducerQuestionTableViewCell* cell = _questionTableViewCell;
             NSArray* questionArray=_detailItem.questions.allObjects;
             QuestionListItem *qListItem = (QuestionListItem *)[questionArray objectAtIndex:indexPath.row];
             cell.questionLabel.text = qListItem.text;
@@ -273,35 +247,35 @@
         {
             
             [[NSBundle mainBundle] loadNibNamed:@"ProducerStatusTableViewCell" owner:self options:nil];
-            ProducerStatusTableViewCell* cell = _statusCell;//[ProducerStatusTableViewCell cellForTableView:tableView fromNib:[ProducerStatusTableViewCell nib]];
+            ProducerStatusTableViewCell* cell = _statusCell;
             [self statusTableViewCell:cell :indexPath.row];
             return cell;
         }
         case ERater:
         {
             [[NSBundle mainBundle] loadNibNamed:@"ProducerRaterTableViewCell" owner:self options:nil];
-            ProducerRaterTableViewCell* cell = _raterTableViewCell;//[ProducerRaterTableViewCell cellForTableView:tableView fromNib:[ProducerRaterTableViewCell nib]];
+            ProducerRaterTableViewCell* cell = _raterTableViewCell;
             [self raterTableViewCell:cell :indexPath.row];
             return cell;
         }
         case ECompanyContactInfo:
         {
             [[NSBundle mainBundle] loadNibNamed:@"ProducerContactInfoTableViewCell" owner:self options:nil];
-            ProducerContactInfoTableViewCell* cell = _contactInfoTableViewCell;//[ProducerContactInfoTableViewCell cellForTableView:tableView fromNib:[ProducerContactInfoTableViewCell nib]];
+            ProducerContactInfoTableViewCell* cell = _contactInfoTableViewCell;
             [self contactInfoTableViewCell:cell :indexPath.row];
             return cell;
         }
         case EHoursOfOperation:
         {
             [[NSBundle mainBundle] loadNibNamed:@"ProducerHoursTableViewCell" owner:self options:nil];
-            ProducerHoursTableViewCell* cell = _hoursTableViewCell;//[ProducerHoursTableViewCell cellForTableView:tableView fromNib:[ProducerHoursTableViewCell nib]];
+            ProducerHoursTableViewCell* cell = _hoursTableViewCell;
             [self hoursOfOperationCell:cell :indexPath.row];
             return cell;
         }
         case EAddresses:
         {
             [[NSBundle mainBundle] loadNibNamed:@"ProducerAddressTableViewCell" owner:self options:nil];
-            ProducerAddressTableViewCell* cell = _addressTableViewCell;//[ProducerAddressTableViewCell cellForTableView:tableView fromNib:[ProducerAddressTableViewCell nib]];
+            ProducerAddressTableViewCell* cell = _addressTableViewCell;
             if(indexPath.row ==0)
             {
                 cell.addressTitle.text = @"Mailing Address";
@@ -352,15 +326,13 @@
             else
             {
                 [[NSBundle mainBundle] loadNibNamed:@"ProducerContactTableViewCell" owner:self options:nil];
-                ProducerContactTableViewCell* cell = _contactTableViewCell;//[ProducerContactTableViewCell cellForTableView:tableView fromNib:[ProducerContactTableViewCell nib]];
-            cell = [self contactTableViewCell:cell :indexPath.row];
+                ProducerContactTableViewCell* cell = _contactTableViewCell;
+                cell = [self contactTableViewCell:cell :indexPath.row];
             return cell;
             }
         }
             
     }
-    
-    
 }
 
 -(void) AddContact:(id) sender
@@ -383,19 +355,13 @@
     [btn setTitle:@"Done" forState:UIControlStateNormal];
                isContactsEdited = TRUE;
             
-            
-         //   cell.addButton.enabled = FALSE;
-            
         }
         else
         {
             [btn setTitle:@"Edit" forState:UIControlStateNormal];
             isContactsEdited = FALSE;
-         
-            
-           // cell.addButton.enabled = TRUE;
         }
-       // [super setEditing:editing animated:YES];
+ 
         [self setEditing:editing animated:YES];
     }
     [self.tableView reloadData];
@@ -545,7 +511,7 @@
     
     Contact* tContact = [contactArray objectAtIndex:forRow];
     
-  //  contactCell.numberOfEmployeesTextField.text = [[NSString alloc]initWithFormat:@"%@",_detailItem.numberOfEmployees];
+
     contactCell.firstNameTextField.text = tContact.firstName;
     contactCell.lastNameTextField.text = tContact.lastName;
     contactCell.socialSecurityNumberTextField.text = tContact.ssn;
@@ -557,9 +523,7 @@
 {
     for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers) {
         if (phoneNumber.typeValue == 1) {
-          //  [self.mobilePhoneTextField setText:phoneNumber.number];
         } else if (phoneNumber.typeValue == 2) {
-          //  [self.fax2TextField setText:phoneNumber.number];
         } else if (phoneNumber.typeValue == 3) {
             [contactInfoCell.phone1TextField setText:phoneNumber.number];
         } else if (phoneNumber.typeValue == 4) {
@@ -567,7 +531,6 @@
         }
         
     }
-  //  int eCount  = _detailItem.emails.allObjects.count;
     BOOL isAccountMailFound=FALSE,isMainMailFound=FALSE,isCustServiceMailFound=FALSE,isClaimsMailFound=FALSE;
     EmailListItem* acctMailItem,*mainMailItem,*custMailItem,*claimsMailItem;
     
@@ -575,24 +538,23 @@
         
         int typevalue = email.typeValue;
         if (email.typeValue == 1) {
-          //  [self.emailAddressTextField setText:email.address];
+
         } else if (email.typeValue == ACCOUNTING_EMAIL) {
-      //      [contactInfoCell.acctMailTextField setText:email.address];
             if([email.address length]>0)
                 isAccountMailFound = TRUE;
             acctMailItem = email;
         } else if (email.typeValue == MAIN_EMAIL) {
-     //       [contactInfoCell.mainMailTextField setText:email.address];
+ 
             if([email.address length]>0)
                 isMainMailFound = TRUE;
             mainMailItem = email;
         } else if (email.typeValue == CUSTOMER_SERVICE_EMAIL) {
-     //       [contactInfoCell.custServMailTextField setText:email.address];
+
             if([email.address length]>0)
                 isCustServiceMailFound = TRUE;
             custMailItem = email;
         } else if (email.typeValue == CLAIMS_EMAIL) {
-     //       [contactInfoCell.claimsMailTextField setText:email.address];
+  
             if([email.address length]>0)
                 isClaimsMailFound = TRUE;
             claimsMailItem = email;
@@ -600,8 +562,7 @@
     }
     
      EmailListItem *emailToUse = isMainMailFound?mainMailItem:(isAccountMailFound?acctMailItem:(isCustServiceMailFound?custMailItem:(isClaimsMailFound?claimsMailItem:nil)));
-    
-    NSLog(@"Email Addr: %@",emailToUse.address);
+
     
     if(isAccountMailFound)
     {
@@ -613,11 +574,6 @@
         {
             EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :ACCOUNTING_EMAIL];
             [contactInfoCell.acctMailTextField setText:emailToUse.address];
-          
-            /*EmailListItem* newMailItem = [EmailListItem createEntity];
-            newMailItem.typeValue = ACCOUNTING_EMAIL;
-            newMailItem.address = emailToUse.address;
-            [self.detailItem addEmailsObject:newMailItem];*/
         }
     }
     
@@ -632,15 +588,8 @@
         {
                         EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :MAIN_EMAIL];
             [contactInfoCell.mainMailTextField setText:newMailItem.address];
-           /* EmailListItem* newMailItem = [EmailListItem createEntity];
-            newMailItem.typeValue = MAIN_EMAIL;
-            newMailItem.address = emailToUse.address;
-            [self.detailItem addEmailsObject:newMailItem];*/
-
         }
-        
     }
-    
     if(isCustServiceMailFound)
     {
         [contactInfoCell.custServMailTextField setText:custMailItem.address];
@@ -649,13 +598,8 @@
     {
         if(emailToUse)
         {
-                        EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :CUSTOMER_SERVICE_EMAIL];
+            EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :CUSTOMER_SERVICE_EMAIL];
             [contactInfoCell.custServMailTextField setText:newMailItem.address];
-           /* EmailListItem* newMailItem = [EmailListItem createEntity];
-            newMailItem.typeValue = CUSTOMER_SERVICE_EMAIL;
-            newMailItem.address = emailToUse.address;
-            [self.detailItem addEmailsObject:newMailItem];*/
-
         }
     }
     
@@ -669,12 +613,6 @@
         {
              EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :CLAIMS_EMAIL];//[EmailListItem createEntity];
             [contactInfoCell.claimsMailTextField setText:newMailItem.address];
-            
-           
-          /*  newMailItem.typeValue = CLAIMS_EMAIL;
-            newMailItem.address = emailToUse.address;
-            [self.detailItem addEmailsObject:newMailItem];*/
-
         }
     }
     
@@ -724,7 +662,7 @@
         statusCell.reasonIneligibleButton.hidden = _detailItem.isEligibleValue?TRUE:FALSE;
         statusCell.reasonIneligibleLabel.hidden = _detailItem.isEligibleValue?TRUE:FALSE;
         
-   //     [statusCell.reasonIneligibleButton setEnabled:_detailItem.isEligibleValue?FALSE:TRUE];
+
     }
    
 }
@@ -751,7 +689,7 @@
 
     if(isMondayHoursExists)
     {
-      //  if(_isDoneSelected)
+      
         {
            
         [self toggleHoursOfOperationCell:hoursCell :TRUE];
@@ -791,9 +729,7 @@
           hOfOperation.sundayCloseTime = [hOfOperation.sundayCloseTime.name length]>0?hOfOperation.sundayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.sundayCloseTime :hOfOperation :1 :TRUE];
     [hoursCell.sunStopTextField setText:hOfOperation.sundayCloseTime.name];
         }
-    //    else
-      //      [self toggleHoursOfOperationCell:hoursCell :FALSE];
-    }
+      }
     else 
     {
         [self toggleHoursOfOperationCell:hoursCell :FALSE];
@@ -838,12 +774,15 @@
     [hoursCell.satStartTextField setEnabled:isEnabled];
         [hoursCell.satStartButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.satStartTextField :isEnabled];
+    
     [hoursCell.satStopTextField setEnabled:isEnabled];
         [hoursCell.satStopButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.satStopTextField :isEnabled];
+    
     [hoursCell.sunStartTextField setEnabled:isEnabled];
         [hoursCell.sunStartButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.sunStartTextField :isEnabled];
+    
     [hoursCell.sunStopTextField setEnabled:isEnabled];
         [hoursCell.sunStopButton setEnabled:isEnabled];
      [self disableTextField:hoursCell.sunStopTextField :isEnabled];
@@ -886,8 +825,6 @@
             
             [cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
             [[NSManagedObjectContext defaultContext] save];
-          //  UITableViewCellEditingStyleNone
-           // [self.tableView set]
             [self.tableView reloadData];
             
         }
@@ -907,6 +844,8 @@
     UIImageView* headerBg = [[UIImageView alloc] initWithFrame:headerView.frame];
     UIImage* hImg = [UIImage imageNamed:@"MenuButton.png"];
     headerBg.image = hImg;
+    
+    headerBg.alpha = 0.7;
     
     UILabel* headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, tableView.bounds.size.width-5, 20)];
     headerTitle.text = [sectionTitleArray objectAtIndex:section];
@@ -958,15 +897,11 @@
 		[[NSNotificationCenter defaultCenter] postNotification:notification];
 	}];
 	
-    
-   // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doneSelection:) name:@"Done Selected" object:nil];
 }
 
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
 {
-	//[self nextField:0];
-	
 
 	UIButton *button = (UIButton *)sender;
 	[self.datePickerViewController.datePicker setDate:[NSDate date]];
@@ -978,7 +913,7 @@
 	[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
     
     NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
-	NSLog(@"%@", pickerFrame);
+
 	
 	//Add the picker to the view
 	[self.parentViewController.view addSubview:self.datePickerViewController.view];
@@ -1187,7 +1122,6 @@
 }
 
 
-//NSArray *sorted = [unsorted sortedArrayUsingFunction:dateSort context:nil];
 
 #pragma mark -
 #pragma mark UIPickerViewDelegate
@@ -1211,7 +1145,6 @@
                 case ESubTerritory:
                 {
                     self.detailItem.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:titleForRow managedObjectContext:[NSManagedObjectContext defaultContext]];
-                  //  self.
                     
                 }
                     break;
@@ -1284,7 +1217,6 @@
                 }
                 case EMondayEndHour:
                 {
-                   // if(_isDoneSelected)
                         self.detailItem.hoursOfOperation.mondayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
@@ -1382,8 +1314,6 @@
                                        int addrValue = address.addressTypeValue;
                                        if (address.addressTypeValue == 1) {
                                            addrItem = address;
-                                    
-                                       //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
                                            continue;
                                        }
                                     }
@@ -1472,7 +1402,6 @@
 					
 					Contact *contact = [self.detailItem.contacts.allObjects objectAtIndex:self.pickerViewController.currentIndexPath.row];
 					contact.type = [ContactType findFirstByAttribute:@"name" withValue:titleForRow];
-					NSLog(@"%@", contact.type.name);
 				}
                     break;
             }       
@@ -1480,11 +1409,8 @@
         }
     }
 	
-	//	[self.managedObjectContext save];
     [[NSManagedObjectContext defaultContext]save];
-	//[self.tableView reloadData];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-   // [self toggleSubmitButton:YES];
      [self toggleSubmitButton:[self isEnableSubmit]];
 }
 
@@ -1705,7 +1631,7 @@
     self.detailItem.edited = [NSNumber numberWithBool:YES];
     [[NSManagedObjectContext defaultContext] save];
      [self toggleSubmitButton:[self isEnableSubmit]];
-//	[self.tableView reloadData];
+
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:controller.currentIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 }
 
@@ -1713,14 +1639,12 @@
 #pragma mark - TextField delegate methods
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-	//[self saveTextFieldToContext:textField];
     
     Producer *producer = (Producer *)self.detailItem;
 	if (!producer.editedValue) {
 		producer.editedValue = YES;
 		[[NSManagedObjectContext defaultContext] save];
 	}
-	// NSString *text = [NSString stringWithFormat:@"%@%@", textField.text, string];
     NSString *replacementString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
@@ -1735,12 +1659,10 @@
                 {
                     if([replacementString isValidZipCode])
                     {
-                        //  addrItem.postalCode =textField.text;
                         [self changeTextFieldOutline:textField :YES];
                     }
                     else
                     {
-                        //[self showAlert:VALID_ZIP_CODE_ALERT];
                         [self changeTextFieldOutline:textField :NO];
                     }
                 }break;
@@ -1873,9 +1795,7 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
     [self saveTextFieldToContext:textField];
- //   [[NSManagedObjectContext defaultContext] save];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -1896,16 +1816,12 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
 	// Set the next form field active
-	//[self nextField:textField.tag];
 	return YES;
 }
 
 -(void) saveTextFieldToContext:(UITextField*) textField
 {
-    //if([textField.text length]<=0)
-      //  return;
-   
-    
+
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
     
@@ -2005,28 +1921,7 @@
         }
         case EAddresses:
         {
-          /*  AddressListItem* addrItem = nil;
-            NSArray *addrArray = _detailItem.addresses.allObjects;
-            switch(indexPath.row)
-             {
-                 case 0:
-                 {
-                     
-                   //  int rowInd = indexPath.row;
-                    // rowInd+=1;
-                     for(AddressListItem* addr in addrArray)
-                     {
-                         if(addr.addressTypeValue == 1)
-                         {
-                             addrItem = addr; 
-                             break;
-                         }
-                     }
-
-                 }
-                     
-             }*/
-             
+                       
             NSArray *addrArray = _detailItem.addresses.allObjects;
             AddressListItem* addrItem = nil;
             int rowInd = indexPath.row;
@@ -2035,7 +1930,7 @@
             {
                 if(addr.addressTypeValue == rowInd)
                 {
-                    addrItem = addr;//[addrArray objectAtIndex:indexPath.row]; 
+                    addrItem = addr; 
                     break;
                 }
             }
@@ -2115,13 +2010,10 @@
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
 {
- //   if([textField.text length]<=0)
- //       return;
-    
+
     EmailListItem *newMail=nil;
     for (EmailListItem *email in _detailItem.emails)
     {
-      //  int emailType = email.typeValue;
         if(email.typeValue == emailType)
         {
             
@@ -2218,7 +2110,6 @@
                    _detailItem.subTerritory == nil ||
                    _detailItem.numberOfLocations == nil ||
                    _detailItem.numberOfEmployees == nil ||
-                  // _detailItem.eAndOExpires == nil ||
                    _detailItem.dateEstablished == nil
                    )
                     return FALSE;
@@ -2232,11 +2123,7 @@
                 break;
             case EStatus:
             {
-                if(/*_detailItem.appointedDate == nil||
-                   _detailItem.status == nil ||
-                   _detailItem.statusDate == nil ||
-                   _detailItem.suspensionReason == nil ||*/
-                   _detailItem.isEligible == nil)
+                if(_detailItem.isEligible == nil)
                     return FALSE;
             }
                 break;
@@ -2346,67 +2233,15 @@
         return;
     UITextField *textField = (UITextField*)sender;
     
-    NSLog(textField.text);
     myTextFieldSemaphore = 1;
     textField.text = [myPhoneNumberFormatter format:textField.text withLocale:@"us"];
     myTextFieldSemaphore=0;
-    
-    NSLog(textField.text);
 }
--(void)doneSelection:(id)sender
-{
-    
-    NSIndexPath *indexPath = self.pickerViewController.currentIndexPath;
-    _isDoneSelected = TRUE;
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-}
-
-
-/*
--(void) changeTextFieldOutline:(UITextField *)textField:(BOOL) toOriginal
-{
-    if(!toOriginal)
-    {
-    [textField.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
-    [textField.layer setBorderColor: [[UIColor redColor] CGColor]];
-    [textField.layer setBorderWidth: 3.0f];
-    [textField.layer setCornerRadius:8.0f];
-    [textField.layer setMasksToBounds:YES];
-    }
-    else
-    {
-        textField.layer.borderColor=[[UIColor clearColor]CGColor];
-    }
-}
-  */  
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 }
 
 @end

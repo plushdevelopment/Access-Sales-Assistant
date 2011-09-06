@@ -672,7 +672,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
 	NSMutableArray* producernameArray = [[NSMutableArray alloc] init];
-	for (NSDictionary *dict in results) {
+    if([results count]>0)
+    {
+   	for (NSDictionary *dict in results) {
         NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
 		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:context];
 		if (!producer.editedValue) {
@@ -682,17 +684,31 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
         
         [newDict setValue:producer.uid forKey:@"uid"];
         [newDict setValue:producer.name forKey:@"name"];
+        [newDict setValue:producer.producerCode forKey:@"producerCode"];
         [producernameArray addObject:newDict];
     }
+    
+  
     
 	[context save];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"searchProducer" object:producernameArray];
+    }
+    else
+    {
+         [UIHelpers showAlertWithTitle:@"Alert" msg:@"No Producers found" buttonTitle:@"OK"];
+    }
 	
 }
 -(void)searchProducerFailed:(ASIHTTPRequest *)request
 {
 	NSLog(@"Search Failed");
+    
+    NSError *error = [request error];
+	NSLog(@"Request Error: %@", [error localizedDescription]);
+	
+    NSString *summaryFailed = [[NSString alloc] initWithFormat:SEARCH_PRODUCER_FAILED,[error localizedDescription]];
+    [UIHelpers showAlertWithTitle:@"Error" msg:summaryFailed buttonTitle:@"OK"];
 }
 
 -(NSString *) urlencode: (NSString *) url
