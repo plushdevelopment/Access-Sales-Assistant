@@ -427,6 +427,16 @@
 		FFF0D05D13BBA529008DFA19 /* _AddressListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D04113BBA529008DFA19 /* _AddressListItem.m */; };
 		FFFACDD01411281B002897C1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDCF1411281B002897C1 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FFFACDD51411288C002897C1 /* HUDNetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDD41411288C002897C1 /* HUDNetworkQueue.m */; };
+		FFFACDEE1416964F002897C1 /* _AUNTK.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDDB1416964F002897C1 /* _AUNTK.m */; };
+		FFFACDEF1416964F002897C1 /* _ClaimFrequecyTrendReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDDD1416964F002897C1 /* _ClaimFrequecyTrendReportData.m */; };
+		FFFACDF01416964F002897C1 /* _LossRatioTrendReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDDF1416964F002897C1 /* _LossRatioTrendReportData.m */; };
+		FFFACDF11416964F002897C1 /* _PolicyCountReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDE11416964F002897C1 /* _PolicyCountReportData.m */; };
+		FFFACDF21416964F002897C1 /* _ProductionReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDE31416964F002897C1 /* _ProductionReportData.m */; };
+		FFFACDF31416964F002897C1 /* AUNTK.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDE51416964F002897C1 /* AUNTK.m */; };
+		FFFACDF41416964F002897C1 /* ClaimFrequecyTrendReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDE71416964F002897C1 /* ClaimFrequecyTrendReportData.m */; };
+		FFFACDF51416964F002897C1 /* LossRatioTrendReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDE91416964F002897C1 /* LossRatioTrendReportData.m */; };
+		FFFACDF61416964F002897C1 /* PolicyCountReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDEB1416964F002897C1 /* PolicyCountReportData.m */; };
+		FFFACDF71416964F002897C1 /* ProductionReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFACDED1416964F002897C1 /* ProductionReportData.m */; };
 		FFFB3C0513ABA15C0063E374 /* api.html in Resources */ = {isa = PBXBuildFile; fileRef = FFFB3C0313ABA15C0063E374 /* api.html */; };
 		FFFB3C0613ABA15C0063E374 /* json2.js in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0413ABA15C0063E374 /* json2.js */; };
 		FFFB3C1413ABA17E0063E374 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB3C0913ABA17E0063E374 /* NSObject+SBJSON.m */; };
@@ -1102,6 +1112,26 @@
 		FFFACDCF1411281B002897C1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		FFFACDD31411288C002897C1 /* HUDNetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDNetworkQueue.h; sourceTree = "<group>"; };
 		FFFACDD41411288C002897C1 /* HUDNetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDNetworkQueue.m; sourceTree = "<group>"; };
+		FFFACDDA1416964F002897C1 /* _AUNTK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AUNTK.h; sourceTree = "<group>"; };
+		FFFACDDB1416964F002897C1 /* _AUNTK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AUNTK.m; sourceTree = "<group>"; };
+		FFFACDDC1416964F002897C1 /* _ClaimFrequecyTrendReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ClaimFrequecyTrendReportData.h; sourceTree = "<group>"; };
+		FFFACDDD1416964F002897C1 /* _ClaimFrequecyTrendReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ClaimFrequecyTrendReportData.m; sourceTree = "<group>"; };
+		FFFACDDE1416964F002897C1 /* _LossRatioTrendReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LossRatioTrendReportData.h; sourceTree = "<group>"; };
+		FFFACDDF1416964F002897C1 /* _LossRatioTrendReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LossRatioTrendReportData.m; sourceTree = "<group>"; };
+		FFFACDE01416964F002897C1 /* _PolicyCountReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PolicyCountReportData.h; sourceTree = "<group>"; };
+		FFFACDE11416964F002897C1 /* _PolicyCountReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _PolicyCountReportData.m; sourceTree = "<group>"; };
+		FFFACDE21416964F002897C1 /* _ProductionReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ProductionReportData.h; sourceTree = "<group>"; };
+		FFFACDE31416964F002897C1 /* _ProductionReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ProductionReportData.m; sourceTree = "<group>"; };
+		FFFACDE41416964F002897C1 /* AUNTK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUNTK.h; sourceTree = "<group>"; };
+		FFFACDE51416964F002897C1 /* AUNTK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUNTK.m; sourceTree = "<group>"; };
+		FFFACDE61416964F002897C1 /* ClaimFrequecyTrendReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClaimFrequecyTrendReportData.h; sourceTree = "<group>"; };
+		FFFACDE71416964F002897C1 /* ClaimFrequecyTrendReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClaimFrequecyTrendReportData.m; sourceTree = "<group>"; };
+		FFFACDE81416964F002897C1 /* LossRatioTrendReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LossRatioTrendReportData.h; sourceTree = "<group>"; };
+		FFFACDE91416964F002897C1 /* LossRatioTrendReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LossRatioTrendReportData.m; sourceTree = "<group>"; };
+		FFFACDEA1416964F002897C1 /* PolicyCountReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolicyCountReportData.h; sourceTree = "<group>"; };
+		FFFACDEB1416964F002897C1 /* PolicyCountReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolicyCountReportData.m; sourceTree = "<group>"; };
+		FFFACDEC1416964F002897C1 /* ProductionReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductionReportData.h; sourceTree = "<group>"; };
+		FFFACDED1416964F002897C1 /* ProductionReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductionReportData.m; sourceTree = "<group>"; };
 		FFFB3C0313ABA15C0063E374 /* api.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = api.html; sourceTree = "<group>"; };
 		FFFB3C0413ABA15C0063E374 /* json2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = json2.js; sourceTree = "<group>"; };
 		FFFB3C0713ABA17E0063E374 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -1464,6 +1494,16 @@
 		FF697AD813AFB8E500B66202 /* Human Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FFFACDE41416964F002897C1 /* AUNTK.h */,
+				FFFACDE51416964F002897C1 /* AUNTK.m */,
+				FFFACDE61416964F002897C1 /* ClaimFrequecyTrendReportData.h */,
+				FFFACDE71416964F002897C1 /* ClaimFrequecyTrendReportData.m */,
+				FFFACDE81416964F002897C1 /* LossRatioTrendReportData.h */,
+				FFFACDE91416964F002897C1 /* LossRatioTrendReportData.m */,
+				FFFACDEA1416964F002897C1 /* PolicyCountReportData.h */,
+				FFFACDEB1416964F002897C1 /* PolicyCountReportData.m */,
+				FFFACDEC1416964F002897C1 /* ProductionReportData.h */,
+				FFFACDED1416964F002897C1 /* ProductionReportData.m */,
 				FF8AC3B713EADDC500212201 /* OperationHour.h */,
 				FF8AC3B813EADDC500212201 /* OperationHour.m */,
 				6D966D4213DDCF2000DAF04B /* TrainingVideo.h */,
@@ -1529,6 +1569,16 @@
 		FF697AD913AFB8F200B66202 /* Machine Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FFFACDDA1416964F002897C1 /* _AUNTK.h */,
+				FFFACDDB1416964F002897C1 /* _AUNTK.m */,
+				FFFACDDC1416964F002897C1 /* _ClaimFrequecyTrendReportData.h */,
+				FFFACDDD1416964F002897C1 /* _ClaimFrequecyTrendReportData.m */,
+				FFFACDDE1416964F002897C1 /* _LossRatioTrendReportData.h */,
+				FFFACDDF1416964F002897C1 /* _LossRatioTrendReportData.m */,
+				FFFACDE01416964F002897C1 /* _PolicyCountReportData.h */,
+				FFFACDE11416964F002897C1 /* _PolicyCountReportData.m */,
+				FFFACDE21416964F002897C1 /* _ProductionReportData.h */,
+				FFFACDE31416964F002897C1 /* _ProductionReportData.m */,
 				FF8AC3B513EADDC500212201 /* _OperationHour.h */,
 				FF8AC3B613EADDC500212201 /* _OperationHour.m */,
 				6D966D4013DDCF2000DAF04B /* _TrainingVideo.h */,
@@ -2863,6 +2913,16 @@
 				6DEE3D1F140D3E1C00532F71 /* PhoneNumberFormatter.m in Sources */,
 				FFFACDD01411281B002897C1 /* MBProgressHUD.m in Sources */,
 				FFFACDD51411288C002897C1 /* HUDNetworkQueue.m in Sources */,
+				FFFACDEE1416964F002897C1 /* _AUNTK.m in Sources */,
+				FFFACDEF1416964F002897C1 /* _ClaimFrequecyTrendReportData.m in Sources */,
+				FFFACDF01416964F002897C1 /* _LossRatioTrendReportData.m in Sources */,
+				FFFACDF11416964F002897C1 /* _PolicyCountReportData.m in Sources */,
+				FFFACDF21416964F002897C1 /* _ProductionReportData.m in Sources */,
+				FFFACDF31416964F002897C1 /* AUNTK.m in Sources */,
+				FFFACDF41416964F002897C1 /* ClaimFrequecyTrendReportData.m in Sources */,
+				FFFACDF51416964F002897C1 /* LossRatioTrendReportData.m in Sources */,
+				FFFACDF61416964F002897C1 /* PolicyCountReportData.m in Sources */,
+				FFFACDF71416964F002897C1 /* ProductionReportData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -338,14 +338,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 {	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:nil];
 	
-	/*
 	 GetProducerRequest *producerRequest = (GetProducerRequest *)request;
 	 if (producerRequest.currentPage == 1) {
 	 for (int i = 2; i <= producerRequest.totalPages; i++) {
 	 [self requestProducers:[NSNumber numberWithInt:i]];
 	 }
 	 }
-	 */
 }
 
 - (void)requestProducersFailed:(ASIHTTPRequest *)request

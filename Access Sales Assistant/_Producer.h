@@ -5,6 +5,7 @@
 
 
 @class AddressListItem;
+@class AUNTK;
 @class Contact;
 @class DailySummary;
 @class EmailListItem;
@@ -189,9 +190,9 @@
 @property (nonatomic, retain) NSNumber *numberOfEmployees;
 
 
-@property short numberOfEmployeesValue;
-- (short)numberOfEmployeesValue;
-- (void)setNumberOfEmployeesValue:(short)value_;
+@property int numberOfEmployeesValue;
+- (int)numberOfEmployeesValue;
+- (void)setNumberOfEmployeesValue:(int)value_;
 
 //- (BOOL)validateNumberOfEmployees:(id*)value_ error:(NSError**)error_;
 
@@ -266,6 +267,13 @@
 @property (nonatomic, retain) NSSet* addresses;
 
 - (NSMutableSet*)addressesSet;
+
+
+
+
+@property (nonatomic, retain) AUNTK* auntk;
+
+//- (BOOL)validateAuntk:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -502,8 +510,8 @@
 - (NSNumber*)primitiveNumberOfEmployees;
 - (void)setPrimitiveNumberOfEmployees:(NSNumber*)value;
 
-- (short)primitiveNumberOfEmployeesValue;
-- (void)setPrimitiveNumberOfEmployeesValue:(short)value_;
+- (int)primitiveNumberOfEmployeesValue;
+- (void)setPrimitiveNumberOfEmployeesValue:(int)value_;
 
 
 
@@ -559,6 +567,11 @@
 
 - (NSMutableSet*)primitiveAddresses;
 - (void)setPrimitiveAddresses:(NSMutableSet*)value;
+
+
+
+- (AUNTK*)primitiveAuntk;
+- (void)setPrimitiveAuntk:(AUNTK*)value;
 
 
 

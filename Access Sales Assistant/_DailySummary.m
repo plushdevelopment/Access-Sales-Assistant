@@ -184,22 +184,22 @@
 
 
 
-- (short)nsbsFdlValue {
+- (int)nsbsFdlValue {
 	NSNumber *result = [self nsbsFdl];
-	return [result shortValue];
+	return [result intValue];
 }
 
-- (void)setNsbsFdlValue:(short)value_ {
-	[self setNsbsFdl:[NSNumber numberWithShort:value_]];
+- (void)setNsbsFdlValue:(int)value_ {
+	[self setNsbsFdl:[NSNumber numberWithInt:value_]];
 }
 
-- (short)primitiveNsbsFdlValue {
+- (int)primitiveNsbsFdlValue {
 	NSNumber *result = [self primitiveNsbsFdl];
-	return [result shortValue];
+	return [result intValue];
 }
 
-- (void)setPrimitiveNsbsFdlValue:(short)value_ {
-	[self setPrimitiveNsbsFdl:[NSNumber numberWithShort:value_]];
+- (void)setPrimitiveNsbsFdlValue:(int)value_ {
+	[self setPrimitiveNsbsFdl:[NSNumber numberWithInt:value_]];
 }
 
 
@@ -210,22 +210,22 @@
 
 
 
-- (short)nsbsMonthlyGoalValue {
+- (int)nsbsMonthlyGoalValue {
 	NSNumber *result = [self nsbsMonthlyGoal];
-	return [result shortValue];
+	return [result intValue];
 }
 
-- (void)setNsbsMonthlyGoalValue:(short)value_ {
-	[self setNsbsMonthlyGoal:[NSNumber numberWithShort:value_]];
+- (void)setNsbsMonthlyGoalValue:(int)value_ {
+	[self setNsbsMonthlyGoal:[NSNumber numberWithInt:value_]];
 }
 
-- (short)primitiveNsbsMonthlyGoalValue {
+- (int)primitiveNsbsMonthlyGoalValue {
 	NSNumber *result = [self primitiveNsbsMonthlyGoal];
-	return [result shortValue];
+	return [result intValue];
 }
 
-- (void)setPrimitiveNsbsMonthlyGoalValue:(short)value_ {
-	[self setPrimitiveNsbsMonthlyGoal:[NSNumber numberWithShort:value_]];
+- (void)setPrimitiveNsbsMonthlyGoalValue:(int)value_ {
+	[self setPrimitiveNsbsMonthlyGoal:[NSNumber numberWithInt:value_]];
 }
 
 
