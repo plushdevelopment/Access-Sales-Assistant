@@ -10,15 +10,8 @@
 
 #import "BaseDetailViewController.h"
 
-#import "VisitApplicationTabBarController.h"
-@interface SearchProducerViewController : BaseDetailViewController<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
-{
-     NSMutableArray* producerNamesArray;
-}
+@interface SearchProducerViewController : BaseDetailViewController
 
 
 @property(nonatomic,strong) IBOutlet UIToolbar* toolBar;
-@property(nonatomic,strong) IBOutlet UISearchBar* searchBar;
-@property(nonatomic,strong) IBOutlet UITableView* tableView;
-@property (strong, nonatomic) IBOutlet VisitApplicationTabBarController *tabBarController;
 @end

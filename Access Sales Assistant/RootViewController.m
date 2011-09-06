@@ -491,7 +491,17 @@
         }
             break;
             
-                   
+        case SEARCH_PRODUCER_INDEX:
+        {
+            SearchProducerViewController* detailViewController  = [[SearchProducerViewController alloc] initWithNibName:@"SearchProducerViewController" bundle:nil];
+            
+            //  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+            
+            [self changeDetailViewController:detailViewController];
+            self.detailViewController = detailViewController;
+            break;
+        }
+            
         default:
             break;
     }
@@ -702,19 +712,7 @@
         }
             break;
             
-        case SEARCH_PRODUCER_INDEX:
-        {
-            SearchProducerViewController* detailViewController  = [[SearchProducerViewController alloc] initWithNibName:@"SearchProducerViewController" bundle:nil];
             
-            //  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-            
-            [self changeDetailViewController:detailViewController];
-            self.detailViewController = detailViewController;
-            
-            closePopOver = TRUE;
-            break;
-        }
-
         default:
             break;
     }

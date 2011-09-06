@@ -21,8 +21,6 @@
 		6D38EFD21402E11600E4F682 /* VisitApplicationAUNTKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D38EFCD1402E11600E4F682 /* VisitApplicationAUNTKViewController.xib */; };
 		6D74025D141126B100ECC6AF /* SearchProducerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74025B141126B100ECC6AF /* SearchProducerViewController.m */; };
 		6D74025E141126B100ECC6AF /* SearchProducerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D74025C141126B100ECC6AF /* SearchProducerViewController.xib */; };
-		6D74026B141137D900ECC6AF /* HUDNetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D740268141137D900ECC6AF /* HUDNetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6D74026C141137D900ECC6AF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74026A141137D900ECC6AF /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6D7AABA813FD7C0A00F6B361 /* ProspectAppAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7AABA713FD7C0900F6B361 /* ProspectAppAddressTableViewCell.xib */; };
 		6D7AABB113FD936000F6B361 /* ProspectAppGeneralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7AABB013FD936000F6B361 /* ProspectAppGeneralTableViewCell.xib */; };
 		6D7AABB413FD938A00F6B361 /* ProspectAppGeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7AABB313FD938A00F6B361 /* ProspectAppGeneralTableViewCell.m */; };
@@ -481,10 +479,6 @@
 		6D74025A141126B100ECC6AF /* SearchProducerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchProducerViewController.h; sourceTree = "<group>"; };
 		6D74025B141126B100ECC6AF /* SearchProducerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchProducerViewController.m; sourceTree = "<group>"; };
 		6D74025C141126B100ECC6AF /* SearchProducerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchProducerViewController.xib; sourceTree = "<group>"; };
-		6D740267141137D900ECC6AF /* HUDNetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDNetworkQueue.h; sourceTree = "<group>"; };
-		6D740268141137D900ECC6AF /* HUDNetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDNetworkQueue.m; sourceTree = "<group>"; };
-		6D740269141137D900ECC6AF /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		6D74026A141137D900ECC6AF /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6D7AABA713FD7C0900F6B361 /* ProspectAppAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProspectAppAddressTableViewCell.xib; sourceTree = "<group>"; };
 		6D7AABB013FD936000F6B361 /* ProspectAppGeneralTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProspectAppGeneralTableViewCell.xib; sourceTree = "<group>"; };
 		6D7AABB213FD938A00F6B361 /* ProspectAppGeneralTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProspectAppGeneralTableViewCell.h; sourceTree = "<group>"; };
@@ -2343,10 +2337,6 @@
 		FFFB3C5A13ABE4890063E374 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6D740267141137D900ECC6AF /* HUDNetworkQueue.h */,
-				6D740268141137D900ECC6AF /* HUDNetworkQueue.m */,
-				6D740269141137D900ECC6AF /* MBProgressHUD.h */,
-				6D74026A141137D900ECC6AF /* MBProgressHUD.m */,
 				6D7402581411267300ECC6AF /* Search Producer */,
 				6D38EFD41402E12900E4F682 /* AUNTK */,
 				6D966D5513DF0E0000DAF04B /* Prospect Application */,
@@ -2871,8 +2861,6 @@
 				FFA9F1BF14056D9400817BA6 /* VisitTableViewCell.m in Sources */,
 				6DEE3D1F140D3E1C00532F71 /* PhoneNumberFormatter.m in Sources */,
 				6D74025D141126B100ECC6AF /* SearchProducerViewController.m in Sources */,
-				6D74026B141137D900ECC6AF /* HUDNetworkQueue.m in Sources */,
-				6D74026C141137D900ECC6AF /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

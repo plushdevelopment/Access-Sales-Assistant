@@ -20,9 +20,7 @@
 #define LOGIN_REQUEST_FAILED @"Login Failed"
 
 #define POST_IMAGE_SUCCESS @"Successfully uploaded the picture"
-#define POST_IMAGE_FAILED @"Failed to uploading pictures \n %@"
-
-#define SEARCH_PRODUCER_FAILED @"Search producer failed \n %@"
+#define POST_IMAGE_FAILED @"Failed to uploading pictures \n Error Description:%@"
 
 
 
