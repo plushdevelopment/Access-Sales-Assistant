@@ -69,8 +69,9 @@
 						<string key="NSFrame">{{-16, 22}, {800, 960}}</string>
 						<reference key="NSSuperview" ref="480542238"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="371977748"/>
 						<string key="NSReuseIdentifierKey">_NS:364</string>
-						<float key="IBUIAlpha">0.60000002384185791</float>
+						<float key="IBUIAlpha">0.0</float>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -84,6 +85,7 @@
 						<string key="NSFrame">{{0, 44}, {768, 960}}</string>
 						<reference key="NSSuperview" ref="480542238"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -134,7 +136,7 @@
 				<string key="NSFrameSize">{768, 1004}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="371977748"/>
+				<reference key="NSNextKeyView" ref="818226511"/>
 				<string key="NSReuseIdentifierKey">_NS:49</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>

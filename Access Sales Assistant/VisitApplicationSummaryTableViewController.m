@@ -286,7 +286,8 @@ enum PRPTableStatsTags {
 	
 	Producer *producer = (Producer *)newDetailItem;
 	if (!producer.dailySummary) {
-		producer.dailySummary = [DailySummary createEntity];
+        DailySummary *dSummary = [DailySummary createEntity]; 
+		producer.dailySummary = dSummary;//[DailySummary createEntity];
 	}
     if (_detailItem != producer.dailySummary) {
         _detailItem = producer.dailySummary;
