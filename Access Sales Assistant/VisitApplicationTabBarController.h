@@ -17,6 +17,7 @@
 @interface VisitApplicationTabBarController : UITabBarController
 
 @property (nonatomic, strong) id detailItem;
+@property (nonatomic) BOOL isVisitApp;
 
 - (void)configureView;
 

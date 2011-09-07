@@ -19,6 +19,8 @@
 		6D38EFD01402E11600E4F682 /* PCPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38EFCA1402E11600E4F682 /* PCPieChart.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6D38EFD11402E11600E4F682 /* VisitApplicationAUNTKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38EFCC1402E11600E4F682 /* VisitApplicationAUNTKViewController.m */; };
 		6D38EFD21402E11600E4F682 /* VisitApplicationAUNTKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D38EFCD1402E11600E4F682 /* VisitApplicationAUNTKViewController.xib */; };
+		6D6CCD741416B164002A350A /* SelectionModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CCD721416B164002A350A /* SelectionModelViewController.m */; };
+		6D6CCD751416B164002A350A /* SelectionModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D6CCD731416B164002A350A /* SelectionModelViewController.xib */; };
 		6D74025D141126B100ECC6AF /* SearchProducerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D74025B141126B100ECC6AF /* SearchProducerViewController.m */; };
 		6D74025E141126B100ECC6AF /* SearchProducerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D74025C141126B100ECC6AF /* SearchProducerViewController.xib */; };
 		6D74026B141137D900ECC6AF /* HUDNetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D740268141137D900ECC6AF /* HUDNetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -478,6 +480,9 @@
 		6D38EFCC1402E11600E4F682 /* VisitApplicationAUNTKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationAUNTKViewController.m; sourceTree = "<group>"; };
 		6D38EFCD1402E11600E4F682 /* VisitApplicationAUNTKViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationAUNTKViewController.xib; sourceTree = "<group>"; };
 		6D38EFDD14052FCF00E4F682 /* AccessSalesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessSalesConstants.h; sourceTree = "<group>"; };
+		6D6CCD711416B164002A350A /* SelectionModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionModelViewController.h; sourceTree = "<group>"; };
+		6D6CCD721416B164002A350A /* SelectionModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionModelViewController.m; sourceTree = "<group>"; };
+		6D6CCD731416B164002A350A /* SelectionModelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionModelViewController.xib; sourceTree = "<group>"; };
 		6D74025A141126B100ECC6AF /* SearchProducerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchProducerViewController.h; sourceTree = "<group>"; };
 		6D74025B141126B100ECC6AF /* SearchProducerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchProducerViewController.m; sourceTree = "<group>"; };
 		6D74025C141126B100ECC6AF /* SearchProducerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchProducerViewController.xib; sourceTree = "<group>"; };
@@ -2376,6 +2381,9 @@
 				6D0EF48213D713F600745307 /* SplashViewController.m */,
 				6D0EF48313D713F600745307 /* SplashViewController.xib */,
 				6D38EFDD14052FCF00E4F682 /* AccessSalesConstants.h */,
+				6D6CCD711416B164002A350A /* SelectionModelViewController.h */,
+				6D6CCD721416B164002A350A /* SelectionModelViewController.m */,
+				6D6CCD731416B164002A350A /* SelectionModelViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -2632,6 +2640,7 @@
 				6D38EFD21402E11600E4F682 /* VisitApplicationAUNTKViewController.xib in Resources */,
 				FFA9F1C014056D9400817BA6 /* VisitTableViewCell.xib in Resources */,
 				6D74025E141126B100ECC6AF /* SearchProducerViewController.xib in Resources */,
+				6D6CCD751416B164002A350A /* SelectionModelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2873,6 +2882,7 @@
 				6D74025D141126B100ECC6AF /* SearchProducerViewController.m in Sources */,
 				6D74026B141137D900ECC6AF /* HUDNetworkQueue.m in Sources */,
 				6D74026C141137D900ECC6AF /* MBProgressHUD.m in Sources */,
+				6D6CCD741416B164002A350A /* SelectionModelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
