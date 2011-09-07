@@ -65,6 +65,16 @@
 		6DB6EBFD13FD647000EE1EA9 /* notes_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB6EBF813FD647000EE1EA9 /* notes_box.png */; };
 		6DB6EBFE13FD647000EE1EA9 /* mapShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB6EBF913FD647000EE1EA9 /* mapShadow.png */; };
 		6DB6EBFF13FD647000EE1EA9 /* VisitApplicationTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6EBFA13FD647000EE1EA9 /* VisitApplicationTabBarController.m */; };
+		6DBC23F01417AA1200F95E85 /* _AUNTK.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC23DD1417AA1100F95E85 /* _AUNTK.m */; };
+		6DBC23F11417AA1200F95E85 /* _ClaimFrequecyTrendReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC23DF1417AA1100F95E85 /* _ClaimFrequecyTrendReportData.m */; };
+		6DBC23F21417AA1200F95E85 /* _LossRatioTrendReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC23E11417AA1100F95E85 /* _LossRatioTrendReportData.m */; };
+		6DBC23F31417AA1200F95E85 /* _PolicyCountReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC23E31417AA1100F95E85 /* _PolicyCountReportData.m */; };
+		6DBC23F41417AA1200F95E85 /* _ProductionReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC23E51417AA1100F95E85 /* _ProductionReportData.m */; };
+		6DBC23F51417AA1200F95E85 /* AUNTK.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC23E71417AA1100F95E85 /* AUNTK.m */; };
+		6DBC23F61417AA1200F95E85 /* ClaimFrequecyTrendReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC23E91417AA1100F95E85 /* ClaimFrequecyTrendReportData.m */; };
+		6DBC23F71417AA1200F95E85 /* LossRatioTrendReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC23EB1417AA1100F95E85 /* LossRatioTrendReportData.m */; };
+		6DBC23F81417AA1200F95E85 /* PolicyCountReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC23ED1417AA1100F95E85 /* PolicyCountReportData.m */; };
+		6DBC23F91417AA1200F95E85 /* ProductionReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBC23EF1417AA1100F95E85 /* ProductionReportData.m */; };
 		6DDC3E2413FAAACE005F4DD7 /* grey_square_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E1813FAAACE005F4DD7 /* grey_square_pin.png */; };
 		6DDC3E2513FAAACE005F4DD7 /* ProducerAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDC3E1A13FAAACE005F4DD7 /* ProducerAnnotationView.m */; };
 		6DDC3E2613FAAACE005F4DD7 /* ProducerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDC3E1C13FAAACE005F4DD7 /* ProducerDetailViewController.m */; };
@@ -549,6 +559,26 @@
 		6DB6EBF913FD647000EE1EA9 /* mapShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapShadow.png; sourceTree = "<group>"; };
 		6DB6EBFA13FD647000EE1EA9 /* VisitApplicationTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationTabBarController.m; sourceTree = "<group>"; };
 		6DB6EBFB13FD647000EE1EA9 /* VisitApplicationTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationTabBarController.h; sourceTree = "<group>"; };
+		6DBC23DC1417AA1100F95E85 /* _AUNTK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AUNTK.h; sourceTree = "<group>"; };
+		6DBC23DD1417AA1100F95E85 /* _AUNTK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AUNTK.m; sourceTree = "<group>"; };
+		6DBC23DE1417AA1100F95E85 /* _ClaimFrequecyTrendReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ClaimFrequecyTrendReportData.h; sourceTree = "<group>"; };
+		6DBC23DF1417AA1100F95E85 /* _ClaimFrequecyTrendReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ClaimFrequecyTrendReportData.m; sourceTree = "<group>"; };
+		6DBC23E01417AA1100F95E85 /* _LossRatioTrendReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LossRatioTrendReportData.h; sourceTree = "<group>"; };
+		6DBC23E11417AA1100F95E85 /* _LossRatioTrendReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LossRatioTrendReportData.m; sourceTree = "<group>"; };
+		6DBC23E21417AA1100F95E85 /* _PolicyCountReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PolicyCountReportData.h; sourceTree = "<group>"; };
+		6DBC23E31417AA1100F95E85 /* _PolicyCountReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _PolicyCountReportData.m; sourceTree = "<group>"; };
+		6DBC23E41417AA1100F95E85 /* _ProductionReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ProductionReportData.h; sourceTree = "<group>"; };
+		6DBC23E51417AA1100F95E85 /* _ProductionReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ProductionReportData.m; sourceTree = "<group>"; };
+		6DBC23E61417AA1100F95E85 /* AUNTK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUNTK.h; sourceTree = "<group>"; };
+		6DBC23E71417AA1100F95E85 /* AUNTK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUNTK.m; sourceTree = "<group>"; };
+		6DBC23E81417AA1100F95E85 /* ClaimFrequecyTrendReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClaimFrequecyTrendReportData.h; sourceTree = "<group>"; };
+		6DBC23E91417AA1100F95E85 /* ClaimFrequecyTrendReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClaimFrequecyTrendReportData.m; sourceTree = "<group>"; };
+		6DBC23EA1417AA1100F95E85 /* LossRatioTrendReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LossRatioTrendReportData.h; sourceTree = "<group>"; };
+		6DBC23EB1417AA1100F95E85 /* LossRatioTrendReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LossRatioTrendReportData.m; sourceTree = "<group>"; };
+		6DBC23EC1417AA1100F95E85 /* PolicyCountReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolicyCountReportData.h; sourceTree = "<group>"; };
+		6DBC23ED1417AA1100F95E85 /* PolicyCountReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolicyCountReportData.m; sourceTree = "<group>"; };
+		6DBC23EE1417AA1100F95E85 /* ProductionReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductionReportData.h; sourceTree = "<group>"; };
+		6DBC23EF1417AA1100F95E85 /* ProductionReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductionReportData.m; sourceTree = "<group>"; };
 		6DDC3E1813FAAACE005F4DD7 /* grey_square_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey_square_pin.png; sourceTree = "<group>"; };
 		6DDC3E1913FAAACE005F4DD7 /* ProducerAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerAnnotationView.h; sourceTree = "<group>"; };
 		6DDC3E1A13FAAACE005F4DD7 /* ProducerAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerAnnotationView.m; sourceTree = "<group>"; };
@@ -1482,6 +1512,16 @@
 		FF697AD813AFB8E500B66202 /* Human Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6DBC23E61417AA1100F95E85 /* AUNTK.h */,
+				6DBC23E71417AA1100F95E85 /* AUNTK.m */,
+				6DBC23E81417AA1100F95E85 /* ClaimFrequecyTrendReportData.h */,
+				6DBC23E91417AA1100F95E85 /* ClaimFrequecyTrendReportData.m */,
+				6DBC23EA1417AA1100F95E85 /* LossRatioTrendReportData.h */,
+				6DBC23EB1417AA1100F95E85 /* LossRatioTrendReportData.m */,
+				6DBC23EC1417AA1100F95E85 /* PolicyCountReportData.h */,
+				6DBC23ED1417AA1100F95E85 /* PolicyCountReportData.m */,
+				6DBC23EE1417AA1100F95E85 /* ProductionReportData.h */,
+				6DBC23EF1417AA1100F95E85 /* ProductionReportData.m */,
 				FF8AC3B713EADDC500212201 /* OperationHour.h */,
 				FF8AC3B813EADDC500212201 /* OperationHour.m */,
 				6D966D4213DDCF2000DAF04B /* TrainingVideo.h */,
@@ -1547,6 +1587,16 @@
 		FF697AD913AFB8F200B66202 /* Machine Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6DBC23DC1417AA1100F95E85 /* _AUNTK.h */,
+				6DBC23DD1417AA1100F95E85 /* _AUNTK.m */,
+				6DBC23DE1417AA1100F95E85 /* _ClaimFrequecyTrendReportData.h */,
+				6DBC23DF1417AA1100F95E85 /* _ClaimFrequecyTrendReportData.m */,
+				6DBC23E01417AA1100F95E85 /* _LossRatioTrendReportData.h */,
+				6DBC23E11417AA1100F95E85 /* _LossRatioTrendReportData.m */,
+				6DBC23E21417AA1100F95E85 /* _PolicyCountReportData.h */,
+				6DBC23E31417AA1100F95E85 /* _PolicyCountReportData.m */,
+				6DBC23E41417AA1100F95E85 /* _ProductionReportData.h */,
+				6DBC23E51417AA1100F95E85 /* _ProductionReportData.m */,
 				FF8AC3B513EADDC500212201 /* _OperationHour.h */,
 				FF8AC3B613EADDC500212201 /* _OperationHour.m */,
 				6D966D4013DDCF2000DAF04B /* _TrainingVideo.h */,
@@ -2883,6 +2933,16 @@
 				6D74026B141137D900ECC6AF /* HUDNetworkQueue.m in Sources */,
 				6D74026C141137D900ECC6AF /* MBProgressHUD.m in Sources */,
 				6D6CCD741416B164002A350A /* SelectionModelViewController.m in Sources */,
+				6DBC23F01417AA1200F95E85 /* _AUNTK.m in Sources */,
+				6DBC23F11417AA1200F95E85 /* _ClaimFrequecyTrendReportData.m in Sources */,
+				6DBC23F21417AA1200F95E85 /* _LossRatioTrendReportData.m in Sources */,
+				6DBC23F31417AA1200F95E85 /* _PolicyCountReportData.m in Sources */,
+				6DBC23F41417AA1200F95E85 /* _ProductionReportData.m in Sources */,
+				6DBC23F51417AA1200F95E85 /* AUNTK.m in Sources */,
+				6DBC23F61417AA1200F95E85 /* ClaimFrequecyTrendReportData.m in Sources */,
+				6DBC23F71417AA1200F95E85 /* LossRatioTrendReportData.m in Sources */,
+				6DBC23F81417AA1200F95E85 /* PolicyCountReportData.m in Sources */,
+				6DBC23F91417AA1200F95E85 /* ProductionReportData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

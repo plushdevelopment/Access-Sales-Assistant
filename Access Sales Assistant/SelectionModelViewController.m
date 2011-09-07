@@ -15,6 +15,10 @@
 @synthesize tableView = _tableView;
 @synthesize tableData = _tableData;
 @synthesize dataSource = _dataSource;
+@synthesize delegate = _delegate;
+
+@synthesize  currentTag;
+@synthesize currentIndexPath = _currentIndexPath;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,17 +59,37 @@
     // Return YES for supported orientations
 	return YES;
 }
--(void) AssignDataSource:(NSMutableArray *)datasource
+-(void) assignDataSource:(NSMutableArray *)datasource
 {
-    self.dataSource = datasource; 
+    if(_dataSource)
+    {
+        [_dataSource removeAllObjects];
+    }
+    if(_tableData)
+    {
+        [_tableData removeAllObjects];
+    }
+    self.dataSource =  [[NSMutableArray alloc] initWithArray:datasource];
+    
+    self.tableData = [[NSMutableArray alloc] initWithArray:datasource];
+    
+    [_tableView reloadData];
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-   // NSLog(searchText);	
+    NSLog(searchText);	
     [_tableData removeAllObjects];// remove all data that belongs to previous search
     NSInteger counter = 0;
-    for(NSString *name in _dataSource)
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name CONTAINS[c] %@" argumentArray:[NSArray arrayWithObject:searchText]];
+    
+    NSArray *fetchedArray = [_dataSource filteredArrayUsingPredicate:pred];
+    
+    
+   /* for(int index = 0; index<[_dataSource count];index++)
     {
+        NSString *name = [[_dataSource objectAtIndex:index] name];
+        NSLog(name);
      
         NSRange r = [name rangeOfString:searchText];
         if(r.location != NSNotFound)
@@ -77,7 +101,7 @@
         }
         counter++;
     
-    }
+    }*/
     [_tableView reloadData];
 }
 
@@ -95,7 +119,12 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [_tableData count];
+   
+   // int count =[_dataSource count];
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+        return [_tableData count];
+    else 
+        return [_dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,9 +136,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         //      cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier]];
     }
-    
-    
- //   NSString* str= [[NSString alloc] initWithFormat:@"%@ - %@",[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"name"],[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"producerCode"]] ;    cell.textLabel.text = str;
+  
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        NSString* str= [[NSString alloc] initWithFormat:@"%@",[[_tableData objectAtIndex:indexPath.row] name]] ;
+        cell.textLabel.text = str;
+    }
+    else
+    {
+    NSString* str= [[NSString alloc] initWithFormat:@"%@",[[_dataSource objectAtIndex:indexPath.row] name]] ;
+    cell.textLabel.text = str;
+    }
     
     return cell;
 }
@@ -120,6 +157,55 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        NSLog(@"current indexpath:%d",indexPath.row);
+        NSLog(@"selected %@",[[_tableData objectAtIndex:indexPath.row] name]);
+         [_delegate selectedOption:[[_tableData objectAtIndex:indexPath.row] name] :_currentIndexPath :self.currentTag];
+    }
+    else
+    {
+        NSLog(@"current indexpath:%d",indexPath.row);
+        NSLog(@"selected %@",[[_dataSource objectAtIndex:indexPath.row] name]);
+        [_delegate selectedOption:[[_dataSource objectAtIndex:indexPath.row] name] :_currentIndexPath :self.currentTag];
+        
+    }
+    [self dismissModalViewControllerAnimated:YES];
+   
 }
 
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    for(int index = 0; index<[_dataSource count];index++)
+    {
+        NSString *name = [[_dataSource objectAtIndex:index] name];
+        NSLog(name);
+        
+        
+        NSComparisonResult result = [name compare:searchString options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchString length])];
+        if (result == NSOrderedSame)
+        {
+            [_tableData addObject:[_dataSource objectAtIndex:index]];
+        }
+
+      /*  NSRange r = [name rangeOfString:searchString];
+        if(r.location != NSNotFound)
+        {
+            if(r.location== 0)//that is we are checking only the start of the names.
+            {
+                [_tableData addObject:name];
+            }
+        }*/
+        //counter++;
+        
+    }
+  /*  NSPredicate *pred = [NSPredicate predicateWithFormat:@"name CONTAINS[c] %@" argumentArray:[NSArray arrayWithObject:searchString]];
+    
+    NSArray *fetchedArray = [_dataSource filteredArrayUsingPredicate:pred];
+    
+    NSLog(@"Filtered Array:%@",fetchedArray);*/
+    
+    return YES;
+}
 @end

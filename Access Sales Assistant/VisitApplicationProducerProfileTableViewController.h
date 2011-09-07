@@ -24,8 +24,9 @@
 #import "BaseDetailViewController.h"
 #import "PhoneNumberFormatter.h"
 #import "OperationHour.h"
+#import "SelectionModelViewController.h"
 
-@interface VisitApplicationProducerProfileTableViewController : BaseDetailViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDataSource, UITableViewDelegate>
+@interface VisitApplicationProducerProfileTableViewController : BaseDetailViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDataSource, UITableViewDelegate,optionSelectedDelegate>
 {
     NSArray* sectionTitleArray;
     BOOL isContactsEdited;
@@ -57,7 +58,7 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *dismissButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *submitButton;
 
-
+@property (nonatomic,strong) IBOutlet SelectionModelViewController *selectionTableView;
 
 -(UITableViewCell*) tableViewCellForNibName:(NSString*)nibName;
 -(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell:(NSInteger)forType;
@@ -85,6 +86,8 @@
 
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
+
+-(IBAction)showSelectionTableView:(id)sender;
 
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;
