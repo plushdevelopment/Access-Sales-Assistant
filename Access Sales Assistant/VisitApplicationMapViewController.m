@@ -214,6 +214,7 @@
 	[self.tabBarController setModalPresentationStyle:UIModalPresentationPageSheet];
 	//[self.splitviewcontroller presentModalViewController:self.tabBarController animated:YES];
     [self presentModalViewController:self.tabBarController animated:YES];
+    self.tabBarController.isVisitApp = TRUE;
 	[self.tabBarController setDetailItem:producer];
 }
 

@@ -15,6 +15,7 @@
 @implementation VisitApplicationTabBarController
 
 @synthesize detailItem=_detailItem;
+@synthesize isVisitApp;
 
 #pragma mark - Managing the detail item
 
@@ -40,6 +41,32 @@
 			[viewController setDetailItem:self.detailItem];
 		}
 	}
+    if(isVisitApp)
+    {
+        UITabBarItem *dailySummary = [[self.tabBar items] objectAtIndex:1];
+        [dailySummary setEnabled:TRUE];
+        
+        UITabBarItem *notes = [[self.tabBar items] objectAtIndex:2];
+        [notes setEnabled:TRUE];
+        
+        UITabBarItem *picture = [[self.tabBar items] objectAtIndex:3];
+        [picture setEnabled:TRUE];
+
+    }
+    else
+    {
+    
+    UITabBarItem *dailySummary = [[self.tabBar items] objectAtIndex:1];
+    [dailySummary setEnabled:FALSE];
+        
+    UITabBarItem *notes = [[self.tabBar items] objectAtIndex:2];
+    [notes setEnabled:FALSE];
+        
+  //  UITabBarItem *picture = [[self.tabBar items] objectAtIndex:3];
+  //  [picture setEnabled:FALSE];
+    }
+
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

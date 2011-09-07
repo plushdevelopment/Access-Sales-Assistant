@@ -37,10 +37,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ContactType.h"
 
+#import "SelectionModelViewController.h"
+
 @implementation VisitApplicationProducerProfileTableViewController
 
 @synthesize detailItem = _detailItem;
 @synthesize pickerViewController = _pickerViewController;
+@synthesize selectionTableView = _selectionTableView;
 @synthesize popoverController;
 @synthesize datePickerViewController = _datePickerViewController;
 @synthesize statusCell = _statusCell;
@@ -932,6 +935,77 @@
 	}];
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
    
+}
+
+-(IBAction)showSelectionTableView:(id)sender
+{
+    
+    UIButton *button = (UIButton *)sender;
+   
+    
+      SelectionModelViewController *selectionView = [[SelectionModelViewController alloc] initWithNibName:@"SelectionModelViewController" bundle:nil];
+    
+    selectionView.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
+    
+    selectionView.currentTag = button.tag;
+    
+    [selectionView  setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [selectionView  setModalPresentationStyle:UIModalPresentationFormSheet];
+    selectionView.delegate = self;
+
+    
+    switch(selectionView.currentIndexPath.section)
+    {
+        case EGeneral:
+        { 
+            switch(selectionView.currentTag)
+            {
+                case ESubTerritory:
+                {
+                    /*[self.selectionTableView AssignDataSource:[Rater findAll]];
+                    
+                    [self.selectionTableView  setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+                    [self.selectionTableView  setModalPresentationStyle:UIModalPresentationFormSheet];
+                    [self presentModalViewController:self.selectionTableView  animated:YES];
+                    self.selectionTableView.delegate = self;
+                     */
+
+                    break;
+                }
+            }
+        }
+            break;
+        case ERater:
+        {
+            switch(selectionView.currentTag)
+            {
+                case ERater1:
+                {
+                  
+                    
+                    [selectionView assignDataSource:[Rater findAll]];
+                                        
+                    
+                    [self presentModalViewController:selectionView  animated:YES];
+                
+                    break;
+                }
+                case ERater2:
+                {
+                    [selectionView assignDataSource:[Rater2 findAll]];
+                    
+                    
+                    [self presentModalViewController:selectionView  animated:YES];
+
+                    break;
+                }
+            }
+        }
+            break;
+    }
+    
+    
+    
 }
  -(IBAction)showTimePickerView:(id)sender
 {
@@ -2251,4 +2325,43 @@
 {
 }
 
+
+-(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag
+{
+    switch(forIndexPath.section)
+    {
+        case EGeneral:
+        {
+            switch(forTag)
+            {
+                case ESubTerritory:
+                {
+                   
+                    break;
+                }
+            }
+            break;
+        }
+        case EStatus:
+            break;
+        case ERater:
+        {
+            switch(forTag)
+            {
+                case ERater1:
+                {
+                    self.detailItem.rater = [Rater findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                case ERater2:
+                {
+                    self.detailItem.rater2 = [Rater2 findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+            }
+        }
+            break;
+    }
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+}
 @end
