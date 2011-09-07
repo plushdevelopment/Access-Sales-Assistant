@@ -83,6 +83,7 @@
         <relationship name="producerAddOn" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ProducerAddOn" inverseName="dailySummaries" inverseEntity="ProducerAddOn"/>
         <relationship name="producerId" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="dailySummary" inverseEntity="Producer"/>
         <relationship name="purposeOfCall" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PurposeOfCall" inverseName="dailySummmary" inverseEntity="PurposeOfCall"/>
+        <relationship name="reasonNotSeen" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ReasonNotSeen" inverseName="dailySummaries" inverseEntity="ReasonNotSeen"/>
     </entity>
     <entity name="EmailListItem" representedClassName="EmailListItem">
         <attribute name="address" optional="YES" attributeType="String"/>
@@ -268,6 +269,11 @@
         <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="producer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="rater2" inverseEntity="Producer"/>
     </entity>
+    <entity name="ReasonNotSeen" representedClassName="ReasonNotSeen">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="reasonNotSeen" inverseEntity="DailySummary"/>
+    </entity>
     <entity name="State" representedClassName="State">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
@@ -308,7 +314,7 @@
         <element name="Competitor" positionX="-18" positionY="-243" width="128" height="45"/>
         <element name="Contact" positionX="-441" positionY="684" width="128" height="195"/>
         <element name="ContactType" positionX="180" positionY="-45" width="128" height="90"/>
-        <element name="DailySummary" positionX="-54" positionY="189" width="128" height="45"/>
+        <element name="DailySummary" positionX="-54" positionY="189" width="128" height="405"/>
         <element name="EmailListItem" positionX="-650" positionY="405" width="128" height="105"/>
         <element name="HoursOfOperation" positionX="-1620" positionY="-45" width="128" height="270"/>
         <element name="IneligibleReason" positionX="43" positionY="561" width="128" height="90"/>
@@ -334,5 +340,6 @@
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="45"/>
         <element name="TrainingVideo" positionX="-423" positionY="-216" width="128" height="75"/>
         <element name="User" positionX="774" positionY="-297" width="128" height="135"/>
+        <element name="ReasonNotSeen" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

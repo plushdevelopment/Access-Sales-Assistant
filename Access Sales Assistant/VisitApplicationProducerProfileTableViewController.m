@@ -229,6 +229,7 @@
             cell.eOExpiresTextField.text = [dateFormatter stringFromDate:_detailItem.eAndOExpires];
              [self disableTextField:cell.eOExpiresTextField :NO];
             cell.dateEstablishedTextField.text = [dateFormatter stringFromDate:_detailItem.dateEstablished];
+			cell.primaryContactTextField.text = _detailItem.primaryContact;
             return cell;
         }
         case EQuestions:
@@ -372,7 +373,7 @@
     switch (indexPath.section) {
         case EGeneral:
         {
-            height = 188.0;
+            height = 222.0;
         }
             break;
         case EQuestions:
@@ -1835,8 +1836,13 @@
                 case EProducerName:
                 {
                     self.detailItem.name = textField.text;
-                    break;
                 }
+					break;
+				case EPrimaryContact:
+				{
+					self.detailItem.primaryContact = textField.text;
+				}
+					break;
             }
         }
             break;
@@ -2110,7 +2116,8 @@
                    _detailItem.subTerritory == nil ||
                    _detailItem.numberOfLocations == nil ||
                    _detailItem.numberOfEmployees == nil ||
-                   _detailItem.dateEstablished == nil
+                   _detailItem.dateEstablished == nil ||
+				   _detailItem.primaryContact == nil
                    )
                     return FALSE;
             }

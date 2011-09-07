@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
-		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<int key="IBDocument.SystemTarget">0</int>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -52,6 +52,7 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrameSize">{768, 44}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="486273082"/>
 						<string key="NSReuseIdentifierKey">_NS:150</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -66,6 +67,7 @@
 						<int key="NSvFlags">288</int>
 						<string key="NSFrame">{{146, 4}, {476, 36}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="764822971"/>
 						<string key="NSReuseIdentifierKey">_NS:120</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -101,6 +103,7 @@
 						<int key="NSvFlags">282</int>
 						<string key="NSFrame">{{0, 436}, {768, 568}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="340455643"/>
 						<string key="NSReuseIdentifierKey">_NS:728</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -112,6 +115,8 @@
 						<int key="NSvFlags">298</int>
 						<string key="NSFrame">{{0, 436}, {768, 8}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="996283434">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -129,6 +134,7 @@
 						<int key="NSvFlags">306</int>
 						<string key="NSFrame">{{0, 44}, {768, 392}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="812604492"/>
 						<string key="NSReuseIdentifierKey">_NS:164</string>
 						<reference key="IBUIBackgroundColor" ref="579021786"/>
@@ -145,6 +151,7 @@
 				</object>
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="586301119"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -191,7 +198,12 @@
 				<object class="IBUIViewController" key="IBUISelectedViewController" id="803439660">
 					<object class="IBUITabBarItem" key="IBUITabBarItem" id="66179164">
 						<string key="IBUITitle">Picture</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">TBB_picture icon.png</string>
+						</object>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<reference key="IBUITabBar" ref="606678664"/>
 					</object>
 					<reference key="IBUIParentViewController" ref="273142308"/>
 					<string key="IBUINibName">VisitApplicationPhotosViewController</string>
@@ -207,7 +219,12 @@
 					<object class="IBUIViewController" id="106354338">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="128663519">
 							<string key="IBUITitle">Profile</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">TBB_profile icon.png</string>
+							</object>
 							<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+							<reference key="IBUITabBar" ref="606678664"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="273142308"/>
 						<string key="IBUINibName">VisitApplicationProducerProfileTableViewController</string>
@@ -221,7 +238,12 @@
 					<object class="IBUIViewController" id="826218949">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="87193813">
 							<string key="IBUITitle">Summary</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">TBB_summary icon.png</string>
+							</object>
 							<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+							<reference key="IBUITabBar" ref="606678664"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="273142308"/>
 						<string key="IBUINibName">VisitApplicationSummaryTableViewController</string>
@@ -235,7 +257,12 @@
 					<object class="IBUIViewController" id="51443428">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="6277534">
 							<string key="IBUITitle">Notes</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">TBB_notes icon.png</string>
+							</object>
 							<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+							<reference key="IBUITabBar" ref="606678664"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="273142308"/>
 						<string key="IBUINibName">VisitApplicationNotesViewController</string>
@@ -253,9 +280,19 @@
 					<int key="NSvFlags">266</int>
 					<string key="NSFrame">{{0, 975}, {768, 49}}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView"/>
 					<string key="NSReuseIdentifierKey">_NS:446</string>
 					<reference key="IBUIBackgroundColor" ref="996283434"/>
 					<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+					<object class="NSMutableArray" key="IBUIItems">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<reference ref="128663519"/>
+						<reference ref="87193813"/>
+						<reference ref="6277534"/>
+						<reference ref="66179164"/>
+					</object>
+					<reference key="IBUISelectedItem" ref="66179164"/>
 				</object>
 			</object>
 		</object>
@@ -1027,6 +1064,7 @@
 							<string>numberOfEmployeesTextField</string>
 							<string>numberOfLocationsButton</string>
 							<string>numberOfLocationsTextField</string>
+							<string>primaryContactTextField</string>
 							<string>producerCodeTextField</string>
 							<string>producerNameTextField</string>
 							<string>subTerritoryButton</string>
@@ -1042,6 +1080,7 @@
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
+							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
@@ -1062,6 +1101,7 @@
 							<string>numberOfEmployeesTextField</string>
 							<string>numberOfLocationsButton</string>
 							<string>numberOfLocationsTextField</string>
+							<string>primaryContactTextField</string>
 							<string>producerCodeTextField</string>
 							<string>producerNameTextField</string>
 							<string>subTerritoryButton</string>
@@ -1103,6 +1143,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">numberOfLocationsTextField</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">primaryContactTextField</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -2058,7 +2102,7 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1280" key="NS.object.0"/>
+			<real value="0.0" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
@@ -2067,8 +2111,23 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">mapShadow.png</string>
-			<string key="NS.object.0">{640, 28}</string>
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>TBB_notes icon.png</string>
+				<string>TBB_picture icon.png</string>
+				<string>TBB_profile icon.png</string>
+				<string>TBB_summary icon.png</string>
+				<string>mapShadow.png</string>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{24, 18}</string>
+				<string>{24, 18}</string>
+				<string>{24, 18}</string>
+				<string>{24, 18}</string>
+				<string>{640, 28}</string>
+			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">894</string>
 	</data>

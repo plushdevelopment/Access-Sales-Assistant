@@ -432,6 +432,10 @@
 
 	
 
+@dynamic reasonNotSeen;
+
+	
+
 
 
 

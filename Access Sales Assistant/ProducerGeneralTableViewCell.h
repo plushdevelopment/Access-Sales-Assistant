@@ -11,6 +11,7 @@
 #import "PRPNibBasedTableViewCell.h"
 @interface ProducerGeneralTableViewCell : PRPNibBasedTableViewCell
 
+
 @property (nonatomic, strong) IBOutlet UITextField *producerCodeTextField;
 @property (nonatomic, strong) IBOutlet UITextField *subTerritoryTextField;
 @property (nonatomic, strong) IBOutlet UITextField *producerNameTextField;
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *numberOfLocationsTextField;
 @property (nonatomic, strong) IBOutlet UITextField *accessSignTextField;
 @property (nonatomic, strong) IBOutlet UITextField *dateEstablishedTextField;
+@property (strong, nonatomic) IBOutlet UITextField *primaryContactTextField;
 
 @property (nonatomic, strong) IBOutlet UIButton *numberOfLocationsButton;
 @property (nonatomic, strong) IBOutlet UIButton *dateEstablishedButton;

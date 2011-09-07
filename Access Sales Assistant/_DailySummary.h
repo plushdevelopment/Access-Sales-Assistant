@@ -14,6 +14,7 @@
 @class ProducerAddOn;
 @class Producer;
 @class PurposeOfCall;
+@class ReasonNotSeen;
 
 
 
@@ -256,6 +257,13 @@
 
 
 
+@property (nonatomic, retain) ReasonNotSeen* reasonNotSeen;
+
+//- (BOOL)validateReasonNotSeen:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @end
 
 @interface _DailySummary (CoreDataGeneratedAccessors)
@@ -446,6 +454,11 @@
 
 - (PurposeOfCall*)primitivePurposeOfCall;
 - (void)setPrimitivePurposeOfCall:(PurposeOfCall*)value;
+
+
+
+- (ReasonNotSeen*)primitiveReasonNotSeen;
+- (void)setPrimitiveReasonNotSeen:(ReasonNotSeen*)value;
 
 
 @end
