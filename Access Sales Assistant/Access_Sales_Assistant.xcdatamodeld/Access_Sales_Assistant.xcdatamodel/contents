@@ -12,10 +12,22 @@
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="addresses" inverseEntity="Producer"/>
         <relationship name="state" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="State" inverseName="addresses" inverseEntity="State"/>
     </entity>
+    <entity name="AUNTK" representedClassName="AUNTK">
+        <relationship name="claimFrequecyTrendReportData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ClaimFrequecyTrendReportData" inverseName="auntk" inverseEntity="ClaimFrequecyTrendReportData"/>
+        <relationship name="lossRatioTrendReportData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LossRatioTrendReportData" inverseName="auntk" inverseEntity="LossRatioTrendReportData"/>
+        <relationship name="policyCountReportData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PolicyCountReportData" inverseName="auntk" inverseEntity="PolicyCountReportData"/>
+        <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="auntk" inverseEntity="Producer"/>
+        <relationship name="productionReportData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProductionReportData" inverseName="auntk" inverseEntity="ProductionReportData"/>
+    </entity>
     <entity name="BarrierToBusiness" representedClassName="BarrierToBusiness">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="barriersToBusiness" inverseEntity="DailySummary"/>
+    </entity>
+    <entity name="ClaimFrequecyTrendReportData" representedClassName="ClaimFrequecyTrendReportData">
+        <attribute name="claimsFrequency" optional="YES" attributeType="String"/>
+        <attribute name="monthYear" optional="YES" attributeType="String"/>
+        <relationship name="auntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="claimFrequecyTrendReportData" inverseEntity="AUNTK"/>
     </entity>
     <entity name="CommissionStructure" representedClassName="CommissionStructure">
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -52,8 +64,8 @@
         <attribute name="commissionPercentRenewal" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="deleted" optional="YES" attributeType="Boolean"/>
         <attribute name="edited" optional="YES" attributeType="Boolean"/>
-        <attribute name="nsbsFdl" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
-        <attribute name="nsbsMonthlyGoal" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="nsbsFdl" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="nsbsMonthlyGoal" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="nsbsPercentLiab" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="nsbsTotAppsPerMonth" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="rdFollowUp" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
@@ -99,6 +111,11 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="producer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="ineligibleReason" inverseEntity="Producer"/>
+    </entity>
+    <entity name="LossRatioTrendReportData" representedClassName="LossRatioTrendReportData">
+        <attribute name="lossRatio" optional="YES" attributeType="String"/>
+        <attribute name="monthYear" optional="YES" attributeType="String"/>
+        <relationship name="auntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="lossRatioTrendReportData" inverseEntity="AUNTK"/>
     </entity>
     <entity name="Note" representedClassName="Note">
         <attribute name="deleted" optional="YES" attributeType="Boolean"/>
@@ -152,6 +169,11 @@
         <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="phoneList" inverseEntity="Contact"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="phoneNumbers" inverseEntity="Producer"/>
     </entity>
+    <entity name="PolicyCountReportData" representedClassName="PolicyCountReportData">
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="header" optional="YES" attributeType="String"/>
+        <relationship name="auntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="policyCountReportData" inverseEntity="AUNTK"/>
+    </entity>
     <entity name="Producer" representedClassName="Producer">
         <attribute name="address" optional="YES" attributeType="String"/>
         <attribute name="appointedDate" optional="YES" attributeType="Date"/>
@@ -167,7 +189,7 @@
         <attribute name="nextScheduledVisit" optional="YES" attributeType="Date"/>
         <attribute name="nextScheduledVisitDate" optional="YES" attributeType="String"/>
         <attribute name="nextScheduledVisitTime" optional="YES" attributeType="String"/>
-        <attribute name="numberOfEmployees" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="numberOfEmployees" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="numberOfLocations" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="primaryContact" optional="YES" attributeType="String"/>
         <attribute name="producerCode" optional="YES" attributeType="String"/>
@@ -176,6 +198,7 @@
         <attribute name="uid" optional="YES" attributeType="String"/>
         <attribute name="webAddress" optional="YES" attributeType="String"/>
         <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AddressListItem" inverseName="producer" inverseEntity="AddressListItem"/>
+        <relationship name="auntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="producer" inverseEntity="AUNTK"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="producer" inverseEntity="Contact"/>
         <relationship name="dailySummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="producerId" inverseEntity="DailySummary"/>
         <relationship name="emails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EmailListItem" inverseName="producer" inverseEntity="EmailListItem"/>
@@ -198,6 +221,29 @@
     <entity name="ProducerImage" representedClassName="ProducerImage">
         <attribute name="imagePath" optional="YES" attributeType="String"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="images" inverseEntity="Producer"/>
+    </entity>
+    <entity name="ProductionReportData" representedClassName="ProductionReportData">
+        <attribute name="avgCarsDriver" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+        <attribute name="avgDriverAge" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="avgIncLossITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="avgWPITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="cancel30dMonth" optional="YES" attributeType="String"/>
+        <attribute name="epTotalITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="frequencyITD" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+        <attribute name="lrTotalITD" optional="YES" attributeType="String"/>
+        <attribute name="month" optional="YES" attributeType="String"/>
+        <attribute name="monthEndDate" optional="YES" attributeType="Date"/>
+        <attribute name="nbrClaims30dMonth" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="nbrClaimsITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="nbrClaimsMonth" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="newPoliciesMonth" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="percentFDLMonth" optional="YES" attributeType="String"/>
+        <attribute name="percentLiabilityOnlyITD" optional="YES" attributeType="String"/>
+        <attribute name="policiesInForce" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="policiesWrittenITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="wpTotalITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="auntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="productionReportData" inverseEntity="AUNTK"/>
     </entity>
     <entity name="PurposeOfCall" representedClassName="PurposeOfCall">
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -255,33 +301,38 @@
     </entity>
     <elements>
         <element name="AddressListItem" positionX="-569" positionY="72" width="128" height="195"/>
-        <element name="BarrierToBusiness" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="CommissionStructure" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Competitor" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="AUNTK" positionX="-164" positionY="-441" width="128" height="120"/>
+        <element name="BarrierToBusiness" positionX="135" positionY="432" width="128" height="90"/>
+        <element name="ClaimFrequecyTrendReportData" positionX="547" positionY="-270" width="128" height="90"/>
+        <element name="CommissionStructure" positionX="34" positionY="-90" width="128" height="45"/>
+        <element name="Competitor" positionX="-18" positionY="-243" width="128" height="45"/>
         <element name="Contact" positionX="-441" positionY="684" width="128" height="195"/>
         <element name="ContactType" positionX="180" positionY="-45" width="128" height="90"/>
-        <element name="DailySummary" positionX="160" positionY="192" width="128" height="300"/>
+        <element name="DailySummary" positionX="-54" positionY="189" width="128" height="45"/>
         <element name="EmailListItem" positionX="-650" positionY="405" width="128" height="105"/>
-        <element name="HoursOfOperation" positionX="0" positionY="-45" width="128" height="270"/>
+        <element name="HoursOfOperation" positionX="-1620" positionY="-45" width="128" height="270"/>
         <element name="IneligibleReason" positionX="43" positionY="561" width="128" height="90"/>
-        <element name="Note" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="OperationHour" positionX="160" positionY="192" width="128" height="285"/>
-        <element name="PersonSpokeWith" positionX="160" positionY="192" width="128" height="165"/>
-        <element name="PersonSpokeWithTitle" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Phase" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="LossRatioTrendReportData" positionX="565" positionY="-387" width="128" height="90"/>
+        <element name="Note" positionX="-371" positionY="522" width="128" height="135"/>
+        <element name="OperationHour" positionX="-2295" positionY="-72" width="128" height="285"/>
+        <element name="PersonSpokeWith" positionX="-218" positionY="171" width="128" height="45"/>
+        <element name="PersonSpokeWithTitle" positionX="-227" positionY="18" width="128" height="90"/>
+        <element name="Phase" positionX="-396" positionY="-108" width="128" height="90"/>
         <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="105"/>
-        <element name="Producer" positionX="306" positionY="123" width="128" height="585"/>
-        <element name="ProducerAddOn" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="ProducerImage" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="PurposeOfCall" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="PolicyCountReportData" positionX="207" positionY="-675" width="128" height="90"/>
+        <element name="Producer" positionX="306" positionY="123" width="128" height="45"/>
+        <element name="ProducerAddOn" positionX="261" positionY="864" width="128" height="90"/>
+        <element name="ProducerImage" positionX="27" positionY="870" width="128" height="75"/>
+        <element name="ProductionReportData" positionX="459" positionY="-900" width="128" height="360"/>
+        <element name="PurposeOfCall" positionX="-324" positionY="315" width="128" height="90"/>
         <element name="QuestionListItem" positionX="-423" positionY="360" width="128" height="135"/>
         <element name="Rater" positionX="684" positionY="354" width="128" height="90"/>
-        <element name="Rater2" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Rater2" positionX="-380" positionY="81" width="128" height="90"/>
         <element name="State" positionX="450" positionY="696" width="128" height="90"/>
-        <element name="Status" positionX="475" positionY="27" width="128" height="90"/>
-        <element name="SubTerritory" positionX="628" positionY="135" width="128" height="75"/>
-        <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="90"/>
-        <element name="TrainingVideo" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="User" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Status" positionX="475" positionY="27" width="128" height="45"/>
+        <element name="SubTerritory" positionX="628" positionY="135" width="128" height="45"/>
+        <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="45"/>
+        <element name="TrainingVideo" positionX="-423" positionY="-216" width="128" height="75"/>
+        <element name="User" positionX="774" positionY="-297" width="128" height="135"/>
     </elements>
 </model>

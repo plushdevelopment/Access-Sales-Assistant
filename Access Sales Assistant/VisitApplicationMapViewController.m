@@ -36,6 +36,13 @@
 @synthesize tabBarController = _tabBarController;
 @synthesize visitTableViewCellNib=_visitTableViewCellNib;
 
+- (void)producersSuccessful
+{
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate matches %@", _selectedDay];
+	self.producers = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES withPredicate:predicate];
+	[self configureView];
+}
+
 - (UINib *)visitTableViewCellNib
 {
 	if (_visitTableViewCellNib == nil) {
@@ -49,8 +56,6 @@
 	if (_selectedDay != selectedDay) {
         _selectedDay = selectedDay;
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate matches %@", _selectedDay];
-		NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"nextScheduledVisit" ascending:NO];
-		NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
 		self.producers = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES withPredicate:predicate];
 	}
 	[self configureView];
@@ -136,6 +141,8 @@
 	
 	_directions = [UICGDirections sharedDirections];
 	_directions.delegate = self;
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(producersSuccessful) name:@"Producers Successful" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -149,6 +156,7 @@
 	[self setDirectionsMapView:nil];
 	[self setToolBar:nil];
     [self setTabBarController:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -414,11 +422,13 @@
 	if ([_wayPoints count] > 0) {
 		NSInteger numberOfRoutes = [directions numberOfRoutes];
 		for (Producer *producer in self.producers) {
+			@autoreleasepool {
 			CLLocation *location = [[CLLocation alloc] initWithLatitude:producer.latitudeValue longitude:producer.longitudeValue];
 			UICRouteAnnotation *annotation = [[UICRouteAnnotation alloc] initWithCoordinate:[location coordinate]
 																					  title:[producer producerCode]
 																			 annotationType:UICRouteAnnotationTypeEnd number:([self.producers indexOfObject:producer] + 1)];
 			[_directionsMapView addAnnotation:annotation];
+			}
 		}
 	}
 	

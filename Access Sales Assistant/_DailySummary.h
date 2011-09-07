@@ -92,9 +92,9 @@
 @property (nonatomic, retain) NSNumber *nsbsFdl;
 
 
-@property short nsbsFdlValue;
-- (short)nsbsFdlValue;
-- (void)setNsbsFdlValue:(short)value_;
+@property int nsbsFdlValue;
+- (int)nsbsFdlValue;
+- (void)setNsbsFdlValue:(int)value_;
 
 //- (BOOL)validateNsbsFdl:(id*)value_ error:(NSError**)error_;
 
@@ -104,9 +104,9 @@
 @property (nonatomic, retain) NSNumber *nsbsMonthlyGoal;
 
 
-@property short nsbsMonthlyGoalValue;
-- (short)nsbsMonthlyGoalValue;
-- (void)setNsbsMonthlyGoalValue:(short)value_;
+@property int nsbsMonthlyGoalValue;
+- (int)nsbsMonthlyGoalValue;
+- (void)setNsbsMonthlyGoalValue:(int)value_;
 
 //- (BOOL)validateNsbsMonthlyGoal:(id*)value_ error:(NSError**)error_;
 
@@ -329,8 +329,8 @@
 - (NSNumber*)primitiveNsbsFdl;
 - (void)setPrimitiveNsbsFdl:(NSNumber*)value;
 
-- (short)primitiveNsbsFdlValue;
-- (void)setPrimitiveNsbsFdlValue:(short)value_;
+- (int)primitiveNsbsFdlValue;
+- (void)setPrimitiveNsbsFdlValue:(int)value_;
 
 
 
@@ -338,8 +338,8 @@
 - (NSNumber*)primitiveNsbsMonthlyGoal;
 - (void)setPrimitiveNsbsMonthlyGoal:(NSNumber*)value;
 
-- (short)primitiveNsbsMonthlyGoalValue;
-- (void)setPrimitiveNsbsMonthlyGoalValue:(short)value_;
+- (int)primitiveNsbsMonthlyGoalValue;
+- (void)setPrimitiveNsbsMonthlyGoalValue:(int)value_;
 
 
 

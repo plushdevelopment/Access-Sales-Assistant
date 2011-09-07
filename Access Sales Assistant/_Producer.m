@@ -265,22 +265,22 @@
 
 
 
-- (short)numberOfEmployeesValue {
+- (int)numberOfEmployeesValue {
 	NSNumber *result = [self numberOfEmployees];
-	return [result shortValue];
+	return [result intValue];
 }
 
-- (void)setNumberOfEmployeesValue:(short)value_ {
-	[self setNumberOfEmployees:[NSNumber numberWithShort:value_]];
+- (void)setNumberOfEmployeesValue:(int)value_ {
+	[self setNumberOfEmployees:[NSNumber numberWithInt:value_]];
 }
 
-- (short)primitiveNumberOfEmployeesValue {
+- (int)primitiveNumberOfEmployeesValue {
 	NSNumber *result = [self primitiveNumberOfEmployees];
-	return [result shortValue];
+	return [result intValue];
 }
 
-- (void)setPrimitiveNumberOfEmployeesValue:(short)value_ {
-	[self setPrimitiveNumberOfEmployees:[NSNumber numberWithShort:value_]];
+- (void)setPrimitiveNumberOfEmployeesValue:(int)value_ {
+	[self setPrimitiveNumberOfEmployees:[NSNumber numberWithInt:value_]];
 }
 
 
@@ -383,6 +383,10 @@
 	[self didAccessValueForKey:@"addresses"];
 	return result;
 }
+	
+
+@dynamic auntk;
+
 	
 
 @dynamic contacts;

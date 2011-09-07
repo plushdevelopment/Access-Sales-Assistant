@@ -45,7 +45,7 @@
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
 	for (NSDictionary *dict in results) {
-		
+		@autoreleasepool {
 			Producer *producer = [Producer ai_objectForProperty:@"uid"
 														  value:[dict valueForKey:@"uid"] 
 										   managedObjectContext:self.context];
@@ -62,6 +62,7 @@
 				producer.nextScheduledVisitTime = [timeFormatter stringFromDate:[producer nextScheduledVisit]];
 				producer.address = [NSString stringWithFormat:@"%@,%@", producer.latitude, producer.longitude];
 			}
+		}
 	}
 	NSError *saveError = nil;
 	[self.context save:&saveError];
