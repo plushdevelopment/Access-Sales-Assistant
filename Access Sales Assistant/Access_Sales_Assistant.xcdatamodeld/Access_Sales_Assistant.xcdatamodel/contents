@@ -13,6 +13,8 @@
         <relationship name="state" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="State" inverseName="addresses" inverseEntity="State"/>
     </entity>
     <entity name="AUNTK" representedClassName="AUNTK">
+        <attribute name="key" optional="YES" attributeType="String"/>
+        <relationship name="chainProducer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="chainAuntk" inverseEntity="Producer"/>
         <relationship name="claimFrequecyTrendReportData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ClaimFrequecyTrendReportData" inverseName="auntk" inverseEntity="ClaimFrequecyTrendReportData"/>
         <relationship name="lossRatioTrendReportData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LossRatioTrendReportData" inverseName="auntk" inverseEntity="LossRatioTrendReportData"/>
         <relationship name="policyCountReportData" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PolicyCountReportData" inverseName="auntk" inverseEntity="PolicyCountReportData"/>
@@ -199,7 +201,8 @@
         <attribute name="uid" optional="YES" attributeType="String"/>
         <attribute name="webAddress" optional="YES" attributeType="String"/>
         <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AddressListItem" inverseName="producer" inverseEntity="AddressListItem"/>
-        <relationship name="auntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="producer" inverseEntity="AUNTK"/>
+        <relationship name="auntk" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="producer" inverseEntity="AUNTK"/>
+        <relationship name="chainAuntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="chainProducer" inverseEntity="AUNTK"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="producer" inverseEntity="Contact"/>
         <relationship name="dailySummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="producerId" inverseEntity="DailySummary"/>
         <relationship name="emails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EmailListItem" inverseName="producer" inverseEntity="EmailListItem"/>
@@ -334,12 +337,12 @@
         <element name="QuestionListItem" positionX="-423" positionY="360" width="128" height="135"/>
         <element name="Rater" positionX="684" positionY="354" width="128" height="90"/>
         <element name="Rater2" positionX="-380" positionY="81" width="128" height="90"/>
+        <element name="ReasonNotSeen" positionX="160" positionY="192" width="128" height="90"/>
         <element name="State" positionX="450" positionY="696" width="128" height="90"/>
         <element name="Status" positionX="475" positionY="27" width="128" height="45"/>
         <element name="SubTerritory" positionX="628" positionY="135" width="128" height="45"/>
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="45"/>
         <element name="TrainingVideo" positionX="-423" positionY="-216" width="128" height="75"/>
         <element name="User" positionX="774" positionY="-297" width="128" height="135"/>
-        <element name="ReasonNotSeen" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

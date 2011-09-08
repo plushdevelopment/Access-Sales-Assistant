@@ -83,7 +83,7 @@
 
 - (void)viewDidLoad
 {
- 
+	
     [super viewDidLoad];
     
     sectionTitleArray = [[NSArray alloc] initWithObjects:PRODUCER_PROFILE_SECTIONS];
@@ -93,7 +93,7 @@
     myTextFieldSemaphore =0;
     myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
     
-
+	
     self.tableView.backgroundColor = [UIColor clearColor];
     _isDoneSelected = TRUE;
     
@@ -158,8 +158,8 @@
         [self configureView];
     }
     
-     [self toggleSubmitButton:[self isEnableSubmit]];
-   
+	[self toggleSubmitButton:[self isEnableSubmit]];
+	
 }
 
 - (void)configureView
@@ -208,18 +208,18 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-  
+	
+	
     switch(indexPath.section)
     {
         case EGeneral:
         {
             [[NSBundle mainBundle] loadNibNamed:@"ProducerGeneralTableViewCell" owner:self options:nil];
             ProducerGeneralTableViewCell* cell = _generalTableViewCell;
-                cell.producerCodeTextField.text = self.detailItem.producerCode;
+			cell.producerCodeTextField.text = self.detailItem.producerCode;
             
             [self disableTextField:cell.producerCodeTextField :NO];
-                cell.producerNameTextField.text = self.detailItem.name;
+			cell.producerNameTextField.text = self.detailItem.name;
             cell.numberOfEmployeesTextField.text = [[NSString alloc]initWithFormat:@"%@",_detailItem.numberOfEmployees];
             cell.accessSignTextField.text = _detailItem.hasAccessSignValue?@"Yes":@"No";
             cell.subTerritoryTextField.text = _detailItem.subTerritory.uid.stringValue;
@@ -230,7 +230,7 @@
             [dateFormatter setDateFormat:@"MM-dd-yyyy"];
             
             cell.eOExpiresTextField.text = [dateFormatter stringFromDate:_detailItem.eAndOExpires];
-             [self disableTextField:cell.eOExpiresTextField :NO];
+			[self disableTextField:cell.eOExpiresTextField :NO];
             cell.dateEstablishedTextField.text = [dateFormatter stringFromDate:_detailItem.dateEstablished];
 			cell.primaryContactTextField.text = _detailItem.primaryContact;
             return cell;
@@ -244,7 +244,7 @@
             cell.questionLabel.text = qListItem.text;
             cell.answerTextField.text = qListItem.answer;
             return cell;
-
+			
         }
             
         case EStatus:
@@ -284,19 +284,19 @@
             {
                 cell.addressTitle.text = @"Mailing Address";
                 cell = [self addressTableViewCell:cell :1];
-            
+				
             }
             else if(indexPath.row==1)
             {
-             cell.addressTitle.text = @"Commission Address";
-             cell = [self addressTableViewCell:cell :2];
-             
+				cell.addressTitle.text = @"Commission Address";
+				cell = [self addressTableViewCell:cell :2];
+				
             }
             else if(indexPath.row == 2)
             {
                 cell.addressTitle.text = @"Physical Address";
                 cell = [self addressTableViewCell:cell :3];
-                          
+				
             }
             
             return cell;
@@ -308,7 +308,7 @@
                 AddRowTableViewCell* cell = [AddRowTableViewCell cellForTableView:tableView fromNib:[AddRowTableViewCell nib]];
                 cell.addRowType.text = @"Add Person";
                 
-             
+				
                 UIButton *button = cell.addButton;
                 button.tag = 1001;
                 
@@ -325,14 +325,14 @@
                 [remBtn addTarget:self action:@selector(AddContact:) forControlEvents:UIControlEventTouchUpInside];
                 
                 return cell;
-
+				
             }
             else
             {
                 [[NSBundle mainBundle] loadNibNamed:@"ProducerContactTableViewCell" owner:self options:nil];
                 ProducerContactTableViewCell* cell = _contactTableViewCell;
                 cell = [self contactTableViewCell:cell :indexPath.row];
-            return cell;
+				return cell;
             }
         }
             
@@ -342,7 +342,7 @@
 -(void) AddContact:(id) sender
 {
     UIButton* btn = (UIButton*) sender;
- 
+	
     if(btn.tag == 1001)
     {
         Contact* newContact = [Contact createEntity];
@@ -356,8 +356,8 @@
         
         if(editing)
         {
-    [btn setTitle:@"Done" forState:UIControlStateNormal];
-               isContactsEdited = TRUE;
+			[btn setTitle:@"Done" forState:UIControlStateNormal];
+			isContactsEdited = TRUE;
             
         }
         else
@@ -365,7 +365,7 @@
             [btn setTitle:@"Edit" forState:UIControlStateNormal];
             isContactsEdited = FALSE;
         }
- 
+		
         [self setEditing:editing animated:YES];
     }
     [self.tableView reloadData];
@@ -421,15 +421,15 @@
         }
         default:
             height = 110.0;
-      //case 
+			//case 
     }
-   
+	
     return height;
 }
 
 -(UITableViewCell*) tableViewCellForNibName:(NSString *)nibName
 {
-     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:nibName owner:nil options:nil];
+	NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:nibName owner:nil options:nil];
     
     UITableViewCell* cell = nil;
     for(id currentObject in topLevelObjects)
@@ -442,7 +442,7 @@
     }
     
     return cell;
-
+	
     
 }
 
@@ -479,8 +479,8 @@
         
     }
     
-   if(isCurrentAddrFound)
-       return addressCell;
+	if(isCurrentAddrFound)
+		return addressCell;
     else
     {
         if(isMailingAddrFound)
@@ -497,9 +497,10 @@
         }
         return addressCell;
     }
-     return addressCell;
-
+	return addressCell;
+	
 }
+
 -(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem
 {
     addressCell.streetAddress1TextField.text = withAddrItem.addressLine1;
@@ -515,7 +516,7 @@
     
     Contact* tContact = [contactArray objectAtIndex:forRow];
     
-
+	
     contactCell.firstNameTextField.text = tContact.firstName;
     contactCell.lastNameTextField.text = tContact.lastName;
     contactCell.socialSecurityNumberTextField.text = tContact.ssn;
@@ -542,31 +543,31 @@
         
         int typevalue = email.typeValue;
         if (email.typeValue == 1) {
-
+			
         } else if (email.typeValue == ACCOUNTING_EMAIL) {
             if([email.address length]>0)
                 isAccountMailFound = TRUE;
             acctMailItem = email;
         } else if (email.typeValue == MAIN_EMAIL) {
- 
+			
             if([email.address length]>0)
                 isMainMailFound = TRUE;
             mainMailItem = email;
         } else if (email.typeValue == CUSTOMER_SERVICE_EMAIL) {
-
+			
             if([email.address length]>0)
                 isCustServiceMailFound = TRUE;
             custMailItem = email;
         } else if (email.typeValue == CLAIMS_EMAIL) {
-  
+			
             if([email.address length]>0)
                 isClaimsMailFound = TRUE;
             claimsMailItem = email;
         }
     }
     
-     EmailListItem *emailToUse = isMainMailFound?mainMailItem:(isAccountMailFound?acctMailItem:(isCustServiceMailFound?custMailItem:(isClaimsMailFound?claimsMailItem:nil)));
-
+	EmailListItem *emailToUse = isMainMailFound?mainMailItem:(isAccountMailFound?acctMailItem:(isCustServiceMailFound?custMailItem:(isClaimsMailFound?claimsMailItem:nil)));
+	
     
     if(isAccountMailFound)
     {
@@ -590,7 +591,7 @@
     {
         if(emailToUse)
         {
-                        EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :MAIN_EMAIL];
+			EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :MAIN_EMAIL];
             [contactInfoCell.mainMailTextField setText:newMailItem.address];
         }
     }
@@ -615,7 +616,7 @@
     {
         if(emailToUse)
         {
-             EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :CLAIMS_EMAIL];//[EmailListItem createEntity];
+			EmailListItem* newMailItem = [self createNewEmailItem:emailToUse :CLAIMS_EMAIL];//[EmailListItem createEntity];
             [contactInfoCell.claimsMailTextField setText:newMailItem.address];
         }
     }
@@ -623,7 +624,7 @@
     
     [contactInfoCell.webAddrTextField setText:_detailItem.webAddress];
     return contactInfoCell;
-
+	
 }
 -(EmailListItem*)createNewEmailItem:(EmailListItem*) withEmailItem:(NSInteger) forType
 {
@@ -632,7 +633,7 @@
     newMailItem.address = withEmailItem.address;
     [self.detailItem addEmailsObject:newMailItem];
     return newMailItem;
-
+	
 }
 
 -(void) raterTableViewCell:(ProducerRaterTableViewCell*) raterCell:(NSInteger)forRow
@@ -646,7 +647,7 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
-
+	
     Status * tStatus = _detailItem.status;
     statusCell.statusTextField.text = tStatus.name;
     [self disableTextField:statusCell.statusTextField :NO];
@@ -666,74 +667,74 @@
         statusCell.reasonIneligibleButton.hidden = _detailItem.isEligibleValue?TRUE:FALSE;
         statusCell.reasonIneligibleLabel.hidden = _detailItem.isEligibleValue?TRUE:FALSE;
         
-
+		
     }
-   
+	
 }
 
 -(void) hoursOfOperationCell:(ProducerHoursTableViewCell*)hoursCell:(NSInteger)forRow
 {
-      BOOL isMondayOpen=FALSE,isMondayClose=FALSE;
+	BOOL isMondayOpen=FALSE,isMondayClose=FALSE;
     
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
     [timeFormatter setDateFormat:@"hh:mm a"];
     
     HoursOfOperation *hOfOperation = _detailItem.hoursOfOperation;
     
-    BOOL isMondayHoursExists = ([hOfOperation.mondayOpenTime.name length]>0 && [hOfOperation.mondayCloseTime.name length]>0)?TRUE:NO;
+    BOOL isMondayHoursExists = ([hOfOperation.mondayOpenTime.name length]>0 && [hOfOperation.mondayCloseTime.name length]>0)?YES:NO;
     
     [hoursCell.monStartTextField setText:hOfOperation.mondayOpenTime.name];
     [hoursCell.monStopTextField setText:hOfOperation.mondayCloseTime.name];
-   
+	
     if(!_isDoneSelected && self.pickerViewController.currentIndexPath.section == EHoursOfOperation && self.pickerViewController.currentTag == EMondayEndHour)
     {
         [self toggleHoursOfOperationCell:hoursCell :FALSE];
         return;
     }
-
+	
     if(isMondayHoursExists)
     {
-      
+		
         {
-           
-        [self toggleHoursOfOperationCell:hoursCell :TRUE];
-        hOfOperation.tuesdayOpenTime = [hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.tuesdayOpenTime :hOfOperation :1 :TRUE];
-        [hoursCell.tueStartTextField setText:[hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime.name:hOfOperation.mondayOpenTime.name];
-        
-          hOfOperation.tuesdayCloseTime = [hOfOperation.tuesdayCloseTime.name length]>0?hOfOperation.tuesdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.tuesdayCloseTime :hOfOperation :1 :TRUE];
-    [hoursCell.tueStopTextField setText:[hOfOperation.tuesdayCloseTime.name length]>0?hOfOperation.tuesdayCloseTime.name:hOfOperation.mondayCloseTime.name];
-       
-          hOfOperation.wednesdayOpenTime = [hOfOperation.wednesdayOpenTime.name length]>0?hOfOperation.wednesdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.mondayOpenTime :hOfOperation :1 :TRUE];
-    [hoursCell.wedStartTextField setText:[hOfOperation.wednesdayOpenTime.name length]>0?hOfOperation.wednesdayOpenTime.name:hOfOperation.mondayOpenTime.name];
-        
-          hOfOperation.wednesdayCloseTime = [hOfOperation.wednesdayCloseTime.name length]>0?hOfOperation.wednesdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.wednesdayCloseTime :hOfOperation :1 :TRUE];
-    [hoursCell.wedStopTextField setText:[hOfOperation.wednesdayCloseTime.name length]>0?hOfOperation.wednesdayCloseTime.name:hOfOperation.mondayCloseTime.name];
-    
-          hOfOperation.thursdayOpenTime = [hOfOperation.thursdayOpenTime.name length]>0?hOfOperation.thursdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.thursdayOpenTime :hOfOperation :1 :TRUE];
-    [hoursCell.thuStartTextField setText:[hOfOperation.thursdayOpenTime.name length]>0?hOfOperation.thursdayOpenTime.name:hOfOperation.mondayOpenTime.name];
-     
-          hOfOperation.thursdayCloseTime = [hOfOperation.thursdayCloseTime.name length]>0?hOfOperation.thursdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.thursdayCloseTime :hOfOperation :1 :TRUE];
-    [hoursCell.thuStopTextField setText:[hOfOperation.thursdayCloseTime.name length]>0?hOfOperation.thursdayCloseTime.name:hOfOperation.mondayCloseTime.name];
-     
-          hOfOperation.fridayOpenTime = [hOfOperation.fridayOpenTime.name length]>0?hOfOperation.fridayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.fridayOpenTime :hOfOperation :1 :TRUE];
-    [hoursCell.friStartTextField setText:[hOfOperation.fridayOpenTime.name length]>0?hOfOperation.fridayOpenTime.name:hOfOperation.mondayOpenTime.name];
-    
-          hOfOperation.fridayCloseTime = [hOfOperation.fridayCloseTime.name length]>0?hOfOperation.fridayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.fridayCloseTime :hOfOperation :1 :TRUE];
-    [hoursCell.friStopTextField setText:[hOfOperation.fridayCloseTime.name length]>0?hOfOperation.fridayCloseTime.name:hOfOperation.mondayCloseTime.name];
-       
-          hOfOperation.saturdayOpenTime = [hOfOperation.saturdayOpenTime.name length]>0?hOfOperation.saturdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.saturdayOpenTime :hOfOperation :1 :TRUE];
-    [hoursCell.satStartTextField setText:[hOfOperation.saturdayOpenTime.name length]>0?hOfOperation.saturdayOpenTime.name:hOfOperation.mondayOpenTime.name];
-       
-          hOfOperation.saturdayCloseTime = [hOfOperation.saturdayCloseTime.name length]>0?hOfOperation.saturdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.saturdayCloseTime :hOfOperation :1 :TRUE];
-    [hoursCell.satStopTextField setText:hOfOperation.saturdayCloseTime.name ];
-        
-          hOfOperation.sundayOpenTime = [hOfOperation.sundayOpenTime.name length]>0?hOfOperation.sundayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.sundayOpenTime :hOfOperation :1 :TRUE];
-    [hoursCell.sunStartTextField setText:[hOfOperation.sundayOpenTime.name length]>0?hOfOperation.sundayOpenTime.name:hOfOperation.mondayOpenTime.name];
-       
-          hOfOperation.sundayCloseTime = [hOfOperation.sundayCloseTime.name length]>0?hOfOperation.sundayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.sundayCloseTime :hOfOperation :1 :TRUE];
-    [hoursCell.sunStopTextField setText:hOfOperation.sundayCloseTime.name];
+			
+			[self toggleHoursOfOperationCell:hoursCell :TRUE];
+			hOfOperation.tuesdayOpenTime = [hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime:hOfOperation.mondayOpenTime;
+			[hoursCell.tueStartTextField setText:[hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime.name:hOfOperation.mondayOpenTime.name];
+			
+			hOfOperation.tuesdayCloseTime = [hOfOperation.tuesdayCloseTime.name length]>0?hOfOperation.tuesdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.tuesdayCloseTime :hOfOperation :1 :TRUE];
+			[hoursCell.tueStopTextField setText:[hOfOperation.tuesdayCloseTime.name length]>0?hOfOperation.tuesdayCloseTime.name:hOfOperation.mondayCloseTime.name];
+			
+			hOfOperation.wednesdayOpenTime = [hOfOperation.wednesdayOpenTime.name length]>0?hOfOperation.wednesdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.mondayOpenTime :hOfOperation :1 :TRUE];
+			[hoursCell.wedStartTextField setText:[hOfOperation.wednesdayOpenTime.name length]>0?hOfOperation.wednesdayOpenTime.name:hOfOperation.mondayOpenTime.name];
+			
+			hOfOperation.wednesdayCloseTime = [hOfOperation.wednesdayCloseTime.name length]>0?hOfOperation.wednesdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.wednesdayCloseTime :hOfOperation :1 :TRUE];
+			[hoursCell.wedStopTextField setText:[hOfOperation.wednesdayCloseTime.name length]>0?hOfOperation.wednesdayCloseTime.name:hOfOperation.mondayCloseTime.name];
+			
+			hOfOperation.thursdayOpenTime = [hOfOperation.thursdayOpenTime.name length]>0?hOfOperation.thursdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.thursdayOpenTime :hOfOperation :1 :TRUE];
+			[hoursCell.thuStartTextField setText:[hOfOperation.thursdayOpenTime.name length]>0?hOfOperation.thursdayOpenTime.name:hOfOperation.mondayOpenTime.name];
+			
+			hOfOperation.thursdayCloseTime = [hOfOperation.thursdayCloseTime.name length]>0?hOfOperation.thursdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.thursdayCloseTime :hOfOperation :1 :TRUE];
+			[hoursCell.thuStopTextField setText:[hOfOperation.thursdayCloseTime.name length]>0?hOfOperation.thursdayCloseTime.name:hOfOperation.mondayCloseTime.name];
+			
+			hOfOperation.fridayOpenTime = [hOfOperation.fridayOpenTime.name length]>0?hOfOperation.fridayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.fridayOpenTime :hOfOperation :1 :TRUE];
+			[hoursCell.friStartTextField setText:[hOfOperation.fridayOpenTime.name length]>0?hOfOperation.fridayOpenTime.name:hOfOperation.mondayOpenTime.name];
+			
+			hOfOperation.fridayCloseTime = [hOfOperation.fridayCloseTime.name length]>0?hOfOperation.fridayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.fridayCloseTime :hOfOperation :1 :TRUE];
+			[hoursCell.friStopTextField setText:[hOfOperation.fridayCloseTime.name length]>0?hOfOperation.fridayCloseTime.name:hOfOperation.mondayCloseTime.name];
+			
+			hOfOperation.saturdayOpenTime = [hOfOperation.saturdayOpenTime.name length]>0?hOfOperation.saturdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.saturdayOpenTime :hOfOperation :1 :TRUE];
+			[hoursCell.satStartTextField setText:[hOfOperation.saturdayOpenTime.name length]>0?hOfOperation.saturdayOpenTime.name:hOfOperation.mondayOpenTime.name];
+			
+			hOfOperation.saturdayCloseTime = [hOfOperation.saturdayCloseTime.name length]>0?hOfOperation.saturdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.saturdayCloseTime :hOfOperation :1 :TRUE];
+			[hoursCell.satStopTextField setText:hOfOperation.saturdayCloseTime.name ];
+			
+			hOfOperation.sundayOpenTime = [hOfOperation.sundayOpenTime.name length]>0?hOfOperation.sundayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.sundayOpenTime :hOfOperation :1 :TRUE];
+			[hoursCell.sunStartTextField setText:[hOfOperation.sundayOpenTime.name length]>0?hOfOperation.sundayOpenTime.name:hOfOperation.mondayOpenTime.name];
+			
+			hOfOperation.sundayCloseTime = [hOfOperation.sundayCloseTime.name length]>0?hOfOperation.sundayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.sundayCloseTime :hOfOperation :1 :TRUE];
+			[hoursCell.sunStopTextField setText:hOfOperation.sundayCloseTime.name];
         }
-      }
+	}
     else 
     {
         [self toggleHoursOfOperationCell:hoursCell :FALSE];
@@ -748,49 +749,49 @@
     [self disableTextField:hoursCell.tueStartTextField :isEnabled];
     
     [hoursCell.tueStopTextField setEnabled:isEnabled];
-        [hoursCell.tueStopButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.tueStopTextField :isEnabled];
+	[hoursCell.tueStopButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.tueStopTextField :isEnabled];
     
     [hoursCell.wedStartTextField setEnabled:isEnabled];
-        [hoursCell.wedStartButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.wedStartTextField :isEnabled];
+	[hoursCell.wedStartButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.wedStartTextField :isEnabled];
     
     [hoursCell.wedStopTextField setEnabled:isEnabled];
-        [hoursCell.wedStopButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.wedStopTextField :isEnabled];
+	[hoursCell.wedStopButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.wedStopTextField :isEnabled];
     
     [hoursCell.thuStartTextField setEnabled:isEnabled];
-        [hoursCell.thuStartButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.thuStartTextField :isEnabled];
+	[hoursCell.thuStartButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.thuStartTextField :isEnabled];
     
     [hoursCell.thuStopTextField setEnabled:isEnabled];
-        [hoursCell.thuStopButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.thuStopTextField :isEnabled];
+	[hoursCell.thuStopButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.thuStopTextField :isEnabled];
     
     [hoursCell.friStartTextField setEnabled:isEnabled];
-        [hoursCell.friStartButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.friStartTextField :isEnabled];
+	[hoursCell.friStartButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.friStartTextField :isEnabled];
     
     [hoursCell.friStopTextField setEnabled:isEnabled];
-        [hoursCell.friStopButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.friStopTextField :isEnabled];
+	[hoursCell.friStopButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.friStopTextField :isEnabled];
     
     [hoursCell.satStartTextField setEnabled:isEnabled];
-        [hoursCell.satStartButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.satStartTextField :isEnabled];
+	[hoursCell.satStartButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.satStartTextField :isEnabled];
     
     [hoursCell.satStopTextField setEnabled:isEnabled];
-        [hoursCell.satStopButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.satStopTextField :isEnabled];
+	[hoursCell.satStopButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.satStopTextField :isEnabled];
     
     [hoursCell.sunStartTextField setEnabled:isEnabled];
-        [hoursCell.sunStartButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.sunStartTextField :isEnabled];
+	[hoursCell.sunStartButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.sunStartTextField :isEnabled];
     
     [hoursCell.sunStopTextField setEnabled:isEnabled];
-        [hoursCell.sunStopButton setEnabled:isEnabled];
-     [self disableTextField:hoursCell.sunStopTextField :isEnabled];
-
+	[hoursCell.sunStopButton setEnabled:isEnabled];
+	[self disableTextField:hoursCell.sunStopTextField :isEnabled];
+	
 }
 
 -(OperationHour*) assignHour:(OperationHour*) withHour:(OperationHour*) toHour:(HoursOfOperation*) hoursOperation:(NSInteger) forDay:(BOOL) isOpen
@@ -819,21 +820,21 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-       
+		
         if(indexPath.section == EContacts && indexPath.row < _detailItem.contacts.allObjects.count)
         {
             NSArray* arr = _detailItem.contacts.allObjects;
-          
+			
             Contact* cToDel = [arr objectAtIndex:indexPath.row];
-        
+			
             
             [cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
             [[NSManagedObjectContext defaultContext] save];
             [self.tableView reloadData];
             
         }
-       
-       
+		
+		
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -858,7 +859,7 @@
     headerTitle.backgroundColor = [UIColor clearColor];
     [headerView addSubview:headerBg];
     [headerView addSubview:headerTitle];
-   
+	
     return headerView;
 }
 #pragma mark - pickerView methods
@@ -906,7 +907,7 @@
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
 {
-
+	
 	UIButton *button = (UIButton *)sender;
 	[self.datePickerViewController.datePicker setDate:[NSDate date]];
 	self.datePickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
@@ -917,7 +918,7 @@
 	[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
     
     NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
-
+	
 	
 	//Add the picker to the view
 	[self.parentViewController.view addSubview:self.datePickerViewController.view];
@@ -934,16 +935,16 @@
 		[[NSNotificationCenter defaultCenter] postNotification:notification];
 	}];
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
-   
+	
 }
 
 -(IBAction)showSelectionTableView:(id)sender
 {
     
     UIButton *button = (UIButton *)sender;
-   
+	
     
-      SelectionModelViewController *selectionView = [[SelectionModelViewController alloc] initWithNibName:@"SelectionModelViewController" bundle:nil];
+	SelectionModelViewController *selectionView = [[SelectionModelViewController alloc] initWithNibName:@"SelectionModelViewController" bundle:nil];
     
     selectionView.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
     
@@ -952,7 +953,7 @@
     [selectionView  setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [selectionView  setModalPresentationStyle:UIModalPresentationFormSheet];
     selectionView.delegate = self;
-
+	
     
     switch(selectionView.currentIndexPath.section)
     {
@@ -963,13 +964,13 @@
                 case ESubTerritory:
                 {
                     /*[self.selectionTableView AssignDataSource:[Rater findAll]];
-                    
-                    [self.selectionTableView  setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-                    [self.selectionTableView  setModalPresentationStyle:UIModalPresentationFormSheet];
-                    [self presentModalViewController:self.selectionTableView  animated:YES];
-                    self.selectionTableView.delegate = self;
+					 
+					 [self.selectionTableView  setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+					 [self.selectionTableView  setModalPresentationStyle:UIModalPresentationFormSheet];
+					 [self presentModalViewController:self.selectionTableView  animated:YES];
+					 self.selectionTableView.delegate = self;
                      */
-
+					
                     break;
                 }
             }
@@ -981,13 +982,13 @@
             {
                 case ERater1:
                 {
-                  
+					
                     
                     [selectionView assignDataSource:[Rater findAll]];
-                                        
+					
                     
                     [self presentModalViewController:selectionView  animated:YES];
-                
+					
                     break;
                 }
                 case ERater2:
@@ -996,7 +997,7 @@
                     
                     
                     [self presentModalViewController:selectionView  animated:YES];
-
+					
                     break;
                 }
             }
@@ -1007,7 +1008,7 @@
     
     
 }
- -(IBAction)showTimePickerView:(id)sender
+-(IBAction)showTimePickerView:(id)sender
 {
     [self nextField:0];
 	
@@ -1047,7 +1048,7 @@
     NSIndexPath *indexPath = self.pickerViewController.currentIndexPath;
     _isDoneSelected = TRUE;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-
+	
 	
 	if (self.pickerViewController.view.superview != nil) {
 		self.pickerViewController.currentIndexPath = nil;
@@ -1077,7 +1078,7 @@
 			[self.datePickerViewController.view removeFromSuperview];}];
 	}
     
-   }
+}
 
 #pragma mark -
 #pragma mark UIPickerViewDataSource
@@ -1174,14 +1175,14 @@
         {
             switch(self.pickerViewController.currentTag)
             {
-        case EAddressState:
-            rows = [[State findAll] count];
-            break;
+				case EAddressState:
+					rows = [[State findAll] count];
+					break;
             }
         }
         case EContacts:
         {
-           switch(self.pickerViewController.currentTag)
+			switch(self.pickerViewController.currentTag)
             {
                 case EContactTitle:
                 {
@@ -1193,7 +1194,7 @@
         }
             
     }
-		return rows;
+	return rows;
 }
 
 
@@ -1281,7 +1282,7 @@
                 HoursOfOperation *hOperation = [HoursOfOperation createEntity];
                 self.detailItem.hoursOfOperation = hOperation;
             }
-
+			
             
             switch(self.pickerViewController.currentTag)
             {
@@ -1292,85 +1293,85 @@
                 }
                 case EMondayEndHour:
                 {
-                        self.detailItem.hoursOfOperation.mondayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
+					self.detailItem.hoursOfOperation.mondayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case ETuesdayStartHour:
                 {
                     self.detailItem.hoursOfOperation.tuesdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case ETuesdayEndHour:
                 {
                     self.detailItem.hoursOfOperation.tuesdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case EWednesdayStartHour:
                 {
                     self.detailItem.hoursOfOperation.wednesdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case EWednesdayEndHour:
                 {
                     self.detailItem.hoursOfOperation.wednesdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case EThursdayStartHour:
                 {
                     self.detailItem.hoursOfOperation.thursdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case EThursdayEndHour:
                 {
                     self.detailItem.hoursOfOperation.thursdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case EFridayStartHour:
                 {
                     self.detailItem.hoursOfOperation.fridayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case EFridayEndHour:
                 {
                     self.detailItem.hoursOfOperation.fridayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case ESaturdayStartHour:
                 {
                     self.detailItem.hoursOfOperation.saturdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case ESaturdayEndHour:
                 {
                     self.detailItem.hoursOfOperation.saturdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case ESundayStartHour:
                 {
                     self.detailItem.hoursOfOperation.sundayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
+					
                 case ESundayEndHour:
                 {
                     self.detailItem.hoursOfOperation.sundayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:titleForRow];
                     break;
                 }
-
-                 
+					
+					
             }
-
+			
             break;
         }
         case EAddresses:
@@ -1381,89 +1382,89 @@
                 {
                     int indRow = self.pickerViewController.currentIndexPath.row;
                     switch(self.pickerViewController.currentIndexPath.row)
-                           {
-                           case 0:
-                               {
-                                   AddressListItem *addrItem = nil;
-                                   for (AddressListItem *address in _detailItem.addresses) {
-                                       int addrValue = address.addressTypeValue;
-                                       if (address.addressTypeValue == 1) {
-                                           addrItem = address;
-                                           continue;
-                                       }
-                                    }
-                                   if(addrItem != nil)
-                                   {
-                                       addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                   }
-                                   else
-                                   {
-                                       addrItem = [AddressListItem createEntity];
-                                       addrItem.addressTypeValue = 1;
-                                       addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                       [self.detailItem addAddressesObject:addrItem];
-                                   }
-
-                                   break;
-                               }
-                                   
-                           case 1:
-                               {
-                                   AddressListItem *addrItem = nil;
-                                   for (AddressListItem *address in _detailItem.addresses) {
-                                       int addrValue = address.addressTypeValue;
-                                       if (address.addressTypeValue == 2) {
-                                           addrItem = address;
-                                           
-                                           //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                           break;
-                                       }
-                                   }
-                                   if(addrItem != nil)
-                                   {
-                                       addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                   }
-                                   else
-                                   {
-                                       addrItem = [AddressListItem createEntity];
-                                       addrItem.addressTypeValue = 2;
-                                       addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                       [self.detailItem addAddressesObject:addrItem];
-                                   }
-                                   
-                                   break;
-                               }
-
-                           case 2:
-                               {
-                                   AddressListItem *addrItem = nil;
-                                   for (AddressListItem *address in _detailItem.addresses) {
-                                       int addrValue = address.addressTypeValue;
-                                       if (address.addressTypeValue == 3) {
-                                           addrItem = address;
-                                           
-                                           //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                           continue;
-                                       }
-                                   }
-                                   if(addrItem != nil)
-                                   {
-                                       addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                   }
-                                   else
-                                   {
-                                       addrItem = [AddressListItem createEntity];
-                                       addrItem.addressTypeValue = 3;
-                                       addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                       [self.detailItem addAddressesObject:addrItem];
-                                   }
-                                   
-                                   break;
-
-                               
-                               }
-                           }
-                  
+					{
+						case 0:
+						{
+							AddressListItem *addrItem = nil;
+							for (AddressListItem *address in _detailItem.addresses) {
+								int addrValue = address.addressTypeValue;
+								if (address.addressTypeValue == 1) {
+									addrItem = address;
+									continue;
+								}
+							}
+							if(addrItem != nil)
+							{
+								addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+							}
+							else
+							{
+								addrItem = [AddressListItem createEntity];
+								addrItem.addressTypeValue = 1;
+								addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+								[self.detailItem addAddressesObject:addrItem];
+							}
+							
+							break;
+						}
+							
+						case 1:
+						{
+							AddressListItem *addrItem = nil;
+							for (AddressListItem *address in _detailItem.addresses) {
+								int addrValue = address.addressTypeValue;
+								if (address.addressTypeValue == 2) {
+									addrItem = address;
+									
+									//    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+									break;
+								}
+							}
+							if(addrItem != nil)
+							{
+								addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+							}
+							else
+							{
+								addrItem = [AddressListItem createEntity];
+								addrItem.addressTypeValue = 2;
+								addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+								[self.detailItem addAddressesObject:addrItem];
+							}
+							
+							break;
+						}
+							
+						case 2:
+						{
+							AddressListItem *addrItem = nil;
+							for (AddressListItem *address in _detailItem.addresses) {
+								int addrValue = address.addressTypeValue;
+								if (address.addressTypeValue == 3) {
+									addrItem = address;
+									
+									//    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+									continue;
+								}
+							}
+							if(addrItem != nil)
+							{
+								addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+							}
+							else
+							{
+								addrItem = [AddressListItem createEntity];
+								addrItem.addressTypeValue = 3;
+								addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+								[self.detailItem addAddressesObject:addrItem];
+							}
+							
+							break;
+							
+							
+						}
+					}
+					
                 }
                     break;
             } 
@@ -1486,14 +1487,14 @@
 	
     [[NSManagedObjectContext defaultContext]save];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-     [self toggleSubmitButton:[self isEnableSubmit]];
+	[self toggleSubmitButton:[self isEnableSubmit]];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
 	NSString *theTitle = @"NOT SET";
     
-   switch(self.pickerViewController.currentIndexPath.section)
+	switch(self.pickerViewController.currentIndexPath.section)
     {
         case EGeneral:
         {
@@ -1550,78 +1551,78 @@
         {
             switch(self.pickerViewController.currentTag)
             {
-        case EMondayStartHour:
+				case EMondayStartHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case EMondayEndHour:
+				case EMondayEndHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case ETuesdayStartHour:
+				case ETuesdayStartHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case ETuesdayEndHour:
+				case ETuesdayEndHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case EWednesdayStartHour:
+				case EWednesdayStartHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case EWednesdayEndHour:
+				case EWednesdayEndHour:
                 {
                     theTitle = theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case EThursdayStartHour:
+				case EThursdayStartHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case EThursdayEndHour:
+				case EThursdayEndHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case EFridayStartHour:
+				case EFridayStartHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case EFridayEndHour:
+				case EFridayEndHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case ESaturdayStartHour:
+				case ESaturdayStartHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case ESaturdayEndHour:
+				case ESaturdayEndHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case ESundayStartHour:
+				case ESundayStartHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                     break;
                 }
-        case ESundayEndHour:
+				case ESundayEndHour:
                 {
                     theTitle = [[[OperationHour findAllSortedBy:@"uid" ascending:YES] objectAtIndex:row] name];
                 }
-            break;
+					break;
             }
-
+			
             break;
         }
         case EAddresses:
@@ -1701,12 +1702,12 @@
         }
         default:
             break;
-        
+			
     }
     self.detailItem.edited = [NSNumber numberWithBool:YES];
     [[NSManagedObjectContext defaultContext] save];
-     [self toggleSubmitButton:[self isEnableSubmit]];
-
+	[self toggleSubmitButton:[self isEnableSubmit]];
+	
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:controller.currentIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 }
 
@@ -1745,7 +1746,7 @@
             
             break;
         }
-
+			
         case ECompanyContactInfo:
         {
             switch(tag)
@@ -1896,7 +1897,7 @@
 
 -(void) saveTextFieldToContext:(UITextField*) textField
 {
-
+	
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
     
@@ -2001,7 +2002,7 @@
         }
         case EAddresses:
         {
-                       
+			
             NSArray *addrArray = _detailItem.addresses.allObjects;
             AddressListItem* addrItem = nil;
             int rowInd = indexPath.row;
@@ -2074,15 +2075,15 @@
                 case EContactSSN:
                     cnt.ssn = textField.text;
                     break;
-                
+					
             }
             break;
         }
     }
     
     if ([self.detailItem valueForKey:@"editedValue"]) {
-    [[NSManagedObjectContext defaultContext] save];
-  
+		[[NSManagedObjectContext defaultContext] save];
+		
         [self toggleSubmitButton:[self isEnableSubmit]];
         
         
@@ -2090,7 +2091,7 @@
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
 {
-
+	
     EmailListItem *newMail=nil;
     for (EmailListItem *email in _detailItem.emails)
     {
@@ -2128,11 +2129,11 @@
         {
             [self showAlert:VALID_EMAIL_ALERT];
             [self changeTextFieldOutline:textField:NO];
-           
+			
         }
         
     }
-
+	
 }
 -(void) modifyPhoneItem:(UITextField *)textField :(NSInteger)phoneType
 {
@@ -2159,11 +2160,11 @@
     {
         if([textField.text isValidPhoneNumber])
         {
-        PhoneListItem* newPhoneItem  = [PhoneListItem createEntity];
-        newPhoneItem.typeValue = phoneType;
-        newPhoneItem.number = textField.text;
-        [self.detailItem addPhoneNumbersObject:newPhoneItem];
-        [self changeTextFieldOutline:textField:YES];
+			PhoneListItem* newPhoneItem  = [PhoneListItem createEntity];
+			newPhoneItem.typeValue = phoneType;
+			newPhoneItem.number = textField.text;
+			[self.detailItem addPhoneNumbersObject:newPhoneItem];
+			[self changeTextFieldOutline:textField:YES];
         }
         else
         {
@@ -2171,7 +2172,7 @@
             [self changeTextFieldOutline:textField:NO];
         }
     }
-
+	
 }
 //Verify producer data and toggle submit button
 -(BOOL) isEnableSubmit
@@ -2212,7 +2213,7 @@
             {
                 if(_detailItem.rater == nil)
                     return FALSE;
-            
+				
             }
                 break;
             case ECompanyContactInfo:
@@ -2222,7 +2223,7 @@
                     return FALSE;
                 BOOL isPhoneNoFound = FALSE,isEmailFound = FALSE,isFaxFound = FALSE;
                 
-
+				
                 
                 for(PhoneListItem *pItem in _detailItem.phoneNumbers.allObjects)
                 {
@@ -2278,7 +2279,7 @@
                 for(AddressListItem *addrItem in _detailItem.addresses.allObjects)
                 {
                     if([addrItem.addressLine1 length]<=0||
-                     //  [addrItem.addressLine2 length]<=0||
+					   //  [addrItem.addressLine2 length]<=0||
                        addrItem.state == nil ||
                        [addrItem.city length]<=0 ||
                        [addrItem.postalCode length]<=0)
@@ -2336,7 +2337,7 @@
             {
                 case ESubTerritory:
                 {
-                   
+					
                     break;
                 }
             }

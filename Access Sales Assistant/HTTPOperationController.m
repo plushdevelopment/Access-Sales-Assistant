@@ -72,6 +72,8 @@
 
 #import "AccessSalesConstants.h"
 
+#import "AUNTK.h"
+
 #define kPAGESIZE 100
 
 @implementation HTTPOperationController
@@ -216,7 +218,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Picklists?token=%@",
+						   stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Picklists?token=%@",
 						   [user token]];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
@@ -271,7 +273,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Competitors?pageNbr=%d&pageSize=%d&token=%@",
+						   stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Competitors?pageNbr=%d&pageSize=%d&token=%@",
 						   [page integerValue], kPAGESIZE, [user token]];
 	//NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
@@ -322,7 +324,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		[[self networkQueue] go];
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 1, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", [page integerValue], 1, [user token]];
 	NSURL *aURL = [NSURL URLWithString:urlString];
 	
 	GetProducerRequest *request = [[GetProducerRequest alloc] initWithURL:aURL];
@@ -338,12 +340,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 {	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:nil];
 	
-	 GetProducerRequest *producerRequest = (GetProducerRequest *)request;
-	 if (producerRequest.currentPage == 1) {
-	 for (int i = 2; i <= producerRequest.totalPages; i++) {
-	 [self requestProducers:[NSNumber numberWithInt:i]];
-	 }
-	 }
+	GetProducerRequest *producerRequest = (GetProducerRequest *)request;
+	if (producerRequest.currentPage == 1) {
+		for (int i = 2; i <= producerRequest.totalPages; i++) {
+			[self requestProducers:[NSNumber numberWithInt:i]];
+		}
+	}
 }
 
 - (void)requestProducersFailed:(ASIHTTPRequest *)request
@@ -363,7 +365,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers?token=%@", [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Producers?token=%@", [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
@@ -413,7 +415,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/DailySummaryReports?token=%@", [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/DailySummaryReports?token=%@", [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
@@ -463,7 +465,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *imageName = [NSString stringWithFormat:@"%@_%d.png", producerID, [image hash]];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers/%@/Images?fileName=%@&token=%@", producerID, imageName, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Producers/%@/Images?fileName=%@&token=%@", producerID, imageName, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
@@ -507,7 +509,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers/%@/Images?token=%@", producerID, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Producers/%@/Images?token=%@", producerID, [user token]];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -648,7 +650,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     NSString* escapedString = [self urlencode:searchString];
 	
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@",escapedString,[user token]]; //stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+						   stringWithFormat:@"https://uatmobile.accessgeneral.com/TsmServices/VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@",escapedString,[user token]]; //stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -658,6 +660,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDidFinishSelector:@selector(searchProducerFinished:)];
 	[request setDidFailSelector:@selector(searchProducerFailed:)];
 	[request setShouldContinueWhenAppEntersBackground:YES];
+	[request setTimeOutSeconds:60];
 	[[self networkQueue] addOperation:request];
 	
 }
@@ -674,29 +677,29 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSMutableArray* producernameArray = [[NSMutableArray alloc] init];
     if([results count]>0)
     {
-   	for (NSDictionary *dict in results) {
-        NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
-		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:context];
-		if (!producer.editedValue) {
-            
-			[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter managedObjectContext:context];
+		for (NSDictionary *dict in results) {
+			NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
+			Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:context];
+			if (!producer.editedValue) {
+				
+				[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter managedObjectContext:context];
+			}
+			
+			[newDict setValue:producer.uid forKey:@"uid"];
+			[newDict setValue:producer.name forKey:@"name"];
+			[newDict setValue:producer.producerCode forKey:@"producerCode"];
+			[producernameArray addObject:newDict];
 		}
-        
-        [newDict setValue:producer.uid forKey:@"uid"];
-        [newDict setValue:producer.name forKey:@"name"];
-        [newDict setValue:producer.producerCode forKey:@"producerCode"];
-        [producernameArray addObject:newDict];
-    }
-    
-  
-    
-	[context save];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"searchProducer" object:producernameArray];
+		
+		
+		
+		[context save];
+		
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"searchProducer" object:producernameArray];
     }
     else
     {
-         [UIHelpers showAlertWithTitle:@"Alert" msg:@"No Producers found" buttonTitle:@"OK"];
+		[UIHelpers showAlertWithTitle:@"Alert" msg:@"No Producers found" buttonTitle:@"OK"];
     }
 	
 }
@@ -710,6 +713,67 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     NSString *summaryFailed = [[NSString alloc] initWithFormat:SEARCH_PRODUCER_FAILED,[error localizedDescription]];
     [UIHelpers showAlertWithTitle:@"Error" msg:summaryFailed buttonTitle:@"OK"];
 }
+
+#pragma mark -
+#pragma mark AUNTKs
+
+-(void)getAUNTKsForProducer:(NSString *)producerCode
+{
+	if ([[self networkQueue] isSuspended]) {
+		[[self networkQueue] go];
+	}
+	
+	User *user = [User findFirst];
+	NSString *urlString = [NSString stringWithFormat:@"http://devweb01.development.accessgeneral.com:82/VisitApplicationService/AUNTk/%@?token=%@", producerCode, [user token]];
+	NSLog(@"%@", urlString);
+	NSURL *url = [NSURL URLWithString:urlString];
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+	[request setRequestMethod:@"GET"];
+	[request addRequestHeader:@"Content-Type" value:@"application/json"];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(getAUNTKsForProducerFinished:)];
+	[request setDidFailSelector:@selector(getAUNTKsForProducerFailed:)];
+	NSDictionary *userInfoDict = [NSDictionary dictionaryWithObjectsAndKeys:producerCode, @"producerUID", nil];
+	[request setUserInfo:userInfoDict];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
+	[[self networkQueue] addOperation:request];
+}
+
+-(void)getAUNTKsForProducerFinished:(ASIHTTPRequest*)request
+{
+	NSString *responseString = [request responseString];
+	NSString *escapedString = [responseString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+	NSArray *responseJSON = [escapedString JSONValue];
+	
+	Producer *producer = [Producer findFirstByAttribute:@"producerCode" withValue:[[request userInfo] valueForKey:@"producerUID"]];
+	
+	for (NSDictionary *dict in responseJSON) {
+		NSLog(@"%@", dict);
+		
+		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+		[formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
+		AUNTK *auntk = [AUNTK createEntity];
+		[auntk safeSetValuesForKeysWithDictionary:[dict valueForKey:@"value"] dateFormatter:formatter managedObjectContext:self.managedObjectContext];
+		
+		if ([[dict valueForKey:@"key"] isEqualToString:@"auntk"]) {
+			producer.auntk = auntk;
+		} else if ([[dict valueForKey:@"key"] isEqualToString:@"chain"]) {
+			producer.chainAuntk = auntk;
+		}
+	}
+	[self.managedObjectContext save];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"AUNTK" object:nil];
+}
+
+-(void)getAUNTKsForProducerFailed:(ASIHTTPRequest*)request
+{
+	
+}
+
+#pragma mark - 
+#pragma mark URL Encode
 
 -(NSString *) urlencode: (NSString *) url
 {

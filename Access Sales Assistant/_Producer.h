@@ -6,6 +6,7 @@
 
 @class AddressListItem;
 @class AUNTK;
+@class AUNTK;
 @class Contact;
 @class DailySummary;
 @class EmailListItem;
@@ -274,6 +275,13 @@
 @property (nonatomic, retain) AUNTK* auntk;
 
 //- (BOOL)validateAuntk:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) AUNTK* chainAuntk;
+
+//- (BOOL)validateChainAuntk:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -572,6 +580,11 @@
 
 - (AUNTK*)primitiveAuntk;
 - (void)setPrimitiveAuntk:(AUNTK*)value;
+
+
+
+- (AUNTK*)primitiveChainAuntk;
+- (void)setPrimitiveChainAuntk:(AUNTK*)value;
 
 
 

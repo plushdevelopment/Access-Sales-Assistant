@@ -85,6 +85,12 @@
 		FF0A17FE13BC944E00ECF9F6 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F113BC944E00ECF9F6 /* CJSONDeserializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A17FF13BC944E00ECF9F6 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F313BC944E00ECF9F6 /* CJSONScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF0A180013BC944E00ECF9F6 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A17F513BC944E00ECF9F6 /* CJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF1C02041417F16C00AB5326 /* SelectionModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1C02021417F16C00AB5326 /* SelectionModelViewController.m */; };
+		FF1C02051417F16C00AB5326 /* SelectionModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF1C02031417F16C00AB5326 /* SelectionModelViewController.xib */; };
+		FF20C98A141904600093C815 /* AUNTKProductionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF20C989141904600093C815 /* AUNTKProductionTableViewCell.m */; };
+		FF20C98C141905E60093C815 /* AUNTKProductionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF20C98B141905E60093C815 /* AUNTKProductionTableViewCell.xib */; };
+		FF20C98F14190E2D0093C815 /* AUNTKLossRatioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF20C98E14190E2D0093C815 /* AUNTKLossRatioTableViewCell.m */; };
+		FF20C99114190E680093C815 /* AUNTKLossRatioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF20C99014190E680093C815 /* AUNTKLossRatioTableViewCell.xib */; };
 		FF21973E13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21973C13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m */; };
 		FF21973F13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF21973D13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib */; };
 		FF21974513CF541F001F1B0D /* SummaryGeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21974413CF541F001F1B0D /* SummaryGeneralTableViewCell.m */; };
@@ -593,6 +599,15 @@
 		FF0A17F413BC944E00ECF9F6 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		FF0A17F513BC944E00ECF9F6 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		FF0A17F613BC944E00ECF9F6 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		FF1C02011417F16C00AB5326 /* SelectionModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionModelViewController.h; sourceTree = "<group>"; };
+		FF1C02021417F16C00AB5326 /* SelectionModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionModelViewController.m; sourceTree = "<group>"; };
+		FF1C02031417F16C00AB5326 /* SelectionModelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionModelViewController.xib; sourceTree = "<group>"; };
+		FF20C988141904600093C815 /* AUNTKProductionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUNTKProductionTableViewCell.h; sourceTree = "<group>"; };
+		FF20C989141904600093C815 /* AUNTKProductionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUNTKProductionTableViewCell.m; sourceTree = "<group>"; };
+		FF20C98B141905E60093C815 /* AUNTKProductionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AUNTKProductionTableViewCell.xib; sourceTree = "<group>"; };
+		FF20C98D14190E2D0093C815 /* AUNTKLossRatioTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUNTKLossRatioTableViewCell.h; sourceTree = "<group>"; };
+		FF20C98E14190E2D0093C815 /* AUNTKLossRatioTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUNTKLossRatioTableViewCell.m; sourceTree = "<group>"; };
+		FF20C99014190E680093C815 /* AUNTKLossRatioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AUNTKLossRatioTableViewCell.xib; sourceTree = "<group>"; };
 		FF21973B13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationSummaryTableViewController.h; sourceTree = "<group>"; };
 		FF21973C13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationSummaryTableViewController.m; sourceTree = "<group>"; };
 		FF21973D13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationSummaryTableViewController.xib; sourceTree = "<group>"; };
@@ -1371,6 +1386,29 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		FF1C02071417F17B00AB5326 /* SelectionModalViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FF1C02011417F16C00AB5326 /* SelectionModelViewController.h */,
+				FF1C02021417F16C00AB5326 /* SelectionModelViewController.m */,
+				FF1C02031417F16C00AB5326 /* SelectionModelViewController.xib */,
+			);
+			name = SelectionModalViewController;
+			sourceTree = "<group>";
+		};
+		FF20C987141901D20093C815 /* AUNTKs */ = {
+			isa = PBXGroup;
+			children = (
+				FF20C988141904600093C815 /* AUNTKProductionTableViewCell.h */,
+				FF20C989141904600093C815 /* AUNTKProductionTableViewCell.m */,
+				FF20C98B141905E60093C815 /* AUNTKProductionTableViewCell.xib */,
+				FF20C98D14190E2D0093C815 /* AUNTKLossRatioTableViewCell.h */,
+				FF20C98E14190E2D0093C815 /* AUNTKLossRatioTableViewCell.m */,
+				FF20C99014190E680093C815 /* AUNTKLossRatioTableViewCell.xib */,
+			);
+			name = AUNTKs;
+			sourceTree = "<group>";
+		};
 		FF21974113CF53DF001F1B0D /* Producer Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1445,6 +1483,7 @@
 		FF374DFA13D5142200C170EB /* Visit Application */ = {
 			isa = PBXGroup;
 			children = (
+				6D38EFD41402E12900E4F682 /* AUNTK */,
 				6DB6EBFB13FD647000EE1EA9 /* VisitApplicationTabBarController.h */,
 				6DB6EBFA13FD647000EE1EA9 /* VisitApplicationTabBarController.m */,
 				6DB6EBF713FD647000EE1EA9 /* VisitApplicationTabBarController.xib */,
@@ -1661,6 +1700,7 @@
 		FF71F52813C63112005CE1DA /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				FF20C987141901D20093C815 /* AUNTKs */,
 				FFA9F1BA14056D9400817BA6 /* VisitTableViewCell.h */,
 				FFA9F1BC14056D9400817BA6 /* VisitTableViewCell.m */,
 				FFA9F1BD14056D9400817BA6 /* VisitTableViewCell.xib */,
@@ -2415,8 +2455,8 @@
 		FFFB3C5A13ABE4890063E374 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FF1C02071417F17B00AB5326 /* SelectionModalViewController */,
 				FFD45874141797D0006A86BE /* Search Producer Application */,
-				6D38EFD41402E12900E4F682 /* AUNTK */,
 				6D966D5513DF0E0000DAF04B /* Prospect Application */,
 				FFA0708D13D5EC080021E412 /* MainMenu Expand/Collapse */,
 				FFA0708413D5EBC70021E412 /* Contacts */,
@@ -2700,6 +2740,9 @@
 				FFA263CD1417E5BD0052D1D1 /* TBB_picture icon.png in Resources */,
 				FFA263CE1417E5BD0052D1D1 /* TBB_profile icon.png in Resources */,
 				FFA263CF1417E5BD0052D1D1 /* TBB_summary icon.png in Resources */,
+				FF1C02051417F16C00AB5326 /* SelectionModelViewController.xib in Resources */,
+				FF20C98C141905E60093C815 /* AUNTKProductionTableViewCell.xib in Resources */,
+				FF20C99114190E680093C815 /* AUNTKLossRatioTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2953,6 +2996,9 @@
 				FFD45871141797C9006A86BE /* SearchProducerViewController.m in Sources */,
 				FFD458791417C55D006A86BE /* _ReasonNotSeen.m in Sources */,
 				FFD4587A1417C55D006A86BE /* ReasonNotSeen.m in Sources */,
+				FF1C02041417F16C00AB5326 /* SelectionModelViewController.m in Sources */,
+				FF20C98A141904600093C815 /* AUNTKProductionTableViewCell.m in Sources */,
+				FF20C98F14190E2D0093C815 /* AUNTKLossRatioTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
