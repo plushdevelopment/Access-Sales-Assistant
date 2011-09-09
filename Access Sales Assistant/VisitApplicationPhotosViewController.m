@@ -30,6 +30,10 @@
 
 @synthesize parent=_parent;
 
+@synthesize titleLabel = _titleLabel;
+
+@synthesize titleText;
+
 - (IBAction)dismiss:(id)sender
 {
 	[self.presentingViewController viewWillAppear:YES];
@@ -73,6 +77,12 @@
         // Update the view.
         [self configureView];
     }
+      //  _titleLabel.text = [[NSString alloc]initWithFormat:@"%@ - %@",_detailItem.name,_detailItem.producerCode];
+    
+    titleText = [[NSString alloc]initWithFormat:@"%@ - %@",_detailItem.name,_detailItem.producerCode];  
+    NSLog(titleText);
+
+
 }
 
 - (void)configureView
@@ -129,6 +139,8 @@
 	[super viewWillAppear:animated];
 	self.images = self.detailItem.images.allObjects;
 	[self.gridView reloadData];
+    
+     _titleLabel.text = titleText;
 }
 
 - (void)viewDidUnload

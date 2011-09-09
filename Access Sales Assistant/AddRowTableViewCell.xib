@@ -354,6 +354,7 @@
 							<string>addRowType</string>
 							<string>delRowType</string>
 							<string>editButton</string>
+							<string>isContactsEdited</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -361,6 +362,7 @@
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UIButton</string>
+							<string>BOOL</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -371,6 +373,7 @@
 							<string>addRowType</string>
 							<string>delRowType</string>
 							<string>editButton</string>
+							<string>isContactsEdited</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -389,6 +392,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">editButton</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">isContactsEdited</string>
+								<string key="candidateClassName">BOOL</string>
 							</object>
 						</object>
 					</object>

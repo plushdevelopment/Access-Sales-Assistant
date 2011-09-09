@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
-		<int key="IBDocument.SystemTarget">0</int>
+		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">11A511</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
@@ -49,7 +49,7 @@
 							<object class="IBUITextField" id="1003670666">
 								<reference key="NSNextResponder" ref="898174118"/>
 								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{467, 31}, {129, 31}}</string>
+								<string key="NSFrame">{{407, 31}, {129, 31}}</string>
 								<reference key="NSSuperview" ref="898174118"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="977239607"/>
@@ -71,6 +71,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIAutocapitalizationType">2</int>
 									<int key="IBUIReturnKeyType">4</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
@@ -87,7 +88,7 @@
 							<object class="IBUITextField" id="977239607">
 								<reference key="NSNextResponder" ref="898174118"/>
 								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{606, 31}, {45, 31}}</string>
+								<string key="NSFrame">{{541, 31}, {45, 31}}</string>
 								<reference key="NSSuperview" ref="898174118"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="282186093"/>
@@ -113,8 +114,8 @@
 							</object>
 							<object class="IBUITextField" id="34803961">
 								<reference key="NSNextResponder" ref="898174118"/>
-								<int key="NSvFlags">290</int>
-								<string key="NSFrame">{{661, 31}, {87, 31}}</string>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{594, 31}, {87, 31}}</string>
 								<reference key="NSSuperview" ref="898174118"/>
 								<reference key="NSWindow"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -143,7 +144,7 @@
 							<object class="IBUIButton" id="282186093">
 								<reference key="NSNextResponder" ref="898174118"/>
 								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{606, 31}, {45, 31}}</string>
+								<string key="NSFrame">{{541, 31}, {45, 31}}</string>
 								<reference key="NSSuperview" ref="898174118"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="34803961"/>
@@ -179,7 +180,7 @@
 							<object class="IBUITextField" id="7418449">
 								<reference key="NSNextResponder" ref="898174118"/>
 								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{252, 31}, {205, 31}}</string>
+								<string key="NSFrame">{{214, 31}, {190, 31}}</string>
 								<reference key="NSSuperview" ref="898174118"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1003670666"/>
@@ -199,6 +200,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIAutocapitalizationType">2</int>
 									<int key="IBUIReturnKeyType">4</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
@@ -208,7 +210,7 @@
 							<object class="IBUITextField" id="372797868">
 								<reference key="NSNextResponder" ref="898174118"/>
 								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{22, 31}, {220, 31}}</string>
+								<string key="NSFrame">{{22, 31}, {190, 31}}</string>
 								<reference key="NSSuperview" ref="898174118"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="7418449"/>
@@ -228,6 +230,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIAutocapitalizationType">2</int>
 									<int key="IBUIReturnKeyType">4</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
@@ -262,9 +265,10 @@
 								<reference key="IBUIFont" ref="341415418"/>
 							</object>
 						</object>
-						<string key="NSFrame">{{1, 0}, {766, 71}}</string>
+						<string key="NSFrame">{{1, 0}, {701, 71}}</string>
 						<reference key="NSSuperview" ref="628234452"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="196194957"/>
 						<string key="NSReuseIdentifierKey">_NS:314</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -277,7 +281,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</object>
-				<string key="NSFrameSize">{768, 72}</string>
+				<string key="NSFrameSize">{703, 72}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="898174118"/>
@@ -429,13 +433,13 @@
 						<reference key="object" ref="628234452"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1003670666"/>
-							<reference ref="977239607"/>
 							<reference ref="34803961"/>
-							<reference ref="282186093"/>
-							<reference ref="7418449"/>
 							<reference ref="372797868"/>
 							<reference ref="196194957"/>
+							<reference ref="977239607"/>
+							<reference ref="282186093"/>
+							<reference ref="7418449"/>
+							<reference ref="1003670666"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Producer Address Table View Cell</string>
@@ -639,11 +643,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>doneSelected:</string>
 							<string>nextField:</string>
 							<string>previousField:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -652,11 +658,16 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>doneSelected:</string>
 							<string>nextField:</string>
 							<string>previousField:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">doneSelected:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">nextField:</string>
 								<string key="candidateClassName">id</string>
@@ -1193,7 +1204,7 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="0.0" key="NS.object.0"/>
+			<real value="1280" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>

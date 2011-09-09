@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MGSplitViewController.h"
+#import "NSString-Validation.h"
 @protocol SubstitutableDetailViewController
 - (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
 - (void)invalidateRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;

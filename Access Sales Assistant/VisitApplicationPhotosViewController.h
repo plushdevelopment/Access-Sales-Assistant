@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSArray *images;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, unsafe_unretained) UIViewController *parent;
+@property (nonatomic,strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic,strong) NSString* titleText;
 
 - (void)configureView;
 - (IBAction)uploadPhoto:(id)sender;

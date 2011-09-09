@@ -60,6 +60,8 @@
 @synthesize submitButton = _submitButton;
 @synthesize isDoneSelected = _isDoneSelected;
 
+@synthesize titleLabel = _titleLabel;
+
 - (IBAction)dismiss:(id)sender
 {
 	[self.presentingViewController viewWillAppear:YES];
@@ -159,7 +161,7 @@
     }
     
      [self toggleSubmitButton:[self isEnableSubmit]];
-   
+    _titleLabel.text = [[NSString alloc]initWithFormat:@"%@ - %@",_detailItem.name,_detailItem.producerCode];
 }
 
 - (void)configureView
@@ -696,40 +698,40 @@
         {
            
         [self toggleHoursOfOperationCell:hoursCell :TRUE];
-        hOfOperation.tuesdayOpenTime = [hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.tuesdayOpenTime :hOfOperation :1 :TRUE];
+        hOfOperation.tuesdayOpenTime = [hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime:hOfOperation.mondayOpenTime;
         [hoursCell.tueStartTextField setText:[hOfOperation.tuesdayOpenTime.name length]>0?hOfOperation.tuesdayOpenTime.name:hOfOperation.mondayOpenTime.name];
         
-          hOfOperation.tuesdayCloseTime = [hOfOperation.tuesdayCloseTime.name length]>0?hOfOperation.tuesdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.tuesdayCloseTime :hOfOperation :1 :TRUE];
+          hOfOperation.tuesdayCloseTime = [hOfOperation.tuesdayCloseTime.name length]>0?hOfOperation.tuesdayCloseTime:hOfOperation.mondayCloseTime;
     [hoursCell.tueStopTextField setText:[hOfOperation.tuesdayCloseTime.name length]>0?hOfOperation.tuesdayCloseTime.name:hOfOperation.mondayCloseTime.name];
        
-          hOfOperation.wednesdayOpenTime = [hOfOperation.wednesdayOpenTime.name length]>0?hOfOperation.wednesdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.mondayOpenTime :hOfOperation :1 :TRUE];
+          hOfOperation.wednesdayOpenTime = [hOfOperation.wednesdayOpenTime.name length]>0?hOfOperation.wednesdayOpenTime:hOfOperation.mondayOpenTime;
     [hoursCell.wedStartTextField setText:[hOfOperation.wednesdayOpenTime.name length]>0?hOfOperation.wednesdayOpenTime.name:hOfOperation.mondayOpenTime.name];
         
-          hOfOperation.wednesdayCloseTime = [hOfOperation.wednesdayCloseTime.name length]>0?hOfOperation.wednesdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.wednesdayCloseTime :hOfOperation :1 :TRUE];
+          hOfOperation.wednesdayCloseTime = [hOfOperation.wednesdayCloseTime.name length]>0?hOfOperation.wednesdayCloseTime:hOfOperation.mondayCloseTime;
     [hoursCell.wedStopTextField setText:[hOfOperation.wednesdayCloseTime.name length]>0?hOfOperation.wednesdayCloseTime.name:hOfOperation.mondayCloseTime.name];
     
-          hOfOperation.thursdayOpenTime = [hOfOperation.thursdayOpenTime.name length]>0?hOfOperation.thursdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.thursdayOpenTime :hOfOperation :1 :TRUE];
+          hOfOperation.thursdayOpenTime = [hOfOperation.thursdayOpenTime.name length]>0?hOfOperation.thursdayOpenTime:hOfOperation.mondayOpenTime;
     [hoursCell.thuStartTextField setText:[hOfOperation.thursdayOpenTime.name length]>0?hOfOperation.thursdayOpenTime.name:hOfOperation.mondayOpenTime.name];
      
-          hOfOperation.thursdayCloseTime = [hOfOperation.thursdayCloseTime.name length]>0?hOfOperation.thursdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.thursdayCloseTime :hOfOperation :1 :TRUE];
+          hOfOperation.thursdayCloseTime = [hOfOperation.thursdayCloseTime.name length]>0?hOfOperation.thursdayCloseTime:hOfOperation.mondayCloseTime;
     [hoursCell.thuStopTextField setText:[hOfOperation.thursdayCloseTime.name length]>0?hOfOperation.thursdayCloseTime.name:hOfOperation.mondayCloseTime.name];
      
-          hOfOperation.fridayOpenTime = [hOfOperation.fridayOpenTime.name length]>0?hOfOperation.fridayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.fridayOpenTime :hOfOperation :1 :TRUE];
+          hOfOperation.fridayOpenTime = [hOfOperation.fridayOpenTime.name length]>0?hOfOperation.fridayOpenTime:hOfOperation.mondayOpenTime;
     [hoursCell.friStartTextField setText:[hOfOperation.fridayOpenTime.name length]>0?hOfOperation.fridayOpenTime.name:hOfOperation.mondayOpenTime.name];
     
-          hOfOperation.fridayCloseTime = [hOfOperation.fridayCloseTime.name length]>0?hOfOperation.fridayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.fridayCloseTime :hOfOperation :1 :TRUE];
+          hOfOperation.fridayCloseTime = [hOfOperation.fridayCloseTime.name length]>0?hOfOperation.fridayCloseTime:hOfOperation.mondayCloseTime;
     [hoursCell.friStopTextField setText:[hOfOperation.fridayCloseTime.name length]>0?hOfOperation.fridayCloseTime.name:hOfOperation.mondayCloseTime.name];
        
-          hOfOperation.saturdayOpenTime = [hOfOperation.saturdayOpenTime.name length]>0?hOfOperation.saturdayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.saturdayOpenTime :hOfOperation :1 :TRUE];
+          hOfOperation.saturdayOpenTime = [hOfOperation.saturdayOpenTime.name length]>0?hOfOperation.saturdayOpenTime:hOfOperation.mondayOpenTime;
     [hoursCell.satStartTextField setText:[hOfOperation.saturdayOpenTime.name length]>0?hOfOperation.saturdayOpenTime.name:hOfOperation.mondayOpenTime.name];
        
-          hOfOperation.saturdayCloseTime = [hOfOperation.saturdayCloseTime.name length]>0?hOfOperation.saturdayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.saturdayCloseTime :hOfOperation :1 :TRUE];
+          hOfOperation.saturdayCloseTime = [hOfOperation.saturdayCloseTime.name length]>0?hOfOperation.saturdayCloseTime:hOfOperation.mondayCloseTime;
     [hoursCell.satStopTextField setText:hOfOperation.saturdayCloseTime.name ];
         
-          hOfOperation.sundayOpenTime = [hOfOperation.sundayOpenTime.name length]>0?hOfOperation.sundayOpenTime:[self assignHour:hOfOperation.mondayOpenTime :hOfOperation.sundayOpenTime :hOfOperation :1 :TRUE];
+          hOfOperation.sundayOpenTime = [hOfOperation.sundayOpenTime.name length]>0?hOfOperation.sundayOpenTime:hOfOperation.mondayOpenTime;
     [hoursCell.sunStartTextField setText:[hOfOperation.sundayOpenTime.name length]>0?hOfOperation.sundayOpenTime.name:hOfOperation.mondayOpenTime.name];
        
-          hOfOperation.sundayCloseTime = [hOfOperation.sundayCloseTime.name length]>0?hOfOperation.sundayCloseTime:[self assignHour:hOfOperation.mondayCloseTime :hOfOperation.sundayCloseTime :hOfOperation :1 :TRUE];
+          hOfOperation.sundayCloseTime = [hOfOperation.sundayCloseTime.name length]>0?hOfOperation.sundayCloseTime:hOfOperation.mondayCloseTime;
     [hoursCell.sunStopTextField setText:hOfOperation.sundayCloseTime.name];
         }
       }
@@ -848,7 +850,7 @@
     UIImage* hImg = [UIImage imageNamed:@"MenuButton.png"];
     headerBg.image = hImg;
     
-    headerBg.alpha = 0.7;
+    
     
     UILabel* headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, tableView.bounds.size.width-5, 20)];
     headerTitle.text = [sectionTitleArray objectAtIndex:section];
@@ -920,6 +922,9 @@
 	
 	//Add the picker to the view
 	[self.parentViewController.view addSubview:self.datePickerViewController.view];
+    
+    
+      [self.tableView selectRowAtIndexPath:self.datePickerViewController.currentIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
 	
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"
@@ -948,7 +953,7 @@
     
     selectionView.currentTag = button.tag;
     
-    [selectionView  setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [selectionView  setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [selectionView  setModalPresentationStyle:UIModalPresentationFormSheet];
     selectionView.delegate = self;
 
@@ -982,16 +987,17 @@
                 {
                   
                     
-                    [selectionView assignDataSource:[Rater findAll]];
+                    [selectionView assignDataSource:[Rater findAllSortedBy:@"name" ascending:YES]];
                                         
                     
                     [self presentModalViewController:selectionView  animated:YES];
+                 //   [self presen]
                 
                     break;
                 }
                 case ERater2:
                 {
-                    [selectionView assignDataSource:[Rater2 findAll]];
+                    [selectionView assignDataSource:[Rater2 findAllSortedBy:@"name" ascending:YES]];
                     
                     
                     [self presentModalViewController:selectionView  animated:YES];
@@ -1001,6 +1007,59 @@
             }
         }
             break;
+        case EHoursOfOperation:
+        {
+            switch(selectionView.currentTag)
+            {
+                case EMondayStartHour:
+                case EMondayEndHour:
+                case ETuesdayStartHour:
+                case ETuesdayEndHour:
+                case EWednesdayStartHour:
+                case EWednesdayEndHour:
+                case EThursdayStartHour:
+                case EThursdayEndHour:
+                case EFridayStartHour:
+                case EFridayEndHour:
+                case ESaturdayStartHour:
+                case ESaturdayEndHour:
+                case ESundayStartHour:
+                case ESundayEndHour:
+                {
+                    [selectionView assignDataSource:[OperationHour findAllSortedBy:@"uid" ascending:YES]];
+                    [self presentModalViewController:selectionView  animated:YES];
+                }
+                    break;
+                    
+            }
+            break;
+        }
+        case EAddresses:
+        {
+            switch(selectionView.currentTag)
+            {
+                case EAddressState:
+                {
+                    [selectionView assignDataSource:[State findAllSortedBy:@"name" ascending:YES]];
+                    [self presentModalViewController:selectionView  animated:YES];
+                    break;
+                }
+            }
+            break;
+        }
+        case EContacts:
+        {
+            switch(selectionView.currentTag)
+            {
+                case EContactTitle:
+                {
+                    [selectionView assignDataSource:[ContactType findAllSortedBy:@"name" ascending:YES]];
+                    [self presentModalViewController:selectionView  animated:YES];
+                    break;
+                }
+            }
+            break;
+        }
     }
     
     
@@ -1707,6 +1766,8 @@
      [self toggleSubmitButton:[self isEnableSubmit]];
 
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:controller.currentIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    
+      
 }
 
 
@@ -1911,6 +1972,20 @@
                     self.detailItem.name = textField.text;
                     break;
                 }
+                    
+                case ESubTerritory:
+                {
+                    self.detailItem.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:textField.text managedObjectContext:[NSManagedObjectContext defaultContext]];
+                    
+                }
+                    break;
+                case ENumberOfLocation:
+                    self.detailItem.numberOfLocationsValue = [textField.text integerValue];
+                    break;
+                case ENoOfEmployees:
+                    self.detailItem.numberOfEmployeesValue = [textField.text integerValue];
+                    break;
+
             }
         }
             break;
@@ -2354,7 +2429,220 @@
             }
         }
             break;
+        case EHoursOfOperation:
+        {
+            HoursOfOperation *hOfOperation = _detailItem.hoursOfOperation;
+            if(hOfOperation == nil)
+            {
+                HoursOfOperation *hOperation = [HoursOfOperation createEntity];
+                self.detailItem.hoursOfOperation = hOperation;
+            }
+            
+            
+            switch(forTag)
+            {
+                case EMondayStartHour:
+                {
+                    self.detailItem.hoursOfOperation.mondayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                case EMondayEndHour:
+                {
+                    self.detailItem.hoursOfOperation.mondayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case ETuesdayStartHour:
+                {
+                    self.detailItem.hoursOfOperation.tuesdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case ETuesdayEndHour:
+                {
+                    self.detailItem.hoursOfOperation.tuesdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case EWednesdayStartHour:
+                {
+                    self.detailItem.hoursOfOperation.wednesdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case EWednesdayEndHour:
+                {
+                    self.detailItem.hoursOfOperation.wednesdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case EThursdayStartHour:
+                {
+                    self.detailItem.hoursOfOperation.thursdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case EThursdayEndHour:
+                {
+                    self.detailItem.hoursOfOperation.thursdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case EFridayStartHour:
+                {
+                    self.detailItem.hoursOfOperation.fridayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case EFridayEndHour:
+                {
+                    self.detailItem.hoursOfOperation.fridayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case ESaturdayStartHour:
+                {
+                    self.detailItem.hoursOfOperation.saturdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case ESaturdayEndHour:
+                {
+                    self.detailItem.hoursOfOperation.saturdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case ESundayStartHour:
+                {
+                    self.detailItem.hoursOfOperation.sundayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+                    
+                case ESundayEndHour:
+                {
+                    self.detailItem.hoursOfOperation.sundayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
+
+           
+            }
+             break;
+        }
+            
+            
+        case EAddresses:
+        {
+            switch(forTag)
+            {
+                case EAddressState:
+                {
+                    int indRow = forIndexPath.row;
+                    switch(indRow)
+                    {
+                        case 0:
+                        {
+                            AddressListItem *addrItem = nil;
+                            for (AddressListItem *address in _detailItem.addresses) {
+                                int addrValue = address.addressTypeValue;
+                                if (address.addressTypeValue == 1) {
+                                    addrItem = address;
+                                    continue;
+                                }
+                            }
+                            if(addrItem != nil)
+                            {
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                            }
+                            else
+                            {
+                                addrItem = [AddressListItem createEntity];
+                                addrItem.addressTypeValue = 1;
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                [self.detailItem addAddressesObject:addrItem];
+                            }
+                            
+                            break;
+                        }
+                            
+                        case 1:
+                        {
+                            AddressListItem *addrItem = nil;
+                            for (AddressListItem *address in _detailItem.addresses) {
+                                int addrValue = address.addressTypeValue;
+                                if (address.addressTypeValue == 2) {
+                                    addrItem = address;
+                                    
+                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+                                    break;
+                                }
+                            }
+                            if(addrItem != nil)
+                            {
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                            }
+                            else
+                            {
+                                addrItem = [AddressListItem createEntity];
+                                addrItem.addressTypeValue = 2;
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                [self.detailItem addAddressesObject:addrItem];
+                            }
+                            
+                            break;
+                        }
+                            
+                        case 2:
+                        {
+                            AddressListItem *addrItem = nil;
+                            for (AddressListItem *address in _detailItem.addresses) {
+                                int addrValue = address.addressTypeValue;
+                                if (address.addressTypeValue == 3) {
+                                    addrItem = address;
+                                    
+                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+                                    continue;
+                                }
+                            }
+                            if(addrItem != nil)
+                            {
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                            }
+                            else
+                            {
+                                addrItem = [AddressListItem createEntity];
+                                addrItem.addressTypeValue = 3;
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                [self.detailItem addAddressesObject:addrItem];
+                            }
+                            
+                            break;
+                            
+                            
+                        }
+                    }
+                    
+                }
+                    break;
+            } 
+            break;
+        }
+        case EContacts:
+        {
+            switch(forTag)
+            {
+                case EContactTitle: {
+					
+					Contact *contact = [self.detailItem.contacts.allObjects objectAtIndex:forIndexPath.row];
+					contact.type = [ContactType findFirstByAttribute:@"name" withValue:selectedString];
+				}
+                    break;
+            }       
+            break;
+        }
+
+
     }
+
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 }
 @end

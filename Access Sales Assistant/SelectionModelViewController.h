@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NSString-Validation.h"
 @protocol optionSelectedDelegate <NSObject>
 
 -(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag;
 
 @end
 
-@interface SelectionModelViewController : UIViewController<UISearchDisplayDelegate,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface SelectionModelViewController : UIViewController <UISearchDisplayDelegate,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong) IBOutlet UIToolbar* toolBar;
 @property(nonatomic,strong) IBOutlet UISearchBar* searchBar;
@@ -31,4 +31,5 @@
 
 //@property (nonatomic,strong) IBOutlet UISearchDisplayController *searchDisplayController;
 -(void) assignDataSource:(NSMutableArray*) datasource;
+-(IBAction)closeAction:(id)sender;
 @end

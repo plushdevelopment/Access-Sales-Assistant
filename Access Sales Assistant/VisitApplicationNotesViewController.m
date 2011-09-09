@@ -25,7 +25,9 @@
 @synthesize summaryTextField = _summaryTextField;
 @synthesize committmentTextField = _committmentTextField;
 @synthesize followUpTextField = _followUpTextField;
-
+@synthesize scrollView = _scrollView;
+@synthesize titleLabel = _titleLabel;
+@synthesize titleText;
 
 - (IBAction)dismiss:(id)sender
 {
@@ -70,6 +72,12 @@
         // Update the view.
         [self configureView];
     }
+    
+  //  _titleLabel.text = [[NSString alloc]initWithFormat:@"%@ - %@",producer.name,producer.producerCode]; 
+    
+    titleText = [[NSString alloc]initWithFormat:@"%@ - %@",producer.name,producer.producerCode];  
+    NSLog(titleText);
+
 }
 
 - (void)configureView
@@ -168,6 +176,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _scrollView.contentSize = _scrollView.frame.size;
+    _titleLabel.text = titleText;
 }
 
 - (void)viewDidUnload
@@ -187,7 +197,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+    return YES;
+   // return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 @end
