@@ -173,7 +173,7 @@
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="phoneNumbers" inverseEntity="Producer"/>
     </entity>
     <entity name="PolicyCountReportData" representedClassName="PolicyCountReportData">
-        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="count" optional="YES" attributeType="String"/>
         <attribute name="header" optional="YES" attributeType="String"/>
         <relationship name="auntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="policyCountReportData" inverseEntity="AUNTK"/>
     </entity>
@@ -231,18 +231,18 @@
         <attribute name="avgDriverAge" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="avgIncLossITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="avgWPITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
-        <attribute name="cancel30dMonth" optional="YES" attributeType="String"/>
+        <attribute name="cancel30dMonth" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="currentPoliciesMonth" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="epTotalITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="frequencyITD" optional="YES" attributeType="Float" defaultValueString="0.0"/>
-        <attribute name="lrTotalITD" optional="YES" attributeType="String"/>
+        <attribute name="lrTotalITD" optional="YES" attributeType="Float" defaultValueString="0.0"/>
         <attribute name="month" optional="YES" attributeType="String"/>
         <attribute name="monthEndDate" optional="YES" attributeType="Date"/>
         <attribute name="nbrClaims30dMonth" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="nbrClaimsITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="nbrClaimsMonth" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
-        <attribute name="newPoliciesMonth" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
-        <attribute name="percentFDLMonth" optional="YES" attributeType="String"/>
-        <attribute name="percentLiabilityOnlyITD" optional="YES" attributeType="String"/>
+        <attribute name="percentFDLMonth" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="percentLiabilityOnlyITD" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="policiesInForce" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="policiesWrittenITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
         <attribute name="wpTotalITD" optional="YES" attributeType="Integer 32" defaultValueString="0"/>

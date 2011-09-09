@@ -87,10 +87,26 @@
 
 
 
-@property (nonatomic, retain) NSString *cancel30dMonth;
+@property (nonatomic, retain) NSNumber *cancel30dMonth;
 
+
+@property int cancel30dMonthValue;
+- (int)cancel30dMonthValue;
+- (void)setCancel30dMonthValue:(int)value_;
 
 //- (BOOL)validateCancel30dMonth:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *currentPoliciesMonth;
+
+
+@property int currentPoliciesMonthValue;
+- (int)currentPoliciesMonthValue;
+- (void)setCurrentPoliciesMonthValue:(int)value_;
+
+//- (BOOL)validateCurrentPoliciesMonth:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -119,8 +135,12 @@
 
 
 
-@property (nonatomic, retain) NSString *lrTotalITD;
+@property (nonatomic, retain) NSNumber *lrTotalITD;
 
+
+@property float lrTotalITDValue;
+- (float)lrTotalITDValue;
+- (void)setLrTotalITDValue:(float)value_;
 
 //- (BOOL)validateLrTotalITD:(id*)value_ error:(NSError**)error_;
 
@@ -179,28 +199,24 @@
 
 
 
-@property (nonatomic, retain) NSNumber *newPoliciesMonth;
+@property (nonatomic, retain) NSNumber *percentFDLMonth;
 
 
-@property int newPoliciesMonthValue;
-- (int)newPoliciesMonthValue;
-- (void)setNewPoliciesMonthValue:(int)value_;
-
-//- (BOOL)validateNewPoliciesMonth:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, retain) NSString *percentFDLMonth;
-
+@property short percentFDLMonthValue;
+- (short)percentFDLMonthValue;
+- (void)setPercentFDLMonthValue:(short)value_;
 
 //- (BOOL)validatePercentFDLMonth:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) NSString *percentLiabilityOnlyITD;
+@property (nonatomic, retain) NSNumber *percentLiabilityOnlyITD;
 
+
+@property short percentLiabilityOnlyITDValue;
+- (short)percentLiabilityOnlyITDValue;
+- (void)setPercentLiabilityOnlyITDValue:(short)value_;
 
 //- (BOOL)validatePercentLiabilityOnlyITD:(id*)value_ error:(NSError**)error_;
 
@@ -308,8 +324,20 @@
 
 
 
-- (NSString*)primitiveCancel30dMonth;
-- (void)setPrimitiveCancel30dMonth:(NSString*)value;
+- (NSNumber*)primitiveCancel30dMonth;
+- (void)setPrimitiveCancel30dMonth:(NSNumber*)value;
+
+- (int)primitiveCancel30dMonthValue;
+- (void)setPrimitiveCancel30dMonthValue:(int)value_;
+
+
+
+
+- (NSNumber*)primitiveCurrentPoliciesMonth;
+- (void)setPrimitiveCurrentPoliciesMonth:(NSNumber*)value;
+
+- (int)primitiveCurrentPoliciesMonthValue;
+- (void)setPrimitiveCurrentPoliciesMonthValue:(int)value_;
 
 
 
@@ -332,8 +360,11 @@
 
 
 
-- (NSString*)primitiveLrTotalITD;
-- (void)setPrimitiveLrTotalITD:(NSString*)value;
+- (NSNumber*)primitiveLrTotalITD;
+- (void)setPrimitiveLrTotalITD:(NSNumber*)value;
+
+- (float)primitiveLrTotalITDValue;
+- (void)setPrimitiveLrTotalITDValue:(float)value_;
 
 
 
@@ -377,23 +408,20 @@
 
 
 
-- (NSNumber*)primitiveNewPoliciesMonth;
-- (void)setPrimitiveNewPoliciesMonth:(NSNumber*)value;
+- (NSNumber*)primitivePercentFDLMonth;
+- (void)setPrimitivePercentFDLMonth:(NSNumber*)value;
 
-- (int)primitiveNewPoliciesMonthValue;
-- (void)setPrimitiveNewPoliciesMonthValue:(int)value_;
-
-
-
-
-- (NSString*)primitivePercentFDLMonth;
-- (void)setPrimitivePercentFDLMonth:(NSString*)value;
+- (short)primitivePercentFDLMonthValue;
+- (void)setPrimitivePercentFDLMonthValue:(short)value_;
 
 
 
 
-- (NSString*)primitivePercentLiabilityOnlyITD;
-- (void)setPrimitivePercentLiabilityOnlyITD:(NSString*)value;
+- (NSNumber*)primitivePercentLiabilityOnlyITD;
+- (void)setPrimitivePercentLiabilityOnlyITD:(NSNumber*)value;
+
+- (short)primitivePercentLiabilityOnlyITDValue;
+- (void)setPrimitivePercentLiabilityOnlyITDValue:(short)value_;
 
 
 

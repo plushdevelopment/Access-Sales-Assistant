@@ -1,26 +1,19 @@
 //
-//  AUNTKLossRatioTableViewCell.m
+//  AUNTKLossRatioTableViewCell2.m
 //  Access Sales Assistant
 //
 //  Created by Ross Chapman on 9/8/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AUNTKLossRatioTableViewCell.h"
+#import "AUNTKLossRatioTableViewCell2.h"
 
-@implementation AUNTKLossRatioTableViewCell
+@implementation AUNTKLossRatioTableViewCell2
 
 @synthesize yearLabel=_yearLabel;
 @synthesize monthLabel = _monthLabel;
-@synthesize brandnewPoliciesPerMonthLabel = _brandnewPoliciesPerMonthLabel;
-@synthesize policiesWrittenITDLabel = _policiesWrittenITDLabel;
-@synthesize policiesInForceLabel = _policiesInForceLabel;
-@synthesize wpTotalITDLabel = _wpTotalITDLabel;
-@synthesize averageWpITDLabel = _averageWpITDLabel;
-@synthesize epTotalITDLabel = _epTotalITDLabel;
 @synthesize percentLiabilityOnlyLabel = _percentLiabilityOnlyLabel;
 @synthesize thirtyDayCancelLabel = _thirtyDayCancelLabel;
-@synthesize lrTotalITDLabel = _lrTotalITDLabel;
 @synthesize thirtyDayClaimsLabel = _thirtyDayClaimsLabel;
 @synthesize numberOfClaimsPerMonthLabel = _numberOfClaimsPerMonthLabel;
 @synthesize numberOfClaimsITDLabel = _numberOfClaimsITDLabel;

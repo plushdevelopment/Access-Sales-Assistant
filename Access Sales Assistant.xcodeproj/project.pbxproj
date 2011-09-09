@@ -89,8 +89,8 @@
 		FF1C02051417F16C00AB5326 /* SelectionModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF1C02031417F16C00AB5326 /* SelectionModelViewController.xib */; };
 		FF20C98A141904600093C815 /* AUNTKProductionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF20C989141904600093C815 /* AUNTKProductionTableViewCell.m */; };
 		FF20C98C141905E60093C815 /* AUNTKProductionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF20C98B141905E60093C815 /* AUNTKProductionTableViewCell.xib */; };
-		FF20C98F14190E2D0093C815 /* AUNTKLossRatioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF20C98E14190E2D0093C815 /* AUNTKLossRatioTableViewCell.m */; };
-		FF20C99114190E680093C815 /* AUNTKLossRatioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF20C99014190E680093C815 /* AUNTKLossRatioTableViewCell.xib */; };
+		FF20C98F14190E2D0093C815 /* AUNTKLossRatioTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = FF20C98E14190E2D0093C815 /* AUNTKLossRatioTableViewCell1.m */; };
+		FF20C99114190E680093C815 /* AUNTKLossRatioTableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF20C99014190E680093C815 /* AUNTKLossRatioTableViewCell1.xib */; };
 		FF21973E13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21973C13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m */; };
 		FF21973F13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF21973D13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib */; };
 		FF21974513CF541F001F1B0D /* SummaryGeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21974413CF541F001F1B0D /* SummaryGeneralTableViewCell.m */; };
@@ -107,6 +107,7 @@
 		FF21977513CF79DB001F1B0D /* _PersonSpokeWith.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21976F13CF79DB001F1B0D /* _PersonSpokeWith.m */; };
 		FF21977613CF79DB001F1B0D /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21977113CF79DB001F1B0D /* Note.m */; };
 		FF21977713CF79DB001F1B0D /* PersonSpokeWith.m in Sources */ = {isa = PBXBuildFile; fileRef = FF21977313CF79DB001F1B0D /* PersonSpokeWith.m */; };
+		FF2A91AF141A3C3100C664F1 /* AUNTKLossRatioTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF2A91AE141A3C3100C664F1 /* AUNTKLossRatioTableViewCell2.xib */; };
 		FF317ED1140835FC007D88FD /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF317ED0140835FC007D88FD /* libFlurryAnalytics.a */; };
 		FF56A25513CC883B00FF159A /* HTTPOperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56A25413CC883B00FF159A /* HTTPOperationController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF641CF113B9094400CC0B61 /* PickerViewController.m */; };
@@ -368,6 +369,7 @@
 		FFC2815E13BCAC2C00CA3ABB /* total access bar.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814313BCAC2C00CA3ABB /* total access bar.png */; };
 		FFC2815F13BCAC2C00CA3ABB /* total access bar.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814413BCAC2C00CA3ABB /* total access bar.psd */; };
 		FFC2816013BCAC2C00CA3ABB /* visit application icons.psd in Resources */ = {isa = PBXBuildFile; fileRef = FFC2814513BCAC2C00CA3ABB /* visit application icons.psd */; };
+		FFC7982F1419551800BF1520 /* AUNTKLossRatioTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC7982E1419551800BF1520 /* AUNTKLossRatioTableViewCell2.m */; };
 		FFC9533D13AFCACE000967CB /* ActiveRecordHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9532D13AFCACE000967CB /* ActiveRecordHelpers.m */; };
 		FFC9533E13AFCACE000967CB /* ARCoreDataAction.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9532F13AFCACE000967CB /* ARCoreDataAction.m */; };
 		FFC9533F13AFCACE000967CB /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FFC9533113AFCACE000967CB /* LICENSE */; };
@@ -605,9 +607,9 @@
 		FF20C988141904600093C815 /* AUNTKProductionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUNTKProductionTableViewCell.h; sourceTree = "<group>"; };
 		FF20C989141904600093C815 /* AUNTKProductionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUNTKProductionTableViewCell.m; sourceTree = "<group>"; };
 		FF20C98B141905E60093C815 /* AUNTKProductionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AUNTKProductionTableViewCell.xib; sourceTree = "<group>"; };
-		FF20C98D14190E2D0093C815 /* AUNTKLossRatioTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUNTKLossRatioTableViewCell.h; sourceTree = "<group>"; };
-		FF20C98E14190E2D0093C815 /* AUNTKLossRatioTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUNTKLossRatioTableViewCell.m; sourceTree = "<group>"; };
-		FF20C99014190E680093C815 /* AUNTKLossRatioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AUNTKLossRatioTableViewCell.xib; sourceTree = "<group>"; };
+		FF20C98D14190E2D0093C815 /* AUNTKLossRatioTableViewCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUNTKLossRatioTableViewCell1.h; sourceTree = "<group>"; };
+		FF20C98E14190E2D0093C815 /* AUNTKLossRatioTableViewCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUNTKLossRatioTableViewCell1.m; sourceTree = "<group>"; };
+		FF20C99014190E680093C815 /* AUNTKLossRatioTableViewCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AUNTKLossRatioTableViewCell1.xib; sourceTree = "<group>"; };
 		FF21973B13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationSummaryTableViewController.h; sourceTree = "<group>"; };
 		FF21973C13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationSummaryTableViewController.m; sourceTree = "<group>"; };
 		FF21973D13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationSummaryTableViewController.xib; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 		FF21977113CF79DB001F1B0D /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		FF21977213CF79DB001F1B0D /* PersonSpokeWith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonSpokeWith.h; sourceTree = "<group>"; };
 		FF21977313CF79DB001F1B0D /* PersonSpokeWith.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonSpokeWith.m; sourceTree = "<group>"; };
+		FF2A91AE141A3C3100C664F1 /* AUNTKLossRatioTableViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AUNTKLossRatioTableViewCell2.xib; sourceTree = "<group>"; };
 		FF317ECF140835FC007D88FD /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
 		FF317ED0140835FC007D88FD /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
 		FF374DF713D50CC000C170EB /* button-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-plus.png"; sourceTree = "<group>"; };
@@ -1022,6 +1025,8 @@
 		FFC2814313BCAC2C00CA3ABB /* total access bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "total access bar.png"; sourceTree = "<group>"; };
 		FFC2814413BCAC2C00CA3ABB /* total access bar.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "total access bar.psd"; sourceTree = "<group>"; };
 		FFC2814513BCAC2C00CA3ABB /* visit application icons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "visit application icons.psd"; sourceTree = "<group>"; };
+		FFC7982D1419551800BF1520 /* AUNTKLossRatioTableViewCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUNTKLossRatioTableViewCell2.h; sourceTree = "<group>"; };
+		FFC7982E1419551800BF1520 /* AUNTKLossRatioTableViewCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUNTKLossRatioTableViewCell2.m; sourceTree = "<group>"; };
 		FFC9532C13AFCACE000967CB /* ActiveRecordHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveRecordHelpers.h; sourceTree = "<group>"; };
 		FFC9532D13AFCACE000967CB /* ActiveRecordHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveRecordHelpers.m; sourceTree = "<group>"; };
 		FFC9532E13AFCACE000967CB /* ARCoreDataAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCoreDataAction.h; sourceTree = "<group>"; };
@@ -1402,9 +1407,12 @@
 				FF20C988141904600093C815 /* AUNTKProductionTableViewCell.h */,
 				FF20C989141904600093C815 /* AUNTKProductionTableViewCell.m */,
 				FF20C98B141905E60093C815 /* AUNTKProductionTableViewCell.xib */,
-				FF20C98D14190E2D0093C815 /* AUNTKLossRatioTableViewCell.h */,
-				FF20C98E14190E2D0093C815 /* AUNTKLossRatioTableViewCell.m */,
-				FF20C99014190E680093C815 /* AUNTKLossRatioTableViewCell.xib */,
+				FF20C98D14190E2D0093C815 /* AUNTKLossRatioTableViewCell1.h */,
+				FF20C98E14190E2D0093C815 /* AUNTKLossRatioTableViewCell1.m */,
+				FF20C99014190E680093C815 /* AUNTKLossRatioTableViewCell1.xib */,
+				FFC7982D1419551800BF1520 /* AUNTKLossRatioTableViewCell2.h */,
+				FFC7982E1419551800BF1520 /* AUNTKLossRatioTableViewCell2.m */,
+				FF2A91AE141A3C3100C664F1 /* AUNTKLossRatioTableViewCell2.xib */,
 			);
 			name = AUNTKs;
 			sourceTree = "<group>";
@@ -2742,7 +2750,8 @@
 				FFA263CF1417E5BD0052D1D1 /* TBB_summary icon.png in Resources */,
 				FF1C02051417F16C00AB5326 /* SelectionModelViewController.xib in Resources */,
 				FF20C98C141905E60093C815 /* AUNTKProductionTableViewCell.xib in Resources */,
-				FF20C99114190E680093C815 /* AUNTKLossRatioTableViewCell.xib in Resources */,
+				FF20C99114190E680093C815 /* AUNTKLossRatioTableViewCell1.xib in Resources */,
+				FF2A91AF141A3C3100C664F1 /* AUNTKLossRatioTableViewCell2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2998,7 +3007,8 @@
 				FFD4587A1417C55D006A86BE /* ReasonNotSeen.m in Sources */,
 				FF1C02041417F16C00AB5326 /* SelectionModelViewController.m in Sources */,
 				FF20C98A141904600093C815 /* AUNTKProductionTableViewCell.m in Sources */,
-				FF20C98F14190E2D0093C815 /* AUNTKLossRatioTableViewCell.m in Sources */,
+				FF20C98F14190E2D0093C815 /* AUNTKLossRatioTableViewCell1.m in Sources */,
+				FFC7982F1419551800BF1520 /* AUNTKLossRatioTableViewCell2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

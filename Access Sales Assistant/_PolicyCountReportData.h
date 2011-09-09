@@ -21,12 +21,8 @@
 
 
 
-@property (nonatomic, retain) NSNumber *count;
+@property (nonatomic, retain) NSString *count;
 
-
-@property int countValue;
-- (int)countValue;
-- (void)setCountValue:(int)value_;
 
 //- (BOOL)validateCount:(id*)value_ error:(NSError**)error_;
 
@@ -58,11 +54,8 @@
 @interface _PolicyCountReportData (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSNumber*)primitiveCount;
-- (void)setPrimitiveCount:(NSNumber*)value;
-
-- (int)primitiveCountValue;
-- (void)setPrimitiveCountValue:(int)value_;
+- (NSString*)primitiveCount;
+- (void)setPrimitiveCount:(NSString*)value;
 
 
 

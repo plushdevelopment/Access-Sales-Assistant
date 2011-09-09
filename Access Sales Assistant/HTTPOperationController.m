@@ -755,8 +755,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 		[formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
 		AUNTK *auntk = [AUNTK createEntity];
-		[auntk safeSetValuesForKeysWithDictionary:[dict valueForKey:@"value"] dateFormatter:formatter managedObjectContext:self.managedObjectContext];
-		
+		//[auntk safeSetValuesForKeysWithDictionary:[dict valueForKey:@"value"] dateFormatter:formatter managedObjectContext:self.managedObjectContext];
 		if ([[dict valueForKey:@"key"] isEqualToString:@"auntk"]) {
 			producer.auntk = auntk;
 		} else if ([[dict valueForKey:@"key"] isEqualToString:@"chain"]) {

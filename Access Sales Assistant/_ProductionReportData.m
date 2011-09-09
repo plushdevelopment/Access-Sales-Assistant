@@ -45,12 +45,24 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"avgWPITD"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"cancel30dMonthValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"cancel30dMonth"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"currentPoliciesMonthValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"currentPoliciesMonth"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"epTotalITDValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"epTotalITD"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 	if ([key isEqualToString:@"frequencyITDValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"frequencyITD"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"lrTotalITDValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"lrTotalITD"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 	if ([key isEqualToString:@"nbrClaims30dMonthValue"]) {
@@ -65,8 +77,12 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"nbrClaimsMonth"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
-	if ([key isEqualToString:@"newPoliciesMonthValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"newPoliciesMonth"];
+	if ([key isEqualToString:@"percentFDLMonthValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"percentFDLMonth"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"percentLiabilityOnlyITDValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"percentLiabilityOnlyITD"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 	if ([key isEqualToString:@"policiesInForceValue"]) {
@@ -200,6 +216,51 @@
 
 
 
+- (int)cancel30dMonthValue {
+	NSNumber *result = [self cancel30dMonth];
+	return [result intValue];
+}
+
+- (void)setCancel30dMonthValue:(int)value_ {
+	[self setCancel30dMonth:[NSNumber numberWithInt:value_]];
+}
+
+- (int)primitiveCancel30dMonthValue {
+	NSNumber *result = [self primitiveCancel30dMonth];
+	return [result intValue];
+}
+
+- (void)setPrimitiveCancel30dMonthValue:(int)value_ {
+	[self setPrimitiveCancel30dMonth:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
+
+@dynamic currentPoliciesMonth;
+
+
+
+- (int)currentPoliciesMonthValue {
+	NSNumber *result = [self currentPoliciesMonth];
+	return [result intValue];
+}
+
+- (void)setCurrentPoliciesMonthValue:(int)value_ {
+	[self setCurrentPoliciesMonth:[NSNumber numberWithInt:value_]];
+}
+
+- (int)primitiveCurrentPoliciesMonthValue {
+	NSNumber *result = [self primitiveCurrentPoliciesMonth];
+	return [result intValue];
+}
+
+- (void)setPrimitiveCurrentPoliciesMonthValue:(int)value_ {
+	[self setPrimitiveCurrentPoliciesMonth:[NSNumber numberWithInt:value_]];
+}
+
+
 
 
 
@@ -257,6 +318,25 @@
 
 @dynamic lrTotalITD;
 
+
+
+- (float)lrTotalITDValue {
+	NSNumber *result = [self lrTotalITD];
+	return [result floatValue];
+}
+
+- (void)setLrTotalITDValue:(float)value_ {
+	[self setLrTotalITD:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveLrTotalITDValue {
+	NSNumber *result = [self primitiveLrTotalITD];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveLrTotalITDValue:(float)value_ {
+	[self setPrimitiveLrTotalITD:[NSNumber numberWithFloat:value_]];
+}
 
 
 
@@ -354,34 +434,27 @@
 
 
 
-@dynamic newPoliciesMonth;
-
-
-
-- (int)newPoliciesMonthValue {
-	NSNumber *result = [self newPoliciesMonth];
-	return [result intValue];
-}
-
-- (void)setNewPoliciesMonthValue:(int)value_ {
-	[self setNewPoliciesMonth:[NSNumber numberWithInt:value_]];
-}
-
-- (int)primitiveNewPoliciesMonthValue {
-	NSNumber *result = [self primitiveNewPoliciesMonth];
-	return [result intValue];
-}
-
-- (void)setPrimitiveNewPoliciesMonthValue:(int)value_ {
-	[self setPrimitiveNewPoliciesMonth:[NSNumber numberWithInt:value_]];
-}
-
-
-
-
-
 @dynamic percentFDLMonth;
 
+
+
+- (short)percentFDLMonthValue {
+	NSNumber *result = [self percentFDLMonth];
+	return [result shortValue];
+}
+
+- (void)setPercentFDLMonthValue:(short)value_ {
+	[self setPercentFDLMonth:[NSNumber numberWithShort:value_]];
+}
+
+- (short)primitivePercentFDLMonthValue {
+	NSNumber *result = [self primitivePercentFDLMonth];
+	return [result shortValue];
+}
+
+- (void)setPrimitivePercentFDLMonthValue:(short)value_ {
+	[self setPrimitivePercentFDLMonth:[NSNumber numberWithShort:value_]];
+}
 
 
 
@@ -389,6 +462,25 @@
 
 @dynamic percentLiabilityOnlyITD;
 
+
+
+- (short)percentLiabilityOnlyITDValue {
+	NSNumber *result = [self percentLiabilityOnlyITD];
+	return [result shortValue];
+}
+
+- (void)setPercentLiabilityOnlyITDValue:(short)value_ {
+	[self setPercentLiabilityOnlyITD:[NSNumber numberWithShort:value_]];
+}
+
+- (short)primitivePercentLiabilityOnlyITDValue {
+	NSNumber *result = [self primitivePercentLiabilityOnlyITD];
+	return [result shortValue];
+}
+
+- (void)setPrimitivePercentLiabilityOnlyITDValue:(short)value_ {
+	[self setPrimitivePercentLiabilityOnlyITD:[NSNumber numberWithShort:value_]];
+}
 
 
 

@@ -29,10 +29,6 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"countValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"count"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
 
 	return keyPaths;
 }
@@ -42,25 +38,6 @@
 
 @dynamic count;
 
-
-
-- (int)countValue {
-	NSNumber *result = [self count];
-	return [result intValue];
-}
-
-- (void)setCountValue:(int)value_ {
-	[self setCount:[NSNumber numberWithInt:value_]];
-}
-
-- (int)primitiveCountValue {
-	NSNumber *result = [self primitiveCount];
-	return [result intValue];
-}
-
-- (void)setPrimitiveCountValue:(int)value_ {
-	[self setPrimitiveCount:[NSNumber numberWithInt:value_]];
-}
 
 
 
