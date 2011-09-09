@@ -4,11 +4,13 @@
 #import <CoreData/CoreData.h>
 
 
+@class Producer;
 @class ClaimFrequecyTrendReportData;
 @class LossRatioTrendReportData;
 @class PolicyCountReportData;
 @class Producer;
 @class ProductionReportData;
+
 
 
 @interface AUNTKID : NSManagedObjectID {}
@@ -20,6 +22,21 @@
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (AUNTKID*)objectID;
 
+
+
+
+@property (nonatomic, retain) NSString *key;
+
+
+//- (BOOL)validateKey:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, retain) Producer* chainProducer;
+
+//- (BOOL)validateChainProducer:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -86,6 +103,17 @@
 @end
 
 @interface _AUNTK (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSString*)primitiveKey;
+- (void)setPrimitiveKey:(NSString*)value;
+
+
+
+
+
+- (Producer*)primitiveChainProducer;
+- (void)setPrimitiveChainProducer:(Producer*)value;
 
 
 

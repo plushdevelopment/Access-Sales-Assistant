@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -189,11 +189,33 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
+				<object class="IBUIViewController" key="IBUISelectedViewController" id="34598585">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="369527316">
+						<string key="IBUITitle">AUNTK</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">TBB_AuntK icon.png</string>
+						</object>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+					</object>
+					<reference key="IBUIParentViewController" ref="273142308"/>
+					<string key="IBUINibName">VisitApplicationAUNTKViewController</string>
+					<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+						<int key="IBUIInterfaceOrientation">1</int>
+						<int key="interfaceOrientation">1</int>
+					</object>
+					<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+					<bool key="IBUIHorizontal">NO</bool>
+				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIViewController" id="106354338">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="128663519">
 							<string key="IBUITitle">Profile</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">TBB_profile icon.png</string>
+							</object>
 							<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						</object>
 						<reference key="IBUIParentViewController" ref="273142308"/>
@@ -208,6 +230,10 @@
 					<object class="IBUIViewController" id="826218949">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="87193813">
 							<string key="IBUITitle">Summary</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">TBB_summary icon.png</string>
+							</object>
 							<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						</object>
 						<reference key="IBUIParentViewController" ref="273142308"/>
@@ -222,6 +248,10 @@
 					<object class="IBUIViewController" id="51443428">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="6277534">
 							<string key="IBUITitle">Notes</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">TBB_notes icon.png</string>
+							</object>
 							<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						</object>
 						<reference key="IBUIParentViewController" ref="273142308"/>
@@ -236,6 +266,10 @@
 					<object class="IBUIViewController" id="803439660">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="66179164">
 							<string key="IBUITitle">Picture</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">TBB_picture icon.png</string>
+							</object>
 							<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						</object>
 						<reference key="IBUIParentViewController" ref="273142308"/>
@@ -247,6 +281,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<bool key="IBUIHorizontal">NO</bool>
 					</object>
+					<reference ref="34598585"/>
 				</object>
 				<object class="IBUITabBar" key="IBUITabBar" id="606678664">
 					<reference key="NSNextResponder"/>
@@ -391,6 +426,7 @@
 							<reference ref="826218949"/>
 							<reference ref="51443428"/>
 							<reference ref="803439660"/>
+							<reference ref="34598585"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Visit Application Tab Bar Controller</string>
@@ -466,6 +502,20 @@
 						<reference key="object" ref="812604492"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">40</int>
+						<reference key="object" ref="34598585"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="369527316"/>
+						</object>
+						<reference key="parent" ref="273142308"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">41</int>
+						<reference key="object" ref="369527316"/>
+						<reference key="parent" ref="34598585"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -496,6 +546,9 @@
 					<string>36.CustomClassName</string>
 					<string>36.IBPluginDependency</string>
 					<string>37.IBPluginDependency</string>
+					<string>40.CustomClassName</string>
+					<string>40.IBPluginDependency</string>
+					<string>41.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -522,6 +575,9 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>VisitApplicationPhotosViewController</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>VisitApplicationAUNTKViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -555,8 +611,25 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">mapShadow.png</string>
-			<string key="NS.object.0">{640, 28}</string>
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>TBB_AuntK icon.png</string>
+				<string>TBB_notes icon.png</string>
+				<string>TBB_picture icon.png</string>
+				<string>TBB_profile icon.png</string>
+				<string>TBB_summary icon.png</string>
+				<string>mapShadow.png</string>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{20, 18}</string>
+				<string>{24, 18}</string>
+				<string>{24, 18}</string>
+				<string>{24, 18}</string>
+				<string>{24, 18}</string>
+				<string>{640, 28}</string>
+			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">894</string>
 	</data>

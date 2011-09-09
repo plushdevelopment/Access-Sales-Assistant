@@ -389,6 +389,10 @@
 
 	
 
+@dynamic chainAuntk;
+
+	
+
 @dynamic contacts;
 
 	

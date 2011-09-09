@@ -8,12 +8,56 @@
 
 #import "VisitApplicationAUNTKViewController.h"
 
+#import "DailySummary.h"
+
+#import "Producer.h"
+
+#import "AUNTK.h"
+
+#import "HTTPOperationController.h"
+
 @implementation VisitApplicationAUNTKViewController
 
+@synthesize detailItem=_detailItem;
 @synthesize productionTableView=_productionTableView;
 @synthesize lossRatioTableView = _lossRatioTableView;
 @synthesize lossRatioLineChartView = _lossRatioLineChartView;
 @synthesize claimFrequencyLineChartView = _claimFrequencyLineChartView;
+@synthesize dismissButton=_dismissButton;
+@synthesize aPopoverController=_aPopoverController;
+@synthesize managedObjectContext=_managedObjectContext;
+
+#pragma mark -
+#pragma mark IBActions
+
+- (IBAction)dismiss:(id)sender
+{
+	[self.presentingViewController viewWillAppear:YES];
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark Detail item
+
+- (void)setDetailItem:(Producer *)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configureView) name:@"AUNTK" object:nil];
+        [[HTTPOperationController sharedHTTPOperationController] getAUNTKsForProducer:self.detailItem.producerCode];
+        // Update the view.
+        [self configureView];
+    }
+	
+	if (self.aPopoverController != nil) {
+        [self.aPopoverController dismissPopoverAnimated:YES];
+    }
+}
+
+- (void)configureView
+{
+	//[self.tableView reloadData];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,12 +84,18 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self configureView];
+}
+
 - (void)viewDidUnload
 {
     [self setProductionTableView:nil];
 	[self setLossRatioTableView:nil];
 	[self setLossRatioLineChartView:nil];
 	[self setClaimFrequencyLineChartView:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

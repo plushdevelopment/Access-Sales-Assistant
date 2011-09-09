@@ -69,6 +69,7 @@ enum generalSectionTags
     EEnOExpiration,
     EIsAccessSign,
     ENoOfEmployees,
+	EPrimaryContact
 };
 
 enum questionSectionTags

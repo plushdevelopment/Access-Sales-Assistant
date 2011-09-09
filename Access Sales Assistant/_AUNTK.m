@@ -36,6 +36,17 @@
 
 
 
+@dynamic key;
+
+
+
+
+
+
+@dynamic chainProducer;
+
+	
+
 @dynamic claimFrequecyTrendReportData;
 
 	

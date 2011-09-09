@@ -65,6 +65,10 @@
 -(void)searchProducerFinished:(ASIHTTPRequest*)request;
 -(void)searchProducerFailed:(ASIHTTPRequest*)request;
 
+-(void)getAUNTKsForProducer:(NSString *)producerCode;
+-(void)getAUNTKsForProducerFinished:(ASIHTTPRequest*)request;
+-(void)getAUNTKsForProducerFailed:(ASIHTTPRequest*)request;
+
 -(NSString *) urlencode: (NSString *) url;
 
 @end
