@@ -100,6 +100,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIAutocapitalizationType">2</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="272459385"/>
@@ -148,6 +149,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIAutocapitalizationType">2</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="272459385"/>
@@ -156,7 +158,7 @@
 							<object class="IBUILabel" id="29513753">
 								<reference key="NSNextResponder" ref="826890233"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{17, 72}, {116, 43}}</string>
+								<string key="NSFrame">{{3, 72}, {130, 43}}</string>
 								<reference key="NSSuperview" ref="826890233"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:120</string>
@@ -197,6 +199,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIAutocapitalizationType">2</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="272459385"/>
@@ -205,7 +208,7 @@
 							<object class="IBUILabel" id="567626409">
 								<reference key="NSNextResponder" ref="826890233"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{348, 76}, {126, 32}}</string>
+								<string key="NSFrame">{{361, 76}, {126, 32}}</string>
 								<reference key="NSSuperview" ref="826890233"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:120</string>
@@ -220,7 +223,6 @@
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">10</float>
 								<int key="IBUINumberOfLines">0</int>
-								<int key="IBUITextAlignment">2</int>
 								<reference key="IBUIFontDescription" ref="272459385"/>
 								<reference key="IBUIFont" ref="895912748"/>
 							</object>
@@ -247,6 +249,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIAutocapitalizationType">2</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="272459385"/>
@@ -506,6 +509,14 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">BaseTextField</string>
+					<string key="superclassName">UITextField</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BaseTextField.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">DatePickerViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -599,11 +610,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>doneSelected:</string>
 							<string>nextField:</string>
 							<string>previousField:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -612,11 +625,16 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>doneSelected:</string>
 							<string>nextField:</string>
 							<string>previousField:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">doneSelected:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">nextField:</string>
 								<string key="candidateClassName">id</string>
@@ -756,13 +774,13 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
-							<string>UITextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
+							<string>BaseTextField</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -781,31 +799,31 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">acctMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">claimsMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">custServMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">faxTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">mainMailTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">phone1TextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">webAddrTextField</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="candidateClassName">BaseTextField</string>
 							</object>
 						</object>
 					</object>
@@ -991,12 +1009,16 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>autoFormatPhoneNumber:</string>
 							<string>searchProducer:</string>
 							<string>showDatePickerView:</string>
 							<string>showPickerView:</string>
+							<string>submitProspectApp:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1006,12 +1028,18 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>autoFormatPhoneNumber:</string>
 							<string>searchProducer:</string>
 							<string>showDatePickerView:</string>
 							<string>showPickerView:</string>
+							<string>submitProspectApp:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">autoFormatPhoneNumber:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">searchProducer:</string>
 								<string key="candidateClassName">id</string>
@@ -1022,6 +1050,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">showPickerView:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">submitProspectApp:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -1038,6 +1070,8 @@
 							<string>pListTableViewController</string>
 							<string>pickerViewController</string>
 							<string>raterTableViewCell</string>
+							<string>spaceButton</string>
+							<string>submitButton</string>
 							<string>tableView</string>
 							<string>toolBar</string>
 						</object>
@@ -1051,6 +1085,8 @@
 							<string>ProducerListTableViewController</string>
 							<string>PickerViewController</string>
 							<string>ProducerRaterTableViewCell</string>
+							<string>UIBarButtonItem</string>
+							<string>UIBarButtonItem</string>
 							<string>UITableView</string>
 							<string>UIToolbar</string>
 						</object>
@@ -1067,6 +1103,8 @@
 							<string>pListTableViewController</string>
 							<string>pickerViewController</string>
 							<string>raterTableViewCell</string>
+							<string>spaceButton</string>
+							<string>submitButton</string>
 							<string>tableView</string>
 							<string>toolBar</string>
 						</object>
@@ -1103,6 +1141,14 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">raterTableViewCell</string>
 								<string key="candidateClassName">ProducerRaterTableViewCell</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">spaceButton</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">submitButton</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">tableView</string>

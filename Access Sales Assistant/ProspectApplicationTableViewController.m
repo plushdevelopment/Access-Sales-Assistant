@@ -543,6 +543,7 @@
                 case ESubTerritory:
                 {
                     self.detailItem.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:titleForRow managedObjectContext:[NSManagedObjectContext defaultContext]];
+                    break;
                     //  self.
                     
                 }
@@ -921,7 +922,13 @@
                 case ETSMName:
                     break;
                 case ESubTerritory:
+                {
+                    self.detailItem.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:textField.text managedObjectContext:[NSManagedObjectContext defaultContext]];
                     break;
+                    //  self.
+                    
+                }
+
                 case ESource:
                     break;
             }

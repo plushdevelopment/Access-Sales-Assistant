@@ -167,7 +167,7 @@
 							<object class="IBUILabel" id="406768560">
 								<reference key="NSNextResponder" ref="723744712"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{60, 10}, {42, 21}}</string>
+								<string key="NSFrame">{{10, 10}, {92, 21}}</string>
 								<reference key="NSSuperview" ref="723744712"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:120</string>
@@ -193,7 +193,7 @@
 							<object class="IBUILabel" id="852463605">
 								<reference key="NSNextResponder" ref="723744712"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{451, 10}, {42, 21}}</string>
+								<string key="NSFrame">{{409, 10}, {84, 21}}</string>
 								<reference key="NSSuperview" ref="723744712"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:120</string>
@@ -1409,6 +1409,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">SelectionModelViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">closeAction:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">closeAction:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">closeAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">

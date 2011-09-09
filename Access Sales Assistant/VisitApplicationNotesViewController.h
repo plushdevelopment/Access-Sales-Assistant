@@ -12,21 +12,23 @@
 @class DailySummary;
 
 @interface VisitApplicationNotesViewController : UIViewController <UITextFieldDelegate, DetailViewController> {
-	UITextField *_opportunityTextField;
+/*	UITextField *_opportunityTextField;
 	UITextField *_summaryTextField;
 	UITextField *_committmentTextField;
-	UITextField *_followUpTextField;
+	UITextField *_followUpTextField;*/
 }
 
 
 
 @property (nonatomic, strong) DailySummary *detailItem;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong) IBOutlet UITextField *opportunityTextField;
-@property (nonatomic, strong) IBOutlet UITextField *summaryTextField;
-@property (nonatomic, strong) IBOutlet UITextField *committmentTextField;
-@property (nonatomic, strong) IBOutlet UITextField *followUpTextField;
-
+@property (nonatomic, strong) IBOutlet UITextView *opportunityTextField;
+@property (nonatomic, strong) IBOutlet UITextView *summaryTextField;
+@property (nonatomic, strong) IBOutlet UITextView *committmentTextField;
+@property (nonatomic, strong) IBOutlet UITextView *followUpTextField;
+@property (nonatomic, strong) IBOutlet UIScrollView* scrollView;
+@property (nonatomic,strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic,strong) NSString* titleText;
 
 - (void)configureView;
 - (IBAction)dismiss:(id)sender;

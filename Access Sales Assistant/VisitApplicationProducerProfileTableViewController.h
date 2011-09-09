@@ -53,6 +53,7 @@
 @property (nonatomic, strong) IBOutlet ProducerHoursTableViewCell* hoursTableViewCell;
 @property (nonatomic, strong) IBOutlet ProducerQuestionTableViewCell *questionTableViewCell;
 @property (strong, nonatomic) IBOutlet SmartTableView *tableView;
+@property (nonatomic,strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic) BOOL isDoneSelected;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *dismissButton;

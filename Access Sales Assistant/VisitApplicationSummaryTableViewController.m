@@ -127,6 +127,10 @@ enum PRPTableStatsTags {
 
 @synthesize submitButton = _submitButton;
 
+@synthesize titleLabel = _titleLabel;
+
+@synthesize titleText;
+
 #pragma mark -
 #pragma mark IBActions
 
@@ -289,13 +293,20 @@ enum PRPTableStatsTags {
         DailySummary *dSummary = [DailySummary createEntity]; 
 		producer.dailySummary = dSummary;//[DailySummary createEntity];
 	}
+    
+
     if (_detailItem != producer.dailySummary) {
         _detailItem = producer.dailySummary;
         
         // Update the view.
         [self configureView];
     }
+    
+   titleText = [[NSString alloc]initWithFormat:@"%@ - %@",producer.name,producer.producerCode];  
+    NSLog(titleText);
 	
+ 
+        
 	if (self.aPopoverController != nil) {
         [self.aPopoverController dismissPopoverAnimated:YES];
     } 
@@ -357,6 +368,8 @@ enum PRPTableStatsTags {
 {
     [super viewWillAppear:animated];
 	[self.tableView reloadData];
+    
+       _titleLabel.text = titleText;
 }
 
 - (void)viewDidAppear:(BOOL)animated

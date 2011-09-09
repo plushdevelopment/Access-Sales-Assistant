@@ -39,11 +39,15 @@
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *dismissButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *submitButton;
+
+@property (nonatomic,strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic,strong) NSString* titleText;
 //@property ()
 
 - (void)configureView;
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
+- (IBAction)showSelectionTableView:(id)sender;
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;
 

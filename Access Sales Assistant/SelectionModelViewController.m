@@ -208,4 +208,8 @@
     
     return YES;
 }
+-(IBAction)closeAction:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 @end
