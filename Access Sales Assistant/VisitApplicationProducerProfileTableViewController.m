@@ -90,7 +90,7 @@
     
     sectionTitleArray = [[NSArray alloc] initWithObjects:PRODUCER_PROFILE_SECTIONS];
     
-    self.tableView.allowsSelection = NO;
+    self.tableView.allowsSelection = YES;
     
     myTextFieldSemaphore =0;
     myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
@@ -234,6 +234,10 @@
             cell.eOExpiresTextField.text = [dateFormatter stringFromDate:_detailItem.eAndOExpires];
              [self disableTextField:cell.eOExpiresTextField :NO];
             cell.dateEstablishedTextField.text = [dateFormatter stringFromDate:_detailItem.dateEstablished];
+            if(indexPath == self.datePickerViewController.currentIndexPath)
+                cell.selected = YES;
+            else
+                cell.selected = NO;
             return cell;
         }
         case EQuestions:
@@ -923,8 +927,13 @@
 	//Add the picker to the view
 	[self.parentViewController.view addSubview:self.datePickerViewController.view];
     
+  
     
-      [self.tableView selectRowAtIndexPath:self.datePickerViewController.currentIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+   //  [self.tableView selectRowAtIndexPath:self.datePickerViewController.currentIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    
+ //   [self.tableView selectRowAtIndexPath:self.datePickerViewController.currentIndexPath];
+    
+    //[self.tableView.delegate tableView:self.tableView didSelectRowAtIndexPath:self.datePickerViewController.currentIndexPath];
 	
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"
@@ -938,6 +947,8 @@
 		[[NSNotificationCenter defaultCenter] postNotification:notification];
 	}];
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
+    
+      [self.tableView reloadData];
    
 }
 
@@ -2391,6 +2402,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+ //   [self.tableView selectRowAtIndexPath:self.datePickerViewController.currentIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 
 

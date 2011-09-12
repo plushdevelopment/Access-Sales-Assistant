@@ -341,15 +341,6 @@
 					<int key="connectionID">44</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">showPickerView:</string>
-						<reference key="source" ref="282186093"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">45</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">cityTextField</string>
 						<reference key="source" ref="628234452"/>
@@ -404,6 +395,15 @@
 						<reference key="destination" ref="196194957"/>
 					</object>
 					<int key="connectionID">52</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">showSelectionTableView:</string>
+						<reference key="source" ref="282186093"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">53</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -528,7 +528,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">52</int>
+			<int key="maxID">53</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1046,10 +1046,12 @@
 							<string>searchProducer:</string>
 							<string>showDatePickerView:</string>
 							<string>showPickerView:</string>
+							<string>showSelectionTableView:</string>
 							<string>submitProspectApp:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1065,6 +1067,7 @@
 							<string>searchProducer:</string>
 							<string>showDatePickerView:</string>
 							<string>showPickerView:</string>
+							<string>showSelectionTableView:</string>
 							<string>submitProspectApp:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1083,6 +1086,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">showPickerView:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">showSelectionTableView:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

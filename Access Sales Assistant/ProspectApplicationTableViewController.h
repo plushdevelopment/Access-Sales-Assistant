@@ -23,8 +23,9 @@
 #import "VisitApplicationTabBarController.h"
 #import "ProducerListTableViewController.h"
 #import "PhoneNumberFormatter.h"
+#import "SelectionModelViewController.h"
 
-@interface ProspectApplicationTableViewController : BaseDetailViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController,UITableViewDelegate,UITableViewDataSource>// UITableViewController
+@interface ProspectApplicationTableViewController : BaseDetailViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController,UITableViewDelegate,UITableViewDataSource,optionSelectedDelegate>// UITableViewController
 {
     NSArray* sectionTitleArray;
     NSMutableArray* producerList;
@@ -63,6 +64,7 @@
 
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
+-(IBAction)showSelectionTableView:(id)sender;
 - (IBAction)searchProducer:(id)sender;
 -(void) toggleSubmitButton:(BOOL)isEnabled;
 -(BOOL) isEnableSubmit;

@@ -23,6 +23,8 @@
 #import "PhoneListItem.h"
 #import "EmailListItem.h"
 #import "NSString-Validation.h"
+#import "SelectionModelViewController.h"
+
 @implementation ProspectApplicationTableViewController
 
 
@@ -449,6 +451,61 @@
 	}];
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
     
+}
+
+-(IBAction)showSelectionTableView:(id)sender
+{
+    
+    UIButton *button = (UIButton *)sender;
+    
+    
+    SelectionModelViewController *selectionView = [[SelectionModelViewController alloc] initWithNibName:@"SelectionModelViewController" bundle:nil];
+    
+    selectionView.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
+    
+    selectionView.currentTag = button.tag;
+    
+    [selectionView  setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [selectionView  setModalPresentationStyle:UIModalPresentationFormSheet];
+    selectionView.delegate = self;
+    
+    
+    switch(selectionView.currentIndexPath.section)
+    {
+        case EAddresses:
+        {
+            switch(selectionView.currentTag)
+            {
+                case EAddressState:
+                {
+                    [selectionView assignDataSource:[State findAllSortedBy:@"name" ascending:YES]];
+                    [self presentModalViewController:selectionView animated:YES];
+                    break;
+                }
+            }
+        }
+            break;
+        case ERater:
+        {
+            switch(selectionView.currentTag)
+            {
+                case ERater1:
+                {
+                    [selectionView assignDataSource:[Rater findAllSortedBy:@"name" ascending:YES]];
+                    [self presentModalViewController:selectionView animated:YES];
+                }
+                break;
+                case ERater2:
+                {
+                    [selectionView assignDataSource:[Rater2 findAllSortedBy:@"name" ascending:YES]];
+                    [self presentModalViewController:selectionView animated:YES];
+                    break;
+                }
+            }
+        }
+            break;
+
+    }
 }
 
 
@@ -1049,7 +1106,6 @@
                         {
                             phoneExists= TRUE;
                             if([textField.text isValidPhoneNumber])
-                    //        if([textField.text isvalidSSN])
                             {
                             phoneNumber.number = textField.text;
                                 [self changeTextFieldOutline:textField:YES];
@@ -1058,7 +1114,6 @@
                             {
                                 [self showAlert:VALID_PHONE_ALERT];
                                 [self changeTextFieldOutline:textField:NO];
-                                // textField.text  = @"";
                             }
                             break;
                         }
@@ -1066,8 +1121,7 @@
                     
                     if(!phoneExists)
                     {
-                   //     if([textField.text isValidPhoneNumber])
-                        if([textField.text isvalidSSN])
+                       if([textField.text isValidPhoneNumber])
                         {
                         PhoneListItem *phNo = [PhoneListItem createEntity];
                         phNo.typeValue = 4;
@@ -1080,7 +1134,6 @@
                         {
                             [self showAlert:VALID_PHONE_ALERT];
                             [self changeTextFieldOutline:textField:NO];
-                           // textField.text  = @"";
                         }
 
                         
@@ -1105,7 +1158,6 @@
                              {
                                  [self showAlert:VALID_EMAIL_ALERT];
                                  [self changeTextFieldOutline:textField:NO];
-                              //   textField.text  = @"";
                              }
                              break;
                          }
@@ -1259,6 +1311,126 @@
     myTextFieldSemaphore=0;
 
     NSLog(textField.text);
+}
+
+-(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag
+{
+    switch(forIndexPath.section)
+    {
+        case EAddresses:
+        {
+            switch(forTag)
+            {
+                case EAddressState:
+                {
+                    int indRow = forIndexPath.row;
+                    switch(forIndexPath.row)
+                    {
+                        case 0:
+                        {
+                            AddressListItem *addrItem = nil;
+                            for (AddressListItem *address in _detailItem.addresses) {
+                                int addrValue = address.addressTypeValue;
+                                if (address.addressTypeValue == 1) {
+                                    addrItem = address;
+                                    
+                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+                                    continue;
+                                }
+                            }
+                            if(addrItem != nil)
+                            {
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                            }
+                            else
+                            {
+                                addrItem = [AddressListItem createEntity];
+                                addrItem.addressTypeValue = 1;
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                [self.detailItem addAddressesObject:addrItem];
+                            }
+                            
+                            break;
+                        }
+                            
+                        case 1:
+                        {
+                            AddressListItem *addrItem = nil;
+                            for (AddressListItem *address in _detailItem.addresses) {
+                                int addrValue = address.addressTypeValue;
+                                if (address.addressTypeValue == 2) {
+                                    addrItem = address;
+                                    
+                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+                                    break;
+                                }
+                            }
+                            if(addrItem != nil)
+                            {
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                            }
+                            else
+                            {
+                                addrItem = [AddressListItem createEntity];
+                                addrItem.addressTypeValue = 2;
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                [self.detailItem addAddressesObject:addrItem];
+                            }
+                            
+                            break;
+                        }
+                            
+                        case 2:
+                        {
+                            AddressListItem *addrItem = nil;
+                            for (AddressListItem *address in _detailItem.addresses) {
+                                int addrValue = address.addressTypeValue;
+                                if (address.addressTypeValue == 3) {
+                                    addrItem = address;
+                                    
+                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
+                                    continue;
+                                }
+                            }
+                            if(addrItem != nil)
+                            {
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                            }
+                            else
+                            {
+                                addrItem = [AddressListItem createEntity];
+                                addrItem.addressTypeValue = 3;
+                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                [self.detailItem addAddressesObject:addrItem];
+                            }
+                            
+                            break;
+                            
+                            
+                        }
+
+                    break;
+                }
+                }
+            break;
+            }
+        }
+        case ERater:
+        {
+            switch(forTag)
+            {
+                case ERater1:
+                    self.detailItem.rater = [Rater findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                case ERater2:
+                    self.detailItem.rater2 = [Rater2 findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+            }
+            break;
+        }
+    }
+    
+     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 }
 /*
 // Override to support conditional editing of the table view.
