@@ -402,6 +402,14 @@
 					</object>
 					<int key="connectionID">21</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">reasonNotSeenTextField</string>
+						<reference key="source" ref="336000237"/>
+						<reference key="destination" ref="194663360"/>
+					</object>
+					<int key="connectionID">22</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -547,7 +555,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">21</int>
+			<int key="maxID">22</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -570,6 +578,7 @@
 							<string>callTypeTextField</string>
 							<string>producerNameTextField</string>
 							<string>reasonNotSeen</string>
+							<string>reasonNotSeenTextField</string>
 							<string>reportDateButton</string>
 							<string>reportDateTextField</string>
 						</object>
@@ -578,6 +587,7 @@
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
+							<string>UITextField</string>
 							<string>UIButton</string>
 							<string>UITextField</string>
 						</object>
@@ -589,6 +599,7 @@
 							<string>callTypeTextField</string>
 							<string>producerNameTextField</string>
 							<string>reasonNotSeen</string>
+							<string>reasonNotSeenTextField</string>
 							<string>reportDateButton</string>
 							<string>reportDateTextField</string>
 						</object>
@@ -605,6 +616,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">reasonNotSeen</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">reasonNotSeenTextField</string>
+								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">reportDateButton</string>
