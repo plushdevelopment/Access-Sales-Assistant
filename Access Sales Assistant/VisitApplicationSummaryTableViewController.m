@@ -50,6 +50,8 @@
 
 #import "SelectionModelViewController.h"
 
+#import "ReasonNotSeen.h"
+
 #define VIEW_HIDDEN_FRAME CGRectMake(0.0, 20.0, 768.0, 1004.0)
 #define VIEW_VISIBLE_FRAME CGRectMake(0.0, -239.0, 768.0, 1004.0)
 #define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 765.0, 768.0, 259.0)
@@ -67,7 +69,8 @@ enum PRPTableSections {
 enum PRPTableGeneralTags {
     PRPTableGeneralProducerName = 1,
     PRPTableGeneralCallType,
-	PRPTableGeneralReportDate
+	PRPTableGeneralReportDate,
+    PRPTableGeneralReasonNotSeen
 };
 
 enum PRPTableSpokeWithTags {
@@ -239,6 +242,16 @@ enum PRPTableStatsTags {
     {
         case PRPTableSectionGeneral:
         {
+           switch(selectionView.currentTag)
+            {
+                case PRPTableGeneralReasonNotSeen:
+                {
+                    [selectionView assignDataSource:[ReasonNotSeen findAllSortedBy:@"name" ascending:YES]];
+                    [self presentModalViewController:selectionView  animated:YES];
+
+                    break;
+                }
+            }
             break;
         }
         case PRPTableSectionSpokeWith:
@@ -389,6 +402,8 @@ enum PRPTableStatsTags {
 
     if (_detailItem != producer.dailySummary) {
         _detailItem = producer.dailySummary;
+        
+          NSLog(@"Summary Info:%@",_detailItem);
         
         // Update the view.
         [self configureView];
@@ -582,6 +597,7 @@ enum PRPTableStatsTags {
 			customCell.callTypeTextField.delegate = self;
 			
 			[customCell.reportDateButton addTarget:self action:@selector(showDatePickerView:) forControlEvents:UIControlEventTouchUpInside];
+            [customCell.reasonNotSeen addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
 			
 			cell = customCell;
 		}
@@ -1655,6 +1671,11 @@ enum PRPTableStatsTags {
 					// Change value in model object
 					self.detailItem.purposeOfCall = [PurposeOfCall findFirstByAttribute:@"name" withValue:selectedString];
 					break;
+                case PRPTableGeneralReasonNotSeen:
+                {
+                    self.detailItem.reasonNotSeen = [ReasonNotSeen findFirstByAttribute:@"name" withValue:selectedString];
+                    break;
+                }
 				default:
 					break;
 			}

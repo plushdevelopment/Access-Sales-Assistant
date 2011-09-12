@@ -15,5 +15,6 @@
 @property (nonatomic, strong) IBOutlet UITextField *reportDateTextField;
 @property (nonatomic, strong) IBOutlet UITextField *callTypeTextField;
 @property (nonatomic, strong) IBOutlet UIButton *reportDateButton;
+@property (nonatomic, strong) IBOutlet UIButton *reasonNotSeen;
 
 @end

@@ -203,6 +203,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Producer *producer = [self.producers objectAtIndex:indexPath.row];
+    
+    NSLog(@"Producer Info:%@",producer);
 	/*
 	 VisitApplicationViewController *viewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
 	 [viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
