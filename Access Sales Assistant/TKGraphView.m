@@ -423,12 +423,12 @@ static float highValue;
 	
 	
 	float x = point * POINT_DISTANCE;
-	[scrollView setContentOffset:CGPointMake(x-480+POINT_DISTANCE*2, 0) animated:animated];
+	[scrollView setContentOffset:CGPointMake(x-self.frame.size.width+POINT_DISTANCE*2, 0) animated:animated]; //vm
 	
 	
 	
 	CGRect r = goalLabel.frame;
-	r.origin.x = x-480+POINT_DISTANCE*2 + 420;
+	r.origin.x = x-self.frame.size.width+POINT_DISTANCE*2 + 420;
 	if(animated){
 		[UIView beginAnimations:NULL context:nil];
 		[UIView setAnimationDuration:.2];
@@ -679,7 +679,7 @@ static float highValue;
 
 - (void) moveGoalLabel:(BOOL)animated{
 	CGRect r = goalLabel.frame;
-	r.origin.x = scrollView.contentOffset.x + 420;
+	r.origin.x = scrollView.contentOffset.x + (self.frame.size.width-goalLabel.frame.size.width);
 	if(animated){
 		[UIView beginAnimations:NULL context:nil];
 		[UIView setAnimationDuration:.2];
