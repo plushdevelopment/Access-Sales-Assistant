@@ -50,6 +50,7 @@
 @synthesize lossRatioTableViewCell1Nib=_lossRatioTableViewCell1Nib;
 @synthesize lossRatioTableViewCell2Nib=_lossRatioTableViewCell2Nib;
 @synthesize toggleAUNTKButton=_toggleAUNTKButton;
+@synthesize scrollView = _scrollView;
 
 #pragma mark -
 #pragma mark Detail item
@@ -106,24 +107,29 @@
 	
 	// Loss Ratio Line Chart
 	[self.lossRatioLineChartView setTitle:self.lossRatioTrendLabel];
-	[self.lossRatioLineChartView setPointDistance:5];
+	[self.lossRatioLineChartView setPointDistance:20];
 	[self.lossRatioLineChartView setTouchIndicatorEnabled:YES];
-	[self.lossRatioLineChartView setGoalValue:[NSNumber numberWithFloat:0.0]];
+	[self.lossRatioLineChartView setGoalValue:[NSNumber numberWithFloat:30.0]];
 	[self.lossRatioLineChartView setGoalShown:NO];
 	NSArray *lossRatioData = [self.auntk.lossRatioTrendReportData.allObjects sortedArrayUsingDescriptors:sortDescriptors];
 	NSLog(@"lossRatioData: %@", lossRatioData);
-	[self.lossRatioLineChartView setGraphWithDataPoints:lossRatioData];
+	if ((lossRatioData != nil) && (lossRatioData.count > 0)) {
+		[self.lossRatioLineChartView setGraphWithDataPoints:lossRatioData];
+	}
 	//[self.lossRatioLineChartView reload];
 	
 	// Claim Frequency Line Chart
 	[self.claimFrequencyLineChartView setTitle:self.claimFrequencyTrendLabel];
-	[self.claimFrequencyLineChartView setPointDistance:5];
+	[self.claimFrequencyLineChartView setPointDistance:20];
 	[self.claimFrequencyLineChartView setTouchIndicatorEnabled:YES];
-	[self.claimFrequencyLineChartView setGoalValue:[NSNumber numberWithFloat:0.0]];
+	[self.claimFrequencyLineChartView setGoalValue:[NSNumber numberWithFloat:30.0]];
 	[self.claimFrequencyLineChartView setGoalShown:NO];
 	NSArray *claimFrequencyData = [self.auntk.claimFrequecyTrendReportData.allObjects sortedArrayUsingDescriptors:sortDescriptors];
 	NSLog(@"claimFrequencyData: %@", claimFrequencyData);
-	[self.claimFrequencyLineChartView setGraphWithDataPoints:claimFrequencyData];
+	
+	if ((claimFrequencyData != nil) && (claimFrequencyData.count > 0)) {
+		[self.claimFrequencyLineChartView setGraphWithDataPoints:claimFrequencyData];
+	}
 	//[self.claimFrequencyLineChartView reload];
 	//[self.claimFrequencyLineChartView scrollToPoint:0 animated:YES];
 	/*
@@ -240,6 +246,7 @@
 	[self setClaimFrequencyTrendLabel:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[self setLossRatioTableView2:nil];
+	[self setScrollView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

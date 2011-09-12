@@ -189,6 +189,7 @@
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="neverVisit" optional="YES" attributeType="Boolean"/>
         <attribute name="nextScheduledVisit" optional="YES" attributeType="Date"/>
         <attribute name="nextScheduledVisitDate" optional="YES" attributeType="String"/>
         <attribute name="nextScheduledVisitTime" optional="YES" attributeType="String"/>
@@ -329,7 +330,7 @@
         <element name="Phase" positionX="-396" positionY="-108" width="128" height="90"/>
         <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="105"/>
         <element name="PolicyCountReportData" positionX="207" positionY="-675" width="128" height="90"/>
-        <element name="Producer" positionX="306" positionY="123" width="128" height="45"/>
+        <element name="Producer" positionX="306" positionY="123" width="128" height="630"/>
         <element name="ProducerAddOn" positionX="261" positionY="864" width="128" height="90"/>
         <element name="ProducerImage" positionX="27" positionY="870" width="128" height="75"/>
         <element name="ProductionReportData" positionX="459" positionY="-900" width="128" height="360"/>

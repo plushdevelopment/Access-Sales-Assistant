@@ -44,6 +44,7 @@
 
 
 
+
 @interface ProducerID : NSManagedObjectID {}
 @end
 
@@ -160,6 +161,18 @@
 
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *neverVisit;
+
+
+@property BOOL neverVisitValue;
+- (BOOL)neverVisitValue;
+- (void)setNeverVisitValue:(BOOL)value_;
+
+//- (BOOL)validateNeverVisit:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -493,6 +506,15 @@
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveNeverVisit;
+- (void)setPrimitiveNeverVisit:(NSNumber*)value;
+
+- (BOOL)primitiveNeverVisitValue;
+- (void)setPrimitiveNeverVisitValue:(BOOL)value_;
 
 
 

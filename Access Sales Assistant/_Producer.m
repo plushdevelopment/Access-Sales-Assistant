@@ -49,6 +49,10 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"longitude"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"neverVisitValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"neverVisit"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"numberOfEmployeesValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"numberOfEmployees"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -235,6 +239,32 @@
 
 @dynamic name;
 
+
+
+
+
+
+@dynamic neverVisit;
+
+
+
+- (BOOL)neverVisitValue {
+	NSNumber *result = [self neverVisit];
+	return [result boolValue];
+}
+
+- (void)setNeverVisitValue:(BOOL)value_ {
+	[self setNeverVisit:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveNeverVisitValue {
+	NSNumber *result = [self primitiveNeverVisit];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveNeverVisitValue:(BOOL)value_ {
+	[self setPrimitiveNeverVisit:[NSNumber numberWithBool:value_]];
+}
 
 
 
