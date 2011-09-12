@@ -237,7 +237,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 - (void)requestPickListsFinished:(ASIHTTPRequest *)request
 {
 	NSString *responseString = [request responseString];
+  //  NSLog(responseString);
 	NSArray *results = [responseString objectFromJSONString];
+    
+    NSLog(@"Response String:%@",results);
 	for (NSDictionary *dict in results) {
 		NSString *pickListType = [dict valueForKey:@"name"];
 		NSArray *pickListItems = [dict objectForKey:@"pickList"];

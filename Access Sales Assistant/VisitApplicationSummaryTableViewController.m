@@ -1141,7 +1141,6 @@ enum PRPTableStatsTags {
                     {
                         [self changeTextFieldOutline:textField:NO];
                     }
-                    
                 }
 				default:
 					break;
@@ -1154,8 +1153,8 @@ enum PRPTableStatsTags {
 	[self.managedObjectContext save];
     
     [self toggleSubmitButton:[self isEnableSubmit]];
-
-		return YES;
+    
+    return YES;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
