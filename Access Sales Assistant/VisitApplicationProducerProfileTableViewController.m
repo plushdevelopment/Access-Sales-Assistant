@@ -183,6 +183,14 @@
     // Return the number of rows in the section.
     switch(section)
     {
+        case ELastVisited:
+        {
+            if(_detailItem.lastVisit)
+                return 1;
+            else
+                return 0;
+        }
+//            return 1;
         case EGeneral:
             return 1;
         case EQuestions:
@@ -214,6 +222,41 @@
   
     switch(indexPath.section)
     {
+        case ELastVisited:
+        {
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            
+            [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+            
+         
+            NSString* lastVisitedText = [[NSString alloc] initWithFormat:@"Last Visited: %@",[dateFormatter stringFromDate:_detailItem.lastVisit]];
+            
+            static NSString *CellIdentifier = @"lastvisitedcell";
+           
+            
+           
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            
+            if (cell == nil) {
+                
+                cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] ;
+               
+            }
+            if(_detailItem.lastVisit)
+            {
+            cell.textLabel.text=lastVisitedText;
+            }
+            else
+                cell.textLabel.text = @"Last Visited:";
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];
+                
+            return cell;
+            
+
+            
+            break;
+        }
         case EGeneral:
         {
             [[NSBundle mainBundle] loadNibNamed:@"ProducerGeneralTableViewCell" owner:self options:nil];
@@ -379,6 +422,11 @@
 {
 	CGFloat height = 0.0;
     switch (indexPath.section) {
+        case ELastVisited:
+        {
+            height = 44.0;
+            break;
+        }
         case EGeneral:
         {
             height = 188.0;

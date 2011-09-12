@@ -13,6 +13,7 @@
 @synthesize reportDateTextField = _reportDateTextField;
 @synthesize callTypeTextField = _callTypeTextField;
 @synthesize reportDateButton = _reportDateButton;
+@synthesize reasonNotSeen = _reasonNotSeen;
 
 
 @end
