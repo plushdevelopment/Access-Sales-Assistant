@@ -117,12 +117,12 @@
 		NSString *encryptedString = [encryptedData base64EncodingWithLineLength:0];
 		NSString *encryptedEncodedString = [self urlencode:encryptedString];
 		NSLog(@"Encrypted Login: %@", encryptedEncodedString);
-		[[self user] setPassword:encryptedEncodedString];
+		[[self user] setPassword:self.passwordField.text];
 		[[self user] setOrganization:self.organizationField.text];
 		[[self user] setServiceKey:self.serviceKeyField.text];
 		[self.managedObjectContext save];
 		
-		NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@", self.user.username, self.user.password, self.user.domain, self.user.organization, self.user.serviceKey];
+		NSString *urlString = [NSString stringWithFormat:@"https://uatmobile.accessgeneral.com/SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@", self.user.username, encryptedEncodedString, self.user.domain, self.user.organization, self.user.serviceKey];
 		NSURL *url = [NSURL URLWithString:urlString];
 		ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 		[request setRequestMethod:@"GET"];
@@ -148,6 +148,9 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
+	if ([request responseStatusCode] != 200) {
+		[self requestFailed:request];
+	}
 	NSString *responseString = [request responseString];
 	NSLog(@"Response String: %@", responseString);
 	NSString *jsonString = [responseString JSONFragmentValue];

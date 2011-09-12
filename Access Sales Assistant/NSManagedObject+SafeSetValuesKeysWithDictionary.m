@@ -119,6 +119,8 @@
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"address" value:[subValue valueForKey:@"address"] managedObjectContext:context];
 				}  else if ([desc.description isEqualToString:@"text"]) {
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[subValue valueForKey:@"text"] managedObjectContext:context];
+				} else if ([desc.description isEqualToString:@"header"] || [desc.description isEqualToString:@"monthYear"] || [desc.description isEqualToString:@"monthEndDate"]) {
+					object = [[NSClassFromString([entityDesc name]) class] createEntity];
 				}
 			}
 			/*
