@@ -21,7 +21,7 @@
 
 
 
-@property (nonatomic, retain) NSString *claimsFrequency;
+@property (nonatomic, retain) NSDecimalNumber *claimsFrequency;
 
 
 //- (BOOL)validateClaimsFrequency:(id*)value_ error:(NSError**)error_;
@@ -54,8 +54,8 @@
 @interface _ClaimFrequecyTrendReportData (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveClaimsFrequency;
-- (void)setPrimitiveClaimsFrequency:(NSString*)value;
+- (NSDecimalNumber*)primitiveClaimsFrequency;
+- (void)setPrimitiveClaimsFrequency:(NSDecimalNumber*)value;
 
 
 

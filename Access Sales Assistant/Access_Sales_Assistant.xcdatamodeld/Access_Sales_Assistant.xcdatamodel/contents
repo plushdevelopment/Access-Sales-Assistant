@@ -27,7 +27,7 @@
         <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="barriersToBusiness" inverseEntity="DailySummary"/>
     </entity>
     <entity name="ClaimFrequecyTrendReportData" representedClassName="ClaimFrequecyTrendReportData">
-        <attribute name="claimsFrequency" optional="YES" attributeType="String"/>
+        <attribute name="claimsFrequency" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="monthYear" optional="YES" attributeType="String"/>
         <relationship name="auntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="claimFrequecyTrendReportData" inverseEntity="AUNTK"/>
     </entity>
@@ -116,7 +116,7 @@
         <relationship name="producer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="ineligibleReason" inverseEntity="Producer"/>
     </entity>
     <entity name="LossRatioTrendReportData" representedClassName="LossRatioTrendReportData">
-        <attribute name="lossRatio" optional="YES" attributeType="String"/>
+        <attribute name="lossRatio" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="monthYear" optional="YES" attributeType="String"/>
         <relationship name="auntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="lossRatioTrendReportData" inverseEntity="AUNTK"/>
     </entity>

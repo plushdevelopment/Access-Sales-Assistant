@@ -21,7 +21,7 @@
 
 
 
-@property (nonatomic, retain) NSString *lossRatio;
+@property (nonatomic, retain) NSDecimalNumber *lossRatio;
 
 
 //- (BOOL)validateLossRatio:(id*)value_ error:(NSError**)error_;
@@ -54,8 +54,8 @@
 @interface _LossRatioTrendReportData (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveLossRatio;
-- (void)setPrimitiveLossRatio:(NSString*)value;
+- (NSDecimalNumber*)primitiveLossRatio;
+- (void)setPrimitiveLossRatio:(NSDecimalNumber*)value;
 
 
 

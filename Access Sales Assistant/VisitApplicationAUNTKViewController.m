@@ -39,7 +39,9 @@
 @synthesize productionTableView=_productionTableView;
 @synthesize lossRatioTableView1 = _lossRatioTableView;
 @synthesize lossRatioLineChartView = _lossRatioLineChartView;
+@synthesize lossRatioTrendLabel = _lossRatioTrendLabel;
 @synthesize claimFrequencyLineChartView = _claimFrequencyLineChartView;
+@synthesize claimFrequencyTrendLabel = _claimFrequencyTrendLabel;
 @synthesize dismissButton=_dismissButton;
 @synthesize aPopoverController=_aPopoverController;
 @synthesize managedObjectContext=_managedObjectContext;
@@ -47,15 +49,7 @@
 @synthesize productionTableViewCellNib=_productionTableViewCellNib;
 @synthesize lossRatioTableViewCell1Nib=_lossRatioTableViewCell1Nib;
 @synthesize lossRatioTableViewCell2Nib=_lossRatioTableViewCell2Nib;
-
-#pragma mark -
-#pragma mark IBActions
-
-- (IBAction)dismiss:(id)sender
-{
-	[self.presentingViewController viewWillAppear:YES];
-	[self dismissModalViewControllerAnimated:YES];
-}
+@synthesize toggleAUNTKButton=_toggleAUNTKButton;
 
 #pragma mark -
 #pragma mark Detail item
@@ -84,16 +78,88 @@
     }
 }
 
+#pragma mark -
+#pragma mark IBActions
+
+- (IBAction)dismiss:(id)sender
+{
+	[self.presentingViewController viewWillAppear:YES];
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)toggleAUNTK:(id)sender
+{
+	if ([self.auntk isEqual:self.detailItem.auntk]) {
+		[self setAuntk:self.detailItem.chainAuntk];
+		self.toggleAUNTKButton.title = @"Switch to AUNTK";
+	} else {
+		[self setAuntk:self.detailItem.auntk];
+		self.toggleAUNTKButton.title = @"Switch to Chain";
+	}
+}
+
+
 - (void)configureView
 {
+	NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"monthYear" ascending:YES];
+	NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+	
 	// Loss Ratio Line Chart
-	NSMutableArray *lossRatioComponents = [NSMutableArray array];
-	//NSArray *testArray = self.auntk.
-	for (LossRatioTrendReportData *reportData in self.auntk.lossRatioTrendReportData) {
-		PCLineChartViewComponent *component = [[PCLineChartViewComponent alloc] init];
-		[component setTitle:reportData.monthYear];
-		//[component setPoints:<#(NSArray *)#>
-	}
+	[self.lossRatioLineChartView setTitle:self.lossRatioTrendLabel];
+	[self.lossRatioLineChartView setPointDistance:5];
+	[self.lossRatioLineChartView setTouchIndicatorEnabled:YES];
+	[self.lossRatioLineChartView setGoalValue:[NSNumber numberWithFloat:0.0]];
+	[self.lossRatioLineChartView setGoalShown:NO];
+	NSArray *lossRatioData = [self.auntk.lossRatioTrendReportData.allObjects sortedArrayUsingDescriptors:sortDescriptors];
+	NSLog(@"lossRatioData: %@", lossRatioData);
+	[self.lossRatioLineChartView setGraphWithDataPoints:lossRatioData];
+	//[self.lossRatioLineChartView reload];
+	
+	// Claim Frequency Line Chart
+	[self.claimFrequencyLineChartView setTitle:self.claimFrequencyTrendLabel];
+	[self.claimFrequencyLineChartView setPointDistance:5];
+	[self.claimFrequencyLineChartView setTouchIndicatorEnabled:YES];
+	[self.claimFrequencyLineChartView setGoalValue:[NSNumber numberWithFloat:0.0]];
+	[self.claimFrequencyLineChartView setGoalShown:NO];
+	NSArray *claimFrequencyData = [self.auntk.claimFrequecyTrendReportData.allObjects sortedArrayUsingDescriptors:sortDescriptors];
+	NSLog(@"claimFrequencyData: %@", claimFrequencyData);
+	[self.claimFrequencyLineChartView setGraphWithDataPoints:claimFrequencyData];
+	//[self.claimFrequencyLineChartView reload];
+	//[self.claimFrequencyLineChartView scrollToPoint:0 animated:YES];
+	/*
+	// Loss Ratio Line Chart
+	[self.lossRatioLineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+	self.lossRatioLineChartView.minValue = 0;
+	self.lossRatioLineChartView.maxValue = 30.0;
+	
+	NSArray *lossRatioPointsArray = [self.auntk.lossRatioTrendReportData.allObjects valueForKeyPath:@"lossRatio"];
+	PCLineChartViewComponent *lossRatioComponent = [[PCLineChartViewComponent alloc] init];
+	
+	[lossRatioComponent setTitle:@"Loss Ratio Trend"];
+	[lossRatioComponent setPoints:lossRatioPointsArray];
+	[lossRatioComponent setShouldLabelValues:NO];
+	[lossRatioComponent setColour:PCColorGreen];
+	NSMutableArray *lossRatioComponents = [NSMutableArray arrayWithObject:lossRatioComponent];
+	[self.lossRatioLineChartView setComponents:lossRatioComponents];
+	NSArray *xLabels = [self.auntk.lossRatioTrendReportData.allObjects valueForKeyPath:@"monthYear"];
+	[self.lossRatioLineChartView setXLabels:[NSMutableArray arrayWithArray:xLabels]];
+	
+	
+	// Claim Frequency Line Chart
+	[self.claimFrequencyLineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+	
+	NSArray *claimFrequencyPointsArray = [self.auntk.claimFrequecyTrendReportData.allObjects valueForKeyPath:@"claimsFrequency"];
+	PCLineChartViewComponent *claimFrequencyComponent = [[PCLineChartViewComponent alloc] init];
+	[claimFrequencyComponent setTitle:@"Claim Frequency Trend"];
+	[claimFrequencyComponent setPoints:claimFrequencyPointsArray];
+	[claimFrequencyComponent setShouldLabelValues:YES];
+	[claimFrequencyComponent setColour:PCColorBlue];
+	[self.claimFrequencyLineChartView setComponents:[NSMutableArray arrayWithObject:claimFrequencyComponent]];
+	[self.claimFrequencyLineChartView setXLabels:[NSMutableArray arrayWithArray:[self.auntk.claimFrequecyTrendReportData.allObjects valueForKeyPath:@"monthYear"]]];
+	[self.claimFrequencyLineChartView setNeedsDisplay];
+	*/
+	 
+	// Table Views
 	[self.productionTableView reloadData];
 	[self.lossRatioTableView1 reloadData];
 	[self.lossRatioTableView2 reloadData];
@@ -152,6 +218,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	_lossRatioLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(30, 677, 360, 224)];
+	[self.view addSubview:self.lossRatioLineChartView];
+	_claimFrequencyLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(394, 677, 360, 224)];
+	[self.view addSubview:self.claimFrequencyLineChartView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -166,6 +236,8 @@
 	[self setLossRatioTableView1:nil];
 	[self setLossRatioLineChartView:nil];
 	[self setClaimFrequencyLineChartView:nil];
+	[self setLossRatioTrendLabel:nil];
+	[self setClaimFrequencyTrendLabel:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[self setLossRatioTableView2:nil];
     [super viewDidUnload];
@@ -175,8 +247,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    [_lossRatioLineChartView setNeedsDisplay];
-	[_claimFrequencyLineChartView setNeedsDisplay];
+    //[_lossRatioLineChartView setNeedsDisplay];
+	//[_claimFrequencyLineChartView setNeedsDisplay];
 	return YES;
 }
 
@@ -221,7 +293,7 @@
 		customCell.wpTotalITDLabel.text = data.wpTotalITD.stringValue;
 		customCell.averageWpITDLabel.text = data.avgWPITD.stringValue;
 		customCell.epTotalITDLabel.text = data.epTotalITD.stringValue;
-		customCell.lrTotalITDLabel.text = data.lrTotalITD;
+		customCell.lrTotalITDLabel.text = data.lrTotalITD.stringValue;
 		return customCell;
 	} else if (tableView == self.lossRatioTableView2) {
 		AUNTKLossRatioTableViewCell2 *customCell = [AUNTKLossRatioTableViewCell2 cellForTableView:tableView fromNib:self.lossRatioTableViewCell2Nib];
@@ -229,7 +301,7 @@
 		customCell.yearLabel.text = data.year.stringValue;
 		customCell.monthLabel.text = data.month;
 		customCell.percentLiabilityOnlyLabel.text = data.percentLiabilityOnlyITD.stringValue;
-		customCell.thirtyDayCancelLabel.text = data.cancel30dMonth;
+		customCell.thirtyDayCancelLabel.text = data.cancel30dMonth.stringValue;
 		customCell.thirtyDayClaimsLabel.text = data.nbrClaims30dMonth.stringValue;
 		customCell.numberOfClaimsPerMonthLabel.text = data.nbrClaimsMonth.stringValue;
 		customCell.numberOfClaimsITDLabel.text = data.nbrClaimsITD.stringValue;
