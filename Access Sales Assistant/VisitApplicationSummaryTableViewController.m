@@ -48,6 +48,8 @@
 
 #import "AddRowTableViewCell.h"
 
+#import "SelectionModelViewController.h"
+
 #define VIEW_HIDDEN_FRAME CGRectMake(0.0, 20.0, 768.0, 1004.0)
 #define VIEW_VISIBLE_FRAME CGRectMake(0.0, -239.0, 768.0, 1004.0)
 #define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 765.0, 768.0, 259.0)
@@ -215,6 +217,96 @@ enum PRPTableStatsTags {
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
 }
 
+
+-(IBAction)showSelectionTableView:(id)sender
+{
+    
+    UIButton *button = (UIButton *)sender;
+    
+    
+    SelectionModelViewController *selectionView = [[SelectionModelViewController alloc] initWithNibName:@"SelectionModelViewController" bundle:nil];
+    
+    selectionView.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
+    
+    selectionView.currentTag = button.tag;
+    
+    [selectionView  setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [selectionView  setModalPresentationStyle:UIModalPresentationFormSheet];
+    selectionView.delegate = self;
+    
+    
+    switch(selectionView.currentIndexPath.section)
+    {
+        case PRPTableSectionGeneral:
+        {
+            break;
+        }
+        case PRPTableSectionSpokeWith:
+        {
+            switch(selectionView.currentTag)
+            {
+                case PRPTableSpokeWithTitle:
+                {
+                    [selectionView assignDataSource:[PersonSpokeWithTitle findAllSortedBy:@"name" ascending:YES]];
+                     [self presentModalViewController:selectionView  animated:YES];
+                    break;
+                }
+            }
+            break;
+        }
+        case PRPTableSectionCompetitor:
+        {
+            switch(selectionView.currentTag)
+            {
+                case PRPTableCompetitorName:
+                {
+                    [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
+                     [self presentModalViewController:selectionView  animated:YES];
+                    break;
+                }
+                case PRPTableCompetitorCommissionStructure:
+                {
+                    [selectionView assignDataSource:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
+                     [self presentModalViewController:selectionView  animated:YES];
+                    break;
+                }
+            }
+            break;
+        }
+        case PRPTableSectionBarriersToBusiness:
+        {
+            switch(selectionView.currentTag)
+            {
+                case PRPTableBarrierName:
+                {
+                    [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
+                     [self presentModalViewController:selectionView  animated:YES];
+                    break;
+                }
+            }
+            break;
+        }
+        case PRPTableSectionStats:
+        {
+            switch(selectionView.currentTag)
+            {
+                case PRPTableStatsProducerAddOn:
+                {
+                    [selectionView assignDataSource:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
+                     [self presentModalViewController:selectionView  animated:YES];
+                    break;
+                }
+                case PRPTableStatsRDFollowUp:
+                {
+             //       [selectionView assignDataSource:[]]
+                    break;
+                }
+            }
+            break;
+        }
+            
+    }
+}
 #pragma mark -
 #pragma mark Accessors
 
@@ -542,7 +634,7 @@ enum PRPTableStatsTags {
 				customCell.titleTextField.delegate = self;
 				customCell.emailAddressTextField.delegate = self;
 				
-				[customCell.titleButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
+				[customCell.titleButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
 				
 				cell = customCell;
 			}
@@ -597,8 +689,8 @@ enum PRPTableStatsTags {
 				customCell.percentNewTextField.delegate = self;
 				customCell.percentRenewalTextField.delegate = self;
 				
-				[customCell.competitorNameButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
-				[customCell.commissionStructureButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
+				[customCell.competitorNameButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
+				[customCell.commissionStructureButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
 				
 				cell = customCell;
 			}
@@ -647,7 +739,7 @@ enum PRPTableStatsTags {
 				
 				customCell.barrierToBusinessTextField.delegate = self;
 				
-				[customCell.barrierToBusinessButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
+				[customCell.barrierToBusinessButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
 				
 				cell = customCell;
 			}
@@ -669,9 +761,10 @@ enum PRPTableStatsTags {
 			customCell.rdFollowUpTextField.delegate = self;
 			customCell.monthlyGoalTextField.delegate = self;
 			customCell.percentFDLTextField.delegate = self;
+            customCell.rdFollowUpTextField.delegate = self;
 			
-			[customCell.rdFollowUpButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
-			[customCell.producerAddOnButton addTarget:self action:@selector(showPickerView:) forControlEvents:UIControlEventTouchUpInside];
+			[customCell.rdFollowUpButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
+			[customCell.producerAddOnButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
 			
 			cell = customCell;
 		}
@@ -1552,5 +1645,81 @@ enum PRPTableStatsTags {
     }
     
     return TRUE;
+}
+
+-(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag
+{
+    switch (forIndexPath.section) {
+		case PRPTableSectionGeneral:
+			switch (forTag) {
+				case PRPTableGeneralCallType:
+					// Change value in model object
+					self.detailItem.purposeOfCall = [PurposeOfCall findFirstByAttribute:@"name" withValue:selectedString];
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionSpokeWith:
+			switch (forTag) {
+				case PRPTableSpokeWithTitle: {
+					// Change value in model object
+					PersonSpokeWith *person = [self.detailItem.personsSpokeWith.allObjects objectAtIndex:forIndexPath.row];
+					person.title = [PersonSpokeWithTitle findFirstByAttribute:@"name" withValue:selectedString];
+				}
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionCompetitor:
+			switch (forTag) {
+				case PRPTableCompetitorName: {
+					Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:forIndexPath.row];//[Competitor findFirstByAttribute:@"name" withValue:titleForRow];
+                    competitor.name = selectedString;//[Competitor findFirstByAttribute:@"name" withValue:<#(id)#>]
+					//[self.detailItem.competitorsSet.allObjects removeObjectAtIndex:indexPath.row];
+					
+				}
+					break;
+				case PRPTableCompetitorCommissionStructure: {
+					CommissionStructure *structure = [CommissionStructure findFirstByAttribute:@"name" withValue:selectedString];
+					self.detailItem.commissionStructure = structure;
+				}
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionBarriersToBusiness:
+			switch (forTag) {
+				case PRPTableBarrierName: {
+					// Change value in model object
+					BarrierToBusiness *barrier = [self.detailItem.barriersToBusiness.allObjects objectAtIndex:forIndexPath.row];//[BarrierToBusiness findFirstByAttribute:@"name" withValue:titleForRow];
+                    barrier.name = selectedString;
+					[self.detailItem addBarriersToBusinessObject:barrier];
+				}
+					break;
+				default:
+					break;
+			}
+			break;
+		case PRPTableSectionStats:
+			switch (forTag) {
+				case PRPTableStatsProducerAddOn:
+					self.detailItem.producerAddOn = [ProducerAddOn findFirstByAttribute:@"name" withValue:selectedString];
+					break;
+				case PRPTableStatsRDFollowUp:
+					self.detailItem.rdFollowUpValue = [selectedString integerValue];
+					break;
+				default:
+					break;
+			}
+			break;
+		default:
+			break;
+	}
+    
+      [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+
 }
 @end

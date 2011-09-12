@@ -492,7 +492,6 @@
 								<string key="NSFrame">{{523, 137}, {228, 31}}</string>
 								<reference key="NSSuperview" ref="44182174"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUITag">8</int>
@@ -1401,6 +1400,7 @@
 							<string>numberOfEmployeesTextField</string>
 							<string>numberOfLocationsButton</string>
 							<string>numberOfLocationsTextField</string>
+							<string>primaryContactTextField</string>
 							<string>producerCodeTextField</string>
 							<string>producerNameTextField</string>
 							<string>subTerritoryButton</string>
@@ -1416,6 +1416,7 @@
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
+							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
@@ -1436,6 +1437,7 @@
 							<string>numberOfEmployeesTextField</string>
 							<string>numberOfLocationsButton</string>
 							<string>numberOfLocationsTextField</string>
+							<string>primaryContactTextField</string>
 							<string>producerCodeTextField</string>
 							<string>producerNameTextField</string>
 							<string>subTerritoryButton</string>
@@ -1477,6 +1479,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">numberOfLocationsTextField</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">primaryContactTextField</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
