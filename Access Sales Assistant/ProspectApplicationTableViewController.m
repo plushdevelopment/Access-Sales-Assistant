@@ -242,7 +242,7 @@
             break;
         case ERater:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProducerRaterTableViewCell" owner:self options:nil];
+            [[NSBundle mainBundle] loadNibNamed:@"ProspectAppRaterTableViewCell" owner:self options:nil];
             ProducerRaterTableViewCell* cell = _raterTableViewCell;
             [cell.raterTextField setText:_detailItem.rater.name];
             [cell.rater2TextField setText:_detailItem.rater2.name];

@@ -25,6 +25,7 @@
 @synthesize subTerritoryButton=_subTerritoryButton;
 @synthesize eOExpiresButton=_eOExpiresButton;
 @synthesize accessSignButton=_accessSignButton;
+@synthesize neverVisitSwitch = _neverVisitSwitch;
 //@synthesize primaryContactTextField = _primaryContactTextField;
 
 /*- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

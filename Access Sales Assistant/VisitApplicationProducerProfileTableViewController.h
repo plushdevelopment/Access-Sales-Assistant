@@ -16,6 +16,7 @@
 #import "ProducerStatusTableViewCell.h"
 #import "ProducerHoursTableViewCell.h"
 #import "ProducerQuestionTableViewCell.h"
+#import "LastVisitedTableViewCell.h"
 #import "Producer.h"
 #import "VisitApplicationTabBarController.h"
 #import "DatePickerViewController.h"
@@ -52,6 +53,7 @@
 @property (nonatomic, strong) IBOutlet ProducerRaterTableViewCell* raterTableViewCell;
 @property (nonatomic, strong) IBOutlet ProducerHoursTableViewCell* hoursTableViewCell;
 @property (nonatomic, strong) IBOutlet ProducerQuestionTableViewCell *questionTableViewCell;
+@property (nonatomic, strong) IBOutlet LastVisitedTableViewCell *lastVisitedCell;
 @property (strong, nonatomic) IBOutlet SmartTableView *tableView;
 @property (nonatomic,strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic) BOOL isDoneSelected;
@@ -60,6 +62,8 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *submitButton;
 
 @property (nonatomic,strong) IBOutlet SelectionModelViewController *selectionTableView;
+
+
 
 -(UITableViewCell*) tableViewCellForNibName:(NSString*)nibName;
 -(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell:(NSInteger)forType;
@@ -89,6 +93,7 @@
 - (IBAction)showDatePickerView:(id)sender;
 
 -(IBAction)showSelectionTableView:(id)sender;
+-(IBAction)neverVisitToggle:(id)sender;
 
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;

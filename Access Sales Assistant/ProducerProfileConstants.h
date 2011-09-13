@@ -11,7 +11,7 @@
 
 #pragma mark - constants
 
-#define PRODUCER_PROFILE_SECTIONS @"Last Visited",@"General",@"Questions",@"Status",@"Rater",@"Company Contact Info",@"Hours Of Operation",@"Addresses",@"Contacts",nil
+#define PRODUCER_PROFILE_SECTIONS @"General",@"Questions",@"Status",@"Rater",@"Company Contact Info",@"Hours Of Operation",@"Addresses",@"Contacts",@"Last Visited",nil
 
 #define GENERAL_HEIGHT 188.0
 #define QUESTIONS_HEIGHT 44.0
@@ -48,8 +48,8 @@
 #pragma mark - enums
 enum producerProfileSectionIndex
 {
-    ELastVisited =0,
-    EGeneral,
+    
+    EGeneral = 0,
     EQuestions,
     EStatus,
     ERater,
@@ -57,6 +57,7 @@ enum producerProfileSectionIndex
     EHoursOfOperation,
     EAddresses,
     EContacts,
+    ELastVisited,
     EAllSectionsCount
 };
 

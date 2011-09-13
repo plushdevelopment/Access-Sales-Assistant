@@ -27,6 +27,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *eOExpiresButton;
 @property (nonatomic, strong) IBOutlet UIButton *accessSignButton;
 @property (nonatomic, strong) IBOutlet UITextField * numberOfEmployeesTextField;
+@property (nonatomic,strong) IBOutlet UISwitch *neverVisitSwitch;
 
 
 @end

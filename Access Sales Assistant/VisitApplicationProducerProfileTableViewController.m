@@ -55,10 +55,13 @@
 @synthesize hoursTableViewCell = _hoursTableViewCell;
 @synthesize addressTableViewCell = _addressTableViewCell;
 @synthesize contactTableViewCell = _contactTableViewCell;
+@synthesize lastVisitedCell = _lastVisitedCell;
+
 
 @synthesize dismissButton = _dismissButton;
 @synthesize submitButton = _submitButton;
 @synthesize isDoneSelected = _isDoneSelected;
+
 
 @synthesize titleLabel = _titleLabel;
 
@@ -188,7 +191,7 @@
             if(_detailItem.lastVisit)
                 return 1;
             else
-                return 0;
+                return 1;
         }
 //            return 1;
         case EGeneral:
@@ -225,14 +228,20 @@
         case ELastVisited:
         {
             
+            [[NSBundle mainBundle] loadNibNamed:@"LastVisitedTableViewCell" owner:self options:nil];
+            LastVisitedTableViewCell* cell = _lastVisitedCell;
+
+            
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             
             [dateFormatter setDateFormat:@"MM-dd-yyyy"];
             
          
-            NSString* lastVisitedText = [[NSString alloc] initWithFormat:@"Last Visited: %@",[dateFormatter stringFromDate:_detailItem.lastVisit]];
+            NSString* lastVisitedText = [[NSString alloc] initWithFormat:@"%@",[dateFormatter stringFromDate:_detailItem.lastVisit]];
             
-            static NSString *CellIdentifier = @"lastvisitedcell";
+            cell.visitedLabel.text = lastVisitedText;
+            
+           /* static NSString *CellIdentifier = @"lastvisitedcell";
            
             
            
@@ -249,7 +258,7 @@
             }
             else
                 cell.textLabel.text = @"Last Visited:";
-            cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];*/
                 
             return cell;
             
@@ -279,10 +288,17 @@
             cell.dateEstablishedTextField.text = [dateFormatter stringFromDate:_detailItem.dateEstablished];
             
             cell.primaryContactTextField.text = _detailItem.primaryContact;
+            
+            if(_detailItem.neverVisitValue)
+                cell.neverVisitSwitch.on = TRUE;
+            else
+                cell.neverVisitSwitch.on = FALSE;
             if(indexPath == self.datePickerViewController.currentIndexPath)
                 cell.selected = YES;
             else
                 cell.selected = NO;
+            
+            
             return cell;
         }
         case EQuestions:
@@ -426,7 +442,7 @@
     switch (indexPath.section) {
         case ELastVisited:
         {
-            height = 44.0;
+            height = 200;
             break;
         }
         case EGeneral:
@@ -1005,6 +1021,15 @@
    
 }
 
+-(IBAction)neverVisitToggle:(id)sender
+{
+    UISwitch *neverSwitch = (UISwitch*) sender;
+    
+    if(neverSwitch.isOn)
+        _detailItem.neverVisitValue= TRUE;
+    else
+        _detailItem.neverVisitValue = FALSE;
+}
 -(IBAction)showSelectionTableView:(id)sender
 {
     
@@ -2475,7 +2500,6 @@
             {
                 case ESubTerritory:
                 {
-                   
                     break;
                 }
             }
