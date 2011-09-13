@@ -69,6 +69,10 @@
 -(void)getAUNTKsForProducerFinished:(ASIHTTPRequest*)request;
 -(void)getAUNTKsForProducerFailed:(ASIHTTPRequest*)request;
 
+-(void) postQAResolutionForm:(NSString*) qaResolutionForm;
+-(void)postQAResolutionFormFinished:(ASIHTTPRequest*)request;
+-(void)postQAResolutionFormFailed:(ASIHTTPRequest*)request;
+
 -(NSString *) urlencode: (NSString *) url;
 
 @end

@@ -185,6 +185,22 @@
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
 					<int key="IBUIStatusBarStyle">2</int>
 				</object>
+				<object class="IBUISimulatedSizeMetrics" key="IBUISimulatedDestinationMetrics">
+					<string key="IBUISimulatedSizeMetricsClass">IBUIModalPageSheetSimulatedSizeMetrics</string>
+					<object class="NSMutableDictionary" key="IBUINormalizedOrientationToSizeMap">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<array key="dict.sortedKeys">
+							<integer value="1"/>
+							<integer value="3"/>
+						</array>
+						<array class="NSMutableArray" key="dict.values">
+							<string>{768, 1024}</string>
+							<string>{768, 768}</string>
+						</array>
+					</object>
+					<string key="IBUITargetRuntime">IBIPadFramework</string>
+					<string key="IBUIDisplayName">Page Sheet</string>
+				</object>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 			<object class="IBUICustomObject" id="289473145">
@@ -363,10 +379,10 @@
 						<int key="objectID">30</int>
 						<reference key="object" ref="626657145"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="993928743"/>
 							<reference ref="199136232"/>
 							<reference ref="507230919"/>
 							<reference ref="850351093"/>
+							<reference ref="993928743"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -511,6 +527,28 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/DatePickerViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">LastVisitedTableViewCell</string>
+					<string key="superclassName">PRPNibBasedTableViewCell</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="summaryNotesTextView">UITextView</string>
+						<string key="visitedLabel">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="summaryNotesTextView">
+							<string key="name">summaryNotesTextView</string>
+							<string key="candidateClassName">UITextView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="visitedLabel">
+							<string key="name">visitedLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/LastVisitedTableViewCell.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -728,9 +766,11 @@
 						<string key="dateEstablishedTextField">UITextField</string>
 						<string key="eOExpiresButton">UIButton</string>
 						<string key="eOExpiresTextField">UITextField</string>
+						<string key="neverVisitSwitch">UISwitch</string>
 						<string key="numberOfEmployeesTextField">UITextField</string>
 						<string key="numberOfLocationsButton">UIButton</string>
 						<string key="numberOfLocationsTextField">UITextField</string>
+						<string key="primaryContactTextField">UITextField</string>
 						<string key="producerCodeTextField">UITextField</string>
 						<string key="producerNameTextField">UITextField</string>
 						<string key="subTerritoryButton">UIButton</string>
@@ -761,6 +801,10 @@
 							<string key="name">eOExpiresTextField</string>
 							<string key="candidateClassName">UITextField</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="neverVisitSwitch">
+							<string key="name">neverVisitSwitch</string>
+							<string key="candidateClassName">UISwitch</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="numberOfEmployeesTextField">
 							<string key="name">numberOfEmployeesTextField</string>
 							<string key="candidateClassName">UITextField</string>
@@ -771,6 +815,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="numberOfLocationsTextField">
 							<string key="name">numberOfLocationsTextField</string>
+							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="primaryContactTextField">
+							<string key="name">primaryContactTextField</string>
 							<string key="candidateClassName">UITextField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="producerCodeTextField">
@@ -1135,6 +1183,7 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="autoFormatPhoneNumber:">id</string>
 						<string key="dismiss:">id</string>
+						<string key="neverVisitToggle:">id</string>
 						<string key="showDatePickerView:">id</string>
 						<string key="showPickerView:">id</string>
 						<string key="showSelectionTableView:">id</string>
@@ -1147,6 +1196,10 @@
 						</object>
 						<object class="IBActionInfo" key="dismiss:">
 							<string key="name">dismiss:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="neverVisitToggle:">
+							<string key="name">neverVisitToggle:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showDatePickerView:">
@@ -1174,6 +1227,7 @@
 						<string key="dismissButton">UIBarButtonItem</string>
 						<string key="generalTableViewCell">ProducerGeneralTableViewCell</string>
 						<string key="hoursTableViewCell">ProducerHoursTableViewCell</string>
+						<string key="lastVisitedCell">LastVisitedTableViewCell</string>
 						<string key="pickerViewController">PickerViewController</string>
 						<string key="questionTableViewCell">ProducerQuestionTableViewCell</string>
 						<string key="raterTableViewCell">ProducerRaterTableViewCell</string>
@@ -1211,6 +1265,10 @@
 						<object class="IBToOneOutletInfo" key="hoursTableViewCell">
 							<string key="name">hoursTableViewCell</string>
 							<string key="candidateClassName">ProducerHoursTableViewCell</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lastVisitedCell">
+							<string key="name">lastVisitedCell</string>
+							<string key="candidateClassName">LastVisitedTableViewCell</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="pickerViewController">
 							<string key="name">pickerViewController</string>

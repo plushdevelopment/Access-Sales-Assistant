@@ -110,6 +110,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 	
     // Override point for customization after application launch.
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  //  self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 20, 768, 1004)];
 	
 	RootViewController *controller = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
 	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];

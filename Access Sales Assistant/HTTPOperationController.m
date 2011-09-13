@@ -788,6 +788,43 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 }
 
+-(void) postQAResolutionForm:(NSString*) qaResolutionForm
+{
+  //  NSLog(@"%@",qaResolutionForm);
+    
+    NSLog(@"%@", qaResolutionForm);
+	if ([[self networkQueue] isSuspended]) {
+		[[self networkQueue] go];
+	}
+	
+	User *user = [User findFirst];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/QAResolutionRequest?token=%@", kURL, [user token]];
+	NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSLog(@"%@",urlString);
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+	[request setRequestMethod:@"POST"];
+	[request addRequestHeader:@"Content-Type" value:@"application/json"];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(postQAResolutionFormFinished:)];
+	[request setDidFailSelector:@selector(postQAResolutionFormFailed:)];
+	[request setPostBody:[NSMutableData dataWithData:[qaResolutionForm dataUsingEncoding:NSASCIIStringEncoding]]];
+//	[request setNumberOfTimesToRetryOnTimeout:3];
+    
+    [request setTimeOutSeconds:60];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
+	[[self networkQueue] addOperation:request];
+
+}
+-(void)postQAResolutionFormFinished:(ASIHTTPRequest*)request
+{
+    [UIHelpers showAlertWithTitle:@"Success" msg:@"Request submitted successfully" buttonTitle:@"OK"];
+}
+-(void)postQAResolutionFormFailed:(ASIHTTPRequest*)request
+{
+    [UIHelpers showAlertWithTitle:@"Failed" msg:@"Request Failed" buttonTitle:@"OK"];
+}
 #pragma mark - 
 #pragma mark URL Encode
 
