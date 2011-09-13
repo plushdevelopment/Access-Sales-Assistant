@@ -29,6 +29,10 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"orderValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"order"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 
 	return keyPaths;
 }
@@ -45,6 +49,32 @@
 
 @dynamic header;
 
+
+
+
+
+
+@dynamic order;
+
+
+
+- (short)orderValue {
+	NSNumber *result = [self order];
+	return [result shortValue];
+}
+
+- (void)setOrderValue:(short)value_ {
+	[self setOrder:[NSNumber numberWithShort:value_]];
+}
+
+- (short)primitiveOrderValue {
+	NSNumber *result = [self primitiveOrder];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveOrderValue:(short)value_ {
+	[self setPrimitiveOrder:[NSNumber numberWithShort:value_]];
+}
 
 
 

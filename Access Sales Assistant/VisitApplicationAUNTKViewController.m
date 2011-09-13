@@ -36,6 +36,8 @@
 
 @synthesize detailItem=_detailItem;
 @synthesize auntk=_auntk;
+@synthesize productionData=_productionData;
+@synthesize lossRatioData=_lossRatioData;
 @synthesize productionTableView=_productionTableView;
 @synthesize lossRatioTableView1 = _lossRatioTableView;
 @synthesize lossRatioLineChartView = _lossRatioLineChartView;
@@ -74,6 +76,13 @@
 {
     if (_auntk != auntk) {
         _auntk = auntk;
+		NSSortDescriptor *headerSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+		NSArray *headerSortDescriptors = [NSArray arrayWithObjects:headerSortDescriptor, nil];
+		self.productionData = [_auntk.policyCountReportData.allObjects sortedArrayUsingDescriptors:headerSortDescriptors];
+		
+		NSSortDescriptor *yearSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"monthEndDate" ascending:YES];
+		NSArray *monthYearSortDescriptors = [NSArray arrayWithObjects:yearSortDescriptor, nil];
+		self.lossRatioData = [_auntk.productionReportData.allObjects sortedArrayUsingDescriptors:monthYearSortDescriptors];
         // Update the view.
         [self configureView];
     }
@@ -107,7 +116,7 @@
 	
 	// Loss Ratio Line Chart
 	[self.lossRatioLineChartView setTitle:self.lossRatioTrendLabel];
-	[self.lossRatioLineChartView setPointDistance:20];
+	[self.lossRatioLineChartView setPointDistance:55];
 	[self.lossRatioLineChartView setTouchIndicatorEnabled:YES];
 	[self.lossRatioLineChartView setGoalValue:[NSNumber numberWithFloat:30.0]];
 	[self.lossRatioLineChartView setGoalShown:NO];
@@ -120,7 +129,7 @@
 	
 	// Claim Frequency Line Chart
 	[self.claimFrequencyLineChartView setTitle:self.claimFrequencyTrendLabel];
-	[self.claimFrequencyLineChartView setPointDistance:20];
+	[self.claimFrequencyLineChartView setPointDistance:55];
 	[self.claimFrequencyLineChartView setTouchIndicatorEnabled:YES];
 	[self.claimFrequencyLineChartView setGoalValue:[NSNumber numberWithFloat:30.0]];
 	[self.claimFrequencyLineChartView setGoalShown:NO];
@@ -224,17 +233,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	[self.scrollView setContentSize:CGSizeMake(768, 1500)];
-	_lossRatioLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(20, 853, 480, 300)];
+	[self.scrollView setContentSize:CGSizeMake(768, 1676)];
+	
+	[self setAuntk:self.detailItem.auntk];
+	self.toggleAUNTKButton.title = @"Switch to Chain";
+	
+	_lossRatioLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(20, 995, 480, 300)];
 	[self.scrollView addSubview:self.lossRatioLineChartView];
-	_claimFrequencyLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(388, 853, 360, 300)];
-	//[self.scrollView addSubview:self.claimFrequencyLineChartView];
+	_claimFrequencyLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(20, 1336, 480, 300)];
+	[self.scrollView addSubview:self.claimFrequencyLineChartView];
 	
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	self.auntk = self.detailItem.chainAuntk;
 	[self configureView];
 }
 
@@ -274,11 +286,11 @@
     // Return the number of rows in the section.
 	NSInteger rows = 0;
 	if (tableView == self.productionTableView) {
-		rows = self.auntk.policyCountReportData.count;
+		rows = self.productionData.count;
 	} else if (tableView == self.lossRatioTableView1) {
-		rows = self.auntk.productionReportData.count;
+		rows = self.lossRatioData.count;
 	} else if (tableView == self.lossRatioTableView2) {
-		rows = self.auntk.productionReportData.count;
+		rows = self.lossRatioData.count;
 	}
     return rows;
 }
@@ -287,13 +299,13 @@
 {
 	if (tableView == self.productionTableView) {
 		AUNTKProductionTableViewCell *customCell = [AUNTKProductionTableViewCell cellForTableView:tableView fromNib:self.productionTableViewCellNib];
-		customCell.dateLabel.text = [(PolicyCountReportData *)[self.auntk.policyCountReportData.allObjects objectAtIndex:indexPath.row] header];
+		customCell.dateLabel.text = [(PolicyCountReportData *)[self.productionData objectAtIndex:indexPath.row] header];
 		//customCell.valueLabel.text = [[(PolicyCountReportData *)[self.auntk.policyCountReportData.allObjects objectAtIndex:indexPath.row] count] stringValue];
-		customCell.valueLabel.text = [(PolicyCountReportData *)[self.auntk.policyCountReportData.allObjects objectAtIndex:indexPath.row] count];
+		customCell.valueLabel.text = [(PolicyCountReportData *)[self.productionData objectAtIndex:indexPath.row] count];
 		return customCell;
 	} else if (tableView == self.lossRatioTableView1) {
 		AUNTKLossRatioTableViewCell1 *customCell = [AUNTKLossRatioTableViewCell1 cellForTableView:tableView fromNib:self.lossRatioTableViewCell1Nib];
-		ProductionReportData *data = (ProductionReportData *)[self.auntk.productionReportData.allObjects objectAtIndex:indexPath.row];
+		ProductionReportData *data = (ProductionReportData *)[self.lossRatioData objectAtIndex:indexPath.row];
 		customCell.yearLabel.text = data.year.stringValue;
 		customCell.monthLabel.text = data.month;
 		customCell.brandnewPoliciesPerMonthLabel.text = data.currentPoliciesMonth.stringValue;
@@ -302,21 +314,21 @@
 		customCell.wpTotalITDLabel.text = data.wpTotalITD.stringValue;
 		customCell.averageWpITDLabel.text = data.avgWPITD.stringValue;
 		customCell.epTotalITDLabel.text = data.epTotalITD.stringValue;
-		customCell.lrTotalITDLabel.text = data.lrTotalITD.stringValue;
+		customCell.lrTotalITDLabel.text = [NSString stringWithFormat:@"%@ %%", data.lrTotalITD.stringValue];
 		return customCell;
 	} else if (tableView == self.lossRatioTableView2) {
 		AUNTKLossRatioTableViewCell2 *customCell = [AUNTKLossRatioTableViewCell2 cellForTableView:tableView fromNib:self.lossRatioTableViewCell2Nib];
-		ProductionReportData *data = (ProductionReportData *)[self.auntk.productionReportData.allObjects objectAtIndex:indexPath.row];
+		ProductionReportData *data = (ProductionReportData *)[self.lossRatioData objectAtIndex:indexPath.row];
 		customCell.yearLabel.text = data.year.stringValue;
 		customCell.monthLabel.text = data.month;
-		customCell.percentLiabilityOnlyLabel.text = data.percentLiabilityOnlyITD.stringValue;
-		customCell.thirtyDayCancelLabel.text = data.cancel30dMonth.stringValue;
+		customCell.percentLiabilityOnlyLabel.text = [NSString stringWithFormat:@"%@ %%", data.percentLiabilityOnlyITD.stringValue];
+		customCell.thirtyDayCancelLabel.text = [NSString stringWithFormat:@"%@ %%", data.cancel30dMonth.stringValue];
 		customCell.thirtyDayClaimsLabel.text = data.nbrClaims30dMonth.stringValue;
 		customCell.numberOfClaimsPerMonthLabel.text = data.nbrClaimsMonth.stringValue;
 		customCell.numberOfClaimsITDLabel.text = data.nbrClaimsITD.stringValue;
 		customCell.frequencyITDLabel.text = data.frequencyITD.stringValue;
 		customCell.averageIncLossLabel.text = data.avgIncLossITD.stringValue;
-		customCell.percentFDLLabel.text = data.percentFDLMonth.stringValue;
+		customCell.percentFDLLabel.text = [NSString stringWithFormat:@"%@ %%", data.percentFDLMonth.stringValue];
 		customCell.averageCarsPerDriverLabel.text = data.avgCarsDriver.stringValue;
 		customCell.averageDriverAgeLabel.text = data.avgDriverAge.stringValue;
 		return customCell;

@@ -23,6 +23,8 @@
 
 @property (nonatomic, strong) Producer *detailItem;
 @property (nonatomic, strong) AUNTK *auntk;
+@property (nonatomic, strong) NSArray *productionData;
+@property (nonatomic, strong) NSArray *lossRatioData;
 @property (strong, nonatomic) IBOutlet UITableView *productionTableView;
 @property (strong, nonatomic) IBOutlet UITableView *lossRatioTableView1;
 @property (strong, nonatomic) IBOutlet TKGraphView *lossRatioLineChartView;

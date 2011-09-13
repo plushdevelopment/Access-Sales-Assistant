@@ -175,6 +175,7 @@
     <entity name="PolicyCountReportData" representedClassName="PolicyCountReportData">
         <attribute name="count" optional="YES" attributeType="String"/>
         <attribute name="header" optional="YES" attributeType="String"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="auntk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AUNTK" inverseName="policyCountReportData" inverseEntity="AUNTK"/>
     </entity>
     <entity name="Producer" representedClassName="Producer">
@@ -311,7 +312,7 @@
     </entity>
     <elements>
         <element name="AddressListItem" positionX="-569" positionY="72" width="128" height="195"/>
-        <element name="AUNTK" positionX="-164" positionY="-441" width="128" height="120"/>
+        <element name="AUNTK" positionX="-164" positionY="-441" width="128" height="150"/>
         <element name="BarrierToBusiness" positionX="135" positionY="432" width="128" height="90"/>
         <element name="ClaimFrequecyTrendReportData" positionX="547" positionY="-270" width="128" height="90"/>
         <element name="CommissionStructure" positionX="34" positionY="-90" width="128" height="45"/>
@@ -329,7 +330,7 @@
         <element name="PersonSpokeWithTitle" positionX="-227" positionY="18" width="128" height="90"/>
         <element name="Phase" positionX="-396" positionY="-108" width="128" height="90"/>
         <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="105"/>
-        <element name="PolicyCountReportData" positionX="207" positionY="-675" width="128" height="90"/>
+        <element name="PolicyCountReportData" positionX="207" positionY="-675" width="128" height="105"/>
         <element name="Producer" positionX="306" positionY="123" width="128" height="630"/>
         <element name="ProducerAddOn" positionX="261" positionY="864" width="128" height="90"/>
         <element name="ProducerImage" positionX="27" positionY="870" width="128" height="75"/>

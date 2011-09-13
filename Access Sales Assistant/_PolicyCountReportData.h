@@ -9,6 +9,7 @@
 
 
 
+
 @interface PolicyCountReportDataID : NSManagedObjectID {}
 @end
 
@@ -33,6 +34,18 @@
 
 
 //- (BOOL)validateHeader:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *order;
+
+
+@property short orderValue;
+- (short)orderValue;
+- (void)setOrderValue:(short)value_;
+
+//- (BOOL)validateOrder:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -62,6 +75,15 @@
 
 - (NSString*)primitiveHeader;
 - (void)setPrimitiveHeader:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveOrder;
+- (void)setPrimitiveOrder:(NSNumber*)value;
+
+- (short)primitiveOrderValue;
+- (void)setPrimitiveOrderValue:(short)value_;
 
 
 

@@ -47,7 +47,7 @@
 							<object class="IBUILabel" id="798105185">
 								<reference key="NSNextResponder" ref="495852086"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 5}, {37, 21}}</string>
+								<string key="NSFrame">{{0, 5}, {37, 21}}</string>
 								<reference key="NSSuperview" ref="495852086"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1035048584"/>
@@ -79,7 +79,7 @@
 							<object class="IBUILabel" id="1035048584">
 								<reference key="NSNextResponder" ref="495852086"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{65, 5}, {43, 21}}</string>
+								<string key="NSFrame">{{45, 5}, {71, 21}}</string>
 								<reference key="NSSuperview" ref="495852086"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="36633659"/>
@@ -93,7 +93,7 @@
 								<reference key="IBUITextColor" ref="652334816"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
-								<float key="IBUIMinimumFontSize">10</float>
+								<float key="IBUIMinimumFontSize">14</float>
 								<int key="IBUITextAlignment">2</int>
 								<reference key="IBUIFontDescription" ref="904357659"/>
 								<reference key="IBUIFont" ref="1061856055"/>
@@ -500,7 +500,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">61</int>
+			<int key="maxID">71</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -512,38 +512,18 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>averageCarsPerDriverLabel</string>
-							<string>averageDriverAgeLabel</string>
-							<string>averageIncLossLabel</string>
 							<string>averageWpITDLabel</string>
 							<string>brandnewPoliciesPerMonthLabel</string>
 							<string>epTotalITDLabel</string>
-							<string>frequencyITDLabel</string>
 							<string>lrTotalITDLabel</string>
 							<string>monthLabel</string>
-							<string>numberOfClaimsITDLabel</string>
-							<string>numberOfClaimsPerMonthLabel</string>
-							<string>percentFDLLabel</string>
-							<string>percentLiabilityOnlyLabel</string>
 							<string>policiesInForceLabel</string>
 							<string>policiesWrittenITDLabel</string>
-							<string>thirtyDayCancelLabel</string>
-							<string>thirtyDayClaimsLabel</string>
 							<string>wpTotalITDLabel</string>
 							<string>yearLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
@@ -559,40 +539,18 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>averageCarsPerDriverLabel</string>
-							<string>averageDriverAgeLabel</string>
-							<string>averageIncLossLabel</string>
 							<string>averageWpITDLabel</string>
 							<string>brandnewPoliciesPerMonthLabel</string>
 							<string>epTotalITDLabel</string>
-							<string>frequencyITDLabel</string>
 							<string>lrTotalITDLabel</string>
 							<string>monthLabel</string>
-							<string>numberOfClaimsITDLabel</string>
-							<string>numberOfClaimsPerMonthLabel</string>
-							<string>percentFDLLabel</string>
-							<string>percentLiabilityOnlyLabel</string>
 							<string>policiesInForceLabel</string>
 							<string>policiesWrittenITDLabel</string>
-							<string>thirtyDayCancelLabel</string>
-							<string>thirtyDayClaimsLabel</string>
 							<string>wpTotalITDLabel</string>
 							<string>yearLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">averageCarsPerDriverLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">averageDriverAgeLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">averageIncLossLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">averageWpITDLabel</string>
 								<string key="candidateClassName">UILabel</string>
@@ -606,10 +564,6 @@
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">frequencyITDLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">lrTotalITDLabel</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
@@ -618,35 +572,11 @@
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">numberOfClaimsITDLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">numberOfClaimsPerMonthLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">percentFDLLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">percentLiabilityOnlyLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">policiesInForceLabel</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">policiesWrittenITDLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">thirtyDayCancelLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">thirtyDayClaimsLabel</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
