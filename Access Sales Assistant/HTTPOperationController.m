@@ -770,7 +770,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		NSLog(@"%@", dict);
 		
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-		[formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
+		[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 		AUNTK *auntk = [AUNTK createEntity];
 		[auntk safeSetValuesForKeysWithDictionary:[dict valueForKey:@"value"] dateFormatter:formatter managedObjectContext:self.managedObjectContext];
 		if ([[dict valueForKey:@"key"] isEqualToString:@"auntk"]) {
