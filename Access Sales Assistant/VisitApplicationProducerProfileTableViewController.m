@@ -277,6 +277,8 @@
             cell.eOExpiresTextField.text = [dateFormatter stringFromDate:_detailItem.eAndOExpires];
              [self disableTextField:cell.eOExpiresTextField :NO];
             cell.dateEstablishedTextField.text = [dateFormatter stringFromDate:_detailItem.dateEstablished];
+            
+            cell.primaryContactTextField.text = _detailItem.primaryContact;
             if(indexPath == self.datePickerViewController.currentIndexPath)
                 cell.selected = YES;
             else
@@ -429,7 +431,7 @@
         }
         case EGeneral:
         {
-            height = 188.0;
+            height = 224.0;
         }
             break;
         case EQuestions:
@@ -961,6 +963,8 @@
 {
 
 	UIButton *button = (UIButton *)sender;
+    
+   
 	[self.datePickerViewController.datePicker setDate:[NSDate date]];
 	self.datePickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
 	self.datePickerViewController.currentTag = button.tag;
@@ -975,7 +979,8 @@
 	//Add the picker to the view
 	[self.parentViewController.view addSubview:self.datePickerViewController.view];
     
-  
+  //  self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.datePickerViewController];
+   // [self.popoverController presentPopoverFromRect:button.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     
    //  [self.tableView selectRowAtIndexPath:self.datePickerViewController.currentIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     
@@ -2044,6 +2049,11 @@
                 case ENoOfEmployees:
                     self.detailItem.numberOfEmployeesValue = [textField.text integerValue];
                     break;
+                case EPrimaryContact:
+                {
+                    self.detailItem.primaryContact = textField.text;
+                    break;
+                }
 
             }
         }
@@ -2318,7 +2328,8 @@
                    _detailItem.subTerritory == nil ||
                    _detailItem.numberOfLocations == nil ||
                    _detailItem.numberOfEmployees == nil ||
-                   _detailItem.dateEstablished == nil
+                   _detailItem.dateEstablished == nil ||
+                   [_detailItem.primaryContact length]<=0
                    )
                     return FALSE;
             }
@@ -2704,5 +2715,6 @@
     }
 
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+      [self toggleSubmitButton:[self isEnableSubmit]];
 }
 @end

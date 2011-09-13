@@ -403,14 +403,14 @@ enum PRPTableStatsTags {
     if (_detailItem != producer.dailySummary) {
         _detailItem = producer.dailySummary;
         
-          NSLog(@"Summary Info:%@",_detailItem);
+      
         
         // Update the view.
         [self configureView];
     }
     
    titleText = [[NSString alloc]initWithFormat:@"%@ - %@",producer.name,producer.producerCode];  
-    NSLog(titleText);
+   // NSLog(titleText);
 	
  
         
@@ -591,6 +591,7 @@ enum PRPTableStatsTags {
 			customCell.reportDateTextField.text = [formatter stringFromDate:self.detailItem.reportDate];
 			customCell.callTypeTextField.text = self.detailItem.purposeOfCall.name;
             [self disableTextField:customCell.callTypeTextField :NO];
+            customCell.reasonNotSeenTextField.text = self.detailItem.reasonNotSeen.name;
 			
 			customCell.producerNameTextField.delegate = self;
 			customCell.reportDateTextField.delegate = self;
@@ -1585,6 +1586,9 @@ enum PRPTableStatsTags {
 }
 -(BOOL) isEnableSubmit
 {
+    if(_detailItem.reasonNotSeen)
+        return TRUE;
+    
     if(!_detailItem.editedValue)
         return FALSE;
     
@@ -1740,6 +1744,8 @@ enum PRPTableStatsTags {
 	}
     
       [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    
+      [self toggleSubmitButton:[self isEnableSubmit]];
 
 }
 @end
