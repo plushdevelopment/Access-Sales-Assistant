@@ -308,7 +308,7 @@
             NSArray* questionArray=_detailItem.questions.allObjects;
             QuestionListItem *qListItem = (QuestionListItem *)[questionArray objectAtIndex:indexPath.row];
             cell.questionLabel.text = qListItem.text;
-            cell.answerTextField.text = qListItem.answer;
+            //cell.answerTextField.text = qListItem.answer;
             return cell;
 
         }
