@@ -256,11 +256,11 @@
         <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="dailySummmary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="purposeOfCall" inverseEntity="DailySummary"/>
     </entity>
-    <entity name="QAForm" representedClassName="QAForm">
-        <attribute name="Description" optional="YES" attributeType="String"/>
-        <attribute name="PolicyNumber" optional="YES" attributeType="String"/>
-        <attribute name="ProducerCode" optional="YES" attributeType="String"/>
-        <attribute name="Request" optional="YES" attributeType="String"/>
+    <entity name="QAResolutionForm" representedClassName="QAResolutionForm">
+        <attribute name="descp" optional="YES" attributeType="String"/>
+        <attribute name="policyNumber" optional="YES" attributeType="String"/>
+        <attribute name="producerCode" optional="YES" attributeType="String"/>
+        <attribute name="request" optional="YES" attributeType="String"/>
     </entity>
     <entity name="QuestionListItem" representedClassName="QuestionListItem">
         <attribute name="answer" optional="YES" attributeType="String"/>
@@ -352,6 +352,6 @@
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="45"/>
         <element name="TrainingVideo" positionX="-423" positionY="-216" width="128" height="75"/>
         <element name="User" positionX="774" positionY="-297" width="128" height="135"/>
-        <element name="QAForm" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="QAResolutionForm" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>
