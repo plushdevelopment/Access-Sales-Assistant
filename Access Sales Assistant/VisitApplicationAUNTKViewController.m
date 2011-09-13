@@ -224,10 +224,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	_lossRatioLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(30, 677, 360, 224)];
-	[self.view addSubview:self.lossRatioLineChartView];
-	_claimFrequencyLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(394, 677, 360, 224)];
-	[self.view addSubview:self.claimFrequencyLineChartView];
+	[self.scrollView setContentSize:CGSizeMake(768, 1500)];
+	_lossRatioLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(20, 853, 480, 300)];
+	[self.scrollView addSubview:self.lossRatioLineChartView];
+	_claimFrequencyLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(388, 853, 360, 300)];
+	//[self.scrollView addSubview:self.claimFrequencyLineChartView];
+	
 }
 
 - (void)viewWillAppear:(BOOL)animated

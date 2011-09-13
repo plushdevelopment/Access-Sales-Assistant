@@ -48,7 +48,7 @@ static NSMutableArray *sessionCookies = nil;
 const int RedirectionLimit = 5;
 
 // The default number of seconds to use for a timeout
-static NSTimeInterval defaultTimeOutSeconds = 10;
+static NSTimeInterval defaultTimeOutSeconds = 60;
 
 static void ReadStreamClientCallBack(CFReadStreamRef readStream, CFStreamEventType type, void *clientCallBackInfo) {
     [((ASIHTTPRequest*)clientCallBackInfo) handleNetworkEvent: type];

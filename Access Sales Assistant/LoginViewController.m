@@ -166,7 +166,9 @@
 	
 	[self.managedObjectContext save];
 	[[HTTPOperationController sharedHTTPOperationController] requestPickLists];
+	
 	[self dismissModalViewControllerAnimated:YES];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Login Success" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Launch Map" object:nil];
 }
 
