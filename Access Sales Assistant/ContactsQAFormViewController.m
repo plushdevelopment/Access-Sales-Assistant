@@ -9,6 +9,8 @@
 #import "ContactsQAFormViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import "QAForm.h"
+#import "HTTPOperationController.h"
 @implementation ContactsQAFormViewController
 
 @synthesize requestView = _requestView;
@@ -83,8 +85,16 @@
 
     
      NSString* requestFormat = [[NSString alloc] initWithFormat:@"Producer Num:%@\nProducer Code:%@\nDescription: %@\nRequest: %@\n",self.strProducerNumber,self.strProducerCode,self.strQADescription,self.strQARequest];
-        [self showAlert:requestFormat];
+     //   [self showAlert:requestFormat];
     
+    
+    QAForm *formData = [QAForm createEntity];
+    formData.ProducerCode = _strProducerCode;
+    formData.PolicyNumber = _strProducerNumber;
+    formData.Description = _strQADescription;
+    formData.Request = _strQARequest;
+    
+    [[HTTPOperationController sharedHTTPOperationController] postQAResolutionForm:[formData jsonStringValue]];
    // [self showAlert:@"Request submitted successfully!"];
     [self dismissModalViewControllerAnimated:YES];
 }

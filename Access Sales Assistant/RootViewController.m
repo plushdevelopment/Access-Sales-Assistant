@@ -856,8 +856,20 @@
 
 -(void) changeDetailViewController:(BaseDetailViewController *)detailViewController
 {
+    
+  //  BaseDetailViewController *det = (BaseDetailViewController*) [viewControllerArr objectAtIndex:1];
+    CGRect rec = detailViewController.view.frame;
+    rec.origin.y = 20;
+    [detailViewController.view setFrame:rec];
+    
     NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+    
+    BaseDetailViewController *det = (BaseDetailViewController*) [viewControllerArr objectAtIndex:1];
+    CGRect rec1 = det.view.frame;
+
+   // CGRect *rec = [(BaseDetailViewController*) [viewControllerArr objectAtIndex:1]].frame; 
     detailViewController.splitviewcontroller = self.splitViewController;
+    
 }
 @end

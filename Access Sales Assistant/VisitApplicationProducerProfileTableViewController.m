@@ -93,7 +93,7 @@
     
     sectionTitleArray = [[NSArray alloc] initWithObjects:PRODUCER_PROFILE_SECTIONS];
     
-    self.tableView.allowsSelection = YES;
+    self.tableView.allowsSelection = NO;
     
     myTextFieldSemaphore =0;
     myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
@@ -144,6 +144,10 @@
 	return YES;
 }
 
+-(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self.view setNeedsDisplay];
+}
 -(void) toggleSubmitButton:(BOOL) isEnable
 {
     

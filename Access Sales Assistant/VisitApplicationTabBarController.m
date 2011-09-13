@@ -107,4 +107,9 @@
 	return YES;
 }
 
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self.view setNeedsDisplay];
+}
+
 @end
