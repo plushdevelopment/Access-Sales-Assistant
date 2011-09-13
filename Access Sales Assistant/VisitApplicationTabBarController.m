@@ -62,8 +62,8 @@
     UITabBarItem *notes = [[self.tabBar items] objectAtIndex:2];
     [notes setEnabled:FALSE];
         
-  //  UITabBarItem *picture = [[self.tabBar items] objectAtIndex:3];
-  //  [picture setEnabled:FALSE];
+    UITabBarItem *picture = [[self.tabBar items] objectAtIndex:3];
+    [picture setEnabled:FALSE];
     }
 
     
