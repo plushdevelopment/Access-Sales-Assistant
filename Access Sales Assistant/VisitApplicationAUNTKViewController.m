@@ -299,9 +299,15 @@
 {
 	if (tableView == self.productionTableView) {
 		AUNTKProductionTableViewCell *customCell = [AUNTKProductionTableViewCell cellForTableView:tableView fromNib:self.productionTableViewCellNib];
-		customCell.dateLabel.text = [(PolicyCountReportData *)[self.productionData objectAtIndex:indexPath.row] header];
+		PolicyCountReportData *data = (PolicyCountReportData *)[self.productionData objectAtIndex:indexPath.row];
+		if ([data.header isEqualToString:@"Current Month"]) {
+			customCell.dateLabel.text = [NSString stringWithFormat:@"Total for %@", data.header];
+		} else {
+			customCell.dateLabel.text = [NSString stringWithFormat:@"Week Ending %@", data.header];
+		}
+		
 		//customCell.valueLabel.text = [[(PolicyCountReportData *)[self.auntk.policyCountReportData.allObjects objectAtIndex:indexPath.row] count] stringValue];
-		customCell.valueLabel.text = [(PolicyCountReportData *)[self.productionData objectAtIndex:indexPath.row] count];
+		customCell.valueLabel.text = data.count;
 		return customCell;
 	} else if (tableView == self.lossRatioTableView1) {
 		AUNTKLossRatioTableViewCell1 *customCell = [AUNTKLossRatioTableViewCell1 cellForTableView:tableView fromNib:self.lossRatioTableViewCell1Nib];
