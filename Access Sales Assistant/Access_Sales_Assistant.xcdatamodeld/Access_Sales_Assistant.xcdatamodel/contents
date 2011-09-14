@@ -187,6 +187,7 @@
         <attribute name="hasAccessSign" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="isEligible" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="lastVisit" optional="YES" attributeType="Date"/>
+        <attribute name="lastVisitSummaryNote" optional="YES" attributeType="String"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -337,11 +338,12 @@
         <element name="Phase" positionX="-396" positionY="-108" width="128" height="90"/>
         <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="105"/>
         <element name="PolicyCountReportData" positionX="207" positionY="-675" width="128" height="105"/>
-        <element name="Producer" positionX="306" positionY="123" width="128" height="630"/>
+        <element name="Producer" positionX="306" positionY="123" width="128" height="645"/>
         <element name="ProducerAddOn" positionX="261" positionY="864" width="128" height="90"/>
         <element name="ProducerImage" positionX="27" positionY="870" width="128" height="75"/>
         <element name="ProductionReportData" positionX="459" positionY="-900" width="128" height="360"/>
         <element name="PurposeOfCall" positionX="-324" positionY="315" width="128" height="90"/>
+        <element name="QAResolutionForm" positionX="160" positionY="192" width="128" height="105"/>
         <element name="QuestionListItem" positionX="-423" positionY="360" width="128" height="135"/>
         <element name="Rater" positionX="684" positionY="354" width="128" height="90"/>
         <element name="Rater2" positionX="-380" positionY="81" width="128" height="90"/>
@@ -352,6 +354,5 @@
         <element name="SuspensionReason" positionX="792" positionY="189" width="128" height="45"/>
         <element name="TrainingVideo" positionX="-423" positionY="-216" width="128" height="75"/>
         <element name="User" positionX="774" positionY="-297" width="128" height="135"/>
-        <element name="QAResolutionForm" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

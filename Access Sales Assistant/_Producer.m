@@ -185,6 +185,13 @@
 
 
 
+@dynamic lastVisitSummaryNote;
+
+
+
+
+
+
 @dynamic latitude;
 
 

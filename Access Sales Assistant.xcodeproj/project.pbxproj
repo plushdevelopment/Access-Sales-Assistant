@@ -55,6 +55,7 @@
 		6D9E17C413F0674C00C68AB6 /* ProducerContactInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D9E17BF13F0674C00C68AB6 /* ProducerContactInfoTableViewCell.xib */; };
 		6D9E17C513F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E17C113F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.m */; };
 		6D9E17C613F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D9E17C213F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.xib */; };
+		6DABC34C1420E388008FF036 /* _Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DABC34B1420E388008FF036 /* _Producer.m */; };
 		6DB30FD0141F8E0C00EF5486 /* LastVisitedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB30FCF141F8E0C00EF5486 /* LastVisitedTableViewCell.m */; };
 		6DB30FD3141F8E2F00EF5486 /* LastVisitedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DB30FD2141F8E2F00EF5486 /* LastVisitedTableViewCell.xib */; };
 		6DB6EBEB13FD61D100EE1EA9 /* ProspectApplicationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6EBE913FD61D100EE1EA9 /* ProspectApplicationTableViewController.m */; };
@@ -435,7 +436,6 @@
 		FFE2D1FF13E96EE000E6A77B /* VisitApplicationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE2D1FD13E96EE000E6A77B /* VisitApplicationMapViewController.m */; };
 		FFE2D20013E96EE000E6A77B /* VisitApplicationMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE2D1FE13E96EE000E6A77B /* VisitApplicationMapViewController.xib */; };
 		FFF0D00013BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */; };
-		FFF0D00513BB7ED7008DFA19 /* _Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00213BB7ED7008DFA19 /* _Producer.m */; };
 		FFF0D00613BB7ED7008DFA19 /* Producer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00413BB7ED7008DFA19 /* Producer.m */; };
 		FFF0D04413BBA529008DFA19 /* SuspensionReason.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D00F13BBA526008DFA19 /* SuspensionReason.m */; };
 		FFF0D04513BBA529008DFA19 /* SubTerritory.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D01113BBA526008DFA19 /* SubTerritory.m */; };
@@ -577,6 +577,8 @@
 		6D9E17C013F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationProducerProfileTableViewController.h; sourceTree = "<group>"; };
 		6D9E17C113F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationProducerProfileTableViewController.m; sourceTree = "<group>"; };
 		6D9E17C213F0674C00C68AB6 /* VisitApplicationProducerProfileTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationProducerProfileTableViewController.xib; sourceTree = "<group>"; };
+		6DABC34A1420E388008FF036 /* _Producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Producer.h; sourceTree = "<group>"; };
+		6DABC34B1420E388008FF036 /* _Producer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Producer.m; sourceTree = "<group>"; };
 		6DB30FCE141F8E0C00EF5486 /* LastVisitedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastVisitedTableViewCell.h; sourceTree = "<group>"; };
 		6DB30FCF141F8E0C00EF5486 /* LastVisitedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastVisitedTableViewCell.m; sourceTree = "<group>"; };
 		6DB30FD2141F8E2F00EF5486 /* LastVisitedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LastVisitedTableViewCell.xib; sourceTree = "<group>"; };
@@ -1142,8 +1144,6 @@
 		FFE2D1FE13E96EE000E6A77B /* VisitApplicationMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationMapViewController.xib; sourceTree = "<group>"; };
 		FFF0CFFE13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.h"; sourceTree = "<group>"; };
 		FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+SafeSetValuesKeysWithDictionary.m"; sourceTree = "<group>"; };
-		FFF0D00113BB7ED7008DFA19 /* _Producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Producer.h; sourceTree = "<group>"; };
-		FFF0D00213BB7ED7008DFA19 /* _Producer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Producer.m; sourceTree = "<group>"; };
 		FFF0D00313BB7ED7008DFA19 /* Producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Producer.h; sourceTree = "<group>"; };
 		FFF0D00413BB7ED7008DFA19 /* Producer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Producer.m; sourceTree = "<group>"; };
 		FFF0D00F13BBA526008DFA19 /* SuspensionReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspensionReason.m; sourceTree = "<group>"; };
@@ -1690,6 +1690,8 @@
 		FF697AD913AFB8F200B66202 /* Machine Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6DABC34A1420E388008FF036 /* _Producer.h */,
+				6DABC34B1420E388008FF036 /* _Producer.m */,
 				FFD458751417C55D006A86BE /* _ReasonNotSeen.h */,
 				FFD458761417C55D006A86BE /* _ReasonNotSeen.m */,
 				FFFACDDA1416964F002897C1 /* _AUNTK.h */,
@@ -1756,8 +1758,6 @@
 				FFF0D03F13BBA528008DFA19 /* _Contact.m */,
 				FFF0D04213BBA529008DFA19 /* _AddressListItem.h */,
 				FFF0D04113BBA529008DFA19 /* _AddressListItem.m */,
-				FFF0D00113BB7ED7008DFA19 /* _Producer.h */,
-				FFF0D00213BB7ED7008DFA19 /* _Producer.m */,
 				FF697AD013AFB8D500B66202 /* _User.h */,
 				FF697AD113AFB8D500B66202 /* _User.m */,
 			);
@@ -2945,7 +2945,6 @@
 				FF99B8AC13B8A3FC00FC1A0B /* DatePickerViewController.m in Sources */,
 				FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */,
 				FFF0D00013BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */,
-				FFF0D00513BB7ED7008DFA19 /* _Producer.m in Sources */,
 				FFF0D00613BB7ED7008DFA19 /* Producer.m in Sources */,
 				FFF0D04413BBA529008DFA19 /* SuspensionReason.m in Sources */,
 				FFF0D04513BBA529008DFA19 /* SubTerritory.m in Sources */,
@@ -3136,6 +3135,7 @@
 				6DB30FD0141F8E0C00EF5486 /* LastVisitedTableViewCell.m in Sources */,
 				6D11F9EF141FF9B700ACBC87 /* _QAResolutionForm.m in Sources */,
 				6D11F9F0141FF9B700ACBC87 /* QAResolutionForm.m in Sources */,
+				6DABC34C1420E388008FF036 /* _Producer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

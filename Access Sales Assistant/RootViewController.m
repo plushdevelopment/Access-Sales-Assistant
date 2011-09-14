@@ -59,8 +59,9 @@
 
 #define SECTION_HEADER_HEIGHT       48
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
-#define CONTACT_OPTIONS             @"Email SSC",@"Email Customer Service",@"Email NSF",@"Email Product",@"Email QA Form",@"Email Facilities",@"QA Resolution Timetable",@"Email help desk",nil
+#define CONTACT_OPTIONS             @"Email Sales Compliance",@"Email Customer Service",@"Email Insufficient Funds",@"Email Product",@"Email QA Form",@"Email Facilities",@"Quality Assurance Timetable",@"Email Help Desk",nil
 #define SECTION_TITLES              @"Visit Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",@"Search Producer",nil
+
 #define SECTION_ROW_COUNT           5,0,0,0,5,0,nil
 #define VISIT_APP_INDEX             0
 #define CONTACTS_OPTIONS_INDEX      4

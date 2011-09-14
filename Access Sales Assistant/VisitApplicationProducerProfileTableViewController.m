@@ -195,7 +195,7 @@
             if(_detailItem.lastVisit)
                 return 1;
             else
-                return 1;
+                return 0;
         }
 //            return 1;
         case EGeneral:
@@ -244,6 +244,7 @@
             NSString* lastVisitedText = [[NSString alloc] initWithFormat:@"%@",[dateFormatter stringFromDate:_detailItem.lastVisit]];
             
             cell.visitedLabel.text = lastVisitedText;
+            cell.summaryNotesTextView.text = _detailItem.lastVisitSummaryNote;
             
            /* static NSString *CellIdentifier = @"lastvisitedcell";
            
