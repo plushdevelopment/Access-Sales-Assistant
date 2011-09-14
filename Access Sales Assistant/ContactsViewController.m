@@ -22,6 +22,14 @@
 #define EMAIL_FACILITIES 5
 #define QA_RESOLUTION_TT 6
 #define EMAIL_HELP_DESK 7
+
+#define EMAIL_SSC_SUBJECT           @"Sales Compliance Request"
+#define EMAIL_QA_SUBJECT            @"Quality Assurance Request"
+#define EMAIL_NSF_SUBJECT           @"Insufficient Funds Request"
+#define EMAIL_PRODUCT_SUBJECT       @"Competitive Update"
+#define EMAIL_CUSTOMER_SUBJECT      @"Customer Service Request"
+#define EMAIL_HELPDESK_SUBJECT      @"Help Desk Request"
+#define EMAIL_FACILITIES_SUBJECT    @"Equipment Request"
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -60,32 +68,52 @@
 	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
 	picker.mailComposeDelegate = self;
 	
-	[picker setSubject:@"Hello from California!"];
+	
 	NSString* toAddress =nil;
     
     switch(selectedContactOption)
     {
         case EMAIL_SSC:
+        {
             toAddress = @"ssc@accessgeneral.com";
+            [picker setSubject:EMAIL_SSC_SUBJECT];
             break;
+        }
         case EMAIL_CUSTOMER_SERVICE:
+        {
             toAddress = @"customer@accessgeneral.com";
+            [picker setSubject:EMAIL_CUSTOMER_SUBJECT];
             break;
+        }
         case EMAIL_NSF:
+        {
             toAddress = @"nsf@accessgeneral.com";
+            [picker setSubject:EMAIL_NSF_SUBJECT];
             break;
+        }
         case EMAIL_PRODUCT:
+        {
             toAddress = @"product@accessgeneral.com";
+            [picker setSubject:EMAIL_PRODUCT_SUBJECT];
             break;
+        }
         case EMAIL_FACILITIES:
+        {
             toAddress = @"facilities@accessgeneral.com";
+            [picker setSubject:EMAIL_FACILITIES_SUBJECT];
             break;
+        }
         case QA_RESOLUTION_TT:
+        {
             toAddress = @"timetable@accessgeneral.com";
             break;
+        }
         case EMAIL_HELP_DESK:
+        {
             toAddress = @"help@accessgeneral.com";
+            [picker setSubject:EMAIL_HELPDESK_SUBJECT];
             break;
+        }
     
     }
     
@@ -97,11 +125,11 @@
 	
 	
 	// Fill out the email body text
-	NSString *emailBody = @"It is raining in sunny California!";
+	NSString *emailBody = @"";
     
     [picker setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [picker setModalPresentationStyle:UIModalPresentationFormSheet];
-//	[picker setMessageBody:emailBody isHTML:NO];
+	[picker setMessageBody:emailBody isHTML:NO];
 	//[picker SETM
 	[self presentModalViewController:picker animated:YES];
   //  [picker release];

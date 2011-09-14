@@ -53,6 +53,8 @@
 @synthesize lossRatioTableViewCell2Nib=_lossRatioTableViewCell2Nib;
 @synthesize toggleAUNTKButton=_toggleAUNTKButton;
 @synthesize scrollView = _scrollView;
+@synthesize titleLabel = _titleLabel;
+@synthesize titleText;
 
 #pragma mark -
 #pragma mark Detail item
@@ -70,6 +72,8 @@
 	if (self.aPopoverController != nil) {
         [self.aPopoverController dismissPopoverAnimated:YES];
     }
+    
+    titleText = [[NSString alloc]initWithFormat:@"%@ - %@",newDetailItem.name,newDetailItem.producerCode];
 }
 
 - (void)setAuntk:(AUNTK *)auntk
@@ -248,6 +252,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[self configureView];
+    
+    _titleLabel.text = titleText;
 }
 
 - (void)viewDidUnload

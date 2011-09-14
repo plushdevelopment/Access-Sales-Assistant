@@ -45,6 +45,7 @@
 
 
 
+
 @interface ProducerID : NSManagedObjectID {}
 @end
 
@@ -129,6 +130,14 @@
 
 
 //- (BOOL)validateLastVisit:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *lastVisitSummaryNote;
+
+
+//- (BOOL)validateLastVisitSummaryNote:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -482,6 +491,12 @@
 
 - (NSDate*)primitiveLastVisit;
 - (void)setPrimitiveLastVisit:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveLastVisitSummaryNote;
+- (void)setPrimitiveLastVisitSummaryNote:(NSString*)value;
 
 
 

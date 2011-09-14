@@ -40,6 +40,8 @@
 @property (strong, nonatomic) UINib *lossRatioTableViewCell2Nib;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *toggleAUNTKButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (nonatomic,strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic,strong) NSString* titleText;
 
 - (void)configureView;
 - (IBAction)dismiss:(id)sender;

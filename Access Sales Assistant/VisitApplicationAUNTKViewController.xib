@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11B26</string>
+		<string key="IBDocument.SystemVersion">11A511</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -817,7 +817,6 @@
 								<string key="NSFrame">{{34, 1303}, {237, 21}}</string>
 								<reference key="NSSuperview" ref="618381155"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -871,6 +870,39 @@
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="923671593"/>
 							</object>
+						</object>
+					</object>
+					<object class="IBUILabel" id="807421041">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">294</int>
+						<string key="NSFrame">{{65, 6}, {579, 30}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:120</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">7</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<string key="IBUIText">Label</string>
+						<object class="NSColor" key="IBUITextColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
+						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">10</float>
+						<int key="IBUITextAlignment">1</int>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<string key="name">TrebuchetMS-Bold</string>
+							<string key="family">Trebuchet MS</string>
+							<int key="traits">2</int>
+							<double key="pointSize">20</double>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">TrebuchetMS-Bold</string>
+							<double key="NSSize">20</double>
+							<int key="NSfFlags">16</int>
 						</object>
 					</object>
 				</object>
@@ -1031,6 +1063,14 @@
 					</object>
 					<int key="connectionID">62</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">titleLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="807421041"/>
+					</object>
+					<int key="connectionID">115</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1061,6 +1101,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="618381155"/>
 							<reference ref="923671593"/>
+							<reference ref="807421041"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1327,6 +1368,11 @@
 						<reference key="object" ref="198377017"/>
 						<reference key="parent" ref="679202966"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">114</int>
+						<reference key="object" ref="807421041"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1351,6 +1397,7 @@
 					<string>111.IBPluginDependency</string>
 					<string>112.IBPluginDependency</string>
 					<string>113.IBPluginDependency</string>
+					<string>114.IBPluginDependency</string>
 					<string>2.IBPluginDependency</string>
 					<string>33.IBPluginDependency</string>
 					<string>34.IBPluginDependency</string>
@@ -1428,6 +1475,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -1442,7 +1490,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">113</int>
+			<int key="maxID">115</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1511,6 +1559,7 @@
 							<string>lossRatioTrendLabel</string>
 							<string>productionTableView</string>
 							<string>scrollView</string>
+							<string>titleLabel</string>
 							<string>toggleAUNTKButton</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1524,6 +1573,7 @@
 							<string>UILabel</string>
 							<string>UITableView</string>
 							<string>UIScrollView</string>
+							<string>UILabel</string>
 							<string>UIBarButtonItem</string>
 						</object>
 					</object>
@@ -1540,6 +1590,7 @@
 							<string>lossRatioTrendLabel</string>
 							<string>productionTableView</string>
 							<string>scrollView</string>
+							<string>titleLabel</string>
 							<string>toggleAUNTKButton</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1579,6 +1630,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">scrollView</string>
 								<string key="candidateClassName">UIScrollView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">titleLabel</string>
+								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">toggleAUNTKButton</string>
