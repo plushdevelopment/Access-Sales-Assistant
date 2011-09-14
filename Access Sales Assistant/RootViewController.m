@@ -60,7 +60,11 @@
 #define SECTION_HEADER_HEIGHT       48
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
 #define CONTACT_OPTIONS             @"Email Sales Compliance",@"Email Customer Service",@"Email Insufficient Funds",@"Email Product",@"Email QA Form",@"Email Facilities",@"Quality Assurance Timetable",@"Email Help Desk",nil
-#define SECTION_TITLES              @"Visit Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",@"Search Producer",nil
+#define SECTION_TITLES              @"Visit Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",@"Search Producer",@"Total Access",nil
+
+#define SOCIAL_MEDIA_OPTIONS @"Access.com",@"LinkedIn",@"Twitter",@"Facebook",@"Career Builder",nil
+#define SOCIAL_MEDIA_IMAGE_NAME @"access_icon.png",@"linkedin_icon.png",@"twitter_icon.png",@"facebook_icon.png",@"career_builder_icon.png",nil
+#define SOCIAL_MEDIA_URL @"http://www.access.com",@"http://www.linkedin.com",@"http://www.twitter.com",@"http://www.facebook.com",@"http://www.careeerbuilder.com",nil
 
 #define SECTION_ROW_COUNT           5,0,0,0,5,0,nil
 #define VISIT_APP_INDEX             0
@@ -70,6 +74,7 @@
 #define ACCESS_ACADEMY_INDEX        3
 #define GPS_INDEX                   5
 #define SEARCH_PRODUCER_INDEX       6
+#define SOCIAL_MEDIA_INDEX          7
 #define FLASH_CARD_PROSPECT         1
 #define FLASH_CARD_ZERO_PRODUCER    2
 #define FLASH_CARD_PRODUCER         3
@@ -163,7 +168,10 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(producersSuccessful) name:@"Producers Successful" object:nil];
 	
     contactOptionsArray= [[NSArray alloc] initWithObjects:CONTACT_OPTIONS];
-	
+    
+	sectionSocialMediaArray = [[NSArray alloc] initWithObjects:SOCIAL_MEDIA_OPTIONS];
+    sectionSocialMediaImageArray = [[NSArray alloc] initWithObjects:SOCIAL_MEDIA_IMAGE_NAME];
+    sectionSocialMediaUrlArray = [[NSArray alloc] initWithObjects:SOCIAL_MEDIA_URL];
     
     NSMutableArray* arrayInfo = [NSMutableArray array];
     for(int s =0; s<[sectionTitlesArray count];s++)
@@ -278,6 +286,8 @@
 			rowsCount = [contactOptionsArray count];
 		else if(section == ACCESS_ACADEMY_INDEX)
 			rowsCount =[treeNode descendantCount];
+        else if(section == SOCIAL_MEDIA_INDEX)
+            rowsCount = [sectionSocialMediaArray count];
 		else
 			rowsCount =0;
         
@@ -331,14 +341,26 @@
 		
 		NSInteger section = indexPath.section;
 		NSInteger row = indexPath.row;
+        cell.imageView.image = nil;
 		
 		switch (section) {
 			case VISIT_APP_INDEX:
+            {
 				cell.textLabel.text = [visitApplicationDaysArray objectAtIndex:row];
+            }
 				break;
 			case CONTACTS_OPTIONS_INDEX:
+            {
 				cell.textLabel.text = [contactOptionsArray objectAtIndex:row];
+            }
 				break;
+            case SOCIAL_MEDIA_INDEX:
+            {
+                cell.textLabel.text = [sectionSocialMediaArray objectAtIndex:row];
+                cell.imageView.image = [UIImage imageNamed:[sectionSocialMediaImageArray objectAtIndex:row]];
+            }
+				break;
+                
 			default:
 				break;
 		}
@@ -491,6 +513,12 @@
             
         }
             break;
+        case SOCIAL_MEDIA_INDEX:
+        {
+            UIApplication *app = [UIApplication sharedApplication];
+            [app openURL:[NSURL URLWithString: [sectionSocialMediaUrlArray objectAtIndex:indexPath.row]]];
+            break;
+        }
             
                    
         default:
@@ -536,6 +564,8 @@
         countOfRowsToInsert =[contactOptionsArray count];
     else if(sectionOpened == ACCESS_ACADEMY_INDEX)
         countOfRowsToInsert = [treeNode descendantCount];
+    else if(sectionOpened == SOCIAL_MEDIA_INDEX)
+        countOfRowsToInsert = [sectionSocialMediaArray count];
     else
         countOfRowsToInsert =0;
     NSMutableArray *indexPathsToInsert = [[NSMutableArray alloc] init];
@@ -559,6 +589,8 @@
             countOfRowsToDelete =[contactOptionsArray count];
         else if(previousOpenSectionIndex == ACCESS_ACADEMY_INDEX)
             countOfRowsToDelete = [treeNode descendantCount];
+        else if(previousOpenSectionIndex == SOCIAL_MEDIA_INDEX)
+            countOfRowsToDelete = [sectionSocialMediaArray count];
         else
             countOfRowsToDelete =0;
         
