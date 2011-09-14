@@ -78,7 +78,7 @@
 
 #define kUATURL @"https://uatmobile.accessgeneral.com/TsmServices/"
 #define kDevURL @"http://devweb01.development.accessgeneral.com:82/"
-#define kURL @"http://devweb01.development.accessgeneral.com:82/"
+#define kURL @"https://uatmobile.accessgeneral.com/TsmServices/"
 
 @implementation HTTPOperationController
 

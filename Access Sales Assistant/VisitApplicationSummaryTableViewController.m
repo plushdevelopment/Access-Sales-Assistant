@@ -169,7 +169,11 @@ enum PRPTableStatsTags {
 	[self pickerView:pickerView didSelectRow:0 inComponent:0];
 	
 	//Position the picker out of sight
-	[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+		[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME_LANDSCAPE];
+	} else {
+		[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	}
 	
 	//Add the picker to the view
 	[self.parentViewController.view addSubview:self.pickerViewController.view];
@@ -179,6 +183,12 @@ enum PRPTableStatsTags {
 	[UIView animateWithDuration:0.2 animations:^{
 		//Position of the picker in sight
 		[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		//Position of the picker in sight
+		if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+			[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME_LANDSCAPE];
+		} else {
+			[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		}
 		
 	} completion:^(BOOL finished){
 		CIVector *frameVector = [CIVector vectorWithCGRect:self.pickerViewController.view.frame];
@@ -200,7 +210,11 @@ enum PRPTableStatsTags {
 	[self.datePickerViewController.datePicker setDatePickerMode:UIDatePickerModeDate];
 	
 	//Position the picker out of sight
-	[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+		[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME_LANDSCAPE];
+	} else {
+		[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	}
 	
 	//Add the picker to the view
 	//[self.view.superview addSubview:self.datePickerViewController.view];
@@ -209,7 +223,11 @@ enum PRPTableStatsTags {
 	//For older iOS, use "beginAnimation:context"
 	[UIView animateWithDuration:0.2 animations:^{
 		//Position of the picker in sight
-		[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+			[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME_LANDSCAPE];
+		} else {
+			[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		}
 		
 	} completion:^(BOOL finished){
 		NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
