@@ -75,6 +75,10 @@
 								<reference key="IBUIToolbar" ref="23464679"/>
 							</object>
 						</object>
+						<object class="NSColor" key="IBUITintColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4yNDUxMTMyMjEyIDAuNjQyMjk1MTk3MiAwLjg3NQA</bytes>
+						</object>
 					</object>
 					<object class="IBUILabel" id="140067866">
 						<reference key="NSNextResponder" ref="766721923"/>
@@ -299,7 +303,6 @@
 						<string key="NSFrame">{{193, 330}, {299, 255}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:504</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>

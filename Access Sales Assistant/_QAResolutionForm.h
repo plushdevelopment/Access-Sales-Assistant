@@ -1,5 +1,5 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to QAForm.h instead.
+// Make changes to QAResolutionForm.h instead.
 
 #import <CoreData/CoreData.h>
 
@@ -10,27 +10,27 @@
 
 
 
-@interface QAFormID : NSManagedObjectID {}
+@interface QAResolutionFormID : NSManagedObjectID {}
 @end
 
-@interface _QAForm : NSManagedObject {}
+@interface _QAResolutionForm : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (QAFormID*)objectID;
+- (QAResolutionFormID*)objectID;
 
 
 
 
-@property (nonatomic, retain) NSString *Description;
+@property (nonatomic, retain) NSString *descp;
 
 
-//- (BOOL)validateDescription:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateDescp:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) NSString *PolicyNumber;
+@property (nonatomic, retain) NSString *policyNumber;
 
 
 //- (BOOL)validatePolicyNumber:(id*)value_ error:(NSError**)error_;
@@ -38,7 +38,7 @@
 
 
 
-@property (nonatomic, retain) NSString *ProducerCode;
+@property (nonatomic, retain) NSString *producerCode;
 
 
 //- (BOOL)validateProducerCode:(id*)value_ error:(NSError**)error_;
@@ -46,7 +46,7 @@
 
 
 
-@property (nonatomic, retain) NSString *Request;
+@property (nonatomic, retain) NSString *request;
 
 
 //- (BOOL)validateRequest:(id*)value_ error:(NSError**)error_;
@@ -57,15 +57,15 @@
 
 @end
 
-@interface _QAForm (CoreDataGeneratedAccessors)
+@interface _QAResolutionForm (CoreDataGeneratedAccessors)
 
 @end
 
-@interface _QAForm (CoreDataGeneratedPrimitiveAccessors)
+@interface _QAResolutionForm (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveDescription;
-- (void)setPrimitiveDescription:(NSString*)value;
+- (NSString*)primitiveDescp;
+- (void)setPrimitiveDescp:(NSString*)value;
 
 
 
