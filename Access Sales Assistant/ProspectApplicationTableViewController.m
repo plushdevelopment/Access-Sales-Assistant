@@ -24,7 +24,7 @@
 #import "EmailListItem.h"
 #import "NSString-Validation.h"
 #import "SelectionModelViewController.h"
-#import "ProducerProfileConstants.h"
+
 
 @implementation ProspectApplicationTableViewController
 

@@ -23,7 +23,9 @@
 #define VIEW_HIDDEN_FRAME       CGRectMake(0.0, 20.0, 768.0, 1004.0)
 #define VIEW_VISIBLE_FRAME      CGRectMake(0.0, -239.0, 768.0, 1004.0)
 #define PICKER_VISIBLE_FRAME	CGRectMake(0.0, 765.0, 768.0, 259.0)
+#define PICKER_VISIBLE_FRAME_LANDSCAPE	CGRectMake(0.0, 509.0, 768.0, 259.0)
 #define PICKER_HIDDEN_FRAME		CGRectMake(0, 864.0, 768.0, 259.0)
+#define PICKER_HIDDEN_FRAME_LANDSCAPE		CGRectMake(0, 768.0, 768.0, 259.0)
 #define VALID_EMAIL_ALERT       @"Not a valid email id"
 #define VALID_PHONE_ALERT       @"Not a valid phone number"
 #define VALID_ZIP_CODE_ALERT       @"Not a valid zip code"
