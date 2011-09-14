@@ -49,7 +49,7 @@
 @property (nonatomic, strong) IBOutlet ProspectAppGeneralTableViewCell *generalTableViewCell;
 
 
-@property (nonatomic,strong) IBOutlet UITableView* tableView;
+@property (nonatomic,strong) IBOutlet SmartTableView* tableView;
 @property (nonatomic, strong) Producer* detailItem;
 @property (nonatomic, strong) IBOutlet PickerViewController *pickerViewController;
 @property (nonatomic, strong) IBOutlet DatePickerViewController *datePickerViewController;

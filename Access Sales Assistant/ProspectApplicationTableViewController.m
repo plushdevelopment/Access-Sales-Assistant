@@ -24,6 +24,7 @@
 #import "EmailListItem.h"
 #import "NSString-Validation.h"
 #import "SelectionModelViewController.h"
+#import "ProducerProfileConstants.h"
 
 @implementation ProspectApplicationTableViewController
 
@@ -397,7 +398,11 @@
 	[self pickerView:pickerView didSelectRow:0 inComponent:0];
 	
 	//Position the picker out of sight
-	[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+		[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME_LANDSCAPE];
+	} else {
+		[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	}
 	
 	//Add the picker to the view
 	[self.view.superview addSubview:self.pickerViewController.view];
@@ -406,7 +411,11 @@
 	//For older iOS, use "beginAnimation:context"
 	[UIView animateWithDuration:0.2 animations:^{
 		//Position of the picker in sight
-		[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+			[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME_LANDSCAPE];
+		} else {
+			[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		}
 		
 	} completion:^(BOOL finished){
 		CIVector *frameVector = [CIVector vectorWithCGRect:self.pickerViewController.view.frame];
@@ -435,13 +444,21 @@
 	NSLog(@"%@", pickerFrame);
 	
 	//Add the picker to the view
-	[self.view addSubview:self.datePickerViewController.view];
+	if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+		[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME_LANDSCAPE];
+	} else {
+		[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+	}
 	
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"
 	[UIView animateWithDuration:0.2 animations:^{
 		//Position of the picker in sight
-		[self.datePickerViewController.view setFrame:CGRectMake(0.0, 765.0, 768.0, 259.0)];
+		if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+			[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME_LANDSCAPE];
+		} else {
+			[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+		}
 	} completion:^(BOOL finished){
 		NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
         
