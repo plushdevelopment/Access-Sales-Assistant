@@ -63,24 +63,26 @@
 
 - (void)configureView
 {
-	[self.directionsMapView removeOverlays:self.directionsMapView.overlays];
-	[self.directionsMapView removeAnnotations:self.directionsMapView.annotations];
-	if (self.producers.count > 0) {
-		self.startPoint = [(Producer *)[self.producers objectAtIndex:0] address];
-		self.endPoint = [(Producer *)[self.producers lastObject] address];
-		NSMutableArray *wayPoints = [NSMutableArray array];
-		for (Producer *producer in self.producers) {
-			[[HTTPOperationController sharedHTTPOperationController] getImagesForProducer:producer.uid];
-			if (([self.producers indexOfObject:producer] > 0) && ([self.producers indexOfObject:producer] < self.producers.count - 2)) {
-				[wayPoints addObject:producer.address];
+	if ([[[HTTPOperationController sharedHTTPOperationController] networkQueue] requestsCount] == 0) {
+		[self.directionsMapView removeOverlays:self.directionsMapView.overlays];
+		[self.directionsMapView removeAnnotations:self.directionsMapView.annotations];
+		if (self.producers.count > 0) {
+			self.startPoint = [(Producer *)[self.producers objectAtIndex:0] address];
+			self.endPoint = [(Producer *)[self.producers lastObject] address];
+			NSMutableArray *wayPoints = [NSMutableArray array];
+			for (Producer *producer in self.producers) {
+				[[HTTPOperationController sharedHTTPOperationController] getImagesForProducer:producer.uid];
+				if (([self.producers indexOfObject:producer] > 0) && ([self.producers indexOfObject:producer] < self.producers.count - 2)) {
+					[wayPoints addObject:producer.address];
+				}
 			}
+			self.wayPoints = wayPoints;
+			self.travelMode = UICGTravelModeDriving;
 		}
-		self.wayPoints = wayPoints;
-		self.travelMode = UICGTravelModeDriving;
-	}
-	[self.producersTableView reloadData];
-	if (_directions.isInitialized) {
-		[self update];
+		[self.producersTableView reloadData];
+		if (_directions.isInitialized) {
+			[self update];
+		}
 	}
 }
 
@@ -204,7 +206,7 @@
 {
     Producer *producer = [self.producers objectAtIndex:indexPath.row];
     
-   
+	
 	/*
 	 VisitApplicationViewController *viewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
 	 [viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];

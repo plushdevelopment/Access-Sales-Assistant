@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -126,7 +126,7 @@
 					</object>
 					<object class="IBUITableView" id="764822971">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">306</int>
+						<int key="NSvFlags">304</int>
 						<string key="NSFrame">{{0, 44}, {768, 392}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSNextKeyView" ref="812604492"/>
