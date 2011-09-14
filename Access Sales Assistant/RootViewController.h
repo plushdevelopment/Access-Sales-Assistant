@@ -21,6 +21,9 @@
     NSArray* contactOptionsArray;
     NSMutableArray* sectionIdsArray;
     NSMutableArray* sectionRowCountArray;
+    NSArray* sectionSocialMediaArray;
+    NSArray* sectionSocialMediaImageArray;
+    NSArray* sectionSocialMediaUrlArray;
 }
 
 @property (strong, nonatomic) IBOutlet BaseDetailViewController *detailViewController;
