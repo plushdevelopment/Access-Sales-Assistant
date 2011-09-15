@@ -7,14 +7,7 @@
 //
 
 #import "GetProducerRequest.h"
-
 #import "JSON.h"
-
-#import "Producer.h"
-
-#import "AddressListItem.h"
-
-#import "State.h"
 
 @implementation GetProducerRequest
 
@@ -54,8 +47,6 @@
 				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 				[dateFormatter setDateFormat:@"EEEE, MM-dd-yyyy"];
 				producer.nextScheduledVisitDate = [dateFormatter stringFromDate:[producer nextScheduledVisit]];
-				//NSLog(@"%@", producer.nextScheduledVisitDate);
-				//NSLog(@"%@", producer.nextScheduledVisitTime);
 				NSLog(@"%@", [producer.nextScheduledVisit debugDescription]);
 				NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
 				[timeFormatter setDateFormat:@"hh:mm a"];

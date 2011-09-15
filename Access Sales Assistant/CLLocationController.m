@@ -81,8 +81,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(CLLocationController);
      didUpdateToLocation:(CLLocation *)newLocation
             fromLocation:(CLLocation *)oldLocation
 {
+	/*
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[newLocation description], @"New Location", [oldLocation description], @"Old Location", nil];
 	[FlurryAnalytics logEvent:@"Did update to new location" withParameters:dict];
+	 */
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error

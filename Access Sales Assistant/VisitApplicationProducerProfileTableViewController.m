@@ -937,9 +937,6 @@
     UIImageView* headerBg = [[UIImageView alloc] initWithFrame:headerView.frame];
     UIImage* hImg = [UIImage imageNamed:@"MenuButton.png"];
     headerBg.image = hImg;
-    
-    
-    
     UILabel* headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, tableView.bounds.size.width-5, 20)];
     headerTitle.text = [sectionTitleArray objectAtIndex:section];
     headerTitle.font= [UIFont fontWithName:@"TrebuchetMS-Bold" size:16.0];
@@ -2100,12 +2097,11 @@
 	
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
-    
+    self.detailItem.editedValue = YES;
     switch(indexPath.section)
     {
         case EGeneral:
         {
-            
             switch(tag)
             {
                 case EProducerName:
@@ -2113,7 +2109,6 @@
                     self.detailItem.name = textField.text;
                     break;
                 }
-                    
                 case ESubTerritory:
                 {
                     self.detailItem.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:textField.text managedObjectContext:[NSManagedObjectContext defaultContext]];
@@ -2131,7 +2126,6 @@
                     self.detailItem.primaryContact = textField.text;
                     break;
                 }
-					
             }
         }
             break;
@@ -2161,8 +2155,6 @@
         {
             switch(tag)
             {
-                    
-                    
                 case EPhone1: //3
                 {
                     [self modifyPhoneItem:textField :3];
@@ -2280,10 +2272,35 @@
                 case EContactLastName:
                     cnt.lastName = textField.text;
                     break;
-                case EContactMobilePhone:
-                    
+                case EContactMobilePhone: {
+					PhoneListItem *phone;
+					for (PhoneListItem *aPhone in cnt.phoneList) {
+						if (aPhone.typeValue == 5) {
+							phone = aPhone;
+						}
+					}
+					if (!phone) {
+						phone = [PhoneListItem createEntity];
+						phone.typeValue = 5;
+						[cnt addPhoneListObject:phone];
+					}
+					phone.number = textField.text;
+				}
                     break;
-                case EContactEmailAddress:
+                case EContactEmailAddress: {
+					EmailListItem *email;
+					for (EmailListItem *aPhone in cnt.emailList) {
+						if (aPhone.typeValue == 5) {
+							email = aPhone;
+						}
+					}
+					if (!email) {
+						email = [EmailListItem createEntity];
+						email.typeValue = 5;
+						[cnt addEmailListObject:email];
+					}
+					email.address = textField.text;
+				}
                     //  cnt.e
                     break;
                 case EContactSSN:
@@ -2787,10 +2804,7 @@
             }       
             break;
         }
-			
-			
     }
-	
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 }

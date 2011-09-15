@@ -64,7 +64,7 @@
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configureView) name:@"AUNTK" object:nil];
-        [[HTTPOperationController sharedHTTPOperationController] getAUNTKsForProducer:self.detailItem.producerCode];
+        
         // Update the view.
         [self configureView];
     }
@@ -251,6 +251,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	[[HTTPOperationController sharedHTTPOperationController] getAUNTKsForProducer:self.detailItem.producerCode];
 	[self configureView];
     
     _titleLabel.text = titleText;

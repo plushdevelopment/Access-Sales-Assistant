@@ -87,7 +87,6 @@
 
 - (void)configureView
 {
-	[[HTTPOperationController sharedHTTPOperationController] getImagesForProducer:self.detailItem.uid];
 	self.images = self.detailItem.images.allObjects;
 	[self.gridView reloadData];
 }
@@ -137,6 +136,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+	[[HTTPOperationController sharedHTTPOperationController] getImagesForProducer:self.detailItem.uid];
 	self.images = self.detailItem.images.allObjects;
 	[self.gridView reloadData];
     

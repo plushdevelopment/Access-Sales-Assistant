@@ -124,8 +124,10 @@
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"EEEE, MM-dd-yyyy"];
 	NSString *currentDate = [dateFormatter stringFromDate:[NSDate date]];
-	NSArray *producers = [Producer findByAttribute:@"nextScheduledVisitDate" withValue:currentDate andOrderBy:@"nextScheduledVisit" ascending:YES];
-	
+	NSArray *producers = [Producer findByAttribute:@"nextScheduledVisitDate"
+										 withValue:currentDate
+										andOrderBy:@"nextScheduledVisit"
+										 ascending:YES];
 	[[CLLocationController sharedCLLocationController] monitorProducers:producers];
 }
 
