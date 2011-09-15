@@ -10,8 +10,6 @@
 
 #import "SynthesizeSingleton.h"
 
-#import "Producer.h"
-
 @implementation CLLocationController
 
 @synthesize manager=_manager;

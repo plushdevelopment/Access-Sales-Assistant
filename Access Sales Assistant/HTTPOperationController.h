@@ -10,8 +10,6 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "HUDNetworkQueue.h"
 
-@class User;
-
 @interface HTTPOperationController : NSObject <ASIHTTPRequestDelegate>
 
 @property (strong) HUDNetworkQueue *networkQueue;

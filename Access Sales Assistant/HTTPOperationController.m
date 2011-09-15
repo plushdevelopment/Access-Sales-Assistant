@@ -17,35 +17,16 @@
 #import "JSONKit.h"
 #import "NSData+Base64.h"
 #import "StringEncryption.h"
-#import "User.h"
-#import "Producer.h"
-#import "Status.h"
-#import "SuspensionReason.h"
-#import "IneligibleReason.h"
-#import "Rater.h"
-#import "Rater2.h"
-#import "SubTerritory.h"
-#import "QuestionListItem.h"
-#import "State.h"
-#import "PhoneListItem.h"
-#import "HoursOfOperation.h"
-#import "EmailListItem.h"
-#import "Contact.h"
-#import "AddressListItem.h"
-#import "DailySummary.h"
-#import "ProducerImage.h"
-#import "Competitor.h"
 #import "GetProducerRequest.h"
 #import "GetCompetitorRequest.h"
 #import "UIHelpers.h"
 #import "AccessSalesConstants.h"
-#import "AUNTK.h"
 
 #define kPAGESIZE 100
 
 #define kUATURL @"https://uatmobile.accessgeneral.com/TsmServices/"
 #define kDevURL @"http://devweb01.development.accessgeneral.com:82/"
-#define kURL @"https://uatmobile.accessgeneral.com/TsmServices/"
+#define kURL @"http://devweb01.development.accessgeneral.com:82/"
 
 @implementation HTTPOperationController
 

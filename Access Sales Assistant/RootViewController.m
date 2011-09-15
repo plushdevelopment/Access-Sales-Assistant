@@ -102,8 +102,6 @@
 
 @synthesize treeNode;
 
-@synthesize mgSplitViewController = _mgSplitViewController;
-
 - (void)producersSuccessful
 {
 	NSArray *producersArray = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES];

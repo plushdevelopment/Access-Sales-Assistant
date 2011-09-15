@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MGSplitViewController.h"
 #import "NSString-Validation.h"
 @protocol SubstitutableDetailViewController
 - (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
@@ -19,14 +18,10 @@
 @private
     
 }
-@property(nonatomic,strong) UINavigationBar *baseNavigationBar;
-@property(nonatomic,strong) UIToolbar *baseToolbar;
-
-@property(nonatomic,strong) UIBarButtonItem *showHideMaster;
-
-//@property (nonatomic,strong) MGSplitViewController* splitviewcontroller;
-@property (nonatomic,strong) UISplitViewController* splitviewcontroller;
-
+@property (nonatomic,strong) UINavigationBar *baseNavigationBar;
+@property (nonatomic,strong) UIToolbar *baseToolbar;
+@property (nonatomic,strong) UIBarButtonItem *showHideMaster;
+@property (nonatomic,strong) UISplitViewController *splitviewcontroller;
 @property (nonatomic) BOOL hidemaster;
 
 -(void) showAlert:(NSString*) alertText;
@@ -39,5 +34,7 @@
 
   
 }
+
 @property(nonatomic) BOOL showOriginal;
+
 @end

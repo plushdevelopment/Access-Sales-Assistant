@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "VisitApplicationViewController.h"
 #import "MyTreeNode.h"
-#import "MGSplitViewController.h"
 
 @class  BaseDetailViewController;
 
-@interface RootViewController : UITableViewController <UISplitViewControllerDelegate,MGSplitViewControllerDelegate>
+@interface RootViewController : UITableViewController <UISplitViewControllerDelegate>
 {
 	NSMutableIndexSet *expandedSections;
     NSArray* sectionTitlesArray;
@@ -34,7 +33,6 @@
 @property (nonatomic,strong) UIBarButtonItem* showHideMaster;
 
 @property (nonatomic, assign) UISplitViewController *splitViewController;
-@property (nonatomic,assign) MGSplitViewController* mgSplitViewController;
 @property (nonatomic,strong) MyTreeNode* treeNode;
 
 -(void) changeDetailViewController:(BaseDetailViewController*)detailViewController;

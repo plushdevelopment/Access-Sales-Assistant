@@ -403,9 +403,6 @@
 		FFD4587A1417C55D006A86BE /* ReasonNotSeen.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD458781417C55D006A86BE /* ReasonNotSeen.m */; };
 		FFD9A8AE13CCA1B9009ACD64 /* Rater2.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD9A8AA13CCA1B9009ACD64 /* Rater2.m */; };
 		FFD9A8AF13CCA1B9009ACD64 /* _Rater2.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD9A8AC13CCA1B9009ACD64 /* _Rater2.m */; };
-		FFDFB55C13EB239E00B540E1 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDFB55713EB239E00B540E1 /* MGSplitCornersView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FFDFB55D13EB239E00B540E1 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDFB55913EB239E00B540E1 /* MGSplitDividerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FFDFB55E13EB239E00B540E1 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDFB55B13EB239E00B540E1 /* MGSplitViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FFDFB56213EB23D100B540E1 /* Flashcards.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFDFB56113EB23D100B540E1 /* Flashcards.plist */; };
 		FFDFB57513EB25CA00B540E1 /* Producer_1.html in Resources */ = {isa = PBXBuildFile; fileRef = FFDFB56313EB25CA00B540E1 /* Producer_1.html */; };
 		FFDFB57613EB25CA00B540E1 /* Producer_2.html in Resources */ = {isa = PBXBuildFile; fileRef = FFDFB56413EB25CA00B540E1 /* Producer_2.html */; };
@@ -1072,6 +1069,7 @@
 		FFC9533C13AFCACE000967CB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		FFCD8B1F13C601D3008D8885 /* NSManagedObject+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Additions.h"; sourceTree = "<group>"; };
 		FFCD8B2013C601D3008D8885 /* NSManagedObject+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Additions.m"; sourceTree = "<group>"; };
+		FFCE85221422231400744529 /* ModelClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelClasses.h; sourceTree = "<group>"; };
 		FFD4586E141797C9006A86BE /* SearchProducerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchProducerViewController.h; sourceTree = "<group>"; };
 		FFD4586F141797C9006A86BE /* SearchProducerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchProducerViewController.m; sourceTree = "<group>"; };
 		FFD45870141797C9006A86BE /* SearchProducerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchProducerViewController.xib; sourceTree = "<group>"; };
@@ -1083,12 +1081,6 @@
 		FFD9A8AB13CCA1B9009ACD64 /* Rater2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rater2.h; sourceTree = "<group>"; };
 		FFD9A8AC13CCA1B9009ACD64 /* _Rater2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Rater2.m; sourceTree = "<group>"; };
 		FFD9A8AD13CCA1B9009ACD64 /* _Rater2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Rater2.h; sourceTree = "<group>"; };
-		FFDFB55613EB239E00B540E1 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
-		FFDFB55713EB239E00B540E1 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
-		FFDFB55813EB239E00B540E1 /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
-		FFDFB55913EB239E00B540E1 /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
-		FFDFB55A13EB239E00B540E1 /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitViewController.h; sourceTree = "<group>"; };
-		FFDFB55B13EB239E00B540E1 /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
 		FFDFB56113EB23D100B540E1 /* Flashcards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Flashcards.plist; sourceTree = "<group>"; };
 		FFDFB56313EB25CA00B540E1 /* Producer_1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Producer_1.html; sourceTree = "<group>"; };
 		FFDFB56413EB25CA00B540E1 /* Producer_2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Producer_2.html; sourceTree = "<group>"; };
@@ -1298,9 +1290,9 @@
 		6D7AABAE13FD932500F6B361 /* Prospect Application */ = {
 			isa = PBXGroup;
 			children = (
-				6D7AABA713FD7C0900F6B361 /* ProspectAppAddressTableViewCell.xib */,
 				6D7AABB213FD938A00F6B361 /* ProspectAppGeneralTableViewCell.h */,
 				6D7AABB313FD938A00F6B361 /* ProspectAppGeneralTableViewCell.m */,
+				6D7AABA713FD7C0900F6B361 /* ProspectAppAddressTableViewCell.xib */,
 				6D7AABB013FD936000F6B361 /* ProspectAppGeneralTableViewCell.xib */,
 				6D7AABB513FD969300F6B361 /* ProspectAppCompanyContactInfoTableViewCell.xib */,
 				6D7AABB713FD96AE00F6B361 /* ProspectAppRaterTableViewCell.xib */,
@@ -1392,6 +1384,9 @@
 		FF21974113CF53DF001F1B0D /* Producer Profile */ = {
 			isa = PBXGroup;
 			children = (
+				6DB30FCE141F8E0C00EF5486 /* LastVisitedTableViewCell.h */,
+				6DB30FCF141F8E0C00EF5486 /* LastVisitedTableViewCell.m */,
+				6DB30FD2141F8E2F00EF5486 /* LastVisitedTableViewCell.xib */,
 				6D9E17BD13F0674C00C68AB6 /* ProducerContactInfoTableViewCell.h */,
 				6D9E17BE13F0674C00C68AB6 /* ProducerContactInfoTableViewCell.m */,
 				6D9E17BF13F0674C00C68AB6 /* ProducerContactInfoTableViewCell.xib */,
@@ -1517,6 +1512,7 @@
 			isa = PBXGroup;
 			children = (
 				FFA1A31C13AF981600434B93 /* Access_Sales_Assistant.xcdatamodeld */,
+				FFCE85221422231400744529 /* ModelClasses.h */,
 				FF697AD913AFB8F200B66202 /* Machine Classes */,
 				FF697AD813AFB8E500B66202 /* Human Classes */,
 			);
@@ -1695,9 +1691,6 @@
 				FFB56A1F13D05E4A00B980EE /* PRPSmartTableViewCell.m */,
 				FF21974213CF53EF001F1B0D /* Daily Summary */,
 				FF21974113CF53DF001F1B0D /* Producer Profile */,
-				6DB30FCE141F8E0C00EF5486 /* LastVisitedTableViewCell.h */,
-				6DB30FCF141F8E0C00EF5486 /* LastVisitedTableViewCell.m */,
-				6DB30FD2141F8E2F00EF5486 /* LastVisitedTableViewCell.xib */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -1705,6 +1698,9 @@
 		FF77100213B23DE500E90F4B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FF374DF713D50CC000C170EB /* button-plus.png */,
+				FF9ED83613D50BAD006105C7 /* accessicon.png */,
+				FF9379B913D4A620007C95AC /* Icon-72.png */,
 				6DDC3E1813FAAACE005F4DD7 /* grey_square_pin.png */,
 				6DABC34D1420FDD9008FF036 /* access_icon.png */,
 				6DABC34E1420FDD9008FF036 /* career_builder_icon.png */,
@@ -1828,11 +1824,11 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FFCE85231422470D00744529 /* NSString Category */,
 				FFBDF206141E55770011376F /* Tapku Graph */,
 				FFFACDD214112822002897C1 /* MBProgressHUD */,
 				FFFB3C5813ABE4210063E374 /* Core Graphics Table View */,
 				FF317ECE140835FC007D88FD /* FlurryAnalytics */,
-				FFDFB56013EB23A500B540E1 /* MGSplitViewController */,
 				FF846CB613DD9A5F00D59F3E /* JSONKit */,
 				6D96C92913D8AF0900478DD3 /* iCarousel */,
 				FFA0705013D5EB650021E412 /* SSLocationManager */,
@@ -1942,22 +1938,14 @@
 		FF8B415B13A8EEF700A05007 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FF374DF713D50CC000C170EB /* button-plus.png */,
-				FF9ED83613D50BAD006105C7 /* accessicon.png */,
-				FF9379B913D4A620007C95AC /* Icon-72.png */,
 				FF77100213B23DE500E90F4B /* Images */,
 				FFFB3C0313ABA15C0063E374 /* api.html */,
 				6D966D4E13DDF3C100DAF04B /* sample.json */,
 				FFFB3C0413ABA15C0063E374 /* json2.js */,
-				6D0EF48113D713F600745307 /* SplashViewController.h */,
 				FF8B415C13A8EEF700A05007 /* Access Sales Assistant-Info.plist */,
 				FF8B415D13A8EEF700A05007 /* InfoPlist.strings */,
 				FF8B416013A8EEF700A05007 /* main.m */,
 				FF8B416213A8EEF700A05007 /* Access Sales Assistant-Prefix.pch */,
-				6D38EFB51402B20300E4F682 /* NSString-Validation.h */,
-				6D38EFB61402B20300E4F682 /* NSString-Validation.m */,
-				6DEE3D1D140D3E1C00532F71 /* PhoneNumberFormatter.h */,
-				6DEE3D1E140D3E1C00532F71 /* PhoneNumberFormatter.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2336,6 +2324,17 @@
 			name = "ActiveRecord Helpers";
 			sourceTree = "<group>";
 		};
+		FFCE85231422470D00744529 /* NSString Category */ = {
+			isa = PBXGroup;
+			children = (
+				6D38EFB51402B20300E4F682 /* NSString-Validation.h */,
+				6D38EFB61402B20300E4F682 /* NSString-Validation.m */,
+				6DEE3D1D140D3E1C00532F71 /* PhoneNumberFormatter.h */,
+				6DEE3D1E140D3E1C00532F71 /* PhoneNumberFormatter.m */,
+			);
+			name = "NSString Category";
+			sourceTree = "<group>";
+		};
 		FFD45874141797D0006A86BE /* Search Producer Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -2344,19 +2343,6 @@
 				FFD45870141797C9006A86BE /* SearchProducerViewController.xib */,
 			);
 			name = "Search Producer Application";
-			sourceTree = "<group>";
-		};
-		FFDFB56013EB23A500B540E1 /* MGSplitViewController */ = {
-			isa = PBXGroup;
-			children = (
-				FFDFB55613EB239E00B540E1 /* MGSplitCornersView.h */,
-				FFDFB55713EB239E00B540E1 /* MGSplitCornersView.m */,
-				FFDFB55813EB239E00B540E1 /* MGSplitDividerView.h */,
-				FFDFB55913EB239E00B540E1 /* MGSplitDividerView.m */,
-				FFDFB55A13EB239E00B540E1 /* MGSplitViewController.h */,
-				FFDFB55B13EB239E00B540E1 /* MGSplitViewController.m */,
-			);
-			name = MGSplitViewController;
 			sourceTree = "<group>";
 		};
 		FFF0CFFC13BB7AC2008DFA19 /* Core Data JSON Categories */ = {
@@ -2498,6 +2484,7 @@
 				FF641CF013B9094400CC0B61 /* PickerViewController.h */,
 				FF641CF113B9094400CC0B61 /* PickerViewController.m */,
 				FF641CF213B9094400CC0B61 /* PickerViewController.xib */,
+				6D0EF48113D713F600745307 /* SplashViewController.h */,
 				6D0EF48213D713F600745307 /* SplashViewController.m */,
 				6D0EF48313D713F600745307 /* SplashViewController.xib */,
 				6D38EFDD14052FCF00E4F682 /* AccessSalesConstants.h */,
@@ -2983,9 +2970,6 @@
 				FF8AC3BD13EB0EBA00212201 /* GetPickListsRequest.m in Sources */,
 				FF8AC3C013EB0FA400212201 /* GetContactsRequest.m in Sources */,
 				FF8AC3C313EB11C100212201 /* LoginRequest.m in Sources */,
-				FFDFB55C13EB239E00B540E1 /* MGSplitCornersView.m in Sources */,
-				FFDFB55D13EB239E00B540E1 /* MGSplitDividerView.m in Sources */,
-				FFDFB55E13EB239E00B540E1 /* MGSplitViewController.m in Sources */,
 				FFB4C56213F0258500ADBBB1 /* VideosTableViewController.m in Sources */,
 				FFB4C56713F026AB00ADBBB1 /* VideoViewController.m in Sources */,
 				6D9E17C313F0674C00C68AB6 /* ProducerContactInfoTableViewCell.m in Sources */,
