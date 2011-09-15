@@ -7,6 +7,7 @@
 //
 
 #import "VisitApplicationProducerProfileTableViewController.h"
+#import "Access_Sales_AssistantAppDelegate.h"
 #import "UITableView+PRPSubviewAdditions.h"
 #import "ProducerQuestionTableViewCell.h"
 #import "ProducerStatusTableViewCell.h"
@@ -64,6 +65,18 @@
 
 
 @synthesize titleLabel = _titleLabel;
+
+- (void)hideKeyboard
+{
+    [self.statusCell hideKeyboard];
+    [self.generalTableViewCell hideKeyboard];
+    [self.contactInfoTableViewCell hideKeyboard];
+    [self.contactTableViewCell hideKeyboard];
+    [self.addressTableViewCell hideKeyboard];
+    [self.raterTableViewCell hideKeyboard];
+    [self.hoursTableViewCell hideKeyboard];
+    [self.lastVisitedCell hideKeyboard];
+}
 
 - (IBAction)dismiss:(id)sender
 {
@@ -1052,11 +1065,18 @@
     else
         _detailItem.neverVisitValue = FALSE;
 }
+
+- (void)showViewController:(UIViewController *)viewController
+{
+    [self presentModalViewController:viewController animated:YES];
+}
+
 -(IBAction)showSelectionTableView:(id)sender
 {
+  
     
     UIButton *button = (UIButton *)sender;
-	
+//	[button becomeFirstResponder];
     
 	SelectionModelViewController *selectionView = [[SelectionModelViewController alloc] initWithNibName:@"SelectionModelViewController" bundle:nil];
     
@@ -1101,7 +1121,7 @@
                     [selectionView assignDataSource:[Rater findAllSortedBy:@"name" ascending:YES]];
 					
                     
-                    [self presentModalViewController:selectionView  animated:YES];
+
 					//   [self presen]
 					
                     break;
@@ -1111,7 +1131,7 @@
                     [selectionView assignDataSource:[Rater2 findAllSortedBy:@"name" ascending:YES]];
                     
                     
-                    [self presentModalViewController:selectionView  animated:YES];
+
 					
                     break;
                 }
@@ -1138,7 +1158,7 @@
                 case ESundayEndHour:
                 {
                     [selectionView assignDataSource:[OperationHour findAllSortedBy:@"uid" ascending:YES]];
-                    [self presentModalViewController:selectionView  animated:YES];
+
                 }
                     break;
                     
@@ -1152,7 +1172,7 @@
                 case EAddressState:
                 {
                     [selectionView assignDataSource:[State findAllSortedBy:@"name" ascending:YES]];
-                    [self presentModalViewController:selectionView  animated:YES];
+
                     break;
                 }
             }
@@ -1165,15 +1185,16 @@
                 case EContactTitle:
                 {
                     [selectionView assignDataSource:[ContactType findAllSortedBy:@"name" ascending:YES]];
-                    [self presentModalViewController:selectionView  animated:YES];
+                    
                     break;
                 }
             }
             break;
         }
     }
-    
-    
+    [self hideKeyboard];
+    [self performSelector:@selector(showViewController:) withObject:selectionView afterDelay:0.0];
+   //[self presentViewController:selectionView animated:YES completion:^(void){}];
     
 }
 -(IBAction)showTimePickerView:(id)sender
@@ -2070,6 +2091,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
 	// Set the next form field active
+    [textField resignFirstResponder];
 	return YES;
 }
 
@@ -2275,7 +2297,8 @@
     
     if ([self.detailItem valueForKey:@"editedValue"]) {
 		[[NSManagedObjectContext defaultContext] save];
-		
+
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
         [self toggleSubmitButton:[self isEnableSubmit]];
         
         

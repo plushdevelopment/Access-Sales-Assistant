@@ -11,6 +11,8 @@
 
 @interface PRPNibBasedTableViewCell : UITableViewCell {}
 
+- (void)hideKeyboard;
+
 + (UINib *)nib;
 + (NSString *)nibName;
 

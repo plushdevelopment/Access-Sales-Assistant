@@ -59,6 +59,17 @@
     return self;
 }
 */
+
+- (void)hideKeyboard
+{
+    [self.generalTableViewCell hideKeyboard];
+    [self.contactInfoTableViewCell hideKeyboard];
+    [self.contactTableViewCell hideKeyboard];
+    [self.addressTableViewCell hideKeyboard];
+    [self.raterTableViewCell hideKeyboard];
+   
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -472,9 +483,7 @@
 
 -(IBAction)showSelectionTableView:(id)sender
 {
-    
     UIButton *button = (UIButton *)sender;
-    
     
     SelectionModelViewController *selectionView = [[SelectionModelViewController alloc] initWithNibName:@"SelectionModelViewController" bundle:nil];
     
@@ -496,7 +505,7 @@
                 case EAddressState:
                 {
                     [selectionView assignDataSource:[State findAllSortedBy:@"name" ascending:YES]];
-                    [self presentModalViewController:selectionView animated:YES];
+                   
                     break;
                 }
             }
@@ -515,7 +524,7 @@
                 case ERater2:
                 {
                     [selectionView assignDataSource:[Rater2 findAllSortedBy:@"name" ascending:YES]];
-                    [self presentModalViewController:selectionView animated:YES];
+                   
                     break;
                 }
             }
@@ -523,6 +532,9 @@
             break;
 
     }
+        [self hideKeyboard];
+[self.parentViewController presentViewController:selectionView animated:YES completion:^(void){}];
+
 }
 
 
@@ -967,6 +979,7 @@
 {
 	// Set the next form field active
 	//[self nextField:textField.tag];
+    [textField resignFirstResponder];
 	return YES;
 }
 

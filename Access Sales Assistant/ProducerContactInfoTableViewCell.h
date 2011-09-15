@@ -20,5 +20,4 @@
 @property(nonatomic,strong) IBOutlet BaseTextField* webAddrTextField;
 
 
-
 @end

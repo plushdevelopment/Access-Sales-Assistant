@@ -10,6 +10,18 @@
 
 @implementation PRPNibBasedTableViewCell
 
+- (void)hideKeyboard
+{
+    for (UIView *view in self.subviews) {
+        for (UIResponder *responder in view.subviews) {
+            if ([responder isKindOfClass:[UITextField class]]) {
+                [responder resignFirstResponder];
+            }
+        }
+        
+    }
+}
+
 #pragma mark -
 #pragma mark Cell generation
 
