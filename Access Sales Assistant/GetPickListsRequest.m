@@ -7,6 +7,7 @@
 //
 
 #import "GetPickListsRequest.h"
+#import "JSON.h"
 
 @implementation GetPickListsRequest
 
@@ -30,7 +31,7 @@
 	self.context = [NSManagedObjectContext contextThatNotifiesDefaultContextOnMainThread];
 	
 	NSString *responseString = [self responseString];
-	NSArray *results = [responseString objectFromJSONString];
+	NSArray *results = [responseString JSONValue];
 	for (NSDictionary *dict in results) {
 		NSString *pickListType = [dict valueForKey:@"name"];
 		NSArray *pickListItems = [dict objectForKey:@"pickList"];

@@ -7,31 +7,21 @@
 //
 
 #import "LoginViewController.h"
-
 #import "NSData+Base64.h"
-
 #import "StringEncryption.h"
-
 #import "ASIFormDataRequest.h"
-
 #import "JSON.h"
-
 #import "HTTPOperationController.h"
 
 @implementation LoginViewController
 
 @synthesize domainField=_domainField;
-
 @synthesize usernameField=_usernameField;
-
 @synthesize passwordField=_passwordField;
-
 @synthesize organizationField=_organizationField;
-
 @synthesize serviceKeyField=_apiKeyField;
-
+@synthesize submitButton = _submitButton;
 @synthesize user=_user;
-
 @synthesize managedObjectContext=_managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -72,10 +62,12 @@
 		self.organizationField.text = self.user.organization;
 	if (self.user.serviceKey.length > 0)
 		self.serviceKeyField.text = self.user.serviceKey;
+	[self.submitButton setEnabled:YES];
 }
 
 - (void)viewDidUnload
 {
+	[self setSubmitButton:nil];
     [super viewDidUnload];
     [self.managedObjectContext save];
 }
@@ -104,8 +96,8 @@
 		[self showError:@"Please enter an Organization"];
 	} else if (self.serviceKeyField.text.length == 0) {
 		[self showError:@"Please enter a Service Key"];
-
 	} else {
+		[self.submitButton setEnabled:NO];
 		[[self user] setDomain:self.domainField.text];
 		[[self user] setUsername:self.usernameField.text];
 		NSString * _key = @"wTGMqLubzizPgylAsHGgfPfLDoclQt+YAIzM1ugFMko=";
@@ -130,20 +122,7 @@
 		[request setTimeOutSeconds:60];
 		[request setDelegate:self];
 		[request startAsynchronous];
-        
-        
-		 
 	}
-}
-
-- (void)loginFinished:(ASIHTTPRequest *)request
-{
-	//if(request!=nil)
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Login Success" object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Launch Map" object:nil];
-    [self dismissModalViewControllerAnimated:YES];
-    
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
@@ -167,6 +146,8 @@
 	[self.managedObjectContext save];
 	[[HTTPOperationController sharedHTTPOperationController] requestPickLists];
 	
+	[self.submitButton setEnabled:YES];
+	
 	[self dismissModalViewControllerAnimated:YES];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Login Success" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Launch Map" object:nil];
@@ -176,7 +157,7 @@
 {
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
-	
+	[self.submitButton setEnabled:YES];
 	[self showError:[error localizedDescription]];
 	//[self dismissModalViewControllerAnimated:YES];
 }

@@ -9,69 +9,36 @@
 
 
 #import "HTTPOperationController.h"
-
 #import "SynthesizeSingleton.h"
-
 #import "ASINetworkQueue.h"
-
 #import "ASIHTTPRequest.h"
-
 #import "ASIFormDataRequest.h"
-
 #import "JSON.h"
-
 #import "JSONKit.h"
-
 #import "NSData+Base64.h"
-
 #import "StringEncryption.h"
-
 #import "User.h"
-
 #import "Producer.h"
-
 #import "Status.h"
-
 #import "SuspensionReason.h"
-
 #import "IneligibleReason.h"
-
 #import "Rater.h"
-
 #import "Rater2.h"
-
 #import "SubTerritory.h"
-
 #import "QuestionListItem.h"
-
 #import "State.h"
-
 #import "PhoneListItem.h"
-
 #import "HoursOfOperation.h"
-
 #import "EmailListItem.h"
-
 #import "Contact.h"
-
 #import "AddressListItem.h"
-
 #import "DailySummary.h"
-
 #import "ProducerImage.h"
-
 #import "Competitor.h"
-
-#import "NSManagedObject+Lidenbrock.h"
-
 #import "GetProducerRequest.h"
-
 #import "GetCompetitorRequest.h"
-
 #import "UIHelpers.h"
-
 #import "AccessSalesConstants.h"
-
 #import "AUNTK.h"
 
 #define kPAGESIZE 100
