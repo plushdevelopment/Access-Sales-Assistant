@@ -12,7 +12,7 @@
 
 @interface VideosTableViewController : BaseDetailViewController <AQGridViewDataSource, AQGridViewDelegate>
 
-@property (strong, nonatomic) NSArray *videos;
+@property (strong, nonatomic) NSMutableArray *videos;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

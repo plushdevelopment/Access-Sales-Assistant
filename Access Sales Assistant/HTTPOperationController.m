@@ -574,10 +574,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	if ([[self networkQueue] isSuspended]) {
 		[[self networkQueue] go];
 	}
-	
+	User *user = [User findFirst];
 	
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"http://gdata.youtube.com/feeds/users/eswarilluri/uploads?alt=json-in-script&format=5"];
+						   stringWithFormat:@"%@VisitApplicationService/AccessAcademy/Videos?token=%@",kURL,[user token]];
 	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -593,7 +593,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 }
 -(void)getTrainingVideosFinished:(ASIHTTPRequest *)request
 {
+  //  NSManagedObjectContext *context = [NSManagedObjectContext context];
+    NSString *responseString = [request responseString];
+	NSString *escapedString = [responseString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+  //  [escapedString ]
+	NSArray *responseJSON = [escapedString JSONValue];
+	if (responseJSON) {
+		NSLog(@"%@", responseJSON);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Get Videos Success" object:responseJSON];
+
+        
+        
+    }
     
+
 }
 
 -(void)getTrainingVideosFailed:(ASIHTTPRequest *)request
