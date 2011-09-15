@@ -12,11 +12,13 @@
 
 @interface LoginViewController : UIViewController <ASIHTTPRequestDelegate>
 
+
 @property (nonatomic, strong) IBOutlet UITextField *domainField;
 @property (nonatomic, strong) IBOutlet UITextField *usernameField;
 @property (nonatomic, strong) IBOutlet UITextField *passwordField;
 @property (nonatomic, strong) IBOutlet UITextField *organizationField;
 @property (nonatomic, strong) IBOutlet UITextField *serviceKeyField;
+@property (strong, nonatomic) IBOutlet UIButton *submitButton;
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;

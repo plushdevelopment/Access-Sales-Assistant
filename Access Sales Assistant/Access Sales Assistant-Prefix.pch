@@ -13,7 +13,6 @@
 	#import <Foundation/Foundation.h>
 	#import <CoreData/CoreData.h>
 	#import "CoreData+ActiveRecordFetching.h"
-	#import "Lidenbrock.h"
 	#import "NSManagedObject+SafeSetValuesKeysWithDictionary.h"
 	#import "NSManagedObject+Additions.h"
 	#import "NSManagedObjectExtras.h"
