@@ -48,7 +48,7 @@
     }
     
     NSString *out = [NSString stringWithString: temp];
-    
+   // out = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     return out;
 }
 
