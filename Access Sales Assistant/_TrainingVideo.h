@@ -8,6 +8,10 @@
 
 
 
+
+
+
+
 @interface TrainingVideoID : NSManagedObjectID {}
 @end
 
@@ -20,7 +24,31 @@
 
 
 
-@property (nonatomic, retain) NSString *Title;
+@property (nonatomic, retain) NSString *category;
+
+
+//- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *descp;
+
+
+//- (BOOL)validateDescp:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *thumbnailUrl;
+
+
+//- (BOOL)validateThumbnailUrl:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *title;
 
 
 //- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
@@ -28,10 +56,18 @@
 
 
 
-@property (nonatomic, retain) NSString *URL;
+@property (nonatomic, retain) NSString *uid;
 
 
-//- (BOOL)validateURL:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateUid:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *url;
+
+
+//- (BOOL)validateUrl:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -46,14 +82,38 @@
 @interface _TrainingVideo (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSString*)primitiveCategory;
+- (void)setPrimitiveCategory:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveDescp;
+- (void)setPrimitiveDescp:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveThumbnailUrl;
+- (void)setPrimitiveThumbnailUrl:(NSString*)value;
+
+
+
+
 - (NSString*)primitiveTitle;
 - (void)setPrimitiveTitle:(NSString*)value;
 
 
 
 
-- (NSString*)primitiveURL;
-- (void)setPrimitiveURL:(NSString*)value;
+- (NSString*)primitiveUid;
+- (void)setPrimitiveUid:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUrl;
+- (void)setPrimitiveUrl:(NSString*)value;
 
 
 

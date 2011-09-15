@@ -12,6 +12,10 @@
 
 #import "SpringBoardIconCell.h"
 
+#import "ASIHTTPRequest.h"
+
+#import "HTTPOperationController.h"
+
 @implementation VideosTableViewController
 
 @synthesize videos=_videos;
@@ -21,6 +25,32 @@
 @synthesize toolBar=_toolBar;
 
 @synthesize gridView=_gridView;
+
+
+-(NSString *) urlencode: (NSString *) url
+{
+    NSArray *escapeChars = [NSArray arrayWithObjects:@" ",nil];
+    
+    NSArray *replaceChars = [NSArray arrayWithObjects:@"%20",nil];
+    
+    int len = [escapeChars count];
+    
+    NSMutableString *temp = [url mutableCopy];
+    
+    int i;
+    for(i = 0; i < len; i++)
+    {
+        
+        [temp replaceOccurrencesOfString: [escapeChars objectAtIndex:i]
+                              withString:[replaceChars objectAtIndex:i]
+                                 options:NSLiteralSearch
+                                   range:NSMakeRange(0, [temp length])];
+    }
+    
+    NSString *out = [NSString stringWithString: temp];
+   // out = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return out;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -42,13 +72,30 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	self.videos = [NSArray arrayWithObjects:@"https://uatwww.access.com/test/intro_to_c4.mp4", @"https://uatwww.access.com/test/Intro_to_Claims_Assignor_(5-2-11).mp4", @"https://uatwww.access.com/test/Intro_to_ImageRight_(5-2-11).mp4", nil];
+//	self.videos = [NSArray arrayWithObjects:@"https://uatwww.access.com/test/intro_to_c4.mp4", @"https://uatwww.access.com/test/Intro_to_Claims_Assignor_(5-2-11).mp4", @"https://uatwww.access.com/test/Intro_to_ImageRight_(5-2-11).mp4", nil];
 	
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(getVideosSuccess:)
+												 name:@"Get Videos Success"
+											   object:nil];
 	self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	self.gridView.autoresizesSubviews = YES;
 	[self.gridView reloadData];
+    
+    [[HTTPOperationController sharedHTTPOperationController] getTrainingVideos];
 }
-
+-(void) getVideosSuccess:(NSNotification*) notification
+{
+    NSArray *arr = [notification object];
+    
+    self.videos = [NSMutableArray array];
+    for(NSDictionary *dict in arr)
+    {
+        NSString  *url = [dict objectForKey:@"url"];
+        [self.videos addObject:url];
+    }
+    [self.gridView reloadData];
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -95,7 +142,8 @@
 	// ...
 	// Pass the selected object to the new view controller.
 	[self.splitviewcontroller presentViewController:detailViewController animated:YES completion:NULL];
-	NSURL *url = [NSURL URLWithString:[self.videos objectAtIndex:index]];
+    NSLog(@"%@",[self.videos objectAtIndex:index]);
+	NSURL *url = [NSURL URLWithString:[self urlencode:[self.videos objectAtIndex:index]]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	[detailViewController.webView loadRequest:request];
 }
@@ -227,5 +275,4 @@
 	[detailViewController.webView loadRequest:request];
      
 }
-
 @end

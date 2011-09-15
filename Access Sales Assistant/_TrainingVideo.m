@@ -36,14 +36,42 @@
 
 
 
-@dynamic Title;
+@dynamic category;
 
 
 
 
 
 
-@dynamic URL;
+@dynamic descp;
+
+
+
+
+
+
+@dynamic thumbnailUrl;
+
+
+
+
+
+
+@dynamic title;
+
+
+
+
+
+
+@dynamic uid;
+
+
+
+
+
+
+@dynamic url;
 
 
 
