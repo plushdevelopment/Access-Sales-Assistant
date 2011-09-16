@@ -20,5 +20,6 @@
 @property (nonatomic, strong) IBOutlet UITextField *percentFDLTextField;
 @property (nonatomic, strong) IBOutlet UIButton *rdFollowUpButton;
 @property (nonatomic, strong) IBOutlet UIButton *producerAddOnButton;
+@property (nonatomic, strong) IBOutlet UISwitch *rdFollowUpSwitch;
 
 @end

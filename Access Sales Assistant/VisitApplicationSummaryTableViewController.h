@@ -52,6 +52,7 @@ optionSelectedDelegate> {
 - (IBAction)showSelectionTableView:(id)sender;
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;
+- (IBAction)handleSwitch:(id)sender;
 
 -(void) toggleSubmitButton:(BOOL)isEnable;
 -(BOOL) isEnableSubmit;

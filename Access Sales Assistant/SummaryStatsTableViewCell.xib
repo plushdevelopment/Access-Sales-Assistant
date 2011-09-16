@@ -12,6 +12,7 @@
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<string>IBUISwitch</string>
 			<string>IBUITableViewCell</string>
 			<string>IBUIButton</string>
 			<string>IBUILabel</string>
@@ -55,6 +56,7 @@
 								<reference key="NSNextKeyView" ref="170025915"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUITag">1</int>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<string key="IBUIText"/>
@@ -92,6 +94,7 @@
 								<reference key="NSNextKeyView" ref="918736903"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUITag">3</int>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<string key="IBUIText"/>
@@ -138,33 +141,6 @@
 								<reference key="IBUIFontDescription" ref="164228086"/>
 								<reference key="IBUIFont" ref="459121053"/>
 							</object>
-							<object class="IBUITextField" id="239947260">
-								<reference key="NSNextResponder" ref="740778812"/>
-								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{535, 98}, {211, 31}}</string>
-								<reference key="NSSuperview" ref="740778812"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
-								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClipsSubviews">YES</bool>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<int key="IBUIContentVerticalAlignment">0</int>
-								<string key="IBUIText"/>
-								<int key="IBUIBorderStyle">3</int>
-								<string key="IBUIPlaceholder">RD Follow-Up</string>
-								<object class="NSColor" key="IBUITextColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MAA</bytes>
-									<reference key="NSCustomColorSpace" ref="821957113"/>
-								</object>
-								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
-								<float key="IBUIMinimumFontSize">17</float>
-								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								</object>
-								<reference key="IBUIFontDescription" ref="164228086"/>
-								<reference key="IBUIFont" ref="459121053"/>
-							</object>
 							<object class="IBUITextField" id="757342350">
 								<reference key="NSNextResponder" ref="740778812"/>
 								<int key="NSvFlags">288</int>
@@ -174,6 +150,7 @@
 								<reference key="NSNextKeyView" ref="972861281"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUITag">2</int>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<string key="IBUIText"/>
@@ -202,6 +179,7 @@
 								<reference key="NSNextKeyView" ref="20254461"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUITag">4</int>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<string key="IBUIText"/>
@@ -383,7 +361,7 @@
 								<string key="NSFrame">{{398, 98}, {127, 31}}</string>
 								<reference key="NSSuperview" ref="740778812"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="239947260"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -398,6 +376,18 @@
 								<int key="IBUILineBreakMode">0</int>
 								<reference key="IBUIFontDescription" ref="607859875"/>
 								<reference key="IBUIFont" ref="251314199"/>
+							</object>
+							<object class="IBUISwitch" id="81586516">
+								<reference key="NSNextResponder" ref="740778812"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{520, 100}, {94, 27}}</string>
+								<reference key="NSSuperview" ref="740778812"/>
+								<reference key="NSWindow"/>
+								<string key="NSReuseIdentifierKey">_NS:471</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
 							</object>
 						</object>
 						<string key="NSFrame">{{1, 0}, {766, 148}}</string>
@@ -460,14 +450,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">rdFollowUpTextField</string>
-						<reference key="source" ref="631782474"/>
-						<reference key="destination" ref="239947260"/>
-					</object>
-					<int key="connectionID">19</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">monthlyGoalTextField</string>
 						<reference key="source" ref="631782474"/>
 						<reference key="destination" ref="757342350"/>
@@ -489,6 +471,14 @@
 						<reference key="destination" ref="288520959"/>
 					</object>
 					<int key="connectionID">23</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">rdFollowUpSwitch</string>
+						<reference key="source" ref="631782474"/>
+						<reference key="destination" ref="81586516"/>
+					</object>
+					<int key="connectionID">31</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -521,7 +511,6 @@
 							<reference ref="102553187"/>
 							<reference ref="728353362"/>
 							<reference ref="1035563542"/>
-							<reference ref="239947260"/>
 							<reference ref="79267661"/>
 							<reference ref="288520959"/>
 							<reference ref="757342350"/>
@@ -531,6 +520,7 @@
 							<reference ref="170025915"/>
 							<reference ref="918736903"/>
 							<reference ref="759128180"/>
+							<reference ref="81586516"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -547,11 +537,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">6</int>
 						<reference key="object" ref="1035563542"/>
-						<reference key="parent" ref="631782474"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">7</int>
-						<reference key="object" ref="239947260"/>
 						<reference key="parent" ref="631782474"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -599,6 +584,11 @@
 						<reference key="object" ref="759128180"/>
 						<reference key="parent" ref="631782474"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">30</int>
+						<reference key="object" ref="81586516"/>
+						<reference key="parent" ref="631782474"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -617,10 +607,10 @@
 					<string>29.IBPluginDependency</string>
 					<string>3.CustomClassName</string>
 					<string>3.IBPluginDependency</string>
+					<string>30.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
-					<string>7.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 				</object>
@@ -658,7 +648,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">29</int>
+			<int key="maxID">31</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -684,6 +674,7 @@
 							<string>producerAddOnButton</string>
 							<string>producerAddOnTextField</string>
 							<string>rdFollowUpButton</string>
+							<string>rdFollowUpSwitch</string>
 							<string>rdFollowUpTextField</string>
 							<string>totalAppsPerMonthTextField</string>
 						</object>
@@ -695,6 +686,7 @@
 							<string>UIButton</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
+							<string>UISwitch</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 						</object>
@@ -709,6 +701,7 @@
 							<string>producerAddOnButton</string>
 							<string>producerAddOnTextField</string>
 							<string>rdFollowUpButton</string>
+							<string>rdFollowUpSwitch</string>
 							<string>rdFollowUpTextField</string>
 							<string>totalAppsPerMonthTextField</string>
 						</object>
@@ -737,6 +730,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">rdFollowUpButton</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">rdFollowUpSwitch</string>
+								<string key="candidateClassName">UISwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">rdFollowUpTextField</string>

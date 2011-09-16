@@ -338,6 +338,17 @@ enum PRPTableStatsTags {
             
     }
 }
+
+- (IBAction)handleSwitch:(id)sender
+{
+    UISwitch *rdfollowup = (UISwitch*) sender;
+    
+    if(rdfollowup.isOn)
+        _detailItem.rdFollowUpValue = 1;
+    else
+        _detailItem.rdFollowUpValue = 0;
+       
+}
 #pragma mark -
 #pragma mark Accessors
 
@@ -792,7 +803,7 @@ enum PRPTableStatsTags {
 			customCell.totalAppsPerMonthTextField.text = self.detailItem.nsbsTotAppsPerMonth.stringValue;
 			customCell.percentLiabTextField.text = self.detailItem.nsbsPercentLiab.stringValue;
 			customCell.producerAddOnTextField.text = self.detailItem.producerAddOn.name;
-			customCell.rdFollowUpTextField.text = self.detailItem.rdFollowUp.stringValue;
+			//customCell.rdFollowUpTextField.text = self.detailItem.rdFollowUp.stringValue;
 			customCell.monthlyGoalTextField.text = self.detailItem.nsbsMonthlyGoal.stringValue;
 			customCell.percentFDLTextField.text = self.detailItem.nsbsFdl.stringValue;
 			
@@ -802,9 +813,17 @@ enum PRPTableStatsTags {
 			customCell.rdFollowUpTextField.delegate = self;
 			customCell.monthlyGoalTextField.delegate = self;
 			customCell.percentFDLTextField.delegate = self;
-            customCell.rdFollowUpTextField.delegate = self;
+          //  customCell.rdFollowUpTextField.delegate = self;
 			
-			[customCell.rdFollowUpButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
+		//	[customCell.rdFollowUpButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if(_detailItem.rdFollowUpValue)
+                customCell.rdFollowUpSwitch.on = YES;
+            else
+                customCell.rdFollowUpSwitch.on = NO;
+            
+            [customCell.rdFollowUpSwitch addTarget:self action:@selector(handleSwitch:) forControlEvents:UIControlEventTouchUpInside];
+                
 			[customCell.producerAddOnButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
 			
 			cell = customCell;
@@ -1162,6 +1181,7 @@ enum PRPTableStatsTags {
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     
+    NSString *replacementString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
 	
@@ -1173,7 +1193,7 @@ enum PRPTableStatsTags {
             switch (tag) {
                 case PRPTableSpokeWithEmail:
                 {
-                    if([textField.text isValidEmail])
+                    if([replacementString isValidEmail])
                     {
                        
                         [self changeTextFieldOutline:textField:YES];

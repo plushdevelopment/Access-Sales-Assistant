@@ -164,10 +164,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0)
+/*    if(indexPath.row == 0)
         [_delegate selectedOption:@" " :_currentIndexPath :self.currentTag];
     else
-    {
+    {*/
     
     if(tableView == self.searchDisplayController.searchResultsTableView)
     {
@@ -182,7 +182,7 @@
         [_delegate selectedOption:[[_dataSource objectAtIndex:indexPath.row] name] :_currentIndexPath :self.currentTag];
         
     }
-    }
+   // }
     [self dismissModalViewControllerAnimated:YES];
    
 }
