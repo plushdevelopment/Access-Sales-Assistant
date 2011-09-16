@@ -8,7 +8,7 @@
 
 @implementation NSManagedObject (NSObject)
 
-- (NSDictionary *)propertiesAndRelationshipsDictionary
+- (NSDictionary *)propertiesAndRelationshipsDictionaryFromEntity:(NSEntityDescription *)entity
 {
 	NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
 	
@@ -34,24 +34,28 @@
 		if ([property isKindOfClass:[NSRelationshipDescription class]])
 		{
 			NSRelationshipDescription *relationshipDescription = (NSRelationshipDescription *)property;
-			NSString *name = [relationshipDescription name];
-			
-			if ([relationshipDescription isToMany])
-			{
-				NSMutableArray *arr = [properties valueForKey:name];
-				if (!arr)
-				{
-					arr = [[NSMutableArray alloc] init];
-					[properties setValue:arr forKey:name];
-				}
+			if (![[relationshipDescription destinationEntity] isKindOfEntity:entity]) {
+				NSString *name = [relationshipDescription name];
 				
-				for (NSManagedObject *o in [self mutableSetValueForKey:name])
-					[arr addObject:[o propertiesDictionary]];
-			}
-			else
-			{
-				NSManagedObject *o = [self valueForKey:name];
-				[properties setValue:[o propertiesDictionary] forKey:name];
+				if ([relationshipDescription isToMany])
+				{
+					NSMutableArray *arr = [properties valueForKey:name];
+					if (!arr)
+					{
+						arr = [[NSMutableArray alloc] init];
+						[properties setValue:arr forKey:name];
+					}
+					
+					for (NSManagedObject *o in [self mutableSetValueForKey:name])
+						[arr addObject:[o propertiesAndRelationshipsDictionaryFromEntity:[self entity]]];
+				}
+				else
+				{
+					NSManagedObject *o = [self valueForKey:name];
+					[properties setValue:[o propertiesAndRelationshipsDictionaryFromEntity:[self entity]] forKey:name];
+				}
+			} else {
+				
 			}
 		}
 	}
@@ -87,7 +91,7 @@
 
 - (NSString *)jsonStringValue
 {
-	return [[self propertiesAndRelationshipsDictionary] jsonStringValue];
+	return [[self propertiesAndRelationshipsDictionaryFromEntity:nil] jsonStringValue];
 }
 
 @end

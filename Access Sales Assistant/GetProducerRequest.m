@@ -7,14 +7,7 @@
 //
 
 #import "GetProducerRequest.h"
-
 #import "JSON.h"
-
-#import "Producer.h"
-
-#import "AddressListItem.h"
-
-#import "State.h"
 
 @implementation GetProducerRequest
 
@@ -46,17 +39,19 @@
 	[formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
 	for (NSDictionary *dict in results) {
 		@autoreleasepool {
-			Producer *producer = [Producer ai_objectForProperty:@"uid"
-														  value:[dict valueForKey:@"uid"] 
-										   managedObjectContext:self.context];
+			Producer *producer = [Producer findFirstByAttribute:@"uid" withValue:[dict valueForKey:@"uid"] inContext:self.context];
+			if (!producer) {
+				producer = [Producer createInContext:self.context];
+				QuestionListItem *question = [QuestionListItem createInContext:self.context];
+				[producer addQuestionsObject:question];
+			}
 			if (!producer.editedValue) {
 				[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter managedObjectContext:self.context];
 				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 				[dateFormatter setDateFormat:@"EEEE, MM-dd-yyyy"];
 				producer.nextScheduledVisitDate = [dateFormatter stringFromDate:[producer nextScheduledVisit]];
-				//NSLog(@"%@", producer.nextScheduledVisitDate);
-				//NSLog(@"%@", producer.nextScheduledVisitTime);
-				NSLog(@"%@", [producer.nextScheduledVisit debugDescription]);
+				NSLog(@"%@", [producer.lastVisit debugDescription]);
+				NSLog(@"%@", [producer.lastVisitSummaryNote debugDescription]);
 				NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
 				[timeFormatter setDateFormat:@"hh:mm a"];
 				producer.nextScheduledVisitTime = [timeFormatter stringFromDate:[producer nextScheduledVisit]];

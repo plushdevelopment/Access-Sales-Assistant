@@ -2348,6 +2348,8 @@
 		FFF0CFFC13BB7AC2008DFA19 /* Core Data JSON Categories */ = {
 			isa = PBXGroup;
 			children = (
+				FF8CA83613B0D1AE00BA9A7B /* NSManagedObjectExtras.h */,
+				FF8CA83713B0D1AE00BA9A7B /* NSManagedObjectExtras.m */,
 				FFF0CFFE13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.h */,
 				FFF0CFFF13BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m */,
 				FFCD8B1F13C601D3008D8885 /* NSManagedObject+Additions.h */,
@@ -2391,8 +2393,6 @@
 				FFFB3C1113ABA17E0063E374 /* SBJsonParser.m */,
 				FFFB3C1213ABA17E0063E374 /* SBJsonWriter.h */,
 				FFFB3C1313ABA17E0063E374 /* SBJsonWriter.m */,
-				FF8CA83613B0D1AE00BA9A7B /* NSManagedObjectExtras.h */,
-				FF8CA83713B0D1AE00BA9A7B /* NSManagedObjectExtras.m */,
 			);
 			name = JSON;
 			sourceTree = "<group>";

@@ -7,53 +7,25 @@
 //
 
 #import "RootViewController.h"
-
 #import "BaseDetailViewController.h"
-
-#import "AgenciesTableViewController.h"
-
-#import "NSData+Base64.h"
-
-#import "StringEncryption.h"
-
 #import "CustomCellBackground.h"
-
 #import "CustomHeader.h"
-
 #import "CustomFooter.h"
-
 #import "SectionHeaderView.h"
-
 #import "MainViewSectionInfo.h"
-
 #import "FeaturesAndBenefitsViewController.h"
-
 #import "ContactsViewController.h"
-
 #import "ContactQAFormView.h"
-
 #import "MyTreeViewCell.h"
-
 #import "SplashViewController.h"
-
 #import "FlashCardsViewController.h"
-
 #import "TrainingVideoViewController.h"
-
 #import "ProspectApplicationViewController.h"
-
 #import "ContactsQATimeTableViewController.h"
-
-#import "Producer.h"
-
 #import "VisitApplicationMapViewController.h"
-
 #import "VideosTableViewController.h"
-
 #import "ContactsQAFormViewController.h"
-
 #import "ProspectApplicationTableViewController.h"
-
 #import "SearchProducerViewController.h"
 
 
@@ -64,7 +36,7 @@
 
 #define SOCIAL_MEDIA_OPTIONS @"Access.com",@"LinkedIn",@"Twitter",@"Facebook",@"Career Builder",nil
 #define SOCIAL_MEDIA_IMAGE_NAME @"access_icon.png",@"linkedin_icon.png",@"twitter_icon.png",@"facebook_icon.png",@"career_builder_icon.png",nil
-#define SOCIAL_MEDIA_URL @"http://www.access.com",@"http://www.linkedin.com/company/54125",@"http://www.twitter.com/AccessOnTheGo",@"http://www.facebook.com/AccessInsuranceCompany",@"http://www.accessgeneral.jobs",nil
+#define SOCIAL_MEDIA_URL @"http://www.access.com",@"http://www.linkedin.com/company/54125",@"http://www.twitter.com/AccessOnTheGo",@"http://www.facebook.com/AccessInsuranceCompany",@"http://www.accessgeneral.com/jobs",nil
 
 #define SECTION_ROW_COUNT           5,0,0,0,5,0,nil
 #define VISIT_APP_INDEX             0
@@ -82,37 +54,22 @@
 #define TRAINING_VIDEO_EXPANDED     4
 #define CONTACT_QA_TABLE            6
 
-
 #define RGB(r, g, b)                [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 #define RGBA(r, g, b, a)            [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 @implementation RootViewController
 
 @synthesize detailViewController = _detailViewController;
-
 @synthesize openSectionIndex = _openSectionIndex;
-
 @synthesize sectionInfoArray = _sectionInfoArray;
-
 @synthesize popoverController;
-
 @synthesize rootPopoverButtonItem;
-
 @synthesize splitViewController;
-
 @synthesize treeNode;
 
 - (void)producersSuccessful
 {
-	NSArray *producersArray = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES];
-	NSMutableArray *daysArray = [NSMutableArray arrayWithCapacity:[producersArray count]];
-	for (Producer *producer in producersArray) {
-		if (![daysArray containsObject:producer.nextScheduledVisitDate] && (producer.nextScheduledVisitDate != nil)) {
-			[daysArray addObject:producer.nextScheduledVisitDate];
-		}
-	}
-	visitApplicationDaysArray = [NSArray arrayWithArray:daysArray];
-	
+	visitApplicationDaysArray = [[NSSet setWithArray:[[Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES] valueForKeyPath:@"nextScheduledVisitDate"]] allObjects];
 	[self.tableView reloadData];
 }
 
@@ -149,21 +106,17 @@
     CGRect rectFrame = self.tableView.frame;
     
     [self.tableView setFrame:CGRectMake(0, 60, rectFrame.size.width, rectFrame.size.height)];
-    
-    CGRect rectAfter = self.tableView.frame;
 	
-    
     self.tableView.backgroundColor = [UIColor blackColor];
     
     sectionTitlesArray = [[NSArray alloc] initWithObjects:SECTION_TITLES];
     _openSectionIndex = NSNotFound;
     
     sectionIdsArray = [NSMutableArray array];
-    
-	//visitApplicationDaysArray = [[NSArray alloc] initWithObjects:VISIT_APPLICATION_DAYS];
-	[self producersSuccessful];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(producersSuccessful) name:@"Producers Successful" object:nil];
+	
+	[self producersSuccessful];
 	
     contactOptionsArray= [[NSArray alloc] initWithObjects:CONTACT_OPTIONS];
     
@@ -182,10 +135,7 @@
     }
     self.sectionInfoArray = arrayInfo;
     
-	// [self.mgSplitViewController toggleMasterView:@""];
-    
-    ///access academy tree structure
-	
+    // Access Academy Tree Structure
 	treeNode = [[MyTreeNode alloc] initWithValue:@"Root"];
     MyTreeNode* fCardNode = [[MyTreeNode alloc] initWithValue:@"Flash Cards"];
     [treeNode addChild:fCardNode];
@@ -200,9 +150,7 @@
     
     fCardNode.inclusive = !fCardNode.inclusive;
 	
-    
     [treeNode flattenElementsWithCacheRefresh:YES];
-	
 }
 
 - (void)viewDidUnload
@@ -236,30 +184,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	//return UIInterfaceOrientationIsPortrait(interfaceOrientation);
     return YES;
 }
-/*
- - (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc {
- 
- // Keep references to the popover controller and the popover button, and tell the detail view controller to show the button.
- barButtonItem.title = @"Menu";
- self.popoverController = pc;
- self.rootPopoverButtonItem = barButtonItem;
- UIViewController <SubstitutableDetailViewController> *detailViewController = [splitViewController.viewControllers objectAtIndex:1];
- [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
- }
- 
- 
- - (void)splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
- 
- // Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
- UIViewController <SubstitutableDetailViewController> *detailViewController = [splitViewController.viewControllers objectAtIndex:1];
- [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
- self.popoverController = nil;
- self.rootPopoverButtonItem = nil;
- }
- */
+
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -304,10 +231,8 @@
     
     MainViewSectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:indexPath.section];
     
-    if(indexPath.section == ACCESS_ACADEMY_INDEX && sectionInfo.open)
-    {
+    if(indexPath.section == ACCESS_ACADEMY_INDEX && sectionInfo.open) {
 		static NSString *CellIdentifier1 = @"AccessCell";
-        
         MyTreeNode *node = [[treeNode flattenElements] objectAtIndex:indexPath.row + 1];
         MyTreeViewCell *cell = [[MyTreeViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                      reuseIdentifier:CellIdentifier1 
@@ -323,9 +248,7 @@
         return cell;
 		
         
-    }
-    else
-    {
+    } else	{
         
 		
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -379,7 +302,7 @@
 			VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
             [self changeDetailViewController:detailViewController];
 			self.detailViewController = detailViewController;
-          
+			
             [self displayTopMenuItem];
 			[self.popoverController dismissPopoverAnimated:YES];
             [detailViewController setSelectedDay:[visitApplicationDaysArray objectAtIndex:indexPath.row]];
@@ -427,7 +350,7 @@
                 
                 [self changeDetailViewController:detailViewController];
                 self.detailViewController = detailViewController;
-			
+				
                 [self displayTopMenuItem];
                 [self.popoverController dismissPopoverAnimated:YES];
                 
@@ -518,7 +441,7 @@
             break;
         }
             
-                   
+			
         default:
             break;
     }
@@ -745,12 +668,12 @@
             closePopOver = TRUE;
             break;
         }
-
+			
         default:
             break;
     }
     
- 
+	
     [self displayTopMenuItem];
     if(closePopOver)
         [self.popoverController dismissPopoverAnimated:YES];
@@ -829,66 +752,66 @@
 }
 
 /*
-- (void)splitViewController:(MGSplitViewController*)svc 
-	 willHideViewController:(UIViewController *)aViewController 
-		  withBarButtonItem:(UIBarButtonItem*)barButtonItem 
-	   forPopoverController: (UIPopoverController*)pc
-{
-	//NSLog(@"%@", NSStringFromSelector(_cmd));
-    barButtonItem.title = @"Menu";
-    self.popoverController = pc;
-    self.rootPopoverButtonItem = barButtonItem;
-    UIViewController <SubstitutableDetailViewController> *detailViewController = [self.mgSplitViewController.viewControllers objectAtIndex:1];
-    [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-	
-}
-
-
-// Called when the view is shown again in the split view, invalidating the button and popover controller.
-- (void)splitViewController:(MGSplitViewController*)svc 
-	 willShowViewController:(UIViewController *)aViewController 
-  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-	//NSLog(@"%@", NSStringFromSelector(_cmd));
-	// Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
-    UIViewController <SubstitutableDetailViewController> *detailViewController = [self.mgSplitViewController.viewControllers objectAtIndex:1];
-    [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
-    self.popoverController = nil;
-    self.rootPopoverButtonItem = nil;
-}
-
-
-- (void)splitViewController:(MGSplitViewController*)svc 
-		  popoverController:(UIPopoverController*)pc 
-  willPresentViewController:(UIViewController *)aViewController
-{
-	//NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
-
-- (void)splitViewController:(MGSplitViewController*)svc willChangeSplitOrientationToVertical:(BOOL)isVertical
-{
-	//NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
-
-- (void)splitViewController:(MGSplitViewController*)svc willMoveSplitToPosition:(float)position
-{
-	//NSLog(@"%@", NSStringFromSelector(_cmd));
-}
-
-
-- (float)splitViewController:(MGSplitViewController *)svc constrainSplitPosition:(float)proposedPosition splitViewSize:(CGSize)viewSize
-{
-	//NSLog(@"%@", NSStringFromSelector(_cmd));
-	return proposedPosition;
-}
-*/
+ - (void)splitViewController:(MGSplitViewController*)svc 
+ willHideViewController:(UIViewController *)aViewController 
+ withBarButtonItem:(UIBarButtonItem*)barButtonItem 
+ forPopoverController: (UIPopoverController*)pc
+ {
+ //NSLog(@"%@", NSStringFromSelector(_cmd));
+ barButtonItem.title = @"Menu";
+ self.popoverController = pc;
+ self.rootPopoverButtonItem = barButtonItem;
+ UIViewController <SubstitutableDetailViewController> *detailViewController = [self.mgSplitViewController.viewControllers objectAtIndex:1];
+ [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+ 
+ }
+ 
+ 
+ // Called when the view is shown again in the split view, invalidating the button and popover controller.
+ - (void)splitViewController:(MGSplitViewController*)svc 
+ willShowViewController:(UIViewController *)aViewController 
+ invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+ {
+ //NSLog(@"%@", NSStringFromSelector(_cmd));
+ // Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
+ UIViewController <SubstitutableDetailViewController> *detailViewController = [self.mgSplitViewController.viewControllers objectAtIndex:1];
+ [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
+ self.popoverController = nil;
+ self.rootPopoverButtonItem = nil;
+ }
+ 
+ 
+ - (void)splitViewController:(MGSplitViewController*)svc 
+ popoverController:(UIPopoverController*)pc 
+ willPresentViewController:(UIViewController *)aViewController
+ {
+ //NSLog(@"%@", NSStringFromSelector(_cmd));
+ }
+ 
+ 
+ - (void)splitViewController:(MGSplitViewController*)svc willChangeSplitOrientationToVertical:(BOOL)isVertical
+ {
+ //NSLog(@"%@", NSStringFromSelector(_cmd));
+ }
+ 
+ 
+ - (void)splitViewController:(MGSplitViewController*)svc willMoveSplitToPosition:(float)position
+ {
+ //NSLog(@"%@", NSStringFromSelector(_cmd));
+ }
+ 
+ 
+ - (float)splitViewController:(MGSplitViewController *)svc constrainSplitPosition:(float)proposedPosition splitViewSize:(CGSize)viewSize
+ {
+ //NSLog(@"%@", NSStringFromSelector(_cmd));
+ return proposedPosition;
+ }
+ */
 
 -(void) changeDetailViewController:(BaseDetailViewController *)detailViewController
 {
     
-  //  BaseDetailViewController *det = (BaseDetailViewController*) [viewControllerArr objectAtIndex:1];
+	//  BaseDetailViewController *det = (BaseDetailViewController*) [viewControllerArr objectAtIndex:1];
     CGRect rec = detailViewController.view.frame;
     rec.origin.y = 20;
     [detailViewController.view setFrame:rec];
@@ -898,8 +821,8 @@
     
     BaseDetailViewController *det = (BaseDetailViewController*) [viewControllerArr objectAtIndex:1];
     CGRect rec1 = det.view.frame;
-
-   // CGRect *rec = [(BaseDetailViewController*) [viewControllerArr objectAtIndex:1]].frame; 
+	
+	// CGRect *rec = [(BaseDetailViewController*) [viewControllerArr objectAtIndex:1]].frame; 
     detailViewController.splitviewcontroller = self.splitViewController;
     
 }
