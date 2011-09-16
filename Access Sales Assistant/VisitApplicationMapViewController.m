@@ -188,7 +188,7 @@
     VisitTableViewCell *customCell = [VisitTableViewCell cellForTableView:tableView fromNib:self.visitTableViewCellNib];
 	Producer *producer = [self.producers objectAtIndex:indexPath.row];
 	customCell.producerNameLabel.text = producer.name;
-	customCell.timeLabel.text = producer.nextScheduledVisitTime;
+	customCell.timeLabel.text = @"";
 	customCell.visitNumberLabel.text = [NSString stringWithFormat:@"%d", (indexPath.row + 1)];
 	if (producer.submittedValue) {
 		customCell.iconImageView.image = [UIImage imageNamed:@"grey_square_pin.png"];
@@ -205,18 +205,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Producer *producer = [self.producers objectAtIndex:indexPath.row];
-    
-	
-	/*
-	 VisitApplicationViewController *viewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
-	 [viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-	 [viewController setModalPresentationStyle:UIModalPresentationCurrentContext];
-	 [self presentModalViewController:viewController animated:YES];
-	 [viewController setDetailItem:producer];
-	 */
 	[self.tabBarController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
 	[self.tabBarController setModalPresentationStyle:UIModalPresentationPageSheet];
-	//[self.splitviewcontroller presentModalViewController:self.tabBarController animated:YES];
     self.tabBarController.selectedIndex = 0;
     [self presentModalViewController:self.tabBarController animated:YES];
     self.tabBarController.isVisitApp = TRUE;
