@@ -136,7 +136,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         //      cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier]];
     }
-  
+    
+  /*  if(indexPath.row == 0)
+    {
+        cell.textLabel.text = @"(NONE)";
+    }
+    else
+    {
+  */
     if(tableView == self.searchDisplayController.searchResultsTableView)
     {
         NSString* str= [[NSString alloc] initWithFormat:@"%@",[[_tableData objectAtIndex:indexPath.row] name]] ;
@@ -147,6 +154,7 @@
     NSString* str= [[NSString alloc] initWithFormat:@"%@",[[_dataSource objectAtIndex:indexPath.row] name]] ;
     cell.textLabel.text = str;
     }
+//    }
     
     return cell;
 }
@@ -156,6 +164,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row == 0)
+        [_delegate selectedOption:@" " :_currentIndexPath :self.currentTag];
+    else
+    {
     
     if(tableView == self.searchDisplayController.searchResultsTableView)
     {
@@ -169,6 +181,7 @@
         NSLog(@"selected %@",[[_dataSource objectAtIndex:indexPath.row] name]);
         [_delegate selectedOption:[[_dataSource objectAtIndex:indexPath.row] name] :_currentIndexPath :self.currentTag];
         
+    }
     }
     [self dismissModalViewControllerAnimated:YES];
    
