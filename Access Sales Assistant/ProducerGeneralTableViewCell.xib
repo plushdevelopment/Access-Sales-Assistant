@@ -347,7 +347,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Producer Code</string>
+								<string key="IBUIText">Producer Code*</string>
 								<object class="NSColor" key="IBUITextColor" id="207761922">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -374,7 +374,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Producer Name</string>
+								<string key="IBUIText">Producer Name*</string>
 								<reference key="IBUITextColor" ref="207761922"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -395,7 +395,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Number of Locations</string>
+								<string key="IBUIText">Number of Locations*</string>
 								<reference key="IBUITextColor" ref="207761922"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -416,7 +416,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Date Established</string>
+								<string key="IBUIText">Date Established*</string>
 								<reference key="IBUITextColor" ref="207761922"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -437,7 +437,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Sub Territory</string>
+								<string key="IBUIText">Sub Territory*</string>
 								<reference key="IBUITextColor" ref="207761922"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -458,7 +458,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">E&amp;O Expires</string>
+								<string key="IBUIText">E&amp;O Expires*</string>
 								<reference key="IBUITextColor" ref="207761922"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -479,7 +479,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Access Sign?</string>
+								<string key="IBUIText">Access Sign?*</string>
 								<reference key="IBUITextColor" ref="207761922"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -528,7 +528,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">No. Of Employees</string>
+								<string key="IBUIText">No. Of Employees*</string>
 								<reference key="IBUITextColor" ref="207761922"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -548,7 +548,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Primary Contact</string>
+								<string key="IBUIText">Primary Contact*</string>
 								<reference key="IBUITextColor" ref="207761922"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -879,7 +879,6 @@
 							<reference ref="985823199"/>
 							<reference ref="164841655"/>
 							<reference ref="998052325"/>
-							<reference ref="890151706"/>
 							<reference ref="161055475"/>
 							<reference ref="73743443"/>
 							<reference ref="497030044"/>
@@ -891,6 +890,7 @@
 							<reference ref="498617718"/>
 							<reference ref="82679238"/>
 							<reference ref="555514654"/>
+							<reference ref="890151706"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1188,6 +1188,46 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/DatePickerViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">LastVisitedTableViewCell</string>
+					<string key="superclassName">PRPNibBasedTableViewCell</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>summaryNotesTextView</string>
+							<string>visitedLabel</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UITextView</string>
+							<string>UILabel</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>summaryNotesTextView</string>
+							<string>visitedLabel</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">summaryNotesTextView</string>
+								<string key="candidateClassName">UITextView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">visitedLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/LastVisitedTableViewCell.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -2241,6 +2281,7 @@
 							<string>dismissButton</string>
 							<string>generalTableViewCell</string>
 							<string>hoursTableViewCell</string>
+							<string>lastVisitedCell</string>
 							<string>pickerViewController</string>
 							<string>questionTableViewCell</string>
 							<string>raterTableViewCell</string>
@@ -2259,6 +2300,7 @@
 							<string>UIBarButtonItem</string>
 							<string>ProducerGeneralTableViewCell</string>
 							<string>ProducerHoursTableViewCell</string>
+							<string>LastVisitedTableViewCell</string>
 							<string>PickerViewController</string>
 							<string>ProducerQuestionTableViewCell</string>
 							<string>ProducerRaterTableViewCell</string>
@@ -2280,6 +2322,7 @@
 							<string>dismissButton</string>
 							<string>generalTableViewCell</string>
 							<string>hoursTableViewCell</string>
+							<string>lastVisitedCell</string>
 							<string>pickerViewController</string>
 							<string>questionTableViewCell</string>
 							<string>raterTableViewCell</string>
@@ -2318,6 +2361,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">hoursTableViewCell</string>
 								<string key="candidateClassName">ProducerHoursTableViewCell</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">lastVisitedCell</string>
+								<string key="candidateClassName">LastVisitedTableViewCell</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">pickerViewController</string>

@@ -247,7 +247,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Total Apps/Month</string>
+								<string key="IBUIText">Total Apps/Month*</string>
 								<object class="NSColor" key="IBUITextColor" id="607534307">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -279,7 +279,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">% Liab</string>
+								<string key="IBUIText">% Liab*</string>
 								<reference key="IBUITextColor" ref="607534307"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -301,7 +301,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Producer Add-On</string>
+								<string key="IBUIText">Producer Add-On*</string>
 								<reference key="IBUITextColor" ref="607534307"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -323,7 +323,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Monthly Goal</string>
+								<string key="IBUIText">Monthly Goal*</string>
 								<reference key="IBUITextColor" ref="607534307"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -345,7 +345,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">% FDL</string>
+								<string key="IBUIText">% FDL*</string>
 								<reference key="IBUITextColor" ref="607534307"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -367,7 +367,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">RD Follow-Up</string>
+								<string key="IBUIText">RD Follow-Up*</string>
 								<reference key="IBUITextColor" ref="607534307"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -377,7 +377,7 @@
 								<reference key="IBUIFontDescription" ref="607859875"/>
 								<reference key="IBUIFont" ref="251314199"/>
 							</object>
-							<object class="IBUISwitch" id="81586516">
+							<object class="IBUISwitch" id="100451870">
 								<reference key="NSNextResponder" ref="740778812"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{520, 100}, {94, 27}}</string>
@@ -476,7 +476,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">rdFollowUpSwitch</string>
 						<reference key="source" ref="631782474"/>
-						<reference key="destination" ref="81586516"/>
+						<reference key="destination" ref="100451870"/>
 					</object>
 					<int key="connectionID">31</int>
 				</object>
@@ -520,7 +520,7 @@
 							<reference ref="170025915"/>
 							<reference ref="918736903"/>
 							<reference ref="759128180"/>
-							<reference ref="81586516"/>
+							<reference ref="100451870"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -586,7 +586,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">30</int>
-						<reference key="object" ref="81586516"/>
+						<reference key="object" ref="100451870"/>
 						<reference key="parent" ref="631782474"/>
 					</object>
 				</object>
