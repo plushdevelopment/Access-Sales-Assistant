@@ -10,8 +10,7 @@
 
 @interface NSManagedObject (NSObject)
 
-- (NSDictionary *)propertiesAndRelationshipsDictionary;
-- (NSDictionary *)propertiesDictionary;
+- (NSDictionary *)propertiesAndRelationshipsDictionaryFromEntity:(NSEntityDescription *)entity;
 - (NSString *)jsonStringValue;
 
 @end

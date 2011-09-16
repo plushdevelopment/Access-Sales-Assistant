@@ -163,7 +163,7 @@
 }
 -(void) toggleSubmitButton:(BOOL) isEnable
 {
-    
+    //[_submitButton setEnabled:YES];
     [_submitButton setEnabled:isEnable];
 }
 - (void)setDetailItem:(id)newDetailItem
@@ -194,7 +194,11 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return [sectionTitleArray count];
+	if(_detailItem.lastVisit)
+		return [sectionTitleArray count];
+	else
+		return ([sectionTitleArray count] - 1);
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -326,7 +330,7 @@
             NSArray* questionArray=_detailItem.questions.allObjects;
             QuestionListItem *qListItem = (QuestionListItem *)[questionArray objectAtIndex:indexPath.row];
             cell.questionLabel.text = qListItem.text;
-            //cell.answerTextField.text = qListItem.answer;
+            cell.answerTextField.text = qListItem.answer;
             return cell;
 			
         }
@@ -416,6 +420,7 @@
                 [[NSBundle mainBundle] loadNibNamed:@"ProducerContactTableViewCell" owner:self options:nil];
                 ProducerContactTableViewCell* cell = _contactTableViewCell;
                 cell = [self contactTableViewCell:cell :indexPath.row];
+				
 				return cell;
             }
         }
@@ -426,11 +431,12 @@
 -(void) AddContact:(id) sender
 {
     UIButton* btn = (UIButton*) sender;
-	
+	self.detailItem.editedValue = YES;
     if(btn.tag == 1001)
     {
         Contact* newContact = [Contact createEntity];
         [self.detailItem addContactsObject:newContact];
+		[[NSManagedObjectContext defaultContext]save];
         [self.tableView reloadData];
     }
     else if(btn.tag == 1002)
@@ -454,6 +460,7 @@
     }
     [self.tableView reloadData];
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	CGFloat height = 0.0;
@@ -531,11 +538,10 @@
     }
     
     return cell;
-	
-    
 }
 
 #pragma mark - Fill the table view cell with entity values
+
 -(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell:(NSInteger)forType
 {
     BOOL isCommissionAddrFound = FALSE,isPhysicalAddrFound,isMailingAddrFound=FALSE,isCurrentAddrFound=FALSE;
@@ -589,6 +595,7 @@
 	return addressCell;
 	
 }
+
 -(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem
 {
     addressCell.streetAddress1TextField.text = withAddrItem.addressLine1;
@@ -609,6 +616,18 @@
     contactCell.lastNameTextField.text = tContact.lastName;
     contactCell.socialSecurityNumberTextField.text = tContact.ssn;
 	contactCell.titleTextField.text = tContact.type.name;
+	for (PhoneListItem *phone in tContact.phoneList) {
+		if (phone.typeValue == 4) {
+			contactCell.faxTextField.text = phone.number;
+		} else if (phone.typeValue == 5) {
+			contactCell.mobilePhoneTextField.text = phone.number;
+		}
+	}
+	for (EmailListItem *email in tContact.emailList) {
+		if (email.typeValue == 5) {
+			contactCell.emailAddressTextField.text = email.address;
+		}
+	}
     
     return contactCell;
 }
@@ -630,9 +649,7 @@
     for (EmailListItem *email in _detailItem.emails) {
         
         int typevalue = email.typeValue;
-        if (email.typeValue == 1) {
-			
-        } else if (email.typeValue == ACCOUNTING_EMAIL) {
+        if (email.typeValue == ACCOUNTING_EMAIL) {
             if([email.address length]>0)
                 isAccountMailFound = TRUE;
             acctMailItem = email;
@@ -714,6 +731,7 @@
     return contactInfoCell;
 	
 }
+
 -(EmailListItem*)createNewEmailItem:(EmailListItem*) withEmailItem:(NSInteger) forType
 {
     EmailListItem* newMailItem = [EmailListItem createEntity];
@@ -915,7 +933,7 @@
 			
             Contact* cToDel = [arr objectAtIndex:indexPath.row];
 			
-            
+            //[self.detailItem removeContactsObject:cToDel];
             [cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
             [[NSManagedObjectContext defaultContext] save];
             [self.tableView reloadData];
@@ -2045,12 +2063,14 @@
             {
                 case EContactSSN:
                 {
+					/*
                     if([replacementString isvalidSSN])
                     {
                         [self changeTextFieldOutline:textField :YES];
                     }
                     else
                         [self changeTextFieldOutline:textField :NO];
+					 */
                 }
                     break;
             }
@@ -2063,10 +2083,13 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-	
+	[textField setBackgroundColor:[UIColor orangeColor]];
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+	if ([textField.backgroundColor isEqual:[UIColor blueColor]]) {
+		[textField setBackgroundColor:[UIColor whiteColor]];
+	}
     [self saveTextFieldToContext:textField];
 }
 
@@ -2190,16 +2213,7 @@
                     break;
                 case EWebsiteAddress:
                 {
-                    if([textField.text isValidWebSite])
-                    {
-                        self.detailItem.webAddress = textField.text;
-                        [self changeTextFieldOutline:textField:YES];
-                    }
-                    else
-                    {
-                        [self showAlert:VALID_WEB_ADDRESS];
-                        [self changeTextFieldOutline:textField:NO];
-                    }
+					self.detailItem.webAddress = textField.text;
                 }
                     break;
             }
@@ -2306,20 +2320,32 @@
                 case EContactSSN:
                     cnt.ssn = textField.text;
                     break;
-					
+				case EContactFax: {
+					PhoneListItem *phone;
+					for (PhoneListItem *aPhone in cnt.phoneList) {
+						if (aPhone.typeValue == 4) {
+							phone = aPhone;
+						}
+					}
+					if (!phone) {
+						phone = [PhoneListItem createEntity];
+						phone.typeValue = 4;
+						[cnt addPhoneListObject:phone];
+					}
+					phone.number = textField.text;
+				}
+					break;
+				default:
+					break;
             }
             break;
         }
     }
     
-    if ([self.detailItem valueForKey:@"editedValue"]) {
 		[[NSManagedObjectContext defaultContext] save];
 
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-        [self toggleSubmitButton:[self isEnableSubmit]];
-        
-        
-    }
+	[self toggleSubmitButton:[self isEnableSubmit]];
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
 {
@@ -2562,6 +2588,7 @@
 
 -(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag
 {
+	self.detailItem.editedValue = YES;
     switch(forIndexPath.section)
     {
         case EGeneral:

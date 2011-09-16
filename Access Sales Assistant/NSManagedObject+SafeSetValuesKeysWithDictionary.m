@@ -80,8 +80,10 @@
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"number" value:[value valueForKey:@"number"] managedObjectContext:context];
 				} else if ([desc.description isEqualToString:@"address"]) {
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"address" value:[value valueForKey:@"address"] managedObjectContext:context];
-				}  else if ([desc.description isEqualToString:@"text"]) {
-					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[value valueForKey:@"text"] managedObjectContext:context];
+				}  else if ([desc.description isEqualToString:@"text"] && [self isKindOfClass:[Producer class]]) {
+					Producer *producer = (Producer *)self;
+					object = producer.questions.anyObject;
+					//object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[value valueForKey:@"text"] managedObjectContext:context];
 				} else if ([desc.description isEqualToString:@"header"] || [desc.description isEqualToString:@"monthYear"] || [desc.description isEqualToString:@"monthEndDate"]) {
 					object = [[NSClassFromString([entityDesc name]) class] createEntity];
 				}
@@ -112,8 +114,10 @@
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"number" value:[subValue valueForKey:@"number"] managedObjectContext:context];
 				} else if ([desc.description isEqualToString:@"address"]) {
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"address" value:[subValue valueForKey:@"address"] managedObjectContext:context];
-				}  else if ([desc.description isEqualToString:@"text"]) {
-					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[subValue valueForKey:@"text"] managedObjectContext:context];
+				}  else if ([desc.description isEqualToString:@"text"] && [self isKindOfClass:[Producer class]]) {
+					Producer *producer = (Producer *)self;
+					object = producer.questions.anyObject;
+					 //object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[subValue valueForKey:@"text"] managedObjectContext:context];
 				} else if ([desc.description isEqualToString:@"header"] || [desc.description isEqualToString:@"monthYear"] || [desc.description isEqualToString:@"monthEndDate"]) {
 					object = [[NSClassFromString([entityDesc name]) class] createEntity];
 				}

@@ -561,27 +561,33 @@ enum PRPTableStatsTags {
 				rows = 1;
 				break;
 			case PRPTableSectionSpokeWith:
+				/*
 				if (self.detailItem.personsSpokeWith.allObjects.count == 0) {
 					PersonSpokeWith *person = [PersonSpokeWith createEntity];
 					[self.detailItem addPersonsSpokeWithObject:person];
 					[self.managedObjectContext save];
 				}
+				 */
 				rows = self.detailItem.personsSpokeWith.allObjects.count + 1;
 				break;
 			case PRPTableSectionCompetitor:
+				/*
 				if (self.detailItem.competitors.allObjects.count == 0) {
 					Competitor *competitor = [Competitor createEntity];
 					[self.detailItem addCompetitorsObject:competitor];
 					[self.managedObjectContext save];
 				}
+				 */
 				rows = self.detailItem.competitors.allObjects.count + 1;
 				break;
 			case PRPTableSectionBarriersToBusiness:
+				/*
 				if (self.detailItem.barriersToBusiness.allObjects.count == 0) {
 					BarrierToBusiness *barrier = [BarrierToBusiness createEntity];
 					[self.detailItem addBarriersToBusinessObject:barrier];
 					[self.managedObjectContext save];
 				}
+				 */
 				rows = self.detailItem.barriersToBusiness.allObjects.count + 1;
 				break;
 			case PRPTableSectionStats:
@@ -862,7 +868,7 @@ enum PRPTableStatsTags {
     
     if(btn.tag == 1001)
     {
-        Competitor* newCompetitor = [Competitor createEntity];
+        Competitor* newCompetitor = [Competitor findFirst];
         [self.detailItem addCompetitorsObject:newCompetitor];
         [self.tableView reloadData];
     }
@@ -941,7 +947,7 @@ enum PRPTableStatsTags {
     
     if(btn.tag == 1005)
     {
-        BarrierToBusiness *barrier = [BarrierToBusiness createEntity];
+        BarrierToBusiness *barrier = [BarrierToBusiness findFirst];
         [self.detailItem addBarriersToBusinessObject:barrier];
         [self.managedObjectContext save];
         [self.tableView reloadData];
@@ -1104,8 +1110,8 @@ enum PRPTableStatsTags {
             
             Competitor* cToDel = [arr objectAtIndex:indexPath.row];
             
-            
-            [cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
+            [self.detailItem removeCompetitorsObject:cToDel];
+            //[cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
             [[NSManagedObjectContext defaultContext] save];
             //  UITableViewCellEditingStyleNone
             // [self.tableView set]
@@ -1130,8 +1136,8 @@ enum PRPTableStatsTags {
         {
             NSArray *arr = _detailItem.barriersToBusiness.allObjects;
             BarrierToBusiness* bToDel = [arr objectAtIndex:indexPath.row];
-            
-            [bToDel deleteInContext:[NSManagedObjectContext defaultContext]];
+            [self.detailItem removeBarriersToBusinessObject:bToDel];
+            //[bToDel deleteInContext:[NSManagedObjectContext defaultContext]];
             [[NSManagedObjectContext defaultContext] save];
             //  UITableViewCellEditingStyleNone
             // [self.tableView set]
