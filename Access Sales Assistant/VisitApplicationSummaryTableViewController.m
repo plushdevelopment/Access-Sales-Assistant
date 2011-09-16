@@ -1606,7 +1606,10 @@ enum PRPTableStatsTags {
 -(BOOL) isEnableSubmit
 {
     if(_detailItem.reasonNotSeen)
-        return TRUE;
+    {
+        if(![_detailItem.reasonNotSeen.name isEqualToString:@" "])
+            return TRUE;
+    }
     
     if(!_detailItem.editedValue)
         return FALSE;
@@ -1687,6 +1690,8 @@ enum PRPTableStatsTags {
 
 -(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag
 {
+
+    
     switch (forIndexPath.section) {
 		case PRPTableSectionGeneral:
 			switch (forTag) {
