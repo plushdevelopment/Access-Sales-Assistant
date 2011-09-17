@@ -16,5 +16,9 @@
 @synthesize reasonNotSeen = _reasonNotSeen;
 @synthesize reasonNotSeenTextField = _reasonNotSeenTextField;
 
+@synthesize commissionStructureTextField = _commissionStructureTextField;
+@synthesize percentNewTextField = _percentNewTextField;
+@synthesize percentRenewalTextField = _percentRenewalTextField;
+@synthesize commissionStructureButton = _commissionStructureButton;
 
 @end

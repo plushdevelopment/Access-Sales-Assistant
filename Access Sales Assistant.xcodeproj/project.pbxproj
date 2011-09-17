@@ -84,6 +84,10 @@
 		6DDC3E4313FC3CD2005F4DD7 /* ContactsQAFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DDC3E4113FC3CD2005F4DD7 /* ContactsQAFormViewController.xib */; };
 		6DE4337213DA012600BF551E /* RoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE4337113DA012600BF551E /* RoundedRectView.m */; };
 		6DEE3D1F140D3E1C00532F71 /* PhoneNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEE3D1E140D3E1C00532F71 /* PhoneNumberFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DFFAFBC14251BC600269233 /* UICustomSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFFAFBB14251BC600269233 /* UICustomSwitch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6DFFAFC014251BD000269233 /* switchBlueBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFFAFBD14251BD000269233 /* switchBlueBg.png */; };
+		6DFFAFC114251BD000269233 /* switchOffPlain.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFFAFBE14251BD000269233 /* switchOffPlain.png */; };
+		6DFFAFC214251BD000269233 /* switchThumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFFAFBF14251BD000269233 /* switchThumb.png */; };
 		FF1C02041417F16C00AB5326 /* SelectionModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1C02021417F16C00AB5326 /* SelectionModelViewController.m */; };
 		FF1C02051417F16C00AB5326 /* SelectionModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF1C02031417F16C00AB5326 /* SelectionModelViewController.xib */; };
 		FF20C98A141904600093C815 /* AUNTKProductionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF20C989141904600093C815 /* AUNTKProductionTableViewCell.m */; };
@@ -608,6 +612,11 @@
 		6DE4337113DA012600BF551E /* RoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedRectView.m; sourceTree = "<group>"; };
 		6DEE3D1D140D3E1C00532F71 /* PhoneNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumberFormatter.h; sourceTree = "<group>"; };
 		6DEE3D1E140D3E1C00532F71 /* PhoneNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumberFormatter.m; sourceTree = "<group>"; };
+		6DFFAFBA14251BC600269233 /* UICustomSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomSwitch.h; sourceTree = "<group>"; };
+		6DFFAFBB14251BC600269233 /* UICustomSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomSwitch.m; sourceTree = "<group>"; };
+		6DFFAFBD14251BD000269233 /* switchBlueBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchBlueBg.png; sourceTree = "<group>"; };
+		6DFFAFBE14251BD000269233 /* switchOffPlain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchOffPlain.png; sourceTree = "<group>"; };
+		6DFFAFBF14251BD000269233 /* switchThumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchThumb.png; sourceTree = "<group>"; };
 		FF1C02011417F16C00AB5326 /* SelectionModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionModelViewController.h; sourceTree = "<group>"; };
 		FF1C02021417F16C00AB5326 /* SelectionModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionModelViewController.m; sourceTree = "<group>"; };
 		FF1C02031417F16C00AB5326 /* SelectionModelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionModelViewController.xib; sourceTree = "<group>"; };
@@ -1363,6 +1372,18 @@
 			path = iCarousel;
 			sourceTree = "<group>";
 		};
+		6DFFAFB814251B9E00269233 /* Custom Switch */ = {
+			isa = PBXGroup;
+			children = (
+				6DFFAFBD14251BD000269233 /* switchBlueBg.png */,
+				6DFFAFBE14251BD000269233 /* switchOffPlain.png */,
+				6DFFAFBF14251BD000269233 /* switchThumb.png */,
+				6DFFAFBA14251BC600269233 /* UICustomSwitch.h */,
+				6DFFAFBB14251BC600269233 /* UICustomSwitch.m */,
+			);
+			name = "Custom Switch";
+			sourceTree = "<group>";
+		};
 		FF1C02071417F17B00AB5326 /* SelectionModalViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1832,6 +1853,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				6DFFAFB814251B9E00269233 /* Custom Switch */,
 				FFCE85231422470D00744529 /* NSString Category */,
 				FFBDF206141E55770011376F /* Tapku Graph */,
 				FFFACDD214112822002897C1 /* MBProgressHUD */,
@@ -2784,6 +2806,9 @@
 				6DABC3551420FDD9008FF036 /* linkedin_icon.png in Resources */,
 				6DABC3561420FDD9008FF036 /* twitter_icon.png in Resources */,
 				FFBC50551423867600680B9C /* LabelGridViewCell.xib in Resources */,
+				6DFFAFC014251BD000269233 /* switchBlueBg.png in Resources */,
+				6DFFAFC114251BD000269233 /* switchOffPlain.png in Resources */,
+				6DFFAFC214251BD000269233 /* switchThumb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3034,6 +3059,7 @@
 				6DABC34C1420E388008FF036 /* _Producer.m in Sources */,
 				FFBC5053142383D400680B9C /* LabelGridViewCell.m in Sources */,
 				FFBC505814238C3200680B9C /* PhotoGridViewCell.m in Sources */,
+				6DFFAFBC14251BC600269233 /* UICustomSwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

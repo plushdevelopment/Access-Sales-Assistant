@@ -22,7 +22,7 @@
 @synthesize statusDateButton = _statusDateButton;
 @synthesize appointedDateButton = _appointedDateButton;
 @synthesize reasonIneligibleLabel = _reasonIneligibleLabel;
-
+@synthesize eligibleCustomSwitch = _eligibleCustomSwitch;
 
 
 @end

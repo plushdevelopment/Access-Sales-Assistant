@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "PRPNibBasedTableViewCell.h"
+#import "UICustomSwitch.h"
 @interface ProducerStatusTableViewCell : PRPNibBasedTableViewCell
 
 
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *reasonIneligibleButton;
 @property (nonatomic, strong) IBOutlet UIButton *statusDateButton;
 @property (nonatomic, strong) IBOutlet UIButton *appointedDateButton;
+@property (nonatomic, strong) IBOutlet UICustomSwitch *eligibleCustomSwitch;
 
 
 
