@@ -479,7 +479,7 @@
         }
         case EGeneral:
         {
-            height = 300.0;
+            height = 234.0;
         }
             break;
         case EQuestions:
@@ -519,7 +519,7 @@
                 height =44.0;
             }
             else
-                height = 188.0;
+                height = 150.0;
             break;
         }
         default:
@@ -2360,6 +2360,7 @@
 					for (PhoneListItem *aPhone in cnt.phoneNumbers) {
 						if (aPhone.typeValue == 5) {
 							phone = aPhone;
+							break;
 						}
 					}
 					if (!phone) {
@@ -2375,6 +2376,7 @@
 					for (EmailListItem *aPhone in cnt.emails) {
 						if (aPhone.typeValue == 5) {
 							email = aPhone;
+							break;
 						}
 					}
 					if (!email) {
@@ -2394,6 +2396,7 @@
 					for (PhoneListItem *aPhone in cnt.phoneNumbers) {
 						if (aPhone.typeValue == 4) {
 							phone = aPhone;
+							break;
 						}
 					}
 					if (!phone) {

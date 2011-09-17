@@ -82,11 +82,9 @@
 
 - (void)setDetailItem:(id)newDetailItem
 {
-	if (self.detailItem) {
-		if ([self.detailItem valueForKey:@"editedValue"]) {
-			[[NSManagedObjectContext defaultContext] save];
-		}
-	}
+	
+	[[NSManagedObjectContext defaultContext] save];
+		
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
         

@@ -82,35 +82,6 @@
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
-							<object class="IBUITextField" id="747409238">
-								<reference key="NSNextResponder" ref="303374438"/>
-								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{518, 59}, {228, 31}}</string>
-								<reference key="NSSuperview" ref="303374438"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="214101313"/>
-								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClipsSubviews">YES</bool>
-								<int key="IBUITag">5</int>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<int key="IBUIContentVerticalAlignment">0</int>
-								<string key="IBUIText"/>
-								<int key="IBUIBorderStyle">3</int>
-								<string key="IBUIPlaceholder">Fax</string>
-								<object class="NSColor" key="IBUITextColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MAA</bytes>
-									<reference key="NSCustomColorSpace" ref="730188374"/>
-								</object>
-								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
-								<float key="IBUIMinimumFontSize">17</float>
-								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
-									<int key="IBUIKeyboardType">5</int>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								</object>
-								<reference key="IBUIFontDescription" ref="894271247"/>
-								<reference key="IBUIFont" ref="928450815"/>
-							</object>
 							<object class="IBUITextField" id="165539728">
 								<reference key="NSNextResponder" ref="303374438"/>
 								<int key="NSvFlags">288</int>
@@ -146,7 +117,7 @@
 								<string key="NSFrame">{{119, 59}, {228, 31}}</string>
 								<reference key="NSSuperview" ref="303374438"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="991662144"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUITag">2</int>
@@ -172,7 +143,7 @@
 							<object class="IBUITextField" id="511803496">
 								<reference key="NSNextResponder" ref="303374438"/>
 								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{518, 98}, {228, 31}}</string>
+								<string key="NSFrame">{{518, 59}, {228, 31}}</string>
 								<reference key="NSSuperview" ref="303374438"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="87257184"/>
@@ -231,7 +202,7 @@
 							<object class="IBUITextField" id="160893893">
 								<reference key="NSNextResponder" ref="303374438"/>
 								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{518, 137}, {228, 31}}</string>
+								<string key="NSFrame">{{518, 98}, {228, 31}}</string>
 								<reference key="NSSuperview" ref="303374438"/>
 								<reference key="NSWindow"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -382,31 +353,10 @@
 								<reference key="IBUIFontDescription" ref="57953987"/>
 								<reference key="IBUIFont" ref="928450815"/>
 							</object>
-							<object class="IBUILabel" id="991662144">
-								<reference key="NSNextResponder" ref="303374438"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{371, 69}, {144, 21}}</string>
-								<reference key="NSSuperview" ref="303374438"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="747409238"/>
-								<string key="NSReuseIdentifierKey">_NS:120</string>
-								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClipsSubviews">YES</bool>
-								<int key="IBUIContentMode">7</int>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Fax</string>
-								<reference key="IBUITextColor" ref="980485751"/>
-								<nil key="IBUIHighlightedColor"/>
-								<int key="IBUIBaselineAdjustment">1</int>
-								<float key="IBUIMinimumFontSize">10</float>
-								<reference key="IBUIFontDescription" ref="57953987"/>
-								<reference key="IBUIFont" ref="928450815"/>
-							</object>
 							<object class="IBUILabel" id="173747171">
 								<reference key="NSNextResponder" ref="303374438"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{371, 103}, {144, 21}}</string>
+								<string key="NSFrame">{{371, 64}, {144, 21}}</string>
 								<reference key="NSSuperview" ref="303374438"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="511803496"/>
@@ -427,7 +377,7 @@
 							<object class="IBUILabel" id="87257184">
 								<reference key="NSNextResponder" ref="303374438"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{371, 141}, {144, 21}}</string>
+								<string key="NSFrame">{{371, 102}, {144, 21}}</string>
 								<reference key="NSSuperview" ref="303374438"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="160893893"/>
@@ -446,7 +396,7 @@
 								<reference key="IBUIFont" ref="928450815"/>
 							</object>
 						</object>
-						<string key="NSFrame">{{1, 0}, {766, 187}}</string>
+						<string key="NSFrame">{{1, 0}, {766, 149}}</string>
 						<reference key="NSSuperview" ref="944951692"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="729146760"/>
@@ -461,7 +411,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</object>
-				<string key="NSFrameSize">{768, 188}</string>
+				<string key="NSFrameSize">{768, 150}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="303374438"/>
@@ -474,7 +424,7 @@
 				<reference key="IBUIFontDescription" ref="894271247"/>
 				<reference key="IBUIFont" ref="928450815"/>
 				<string key="IBUIReuseIdentifier">ProducerContactTableViewCell</string>
-				<real value="188" key="IBUIRowHeight"/>
+				<real value="150" key="IBUIRowHeight"/>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -487,14 +437,6 @@
 						<reference key="destination" ref="18820539"/>
 					</object>
 					<int key="connectionID">24</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">faxTextField</string>
-						<reference key="source" ref="944951692"/>
-						<reference key="destination" ref="747409238"/>
-					</object>
-					<int key="connectionID">25</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -579,14 +521,6 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
-						<reference key="source" ref="747409238"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">48</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">delegate</string>
 						<reference key="source" ref="511803496"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
@@ -608,15 +542,6 @@
 						<int key="IBEventType">18</int>
 					</object>
 					<int key="connectionID">51</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">autoFormatPhoneNumber:</string>
-						<reference key="source" ref="747409238"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">18</int>
-					</object>
-					<int key="connectionID">52</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -656,7 +581,6 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="18820539"/>
-							<reference ref="747409238"/>
 							<reference ref="165539728"/>
 							<reference ref="308734408"/>
 							<reference ref="511803496"/>
@@ -666,7 +590,6 @@
 							<reference ref="233747800"/>
 							<reference ref="214101313"/>
 							<reference ref="931211869"/>
-							<reference ref="991662144"/>
 							<reference ref="173747171"/>
 							<reference ref="160893893"/>
 							<reference ref="87257184"/>
@@ -676,11 +599,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">14</int>
 						<reference key="object" ref="18820539"/>
-						<reference key="parent" ref="944951692"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">15</int>
-						<reference key="object" ref="747409238"/>
 						<reference key="parent" ref="944951692"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -734,11 +652,6 @@
 						<reference key="parent" ref="944951692"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">40</int>
-						<reference key="object" ref="991662144"/>
-						<reference key="parent" ref="944951692"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">41</int>
 						<reference key="object" ref="173747171"/>
 						<reference key="parent" ref="944951692"/>
@@ -759,7 +672,6 @@
 					<string>-2.CustomClassName</string>
 					<string>-2.IBPluginDependency</string>
 					<string>14.IBPluginDependency</string>
-					<string>15.IBPluginDependency</string>
 					<string>16.IBPluginDependency</string>
 					<string>17.IBPluginDependency</string>
 					<string>18.IBPluginDependency</string>
@@ -772,7 +684,6 @@
 					<string>37.IBPluginDependency</string>
 					<string>38.IBPluginDependency</string>
 					<string>39.IBPluginDependency</string>
-					<string>40.IBPluginDependency</string>
 					<string>41.IBPluginDependency</string>
 					<string>42.IBPluginDependency</string>
 				</object>
@@ -789,9 +700,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>ProducerContactTableViewCell</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1294,11 +1203,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>accessSignButton</string>
+							<string>accessSignCustomSwitch</string>
 							<string>accessSignTextField</string>
 							<string>dateEstablishedButton</string>
 							<string>dateEstablishedTextField</string>
 							<string>eOExpiresButton</string>
 							<string>eOExpiresTextField</string>
+							<string>neverVisitCustomSwitch</string>
 							<string>neverVisitSwitch</string>
 							<string>numberOfEmployeesTextField</string>
 							<string>numberOfLocationsButton</string>
@@ -1312,11 +1223,13 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIButton</string>
+							<string>UICustomSwitch</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UICustomSwitch</string>
 							<string>UISwitch</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
@@ -1333,11 +1246,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>accessSignButton</string>
+							<string>accessSignCustomSwitch</string>
 							<string>accessSignTextField</string>
 							<string>dateEstablishedButton</string>
 							<string>dateEstablishedTextField</string>
 							<string>eOExpiresButton</string>
 							<string>eOExpiresTextField</string>
+							<string>neverVisitCustomSwitch</string>
 							<string>neverVisitSwitch</string>
 							<string>numberOfEmployeesTextField</string>
 							<string>numberOfLocationsButton</string>
@@ -1353,6 +1268,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">accessSignButton</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">accessSignCustomSwitch</string>
+								<string key="candidateClassName">UICustomSwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">accessSignTextField</string>
@@ -1373,6 +1292,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">eOExpiresTextField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">neverVisitCustomSwitch</string>
+								<string key="candidateClassName">UICustomSwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">neverVisitSwitch</string>
@@ -1750,6 +1673,7 @@
 							<string>appointedDateButton</string>
 							<string>appointedDateTextField</string>
 							<string>eligibleButton</string>
+							<string>eligibleCustomSwitch</string>
 							<string>eligibleTextField</string>
 							<string>reasonIneligibleButton</string>
 							<string>reasonIneligibleLabel</string>
@@ -1766,6 +1690,7 @@
 							<string>UIButton</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
+							<string>UICustomSwitch</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
 							<string>UILabel</string>
@@ -1785,6 +1710,7 @@
 							<string>appointedDateButton</string>
 							<string>appointedDateTextField</string>
 							<string>eligibleButton</string>
+							<string>eligibleCustomSwitch</string>
 							<string>eligibleTextField</string>
 							<string>reasonIneligibleButton</string>
 							<string>reasonIneligibleLabel</string>
@@ -1809,6 +1735,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">eligibleButton</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">eligibleCustomSwitch</string>
+								<string key="candidateClassName">UICustomSwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">eligibleTextField</string>
@@ -1924,15 +1854,23 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">UICustomSwitch</string>
+					<string key="superclassName">UISlider</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/UICustomSwitch.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">VisitApplicationProducerProfileTableViewController</string>
 					<string key="superclassName">BaseDetailViewController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>accessSignToggl:</string>
 							<string>autoFormatPhoneNumber:</string>
 							<string>dismiss:</string>
+							<string>handleCustomSwitchToggle:</string>
 							<string>neverVisitToggle:</string>
 							<string>showDatePickerView:</string>
 							<string>showPickerView:</string>
@@ -1955,9 +1893,9 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>accessSignToggl:</string>
 							<string>autoFormatPhoneNumber:</string>
 							<string>dismiss:</string>
+							<string>handleCustomSwitchToggle:</string>
 							<string>neverVisitToggle:</string>
 							<string>showDatePickerView:</string>
 							<string>showPickerView:</string>
@@ -1967,15 +1905,15 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
-								<string key="name">accessSignToggl:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
 								<string key="name">autoFormatPhoneNumber:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">dismiss:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">handleCustomSwitchToggle:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
