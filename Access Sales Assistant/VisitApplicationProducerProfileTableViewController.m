@@ -170,7 +170,7 @@
 {
 	if (self.detailItem) {
 		//if ([self.detailItem valueForKey:@"editedValue"]) {
-			[[NSManagedObjectContext defaultContext] save];
+		[[NSManagedObjectContext defaultContext] save];
         //}
 	}
     if (_detailItem != newDetailItem) {
@@ -1167,7 +1167,7 @@
 	[[NSManagedObjectContext defaultContext] save];
     
     UIButton *button = (UIButton *)sender;
-//	[button becomeFirstResponder];
+	//	[button becomeFirstResponder];
     
 	SelectionModelViewController *selectionView = [[SelectionModelViewController alloc] initWithNibName:@"SelectionModelViewController" bundle:nil];
     
@@ -1212,7 +1212,7 @@
                     [selectionView assignDataSource:[Rater findAllSortedBy:@"name" ascending:YES]];
 					
                     
-
+					
 					//   [self presen]
 					
                     break;
@@ -1222,7 +1222,7 @@
                     [selectionView assignDataSource:[Rater2 findAllSortedBy:@"name" ascending:YES]];
                     
                     
-
+					
 					
                     break;
                 }
@@ -1261,7 +1261,7 @@
                 case ESundayEndHour:
                 {
                     [selectionView assignDataSource:[OperationHour findAllSortedBy:@"uid" ascending:YES]];
-
+					
                 }
                     break;
                     
@@ -1275,7 +1275,7 @@
                 case EAddressState:
                 {
                     [selectionView assignDataSource:[State findAllSortedBy:@"name" ascending:YES]];
-
+					
                     break;
                 }
             }
@@ -1297,7 +1297,7 @@
     }
     [self hideKeyboard];
     [self performSelector:@selector(showViewController:) withObject:selectionView afterDelay:0.0];
-   //[self presentViewController:selectionView animated:YES completion:^(void){}];
+	//[self presentViewController:selectionView animated:YES completion:^(void){}];
     
 }
 -(IBAction)showTimePickerView:(id)sender
@@ -2130,15 +2130,15 @@
                     break;
                 case EWebsiteAddress:
                 {
-                    if([replacementString isValidWebSite])
-                    {
-                        self.detailItem.webAddress = textField.text;
-                        [self changeTextFieldOutline:textField:YES];
-                    }
-                    else
-                    {
-                        [self changeTextFieldOutline:textField:NO];
-                    }
+                    //if([replacementString isValidWebSite])
+                    //{
+					self.detailItem.webAddress = textField.text;
+					//[self changeTextFieldOutline:textField:YES];
+                    //}
+                    //else
+                    //{
+					//[self changeTextFieldOutline:textField:NO];
+                    //}
                 }
                     break;
             }
@@ -2152,12 +2152,12 @@
                 case EContactSSN:
                 {
 					/*
-                    if([replacementString isvalidSSN])
-                    {
-                        [self changeTextFieldOutline:textField :YES];
-                    }
-                    else
-                        [self changeTextFieldOutline:textField :NO];
+					 if([replacementString isvalidSSN])
+					 {
+					 [self changeTextFieldOutline:textField :YES];
+					 }
+					 else
+					 [self changeTextFieldOutline:textField :NO];
 					 */
                 }
                     break;
@@ -2428,9 +2428,9 @@
         }
     }
     
-		[[NSManagedObjectContext defaultContext] save];
-
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+	[[NSManagedObjectContext defaultContext] save];
+	
+	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
@@ -2695,12 +2695,23 @@
             {
                 case ERater1:
                 {
-                    self.detailItem.rater = [Rater findFirstByAttribute:@"name" withValue:selectedString];
+					Rater *rater = [Rater findFirstByAttribute:@"name" withValue:selectedString];
+					if (rater) {
+						self.detailItem.rater = rater;
+					} else {
+						self.detailItem.rater = nil;
+					}
+                    
                     break;
                 }
                 case ERater2:
                 {
-                    self.detailItem.rater2 = [Rater2 findFirstByAttribute:@"name" withValue:selectedString];
+					Rater2 *rater2 = [Rater2 findFirstByAttribute:@"name" withValue:selectedString];
+					if (rater2) {
+						self.detailItem.rater2 = rater2;
+					} else {
+						self.detailItem.rater2 = nil;
+					}
                     break;
                 }
             }
@@ -2724,99 +2735,139 @@
                 HoursOfOperation *hOperation = [HoursOfOperation createEntity];
                 self.detailItem.hoursOfOperation = hOperation;
             }
-            
+			
+            OperationHour *hour = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
             
             switch(forTag)
             {
                 case EMondayStartHour:
                 {
-                    self.detailItem.hoursOfOperation.mondayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+					self.detailItem.hoursOfOperation.mondayOpenTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.mondayCloseTime = hour;
+					}
                     break;
                 }
                 case EMondayEndHour:
                 {
-                    self.detailItem.hoursOfOperation.mondayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    
+					self.detailItem.hoursOfOperation.mondayCloseTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.mondayOpenTime = hour;
+					}
                     break;
                 }
                     
                 case ETuesdayStartHour:
                 {
-                    self.detailItem.hoursOfOperation.tuesdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+					self.detailItem.hoursOfOperation.tuesdayOpenTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.tuesdayCloseTime = hour;
+					}
                     break;
                 }
                     
                 case ETuesdayEndHour:
                 {
-                    self.detailItem.hoursOfOperation.tuesdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    self.detailItem.hoursOfOperation.tuesdayCloseTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.tuesdayOpenTime = hour;
+					}
                     break;
                 }
                     
                 case EWednesdayStartHour:
                 {
-                    self.detailItem.hoursOfOperation.wednesdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+					self.detailItem.hoursOfOperation.wednesdayOpenTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.wednesdayCloseTime = hour;
+					}
                     break;
                 }
                     
                 case EWednesdayEndHour:
                 {
-                    self.detailItem.hoursOfOperation.wednesdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    self.detailItem.hoursOfOperation.wednesdayCloseTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.wednesdayOpenTime = hour;
+					}
                     break;
                 }
                     
                 case EThursdayStartHour:
                 {
-                    self.detailItem.hoursOfOperation.thursdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    self.detailItem.hoursOfOperation.thursdayOpenTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.thursdayCloseTime = hour;
+					}
                     break;
                 }
                     
                 case EThursdayEndHour:
                 {
-                    self.detailItem.hoursOfOperation.thursdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    self.detailItem.hoursOfOperation.thursdayCloseTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.thursdayOpenTime = hour;
+					}
                     break;
                 }
                     
                 case EFridayStartHour:
                 {
-                    self.detailItem.hoursOfOperation.fridayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    self.detailItem.hoursOfOperation.fridayOpenTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.fridayCloseTime = hour;
+					}
                     break;
                 }
                     
                 case EFridayEndHour:
                 {
-                    self.detailItem.hoursOfOperation.fridayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    self.detailItem.hoursOfOperation.fridayCloseTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.fridayOpenTime = hour;
+					}
                     break;
                 }
                     
                 case ESaturdayStartHour:
                 {
-                    self.detailItem.hoursOfOperation.saturdayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    self.detailItem.hoursOfOperation.saturdayOpenTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.saturdayCloseTime = hour;
+					}
                     break;
                 }
                     
                 case ESaturdayEndHour:
                 {
-                    self.detailItem.hoursOfOperation.saturdayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    self.detailItem.hoursOfOperation.saturdayCloseTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.saturdayOpenTime = hour;
+					}
                     break;
                 }
                     
                 case ESundayStartHour:
                 {
-                    self.detailItem.hoursOfOperation.sundayOpenTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    self.detailItem.hoursOfOperation.sundayOpenTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.sundayCloseTime = hour;
+					}
                     break;
                 }
                     
                 case ESundayEndHour:
                 {
-                    self.detailItem.hoursOfOperation.sundayCloseTime = [OperationHour findFirstByAttribute:@"name" withValue:selectedString];
+                    self.detailItem.hoursOfOperation.sundayCloseTime = hour;
+					if ([hour.name isEqualToString:@"Closed"]) {
+						self.detailItem.hoursOfOperation.sundayOpenTime = hour;
+					}
                     break;
                 }
-					
-					
             }
 			break;
         }
-            
-            
         case EAddresses:
         {
             switch(forTag)
@@ -2833,7 +2884,7 @@
                                 int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 1) {
                                     addrItem = address;
-                                    continue;
+                                    break;
                                 }
                             }
                             if(addrItem != nil)
@@ -2901,13 +2952,9 @@
                                 addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
                                 [self.detailItem addAddressesObject:addrItem];
                             }
-                            
                             break;
-                            
-                            
                         }
                     }
-                    
                 }
                     break;
             } 
