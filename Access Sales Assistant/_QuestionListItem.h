@@ -72,9 +72,9 @@
 
 
 
-@property (nonatomic, retain) NSSet* producers;
+@property (nonatomic, retain) Producer* producer;
 
-- (NSMutableSet*)producersSet;
+//- (BOOL)validateProducer:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -87,11 +87,6 @@
 - (void)removeDailySummaries:(NSSet*)value_;
 - (void)addDailySummariesObject:(DailySummary*)value_;
 - (void)removeDailySummariesObject:(DailySummary*)value_;
-
-- (void)addProducers:(NSSet*)value_;
-- (void)removeProducers:(NSSet*)value_;
-- (void)addProducersObject:(Producer*)value_;
-- (void)removeProducersObject:(Producer*)value_;
 
 @end
 
@@ -134,8 +129,8 @@
 
 
 
-- (NSMutableSet*)primitiveProducers;
-- (void)setPrimitiveProducers:(NSMutableSet*)value;
+- (Producer*)primitiveProducer;
+- (void)setPrimitiveProducer:(Producer*)value;
 
 
 @end

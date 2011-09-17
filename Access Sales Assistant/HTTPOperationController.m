@@ -117,8 +117,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSString *encryptedString = [encryptedData base64EncodingWithLineLength:0];
 	NSString *encryptedEncodedString = [self urlencode:encryptedString];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"%@SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@", 
-						   kUATURL, 
+						   stringWithFormat:@"https://uatmobile.accessgeneral.com/SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@",
 						   [user username],
 						   encryptedEncodedString,
 						   [user domain],
@@ -823,7 +822,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 }
 
--(void) postQAResolutionForm:(NSString*) qaResolutionForm
+-(void)postQAResolutionForm:(NSString*)qaResolutionForm
 {
   //  NSLog(@"%@",qaResolutionForm);
     
@@ -860,6 +859,39 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 {
     [UIHelpers showAlertWithTitle:@"Failed" msg:@"Request Failed" buttonTitle:@"OK"];
 }
+
+#pragma mark - Delete Contact
+
+- (void)deleteContact:(NSString *)contact
+{
+	if ([[self networkQueue] isSuspended]) {
+		[[self networkQueue] go];
+	}
+	
+	User *user = [User findFirst];
+	NSString *urlString = [NSString stringWithFormat:@"%@/VisitApplicationService/Contacts/%@?token=%@", kURL, contact, [user token]];
+	NSURL *url = [NSURL URLWithString:urlString];
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+	[request setRequestMethod:@"DELETE"];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(deleteContactFinished:)];
+	[request setDidFailSelector:@selector(deleteContactFailed:)];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
+	[[self networkQueue] addOperation:request];
+}
+
+- (void)deleteContactFinished:(ASIHTTPRequest *)request
+{
+	
+}
+
+- (void)deleteContactFailed:(ASIHTTPRequest *)request
+{
+	
+}
+
 #pragma mark - 
 #pragma mark URL Encode
 

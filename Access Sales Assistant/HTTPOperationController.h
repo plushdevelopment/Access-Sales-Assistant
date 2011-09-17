@@ -63,17 +63,21 @@
 - (void)getTrainingVideosFinished:(ASIHTTPRequest*)request;
 - (void)getTrainingVideosFailed:(ASIHTTPRequest*)request;
 
--(void)searchProducer:(NSString*)searchString;
--(void)searchProducerFinished:(ASIHTTPRequest*)request;
--(void)searchProducerFailed:(ASIHTTPRequest*)request;
+- (void)searchProducer:(NSString*)searchString;
+- (void)searchProducerFinished:(ASIHTTPRequest*)request;
+- (void)searchProducerFailed:(ASIHTTPRequest*)request;
 
--(void)getAUNTKsForProducer:(NSString *)producerCode;
--(void)getAUNTKsForProducerFinished:(ASIHTTPRequest*)request;
--(void)getAUNTKsForProducerFailed:(ASIHTTPRequest*)request;
+- (void)getAUNTKsForProducer:(NSString *)producerCode;
+- (void)getAUNTKsForProducerFinished:(ASIHTTPRequest*)request;
+- (void)getAUNTKsForProducerFailed:(ASIHTTPRequest*)request;
 
--(void) postQAResolutionForm:(NSString*) qaResolutionForm;
--(void)postQAResolutionFormFinished:(ASIHTTPRequest*)request;
--(void)postQAResolutionFormFailed:(ASIHTTPRequest*)request;
+- (void)postQAResolutionForm:(NSString*)qaResolutionForm;
+- (void)postQAResolutionFormFinished:(ASIHTTPRequest*)request;
+- (void)postQAResolutionFormFailed:(ASIHTTPRequest*)request;
+
+- (void)deleteContact:(NSString *)contact;
+- (void)deleteContactFinished:(ASIHTTPRequest *)request;
+- (void)deleteContactFailed:(ASIHTTPRequest *)request;
 
 -(NSString *) urlencode: (NSString *) url;
 

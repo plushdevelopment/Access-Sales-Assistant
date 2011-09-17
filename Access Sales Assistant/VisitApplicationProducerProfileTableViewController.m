@@ -169,9 +169,9 @@
 - (void)setDetailItem:(id)newDetailItem
 {
 	if (self.detailItem) {
-		if ([self.detailItem valueForKey:@"editedValue"]) {
+		//if ([self.detailItem valueForKey:@"editedValue"]) {
 			[[NSManagedObjectContext defaultContext] save];
-        }
+        //}
 	}
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
@@ -435,6 +435,7 @@
     if(btn.tag == 1001)
     {
         Contact* newContact = [Contact createEntity];
+		newContact.editedValue = YES;
         [self.detailItem addContactsObject:newContact];
 		[[NSManagedObjectContext defaultContext]save];
         [self.tableView reloadData];
@@ -932,8 +933,10 @@
             NSArray* arr = _detailItem.contacts.allObjects;
 			
             Contact* cToDel = [arr objectAtIndex:indexPath.row];
+			if (cToDel.uid) {
+				[[HTTPOperationController sharedHTTPOperationController] deleteContact:cToDel.uid];
+			}
 			
-            //[self.detailItem removeContactsObject:cToDel];
             [cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
             [[NSManagedObjectContext defaultContext] save];
             [self.tableView reloadData];
