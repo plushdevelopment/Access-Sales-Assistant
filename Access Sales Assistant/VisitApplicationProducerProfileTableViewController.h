@@ -92,12 +92,12 @@
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
 
--(IBAction)showSelectionTableView:(id)sender;
--(IBAction)neverVisitToggle:(id)sender;
-
+- (IBAction)showSelectionTableView:(id)sender;
+- (IBAction)neverVisitToggle:(id)sender;
+- (IBAction)accessSignToggl:(id)sender;
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;
--(IBAction)autoFormatPhoneNumber:(id) sender;
--(void)doneSelection:(id)sender;
+- (IBAction)autoFormatPhoneNumber:(id)sender;
+- (void)doneSelection:(id)sender;
 
 @end
