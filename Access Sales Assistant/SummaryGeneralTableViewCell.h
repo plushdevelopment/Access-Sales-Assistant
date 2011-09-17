@@ -18,4 +18,9 @@
 @property (nonatomic, strong) IBOutlet UIButton *reasonNotSeen;
 @property (nonatomic, strong) IBOutlet UITextField *reasonNotSeenTextField;
 
+@property (nonatomic, strong) IBOutlet UITextField *commissionStructureTextField;
+@property (nonatomic, strong) IBOutlet UITextField *percentNewTextField;
+@property (nonatomic, strong) IBOutlet UITextField *percentRenewalTextField;
+@property (nonatomic, strong) IBOutlet UIButton *commissionStructureButton;
+
 @end

@@ -63,14 +63,19 @@ enum PRPTableSections {
 	PRPTableSectionCompetitor,
 	PRPTableSectionBarriersToBusiness,
 	PRPTableSectionStats,
-    PRPTableNumSections
+    PRPTableNumSections,
+    
 };
 
 enum PRPTableGeneralTags {
     PRPTableGeneralProducerName = 1,
     PRPTableGeneralCallType,
 	PRPTableGeneralReportDate,
-    PRPTableGeneralReasonNotSeen
+    PRPTableGeneralReasonNotSeen,
+    PRPTableCompetitorCommissionStructure,
+	PRPTableCompetitorPercentNew,
+	PRPTableCompetitorPercentRenewal
+
 };
 
 enum PRPTableSpokeWithTags {
@@ -83,10 +88,7 @@ enum PRPTableSpokeWithTags {
 enum PRPTableCompetitorTags {
     PRPTableCompetitorName = 1,
     PRPTableCompetitorAppsPerMonth,
-	PRPTableCompetitorCommissionStructure,
-	PRPTableCompetitorPercentNew,
-	PRPTableCompetitorPercentRenewal
-};
+	};
 
 enum PRPTableBarrierTags {
     PRPTableBarrierName = 1
@@ -149,6 +151,8 @@ enum PRPTableStatsTags {
 {
 	[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[self.detailItem jsonStringValue]];
 	self.detailItem.producerId.submittedValue = YES;
+    
+    NSLog(@"%@",self.detailItem);
 }
 
 // Show the pickerView inside of a popover
@@ -231,6 +235,7 @@ enum PRPTableStatsTags {
 		
 	} completion:^(BOOL finished){
 		NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
+        NSLog(@"%@", pickerFrame);
 		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:UIKeyboardFrameEndUserInfoKey, pickerFrame, nil];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
 	}];
@@ -259,15 +264,22 @@ enum PRPTableStatsTags {
     {
         case PRPTableSectionGeneral:
         {
-			switch(selectionView.currentTag)
+           switch(selectionView.currentTag)
             {
                 case PRPTableGeneralReasonNotSeen:
                 {
                     [selectionView assignDataSource:[ReasonNotSeen findAllSortedBy:@"name" ascending:YES]];
                     [self presentModalViewController:selectionView  animated:YES];
-					
+
                     break;
                 }
+                case PRPTableCompetitorCommissionStructure:
+                {
+                    [selectionView assignDataSource:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
+                    [self presentModalViewController:selectionView  animated:YES];
+                    break;
+                }
+
             }
             break;
         }
@@ -278,7 +290,7 @@ enum PRPTableStatsTags {
                 case PRPTableSpokeWithTitle:
                 {
                     [selectionView assignDataSource:[PersonSpokeWithTitle findAllSortedBy:@"name" ascending:YES]];
-					[self presentModalViewController:selectionView  animated:YES];
+                     [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -294,13 +306,7 @@ enum PRPTableStatsTags {
                     Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:selectionView.currentIndexPath.row];
                     [self.detailItem removeCompetitorsObject:competitor];
                     [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
-					[self presentModalViewController:selectionView  animated:YES];
-                    break;
-                }
-                case PRPTableCompetitorCommissionStructure:
-                {
-                    [selectionView assignDataSource:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
-					[self presentModalViewController:selectionView  animated:YES];
+                     [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
                 case 1001:
@@ -321,7 +327,7 @@ enum PRPTableStatsTags {
                     BarrierToBusiness *barrier = [self.detailItem.barriersToBusiness.allObjects objectAtIndex:selectionView.currentIndexPath.row];
                     [self.detailItem removeBarriersToBusinessObject:barrier];
                     [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
-					[self presentModalViewController:selectionView  animated:YES];
+                     [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
                 case 1005:
@@ -340,12 +346,12 @@ enum PRPTableStatsTags {
                 case PRPTableStatsProducerAddOn:
                 {
                     [selectionView assignDataSource:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
-					[self presentModalViewController:selectionView  animated:YES];
+                     [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
                 case PRPTableStatsRDFollowUp:
                 {
-					//       [selectionView assignDataSource:[]]
+             //       [selectionView assignDataSource:[]]
                     break;
                 }
             }
@@ -357,13 +363,22 @@ enum PRPTableStatsTags {
 
 - (IBAction)handleSwitch:(id)sender
 {
-    UISwitch *rdfollowup = (UISwitch*) sender;
+  /*  UISwitch *rdfollowup = (UISwitch*) sender;
     
     if(rdfollowup.isOn)
         _detailItem.rdFollowUpValue = 1;
     else
         _detailItem.rdFollowUpValue = 0;
-	
+   */
+    
+    UICustomSwitch * rdfollowup = (UICustomSwitch*) sender;
+    if(rdfollowup.isOn)
+        _detailItem.rdFollowUpValue = 1;
+    else
+        _detailItem.rdFollowUpValue = 0;
+    
+    [self toggleSubmitButton:[self isEnableSubmit]];
+       
 }
 #pragma mark -
 #pragma mark Accessors
@@ -444,18 +459,21 @@ enum PRPTableStatsTags {
 		producer.dailySummary = dSummary;//[DailySummary createEntity];
 	}
     
-	
+
     if (_detailItem != producer.dailySummary) {
         _detailItem = producer.dailySummary;
         
-		
+      
         
         // Update the view.
         [self configureView];
     }
     
-	titleText = [[NSString alloc]initWithFormat:@"%@ - %@",producer.name,producer.producerCode];
+   titleText = [[NSString alloc]initWithFormat:@"%@ - %@",producer.name,producer.producerCode];  
+   // NSLog(titleText);
 	
+ 
+        
 	if (self.aPopoverController != nil) {
         [self.aPopoverController dismissPopoverAnimated:YES];
     } 
@@ -494,10 +512,9 @@ enum PRPTableStatsTags {
     [self toggleSubmitButton:NO];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-	self.tableView.backgroundColor = [UIColor clearColor];
+	 self.tableView.backgroundColor = [UIColor clearColor];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	self.fields = [NSMutableSet set];
 }
 
 - (void)viewDidUnload
@@ -519,7 +536,7 @@ enum PRPTableStatsTags {
     [super viewWillAppear:animated];
 	[self.tableView reloadData];
     
-	_titleLabel.text = titleText;
+       _titleLabel.text = titleText;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -570,6 +587,7 @@ enum PRPTableStatsTags {
 				theTitle = @"Non-Standard Business Stats";
 				break;
 			default:
+				NSLog(@"Unexpected section (%d)", section);
 				break;
 		}
 	}
@@ -586,18 +604,32 @@ enum PRPTableStatsTags {
 				break;
 			case PRPTableSectionSpokeWith:
 				/*
-				 if (self.detailItem.personsSpokeWith.allObjects.count == 0) {
-				 PersonSpokeWith *person = [PersonSpokeWith createEntity];
-				 [self.detailItem addPersonsSpokeWithObject:person];
-				 [self.managedObjectContext save];
-				 }
+				if (self.detailItem.personsSpokeWith.allObjects.count == 0) {
+					PersonSpokeWith *person = [PersonSpokeWith createEntity];
+					[self.detailItem addPersonsSpokeWithObject:person];
+					[self.managedObjectContext save];
+				}
 				 */
 				rows = self.detailItem.personsSpokeWith.allObjects.count + 1;
 				break;
 			case PRPTableSectionCompetitor:
+				/*
+				if (self.detailItem.competitors.allObjects.count == 0) {
+					Competitor *competitor = [Competitor createEntity];
+					[self.detailItem addCompetitorsObject:competitor];
+					[self.managedObjectContext save];
+				}
+				 */
 				rows = self.detailItem.competitors.allObjects.count + 1;
 				break;
 			case PRPTableSectionBarriersToBusiness:
+				/*
+				if (self.detailItem.barriersToBusiness.allObjects.count == 0) {
+					BarrierToBusiness *barrier = [BarrierToBusiness createEntity];
+					[self.detailItem addBarriersToBusinessObject:barrier];
+					[self.managedObjectContext save];
+				}
+				 */
 				rows = self.detailItem.barriersToBusiness.allObjects.count + 1;
 				break;
 			case PRPTableSectionStats:
@@ -626,21 +658,37 @@ enum PRPTableStatsTags {
 			customCell.callTypeTextField.text = self.detailItem.purposeOfCall.name;
             [self disableTextField:customCell.callTypeTextField :NO];
             customCell.reasonNotSeenTextField.text = self.detailItem.reasonNotSeen.name;
+            
+            customCell.commissionStructureTextField.text = self.detailItem.commissionStructure.name;
+            customCell.percentNewTextField.text = self.detailItem.commissionPercentNew.stringValue;
+            customCell.percentRenewalTextField.text = self.detailItem.commissionPercentRenewal.stringValue;
+
 			
 			customCell.producerNameTextField.delegate = self;
 			customCell.reportDateTextField.delegate = self;
 			customCell.callTypeTextField.delegate = self;
+            customCell.commissionStructureTextField.delegate = self;
+            customCell.percentNewTextField.delegate = self;
+            customCell.percentRenewalTextField.delegate = self;
+
 			
 			[customCell.reportDateButton addTarget:self action:@selector(showDatePickerView:) forControlEvents:UIControlEventTouchUpInside];
             [customCell.reasonNotSeen addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
-			
-			[self.
+            
+            [customCell.commissionStructureButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
+
 			
 			cell = customCell;
 		}
 			break;
         case PRPTableSectionSpokeWith: {
 			if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
+				/*PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
+				customCell.textLabel.text = @"Add a Person";
+				customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+                 
+                 */
+                
                 AddRowTableViewCell* customCell = [AddRowTableViewCell cellForTableView:tableView fromNib:[AddRowTableViewCell nib]];
                 customCell.addRowType.text = @"Add a Person";
                 
@@ -648,17 +696,22 @@ enum PRPTableStatsTags {
                 UIButton *button = customCell.addButton;
                 button.tag = 1003;
                 
-				[button addTarget:self action:@selector(AddPerson:) forControlEvents:UIControlEventTouchUpInside];
+                [button addTarget:self action:@selector(AddPerson:) forControlEvents:UIControlEventTouchUpInside];
                 
-				[button setEnabled:_isPersonEdited?FALSE:TRUE];
-				
-				customCell.delRowType.text = @"Delete Person";
-				UIButton *remBtn = customCell.editButton;
-				[remBtn setTitle:_isPersonEdited?@"Done":@"Edit" forState:UIControlStateNormal];
-				[remBtn setEnabled:_isPersonEdited?TRUE:((indexPath.row>0)?TRUE:FALSE)];
-				remBtn.tag = 1004;
-				
-				[remBtn addTarget:self action:@selector(AddPerson:) forControlEvents:UIControlEventTouchUpInside];
+             //   UIButton *remBtn = customCell.editButton;
+                
+             //   remBtn.hidden = TRUE;
+             //   customCell.delRowType.hidden = TRUE;
+                
+                    [button setEnabled:_isPersonEdited?FALSE:TRUE];
+                 
+                 customCell.delRowType.text = @"Delete Person";
+                 UIButton *remBtn = customCell.editButton;
+                 [remBtn setTitle:_isPersonEdited?@"Done":@"Edit" forState:UIControlStateNormal];
+                 [remBtn setEnabled:_isPersonEdited?TRUE:((indexPath.row>0)?TRUE:FALSE)];
+                 remBtn.tag = 1004;
+                 
+                 [remBtn addTarget:self action:@selector(AddPerson:) forControlEvents:UIControlEventTouchUpInside];
                 
 				cell = customCell;
 			} else {
@@ -684,6 +737,12 @@ enum PRPTableStatsTags {
 			break;
 		case PRPTableSectionCompetitor: {
 			if (indexPath.row == self.detailItem.competitors.allObjects.count) {
+				/*PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
+				customCell.textLabel.text = @"Add a Competitor";
+				customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+                 */
+				
+				//cell = customCell;
                 
                 AddRowTableViewCell* customCell = [AddRowTableViewCell cellForTableView:tableView fromNib:[AddRowTableViewCell nib]];
                 customCell.addRowType.text = @"Add a Competitor";
@@ -694,20 +753,20 @@ enum PRPTableStatsTags {
                 
                 [button addTarget:self action:@selector(AddCompetitor:) forControlEvents:UIControlEventTouchUpInside];
                 
-				
+           
                 
                 [button setEnabled:_isCompetetorEdited?FALSE:TRUE];
                 
                 customCell.delRowType.text = @"Delete Competitor";
                 UIButton *remBtn = customCell.editButton;
-				[remBtn setTitle:_isCompetetorEdited?@"Done":@"Edit" forState:UIControlStateNormal];
+               [remBtn setTitle:_isCompetetorEdited?@"Done":@"Edit" forState:UIControlStateNormal];
                 [remBtn setEnabled:_isCompetetorEdited?TRUE:((indexPath.row>0)?TRUE:FALSE)];
                 remBtn.tag = 1002;
                 
                 [remBtn addTarget:self action:@selector(AddCompetitor:) forControlEvents:UIControlEventTouchUpInside];
-				
+             
                 cell = customCell;
-				
+
 			} else {
 				SummaryCompetitorTableViewCell *customCell = [SummaryCompetitorTableViewCell cellForTableView:tableView fromNib:self.summaryCompetitorTableViewCellNib];
 				
@@ -715,19 +774,12 @@ enum PRPTableStatsTags {
 				
 				customCell.competitorNameTextField.text = competitor.name;
 				customCell.appsPerMonthTextField.text = competitor.appsPerMonth.stringValue;
-				customCell.commissionStructureTextField.text = self.detailItem.commissionStructure.name;
-				customCell.percentNewTextField.text = self.detailItem.commissionPercentNew.stringValue;
-				customCell.percentRenewalTextField.text = self.detailItem.commissionPercentRenewal.stringValue;
-				
+							
 				customCell.competitorNameTextField.delegate = self;
 				customCell.appsPerMonthTextField.delegate = self;
-				customCell.commissionStructureTextField.delegate = self;
-				customCell.percentNewTextField.delegate = self;
-				customCell.percentRenewalTextField.delegate = self;
-				
+							
 				[customCell.competitorNameButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
-				[customCell.commissionStructureButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
-				
+							
 				cell = customCell;
 			}
 		}
@@ -735,8 +787,8 @@ enum PRPTableStatsTags {
 		case PRPTableSectionBarriersToBusiness: {
 			if (indexPath.row == self.detailItem.barriersToBusiness.allObjects.count) {
 				/*PRPSmartTableViewCell *customCell = [PRPSmartTableViewCell cellForTableView:tableView];
-				 customCell.textLabel.text = @"Add a Barrier to Business";
-				 customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;*/
+				customCell.textLabel.text = @"Add a Barrier to Business";
+				customCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;*/
                 
                 AddRowTableViewCell* customCell = [AddRowTableViewCell cellForTableView:tableView fromNib:[AddRowTableViewCell nib]];
                 customCell.addRowType.text = @"Add a Barrier";
@@ -747,10 +799,10 @@ enum PRPTableStatsTags {
                 
                 [button addTarget:self action:@selector(AddBarrier:) forControlEvents:UIControlEventTouchUpInside];
                 
-				//  UIButton *remBtn = customCell.editButton;
+              //  UIButton *remBtn = customCell.editButton;
                 
-				//  remBtn.hidden = TRUE;
-				//  customCell.delRowType.hidden = TRUE;
+              //  remBtn.hidden = TRUE;
+              //  customCell.delRowType.hidden = TRUE;
                 
                 
                 [button setEnabled:_isBarrierEdited?FALSE:TRUE];
@@ -762,8 +814,8 @@ enum PRPTableStatsTags {
                 remBtn.tag = 1006;
                 
                 [remBtn addTarget:self action:@selector(AddBarrier:) forControlEvents:UIControlEventTouchUpInside];
-				
-				
+
+
 				
 				cell = customCell;
 			} else {
@@ -797,17 +849,17 @@ enum PRPTableStatsTags {
 			customCell.rdFollowUpTextField.delegate = self;
 			customCell.monthlyGoalTextField.delegate = self;
 			customCell.percentFDLTextField.delegate = self;
-			//  customCell.rdFollowUpTextField.delegate = self;
+          //  customCell.rdFollowUpTextField.delegate = self;
 			
-			//	[customCell.rdFollowUpButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
+		//	[customCell.rdFollowUpButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
             
             if(_detailItem.rdFollowUpValue)
-                customCell.rdFollowUpSwitch.on = YES;
+                customCell.rdFollowUpCustomSwitch.on = YES;
             else
-                customCell.rdFollowUpSwitch.on = NO;
+                customCell.rdFollowUpCustomSwitch.on = NO;
             
-            [customCell.rdFollowUpSwitch addTarget:self action:@selector(handleSwitch:) forControlEvents:UIControlEventTouchUpInside];
-			
+            [customCell.rdFollowUpCustomSwitch addTarget:self action:@selector(handleSwitch:) forControlEvents:UIControlEventTouchUpInside];
+                
 			[customCell.producerAddOnButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
 			
 			cell = customCell;
@@ -854,7 +906,7 @@ enum PRPTableStatsTags {
 				break;
 		}
 	}
-	
+
     UILabel* headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, tableView.bounds.size.width-5, 20)];
     headerTitle.text = theTitle;
     headerTitle.font= [UIFont fontWithName:@"TrebuchetMS-Bold" size:16.0];
@@ -871,11 +923,11 @@ enum PRPTableStatsTags {
     
     if(btn.tag == 1001)
     {
-		/*   Competitor* newCompetitor = [Competitor findFirst];
-		 [self.detailItem addCompetitorsObject:newCompetitor];
-		 [self.tableView reloadData];*/
+     /*   Competitor* newCompetitor = [Competitor findFirst];
+        [self.detailItem addCompetitorsObject:newCompetitor];
+        [self.tableView reloadData];*/
         
-		[self showSelectionTableView:btn];
+         [self showSelectionTableView:btn];
     }
     else if(btn.tag == 1002)
     {
@@ -940,8 +992,8 @@ enum PRPTableStatsTags {
             
             // cell.addButton.enabled = TRUE;
         }
-		//  [super setEditing:editing animated:YES];
-		currentSection = PRPTableSectionSpokeWith;
+      //  [super setEditing:editing animated:YES];
+         currentSection = PRPTableSectionSpokeWith;
         [self setEditing:editing animated:YES];
     }
     [self.tableView reloadData];
@@ -952,10 +1004,10 @@ enum PRPTableStatsTags {
     
     if(btn.tag == 1005)
     {
-		/*  BarrierToBusiness *barrier = [BarrierToBusiness findFirst];
-		 [self.detailItem addBarriersToBusinessObject:barrier];
-		 [self.managedObjectContext save];
-		 [self.tableView reloadData];*/
+      /*  BarrierToBusiness *barrier = [BarrierToBusiness findFirst];
+        [self.detailItem addBarriersToBusinessObject:barrier];
+        [self.managedObjectContext save];
+        [self.tableView reloadData];*/
         
         [self showSelectionTableView:btn];
         
@@ -982,9 +1034,9 @@ enum PRPTableStatsTags {
             
             // cell.addButton.enabled = TRUE;
         }
-		currentSection = PRPTableSectionBarriersToBusiness;
+         currentSection = PRPTableSectionBarriersToBusiness;
         //[super setEditing:editing animated:YES];
-		[self setEditing:editing animated:YES];
+         [self setEditing:editing animated:YES];
     }
     [self.tableView reloadData];
 }
@@ -996,36 +1048,36 @@ enum PRPTableStatsTags {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	/*switch (indexPath.section) {
-	 case PRPTableSectionSpokeWith:
-	 if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
-	 PersonSpokeWith *person = [PersonSpokeWith createEntity];
-	 [self.detailItem addPersonsSpokeWithObject:person];
-	 [self.managedObjectContext save];
-	 [self.tableView reloadData];
-	 }
-	 break;
+        case PRPTableSectionSpokeWith:
+			if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
+				PersonSpokeWith *person = [PersonSpokeWith createEntity];
+				[self.detailItem addPersonsSpokeWithObject:person];
+				[self.managedObjectContext save];
+				[self.tableView reloadData];
+			}
+			break;
      
-	 case PRPTableSectionCompetitor:
-	 if (indexPath.row == self.detailItem.competitors.allObjects.count) {
-	 Competitor *competitor = [Competitor createEntity];
-	 [self.detailItem addCompetitorsObject:competitor];
-	 [self.managedObjectContext save];
-	 [self.tableView reloadData];
-	 }
-	 break;
+		case PRPTableSectionCompetitor:
+			if (indexPath.row == self.detailItem.competitors.allObjects.count) {
+				Competitor *competitor = [Competitor createEntity];
+				[self.detailItem addCompetitorsObject:competitor];
+				[self.managedObjectContext save];
+				[self.tableView reloadData];
+			}
+			break;
      
-	 case PRPTableSectionBarriersToBusiness:
-	 if (indexPath.row == self.detailItem.barriersToBusiness.allObjects.count) {
-	 BarrierToBusiness *barrier = [BarrierToBusiness createEntity];
-	 [self.detailItem addBarriersToBusinessObject:barrier];
-	 [self.managedObjectContext save];
-	 [self.tableView reloadData];
-	 }
-	 break;
-	 default:
-	 break;
-	 }
-	 [self.tableView deselectRowAtIndexPath:indexPath animated:NO];*/
+		case PRPTableSectionBarriersToBusiness:
+			if (indexPath.row == self.detailItem.barriersToBusiness.allObjects.count) {
+				BarrierToBusiness *barrier = [BarrierToBusiness createEntity];
+				[self.detailItem addBarriersToBusinessObject:barrier];
+				[self.managedObjectContext save];
+				[self.tableView reloadData];
+			}
+			break;
+        default:
+            break;
+    }
+	[self.tableView deselectRowAtIndexPath:indexPath animated:NO];*/
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -1033,7 +1085,7 @@ enum PRPTableStatsTags {
 	CGFloat height = 0.0;
 	switch (indexPath.section) {
         case PRPTableSectionGeneral:
-            height = 110.0;
+            height = 191.0;
 			break;
         case PRPTableSectionSpokeWith:
 			if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
@@ -1046,7 +1098,7 @@ enum PRPTableStatsTags {
 			if (indexPath.row == self.detailItem.competitors.allObjects.count) {
 				height = 44.0;
 			} else {
-				height = 149.0;
+				height = 72.0;
 			}
 			break;
 		case PRPTableSectionBarriersToBusiness:
@@ -1062,15 +1114,15 @@ enum PRPTableStatsTags {
     return height;
 }
 /*
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- return YES;
- }
- 
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- return YES;
- }*/
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return YES;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return YES;
+}*/
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -1110,22 +1162,22 @@ enum PRPTableStatsTags {
         
         if(currentSection == PRPTableSectionCompetitor)
         {
-			// Delete the row from the data source
-			
-			if(indexPath.section == PRPTableSectionCompetitor && indexPath.row < _detailItem.competitors.allObjects.count)
-			{
-				NSArray* arr = _detailItem.competitors.allObjects;
-				
-				Competitor* cToDel = [arr objectAtIndex:indexPath.row];
-				
-				[self.detailItem removeCompetitorsObject:cToDel];
-				//[cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
-				[[NSManagedObjectContext defaultContext] save];
-				//  UITableViewCellEditingStyleNone
-				// [self.tableView set]
-				[self.tableView reloadData];
-				
-			}
+        // Delete the row from the data source
+        
+        if(indexPath.section == PRPTableSectionCompetitor && indexPath.row < _detailItem.competitors.allObjects.count)
+        {
+            NSArray* arr = _detailItem.competitors.allObjects;
+            
+            Competitor* cToDel = [arr objectAtIndex:indexPath.row];
+            
+            [self.detailItem removeCompetitorsObject:cToDel];
+            //[cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
+            [[NSManagedObjectContext defaultContext] save];
+            //  UITableViewCellEditingStyleNone
+            // [self.tableView set]
+            [self.tableView reloadData];
+            
+        }
         }
         else if(currentSection == PRPTableSectionSpokeWith)
         {
@@ -1176,15 +1228,15 @@ enum PRPTableStatsTags {
 	
 	switch (indexPath.section) {
         case PRPTableSectionGeneral:
-			break;
+             break;
         case PRPTableSectionSpokeWith: {
-			
+		
             switch (tag) {
                 case PRPTableSpokeWithEmail:
                 {
                     if([replacementString isValidEmail])
                     {
-						
+                       
                         [self changeTextFieldOutline:textField:YES];
                     }
                     else
@@ -1214,8 +1266,8 @@ enum PRPTableStatsTags {
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-	//  if([textField.text length]<=0)
-	//     return;
+  //  if([textField.text length]<=0)
+   //     return;
 	DailySummary *summary = self.detailItem;
 	if (!summary.editedValue) {
 		summary.editedValue = YES;
@@ -1230,6 +1282,12 @@ enum PRPTableStatsTags {
             switch (tag) {
 				case PRPTableGeneralProducerName:
 					self.detailItem.producerId.name = textField.text;
+					break;
+                case PRPTableCompetitorPercentNew:
+					self.detailItem.commissionPercentNewValue = [textField.text integerValue];
+					break;
+				case PRPTableCompetitorPercentRenewal:
+					self.detailItem.commissionPercentRenewalValue = [textField.text integerValue];
 					break;
 				default:
 					break;
@@ -1269,13 +1327,7 @@ enum PRPTableStatsTags {
 				case PRPTableCompetitorAppsPerMonth:
 					competitor.appsPerMonthValue = [textField.text integerValue];
 					break;
-				case PRPTableCompetitorPercentNew:
-					self.detailItem.commissionPercentNewValue = [textField.text integerValue];
-					break;
-				case PRPTableCompetitorPercentRenewal:
-					self.detailItem.commissionPercentRenewalValue = [textField.text integerValue];
-					break;
-				default:
+                default:
 					break;
 			}
 		}
@@ -1315,7 +1367,7 @@ enum PRPTableStatsTags {
 	[self.managedObjectContext save];
     
     [self toggleSubmitButton:[self isEnableSubmit]];
-	
+
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -1452,7 +1504,7 @@ enum PRPTableStatsTags {
 				case PRPTableCompetitorName: {
 					Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:indexPath.row];//[Competitor findFirstByAttribute:@"name" withValue:titleForRow];
                     competitor.name = titleForRow;//[Competitor findFirstByAttribute:@"name" withValue:<#(id)#>]
-												  //[self.detailItem.competitorsSet.allObjects removeObjectAtIndex:indexPath.row];
+					//[self.detailItem.competitorsSet.allObjects removeObjectAtIndex:indexPath.row];
 					
 				}
 					break;
@@ -1557,7 +1609,7 @@ enum PRPTableStatsTags {
 		default:
 			break;
 	}
-	
+
 	return theTitle;
 }
 
@@ -1636,7 +1688,11 @@ enum PRPTableStatsTags {
             case PRPTableSectionGeneral:
             {
                 if(/*_detailItem.purposeOfCall == nil ||*/
-                   _detailItem.reportDate == nil)
+                   _detailItem.reportDate == nil||
+                   _detailItem.commissionStructure == nil ||
+                   [_detailItem.commissionStructure.name  length]<=0 ||
+                   _detailItem.commissionPercentNew == nil ||
+                   _detailItem.commissionPercentRenewal == nil)
                     return  FALSE;
             }
                 break;
@@ -1675,11 +1731,7 @@ enum PRPTableStatsTags {
                 for(Competitor *comptr in _detailItem.competitors.allObjects)
                 {
                     if([comptr.name length]<=0 ||
-                       comptr.appsPerMonth == nil ||
-                       _detailItem.commissionStructure == nil ||
-                       [_detailItem.commissionStructure.name  length]<=0 ||
-                       _detailItem.commissionPercentNew == nil ||
-                       _detailItem.commissionPercentRenewal == nil
+                       comptr.appsPerMonth == nil
                        )
                         return FALSE;
                 }
@@ -1705,7 +1757,7 @@ enum PRPTableStatsTags {
 
 -(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag
 {
-	
+
     
     switch (forIndexPath.section) {
 		case PRPTableSectionGeneral:
@@ -1719,6 +1771,11 @@ enum PRPTableStatsTags {
                     self.detailItem.reasonNotSeen = [ReasonNotSeen findFirstByAttribute:@"name" withValue:selectedString];
                     break;
                 }
+                case PRPTableCompetitorCommissionStructure: {
+					CommissionStructure *structure = [CommissionStructure findFirstByAttribute:@"name" withValue:selectedString];
+					self.detailItem.commissionStructure = structure;
+				}
+					break;
 				default:
 					break;
 			}
@@ -1738,19 +1795,14 @@ enum PRPTableStatsTags {
 		case PRPTableSectionCompetitor:
 			switch (forTag) {
 				case PRPTableCompetitorName: {
-					//		Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:forIndexPath.row];//[Competitor findFirstByAttribute:@"name" withValue:titleForRow];
-					//     competitor.name = selectedString;//[Competitor findFirstByAttribute:@"name" withValue:<#(id)#>]
+			//		Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:forIndexPath.row];//[Competitor findFirstByAttribute:@"name" withValue:titleForRow];
+               //     competitor.name = selectedString;//[Competitor findFirstByAttribute:@"name" withValue:<#(id)#>]
 					//[self.detailItem.competitorsSet.allObjects removeObjectAtIndex:indexPath.row];
                     
                     Competitor *competitor = [Competitor findFirstByAttribute:@"name" withValue:selectedString];
                     [self.detailItem addCompetitorsObject:competitor];
+
 					
-					
-				}
-					break;
-				case PRPTableCompetitorCommissionStructure: {
-					CommissionStructure *structure = [CommissionStructure findFirstByAttribute:@"name" withValue:selectedString];
-					self.detailItem.commissionStructure = structure;
 				}
 					break;
                 case 1001:
@@ -1768,7 +1820,7 @@ enum PRPTableStatsTags {
 				case PRPTableBarrierName: {
 					// Change value in model object
 					BarrierToBusiness *barrier = [BarrierToBusiness findFirstByAttribute:@"name" withValue:selectedString];//[self.detailItem.barriersToBusiness.allObjects objectAtIndex:forIndexPath.row];//[BarrierToBusiness findFirstByAttribute:@"name" withValue:titleForRow];
-																														   // barrier.name = selectedString;
+                   // barrier.name = selectedString;
 					[self.detailItem addBarriersToBusinessObject:barrier];
 				}
 					break;
@@ -1798,9 +1850,9 @@ enum PRPTableStatsTags {
 			break;
 	}
     
-	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+      [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
     
-	[self toggleSubmitButton:[self isEnableSubmit]];
-	
+      [self toggleSubmitButton:[self isEnableSubmit]];
+
 }
 @end

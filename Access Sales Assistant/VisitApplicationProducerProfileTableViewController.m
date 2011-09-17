@@ -303,10 +303,24 @@
             
             cell.primaryContactTextField.text = _detailItem.primaryContact;
             
-            if(_detailItem.neverVisitValue)
+          /*  if(_detailItem.neverVisitValue)
                 cell.neverVisitSwitch.on = TRUE;
             else
                 cell.neverVisitSwitch.on = FALSE;
+           */
+            
+            if(_detailItem.neverVisitValue)
+                cell.neverVisitCustomSwitch.on = TRUE;
+            else
+                cell.neverVisitCustomSwitch.on = FALSE;
+            
+            if(_detailItem.hasAccessSignValue)
+                cell.accessSignCustomSwitch.on = TRUE;
+            else
+                cell.accessSignCustomSwitch = FALSE;
+
+            
+            
             if(indexPath == self.datePickerViewController.currentIndexPath)
                 cell.selected = YES;
             else
@@ -465,7 +479,7 @@
         }
         case EGeneral:
         {
-            height = 224.0;
+            height = 300.0;
         }
             break;
         case EQuestions:
@@ -758,6 +772,23 @@
     [self disableTextField:statusCell.statusDateTextField :NO];
     statusCell.suspensionReasonTextField.text = _detailItem.suspensionReason.name;
     [self disableTextField:statusCell.suspensionReasonTextField :NO];
+    
+    if(_detailItem.isEligibleValue)
+        statusCell.eligibleCustomSwitch.on = TRUE;
+    else
+        statusCell.eligibleCustomSwitch.on = FALSE;
+    
+    
+    if(_detailItem.isEligibleValue)
+    {
+        IneligibleReason *ineligibleObj = _detailItem.ineligibleReason;
+        if(ineligibleObj)
+        {
+            _detailItem.ineligibleReason = nil;
+           
+        }
+    }
+
     
     //if(_detailItem.isEligible)
     {
@@ -1076,6 +1107,47 @@
         _detailItem.neverVisitValue = FALSE;
 }
 
+-(IBAction)handleCustomSwitchToggle:(id)sender
+{
+    UICustomSwitch *neverSwitch = (UICustomSwitch*) sender;
+    
+    if(neverSwitch.tag == 1100)
+    {
+        if(neverSwitch.isOn)
+            self.detailItem.hasAccessSignValue = TRUE;
+        else
+            self.detailItem.hasAccessSignValue = FALSE;
+        
+                
+    }
+    else if(neverSwitch.tag == 1101)
+    {
+        if(neverSwitch.isOn)
+            _detailItem.neverVisitValue= TRUE;
+        else
+            _detailItem.neverVisitValue = FALSE;
+
+    }
+    else if(neverSwitch.tag == 1102)
+    {
+        if(neverSwitch.isOn)
+            _detailItem.isEligibleValue= TRUE;
+        else
+            _detailItem.isEligibleValue = FALSE;
+        
+        ProducerStatusTableViewCell *statusCell = (ProducerStatusTableViewCell *)[[neverSwitch superview] superview];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:statusCell];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+        
+    }
+    
+    [self toggleSubmitButton:[self isEnableSubmit]];
+    
+     
+   
+}
+
 - (void)showViewController:(UIViewController *)viewController
 {
     [self presentModalViewController:viewController animated:YES];
@@ -1143,6 +1215,18 @@
             }
         }
             break;
+        case EStatus:
+        {
+            switch(selectionView.currentTag)
+            {
+                case EInEligibleReason:
+                {
+                    [selectionView assignDataSource:[IneligibleReason findAll]];
+                    break;
+                }
+            }
+            break;
+        }
         case EHoursOfOperation:
         {
             switch(selectionView.currentTag)
@@ -2586,8 +2670,7 @@
             }
             break;
         }
-        case EStatus:
-            break;
+       
         case ERater:
         {
             switch(forTag)
@@ -2616,6 +2699,16 @@
             }
         }
             break;
+        case EStatus:
+        {
+            switch(forTag)
+            {
+                case EInEligibleReason:
+                    self.detailItem.ineligibleReason = [IneligibleReason findFirstByAttribute:@"name" withValue:selectedString]; 
+                    break;
+            }
+            break;
+        }
         case EHoursOfOperation:
         {
             HoursOfOperation *hOfOperation = _detailItem.hoursOfOperation;

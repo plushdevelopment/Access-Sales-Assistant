@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PRPNibBasedTableViewCell.h"
+#import "UICustomSwitch.h"
 
 @interface SummaryStatsTableViewCell : PRPNibBasedTableViewCell
 
@@ -21,5 +22,6 @@
 @property (nonatomic, strong) IBOutlet UIButton *rdFollowUpButton;
 @property (nonatomic, strong) IBOutlet UIButton *producerAddOnButton;
 @property (nonatomic, strong) IBOutlet UISwitch *rdFollowUpSwitch;
+@property (nonatomic, strong) IBOutlet UICustomSwitch *rdFollowUpCustomSwitch;
 
 @end

@@ -18,6 +18,6 @@
 @synthesize rdFollowUpButton = _rdFollowUpButton;
 @synthesize producerAddOnButton = _producerAddOnButton;
 @synthesize rdFollowUpSwitch = _rdFollowUpSwitch;
-
+@synthesize rdFollowUpCustomSwitch = _rdFollowUpCustomSwitch;
 
 @end

@@ -26,6 +26,8 @@
 @synthesize eOExpiresButton=_eOExpiresButton;
 @synthesize accessSignButton=_accessSignButton;
 @synthesize neverVisitSwitch = _neverVisitSwitch;
+@synthesize neverVisitCustomSwitch = _neverVisitCustomSwitch;
+@synthesize accessSignCustomSwitch = _accessSignCustomSwitch;
 //@synthesize primaryContactTextField = _primaryContactTextField;
 
 /*- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

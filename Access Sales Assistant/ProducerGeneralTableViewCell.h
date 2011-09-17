@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "PRPNibBasedTableViewCell.h"
+#import "UICustomSwitch.h"
 @interface ProducerGeneralTableViewCell : PRPNibBasedTableViewCell
 
 
@@ -29,5 +30,8 @@
 @property (nonatomic, strong) IBOutlet UITextField * numberOfEmployeesTextField;
 @property (nonatomic,strong) IBOutlet UISwitch *neverVisitSwitch;
 
+@property (nonatomic,strong) IBOutlet UICustomSwitch* neverVisitCustomSwitch;
+
+@property (nonatomic,strong) IBOutlet UICustomSwitch* accessSignCustomSwitch;
 
 @end
