@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="851" systemVersion="11A511" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="851" systemVersion="11B26" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="AddressListItem" representedClassName="AddressListItem">
         <attribute name="addressLine1" optional="YES" attributeType="String"/>
         <attribute name="addressLine2" optional="YES" attributeType="String"/>
@@ -58,7 +58,7 @@
     </entity>
     <entity name="ContactType" representedClassName="ContactType">
         <attribute name="name" optional="YES" attributeType="String" indexed="YES"/>
-        <attribute name="uid" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 16" defaultValueString="0" indexed="YES"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="type" inverseEntity="Contact"/>
     </entity>
     <entity name="DailySummary" representedClassName="DailySummary">
@@ -213,7 +213,7 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProducerImage" inverseName="producer" inverseEntity="ProducerImage"/>
         <relationship name="ineligibleReason" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="IneligibleReason" inverseName="producer" inverseEntity="IneligibleReason"/>
         <relationship name="phoneNumbers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhoneListItem" inverseName="producer" inverseEntity="PhoneListItem"/>
-        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestionListItem" inverseName="producers" inverseEntity="QuestionListItem"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestionListItem" inverseName="producer" inverseEntity="QuestionListItem"/>
         <relationship name="rater" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Rater" inverseName="producer" inverseEntity="Rater"/>
         <relationship name="rater2" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Rater2" inverseName="producer" inverseEntity="Rater2"/>
         <relationship name="status" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Status" inverseName="producers" inverseEntity="Status"/>
@@ -226,6 +226,7 @@
         <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="producerAddOn" inverseEntity="DailySummary"/>
     </entity>
     <entity name="ProducerImage" representedClassName="ProducerImage">
+        <attribute name="imageName" optional="YES" attributeType="String"/>
         <attribute name="imagePath" optional="YES" attributeType="String"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="images" inverseEntity="Producer"/>
     </entity>
@@ -269,7 +270,7 @@
         <attribute name="edited" optional="YES" attributeType="Boolean"/>
         <attribute name="text" optional="YES" attributeType="String" indexed="YES"/>
         <relationship name="dailySummaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailySummary" inverseName="nsbsQuestions" inverseEntity="DailySummary"/>
-        <relationship name="producers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producer" inverseName="questions" inverseEntity="Producer"/>
+        <relationship name="producer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="questions" inverseEntity="Producer"/>
     </entity>
     <entity name="Rater" representedClassName="Rater">
         <attribute name="name" optional="YES" attributeType="String" indexed="YES"/>
@@ -344,7 +345,7 @@
         <element name="PolicyCountReportData" positionX="207" positionY="-675" width="128" height="105"/>
         <element name="Producer" positionX="306" positionY="123" width="128" height="645"/>
         <element name="ProducerAddOn" positionX="261" positionY="864" width="128" height="90"/>
-        <element name="ProducerImage" positionX="27" positionY="870" width="128" height="75"/>
+        <element name="ProducerImage" positionX="27" positionY="870" width="128" height="90"/>
         <element name="ProductionReportData" positionX="459" positionY="-900" width="128" height="360"/>
         <element name="PurposeOfCall" positionX="-324" positionY="315" width="128" height="90"/>
         <element name="QAResolutionForm" positionX="160" positionY="192" width="128" height="105"/>

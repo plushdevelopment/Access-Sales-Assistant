@@ -13,7 +13,7 @@
 
 @class Producer;
 
-@interface VisitApplicationPhotosViewController : UIViewController <UIImagePickerControllerDelegate, AQGridViewDataSource, AQGridViewDelegate, DetailViewController>
+@interface VisitApplicationPhotosViewController : UIViewController <UIImagePickerControllerDelegate, AQGridViewDataSource, AQGridViewDelegate, DetailViewController, UITextFieldDelegate>
 
 @property (nonatomic, strong) Producer *detailItem;
 @property (nonatomic, strong) IBOutlet AQGridView *gridView;
@@ -22,8 +22,10 @@
 @property (nonatomic, unsafe_unretained) UIViewController *parent;
 @property (nonatomic,strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic,strong) NSString* titleText;
+@property (nonatomic) NSUInteger deleteIndex;
 
 - (void)configureView;
+- (IBAction)deletePhoto:(id)sender;
 - (IBAction)uploadPhoto:(id)sender;
 - (void)getImageSuccess:(ASIHTTPRequest *)request;
 - (NSString *)applicationDocumentsDirectory;

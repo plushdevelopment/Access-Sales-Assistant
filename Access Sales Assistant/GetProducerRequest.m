@@ -32,6 +32,7 @@
 
 - (void)requestFinished
 {
+	NSLog(@"%@", [self responseString]);
 	self.context = [NSManagedObjectContext contextThatNotifiesDefaultContextOnMainThread];
 	NSDictionary *responseJSON = [[self responseString] JSONValue];
 	NSArray *results = [responseJSON objectForKey:@"results"];
@@ -44,18 +45,38 @@
 				producer = [Producer createInContext:self.context];
 				QuestionListItem *question = [QuestionListItem createInContext:self.context];
 				[producer addQuestionsObject:question];
+				HoursOfOperation *hours = [HoursOfOperation createInContext:self.context];
+				[producer setHoursOfOperation:hours];
 			}
 			if (!producer.editedValue) {
 				[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter managedObjectContext:self.context];
+				// Calc schedule values
 				NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 				[dateFormatter setDateFormat:@"EEEE, MM-dd-yyyy"];
 				producer.nextScheduledVisitDate = [dateFormatter stringFromDate:[producer nextScheduledVisit]];
-				NSLog(@"%@", [producer.lastVisit debugDescription]);
-				NSLog(@"%@", [producer.lastVisitSummaryNote debugDescription]);
 				NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
 				[timeFormatter setDateFormat:@"hh:mm a"];
 				producer.nextScheduledVisitTime = [timeFormatter stringFromDate:[producer nextScheduledVisit]];
 				producer.address = [NSString stringWithFormat:@"%@,%@", producer.latitude, producer.longitude];
+				// Hours of Operation
+				HoursOfOperation *hoursOfOperation = producer.hoursOfOperation;
+				NSAssert(hoursOfOperation, @"Hours of Operation is nil");
+				[hoursOfOperation safeSetValuesForKeysWithDictionary:[dict valueForKey:@"hoursOfOperation"] dateFormatter:nil managedObjectContext:self.context];
+				// Contacts
+				NSArray *contactsArray = [dict valueForKey:@"contacts"];
+				if (contactsArray.count > 0) {
+					for (NSDictionary *contactDictionary in contactsArray) {
+						NSPredicate *firstNamePredicate = [NSPredicate predicateWithFormat:@"firstName matches %@", [contactDictionary valueForKey:@"firstName"]];
+						NSPredicate *lastNamePredicate = [NSPredicate predicateWithFormat:@"lastName matches %@", [contactDictionary valueForKey:@"lastName"]];
+						NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:firstNamePredicate, lastNamePredicate, nil]];
+						Contact *contact = [Contact findFirstWithPredicate:predicate inContext:self.context];
+						if (!contact) {
+							contact = [Contact createInContext:self.context];
+							[contact setProducer:producer];
+						}
+						[contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.context];
+					}
+				}
 			}
 		}
 	}

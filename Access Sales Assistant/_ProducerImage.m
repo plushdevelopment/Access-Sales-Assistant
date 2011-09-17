@@ -36,6 +36,13 @@
 
 
 
+@dynamic imageName;
+
+
+
+
+
+
 @dynamic imagePath;
 
 

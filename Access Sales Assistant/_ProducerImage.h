@@ -8,6 +8,7 @@
 
 
 
+
 @interface ProducerImageID : NSManagedObjectID {}
 @end
 
@@ -16,6 +17,14 @@
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (ProducerImageID*)objectID;
+
+
+
+
+@property (nonatomic, retain) NSString *imageName;
+
+
+//- (BOOL)validateImageName:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -43,6 +52,12 @@
 @end
 
 @interface _ProducerImage (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSString*)primitiveImageName;
+- (void)setPrimitiveImageName:(NSString*)value;
+
+
 
 
 - (NSString*)primitiveImagePath;

@@ -29,6 +29,10 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"uidValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"uid"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 
 	return keyPaths;
 }
@@ -45,6 +49,25 @@
 
 @dynamic uid;
 
+
+
+- (short)uidValue {
+	NSNumber *result = [self uid];
+	return [result shortValue];
+}
+
+- (void)setUidValue:(short)value_ {
+	[self setUid:[NSNumber numberWithShort:value_]];
+}
+
+- (short)primitiveUidValue {
+	NSNumber *result = [self primitiveUid];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveUidValue:(short)value_ {
+	[self setPrimitiveUid:[NSNumber numberWithShort:value_]];
+}
 
 
 

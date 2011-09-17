@@ -85,53 +85,53 @@
 					object = producer.questions.anyObject;
 					//object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[value valueForKey:@"text"] managedObjectContext:context];
 				} else if ([desc.description isEqualToString:@"header"] || [desc.description isEqualToString:@"monthYear"] || [desc.description isEqualToString:@"monthEndDate"]) {
-					object = [[NSClassFromString([entityDesc name]) class] createEntity];
+					object = [[NSClassFromString([entityDesc name]) class] createInContext:context];
 				}
-			}
-			if (value == nil) {
-				continue;
-			}
-			if (([value isKindOfClass:[NSDictionary class]]) && ([(NSDictionary *)value count] == 0)) {
-				continue;
-			}
-			if (object) {
-				[object safeSetValuesForKeysWithDictionary:value dateFormatter:dateFormatter managedObjectContext:context];
-				[self setValue:object forKey:relationship];
-			}
-			continue;
-		}
-		
-		NSMutableSet *relationshipSet = [self mutableSetValueForKey:relationship];
-		for (id subValue in value) {
-			NSManagedObject *object = nil;
-			Class aClass = [NSClassFromString([entityDesc name]) class];
-			for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
-				if ([desc.description isEqualToString:@"uid"]) {
-					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"uid" value:[subValue valueForKey:@"uid"] managedObjectContext:context];
-				} else if ([desc.description isEqualToString:@"addressLine1"]) {
-					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"addressLine1" value:[subValue valueForKey:@"addressLine1"] managedObjectContext:context];
-				} else if ([desc.description isEqualToString:@"number"]) {
-					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"number" value:[subValue valueForKey:@"number"] managedObjectContext:context];
-				} else if ([desc.description isEqualToString:@"address"]) {
-					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"address" value:[subValue valueForKey:@"address"] managedObjectContext:context];
-				}  else if ([desc.description isEqualToString:@"text"] && [self isKindOfClass:[Producer class]]) {
-					Producer *producer = (Producer *)self;
-					object = producer.questions.anyObject;
-					 //object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[subValue valueForKey:@"text"] managedObjectContext:context];
-				} else if ([desc.description isEqualToString:@"header"] || [desc.description isEqualToString:@"monthYear"] || [desc.description isEqualToString:@"monthEndDate"]) {
-					object = [[NSClassFromString([entityDesc name]) class] createEntity];
+				if (([value isKindOfClass:[NSDictionary class]]) && ([(NSDictionary *)value count] == 0)) {
+					continue;
 				}
+				if (!object) {
+					//object = [[NSClassFromString([entityDesc name]) class] createInContext:context];
+				}
+				if (object) {
+					[object safeSetValuesForKeysWithDictionary:value dateFormatter:dateFormatter managedObjectContext:context];
+					[self setValue:object forKey:relationship];
+					continue;
+				}
+				
 			}
-			if (value == nil) {
-				continue;
-			}
-			if (([value isKindOfClass:[NSDictionary class]]) && ([(NSDictionary *)value count] == 0)) {
-				continue;
-			}
-			
-			if (object) {
-				[object safeSetValuesForKeysWithDictionary:subValue dateFormatter:dateFormatter managedObjectContext:context];
-				[relationshipSet addObject:object];
+		} else {
+			NSMutableSet *relationshipSet = [self mutableSetValueForKey:relationship];
+			for (id subValue in value) {
+				NSManagedObject *object = nil;
+				Class aClass = [NSClassFromString([entityDesc name]) class];
+				for (NSAttributeDescription *desc in [[aClass entityDescription] attributesByName]) {
+					if ([desc.description isEqualToString:@"uid"]) {
+						object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"uid" value:[subValue valueForKey:@"uid"] managedObjectContext:context];
+					} else if ([desc.description isEqualToString:@"addressLine1"]) {
+						object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"addressLine1" value:[subValue valueForKey:@"addressLine1"] managedObjectContext:context];
+					} else if ([desc.description isEqualToString:@"number"]) {
+						object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"number" value:[subValue valueForKey:@"number"] managedObjectContext:context];
+					} else if ([desc.description isEqualToString:@"address"]) {
+						object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"address" value:[subValue valueForKey:@"address"] managedObjectContext:context];
+					}  else if ([desc.description isEqualToString:@"text"] && [self isKindOfClass:[Producer class]]) {
+						Producer *producer = (Producer *)self;
+						object = producer.questions.anyObject;
+						//object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"text" value:[subValue valueForKey:@"text"] managedObjectContext:context];
+					} else if ([desc.description isEqualToString:@"header"] || [desc.description isEqualToString:@"monthYear"] || [desc.description isEqualToString:@"monthEndDate"] || [desc.description isEqualToString:@"fridayCloseTime"]) {
+						object = [[NSClassFromString([entityDesc name]) class] createInContext:context];
+					}
+				}
+				if (([value isKindOfClass:[NSDictionary class]]) && ([(NSDictionary *)value count] == 0)) {
+					continue;
+				}
+				if (!object) {
+					object = [[NSClassFromString([entityDesc name]) class] createInContext:context];
+				}
+				if (object) {
+					[object safeSetValuesForKeysWithDictionary:subValue dateFormatter:dateFormatter managedObjectContext:context];
+					[relationshipSet addObject:object];
+				}
 			}
 		}
 	}

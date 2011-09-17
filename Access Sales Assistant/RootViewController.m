@@ -27,6 +27,7 @@
 #import "ContactsQAFormViewController.h"
 #import "ProspectApplicationTableViewController.h"
 #import "SearchProducerViewController.h"
+#import "HTTPOperationController.h"
 
 
 #define SECTION_HEADER_HEIGHT       48
@@ -69,8 +70,18 @@
 
 - (void)producersSuccessful
 {
-	visitApplicationDaysArray = [[NSSet setWithArray:[[Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES] valueForKeyPath:@"nextScheduledVisitDate"]] allObjects];
-	[self.tableView reloadData];
+	//if ([[[HTTPOperationController sharedHTTPOperationController] networkQueue] requestsCount] == 0) {
+		NSArray *producersArray = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES];
+		NSMutableArray *daysArray = [NSMutableArray arrayWithCapacity:[producersArray count]];
+		for (Producer *producer in producersArray) {
+			if (![daysArray containsObject:producer.nextScheduledVisitDate] && (producer.nextScheduledVisitDate != nil)) {
+				[daysArray addObject:producer.nextScheduledVisitDate];
+			}
+		}
+		visitApplicationDaysArray = [NSArray arrayWithArray:daysArray];
+		//visitApplicationDaysArray = [[NSSet setWithArray:[[Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES] valueForKeyPath:@"nextScheduledVisitDate"]] allObjects];
+		[self.tableView reloadData];
+		//}
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

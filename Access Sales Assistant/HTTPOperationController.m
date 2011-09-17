@@ -347,17 +347,43 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 
 - (void)postProducerProfileFinished:(ASIHTTPRequest *)request
 {
-	NSString *responseString = [request responseString];
-	NSDictionary *responseJSON = [responseString JSONValue];
-	Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
-	producer.editedValue = NO;
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-	[producer safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
-	[self.managedObjectContext save];
-    
-    [UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_PROFILE_REQUEST_SUCCESS buttonTitle:@"OK"];
-	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Successful" object:request];
+	BOOL failed = ([request responseStatusCode] == 200);
+	NSAssert(failed, @"Failed");
+	if ([request responseStatusCode] != 200) {
+		[self postProducerProfileFailed:request];
+	} else {
+		NSString *responseString = [request responseString];
+		NSDictionary *responseJSON = [responseString JSONValue];
+		NSAssert(responseJSON, @"Failed to parse response");
+		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
+		producer.editedValue = NO;
+		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+		[formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
+		[producer safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
+		// Hours of Operation
+		HoursOfOperation *hoursOfOperation = producer.hoursOfOperation;
+		NSAssert(hoursOfOperation, @"Hours of Operation is nil");
+		[hoursOfOperation safeSetValuesForKeysWithDictionary:[responseJSON valueForKey:@"hoursOfOperation"] dateFormatter:nil managedObjectContext:self.managedObjectContext];
+		// Contacts
+		NSArray *contactsArray = [responseJSON valueForKey:@"contacts"];
+		if (contactsArray.count > 0) {
+			for (NSDictionary *contactDictionary in contactsArray) {
+				NSPredicate *firstNamePredicate = [NSPredicate predicateWithFormat:@"firstName matches %@", [contactDictionary valueForKey:@"firstName"]];
+				NSPredicate *lastNamePredicate = [NSPredicate predicateWithFormat:@"lastName matches %@", [contactDictionary valueForKey:@"lastName"]];
+				NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:firstNamePredicate, lastNamePredicate, nil]];
+				Contact *contact = [Contact findFirstWithPredicate:predicate inContext:self.managedObjectContext];
+				if (!contact) {
+					contact = [Contact createInContext:self.managedObjectContext];
+					[contact setProducer:producer];
+				}
+				[contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
+			}
+		}
+		[self.managedObjectContext save];
+		
+		[UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_PROFILE_REQUEST_SUCCESS buttonTitle:@"OK"];
+		//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Successful" object:request];
+	}
 }
 
 - (void)postProducerProfileFailed:(ASIHTTPRequest *)request
@@ -466,6 +492,50 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	//	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Failure" object:request];
 }
 
+// Delete Image for Producer
+- (void)deleteImage:(NSString *)imageName forProducer:(NSString *)producerID
+{
+	if ([[self networkQueue] isSuspended]) {
+		[[self networkQueue] go];
+	}
+	
+	User *user = [User findFirst];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/Producers/%@/Images?fileName=%@&token=%@", kURL, producerID, imageName, [user token]];
+	NSURL *url = [NSURL URLWithString:urlString];
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+	[request setRequestMethod:@"DELETE"];
+	//NSData *tempData = UIImageJPEGRepresentation(image, 2.0);
+	//NSMutableData *imageData = [NSMutableData dataWithData:tempData];
+	//[request setPostBody:imageData];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(deleteImageForProducerFinished:)];
+	[request setDidFailSelector:@selector(deleteImageForProducerFailed:)];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
+	[[self networkQueue] addOperation:request];
+}
+
+- (void)deleteImageForProducerFinished:(ASIHTTPRequest *)request
+{	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Delete Image Successful" object:request];
+    
+	[UIHelpers showAlertWithTitle:@"Success" msg:@"Deleted image successfully" buttonTitle:@"OK"];
+    
+}
+
+- (void)deleteImageForProducerFailed:(ASIHTTPRequest *)request
+{
+	NSError *error = [request error];
+	NSLog(@"Request Error: %@", [error localizedDescription]);
+    
+    NSString *imageFailed = [[NSString alloc] initWithFormat:POST_IMAGE_FAILED,[error localizedDescription]];
+    [UIHelpers showAlertWithTitle:@"Error" msg:@"Failed to delete image" buttonTitle:@"OK"];
+	
+	
+	//	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Failure" object:request];
+}
+
 // Get Image for Producer
 - (void)getImagesForProducer:(NSString *)producerID
 {
@@ -554,10 +624,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSLog(@"%@", producerUID);
 	Producer *producer = [Producer findFirstByAttribute:@"uid" withValue:producerUID];
 	ProducerImage *image = [ProducerImage ai_objectForProperty:@"imagePath" value:imagePath managedObjectContext:self.managedObjectContext];
+	[image setImageName:[pathComps lastObject]];
 	
 	if (![producer.images containsObject:image]) {
 		[producer addImagesObject:image];
 	}
+	[self.managedObjectContext save];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Get Image Successful" object:request];
 }
 

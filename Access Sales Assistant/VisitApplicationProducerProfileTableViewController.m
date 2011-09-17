@@ -163,8 +163,8 @@
 }
 -(void) toggleSubmitButton:(BOOL) isEnable
 {
-    //[_submitButton setEnabled:YES];
-    [_submitButton setEnabled:isEnable];
+    [_submitButton setEnabled:YES];
+    //[_submitButton setEnabled:isEnable];
 }
 - (void)setDetailItem:(id)newDetailItem
 {
@@ -1088,7 +1088,8 @@
 
 -(IBAction)showSelectionTableView:(id)sender
 {
-  
+	self.detailItem.editedValue = YES;
+	[[NSManagedObjectContext defaultContext] save];
     
     UIButton *button = (UIButton *)sender;
 //	[button becomeFirstResponder];
@@ -2083,13 +2084,10 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-	[textField setBackgroundColor:[UIColor orangeColor]];
+	
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-	if ([textField.backgroundColor isEqual:[UIColor blueColor]]) {
-		[textField setBackgroundColor:[UIColor whiteColor]];
-	}
     [self saveTextFieldToContext:textField];
 }
 
@@ -2278,6 +2276,7 @@
         {
             NSArray* contactArray = _detailItem.contacts.allObjects;
             Contact* cnt = [contactArray objectAtIndex:indexPath.row];
+			cnt.editedValue = YES;
             switch(tag)
             {
                 case EContactFirstName:
@@ -2826,12 +2825,14 @@
 					
 					Contact *contact = [self.detailItem.contacts.allObjects objectAtIndex:forIndexPath.row];
 					contact.type = [ContactType findFirstByAttribute:@"name" withValue:selectedString];
+					contact.editedValue = YES;
 				}
                     break;
             }       
             break;
         }
     }
+	[[NSManagedObjectContext defaultContext] save];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 }

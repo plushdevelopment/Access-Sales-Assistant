@@ -343,6 +343,7 @@
 		FFB56A3B13D0802F00B980EE /* SummaryStatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB56A3A13D0802E00B980EE /* SummaryStatsTableViewCell.xib */; };
 		FFBC5053142383D400680B9C /* LabelGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBC5052142383D400680B9C /* LabelGridViewCell.m */; };
 		FFBC50551423867600680B9C /* LabelGridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFBC50541423867600680B9C /* LabelGridViewCell.xib */; };
+		FFBC505814238C3200680B9C /* PhotoGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBC505714238C3200680B9C /* PhotoGridViewCell.m */; };
 		FFBD963513EC795C00586658 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFBD963413EC795C00586658 /* CoreImage.framework */; };
 		FFBDF1F6141E555E0011376F /* bottomline.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBDF1E7141E555E0011376F /* bottomline.png */; };
 		FFBDF1F7141E555E0011376F /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBDF1E8141E555E0011376F /* close.png */; };
@@ -1002,6 +1003,8 @@
 		FFBC5051142383D400680B9C /* LabelGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelGridViewCell.h; sourceTree = "<group>"; };
 		FFBC5052142383D400680B9C /* LabelGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelGridViewCell.m; sourceTree = "<group>"; };
 		FFBC50541423867600680B9C /* LabelGridViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelGridViewCell.xib; sourceTree = "<group>"; };
+		FFBC505614238C3200680B9C /* PhotoGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGridViewCell.h; sourceTree = "<group>"; };
+		FFBC505714238C3200680B9C /* PhotoGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGridViewCell.m; sourceTree = "<group>"; };
 		FFBD963413EC795C00586658 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		FFBDF1E7141E555E0011376F /* bottomline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomline.png; sourceTree = "<group>"; };
 		FFBDF1E8141E555E0011376F /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
@@ -1545,8 +1548,8 @@
 				FF8AC3B813EADDC500212201 /* OperationHour.m */,
 				6D966D4213DDCF2000DAF04B /* TrainingVideo.h */,
 				6D966D4313DDCF2000DAF04B /* TrainingVideo.m */,
-				FF9ED82813D4F60D006105C7 /* ProducerImage.m */,
 				FF9ED82913D4F60D006105C7 /* ProducerImage.h */,
+				FF9ED82813D4F60D006105C7 /* ProducerImage.m */,
 				FF97AB7613D47B1700DD76A1 /* PersonSpokeWithTitle.m */,
 				FF97AB7713D47B1700DD76A1 /* PersonSpokeWithTitle.h */,
 				FFB56A1313CF8EA300B980EE /* CommissionStructure.h */,
@@ -2013,6 +2016,8 @@
 				FF9ED82413D4F35C006105C7 /* SpringBoardIconCell.h */,
 				FF9ED82513D4F35C006105C7 /* SpringBoardIconCell.m */,
 				FFBC50541423867600680B9C /* LabelGridViewCell.xib */,
+				FFBC505614238C3200680B9C /* PhotoGridViewCell.h */,
+				FFBC505714238C3200680B9C /* PhotoGridViewCell.m */,
 			);
 			name = "AQGridView Custom Cells";
 			sourceTree = "<group>";
@@ -3028,6 +3033,7 @@
 				6D11F9F0141FF9B700ACBC87 /* QAResolutionForm.m in Sources */,
 				6DABC34C1420E388008FF036 /* _Producer.m in Sources */,
 				FFBC5053142383D400680B9C /* LabelGridViewCell.m in Sources */,
+				FFBC505814238C3200680B9C /* PhotoGridViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

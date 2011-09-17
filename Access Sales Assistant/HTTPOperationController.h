@@ -51,6 +51,10 @@
 - (void)postImageForProducerFinished:(ASIHTTPRequest *)request;
 - (void)postImageForProducerFailed:(ASIHTTPRequest *)request;
 
+- (void)deleteImage:(NSString *)imageName forProducer:(NSString *)producerID;
+- (void)deleteImageForProducerFinished:(ASIHTTPRequest *)request;
+- (void)deleteImageForProducerFailed:(ASIHTTPRequest *)request;
+
 - (void)getImage:(NSString *)urlString forProducer:(NSString *)producerID;
 - (void)getImageFinished:(ASIHTTPRequest *)request;
 - (void)getImageFailed:(ASIHTTPRequest *)request;
