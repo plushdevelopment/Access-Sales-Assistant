@@ -425,6 +425,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 {
 	NSString *responseString = [request responseString];
 	NSDictionary *responseJSON = [responseString JSONValue];
+    
+    NSLog(@"Daily Summary Response: %@",responseJSON);
 	Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKeyPath:@"producerId.uid"] managedObjectContext:self.managedObjectContext];
 	producer.dailySummary.editedValue = NO;
 	producer.submittedValue = YES;

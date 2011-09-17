@@ -11,7 +11,7 @@
 
 @class DailySummary;
 
-@interface VisitApplicationNotesViewController : UIViewController <UITextFieldDelegate, DetailViewController> {
+@interface VisitApplicationNotesViewController : UIViewController <UITextViewDelegate, DetailViewController> {
 /*	UITextField *_opportunityTextField;
 	UITextField *_summaryTextField;
 	UITextField *_committmentTextField;

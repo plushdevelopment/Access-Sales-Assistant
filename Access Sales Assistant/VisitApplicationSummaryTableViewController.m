@@ -149,6 +149,8 @@ enum PRPTableStatsTags {
 {
 	[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[self.detailItem jsonStringValue]];
 	self.detailItem.producerId.submittedValue = YES;
+    
+    NSLog(@"%@",self.detailItem);
 }
 
 // Show the pickerView inside of a popover
@@ -291,6 +293,9 @@ enum PRPTableStatsTags {
             {
                 case PRPTableCompetitorName:
                 {
+                    
+                    Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:selectionView.currentIndexPath.row];
+                    [self.detailItem removeCompetitorsObject:competitor];
                     [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
                      [self presentModalViewController:selectionView  animated:YES];
                     break;
@@ -299,6 +304,12 @@ enum PRPTableStatsTags {
                 {
                     [selectionView assignDataSource:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
                      [self presentModalViewController:selectionView  animated:YES];
+                    break;
+                }
+                case 1001:
+                {
+                    [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
+                    [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -310,8 +321,16 @@ enum PRPTableStatsTags {
             {
                 case PRPTableBarrierName:
                 {
+                    BarrierToBusiness *barrier = [self.detailItem.barriersToBusiness.allObjects objectAtIndex:selectionView.currentIndexPath.row];
+                    [self.detailItem removeBarriersToBusinessObject:barrier];
                     [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
                      [self presentModalViewController:selectionView  animated:YES];
+                    break;
+                }
+                case 1005:
+                {
+                    [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
+                    [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -887,9 +906,11 @@ enum PRPTableStatsTags {
     
     if(btn.tag == 1001)
     {
-        Competitor* newCompetitor = [Competitor findFirst];
+     /*   Competitor* newCompetitor = [Competitor findFirst];
         [self.detailItem addCompetitorsObject:newCompetitor];
-        [self.tableView reloadData];
+        [self.tableView reloadData];*/
+        
+         [self showSelectionTableView:btn];
     }
     else if(btn.tag == 1002)
     {
@@ -966,10 +987,13 @@ enum PRPTableStatsTags {
     
     if(btn.tag == 1005)
     {
-        BarrierToBusiness *barrier = [BarrierToBusiness findFirst];
+      /*  BarrierToBusiness *barrier = [BarrierToBusiness findFirst];
         [self.detailItem addBarriersToBusinessObject:barrier];
         [self.managedObjectContext save];
-        [self.tableView reloadData];
+        [self.tableView reloadData];*/
+        
+        [self showSelectionTableView:btn];
+        
     }
     else if(btn.tag == 1006)
     {
@@ -1749,9 +1773,13 @@ enum PRPTableStatsTags {
 		case PRPTableSectionCompetitor:
 			switch (forTag) {
 				case PRPTableCompetitorName: {
-					Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:forIndexPath.row];//[Competitor findFirstByAttribute:@"name" withValue:titleForRow];
-                    competitor.name = selectedString;//[Competitor findFirstByAttribute:@"name" withValue:<#(id)#>]
+			//		Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:forIndexPath.row];//[Competitor findFirstByAttribute:@"name" withValue:titleForRow];
+               //     competitor.name = selectedString;//[Competitor findFirstByAttribute:@"name" withValue:<#(id)#>]
 					//[self.detailItem.competitorsSet.allObjects removeObjectAtIndex:indexPath.row];
+                    
+                    Competitor *competitor = [Competitor findFirstByAttribute:@"name" withValue:selectedString];
+                    [self.detailItem addCompetitorsObject:competitor];
+
 					
 				}
 					break;
@@ -1760,6 +1788,12 @@ enum PRPTableStatsTags {
 					self.detailItem.commissionStructure = structure;
 				}
 					break;
+                case 1001:
+                {
+                    Competitor *competitor = [Competitor findFirstByAttribute:@"name" withValue:selectedString];
+                    [self.detailItem addCompetitorsObject:competitor];
+                    break;
+                }
 				default:
 					break;
 			}
@@ -1768,11 +1802,17 @@ enum PRPTableStatsTags {
 			switch (forTag) {
 				case PRPTableBarrierName: {
 					// Change value in model object
-					BarrierToBusiness *barrier = [self.detailItem.barriersToBusiness.allObjects objectAtIndex:forIndexPath.row];//[BarrierToBusiness findFirstByAttribute:@"name" withValue:titleForRow];
-                    barrier.name = selectedString;
+					BarrierToBusiness *barrier = [BarrierToBusiness findFirstByAttribute:@"name" withValue:selectedString];//[self.detailItem.barriersToBusiness.allObjects objectAtIndex:forIndexPath.row];//[BarrierToBusiness findFirstByAttribute:@"name" withValue:titleForRow];
+                   // barrier.name = selectedString;
 					[self.detailItem addBarriersToBusinessObject:barrier];
 				}
 					break;
+                case 1005:
+                {
+                    BarrierToBusiness *barrier = [BarrierToBusiness findFirstByAttribute:@"name" withValue:selectedString];
+                    [self.detailItem addBarriersToBusinessObject:barrier];
+                    break;
+                }
 				default:
 					break;
 			}

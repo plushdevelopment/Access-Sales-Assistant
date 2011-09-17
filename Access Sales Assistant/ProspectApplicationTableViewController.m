@@ -518,7 +518,7 @@
                 case ERater1:
                 {
                     [selectionView assignDataSource:[Rater findAllSortedBy:@"name" ascending:YES]];
-                    [self presentModalViewController:selectionView animated:YES];
+                  //  [self presentModalViewController:selectionView animated:YES];
                 }
                 break;
                 case ERater2:

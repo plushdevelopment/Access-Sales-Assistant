@@ -105,7 +105,7 @@
 #pragma mark -
 #pragma mark UITextFieldDelegate
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
 	if (!self.detailItem.editedValue) {
 		self.detailItem.editedValue = YES;
@@ -114,28 +114,28 @@
 	return YES;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
+- (void)textViewDidEndEditing:(UITextView *)textView
 {
-	NSString *noteString = [textField.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-	if (textField == self.opportunityTextField) {
+	NSString *noteString = [textView.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+	if (textView == self.opportunityTextField) {
 		for (Note *note in self.detailItem.notes) {
 			if (note.typeValue == 1) {
 				note.text = noteString;
 			}
 		}
-	} else if (textField == self.summaryTextField) {
+	} else if (textView == self.summaryTextField) {
 		for (Note *note in self.detailItem.notes) {
 			if (note.typeValue == 2) {
 				note.text = noteString;
 			}
 		}
-	} else if (textField == self.committmentTextField) {
+	} else if (textView == self.committmentTextField) {
 		for (Note *note in self.detailItem.notes) {
 			if (note.typeValue == 3) {
 				note.text = noteString;
 			}
 		}
-	} else if (textField == self.followUpTextField) {
+	} else if (textView == self.followUpTextField) {
 		for (Note *note in self.detailItem.notes) {
 			if (note.typeValue == 4) {
 				note.text = noteString;
