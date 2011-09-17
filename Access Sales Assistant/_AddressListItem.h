@@ -16,6 +16,7 @@
 
 
 
+
 @interface AddressListItemID : NSManagedObjectID {}
 @end
 
@@ -68,6 +69,18 @@
 
 
 //- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *edited;
+
+
+@property BOOL editedValue;
+- (BOOL)editedValue;
+- (void)setEditedValue:(BOOL)value_;
+
+//- (BOOL)validateEdited:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -157,6 +170,15 @@
 
 - (NSString*)primitiveCity;
 - (void)setPrimitiveCity:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveEdited;
+- (void)setPrimitiveEdited:(NSNumber*)value;
+
+- (BOOL)primitiveEditedValue;
+- (void)setPrimitiveEditedValue:(BOOL)value_;
 
 
 
