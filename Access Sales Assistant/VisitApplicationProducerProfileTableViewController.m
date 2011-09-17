@@ -635,7 +635,11 @@
 			contactCell.emailAddressTextField.text = email.address;
 		}
 	}
-    
+    if([tContact.type.name isEqualToString:@"Agent"]==0)
+        [self disableTextField:contactCell.socialSecurityNumberTextField :YES];
+    else
+        [self disableTextField:contactCell.socialSecurityNumberTextField :NO];
+        
     return contactCell;
 }
 -(ProducerContactInfoTableViewCell*) contactInfoTableViewCell:(ProducerContactInfoTableViewCell*) contactInfoCell:(NSInteger)forRow
@@ -2627,7 +2631,7 @@
                     if([cItem.firstName length]<=0||
                        [cItem.lastName length]<=0||
                        cItem.type == nil||
-                       [cItem.ssn length]<=0
+                       (![cItem.type.name isEqualToString:@"Agent"] && [cItem.ssn length]<=0)
                        )
                         return FALSE;
                 }
