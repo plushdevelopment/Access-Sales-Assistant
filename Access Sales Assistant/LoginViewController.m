@@ -108,7 +108,6 @@
 		NSData *encryptedData = [crypto encrypt:secretData key:[_key dataUsingEncoding:NSUTF8StringEncoding] padding:&padding];
 		NSString *encryptedString = [encryptedData base64EncodingWithLineLength:0];
 		NSString *encryptedEncodedString = [self urlencode:encryptedString];
-		NSLog(@"Encrypted Login: %@", encryptedEncodedString);
 		[[self user] setPassword:self.passwordField.text];
 		[[self user] setOrganization:self.organizationField.text];
 		[[self user] setServiceKey:self.serviceKeyField.text];
@@ -131,17 +130,11 @@
 		[self requestFailed:request];
 	}
 	NSString *responseString = [request responseString];
-	NSLog(@"Response String: %@", responseString);
 	NSString *jsonString = [responseString JSONFragmentValue];
 	
 	NSString * encodedString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)jsonString, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 );
 	
 	self.user.token = encodedString;
-	
-	NSDictionary *userInfo = [[self.user entity] userInfo];
-	for (NSString *attribute in userInfo) {
-		NSLog(@"%@", attribute);
-	}
 	
 	[self.managedObjectContext save];
 	[[HTTPOperationController sharedHTTPOperationController] requestPickLists];
@@ -150,7 +143,6 @@
 	
 	[self dismissModalViewControllerAnimated:YES];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Login Success" object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Launch Map" object:nil];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request

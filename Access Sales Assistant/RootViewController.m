@@ -741,7 +741,6 @@
 
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc
 {
-	//NSLog(@"%@", NSStringFromSelector(_cmd));
     barButtonItem.title = @"Menu";
     self.popoverController = pc;
     self.rootPopoverButtonItem = barButtonItem;
@@ -750,74 +749,15 @@
 	
 }
 
-
 // Called when the view is shown again in the split view, invalidating the button and popover controller.
 - (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
-	//NSLog(@"%@", NSStringFromSelector(_cmd));
 	// Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
     UIViewController <SubstitutableDetailViewController> *detailViewController = [self.splitViewController.viewControllers objectAtIndex:1];
     [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
     self.popoverController = nil;
     self.rootPopoverButtonItem = nil;
 }
-
-/*
- - (void)splitViewController:(MGSplitViewController*)svc 
- willHideViewController:(UIViewController *)aViewController 
- withBarButtonItem:(UIBarButtonItem*)barButtonItem 
- forPopoverController: (UIPopoverController*)pc
- {
- //NSLog(@"%@", NSStringFromSelector(_cmd));
- barButtonItem.title = @"Menu";
- self.popoverController = pc;
- self.rootPopoverButtonItem = barButtonItem;
- UIViewController <SubstitutableDetailViewController> *detailViewController = [self.mgSplitViewController.viewControllers objectAtIndex:1];
- [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
- 
- }
- 
- 
- // Called when the view is shown again in the split view, invalidating the button and popover controller.
- - (void)splitViewController:(MGSplitViewController*)svc 
- willShowViewController:(UIViewController *)aViewController 
- invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
- {
- //NSLog(@"%@", NSStringFromSelector(_cmd));
- // Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
- UIViewController <SubstitutableDetailViewController> *detailViewController = [self.mgSplitViewController.viewControllers objectAtIndex:1];
- [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
- self.popoverController = nil;
- self.rootPopoverButtonItem = nil;
- }
- 
- 
- - (void)splitViewController:(MGSplitViewController*)svc 
- popoverController:(UIPopoverController*)pc 
- willPresentViewController:(UIViewController *)aViewController
- {
- //NSLog(@"%@", NSStringFromSelector(_cmd));
- }
- 
- 
- - (void)splitViewController:(MGSplitViewController*)svc willChangeSplitOrientationToVertical:(BOOL)isVertical
- {
- //NSLog(@"%@", NSStringFromSelector(_cmd));
- }
- 
- 
- - (void)splitViewController:(MGSplitViewController*)svc willMoveSplitToPosition:(float)position
- {
- //NSLog(@"%@", NSStringFromSelector(_cmd));
- }
- 
- 
- - (float)splitViewController:(MGSplitViewController *)svc constrainSplitPosition:(float)proposedPosition splitViewSize:(CGSize)viewSize
- {
- //NSLog(@"%@", NSStringFromSelector(_cmd));
- return proposedPosition;
- }
- */
 
 -(void) changeDetailViewController:(BaseDetailViewController *)detailViewController
 {

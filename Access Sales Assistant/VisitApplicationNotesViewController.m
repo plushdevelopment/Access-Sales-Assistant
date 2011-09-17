@@ -72,12 +72,7 @@
         // Update the view.
         [self configureView];
     }
-    
-  //  _titleLabel.text = [[NSString alloc]initWithFormat:@"%@ - %@",producer.name,producer.producerCode]; 
-    
     titleText = [[NSString alloc]initWithFormat:@"%@ - %@",producer.name,producer.producerCode];  
-    NSLog(titleText);
-
 }
 
 - (void)configureView

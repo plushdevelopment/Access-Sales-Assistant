@@ -2171,20 +2171,20 @@
                     [self modifyPhoneItem:textField :4];                    
                     break;
                 }
-                case EMainEmail: //3
+                case EMainEmail: //1
                 {
-                    [self modifyEmailItem:textField :3];
+                    [self modifyEmailItem:textField :1];
                 }
                     break;
-                case EClaimsEmail: //5
+                case EClaimsEmail: //2
                 {
-                    [self modifyEmailItem:textField :5];
+                    [self modifyEmailItem:textField :2];
                 }
                     
                     break;
-                case EAccountingEmail: //2
+                case EAccountingEmail: //3
                 {  
-                    [self modifyEmailItem:textField :2];
+                    [self modifyEmailItem:textField :3];
                 }
                     
                     break;

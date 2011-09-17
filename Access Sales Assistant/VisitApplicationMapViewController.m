@@ -94,7 +94,6 @@
 		NSArray *routePoints = [NSArray arrayWithObject:_startPoint];
 		routePoints = [routePoints arrayByAddingObjectsFromArray:_wayPoints];
 		routePoints = [routePoints arrayByAddingObject:_endPoint];
-		NSLog(@"%@",routePoints);
 		[_directions loadFromWaypoints:routePoints options:options];
 	} else {
 		[_directions loadWithStartPoint:_startPoint endPoint:_endPoint options:options];

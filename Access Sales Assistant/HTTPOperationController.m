@@ -258,7 +258,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	if (competitorRequest.currentPage == 1) {
 		for (int i = 2; i <= competitorRequest.totalPages; i++) {
 			[self requestCompetitors:[NSNumber numberWithInt:i]];
-			//NSLog(@"%d", i);
 		}
 	} else if (competitorRequest.currentPage == competitorRequest.totalPages) {
 		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -347,7 +346,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 - (void)postProducerProfileFinished:(ASIHTTPRequest *)request
 {
 	BOOL failed = ([request responseStatusCode] == 200);
-	NSAssert(failed, @"Failed");
+	//NSAssert(failed, @"Failed");
 	if ([request responseStatusCode] != 200) {
 		[self postProducerProfileFailed:request];
 	} else {
@@ -546,7 +545,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/Producers/%@/Images?token=%@", kURL, producerID, [user token]];
-	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -568,7 +566,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSString *escapedString = [responseString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
 	NSArray *responseJSON = [escapedString JSONValue];
 	if (responseJSON) {
-		NSLog(@"%@", responseJSON);
 		for (NSDictionary *dict in responseJSON) {
 			NSString *producerUID = [[request userInfo] valueForKey:@"producerID"];
 			[self getImage:[dict valueForKey:@"url"] forProducer:producerUID];
@@ -622,7 +619,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSString *producerUID;
 	if (producerIDStringArray.count > 1)
 		producerUID = [producerIDStringArray objectAtIndex:0];
-	NSLog(@"%@", producerUID);
 	Producer *producer = [Producer findFirstByAttribute:@"uid" withValue:producerUID];
 	ProducerImage *image = [ProducerImage ai_objectForProperty:@"imagePath" value:imagePath managedObjectContext:self.managedObjectContext];
 	[image setImageName:[pathComps lastObject]];
@@ -651,7 +647,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	NSString *urlString = [NSString 
 						   stringWithFormat:@"%@VisitApplicationService/AccessAcademy/Videos?token=%@",kURL,[user token]];
-	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -666,17 +661,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 }
 -(void)getTrainingVideosFinished:(ASIHTTPRequest *)request
 {
-  //  NSManagedObjectContext *context = [NSManagedObjectContext context];
     NSString *responseString = [request responseString];
 	NSString *escapedString = [responseString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-  //  [escapedString ]
 	NSArray *responseJSON = [escapedString JSONValue];
 	if (responseJSON) {
-		NSLog(@"%@", responseJSON);
         [[NSNotificationCenter defaultCenter] postNotificationName:@"Get Videos Success" object:responseJSON];
-
-        
-        
     }
     
 
@@ -701,8 +690,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     NSString* escapedString = [self urlencode:searchString];
 	
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"%@VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@", kURL, escapedString, [user token]]; //stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	NSLog(@"%@", urlString);
+						   stringWithFormat:@"%@VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@", kURL, escapedString, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -721,7 +709,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     NSManagedObjectContext *context = [NSManagedObjectContext context];
     NSString* responseString = [request responseString];
     NSDictionary *responseJSON = [responseString JSONValue];
-    NSLog(@"Response is:%@",responseJSON);
 	NSArray *results = [responseJSON objectForKey:@"results"];
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
@@ -801,8 +788,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	Producer *producer = [Producer findFirstByAttribute:@"producerCode" withValue:[[request userInfo] valueForKey:@"producerUID"]];
 	
 	for (NSDictionary *dict in responseJSON) {
-		NSLog(@"%@", dict);
-		
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 		[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 		AUNTK *auntk = [AUNTK createEntity];

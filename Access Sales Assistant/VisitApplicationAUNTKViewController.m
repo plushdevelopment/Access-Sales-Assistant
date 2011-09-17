@@ -125,11 +125,9 @@
 	[self.lossRatioLineChartView setGoalValue:[NSNumber numberWithFloat:30.0]];
 	[self.lossRatioLineChartView setGoalShown:NO];
 	NSArray *lossRatioData = [self.auntk.lossRatioTrendReportData.allObjects sortedArrayUsingDescriptors:sortDescriptors];
-	NSLog(@"lossRatioData: %@", lossRatioData);
 	if ((lossRatioData != nil) && (lossRatioData.count > 0)) {
 		[self.lossRatioLineChartView setGraphWithDataPoints:lossRatioData];
 	}
-	//[self.lossRatioLineChartView reload];
 	
 	// Claim Frequency Line Chart
 	[self.claimFrequencyLineChartView setTitle:self.claimFrequencyTrendLabel];
@@ -138,45 +136,10 @@
 	[self.claimFrequencyLineChartView setGoalValue:[NSNumber numberWithFloat:30.0]];
 	[self.claimFrequencyLineChartView setGoalShown:NO];
 	NSArray *claimFrequencyData = [self.auntk.claimFrequecyTrendReportData.allObjects sortedArrayUsingDescriptors:sortDescriptors];
-	NSLog(@"claimFrequencyData: %@", claimFrequencyData);
 	
 	if ((claimFrequencyData != nil) && (claimFrequencyData.count > 0)) {
 		[self.claimFrequencyLineChartView setGraphWithDataPoints:claimFrequencyData];
 	}
-	//[self.claimFrequencyLineChartView reload];
-	//[self.claimFrequencyLineChartView scrollToPoint:0 animated:YES];
-	/*
-	// Loss Ratio Line Chart
-	[self.lossRatioLineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-	self.lossRatioLineChartView.minValue = 0;
-	self.lossRatioLineChartView.maxValue = 30.0;
-	
-	NSArray *lossRatioPointsArray = [self.auntk.lossRatioTrendReportData.allObjects valueForKeyPath:@"lossRatio"];
-	PCLineChartViewComponent *lossRatioComponent = [[PCLineChartViewComponent alloc] init];
-	
-	[lossRatioComponent setTitle:@"Loss Ratio Trend"];
-	[lossRatioComponent setPoints:lossRatioPointsArray];
-	[lossRatioComponent setShouldLabelValues:NO];
-	[lossRatioComponent setColour:PCColorGreen];
-	NSMutableArray *lossRatioComponents = [NSMutableArray arrayWithObject:lossRatioComponent];
-	[self.lossRatioLineChartView setComponents:lossRatioComponents];
-	NSArray *xLabels = [self.auntk.lossRatioTrendReportData.allObjects valueForKeyPath:@"monthYear"];
-	[self.lossRatioLineChartView setXLabels:[NSMutableArray arrayWithArray:xLabels]];
-	
-	
-	// Claim Frequency Line Chart
-	[self.claimFrequencyLineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-	
-	NSArray *claimFrequencyPointsArray = [self.auntk.claimFrequecyTrendReportData.allObjects valueForKeyPath:@"claimsFrequency"];
-	PCLineChartViewComponent *claimFrequencyComponent = [[PCLineChartViewComponent alloc] init];
-	[claimFrequencyComponent setTitle:@"Claim Frequency Trend"];
-	[claimFrequencyComponent setPoints:claimFrequencyPointsArray];
-	[claimFrequencyComponent setShouldLabelValues:YES];
-	[claimFrequencyComponent setColour:PCColorBlue];
-	[self.claimFrequencyLineChartView setComponents:[NSMutableArray arrayWithObject:claimFrequencyComponent]];
-	[self.claimFrequencyLineChartView setXLabels:[NSMutableArray arrayWithArray:[self.auntk.claimFrequecyTrendReportData.allObjects valueForKeyPath:@"monthYear"]]];
-	[self.claimFrequencyLineChartView setNeedsDisplay];
-	*/
 	 
 	// Table Views
 	[self.productionTableView reloadData];
