@@ -33,6 +33,10 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"addressType"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"editedValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"edited"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"latitudeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"latitude"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -97,6 +101,32 @@
 
 @dynamic city;
 
+
+
+
+
+
+@dynamic edited;
+
+
+
+- (BOOL)editedValue {
+	NSNumber *result = [self edited];
+	return [result boolValue];
+}
+
+- (void)setEditedValue:(BOOL)value_ {
+	[self setEdited:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveEditedValue {
+	NSNumber *result = [self primitiveEdited];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveEditedValue:(BOOL)value_ {
+	[self setPrimitiveEdited:[NSNumber numberWithBool:value_]];
+}
 
 
 

@@ -6,6 +6,7 @@
         <attribute name="addressLine3" optional="YES" attributeType="String"/>
         <attribute name="addressType" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="edited" optional="YES" attributeType="Boolean"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0"/>
         <attribute name="postalCode" optional="YES" attributeType="String"/>
@@ -324,7 +325,7 @@
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="AddressListItem" positionX="-569" positionY="72" width="128" height="195"/>
+        <element name="AddressListItem" positionX="-569" positionY="72" width="128" height="210"/>
         <element name="AUNTK" positionX="-164" positionY="-441" width="128" height="150"/>
         <element name="BarrierToBusiness" positionX="135" positionY="432" width="128" height="90"/>
         <element name="ClaimFrequecyTrendReportData" positionX="547" positionY="-270" width="128" height="90"/>

@@ -2294,45 +2294,46 @@
         case EAddresses:
         {
 			
-            NSArray *addrArray = _detailItem.addresses.allObjects;
-            AddressListItem* addrItem = nil;
-            int rowInd = indexPath.row;
-            rowInd+=1;
-            for(AddressListItem* addr in addrArray)
+            NSArray *addressArray = _detailItem.addresses.allObjects;
+            AddressListItem* addressItem = nil;
+            int rowIndex = indexPath.row;
+            rowIndex+=1;
+            for(AddressListItem* address in addressArray)
             {
-                if(addr.addressTypeValue == rowInd)
+                if(address.addressTypeValue == rowIndex)
                 {
-                    addrItem = addr; 
+                    addressItem = address; 
                     break;
                 }
             }
             
-            if(addrItem == nil)
+            if(addressItem == nil)
             {
-                addrItem = [AddressListItem createEntity];
-                addrItem.addressTypeValue = rowInd;
-                [self.detailItem addAddressesObject:addrItem];
+                addressItem = [AddressListItem createEntity];
+                addressItem.addressTypeValue = rowIndex;
+                [self.detailItem addAddressesObject:addressItem];
             }
             
+			addressItem.editedValue = YES;
             
             switch(tag)
             {
                 case EAddressStreet1:
                 {
-                    addrItem.addressLine1 = textField.text;
+                    addressItem.addressLine1 = textField.text;
                 }
                     break;
                 case EAddressStreet2:
-                    addrItem.addressLine2 = textField.text;
+                    addressItem.addressLine2 = textField.text;
                     break;
                 case EAddressCity:
-                    addrItem.city = textField.text;
+                    addressItem.city = textField.text;
                     break;
                 case EAddressZipCode:
                 {
                     if([textField.text isValidZipCode])
                     {
-                        addrItem.postalCode =textField.text;
+                        addressItem.postalCode =textField.text;
                         [self changeTextFieldOutline:textField :YES];
                     }
                     else
@@ -2860,84 +2861,86 @@
             {
                 case EAddressState:
                 {
-                    int indRow = forIndexPath.row;
-                    switch(indRow)
+                    int indexRow = forIndexPath.row;
+                    switch(indexRow)
                     {
                         case 0:
                         {
-                            AddressListItem *addrItem = nil;
+                            AddressListItem *addressItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
                                 int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 1) {
-                                    addrItem = address;
+                                    addressItem = address;
                                     break;
                                 }
                             }
-                            if(addrItem != nil)
+                            if(addressItem != nil)
                             {
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                addressItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
                             }
                             else
                             {
-                                addrItem = [AddressListItem createEntity];
-                                addrItem.addressTypeValue = 1;
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
-                                [self.detailItem addAddressesObject:addrItem];
+                                addressItem = [AddressListItem createEntity];
+                                addressItem.addressTypeValue = 1;
+                                addressItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                [self.detailItem addAddressesObject:addressItem];
                             }
+							addressItem.editedValue = YES;
                             
                             break;
                         }
                             
                         case 1:
                         {
-                            AddressListItem *addrItem = nil;
+                            AddressListItem *addressItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
                                 int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 2) {
-                                    addrItem = address;
+                                    addressItem = address;
                                     
                                     //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
                                     break;
                                 }
                             }
-                            if(addrItem != nil)
+                            if(addressItem != nil)
                             {
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                addressItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
                             }
                             else
                             {
-                                addrItem = [AddressListItem createEntity];
-                                addrItem.addressTypeValue = 2;
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
-                                [self.detailItem addAddressesObject:addrItem];
+                                addressItem = [AddressListItem createEntity];
+                                addressItem.addressTypeValue = 2;
+                                addressItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                [self.detailItem addAddressesObject:addressItem];
                             }
-                            
+                            addressItem.editedValue = YES;
                             break;
                         }
                             
                         case 2:
                         {
-                            AddressListItem *addrItem = nil;
+                            AddressListItem *addressItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
                                 int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 3) {
-                                    addrItem = address;
+                                    addressItem = address;
                                     
                                     //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
                                     continue;
                                 }
                             }
-                            if(addrItem != nil)
+                            if(addressItem != nil)
                             {
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                addressItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
                             }
                             else
                             {
-                                addrItem = [AddressListItem createEntity];
-                                addrItem.addressTypeValue = 3;
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
-                                [self.detailItem addAddressesObject:addrItem];
+                                addressItem = [AddressListItem createEntity];
+                                addressItem.addressTypeValue = 3;
+                                addressItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
+                                [self.detailItem addAddressesObject:addressItem];
                             }
+							addressItem.editedValue = YES;
                             break;
                         }
                     }
