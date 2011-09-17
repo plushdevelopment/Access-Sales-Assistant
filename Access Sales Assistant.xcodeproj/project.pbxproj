@@ -21,6 +21,10 @@
 		6D38EFD01402E11600E4F682 /* PCPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38EFCA1402E11600E4F682 /* PCPieChart.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6D38EFD11402E11600E4F682 /* VisitApplicationAUNTKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38EFCC1402E11600E4F682 /* VisitApplicationAUNTKViewController.m */; };
 		6D38EFD21402E11600E4F682 /* VisitApplicationAUNTKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D38EFCD1402E11600E4F682 /* VisitApplicationAUNTKViewController.xib */; };
+		6D5C4CCD14253DE400AA47F5 /* switchBlueBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D5C4CC914253DE400AA47F5 /* switchBlueBg.png */; };
+		6D5C4CCE14253DE400AA47F5 /* switchOffPlain.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D5C4CCA14253DE400AA47F5 /* switchOffPlain.png */; };
+		6D5C4CCF14253DE400AA47F5 /* switchThumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D5C4CCB14253DE400AA47F5 /* switchThumb.png */; };
+		6D5C4CD014253DE400AA47F5 /* UICustomSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5C4CCC14253DE400AA47F5 /* UICustomSwitch.m */; };
 		6D7AABA813FD7C0A00F6B361 /* ProspectAppAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7AABA713FD7C0900F6B361 /* ProspectAppAddressTableViewCell.xib */; };
 		6D7AABB113FD936000F6B361 /* ProspectAppGeneralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7AABB013FD936000F6B361 /* ProspectAppGeneralTableViewCell.xib */; };
 		6D7AABB413FD938A00F6B361 /* ProspectAppGeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7AABB313FD938A00F6B361 /* ProspectAppGeneralTableViewCell.m */; };
@@ -517,6 +521,11 @@
 		6D38EFCC1402E11600E4F682 /* VisitApplicationAUNTKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationAUNTKViewController.m; sourceTree = "<group>"; };
 		6D38EFCD1402E11600E4F682 /* VisitApplicationAUNTKViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationAUNTKViewController.xib; sourceTree = "<group>"; };
 		6D38EFDD14052FCF00E4F682 /* AccessSalesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessSalesConstants.h; sourceTree = "<group>"; };
+		6D5C4CC814253DE400AA47F5 /* UICustomSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomSwitch.h; sourceTree = "<group>"; };
+		6D5C4CC914253DE400AA47F5 /* switchBlueBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchBlueBg.png; sourceTree = "<group>"; };
+		6D5C4CCA14253DE400AA47F5 /* switchOffPlain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchOffPlain.png; sourceTree = "<group>"; };
+		6D5C4CCB14253DE400AA47F5 /* switchThumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchThumb.png; sourceTree = "<group>"; };
+		6D5C4CCC14253DE400AA47F5 /* UICustomSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomSwitch.m; sourceTree = "<group>"; };
 		6D7AABA713FD7C0900F6B361 /* ProspectAppAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProspectAppAddressTableViewCell.xib; sourceTree = "<group>"; };
 		6D7AABB013FD936000F6B361 /* ProspectAppGeneralTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProspectAppGeneralTableViewCell.xib; sourceTree = "<group>"; };
 		6D7AABB213FD938A00F6B361 /* ProspectAppGeneralTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProspectAppGeneralTableViewCell.h; sourceTree = "<group>"; };
@@ -1927,6 +1936,11 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				6D5C4CC814253DE400AA47F5 /* UICustomSwitch.h */,
+				6D5C4CC914253DE400AA47F5 /* switchBlueBg.png */,
+				6D5C4CCA14253DE400AA47F5 /* switchOffPlain.png */,
+				6D5C4CCB14253DE400AA47F5 /* switchThumb.png */,
+				6D5C4CCC14253DE400AA47F5 /* UICustomSwitch.m */,
 				FFFB3C5A13ABE4890063E374 /* View Controllers */,
 				FFBE682213E844C400013066 /* View Classes */,
 				FF846CB813DD9A8A00D59F3E /* Requests */,
@@ -2780,6 +2794,9 @@
 				FF3B6C7914251C3D00A810AB /* Icon-Small@2x.png in Resources */,
 				FF3B6C7A14251C3D00A810AB /* Icon.png in Resources */,
 				FF3B6C7B14251C3D00A810AB /* Icon@2x.png in Resources */,
+				6D5C4CCD14253DE400AA47F5 /* switchBlueBg.png in Resources */,
+				6D5C4CCE14253DE400AA47F5 /* switchOffPlain.png in Resources */,
+				6D5C4CCF14253DE400AA47F5 /* switchThumb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3030,6 +3047,7 @@
 				6DABC34C1420E388008FF036 /* _Producer.m in Sources */,
 				FFBC5053142383D400680B9C /* LabelGridViewCell.m in Sources */,
 				FFBC505814238C3200680B9C /* PhotoGridViewCell.m in Sources */,
+				6D5C4CD014253DE400AA47F5 /* UICustomSwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
