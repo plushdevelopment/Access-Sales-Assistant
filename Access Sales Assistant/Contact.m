@@ -16,7 +16,7 @@
 - (PhoneListItem *)mobilePhoneInManagedObjectContext:(NSManagedObjectContext *)context
 {
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type = 5"];
-	PhoneListItem *phone = [[self.phoneList.allObjects filteredArrayUsingPredicate:predicate] lastObject];
+	PhoneListItem *phone = [[self.phoneNumbers.allObjects filteredArrayUsingPredicate:predicate] lastObject];
 	if (!phone) {
 		phone = [PhoneListItem createInContext:context];
 		phone.typeValue = 5;

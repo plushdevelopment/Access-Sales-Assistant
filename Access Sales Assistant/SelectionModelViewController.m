@@ -146,12 +146,12 @@
   */
     if(tableView == self.searchDisplayController.searchResultsTableView)
     {
-        NSString* str= [[NSString alloc] initWithFormat:@"%@",[[_tableData objectAtIndex:indexPath.row] name]] ;
+        NSString* str= [[NSString alloc] initWithFormat:@"%@",[[_tableData objectAtIndex:indexPath.row] valueForKey:@"name"]] ;
         cell.textLabel.text = str;
     }
     else
     {
-    NSString* str= [[NSString alloc] initWithFormat:@"%@",[[_dataSource objectAtIndex:indexPath.row] name]] ;
+		NSString* str= [[NSString alloc] initWithFormat:@"%@",[[_dataSource objectAtIndex:indexPath.row] valueForKey:@"name"]] ;
     cell.textLabel.text = str;
     }
 //    }
@@ -172,14 +172,14 @@
     if(tableView == self.searchDisplayController.searchResultsTableView)
     {
         NSLog(@"current indexpath:%d",indexPath.row);
-        NSLog(@"selected %@",[[_tableData objectAtIndex:indexPath.row] name]);
-         [_delegate selectedOption:[[_tableData objectAtIndex:indexPath.row] name] :_currentIndexPath :self.currentTag];
+        NSLog(@"selected %@",[[_tableData objectAtIndex:indexPath.row] valueForKey:@"name"]);
+         [_delegate selectedOption:[[_tableData objectAtIndex:indexPath.row] valueForKey:@"name"] :_currentIndexPath :self.currentTag];
     }
     else
     {
         NSLog(@"current indexpath:%d",indexPath.row);
-        NSLog(@"selected %@",[[_dataSource objectAtIndex:indexPath.row] name]);
-        [_delegate selectedOption:[[_dataSource objectAtIndex:indexPath.row] name] :_currentIndexPath :self.currentTag];
+        NSLog(@"selected %@",[[_dataSource objectAtIndex:indexPath.row] valueForKey:@"name"]);
+        [_delegate selectedOption:[[_dataSource objectAtIndex:indexPath.row] valueForKey:@"name"] :_currentIndexPath :self.currentTag];
         
     }
    // }

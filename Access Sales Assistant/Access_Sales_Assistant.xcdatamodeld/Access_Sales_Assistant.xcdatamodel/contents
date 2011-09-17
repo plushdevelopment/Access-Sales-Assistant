@@ -52,8 +52,8 @@
         <attribute name="rdFollowUp" optional="YES" attributeType="Boolean"/>
         <attribute name="ssn" optional="YES" attributeType="String"/>
         <attribute name="uid" optional="YES" attributeType="String" indexed="YES"/>
-        <relationship name="emailList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EmailListItem" inverseName="contact" inverseEntity="EmailListItem"/>
-        <relationship name="phoneList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhoneListItem" inverseName="contact" inverseEntity="PhoneListItem"/>
+        <relationship name="emails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EmailListItem" inverseName="contact" inverseEntity="EmailListItem"/>
+        <relationship name="phoneNumbers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhoneListItem" inverseName="contact" inverseEntity="PhoneListItem"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="contacts" inverseEntity="Producer"/>
         <relationship name="type" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ContactType" inverseName="contacts" inverseEntity="ContactType"/>
     </entity>
@@ -91,7 +91,7 @@
     <entity name="EmailListItem" representedClassName="EmailListItem">
         <attribute name="address" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" indexed="YES"/>
-        <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="emailList" inverseEntity="Contact"/>
+        <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="emails" inverseEntity="Contact"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="emails" inverseEntity="Producer"/>
     </entity>
     <entity name="HoursOfOperation" representedClassName="HoursOfOperation">
@@ -170,7 +170,7 @@
     <entity name="PhoneListItem" representedClassName="PhoneListItem">
         <attribute name="number" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" indexed="YES"/>
-        <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="phoneList" inverseEntity="Contact"/>
+        <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="phoneNumbers" inverseEntity="Contact"/>
         <relationship name="producer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Producer" inverseName="phoneNumbers" inverseEntity="Producer"/>
     </entity>
     <entity name="PolicyCountReportData" representedClassName="PolicyCountReportData">

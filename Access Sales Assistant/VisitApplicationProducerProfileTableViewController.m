@@ -114,14 +114,6 @@
 	
     self.tableView.backgroundColor = [UIColor clearColor];
     _isDoneSelected = TRUE;
-    
-    
-    [self.detailItem addObserver:self forKeyPath:@"edited" options:NSKeyValueObservingOptionNew context:nil];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    
 }
 
 - (void)viewDidUnload
@@ -617,14 +609,14 @@
     contactCell.lastNameTextField.text = tContact.lastName;
     contactCell.socialSecurityNumberTextField.text = tContact.ssn;
 	contactCell.titleTextField.text = tContact.type.name;
-	for (PhoneListItem *phone in tContact.phoneList) {
+	for (PhoneListItem *phone in tContact.phoneNumbers) {
 		if (phone.typeValue == 4) {
 			contactCell.faxTextField.text = phone.number;
 		} else if (phone.typeValue == 5) {
 			contactCell.mobilePhoneTextField.text = phone.number;
 		}
 	}
-	for (EmailListItem *email in tContact.emailList) {
+	for (EmailListItem *email in tContact.emails) {
 		if (email.typeValue == 5) {
 			contactCell.emailAddressTextField.text = email.address;
 		}
@@ -1107,7 +1099,6 @@
     [selectionView  setModalPresentationStyle:UIModalPresentationFormSheet];
     selectionView.delegate = self;
 	
-    
     switch(selectionView.currentIndexPath.section)
     {
         case EGeneral:
@@ -1135,23 +1126,18 @@
             {
                 case ERater1:
                 {
-					
-                    
-                    [selectionView assignDataSource:[Rater findAllSortedBy:@"name" ascending:YES]];
-					
-                    
-					
-					//   [self presen]
-					
+					NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[Rater findAllSortedBy:@"name" ascending:YES]];
+					NSDictionary *dict = [NSDictionary dictionaryWithObject:@"None" forKey:@"name"];
+					[dataSource addObject:dict];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
                 case ERater2:
                 {
-                    [selectionView assignDataSource:[Rater2 findAllSortedBy:@"name" ascending:YES]];
-                    
-                    
-					
-					
+                    NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[Rater2 findAllSortedBy:@"name" ascending:YES]];
+					NSDictionary *dict = [NSDictionary dictionaryWithObject:@"None" forKey:@"name"];
+					[dataSource addObject:dict];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
             }
@@ -1213,14 +1199,10 @@
     }
     [self hideKeyboard];
     [self performSelector:@selector(showViewController:) withObject:selectionView afterDelay:0.0];
-	//[self presentViewController:selectionView animated:YES completion:^(void){}];
-    
 }
 -(IBAction)showTimePickerView:(id)sender
 {
     [self nextField:0];
-	
-    
 	UIButton *button = (UIButton *)sender;
 	[self.datePickerViewController.datePicker setDate:[NSDate date]];
 	self.datePickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
@@ -2290,7 +2272,7 @@
                     break;
                 case EContactMobilePhone: {
 					PhoneListItem *phone;
-					for (PhoneListItem *aPhone in cnt.phoneList) {
+					for (PhoneListItem *aPhone in cnt.phoneNumbers) {
 						if (aPhone.typeValue == 5) {
 							phone = aPhone;
 						}
@@ -2298,14 +2280,14 @@
 					if (!phone) {
 						phone = [PhoneListItem createEntity];
 						phone.typeValue = 5;
-						[cnt addPhoneListObject:phone];
+						[cnt addPhoneNumbersObject:phone];
 					}
 					phone.number = textField.text;
 				}
                     break;
                 case EContactEmailAddress: {
 					EmailListItem *email;
-					for (EmailListItem *aPhone in cnt.emailList) {
+					for (EmailListItem *aPhone in cnt.emails) {
 						if (aPhone.typeValue == 5) {
 							email = aPhone;
 						}
@@ -2313,7 +2295,7 @@
 					if (!email) {
 						email = [EmailListItem createEntity];
 						email.typeValue = 5;
-						[cnt addEmailListObject:email];
+						[cnt addEmailsObject:email];
 					}
 					email.address = textField.text;
 				}
@@ -2324,7 +2306,7 @@
                     break;
 				case EContactFax: {
 					PhoneListItem *phone;
-					for (PhoneListItem *aPhone in cnt.phoneList) {
+					for (PhoneListItem *aPhone in cnt.phoneNumbers) {
 						if (aPhone.typeValue == 4) {
 							phone = aPhone;
 						}
@@ -2332,7 +2314,7 @@
 					if (!phone) {
 						phone = [PhoneListItem createEntity];
 						phone.typeValue = 4;
-						[cnt addPhoneListObject:phone];
+						[cnt addPhoneNumbersObject:phone];
 					}
 					phone.number = textField.text;
 				}
@@ -2650,7 +2632,7 @@
                 case EMondayStartHour:
                 {
 					self.detailItem.hoursOfOperation.mondayOpenTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.mondayCloseTime = hour;
 					}
                     break;
@@ -2659,7 +2641,7 @@
                 {
                     
 					self.detailItem.hoursOfOperation.mondayCloseTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.mondayOpenTime = hour;
 					}
                     break;
@@ -2668,7 +2650,7 @@
                 case ETuesdayStartHour:
                 {
 					self.detailItem.hoursOfOperation.tuesdayOpenTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.tuesdayCloseTime = hour;
 					}
                     break;
@@ -2677,7 +2659,7 @@
                 case ETuesdayEndHour:
                 {
                     self.detailItem.hoursOfOperation.tuesdayCloseTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.tuesdayOpenTime = hour;
 					}
                     break;
@@ -2686,7 +2668,7 @@
                 case EWednesdayStartHour:
                 {
 					self.detailItem.hoursOfOperation.wednesdayOpenTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.wednesdayCloseTime = hour;
 					}
                     break;
@@ -2695,7 +2677,7 @@
                 case EWednesdayEndHour:
                 {
                     self.detailItem.hoursOfOperation.wednesdayCloseTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.wednesdayOpenTime = hour;
 					}
                     break;
@@ -2704,7 +2686,7 @@
                 case EThursdayStartHour:
                 {
                     self.detailItem.hoursOfOperation.thursdayOpenTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.thursdayCloseTime = hour;
 					}
                     break;
@@ -2713,7 +2695,7 @@
                 case EThursdayEndHour:
                 {
                     self.detailItem.hoursOfOperation.thursdayCloseTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.thursdayOpenTime = hour;
 					}
                     break;
@@ -2722,7 +2704,7 @@
                 case EFridayStartHour:
                 {
                     self.detailItem.hoursOfOperation.fridayOpenTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.fridayCloseTime = hour;
 					}
                     break;
@@ -2731,7 +2713,7 @@
                 case EFridayEndHour:
                 {
                     self.detailItem.hoursOfOperation.fridayCloseTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.fridayOpenTime = hour;
 					}
                     break;
@@ -2740,7 +2722,7 @@
                 case ESaturdayStartHour:
                 {
                     self.detailItem.hoursOfOperation.saturdayOpenTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.saturdayCloseTime = hour;
 					}
                     break;
@@ -2749,7 +2731,7 @@
                 case ESaturdayEndHour:
                 {
                     self.detailItem.hoursOfOperation.saturdayCloseTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.saturdayOpenTime = hour;
 					}
                     break;
@@ -2758,7 +2740,7 @@
                 case ESundayStartHour:
                 {
                     self.detailItem.hoursOfOperation.sundayOpenTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.sundayCloseTime = hour;
 					}
                     break;
@@ -2767,7 +2749,7 @@
                 case ESundayEndHour:
                 {
                     self.detailItem.hoursOfOperation.sundayCloseTime = hour;
-					if ([hour.name isEqualToString:@"Closed"]) {
+					if ([selectedString isEqualToString:@"CLOSED"]) {
 						self.detailItem.hoursOfOperation.sundayOpenTime = hour;
 					}
                     break;

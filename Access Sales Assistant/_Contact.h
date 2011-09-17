@@ -94,16 +94,16 @@
 
 
 
-@property (nonatomic, retain) NSSet* emailList;
+@property (nonatomic, retain) NSSet* emails;
 
-- (NSMutableSet*)emailListSet;
-
-
+- (NSMutableSet*)emailsSet;
 
 
-@property (nonatomic, retain) NSSet* phoneList;
 
-- (NSMutableSet*)phoneListSet;
+
+@property (nonatomic, retain) NSSet* phoneNumbers;
+
+- (NSMutableSet*)phoneNumbersSet;
 
 
 
@@ -126,15 +126,15 @@
 
 @interface _Contact (CoreDataGeneratedAccessors)
 
-- (void)addEmailList:(NSSet*)value_;
-- (void)removeEmailList:(NSSet*)value_;
-- (void)addEmailListObject:(EmailListItem*)value_;
-- (void)removeEmailListObject:(EmailListItem*)value_;
+- (void)addEmails:(NSSet*)value_;
+- (void)removeEmails:(NSSet*)value_;
+- (void)addEmailsObject:(EmailListItem*)value_;
+- (void)removeEmailsObject:(EmailListItem*)value_;
 
-- (void)addPhoneList:(NSSet*)value_;
-- (void)removePhoneList:(NSSet*)value_;
-- (void)addPhoneListObject:(PhoneListItem*)value_;
-- (void)removePhoneListObject:(PhoneListItem*)value_;
+- (void)addPhoneNumbers:(NSSet*)value_;
+- (void)removePhoneNumbers:(NSSet*)value_;
+- (void)addPhoneNumbersObject:(PhoneListItem*)value_;
+- (void)removePhoneNumbersObject:(PhoneListItem*)value_;
 
 @end
 
@@ -190,13 +190,13 @@
 
 
 
-- (NSMutableSet*)primitiveEmailList;
-- (void)setPrimitiveEmailList:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveEmails;
+- (void)setPrimitiveEmails:(NSMutableSet*)value;
 
 
 
-- (NSMutableSet*)primitivePhoneList;
-- (void)setPrimitivePhoneList:(NSMutableSet*)value;
+- (NSMutableSet*)primitivePhoneNumbers;
+- (void)setPrimitivePhoneNumbers:(NSMutableSet*)value;
 
 
 

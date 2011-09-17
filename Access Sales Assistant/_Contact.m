@@ -131,24 +131,24 @@
 
 
 
-@dynamic emailList;
+@dynamic emails;
 
 	
-- (NSMutableSet*)emailListSet {
-	[self willAccessValueForKey:@"emailList"];
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"emailList"];
-	[self didAccessValueForKey:@"emailList"];
+- (NSMutableSet*)emailsSet {
+	[self willAccessValueForKey:@"emails"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"emails"];
+	[self didAccessValueForKey:@"emails"];
 	return result;
 }
 	
 
-@dynamic phoneList;
+@dynamic phoneNumbers;
 
 	
-- (NSMutableSet*)phoneListSet {
-	[self willAccessValueForKey:@"phoneList"];
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"phoneList"];
-	[self didAccessValueForKey:@"phoneList"];
+- (NSMutableSet*)phoneNumbersSet {
+	[self willAccessValueForKey:@"phoneNumbers"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"phoneNumbers"];
+	[self didAccessValueForKey:@"phoneNumbers"];
 	return result;
 }
 	

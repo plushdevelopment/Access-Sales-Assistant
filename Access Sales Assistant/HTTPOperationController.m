@@ -381,7 +381,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		[self.managedObjectContext save];
 		
 		[UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_PROFILE_REQUEST_SUCCESS buttonTitle:@"OK"];
-		//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Successful" object:request];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Successful" object:request];
 	}
 }
 
