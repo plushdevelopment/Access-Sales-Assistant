@@ -17,6 +17,7 @@
 @synthesize percentFDLTextField = _percentFDLTextField;
 @synthesize rdFollowUpButton = _rdFollowUpButton;
 @synthesize producerAddOnButton = _producerAddOnButton;
+@synthesize rdFollowUpSwitch = _rdFollowUpSwitch;
 
 
 @end
