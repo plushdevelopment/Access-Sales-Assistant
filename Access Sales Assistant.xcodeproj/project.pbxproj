@@ -24,7 +24,7 @@
 		6D5C4CCD14253DE400AA47F5 /* switchBlueBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D5C4CC914253DE400AA47F5 /* switchBlueBg.png */; };
 		6D5C4CCE14253DE400AA47F5 /* switchOffPlain.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D5C4CCA14253DE400AA47F5 /* switchOffPlain.png */; };
 		6D5C4CCF14253DE400AA47F5 /* switchThumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D5C4CCB14253DE400AA47F5 /* switchThumb.png */; };
-		6D5C4CD014253DE400AA47F5 /* UICustomSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5C4CCC14253DE400AA47F5 /* UICustomSwitch.m */; };
+		6D5C4CD014253DE400AA47F5 /* UICustomSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5C4CCC14253DE400AA47F5 /* UICustomSwitch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6D7AABA813FD7C0A00F6B361 /* ProspectAppAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7AABA713FD7C0900F6B361 /* ProspectAppAddressTableViewCell.xib */; };
 		6D7AABB113FD936000F6B361 /* ProspectAppGeneralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7AABB013FD936000F6B361 /* ProspectAppGeneralTableViewCell.xib */; };
 		6D7AABB413FD938A00F6B361 /* ProspectAppGeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7AABB313FD938A00F6B361 /* ProspectAppGeneralTableViewCell.m */; };
@@ -1302,6 +1302,18 @@
 			name = AUNTK;
 			sourceTree = "<group>";
 		};
+		6D5C4CD214253E4F00AA47F5 /* Custom Switch */ = {
+			isa = PBXGroup;
+			children = (
+				6D5C4CC814253DE400AA47F5 /* UICustomSwitch.h */,
+				6D5C4CC914253DE400AA47F5 /* switchBlueBg.png */,
+				6D5C4CCA14253DE400AA47F5 /* switchOffPlain.png */,
+				6D5C4CCB14253DE400AA47F5 /* switchThumb.png */,
+				6D5C4CCC14253DE400AA47F5 /* UICustomSwitch.m */,
+			);
+			name = "Custom Switch";
+			sourceTree = "<group>";
+		};
 		6D7AABAE13FD932500F6B361 /* Prospect Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -1838,6 +1850,7 @@
 		FF77110013B257BF00E90F4B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				6D5C4CD214253E4F00AA47F5 /* Custom Switch */,
 				FFCE85231422470D00744529 /* NSString Category */,
 				FFBDF206141E55770011376F /* Tapku Graph */,
 				FFFACDD214112822002897C1 /* MBProgressHUD */,
@@ -1936,11 +1949,6 @@
 		FF8B415A13A8EEF700A05007 /* Access Sales Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				6D5C4CC814253DE400AA47F5 /* UICustomSwitch.h */,
-				6D5C4CC914253DE400AA47F5 /* switchBlueBg.png */,
-				6D5C4CCA14253DE400AA47F5 /* switchOffPlain.png */,
-				6D5C4CCB14253DE400AA47F5 /* switchThumb.png */,
-				6D5C4CCC14253DE400AA47F5 /* UICustomSwitch.m */,
 				FFFB3C5A13ABE4890063E374 /* View Controllers */,
 				FFBE682213E844C400013066 /* View Classes */,
 				FF846CB813DD9A8A00D59F3E /* Requests */,

@@ -678,6 +678,16 @@ enum PRPTableStatsTags {
             [customCell.commissionStructureButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
 
 			
+            
+            [self.fields addObject:customCell.reportDateButton];
+            [self.fields addObject:customCell.reportDateTextField];
+            [self.fields addObject:customCell.percentNewTextField];
+            [self.fields addObject:customCell.percentNewTextField];
+            [self.fields addObject:customCell.commissionStructureTextField];
+            [self.fields addObject:customCell.commissionStructureButton];
+            
+            
+            
 			cell = customCell;
 		}
 			break;
@@ -713,6 +723,8 @@ enum PRPTableStatsTags {
                  
                  [remBtn addTarget:self action:@selector(AddPerson:) forControlEvents:UIControlEventTouchUpInside];
                 
+                [self.fields addObject: customCell.addButton];
+                [self.fields addObject: customCell.editButton];
 				cell = customCell;
 			} else {
 				SummarySpokeWithTableViewCell *customCell = [SummarySpokeWithTableViewCell cellForTableView:tableView fromNib:self.summarySpokeWithTableViewCellNib];
@@ -731,6 +743,11 @@ enum PRPTableStatsTags {
 				
 				[customCell.titleButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
 				
+                [self.fields addObject: customCell.firstNameTextField];
+                [self.fields addObject: customCell.lastNameTextField];
+                [self.fields addObject: customCell.titleTextField];
+                [self.fields addObject: customCell.emailAddressTextField];
+                [self.fields addObject: customCell.titleButton];
 				cell = customCell;
 			}
 		}
@@ -765,6 +782,8 @@ enum PRPTableStatsTags {
                 
                 [remBtn addTarget:self action:@selector(AddCompetitor:) forControlEvents:UIControlEventTouchUpInside];
              
+                [self.fields addObject: customCell.addButton];
+                [self.fields addObject: customCell.editButton];
                 cell = customCell;
 
 			} else {
@@ -780,6 +799,10 @@ enum PRPTableStatsTags {
 							
 				[customCell.competitorNameButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
 							
+                [self.fields addObject: customCell.competitorNameTextField];
+                [self.fields addObject: customCell.appsPerMonthTextField];
+                [self.fields addObject: customCell.competitorNameButton];
+                
 				cell = customCell;
 			}
 		}
@@ -815,7 +838,8 @@ enum PRPTableStatsTags {
                 
                 [remBtn addTarget:self action:@selector(AddBarrier:) forControlEvents:UIControlEventTouchUpInside];
 
-
+                [self.fields addObject: customCell.addButton];
+                [self.fields addObject: customCell.editButton];
 				
 				cell = customCell;
 			} else {
@@ -828,6 +852,9 @@ enum PRPTableStatsTags {
 				customCell.barrierToBusinessTextField.delegate = self;
 				
 				[customCell.barrierToBusinessButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
+                
+                [self.fields addObject: customCell.barrierToBusinessTextField];
+                [self.fields addObject: customCell.barrierToBusinessButton];
 				
 				cell = customCell;
 			}
@@ -861,6 +888,16 @@ enum PRPTableStatsTags {
             [customCell.rdFollowUpCustomSwitch addTarget:self action:@selector(handleSwitch:) forControlEvents:UIControlEventTouchUpInside];
                 
 			[customCell.producerAddOnButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [self.fields addObject: customCell.totalAppsPerMonthTextField];
+            [self.fields addObject: customCell.percentLiabTextField];
+            [self.fields addObject: customCell.producerAddOnTextField];
+            [self.fields addObject: customCell.rdFollowUpTextField];
+            [self.fields addObject: customCell.monthlyGoalTextField];
+            [self.fields addObject: customCell.percentFDLTextField];
+            [self.fields addObject: customCell.rdFollowUpCustomSwitch];
+            [self.fields addObject: customCell.producerAddOnButton];
+
 			
 			cell = customCell;
 		}
