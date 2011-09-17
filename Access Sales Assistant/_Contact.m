@@ -84,6 +84,13 @@
 
 
 
+@dynamic producerId;
+
+
+
+
+
+
 @dynamic rdFollowUp;
 
 

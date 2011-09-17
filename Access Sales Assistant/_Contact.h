@@ -16,6 +16,7 @@
 
 
 
+
 @interface ContactID : NSManagedObjectID {}
 @end
 
@@ -52,6 +53,14 @@
 
 
 //- (BOOL)validateLastName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSString *producerId;
+
+
+//- (BOOL)validateProducerId:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -149,6 +158,12 @@
 
 - (NSString*)primitiveLastName;
 - (void)setPrimitiveLastName:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveProducerId;
+- (void)setPrimitiveProducerId:(NSString*)value;
 
 
 
