@@ -13,11 +13,15 @@
 
 @class UICRouteOverlayMapView;
 
-@interface VisitApplicationMapViewController : BaseDetailViewController <UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, UICGDirectionsDelegate>
+@interface VisitApplicationMapViewController : BaseDetailViewController <UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, UICGDirectionsDelegate> {
+	UILabel *_titleLabel;
+}
 
 
 
 
+
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (strong, nonatomic) IBOutlet UITableView *producersTableView;
 @property (strong, nonatomic) IBOutlet MKMapView *directionsMapView;

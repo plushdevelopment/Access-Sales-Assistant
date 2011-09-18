@@ -19,6 +19,7 @@
 #import "UITableView+PRPSubviewAdditions.h"
 
 @implementation VisitApplicationMapViewController
+@synthesize titleLabel = _titleLabel;
 @synthesize toolBar = _toolBar;
 @synthesize producersTableView=_producersTableView;
 @synthesize directionsMapView = _directionsMapView;
@@ -58,6 +59,7 @@
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate matches %@", _selectedDay];
 		self.producers = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES withPredicate:predicate];
 	}
+	self.titleLabel.text = selectedDay;
 	[self configureView];
 }
 
@@ -158,6 +160,7 @@
 	[self setToolBar:nil];
     [self setTabBarController:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self setTitleLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

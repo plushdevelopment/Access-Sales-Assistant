@@ -28,10 +28,12 @@
 @property (nonatomic, strong) IBOutlet UITextView *followUpTextField;
 @property (nonatomic, strong) IBOutlet UIScrollView* scrollView;
 @property (nonatomic,strong) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *submitButton;
 @property (nonatomic,strong) NSString* titleText;
 
 - (void)configureView;
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;
-
+-(BOOL)isEnableSubmit;
+-(void) toggleSubmitButton:(BOOL)isEnable;
 @end

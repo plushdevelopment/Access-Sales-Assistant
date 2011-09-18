@@ -60,6 +60,10 @@
 				producer.address = [NSString stringWithFormat:@"%@,%@", producer.latitude, producer.longitude];
 				// Hours of Operation
 				HoursOfOperation *hoursOfOperation = producer.hoursOfOperation;
+				if (!hoursOfOperation) {
+					hoursOfOperation = [HoursOfOperation createInContext:self.context];
+					[producer setHoursOfOperation:hoursOfOperation];
+				}
 				NSAssert(hoursOfOperation, @"Hours of Operation is nil");
 				[hoursOfOperation safeSetValuesForKeysWithDictionary:[dict valueForKey:@"hoursOfOperation"] dateFormatter:nil managedObjectContext:self.context];
 				// Contacts
@@ -74,6 +78,8 @@
 						[contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.context];
 					}
 				}
+			} else {
+				NSLog(@"Producer has been editted:\n %@", [producer jsonStringValue]);
 			}
 		}
 	}

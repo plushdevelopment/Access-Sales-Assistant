@@ -606,15 +606,15 @@
 -(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem
 {
     addressCell.streetAddress1TextField.text = withAddrItem.addressLine1;
-	[self saveTextFieldToContext:addressCell.streetAddress1TextField];
+	//[self saveTextFieldToContext:addressCell.streetAddress1TextField];
     addressCell.streetAddress2TextField.text = withAddrItem.addressLine2;
-	[self saveTextFieldToContext:addressCell.streetAddress2TextField];
+	//[self saveTextFieldToContext:addressCell.streetAddress2TextField];
     addressCell.cityTextField.text = withAddrItem.city;
-	[self saveTextFieldToContext:addressCell.cityTextField];
+	//[self saveTextFieldToContext:addressCell.cityTextField];
     addressCell.stateTextField.text = withAddrItem.state.name;
-	[self saveTextFieldToContext:addressCell.stateTextField];
+	//[self saveTextFieldToContext:addressCell.stateTextField];
     addressCell.zipTextField.text = withAddrItem.postalCode;
-	[self saveTextFieldToContext:addressCell.zipTextField];
+	//[self saveTextFieldToContext:addressCell.zipTextField];
 }
 
 -(ProducerContactTableViewCell*) contactTableViewCell:(ProducerContactTableViewCell*) contactCell:(NSInteger)forRow
@@ -2198,8 +2198,8 @@
                 case EProducerName:
                 {
                     self.detailItem.name = textField.text;
-                    break;
                 }
+					break;
                 case ESubTerritory:
                 {
                     self.detailItem.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:textField.text managedObjectContext:[NSManagedObjectContext defaultContext]];
@@ -2215,8 +2215,8 @@
                 case EPrimaryContact:
                 {
                     self.detailItem.primaryContact = textField.text;
-                    break;
                 }
+					break;
             }
         }
             break;
@@ -2232,16 +2232,8 @@
                 }
                     break;
             }
-            break;
         }
-        case EStatus:
-        {
-            break;
-        }
-        case EHoursOfOperation:
-            break;
-        case ERater:
-            break;
+			break;
         case ECompanyContactInfo:
         {
             switch(tag)
@@ -2254,8 +2246,8 @@
                 case EFax://4
                 {
                     [self modifyPhoneItem:textField :4];                    
-                    break;
                 }
+					break;
                 case EMainEmail: //1
                 {
                     [self modifyEmailItem:textField :1];
@@ -2265,19 +2257,16 @@
                 {
                     [self modifyEmailItem:textField :2];
                 }
-                    
                     break;
                 case EAccountingEmail: //3
                 {  
                     [self modifyEmailItem:textField :3];
                 }
-                    
                     break;
                 case ECustomerServiceEmail: //4
                 {  
                     [self modifyEmailItem:textField :4];
                 }
-                    
                     break;
                 case EWebsiteAddress:
                 {
@@ -2285,9 +2274,8 @@
                 }
                     break;
             }
-            
-            break;
         }
+			break;
         case EAddresses:
         {
 			
@@ -2387,7 +2375,6 @@
 					}
 					email.address = textField.text;
 				}
-                    //  cnt.e
                     break;
                 case EContactSSN:
                     cnt.ssn = textField.text;
@@ -2413,11 +2400,14 @@
             }
             break;
         }
+			break;
+		default:
+			break;
     }
     
 	[[NSManagedObjectContext defaultContext] save];
-	
 	//[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+	[self.tableView reloadData];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
@@ -2965,7 +2955,7 @@
         }
     }
 	[[NSManagedObjectContext defaultContext] save];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 }
 @end

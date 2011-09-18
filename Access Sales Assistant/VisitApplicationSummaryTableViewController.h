@@ -38,6 +38,7 @@ optionSelectedDelegate> {
 @property (nonatomic) BOOL isCompetetorEdited;
 @property (nonatomic) BOOL isPersonEdited;
 @property (nonatomic) BOOL isBarrierEdited;
+@property (nonatomic) BOOL isFormDisabled;
 @property (nonatomic, strong) NSMutableSet *fields;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *dismissButton;

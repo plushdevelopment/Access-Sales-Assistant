@@ -195,10 +195,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 - (void)requestPickListsFinished:(ASIHTTPRequest *)request
 {
 	NSString *responseString = [request responseString];
-
+	
 	NSArray *results = [responseString objectFromJSONString];
     
-   
+	
 	for (NSDictionary *dict in results) {
 		NSString *pickListType = [dict valueForKey:@"name"];
 		NSArray *pickListItems = [dict objectForKey:@"pickList"];
@@ -352,30 +352,31 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	} else {
 		NSString *responseString = [request responseString];
 		NSDictionary *responseJSON = [responseString JSONValue];
-		NSAssert(responseJSON, @"Failed to parse response");
-		Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
-		producer.editedValue = NO;
-		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-		[formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
-		[producer safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
-		// Hours of Operation
-		HoursOfOperation *hoursOfOperation = producer.hoursOfOperation;
-		NSAssert(hoursOfOperation, @"Hours of Operation is nil");
-		[hoursOfOperation safeSetValuesForKeysWithDictionary:[responseJSON valueForKey:@"hoursOfOperation"] dateFormatter:nil managedObjectContext:self.managedObjectContext];
-		// Contacts
-		NSArray *contactsArray = [responseJSON valueForKey:@"contacts"];
-		if (contactsArray.count > 0) {
-			for (Contact *contact in producer.contacts) {
-				[contact deleteInContext:self.managedObjectContext];
+		if (responseJSON) {
+			NSAssert(responseJSON, @"Failed to parse response");
+			Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
+			producer.editedValue = NO;
+			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+			[formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
+			[producer safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
+			// Hours of Operation
+			HoursOfOperation *hoursOfOperation = producer.hoursOfOperation;
+			NSAssert(hoursOfOperation, @"Hours of Operation is nil");
+			[hoursOfOperation safeSetValuesForKeysWithDictionary:[responseJSON valueForKey:@"hoursOfOperation"] dateFormatter:nil managedObjectContext:self.managedObjectContext];
+			// Contacts
+			NSArray *contactsArray = [responseJSON valueForKey:@"contacts"];
+			if (contactsArray.count > 0) {
+				for (Contact *contact in producer.contacts) {
+					[contact deleteInContext:self.managedObjectContext];
+				}
+				for (NSDictionary *contactDictionary in contactsArray) {
+					Contact *contact = [Contact createInContext:self.managedObjectContext];
+					[contact setProducer:producer];
+					[contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
+				}
 			}
-			for (NSDictionary *contactDictionary in contactsArray) {
-				Contact *contact = [Contact createInContext:self.managedObjectContext];
-				[contact setProducer:producer];
-				[contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
-			}
+			[self.managedObjectContext save];
 		}
-		[self.managedObjectContext save];
-		
 		[UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_PROFILE_REQUEST_SUCCESS buttonTitle:@"OK"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Successful" object:request];
 	}
@@ -418,19 +419,36 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 
 - (void)postDailySummaryFinished:(ASIHTTPRequest *)request
 {
-	NSString *responseString = [request responseString];
-	NSDictionary *responseJSON = [responseString JSONValue];
-    
-    NSLog(@"Daily Summary Response: %@",responseJSON);
-	Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKeyPath:@"producerId.uid"] managedObjectContext:self.managedObjectContext];
-	producer.dailySummary.editedValue = NO;
-	producer.submittedValue = YES;
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
-	[producer.dailySummary safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
-	[self.managedObjectContext save];
-	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Summary Successful" object:request];
-	[UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_SUMMARY_REQUEST_SUCCESS buttonTitle:@"OK"];
+	if ([request responseStatusCode] != 200) {
+		[self postDailySummaryFailed:request];
+	} else {
+		NSString *responseString = [request responseString];
+		NSDictionary *responseJSON = [responseString JSONValue];
+		if (responseJSON) {
+			NSLog(@"Daily Summary Response: %@",responseJSON);
+			Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKeyPath:@"producerId.uid"] managedObjectContext:self.managedObjectContext];
+			producer.dailySummary.editedValue = NO;
+			producer.submittedValue = YES;
+			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+			[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+			[producer.dailySummary safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
+			// Contacts
+			NSArray *notesArray = [responseJSON valueForKey:@"notes"];
+			if (notesArray.count > 0) {
+				for (Note *note in producer.dailySummary.notes) {
+					[note deleteInContext:self.managedObjectContext];
+				}
+				[self.managedObjectContext save];
+				for (NSDictionary *noteDictionary in notesArray) {
+					Note *note = [Note createInContext:self.managedObjectContext];
+					[note setDailySummary:producer.dailySummary];
+					[note safeSetValuesForKeysWithDictionary:noteDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
+				}
+			}
+			[self.managedObjectContext save];
+			[UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_SUMMARY_REQUEST_SUCCESS buttonTitle:@"OK"];
+		}
+	}
 }
 
 - (void)postDailySummaryFailed:(ASIHTTPRequest *)request
@@ -665,7 +683,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
         [[NSNotificationCenter defaultCenter] postNotificationName:@"Get Videos Success" object:responseJSON];
     }
     
-
+	
 }
 
 -(void)getTrainingVideosFailed:(ASIHTTPRequest *)request
@@ -806,7 +824,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 
 -(void)postQAResolutionForm:(NSString*)qaResolutionForm
 {
-  //  NSLog(@"%@",qaResolutionForm);
+	//  NSLog(@"%@",qaResolutionForm);
     
     NSLog(@"%@", qaResolutionForm);
 	if ([[self networkQueue] isSuspended]) {
@@ -825,13 +843,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDidFinishSelector:@selector(postQAResolutionFormFinished:)];
 	[request setDidFailSelector:@selector(postQAResolutionFormFailed:)];
 	[request setPostBody:[NSMutableData dataWithData:[qaResolutionForm dataUsingEncoding:NSASCIIStringEncoding]]];
-//	[request setNumberOfTimesToRetryOnTimeout:3];
+	//	[request setNumberOfTimesToRetryOnTimeout:3];
     
     [request setTimeOutSeconds:60];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
-
+	
 }
 -(void)postQAResolutionFormFinished:(ASIHTTPRequest*)request
 {

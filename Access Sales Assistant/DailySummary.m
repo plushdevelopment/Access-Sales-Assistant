@@ -7,19 +7,12 @@
 
 - (void)awakeFromFetch
 {
-	if ([self.personsSpokeWith count] == 0) {
-		PersonSpokeWith *person = [PersonSpokeWith createEntity];
-		[self addPersonsSpokeWithObject:person];
-	}
 	
-	if ([self.competitors count] == 0) {
-		Competitor *competitor = [Competitor createEntity];
-		[self addCompetitorsObject:competitor];
-	}
 }
 
 - (void)awakeFromInsert
 {
+	/*
 	Note *opportunityNote = [Note createEntity];
 	[opportunityNote setTypeValue:1];
 	Note *summaryNote = [Note createEntity];
@@ -29,6 +22,7 @@
 	Note *followUpNote = [Note createEntity];
 	[followUpNote setTypeValue:4];
 	[self setNotes:[NSSet setWithObjects:opportunityNote, summaryNote, committmentNote, followUpNote, nil]];
+	 */
 }
 
 @end

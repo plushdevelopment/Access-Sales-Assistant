@@ -32,8 +32,8 @@
 
 #define SECTION_HEADER_HEIGHT       48
 #define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
-#define CONTACT_OPTIONS             @"Email Sales Compliance",@"Email Customer Service",@"Email Insufficient Funds",@"Email Product",@"Email QA Form",@"Email Facilities",@"Quality Assurance Timetable",@"Email Help Desk",nil
-#define SECTION_TITLES              @"Visit Application",@"Prospect Application",@"Features & Benefits",@"Access Academy",@"Contacts",@"GPS",@"Search Producer",@"Total Access",nil
+#define CONTACT_OPTIONS             @"Email Sales Compliance",@"Email Customer Service",@"Email Insufficient Funds",@"Email Product",@"Quality Assurance Form",@"Email Facilities",@"Quality Assurance Timetable",@"Email Help Desk",nil
+#define SECTION_TITLES              @"Daily Schedule",@"Add New Prospect",@"Features & Benefits",@"Training",@"Email Atlanta",@"GPS",@"Search Producer",@"Total Access",nil
 
 #define SOCIAL_MEDIA_OPTIONS @"Access.com",@"LinkedIn",@"Twitter",@"Facebook",@"Career Builder",nil
 #define SOCIAL_MEDIA_IMAGE_NAME @"access_icon.png",@"linkedin_icon.png",@"twitter_icon.png",@"facebook_icon.png",@"career_builder_icon.png",nil
