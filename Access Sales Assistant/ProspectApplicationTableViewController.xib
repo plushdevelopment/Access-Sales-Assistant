@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">0</int>
+		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
@@ -85,6 +85,7 @@
 						<string key="NSFrame">{{0, 44}, {768, 980}}</string>
 						<reference key="NSSuperview" ref="523198357"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -122,7 +123,7 @@
 								<int key="IBUITag">1001</int>
 								<string key="IBUITitle">Submit</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<int key="IBUIStyle">1</int>
+								<int key="IBUIStyle">2</int>
 								<reference key="IBUIToolbar" ref="1062778064"/>
 							</object>
 						</array>
@@ -712,7 +713,7 @@
 						<string key="raterTableViewCell">ProducerRaterTableViewCell</string>
 						<string key="spaceButton">UIBarButtonItem</string>
 						<string key="submitButton">UIBarButtonItem</string>
-						<string key="tableView">UITableView</string>
+						<string key="tableView">SmartTableView</string>
 						<string key="toolBar">UIToolbar</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -758,7 +759,7 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="tableView">
 							<string key="name">tableView</string>
-							<string key="candidateClassName">UITableView</string>
+							<string key="candidateClassName">SmartTableView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="toolBar">
 							<string key="name">toolBar</string>
@@ -784,7 +785,7 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="0.0" key="NS.object.0"/>
+			<real value="1280" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>

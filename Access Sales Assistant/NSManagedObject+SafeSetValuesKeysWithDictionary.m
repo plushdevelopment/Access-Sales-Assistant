@@ -77,9 +77,9 @@
 				} else if ([desc.description isEqualToString:@"addressLine1"]) {
 					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"addressLine1" value:[value valueForKey:@"addressLine1"] managedObjectContext:context];
 				} else if ([desc.description isEqualToString:@"number"]) {
-					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"number" value:[value valueForKey:@"number"] managedObjectContext:context];
+					object = [[NSClassFromString([entityDesc name]) class] createInContext:context];
 				} else if ([desc.description isEqualToString:@"address"]) {
-					object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"address" value:[value valueForKey:@"address"] managedObjectContext:context];
+					object = [[NSClassFromString([entityDesc name]) class] createInContext:context];
 				}  else if ([desc.description isEqualToString:@"text"] && [self isKindOfClass:[Producer class]]) {
 					Producer *producer = (Producer *)self;
 					object = producer.questions.anyObject;
@@ -111,9 +111,9 @@
 					} else if ([desc.description isEqualToString:@"addressLine1"]) {
 						object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"addressLine1" value:[subValue valueForKey:@"addressLine1"] managedObjectContext:context];
 					} else if ([desc.description isEqualToString:@"number"]) {
-						object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"number" value:[subValue valueForKey:@"number"] managedObjectContext:context];
+						object = [[NSClassFromString([entityDesc name]) class] createInContext:context];
 					} else if ([desc.description isEqualToString:@"address"]) {
-						object = [[NSClassFromString([entityDesc name]) class] ai_objectForProperty:@"address" value:[subValue valueForKey:@"address"] managedObjectContext:context];
+						object = [[NSClassFromString([entityDesc name]) class] createInContext:context];
 					}  else if ([desc.description isEqualToString:@"text"] && [self isKindOfClass:[Producer class]]) {
 						Producer *producer = (Producer *)self;
 						object = producer.questions.anyObject;

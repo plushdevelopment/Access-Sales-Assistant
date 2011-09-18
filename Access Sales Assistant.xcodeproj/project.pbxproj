@@ -229,8 +229,6 @@
 		FF8CA83013B0D03200BA9A7B /* NSScanner+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA82A13B0D03200BA9A7B /* NSScanner+BSJSONAdditions.m */; };
 		FF8CA83113B0D03200BA9A7B /* NSString+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA82C13B0D03200BA9A7B /* NSString+BSJSONAdditions.m */; };
 		FF8CA83813B0D1AE00BA9A7B /* NSManagedObjectExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA83713B0D1AE00BA9A7B /* NSManagedObjectExtras.m */; };
-		FF8CA83C13B1134B00BA9A7B /* AgenciesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA83A13B1134B00BA9A7B /* AgenciesTableViewController.m */; };
-		FF8CA83D13B1134B00BA9A7B /* AgenciesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8CA83B13B1134B00BA9A7B /* AgenciesTableViewController.xib */; };
 		FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */; };
 		FF8CA88513B1256500BA9A7B /* VisitApplicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */; };
 		FF90610B13B3AF8D009DCA0E /* button_menu_off.png in Resources */ = {isa = PBXBuildFile; fileRef = FF90610713B3AF8D009DCA0E /* button_menu_off.png */; };
@@ -808,9 +806,6 @@
 		FF8CA82C13B0D03200BA9A7B /* NSString+BSJSONAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BSJSONAdditions.m"; sourceTree = "<group>"; };
 		FF8CA83613B0D1AE00BA9A7B /* NSManagedObjectExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectExtras.h; sourceTree = "<group>"; };
 		FF8CA83713B0D1AE00BA9A7B /* NSManagedObjectExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectExtras.m; sourceTree = "<group>"; };
-		FF8CA83913B1134B00BA9A7B /* AgenciesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgenciesTableViewController.h; sourceTree = "<group>"; };
-		FF8CA83A13B1134B00BA9A7B /* AgenciesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgenciesTableViewController.m; sourceTree = "<group>"; };
-		FF8CA83B13B1134B00BA9A7B /* AgenciesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgenciesTableViewController.xib; sourceTree = "<group>"; };
 		FF8CA88113B1256500BA9A7B /* VisitApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationViewController.h; sourceTree = "<group>"; };
 		FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationViewController.m; sourceTree = "<group>"; };
 		FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationViewController.xib; sourceTree = "<group>"; };
@@ -2507,9 +2502,6 @@
 				FFA1A31613AF922200434B93 /* LoginViewController.h */,
 				FFA1A31713AF922200434B93 /* LoginViewController.m */,
 				FFA1A31813AF922200434B93 /* LoginViewController.xib */,
-				FF8CA83913B1134B00BA9A7B /* AgenciesTableViewController.h */,
-				FF8CA83A13B1134B00BA9A7B /* AgenciesTableViewController.m */,
-				FF8CA83B13B1134B00BA9A7B /* AgenciesTableViewController.xib */,
 				FF99B8A913B8A3FC00FC1A0B /* DatePickerViewController.h */,
 				FF99B8AA13B8A3FC00FC1A0B /* DatePickerViewController.m */,
 				FF99B8AB13B8A3FC00FC1A0B /* DatePickerViewController.xib */,
@@ -2582,7 +2574,6 @@
 				FFA1A31A13AF922200434B93 /* LoginViewController.xib in Resources */,
 				FFC9533F13AFCACE000967CB /* LICENSE in Resources */,
 				FFC9534513AFCACE000967CB /* README.md in Resources */,
-				FF8CA83D13B1134B00BA9A7B /* AgenciesTableViewController.xib in Resources */,
 				FF8CA88513B1256500BA9A7B /* VisitApplicationViewController.xib in Resources */,
 				FF77100B13B23DFC00E90F4B /* access-logo.png in Resources */,
 				FF77100C13B23DFC00E90F4B /* home-button.png in Resources */,
@@ -2873,7 +2864,6 @@
 				FF8CA83013B0D03200BA9A7B /* NSScanner+BSJSONAdditions.m in Sources */,
 				FF8CA83113B0D03200BA9A7B /* NSString+BSJSONAdditions.m in Sources */,
 				FF8CA83813B0D1AE00BA9A7B /* NSManagedObjectExtras.m in Sources */,
-				FF8CA83C13B1134B00BA9A7B /* AgenciesTableViewController.m in Sources */,
 				FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */,
 				FF99B8AC13B8A3FC00FC1A0B /* DatePickerViewController.m in Sources */,
 				FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */,

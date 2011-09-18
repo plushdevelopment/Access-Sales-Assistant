@@ -138,6 +138,8 @@ enum PRPTableStatsTags {
 
 @synthesize titleText;
 
+@synthesize fields=_fields;
+
 #pragma mark -
 #pragma mark IBActions
 
@@ -515,6 +517,7 @@ enum PRPTableStatsTags {
 	 self.tableView.backgroundColor = [UIColor clearColor];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	self.fields = [NSMutableSet set];
 }
 
 - (void)viewDidUnload
@@ -888,7 +891,7 @@ enum PRPTableStatsTags {
             [customCell.rdFollowUpCustomSwitch addTarget:self action:@selector(handleSwitch:) forControlEvents:UIControlEventTouchUpInside];
                 
 			[customCell.producerAddOnButton addTarget:self action:@selector(showSelectionTableView:) forControlEvents:UIControlEventTouchUpInside];
-            
+            /*
             [self.fields addObject: customCell.totalAppsPerMonthTextField];
             [self.fields addObject: customCell.percentLiabTextField];
             [self.fields addObject: customCell.producerAddOnTextField];
@@ -897,7 +900,7 @@ enum PRPTableStatsTags {
             [self.fields addObject: customCell.percentFDLTextField];
             [self.fields addObject: customCell.rdFollowUpCustomSwitch];
             [self.fields addObject: customCell.producerAddOnButton];
-
+			 */
 			
 			cell = customCell;
 		}

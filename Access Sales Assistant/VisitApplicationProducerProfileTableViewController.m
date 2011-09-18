@@ -37,7 +37,7 @@
 #import "NSString-Validation.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ContactType.h"
-
+#import "UIHelpers.h"
 #import "SelectionModelViewController.h"
 
 @implementation VisitApplicationProducerProfileTableViewController
@@ -86,6 +86,8 @@
 
 - (IBAction)submit:(id)sender
 {
+	NSString *message = @"Updates to the following fields will not be reflected immediately:\n- Agency Name\n- Rater\n- Rater 2\n- Mailing Address\n- Commission Address\n- Physical Address\n- Contact SSN";
+	[UIHelpers showAlertWithTitle:@"Alert" msg:message buttonTitle:@"OK"];
 	[[HTTPOperationController sharedHTTPOperationController] postProducerProfile:[self.detailItem jsonStringValue]];
 }
 
@@ -155,8 +157,8 @@
 }
 -(void) toggleSubmitButton:(BOOL) isEnable
 {
-    [_submitButton setEnabled:YES];
-    //[_submitButton setEnabled:isEnable];
+    //[_submitButton setEnabled:YES];
+    [_submitButton setEnabled:isEnable];
 }
 - (void)setDetailItem:(id)newDetailItem
 {
@@ -275,8 +277,6 @@
 			 cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];*/
 			
             return cell;
-            
-			
             
             break;
         }
@@ -606,10 +606,15 @@
 -(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem
 {
     addressCell.streetAddress1TextField.text = withAddrItem.addressLine1;
+	[self saveTextFieldToContext:addressCell.streetAddress1TextField];
     addressCell.streetAddress2TextField.text = withAddrItem.addressLine2;
+	[self saveTextFieldToContext:addressCell.streetAddress2TextField];
     addressCell.cityTextField.text = withAddrItem.city;
+	[self saveTextFieldToContext:addressCell.cityTextField];
     addressCell.stateTextField.text = withAddrItem.state.name;
+	[self saveTextFieldToContext:addressCell.stateTextField];
     addressCell.zipTextField.text = withAddrItem.postalCode;
+	[self saveTextFieldToContext:addressCell.zipTextField];
 }
 
 -(ProducerContactTableViewCell*) contactTableViewCell:(ProducerContactTableViewCell*) contactCell:(NSInteger)forRow
@@ -1183,14 +1188,6 @@
             {
                 case ESubTerritory:
                 {
-                    /*[self.selectionTableView AssignDataSource:[Rater findAll]];
-					 
-					 [self.selectionTableView  setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-					 [self.selectionTableView  setModalPresentationStyle:UIModalPresentationFormSheet];
-					 [self presentModalViewController:self.selectionTableView  animated:YES];
-					 self.selectionTableView.delegate = self;
-                     */
-					
                     break;
                 }
             }
@@ -2420,7 +2417,7 @@
     
 	[[NSManagedObjectContext defaultContext] save];
 	
-	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+	//[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType

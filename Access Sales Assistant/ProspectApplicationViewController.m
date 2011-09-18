@@ -218,8 +218,6 @@
     producerNamesArray = (NSMutableArray*) [notification object];
     [self showTableView];
     
-    
-   // NSLog(@"Producers List:%@",array);
 }
 -(IBAction)subTerritoryAction:(id)sender
 {
@@ -367,7 +365,6 @@
     
     for (Contact *cnt in _detailItem.contacts)
     {
-        NSLog(cnt.type.name);
         if(cnt.type.name == @"Owner" )
         {
             [self.ownerFirstName setText:cnt.firstName];

@@ -7,9 +7,7 @@
 //
 
 #import "ProspectApplicationTableViewController.h"
-
 #import "UITableView+PRPSubviewAdditions.h"
-
 #import "ProspectAppConstants.h"
 #import "State.h"
 #import "Rater.h"
@@ -25,10 +23,7 @@
 #import "NSString-Validation.h"
 #import "SelectionModelViewController.h"
 
-
 @implementation ProspectApplicationTableViewController
-
-
 
 @synthesize tableView = _tableView;
 @synthesize raterTableViewCell = _raterTableViewCell;
@@ -36,8 +31,6 @@
 @synthesize contactTableViewCell = _contactTableViewCell;
 @synthesize generalTableViewCell = _generalTableViewCell;
 @synthesize addressTableViewCell = _addressTableViewCell;
-
-
 @synthesize detailItem = _detailItem;
 @synthesize pickerViewController = _pickerViewController;
 @synthesize datePickerViewController = _datePickerViewController;
@@ -45,20 +38,8 @@
 @synthesize toolBar = _toolBar;
 @synthesize submitButton = _submitButton;
 @synthesize spaceButton = _spaceButton;
-
 @synthesize pListTableViewController = _pListTableViewController;
 @synthesize prospectPopoverController = _prospectPopoverController;
-
-/*
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
 
 - (void)hideKeyboard
 {
@@ -67,7 +48,7 @@
     [self.contactTableViewCell hideKeyboard];
     [self.addressTableViewCell hideKeyboard];
     [self.raterTableViewCell hideKeyboard];
-   
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,10 +64,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+	
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     sectionTitleArray = [[NSArray alloc] initWithObjects:PROSPECT_APP_SECTIONS];
@@ -98,23 +79,14 @@
     myTextFieldSemaphore =0;
     myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
     
-    
-  //   NSMutableArray *items1 = [[self.baseToolbar items] mutableCopy];
-    
-  //  int count = [items1 count];
-    
- //   [items1 insertObject:self.submitButton atIndex:[items1 count]];
-    
-  //  [self.baseToolbar setItems:items1 animated:YES];
-    
-  //  self.baseToolbar
     self.detailItem = [Producer createEntity];
-   Contact *contact = [Contact createEntity];
+	Contact *contact = [Contact createEntity];
     contact.type = [ContactType findFirstByAttribute:@"name" withValue:@"Owner"];
     [self.detailItem addContactsObject:contact];
-    
-   // self.tableView.backgroundColor = [UIColor lightGrayColor];
-     [self toggleSubmitButton:[self isEnableSubmit]];
+    self.detailItem.editedValue = YES;
+	contact.editedValue = YES;
+	[[NSManagedObjectContext defaultContext] save];
+	[self toggleSubmitButton:[self isEnableSubmit]];
 }
 
 - (void)viewDidUnload
@@ -158,15 +130,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    
     return [sectionTitleArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     NSInteger rows =0;
     // Return the number of rows in the section.
     switch (section) {
@@ -183,7 +151,7 @@
             rows = 1;
             break;
         case EContact:
-                rows = [_detailItem.contacts.allObjects count];
+			rows = [_detailItem.contacts.allObjects count];
             break;
             
         default:
@@ -198,7 +166,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
- 
+	
     switch(indexPath.section)
     {
         case EGeneral:
@@ -206,12 +174,8 @@
             [[NSBundle mainBundle] loadNibNamed:@"ProspectAppGeneralTableViewCell" owner:self options:nil];
             ProspectAppGeneralTableViewCell* cell = _generalTableViewCell;
             cell.producerNameField.text = _detailItem.name;
-            NSLog(_detailItem.name);
-         //   cell.tsmNameField.text = _detailItem
-            cell.subTerritoryField.text = _detailItem.subTerritory.uid.stringValue;//[[NSString alloc] initWithFormat:@"%d",_detailItem.subTerritory.uid.stringValue];
-          //  cell.sourceField.text = _detailItem.
-            
-              User *user = [User findFirst];
+            cell.subTerritoryField.text = _detailItem.subTerritory.uid.stringValue;
+			User *user = [User findFirst];
             cell.tsmNameField.text = [user username];
             
             [self disableTextField:cell.sourceField :NO];
@@ -227,7 +191,7 @@
             cell = [self addressTableViewCell:cell :(indexPath.row)+1];
             return cell;
         }
-          //  break;
+			//  break;
         case EContactInfo:
         {
             [[NSBundle mainBundle] loadNibNamed:@"ProspectAppCompanyContactInfoTableViewCell" owner:self options:nil];
@@ -240,7 +204,7 @@
                     [cell.faxTextField setText:phoneNumber.number];
                 }
             }
-           
+			
             for (EmailListItem *email in _detailItem.emails) {
                 
                 if (email.typeValue == 3) {
@@ -269,8 +233,8 @@
         }
             break;
     }
-
- 
+	
+	return nil;
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section 
@@ -318,12 +282,12 @@
         }
         case EContact:
         {
-          /*  if (indexPath.row == _detailItem.contacts.allObjects.count) {
-                height =44.0;
-            }
-            else
-           */
-                height = CONTACT_HEIGHT;
+			/*  if (indexPath.row == _detailItem.contacts.allObjects.count) {
+			 height =44.0;
+			 }
+			 else
+			 */
+			height = CONTACT_HEIGHT;
             break;
         }
         default:
@@ -347,7 +311,7 @@
             addressCell.cityTextField.text = addrItem.city;
             addressCell.stateTextField.text = addrItem.state.name;
             addressCell.zipTextField.text = addrItem.postalCode;
-          //  if()
+			//  if()
             break;
         }
         
@@ -359,34 +323,8 @@
     else if(forType == 3)
         addressCell.addressTitle.text = @"Physical Address";
     
-        
-    return addressCell;
-}
-
-- (void)nextField:(NSInteger)currentTag
-{	
 	
-	if (self.pickerViewController.view.superview != nil) {
-		self.pickerViewController.currentIndexPath = nil;
-		self.pickerViewController.currentTag = 0;
-		//Position the picker out of sight
-		[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
-		//This animation will work on iOS 4
-		//For older iOS, use "beginAnimation:context"
-		[UIView animateWithDuration:0.2 animations:^{[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){
-			[[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillHideNotification object:nil];
-			[self.pickerViewController.view removeFromSuperview];}];
-	} else if (self.datePickerViewController.view.superview != nil) {
-		self.datePickerViewController.currentIndexPath = nil;
-		self.datePickerViewController.currentTag = 0;
-		//Position the picker out of sight
-		[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
-		//This animation will work on iOS 4
-		//For older iOS, use "beginAnimation:context"
-		[UIView animateWithDuration:0.2 animations:^{[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){
-			[[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillHideNotification object:nil];
-			[self.datePickerViewController.view removeFromSuperview];}];
-	}
+    return addressCell;
 }
 
 
@@ -504,8 +442,8 @@
             {
                 case EAddressState:
                 {
-                    [selectionView assignDataSource:[State findAllSortedBy:@"name" ascending:YES]];
-                   
+                    [selectionView assignDataSource:(NSMutableArray*)[State findAllSortedBy:@"name" ascending:YES]];
+					
                     break;
                 }
             }
@@ -517,24 +455,28 @@
             {
                 case ERater1:
                 {
-                    [selectionView assignDataSource:[Rater findAllSortedBy:@"name" ascending:YES]];
-                  //  [self presentModalViewController:selectionView animated:YES];
+                    NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[Rater findAllSortedBy:@"name" ascending:YES]];
+					NSDictionary *dict = [NSDictionary dictionaryWithObject:@"None" forKey:@"name"];
+					[dataSource addObject:dict];
+                    [selectionView assignDataSource:dataSource];
                 }
-                break;
+					break;
                 case ERater2:
                 {
-                    [selectionView assignDataSource:[Rater2 findAllSortedBy:@"name" ascending:YES]];
-                   
+                    NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[Rater2 findAllSortedBy:@"name" ascending:YES]];
+					NSDictionary *dict = [NSDictionary dictionaryWithObject:@"None" forKey:@"name"];
+					[dataSource addObject:dict];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
             }
         }
             break;
-
+			
     }
-        [self hideKeyboard];
-[self.parentViewController presentViewController:selectionView animated:YES completion:^(void){}];
-
+	[self hideKeyboard];
+	[self.parentViewController presentViewController:selectionView animated:YES completion:^(void){}];
+	
 }
 
 
@@ -543,9 +485,8 @@
 
 - (void)datePickerViewController:(DatePickerViewController *)controller didChangeDate:(NSDate *)toDate forTag:(NSInteger)tag
 {
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	
-  }
+}
 
 #pragma mark -
 #pragma mark UIPickerViewDataSource
@@ -558,7 +499,7 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
 	NSInteger rows = 0;
-   switch(self.pickerViewController.currentIndexPath.section)
+	switch(self.pickerViewController.currentIndexPath.section)
     {
         case EGeneral:
         {
@@ -584,7 +525,7 @@
             }
             break;
         }
-              case EAddresses:
+		case EAddresses:
         {
             switch(self.pickerViewController.currentTag)
             {
@@ -600,12 +541,9 @@
             
     }
     
-  
+	
     return rows;
 }
-
-
-//NSArray *sorted = [unsorted sortedArrayUsingFunction:dateSort context:nil];
 
 #pragma mark -
 #pragma mark UIPickerViewDelegate
@@ -637,7 +575,7 @@
             break;
             
         }
-             case ERater:
+		case ERater:
         {
             switch(self.pickerViewController.currentTag)
             {
@@ -650,25 +588,21 @@
             }
             break;
         }
-              case EAddresses:
+		case EAddresses:
         {
             switch(self.pickerViewController.currentTag)
             {
                 case EAddressState:
                 {
-                    int indRow = self.pickerViewController.currentIndexPath.row;
                     switch(self.pickerViewController.currentIndexPath.row)
                     {
                         case 0:
                         {
                             AddressListItem *addrItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
-                                int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 1) {
                                     addrItem = address;
-                                    
-                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                    continue;
+                                    break;
                                 }
                             }
                             if(addrItem != nil)
@@ -690,11 +624,8 @@
                         {
                             AddressListItem *addrItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
-                                int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 2) {
                                     addrItem = address;
-                                    
-                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
                                     break;
                                 }
                             }
@@ -717,12 +648,9 @@
                         {
                             AddressListItem *addrItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
-                                int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 3) {
                                     addrItem = address;
-                                    
-                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                    continue;
+                                    break;
                                 }
                             }
                             if(addrItem != nil)
@@ -749,14 +677,10 @@
             break;
         }
     }
-	
-	//	[self.managedObjectContext save];
     [[NSManagedObjectContext defaultContext]save];
-	[self.tableView reloadData];
+	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
     
-   //  [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-    
- }
+}
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
@@ -771,7 +695,7 @@
             {
                 case ESubTerritory:
                 {
-                   // theTitle = [[[SubTerritory findAll] objectAtIndex:row] name];
+					// theTitle = [[[SubTerritory findAll] objectAtIndex:row] name];
                     theTitle = [NSString stringWithFormat:@"%d", row];
                     break;
                 }
@@ -786,7 +710,7 @@
             {
                 case EAddressState:
                 {
-                     theTitle = [[[State findAll] objectAtIndex:row] name];
+					theTitle = [[[State findAll] objectAtIndex:row] name];
                     break;
                 }
             }
@@ -806,7 +730,7 @@
                     theTitle = [[[Rater2 findAll] objectAtIndex:row] name];
                     break;
                 }
-                
+					
             }
         }
             break;
@@ -826,12 +750,9 @@
                                                object:nil];
     
     UIButton *btn = (UIButton*)sender;
-
+	
     ProspectAppGeneralTableViewCell *parentCell = (ProspectAppGeneralTableViewCell *)[[btn superview] superview];
     
-   
-    
-    //  [_agencyName resignFirstResponder];
     [parentCell.producerNameField resignFirstResponder];
     
     NSString* escapedString = parentCell.producerNameField.text;
@@ -843,21 +764,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"searchProducer" object:nil];
     [producerNamesArray removeAllObjects];
     producerNamesArray = (NSMutableArray*) [notification object];
-    NSLog(@"searchProducer Array : %@",producerNamesArray);
-  //  [self showTableView];
-    
-    
-    // NSLog(@"Producers List:%@",array);
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-//	[self saveTextFieldToContext:textField];
-   // NSString *text = [NSString stringWithFormat:@"%@%@", textField.text, string];
-     NSString *replacementString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    NSLog(@"%@", replacementString);
+	NSString *replacementString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-   // [self autoFormatPhoneNumber:textField];
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
     
@@ -869,19 +781,17 @@
             {
                 case EAddressZip:
                 {
-            if([replacementString isValidZipCode])
-            {
-              //  addrItem.postalCode =textField.text;
-                [self changeTextFieldOutline:textField :YES];
-            }
-            else
-            {
-                //[self showAlert:VALID_ZIP_CODE_ALERT];
-                [self changeTextFieldOutline:textField :NO];
-            }
+					if([replacementString isValidZipCode])
+					{
+						[self changeTextFieldOutline:textField :YES];
+					}
+					else
+					{
+						[self changeTextFieldOutline:textField :NO];
+					}
                 }break;
             }
-
+			
             break;
         }
         case EContactInfo:
@@ -893,58 +803,49 @@
                 {
                     if([replacementString isValidPhoneNumber])
                     {
-                      
+						
                         [self changeTextFieldOutline:textField:YES];
                     }
                     else
                     {
-                       
+						
                         [self changeTextFieldOutline:textField:NO];
-                        //textField.text  = @"";
                     }
-
+					
                     
                 }
                     break;
                 case EContactInfoFax:
                 {
                     if([replacementString isValidPhoneNumber])
-                   // if([text isvalidSSN])
                     {
-                       
                         [self changeTextFieldOutline:textField:YES];
                     }
                     else
                     {
-                       
                         [self changeTextFieldOutline:textField:NO];
-                        // textField.text  = @"";
                     }
                 }
-                                      
+					
                     break;
                 case EContactInfoEmail:
-                    {
-                        
-                        if([replacementString isValidEmail])
-                        {
-                            
-                          
-                            [self changeTextFieldOutline:textField:YES];
-                        }
-                        else
-                        {
-                          
-                            [self changeTextFieldOutline:textField:NO];
-                            //   textField.text  = @"";
-                        }
-                    }
+				{
+					
+					if([replacementString isValidEmail])
+					{
+						[self changeTextFieldOutline:textField:YES];
+					}
+					else
+					{
+						[self changeTextFieldOutline:textField:NO];
+					}
+				}
                     break;
-                }
-            }
-
+			}
+		}
+			
     }
-
+	
 	return YES;
 }
 
@@ -954,10 +855,7 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    
     [self saveTextFieldToContext:textField];
-    //   [[NSManagedObjectContext defaultContext] save];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -977,17 +875,11 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	// Set the next form field active
-	//[self nextField:textField.tag];
-    [textField resignFirstResponder];
 	return YES;
 }
 
 -(void) saveTextFieldToContext:(UITextField*) textField
 {
- //   if([textField.text length]<=0)
-   //     return;
-    
     Producer *producer = (Producer *)self.detailItem;
 	if (!producer.editedValue) {
 		producer.editedValue = YES;
@@ -1012,10 +904,8 @@
                 {
                     self.detailItem.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:textField.text managedObjectContext:[NSManagedObjectContext defaultContext]];
                     break;
-                    //  self.
-                    
                 }
-
+					
                 case ESource:
                     break;
             }
@@ -1031,7 +921,7 @@
             {
                 if(addr.addressTypeValue == rowInd)
                 {
-                    addrItem = addr;//[addrArray objectAtIndex:indexPath.row]; 
+                    addrItem = addr;
                     break;
                 }
             }
@@ -1043,13 +933,13 @@
                 [self.detailItem addAddressesObject:addrItem];
             }
             
+			addrItem.editedValue = YES;
             
             switch(tag)
             {
                 case EAddressStreet1:
                 {
                     addrItem.addressLine1= textField.text;
-                    NSLog(textField.text);
                 }
                     break;
                 case EAddressStreet2:
@@ -1073,7 +963,7 @@
                 }
                     break;
             }
-
+			
         }
             break;
         case EContactInfo:
@@ -1081,7 +971,7 @@
             
             switch(tag)
             {
-               case EContactInfoPhone:
+				case EContactInfoPhone:
                 {
                     
                     BOOL phoneExists = FALSE;
@@ -1099,13 +989,12 @@
                             {
                                 [self showAlert:VALID_PHONE_ALERT];
                                 [self changeTextFieldOutline:textField:NO];
-                                //textField.text  = @"";
                             }
                             break;
-
+							
                         }
                     }
-
+					
                     if(!phoneExists)
                     {
                         if([textField.text isValidPhoneNumber])
@@ -1121,13 +1010,12 @@
                         {
                             [self showAlert:VALID_PHONE_ALERT];
                             [self changeTextFieldOutline:textField:NO];
-                           // textField.text  = @"";
                         }
-
+						
                     }
                 }
                     break;
-               case EContactInfoFax:
+				case EContactInfoFax:
                 {
                     BOOL phoneExists = FALSE;
                     for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers)
@@ -1137,7 +1025,7 @@
                             phoneExists= TRUE;
                             if([textField.text isValidPhoneNumber])
                             {
-                            phoneNumber.number = textField.text;
+								phoneNumber.number = textField.text;
                                 [self changeTextFieldOutline:textField:YES];
                             }
                             else
@@ -1151,13 +1039,13 @@
                     
                     if(!phoneExists)
                     {
-                       if([textField.text isValidPhoneNumber])
+						if([textField.text isValidPhoneNumber])
                         {
-                        PhoneListItem *phNo = [PhoneListItem createEntity];
-                        phNo.typeValue = 4;
-                        phNo.number = textField.text;
-                        
-                        [self.detailItem addPhoneNumbersObject:phNo];
+							PhoneListItem *phNo = [PhoneListItem createEntity];
+							phNo.typeValue = 4;
+							phNo.number = textField.text;
+							
+							[self.detailItem addPhoneNumbersObject:phNo];
                             [self changeTextFieldOutline:textField:YES];
                         }
                         else
@@ -1165,59 +1053,52 @@
                             [self showAlert:VALID_PHONE_ALERT];
                             [self changeTextFieldOutline:textField:NO];
                         }
-
-                        
-                }
-
+					}
                     break;
-              case EContactInfoEmail:
-                {
-                    BOOL isMailExists = FALSE;
-                     for (EmailListItem *email in _detailItem.emails)
-                     {
-                         if(email.typeValue == 3)
-                         {
-                              isMailExists = TRUE;
-                             if([textField.text isValidEmail])
-                             {
+				case EContactInfoEmail:
+					{
+						BOOL isMailExists = FALSE;
+						for (EmailListItem *email in _detailItem.emails)
+						{
+							if(email.typeValue == 3)
+							{
+								isMailExists = TRUE;
+								if([textField.text isValidEmail])
+								{
+									
+									email.address = textField.text;
+									[self changeTextFieldOutline:textField:YES];
+								}
+								else
+								{
+									[self showAlert:VALID_EMAIL_ALERT];
+									[self changeTextFieldOutline:textField:NO];
+								}
+								break;
+							}
+						}
+						if(!isMailExists)
+						{
+							
+							if([textField.text isValidEmail])
+							{
+								EmailListItem* emailItem = [EmailListItem createEntity];
+								emailItem.typeValue = 3;
+								emailItem.address = textField.text;
+								[self.detailItem addEmailsObject:emailItem];
+								[self changeTextFieldOutline:textField:YES];
+							}
+							else
+							{
+								[self showAlert:VALID_EMAIL_ALERT];
+								[self changeTextFieldOutline:textField:NO];
+							}
                             
-                             email.address = textField.text;
-                                 [self changeTextFieldOutline:textField:YES];
-                             }
-                             else
-                             {
-                                 [self showAlert:VALID_EMAIL_ALERT];
-                                 [self changeTextFieldOutline:textField:NO];
-                             }
-                             break;
-                         }
-                     }
-                    if(!isMailExists)
-                    {
-                        
-                        if([textField.text isValidEmail])
-                        {
-                    EmailListItem* emailItem = [EmailListItem createEntity];
-                    emailItem.typeValue = 3;
-                    emailItem.address = textField.text;
-                        [self.detailItem addEmailsObject:emailItem];
-                            [self changeTextFieldOutline:textField:YES];
-                        }
-                        else
-                        {
-                            [self showAlert:VALID_EMAIL_ALERT];
-                            [self changeTextFieldOutline:textField:NO];
-                           //  textField.text  = @"";
-                        }
-                            
-                    }
-                }
+						}
+					}
                     break;
+				}
             }
-            }
-       
-
-         //   self.detailItem.ph
         }
             break;
         case EContact:
@@ -1227,19 +1108,16 @@
             break;
     }
     [[NSManagedObjectContext defaultContext] save];
+	//[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+	
     [self toggleSubmitButton:[self isEnableSubmit]];
-  //  [self.tableView reloadData];
 }
 
 -(IBAction)submitProspectApp:(id)sender
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showInfo:) name:@"Post Producer Successful" object:nil];
-    
     Producer *producer = (Producer *)self.detailItem;
-    
     [[HTTPOperationController sharedHTTPOperationController] postProducerProfile:[producer jsonStringValue]];
-    
-    
 }
 -(void) showInfo:(id) sender
 {
@@ -1249,7 +1127,7 @@
 
 -(void) toggleSubmitButton:(BOOL)isEnabled
 {
-     [_submitButton setEnabled:isEnabled];
+	[_submitButton setEnabled:isEnabled];
 }
 -(BOOL) isEnableSubmit
 {
@@ -1273,13 +1151,12 @@
                 for(AddressListItem *addrItem in _detailItem.addresses.allObjects)
                 {
                     if([addrItem.addressLine1 length]<=0||
-                    //   [addrItem.addressLine2 length]<=0||
                        addrItem.state == nil ||
                        [addrItem.city length]<=0 ||
                        [addrItem.postalCode length]<=0)
                         return FALSE;
                 }
-
+				
             }
                 break;
             case EContactInfo:
@@ -1298,27 +1175,18 @@
                             isPhoneNoFound = TRUE;
                     }
                     
-                                 
+					
                 }
-             /*   for(EmailListItem *eItem in _detailItem.emails.allObjects)
-                {
-                    if(eItem.typeValue == MAIN_EMAIL)
-                    {
-                        if([eItem.address length]>0)
-                            isEmailFound = TRUE;
-                    }
-                }
-              */
                 if(!isPhoneNoFound ) 
                     return FALSE;
-
+				
             }
                 break;
             case ERater:
             {
                 if(_detailItem.rater == nil)
                     return FALSE;
-
+				
             }
                 break;
             case EContact:
@@ -1327,24 +1195,24 @@
                 
         }
     }
-    return TRUE;
+    return YES;
 }
+
 -(IBAction)autoFormatPhoneNumber:(id)sender
 {
     if(myTextFieldSemaphore)
         return;
     UITextField *textField = (UITextField*)sender;
     
-     NSLog(textField.text);
     myTextFieldSemaphore = 1;
     textField.text = [myPhoneNumberFormatter format:textField.text withLocale:@"us"];
     myTextFieldSemaphore=0;
-
-    NSLog(textField.text);
+	
 }
 
 -(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag
 {
+	self.detailItem.editedValue = YES;
     switch(forIndexPath.section)
     {
         case EAddresses:
@@ -1363,8 +1231,6 @@
                                 int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 1) {
                                     addrItem = address;
-                                    
-                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
                                     continue;
                                 }
                             }
@@ -1379,6 +1245,8 @@
                                 addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
                                 [self.detailItem addAddressesObject:addrItem];
                             }
+							
+							addrItem.editedValue = YES;
                             
                             break;
                         }
@@ -1390,8 +1258,6 @@
                                 int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 2) {
                                     addrItem = address;
-                                    
-                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
                                     break;
                                 }
                             }
@@ -1406,7 +1272,8 @@
                                 addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
                                 [self.detailItem addAddressesObject:addrItem];
                             }
-                            
+							addrItem.editedValue = YES;
+							
                             break;
                         }
                             
@@ -1417,9 +1284,7 @@
                                 int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 3) {
                                     addrItem = address;
-                                    
-                                    //    address.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                    continue;
+                                    break;
                                 }
                             }
                             if(addrItem != nil)
@@ -1433,16 +1298,15 @@
                                 addrItem.state = [State findFirstByAttribute:@"name" withValue:selectedString];
                                 [self.detailItem addAddressesObject:addrItem];
                             }
-                            
+							
+							addrItem.editedValue = YES;
                             break;
-                            
-                            
                         }
-
-                    break;
+							
+							break;
+					}
                 }
-                }
-            break;
+					break;
             }
         }
         case ERater:
@@ -1460,58 +1324,10 @@
         }
     }
     
-     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+	[[NSManagedObjectContext defaultContext] save];
+	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:forIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+	[self toggleSubmitButton:[self isEnableSubmit]];
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 @end

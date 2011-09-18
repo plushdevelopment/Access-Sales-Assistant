@@ -65,15 +65,12 @@
 				// Contacts
 				NSArray *contactsArray = [dict valueForKey:@"contacts"];
 				if (contactsArray.count > 0) {
+					for (Contact *contact in producer.contacts) {
+						[contact deleteInContext:self.context];
+					}
 					for (NSDictionary *contactDictionary in contactsArray) {
-						NSPredicate *firstNamePredicate = [NSPredicate predicateWithFormat:@"firstName matches %@", [contactDictionary valueForKey:@"firstName"]];
-						NSPredicate *lastNamePredicate = [NSPredicate predicateWithFormat:@"lastName matches %@", [contactDictionary valueForKey:@"lastName"]];
-						NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:firstNamePredicate, lastNamePredicate, nil]];
-						Contact *contact = [Contact findFirstWithPredicate:predicate inContext:self.context];
-						if (!contact) {
-							contact = [Contact createInContext:self.context];
-							[contact setProducer:producer];
-						}
+						Contact *contact = [Contact createInContext:self.context];
+						[contact setProducer:producer];
 						[contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.context];
 					}
 				}

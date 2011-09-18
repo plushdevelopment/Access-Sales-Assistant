@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -85,7 +85,7 @@
 							<object class="IBUIButton" id="332642067">
 								<reference key="NSNextResponder" ref="726759339"/>
 								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{135, 7}, {224, 31}}</string>
+								<string key="NSFrame">{{135, 7}, {228, 31}}</string>
 								<reference key="NSSuperview" ref="726759339"/>
 								<reference key="NSWindow"/>
 								<bool key="IBUIOpaque">NO</bool>

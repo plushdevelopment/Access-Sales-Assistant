@@ -61,6 +61,7 @@
 
 - (void)getImageSuccess:(ASIHTTPRequest *)request
 {
+	[self.managedObjectContext refreshObject:self.detailItem mergeChanges:YES];
 	self.images = self.detailItem.images.allObjects;
 	[self.gridView reloadData];
 }
