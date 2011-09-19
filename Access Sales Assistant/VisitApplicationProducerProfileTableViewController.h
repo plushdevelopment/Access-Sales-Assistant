@@ -58,6 +58,8 @@
 @property (nonatomic,strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic) BOOL isDoneSelected;
 
+@property (nonatomic, strong) UINib *profileGeneralTableViewCellNib;
+
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *dismissButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *submitButton;
 

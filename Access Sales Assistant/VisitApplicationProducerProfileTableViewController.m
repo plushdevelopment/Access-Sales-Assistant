@@ -62,6 +62,7 @@
 @synthesize dismissButton = _dismissButton;
 @synthesize submitButton = _submitButton;
 @synthesize isDoneSelected = _isDoneSelected;
+@synthesize profileGeneralTableViewCellNib = _profileGeneralTableViewCellNib;
 
 
 @synthesize titleLabel = _titleLabel;
@@ -241,8 +242,15 @@
         case ELastVisited:
         {
             
-            [[NSBundle mainBundle] loadNibNamed:@"LastVisitedTableViewCell" owner:self options:nil];
-            LastVisitedTableViewCell* cell = _lastVisitedCell;
+     //       [[NSBundle mainBundle] loadNibNamed:@"LastVisitedTableViewCell" owner:self options:nil];
+       //     LastVisitedTableViewCell* cell = _lastVisitedCell;
+            
+            LastVisitedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LastVisitedTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"LastVisitedTableViewCell" owner:self options:nil];
+                cell = (LastVisitedTableViewCell*)_lastVisitedCell;
+            }
 			
             
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -259,8 +267,17 @@
 			break;
         case EGeneral:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProducerGeneralTableViewCell" owner:self options:nil];
-            ProducerGeneralTableViewCell* cell = _generalTableViewCell;
+    //        [[NSBundle mainBundle] loadNibNamed:@"ProducerGeneralTableViewCell" owner:self options:nil];
+          //  if(!_profileGeneralTableViewCellNib)
+           //     self.profileGeneralTableViewCellNib = [ProducerGeneralTableViewCell nib];
+     //       ProducerGeneralTableViewCell* cell = _generalTableViewCell;
+            
+            ProducerGeneralTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerGeneralTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProducerGeneralTableViewCell" owner:self options:nil];
+                cell = (ProducerGeneralTableViewCell*)_generalTableViewCell;
+            }
 			cell.producerCodeTextField.text = self.detailItem.producerCode;
             
             [self disableTextField:cell.producerCodeTextField :NO];
@@ -302,8 +319,16 @@
         }
         case EQuestions:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProducerQuestionTableViewCell" owner:self options:nil];
-            ProducerQuestionTableViewCell* cell = _questionTableViewCell;
+       //     [[NSBundle mainBundle] loadNibNamed:@"ProducerQuestionTableViewCell" owner:self options:nil];
+        //    ProducerQuestionTableViewCell* cell = _questionTableViewCell;
+            
+            ProducerQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerQuestionTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProducerQuestionTableViewCell" owner:self options:nil];
+                cell = (ProducerQuestionTableViewCell*)_questionTableViewCell;
+            }
+
             NSArray* questionArray=_detailItem.questions.allObjects;
             QuestionListItem *qListItem = (QuestionListItem *)[questionArray objectAtIndex:indexPath.row];
             cell.questionLabel.text = qListItem.text;
@@ -315,36 +340,76 @@
         case EStatus:
         {
             
-            [[NSBundle mainBundle] loadNibNamed:@"ProducerStatusTableViewCell" owner:self options:nil];
-            ProducerStatusTableViewCell* cell = _statusCell;
+       //     [[NSBundle mainBundle] loadNibNamed:@"ProducerStatusTableViewCell" owner:self options:nil];
+       //     ProducerStatusTableViewCell* cell = _statusCell;
+            
+            ProducerStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerStatusTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProducerStatusTableViewCell" owner:self options:nil];
+                cell = (ProducerStatusTableViewCell*)_statusCell;
+            }
             [self statusTableViewCell:cell :indexPath.row];
             return cell;
         }
         case ERater:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProducerRaterTableViewCell" owner:self options:nil];
-            ProducerRaterTableViewCell* cell = _raterTableViewCell;
+      //      [[NSBundle mainBundle] loadNibNamed:@"ProducerRaterTableViewCell" owner:self options:nil];
+       //     ProducerRaterTableViewCell* cell = _raterTableViewCell;
+            
+            
+            ProducerRaterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerRaterTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProducerRaterTableViewCell" owner:self options:nil];
+                cell = (ProducerRaterTableViewCell*)_raterTableViewCell;
+            }
+
             [self raterTableViewCell:cell :indexPath.row];
             return cell;
         }
         case ECompanyContactInfo:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProducerContactInfoTableViewCell" owner:self options:nil];
-            ProducerContactInfoTableViewCell* cell = _contactInfoTableViewCell;
+           // [[NSBundle mainBundle] loadNibNamed:@"ProducerContactInfoTableViewCell" owner:self options:nil];
+         //   ProducerContactInfoTableViewCell* cell = _contactInfoTableViewCell;
+            
+            ProducerContactInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerContactInfoTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProducerContactInfoTableViewCell" owner:self options:nil];
+                cell = (ProducerContactInfoTableViewCell*)_contactInfoTableViewCell;
+            }
+
+            
             [self contactInfoTableViewCell:cell :indexPath.row];
             return cell;
         }
         case EHoursOfOperation:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProducerHoursTableViewCell" owner:self options:nil];
-            ProducerHoursTableViewCell* cell = _hoursTableViewCell;
+        //    [[NSBundle mainBundle] loadNibNamed:@"ProducerHoursTableViewCell" owner:self options:nil];
+         //   ProducerHoursTableViewCell* cell = _hoursTableViewCell;
+            
+            ProducerHoursTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerHoursTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProducerHoursTableViewCell" owner:self options:nil];
+                cell = (ProducerHoursTableViewCell*)_hoursTableViewCell;
+            }
             [self hoursOfOperationCell:cell :indexPath.row];
             return cell;
         }
         case EAddresses:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProducerAddressTableViewCell" owner:self options:nil];
-            ProducerAddressTableViewCell* cell = _addressTableViewCell;
+         //   [[NSBundle mainBundle] loadNibNamed:@"ProducerAddressTableViewCell" owner:self options:nil];
+          //  ProducerAddressTableViewCell* cell = _addressTableViewCell;
+            
+            ProducerAddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerAddressTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProducerAddressTableViewCell" owner:self options:nil];
+                cell = (ProducerAddressTableViewCell*)_addressTableViewCell;
+            }
+
             if(indexPath.row ==0)
             {
                 cell.addressTitle.text = @"Mailing Address*";
@@ -394,8 +459,16 @@
             }
             else
             {
-                [[NSBundle mainBundle] loadNibNamed:@"ProducerContactTableViewCell" owner:self options:nil];
-                ProducerContactTableViewCell* cell = _contactTableViewCell;
+        //        [[NSBundle mainBundle] loadNibNamed:@"ProducerContactTableViewCell" owner:self options:nil];
+            //    ProducerContactTableViewCell* cell = _contactTableViewCell;
+                
+                ProducerContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerContactTableViewCell"];
+                if (cell == nil) {
+                    // Load the top-level objects from the custom cell XIB.
+                    [[NSBundle mainBundle] loadNibNamed:@"ProducerContactTableViewCell" owner:self options:nil];
+                    cell = (ProducerContactTableViewCell*)_contactTableViewCell;
+                }
+
                 cell = [self contactTableViewCell:cell :indexPath.row];
 				
 				return cell;
