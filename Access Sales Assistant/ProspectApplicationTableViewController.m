@@ -171,8 +171,16 @@
     {
         case EGeneral:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProspectAppGeneralTableViewCell" owner:self options:nil];
-            ProspectAppGeneralTableViewCell* cell = _generalTableViewCell;
+        //    [[NSBundle mainBundle] loadNibNamed:@"ProspectAppGeneralTableViewCell" owner:self options:nil];
+         //   ProspectAppGeneralTableViewCell* cell = _generalTableViewCell;
+            
+            ProspectAppGeneralTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppGeneralTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProspectAppGeneralTableViewCell" owner:self options:nil];
+                cell = (ProspectAppGeneralTableViewCell*)_generalTableViewCell;
+            }
+			
             cell.producerNameField.text = _detailItem.name;
             cell.subTerritoryField.text = _detailItem.subTerritory.uid.stringValue;
 			User *user = [User findFirst];
@@ -186,17 +194,32 @@
             break;
         case EAddresses:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProspectAppAddressTableViewCell" owner:self options:nil];
-            ProducerAddressTableViewCell* cell = _addressTableViewCell;
+    //        [[NSBundle mainBundle] loadNibNamed:@"ProspectAppAddressTableViewCell" owner:self options:nil];
+     //       ProducerAddressTableViewCell* cell = _addressTableViewCell;
+            
+            ProducerAddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppAddressTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProspectAppAddressTableViewCell" owner:self options:nil];
+                cell = (ProducerAddressTableViewCell*)_addressTableViewCell;
+            }
             cell = [self addressTableViewCell:cell :(indexPath.row)+1];
             return cell;
         }
 			//  break;
         case EContactInfo:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProspectAppCompanyContactInfoTableViewCell" owner:self options:nil];
-            ProducerContactInfoTableViewCell* cell = _contactInfoTableViewCell;
+          //  [[NSBundle mainBundle] loadNibNamed:@"ProspectAppCompanyContactInfoTableViewCell" owner:self options:nil];
+          //  ProducerContactInfoTableViewCell* cell = _contactInfoTableViewCell;
             
+            
+            ProducerContactInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppCompanyContactInfoTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProspectAppCompanyContactInfoTableViewCell" owner:self options:nil];
+                cell = (ProducerContactInfoTableViewCell*)_contactInfoTableViewCell;
+            }
+
             for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers) {
                 if (phoneNumber.typeValue == 3) {
                     [cell.phone1TextField setText:phoneNumber.number];
@@ -218,16 +241,32 @@
             break;
         case ERater:
         {
-            [[NSBundle mainBundle] loadNibNamed:@"ProspectAppRaterTableViewCell" owner:self options:nil];
-            ProducerRaterTableViewCell* cell = _raterTableViewCell;
+        //    [[NSBundle mainBundle] loadNibNamed:@"ProspectAppRaterTableViewCell" owner:self options:nil];
+        //    ProducerRaterTableViewCell* cell = _raterTableViewCell;
+            
+            ProducerRaterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppRaterTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProspectAppRaterTableViewCell" owner:self options:nil];
+                cell = (ProducerRaterTableViewCell*)_raterTableViewCell;
+            }
+
             [cell.raterTextField setText:_detailItem.rater.name];
             [cell.rater2TextField setText:_detailItem.rater2.name];
             return cell;
         }
             break;
         case EContact:
-        {[[NSBundle mainBundle] loadNibNamed:@"ProspectAppContactTableViewCell" owner:self options:nil];
-            ProspectAppContactTableViewCell* cell = _contactTableViewCell;
+        {
+          //  [[NSBundle mainBundle] loadNibNamed:@"ProspectAppContactTableViewCell" owner:self options:nil];
+           // ProspectAppContactTableViewCell* cell = _contactTableViewCell;
+            
+            ProspectAppContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppContactTableViewCell"];
+            if (cell == nil) {
+                // Load the top-level objects from the custom cell XIB.
+                [[NSBundle mainBundle] loadNibNamed:@"ProspectAppContactTableViewCell" owner:self options:nil];
+                cell = (ProspectAppContactTableViewCell*)_contactTableViewCell;
+            }
             return cell;
             
         }
