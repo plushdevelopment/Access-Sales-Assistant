@@ -317,11 +317,11 @@
         
     }
     if(forType == 1)
-        addressCell.addressTitle.text = @"Mailing Address";
+        addressCell.addressTitle.text = @"Mailing Address*";
     else if(forType == 2)
-        addressCell.addressTitle.text = @"Commission Address";
+        addressCell.addressTitle.text = @"Commission Address*";
     else if(forType == 3)
-        addressCell.addressTitle.text = @"Physical Address";
+        addressCell.addressTitle.text = @"Physical Address*";
     
 	
     return addressCell;
