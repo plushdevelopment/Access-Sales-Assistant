@@ -9,7 +9,7 @@
 #ifndef Access_Sales_Assistant_AccessSalesConstants_h
 #define Access_Sales_Assistant_AccessSalesConstants_h
 
-#define PRODUCER_PROFILE_REQUEST_SUCCESS @"Producer Profile Submitted Successfully"
+#define PRODUCER_PROFILE_REQUEST_SUCCESS @"Producer Profile Submitted Successfully\n\nUpdates to the following fields will not be reflected immediately:\n- Agency Name\n- Rater\n- Rater 2\n- Mailing Address\n- Commission Address\n- Physical Address\n- Contact SSN"
 #define PRODUCER_PROFILE_REQUEST_FAILED @"Producer Profile Request Failed \n Error Description:%@"
 
 

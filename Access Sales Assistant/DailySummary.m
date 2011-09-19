@@ -5,6 +5,11 @@
 
 @implementation DailySummary
 
+- (NSDate *)reportDate
+{
+	return [NSDate date];
+}
+
 - (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues dateFormatter:(NSDateFormatter *)dateFormatter managedObjectContext:(NSManagedObjectContext *)context
 {
 	NSDictionary *attributes = [[self entity] attributesByName];

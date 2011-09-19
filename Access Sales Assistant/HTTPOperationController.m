@@ -257,9 +257,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		[dateFormatter setDateFormat:@"MM-dd-yyyy"];
 		NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
 		NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate != %@", dateString];
-		NSPredicate *editedPredicate = [NSPredicate predicateWithFormat:@"edited == %@", [NSNumber numberWithBool:NO]];
-		NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:datePredicate, editedPredicate, nil]];
-		NSArray *producers = [Producer findAllWithPredicate:compoundPredicate];
+		//NSPredicate *editedPredicate = [NSPredicate predicateWithFormat:@"edited == %@", [NSNumber numberWithBool:NO]];
+		//NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:datePredicate, editedPredicate, nil]];
+		NSArray *producers = [Producer findAllWithPredicate:datePredicate];
 		[producers makeObjectsPerformSelector:@selector(deleteEntity)];
 		[[NSManagedObjectContext defaultContext] save];
 		NSNumber *page = [NSNumber numberWithInt:1];
@@ -358,6 +358,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			// Contacts
 			NSArray *contactsArray = [responseJSON valueForKey:@"contacts"];
 			if (contactsArray.count > 0) {
+				@autoreleasepool {
 				for (Contact *contact in producer.contacts) {
 					[contact deleteInContext:self.managedObjectContext];
 				}
@@ -365,6 +366,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 					Contact *contact = [Contact createInContext:self.managedObjectContext];
 					[contact setProducer:producer];
 					[contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
+				}
 				}
 			}
 			[self.managedObjectContext save];

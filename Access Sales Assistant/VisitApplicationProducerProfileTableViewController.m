@@ -86,8 +86,6 @@
 
 - (IBAction)submit:(id)sender
 {
-	NSString *message = @"Updates to the following fields will not be reflected immediately:\n- Agency Name\n- Rater\n- Rater 2\n- Mailing Address\n- Commission Address\n- Physical Address\n- Contact SSN";
-	[UIHelpers showAlertWithTitle:@"Alert" msg:message buttonTitle:@"OK"];
 	[[HTTPOperationController sharedHTTPOperationController] postProducerProfile:[self.detailItem jsonStringValue]];
 }
 

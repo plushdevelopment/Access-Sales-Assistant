@@ -687,7 +687,8 @@ enum PRPTableStatsTags {
             [self.fields addObject:customCell.commissionStructureTextField];
             [self.fields addObject:customCell.commissionStructureButton];
             
-            
+            [self disableTextField:customCell.reportDateTextField :NO];
+			[customCell.reportDateButton setEnabled:NO];
             
 			cell = customCell;
 		}
