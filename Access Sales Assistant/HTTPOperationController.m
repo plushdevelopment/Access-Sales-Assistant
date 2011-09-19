@@ -26,7 +26,7 @@
 
 #define kUATURL @"https://uatmobile.accessgeneral.com/TsmServices/"
 #define kDevURL @"http://devweb01.development.accessgeneral.com:82/"
-#define kURL @"http://devweb01.development.accessgeneral.com:82/"
+#define kURL @"https://uatmobile.accessgeneral.com/TsmServices/"
 
 @implementation HTTPOperationController
 
@@ -103,7 +103,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString * _key = @"wTGMqLubzizPgylAsHGgfPfLDoclQt+YAIzM1ugFMko=";
-	StringEncryption *crypto = [[StringEncryption alloc] init];
+	StringEncryption *crypto = [[[StringEncryption alloc] init] autorelease];
 	NSData *secretData = [[user password] dataUsingEncoding:NSUTF8StringEncoding];
 	CCOptions padding = kCCOptionPKCS7Padding;
 	NSData *encryptedData = [crypto 
@@ -133,6 +133,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)loginRequestFinished:(ASIHTTPRequest *)request
@@ -147,7 +148,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	User *user = [User findFirst];
 	user.token = encodedString;
 	[self.managedObjectContext save];
-	
+	[encodedString release];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"Launch Map" object:request];
 	
 	[self requestPickLists];
@@ -185,6 +186,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)requestPickListsFinished:(ASIHTTPRequest *)request
@@ -241,6 +243,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setTimeOutSeconds:60];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)requestCompetitorsFinished:(ASIHTTPRequest *)request
@@ -253,12 +256,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			[self requestCompetitors:[NSNumber numberWithInt:i]];
 		}
 	} else if (competitorRequest.currentPage == competitorRequest.totalPages) {
-		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+		NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
 		[dateFormatter setDateFormat:@"MM-dd-yyyy"];
 		NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
 		NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate != %@", dateString];
-		//NSPredicate *editedPredicate = [NSPredicate predicateWithFormat:@"edited == %@", [NSNumber numberWithBool:NO]];
-		//NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:datePredicate, editedPredicate, nil]];
 		NSArray *producers = [Producer findAllWithPredicate:datePredicate];
 		[producers makeObjectsPerformSelector:@selector(deleteEntity)];
 		[[NSManagedObjectContext defaultContext] save];
@@ -292,6 +293,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setTimeOutSeconds:60];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)requestProducersFinished:(ASIHTTPRequest *)request
@@ -335,6 +337,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)postProducerProfileFinished:(ASIHTTPRequest *)request
@@ -351,6 +354,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 			[formatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
 			[producer safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
+			[formatter release];
 			// Hours of Operation
 			HoursOfOperation *hoursOfOperation = producer.hoursOfOperation;
 			NSAssert(hoursOfOperation, @"Hours of Operation is nil");
@@ -359,14 +363,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			NSArray *contactsArray = [responseJSON valueForKey:@"contacts"];
 			if (contactsArray.count > 0) {
 				@autoreleasepool {
-				for (Contact *contact in producer.contacts) {
-					[contact deleteInContext:self.managedObjectContext];
-				}
-				for (NSDictionary *contactDictionary in contactsArray) {
-					Contact *contact = [Contact createInContext:self.managedObjectContext];
-					[contact setProducer:producer];
-					[contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
-				}
+					for (Contact *contact in producer.contacts) {
+						[contact deleteInContext:self.managedObjectContext];
+					}
+					for (NSDictionary *contactDictionary in contactsArray) {
+						Contact *contact = [Contact createInContext:self.managedObjectContext];
+						[contact setProducer:producer];
+						[contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
+					}
 				}
 			}
 			[self.managedObjectContext save];
@@ -381,7 +385,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
     
-    NSString *profileFailed = [[NSString alloc] initWithFormat:PRODUCER_PROFILE_REQUEST_FAILED,[error localizedDescription]];
+    NSString *profileFailed = [NSString stringWithFormat:PRODUCER_PROFILE_REQUEST_FAILED,[error localizedDescription]];
     [UIHelpers showAlertWithTitle:@"Error" msg:profileFailed buttonTitle:@"OK"];
 }
 
@@ -407,6 +411,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)postDailySummaryFinished:(ASIHTTPRequest *)request
@@ -424,6 +429,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 			[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 			[producer.dailySummary safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
+			[formatter release];
 			// Contacts
 			NSArray *notesArray = [responseJSON valueForKey:@"notes"];
 			if (notesArray.count > 0) {
@@ -448,7 +454,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
-    NSString *summaryFailed = [[NSString alloc] initWithFormat:PRODUCER_SUMMARY_REQUEST_FAILED,[error localizedDescription]];
+    NSString *summaryFailed = [NSString stringWithFormat:PRODUCER_SUMMARY_REQUEST_FAILED,[error localizedDescription]];
     [UIHelpers showAlertWithTitle:@"Error" msg:summaryFailed buttonTitle:@"OK"];
 }
 
@@ -475,6 +481,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)postImageForProducerFinished:(ASIHTTPRequest *)request
@@ -490,7 +497,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
     
-    NSString *imageFailed = [[NSString alloc] initWithFormat:POST_IMAGE_FAILED,[error localizedDescription]];
+    NSString *imageFailed = [NSString stringWithFormat:POST_IMAGE_FAILED,[error localizedDescription]];
     [UIHelpers showAlertWithTitle:@"Error" msg:imageFailed buttonTitle:@"OK"];
 	
 	
@@ -516,6 +523,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)deleteImageForProducerFinished:(ASIHTTPRequest *)request
@@ -530,12 +538,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 {
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
-    
-    NSString *imageFailed = [[NSString alloc] initWithFormat:POST_IMAGE_FAILED,[error localizedDescription]];
     [UIHelpers showAlertWithTitle:@"Error" msg:@"Failed to delete image" buttonTitle:@"OK"];
-	
-	
-	//	[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Image Failure" object:request];
 }
 
 // Get Image for Producer
@@ -560,6 +563,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)getImagesForProducerFinished:(ASIHTTPRequest *)request
@@ -606,6 +610,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)getImageFinished:(ASIHTTPRequest *)request
@@ -617,17 +622,18 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSString *imagePath = [documentsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", [pathComps lastObject]]];
 	NSArray *producerIDStringArray = [[pathComps lastObject] componentsSeparatedByString:@"_"];
 	NSString *producerUID;
-	if (producerIDStringArray.count > 1)
+	if (producerIDStringArray.count > 1) {
 		producerUID = [producerIDStringArray objectAtIndex:0];
-	Producer *producer = [Producer findFirstByAttribute:@"uid" withValue:producerUID];
-	ProducerImage *image = [ProducerImage ai_objectForProperty:@"imagePath" value:imagePath managedObjectContext:self.managedObjectContext];
-	[image setImageName:[pathComps lastObject]];
-	
-	if (![producer.images containsObject:image]) {
-		[producer addImagesObject:image];
+		Producer *producer = [Producer findFirstByAttribute:@"uid" withValue:producerUID];
+		ProducerImage *image = [ProducerImage ai_objectForProperty:@"imagePath" value:imagePath managedObjectContext:self.managedObjectContext];
+		[image setImageName:[pathComps lastObject]];
+		
+		if (![producer.images containsObject:image]) {
+			[producer addImagesObject:image];
+		}
+		[self.managedObjectContext save];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"Get Image Successful" object:request];
 	}
-	[self.managedObjectContext save];
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Get Image Successful" object:request];
 }
 
 - (void)getImageFailed:(ASIHTTPRequest *)request
@@ -658,6 +664,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 -(void)getTrainingVideosFinished:(ASIHTTPRequest *)request
 {
@@ -696,6 +703,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[request setTimeOutSeconds:60];
 	[[self networkQueue] addOperation:request];
+	[request release];
 	
 }
 
@@ -721,6 +729,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			[newDict setValue:producer.name forKey:@"name"];
 			[newDict setValue:producer.producerCode forKey:@"producerCode"];
 			[producernameArray addObject:newDict];
+			[newDict release];
 		}
 		[self.managedObjectContext save];
 		
@@ -730,6 +739,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     {
 		[UIHelpers showAlertWithTitle:@"Alert" msg:@"No Producers found" buttonTitle:@"OK"];
     }
+	[producernameArray release];
+	[formatter release];
 	
 }
 -(void)searchProducerFailed:(ASIHTTPRequest *)request
@@ -737,7 +748,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
-    NSString *summaryFailed = [[NSString alloc] initWithFormat:SEARCH_PRODUCER_FAILED,[error localizedDescription]];
+    NSString *summaryFailed = [NSString stringWithFormat:SEARCH_PRODUCER_FAILED,[error localizedDescription]];
     [UIHelpers showAlertWithTitle:@"Error" msg:summaryFailed buttonTitle:@"OK"];
 }
 
@@ -765,6 +776,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 -(void)getAUNTKsForProducerFinished:(ASIHTTPRequest*)request
@@ -785,6 +797,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		} else if ([[dict valueForKey:@"key"] isEqualToString:@"chain"]) {
 			producer.chainAuntk = auntk;
 		}
+		[formatter release];
 	}
 	[self.managedObjectContext save];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"AUNTK" object:nil];
@@ -815,7 +828,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
-	
+	[request release];
 }
 
 -(void)postQAResolutionFormFinished:(ASIHTTPRequest*)request
@@ -848,6 +861,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
+	[request release];
 }
 
 - (void)deleteContactFinished:(ASIHTTPRequest *)request
@@ -880,7 +894,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     
     int len = [escapeChars count];
     
-    NSMutableString *temp = [url mutableCopy];
+    NSMutableString *temp = [[url mutableCopy] autorelease];
     
     int i;
     for(i = 0; i < len; i++)

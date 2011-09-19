@@ -32,6 +32,10 @@
 	<true/>
 	<key>UIApplicationExitsOnSuspend</key>
 	<false/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
@@ -39,10 +43,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
