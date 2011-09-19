@@ -31,6 +31,7 @@ void drawLinearGradient(CGContextRef context, CGRect rect, CGColorRef startColor
     CGContextRestoreGState(context);
     
     CGGradientRelease(gradient);
+	CFRelease(colorArray);
 }
 
 void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, CGColorRef color) {

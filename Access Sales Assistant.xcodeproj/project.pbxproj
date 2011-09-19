@@ -278,6 +278,7 @@
 		FFB56A3613D07CA100B980EE /* SummaryBarriersToBusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB56A3513D07CA100B980EE /* SummaryBarriersToBusinessTableViewCell.xib */; };
 		FFB56A3913D07FFE00B980EE /* SummaryStatsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB56A3813D07FFD00B980EE /* SummaryStatsTableViewCell.m */; };
 		FFB56A3B13D0802F00B980EE /* SummaryStatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFB56A3A13D0802E00B980EE /* SummaryStatsTableViewCell.xib */; };
+		FFB8AEDF1427CC6800AEFAD9 /* button-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB8AEDE1427CC6800AEFAD9 /* button-plus.png */; };
 		FFBC5053142383D400680B9C /* LabelGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBC5052142383D400680B9C /* LabelGridViewCell.m */; };
 		FFBC50551423867600680B9C /* LabelGridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFBC50541423867600680B9C /* LabelGridViewCell.xib */; };
 		FFBC505814238C3200680B9C /* PhotoGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBC505714238C3200680B9C /* PhotoGridViewCell.m */; };
@@ -863,6 +864,7 @@
 		FFB56A3713D07FFD00B980EE /* SummaryStatsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryStatsTableViewCell.h; sourceTree = "<group>"; };
 		FFB56A3813D07FFD00B980EE /* SummaryStatsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryStatsTableViewCell.m; sourceTree = "<group>"; };
 		FFB56A3A13D0802E00B980EE /* SummaryStatsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryStatsTableViewCell.xib; sourceTree = "<group>"; };
+		FFB8AEDE1427CC6800AEFAD9 /* button-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-plus.png"; sourceTree = "<group>"; };
 		FFBC5051142383D400680B9C /* LabelGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelGridViewCell.h; sourceTree = "<group>"; };
 		FFBC5052142383D400680B9C /* LabelGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelGridViewCell.m; sourceTree = "<group>"; };
 		FFBC50541423867600680B9C /* LabelGridViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelGridViewCell.xib; sourceTree = "<group>"; };
@@ -1570,6 +1572,7 @@
 		FF77100213B23DE500E90F4B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FFB8AEDE1427CC6800AEFAD9 /* button-plus.png */,
 				6D7B57E71427932F003B8129 /* Social Media */,
 				FF3B6C7014251C3D00A810AB /* Icon-72.png */,
 				FF3B6C7114251C3D00A810AB /* Icon-Small-50.png */,
@@ -2490,6 +2493,7 @@
 				6D5C4CCD14253DE400AA47F5 /* switchBlueBg.png in Resources */,
 				6D5C4CCE14253DE400AA47F5 /* switchOffPlain.png in Resources */,
 				6D5C4CCF14253DE400AA47F5 /* switchThumb.png in Resources */,
+				FFB8AEDF1427CC6800AEFAD9 /* button-plus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
