@@ -256,30 +256,9 @@
             
             cell.visitedLabel.text = lastVisitedText;
             cell.summaryNotesTextView.text = _detailItem.lastVisitSummaryNote;
-            
-			/* static NSString *CellIdentifier = @"lastvisitedcell";
-			 
-			 
-			 
-			 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-			 
-			 if (cell == nil) {
-			 
-			 cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] ;
-			 
-			 }
-			 if(_detailItem.lastVisit)
-			 {
-			 cell.textLabel.text=lastVisitedText;
-			 }
-			 else
-			 cell.textLabel.text = @"Last Visited:";
-			 cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];*/
-			
             return cell;
-            
-            break;
         }
+			break;
         case EGeneral:
         {
             [[NSBundle mainBundle] loadNibNamed:@"ProducerGeneralTableViewCell" owner:self options:nil];
@@ -302,12 +281,6 @@
             cell.dateEstablishedTextField.text = [dateFormatter stringFromDate:_detailItem.dateEstablished];
             
             cell.primaryContactTextField.text = _detailItem.primaryContact;
-            
-          /*  if(_detailItem.neverVisitValue)
-                cell.neverVisitSwitch.on = TRUE;
-            else
-                cell.neverVisitSwitch.on = FALSE;
-           */
             
             if(_detailItem.neverVisitValue)
                 cell.neverVisitCustomSwitch.on = TRUE;
@@ -2202,7 +2175,7 @@
 					break;
                 case ESubTerritory:
                 {
-                    self.detailItem.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:textField.text managedObjectContext:[NSManagedObjectContext defaultContext]];
+                    self.detailItem.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:[NSNumber numberWithInt:[textField.text intValue]] managedObjectContext:[NSManagedObjectContext defaultContext]];
                     
                 }
                     break;
@@ -2407,7 +2380,7 @@
     
 	[[NSManagedObjectContext defaultContext] save];
 	//[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType

@@ -377,9 +377,6 @@
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
 {
-	//[self nextField:0];
-	
-    
 	UIButton *button = (UIButton *)sender;
 	[self.datePickerViewController.datePicker setDate:[NSDate date]];
 	self.datePickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
@@ -390,7 +387,6 @@
 	[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
     
     NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
-	NSLog(@"%@", pickerFrame);
 	
 	//Add the picker to the view
 	if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
@@ -413,7 +409,6 @@
         
 		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:UIKeyboardFrameEndUserInfoKey, pickerFrame, nil];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
-		NSLog(@"%@", pickerFrame);
 	}];
 	[self datePickerViewController:self.datePickerViewController didChangeDate:self.datePickerViewController.datePicker.date forTag:button.tag];
     
@@ -737,8 +732,6 @@
         case EContact:
             break;
     }
-    
-    NSLog(@"%@", theTitle);
 	return theTitle;
 }
 

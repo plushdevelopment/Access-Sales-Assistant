@@ -79,11 +79,6 @@
 {
     NSLog(searchText);	
     [_tableData removeAllObjects];// remove all data that belongs to previous search
-    NSInteger counter = 0;
-    
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name CONTAINS[c] %@" argumentArray:[NSArray arrayWithObject:searchText]];
-    
-    NSArray *fetchedArray = [_dataSource filteredArrayUsingPredicate:pred];
     
     
    /* for(int index = 0; index<[_dataSource count];index++)
@@ -192,7 +187,7 @@
 {
     for(int index = 0; index<[_dataSource count];index++)
     {
-        NSString *name = [[_dataSource objectAtIndex:index] name];
+        NSString *name = [[_dataSource objectAtIndex:index] valueForKey:@"name"];
         NSLog(name);
         
         

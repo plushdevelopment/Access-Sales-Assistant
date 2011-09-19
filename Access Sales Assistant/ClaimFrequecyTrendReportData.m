@@ -5,7 +5,6 @@
 // Custom logic goes here.
 - (NSNumber*)yValue
 {
-	NSLog(@"yValue: %@", self.claimsFrequency.stringValue);
 	return self.claimsFrequency;
 }
 

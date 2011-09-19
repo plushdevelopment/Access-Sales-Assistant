@@ -84,13 +84,6 @@
     NSString *strResults = [[NSString alloc] initWithFormat:@"searchProducer Array : %@",producerNamesArray];
     
     [self.tableView reloadData];
-    
-   // [self showAlert:strResults];
-   // NSLog(@"searchProducer Array : %@",producerNamesArray);
-    //  [self showTableView];
-    
-    
-    // NSLog(@"Producers List:%@",array);
 }
 
 

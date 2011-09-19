@@ -122,7 +122,6 @@
 	[[HTTPOperationController sharedHTTPOperationController] login];
 	
 #warning Check for performance issues
-	/*
 	// Begin monitoring Producer location proximity
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"EEEE, MM-dd-yyyy"];
@@ -132,7 +131,6 @@
 										andOrderBy:@"nextScheduledVisit"
 										 ascending:YES];
 	[[CLLocationController sharedCLLocationController] monitorProducers:producers];
-	 */
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

@@ -240,16 +240,11 @@
         if([subview isKindOfClass:[UILabel class]])
             [subview removeFromSuperview];
     }
-  
- //   NSLog(@"array is: %@",featureObjArray);
     
     int fObjCount = [featureObjArray count];
     
     int scrollwidth = 600;//[_fnbScrollview bounds].size.width;//686;
-    
-    
-    
-  //  [_fnbScrollview setBackgroundColor:[UIColor whiteColor]];
+	
 	[_fnbScrollview setCanCancelContentTouches:NO];
 	_fnbScrollview.clipsToBounds = YES;	// default is NO, we want to restrict drawing within our scrollview
 	_fnbScrollview.indicatorStyle = UIScrollViewIndicatorStyleWhite;

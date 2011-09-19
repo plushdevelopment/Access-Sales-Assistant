@@ -117,9 +117,6 @@ StringEncryption *crypto = [[StringEncryption alloc] init];
     uint8_t iv[kChosenCipherBlockSize];
     memset((void *) iv, 0x0, (size_t) sizeof(iv));
 	
-    NSLog(@"doCipher: plaintext: %@", plainText);
-    NSLog(@"doCipher: key length: %d", [aSymmetricKey length]);
-	
     //LOGGING_FACILITY(plainText != nil, @"PlainText object cannot be nil." );
     //LOGGING_FACILITY(aSymmetricKey != nil, @"Symmetric key object cannot be nil." );
     //LOGGING_FACILITY(pkcs7 != NULL, @"CCOptions * pkcs7 cannot be NULL." );
@@ -129,7 +126,6 @@ StringEncryption *crypto = [[StringEncryption alloc] init];
 	
     //LOGGING_FACILITY(plainTextBufferSize > 0, @"Empty plaintext passed in." );
 	
-    NSLog(@"pkcs7: %d", *pkcs7);
     // We don't want to toss padding on if we don't need to
     if(encryptOrDecrypt == kCCEncrypt) {
         if(*pkcs7 != kCCOptionECBMode) {

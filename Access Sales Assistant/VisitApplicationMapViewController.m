@@ -73,7 +73,6 @@
 			self.endPoint = [(Producer *)[self.producers lastObject] address];
 			NSMutableArray *wayPoints = [NSMutableArray array];
 			for (Producer *producer in self.producers) {
-				//[[HTTPOperationController sharedHTTPOperationController] getImagesForProducer:producer.uid];
 				if (([self.producers indexOfObject:producer] > 0) && ([self.producers indexOfObject:producer] < self.producers.count - 2)) {
 					[wayPoints addObject:producer.address];
 				}

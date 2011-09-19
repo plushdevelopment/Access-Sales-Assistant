@@ -68,14 +68,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
 	//... Handle finished notification
-	//NSLog(@"Request did finish");
 }
 
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
 	//... Handle fail notification
-	//NSLog(@"Request did fail");
 	[UIHelpers showAlertWithTitle:@"Error" msg:[[request error] localizedDescription] buttonTitle:@"OK"];
 }
 
@@ -83,7 +81,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 - (void)requestDidStart:(id)request
 {
 	//... Handle start notification
-	//NSLog(@"Request did start");
 }
 
 
@@ -123,7 +120,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 						   [user domain],
 						   [user organization],
 						   [user serviceKey]];
-	NSLog(@"%@", urlString);
 	
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -178,7 +174,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 						   stringWithFormat:@"%@VisitApplicationService/Picklists?token=%@",
 						   kURL,
 						   [user token]];
-	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -239,12 +234,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 						   [page integerValue],
 						   kPAGESIZE,
 						   [user token]];
-	//NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	GetCompetitorRequest *request = [[GetCompetitorRequest alloc] initWithURL:url];
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(requestCompetitorsFinished:)];
-	//[request setDidFailSelector:@selector(requestCompetitorsFailed:)];
 	[request setTimeOutSeconds:60];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
@@ -263,8 +256,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 		[dateFormatter setDateFormat:@"MM-dd-yyyy"];
 		NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
-		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate != %@", dateString];
-		NSArray *producers = [Producer findAllWithPredicate:predicate];
+		NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate != %@", dateString];
+		NSPredicate *editedPredicate = [NSPredicate predicateWithFormat:@"edited == %@", [NSNumber numberWithBool:NO]];
+		NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:datePredicate, editedPredicate, nil]];
+		NSArray *producers = [Producer findAllWithPredicate:compoundPredicate];
 		[producers makeObjectsPerformSelector:@selector(deleteEntity)];
 		[[NSManagedObjectContext defaultContext] save];
 		NSNumber *page = [NSNumber numberWithInt:1];
@@ -322,7 +317,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 // Post Producer
 - (void)postProducerProfile:(NSString *)profile
 {
-	NSLog(@"%@", profile);
 	if ([[self networkQueue] isSuspended]) {
 		[[self networkQueue] go];
 	}
@@ -345,8 +339,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 
 - (void)postProducerProfileFinished:(ASIHTTPRequest *)request
 {
-	BOOL failed = ([request responseStatusCode] == 200);
-	//NSAssert(failed, @"Failed");
 	if ([request responseStatusCode] != 200) {
 		[self postProducerProfileFailed:request];
 	} else {
@@ -389,8 +381,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     
     NSString *profileFailed = [[NSString alloc] initWithFormat:PRODUCER_PROFILE_REQUEST_FAILED,[error localizedDescription]];
     [UIHelpers showAlertWithTitle:@"Error" msg:profileFailed buttonTitle:@"OK"];
-	
-	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Failure" object:request];
 }
 
 // Post Daily Summary
@@ -430,7 +420,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			producer.dailySummary.editedValue = NO;
 			producer.submittedValue = YES;
 			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-			[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+			[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 			[producer.dailySummary safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
 			// Contacts
 			NSArray *notesArray = [responseJSON valueForKey:@"notes"];
@@ -458,8 +448,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
     NSString *summaryFailed = [[NSString alloc] initWithFormat:PRODUCER_SUMMARY_REQUEST_FAILED,[error localizedDescription]];
     [UIHelpers showAlertWithTitle:@"Error" msg:summaryFailed buttonTitle:@"OK"];
-	
-	//[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Summary Failure" object:request];
 }
 
 // Post Image for Producer
@@ -519,9 +507,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"DELETE"];
-	//NSData *tempData = UIImageJPEGRepresentation(image, 2.0);
-	//NSMutableData *imageData = [NSMutableData dataWithData:tempData];
-	//[request setPostBody:imageData];
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(deleteImageForProducerFinished:)];
 	[request setDidFailSelector:@selector(deleteImageForProducerFailed:)];
@@ -610,8 +595,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDelegate:self];
 	[request setDidFinishSelector:@selector(getImageFinished:)];
 	[request setDidFailSelector:@selector(getImageFailed:)];
-	//[[request userInfo] setValue:producerID forKey:@"producerUID"];
-	
 	NSArray *pathComps = [urlString pathComponents];
 	NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDir = [documentPaths objectAtIndex:0];
@@ -682,8 +665,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	if (responseJSON) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"Get Videos Success" object:responseJSON];
     }
-    
-	
 }
 
 -(void)getTrainingVideosFailed:(ASIHTTPRequest *)request
@@ -699,11 +680,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	if ([[self networkQueue] isSuspended]) {
 		[[self networkQueue] go];
 	}
-	
 	User *user = [User findFirst];
-    
     NSString* escapedString = [self urlencode:searchString];
-	
 	NSString *urlString = [NSString 
 						   stringWithFormat:@"%@VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@", kURL, escapedString, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
@@ -721,7 +699,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 
 -(void)searchProducerFinished:(ASIHTTPRequest *)request
 {
-    NSManagedObjectContext *context = [NSManagedObjectContext context];
     NSString* responseString = [request responseString];
     NSDictionary *responseJSON = [responseString JSONValue];
 	NSArray *results = [responseJSON objectForKey:@"results"];
@@ -732,10 +709,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     {
 		for (NSDictionary *dict in results) {
 			NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
-			Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:context];
+			Producer *producer = [Producer ai_objectForProperty:@"uid" value:[dict valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
 			if (!producer.editedValue) {
 				
-				[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter managedObjectContext:context];
+				[producer safeSetValuesForKeysWithDictionary:dict dateFormatter:formatter managedObjectContext:self.managedObjectContext];
 			}
 			
 			[newDict setValue:producer.uid forKey:@"uid"];
@@ -743,10 +720,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			[newDict setValue:producer.producerCode forKey:@"producerCode"];
 			[producernameArray addObject:newDict];
 		}
-		
-		
-		
-		[context save];
+		[self.managedObjectContext save];
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"searchProducer" object:producernameArray];
     }
@@ -758,8 +732,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 }
 -(void)searchProducerFailed:(ASIHTTPRequest *)request
 {
-	NSLog(@"Search Failed");
-    
     NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
@@ -778,7 +750,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/AUNTk/%@?token=%@", kURL, producerCode, [user token]];
-	NSLog(@"%@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -824,9 +795,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 
 -(void)postQAResolutionForm:(NSString*)qaResolutionForm
 {
-	//  NSLog(@"%@",qaResolutionForm);
-    
-    NSLog(@"%@", qaResolutionForm);
 	if ([[self networkQueue] isSuspended]) {
 		[[self networkQueue] go];
 	}
@@ -834,8 +802,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	User *user = [User findFirst];
 	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/QAResolutionRequest?token=%@", kURL, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
-    
-    NSLog(@"%@",urlString);
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
 	[request addRequestHeader:@"Content-Type" value:@"application/json"];
@@ -843,18 +809,18 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	[request setDidFinishSelector:@selector(postQAResolutionFormFinished:)];
 	[request setDidFailSelector:@selector(postQAResolutionFormFailed:)];
 	[request setPostBody:[NSMutableData dataWithData:[qaResolutionForm dataUsingEncoding:NSASCIIStringEncoding]]];
-	//	[request setNumberOfTimesToRetryOnTimeout:3];
-    
     [request setTimeOutSeconds:60];
 	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
 	[request setShouldContinueWhenAppEntersBackground:YES];
 	[[self networkQueue] addOperation:request];
 	
 }
+
 -(void)postQAResolutionFormFinished:(ASIHTTPRequest*)request
 {
     [UIHelpers showAlertWithTitle:@"Success" msg:@"Request submitted successfully" buttonTitle:@"OK"];
 }
+
 -(void)postQAResolutionFormFailed:(ASIHTTPRequest*)request
 {
     [UIHelpers showAlertWithTitle:@"Failed" msg:@"Request Failed" buttonTitle:@"OK"];

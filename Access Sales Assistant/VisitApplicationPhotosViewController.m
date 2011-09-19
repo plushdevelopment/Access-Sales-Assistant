@@ -68,7 +68,7 @@
 
 - (void)postImageSuccess:(ASIHTTPRequest *)request
 {
-	[self configureView];
+	[[HTTPOperationController sharedHTTPOperationController] getImagesForProducer:self.detailItem.uid];
 }
 
 - (void)deleteImageSuccess:(NSNotification*) notification

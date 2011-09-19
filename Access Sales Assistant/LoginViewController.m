@@ -151,7 +151,6 @@
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	[self.submitButton setEnabled:YES];
 	[self showError:[error localizedDescription]];
-	//[self dismissModalViewControllerAnimated:YES];
 }
 
 -(NSString *) urlencode: (NSString *) url

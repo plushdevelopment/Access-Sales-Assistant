@@ -32,7 +32,6 @@
 
 - (void)requestFinished
 {
-	NSLog(@"%@", [self responseString]);
 	self.context = [NSManagedObjectContext contextThatNotifiesDefaultContextOnMainThread];
 	NSDictionary *responseJSON = [[self responseString] JSONValue];
 	NSArray *results = [responseJSON objectForKey:@"results"];
@@ -64,7 +63,6 @@
 					hoursOfOperation = [HoursOfOperation createInContext:self.context];
 					[producer setHoursOfOperation:hoursOfOperation];
 				}
-				NSAssert(hoursOfOperation, @"Hours of Operation is nil");
 				[hoursOfOperation safeSetValuesForKeysWithDictionary:[dict valueForKey:@"hoursOfOperation"] dateFormatter:nil managedObjectContext:self.context];
 				// Contacts
 				NSArray *contactsArray = [dict valueForKey:@"contacts"];
