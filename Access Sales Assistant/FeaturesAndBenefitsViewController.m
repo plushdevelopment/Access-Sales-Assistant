@@ -308,6 +308,7 @@
     self.currentStateName = _currentLocation.state;
     self.currentStateCode = _currentLocation.statecode;
     [self selectedState:self.currentStateName :self.currentStateCode];
+    [[SSLocationManager sharedManager] removeDelegate:self];
     NSLog(@"Current Location string is: %@",[_currentLocation toString]);
 }
 
