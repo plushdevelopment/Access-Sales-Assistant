@@ -347,19 +347,19 @@
             ProducerAddressTableViewCell* cell = _addressTableViewCell;
             if(indexPath.row ==0)
             {
-                cell.addressTitle.text = @"Mailing Address";
+                cell.addressTitle.text = @"Mailing Address*";
                 cell = [self addressTableViewCell:cell :1];
 				
             }
             else if(indexPath.row==1)
             {
-				cell.addressTitle.text = @"Commission Address";
+				cell.addressTitle.text = @"Commission Address*";
 				cell = [self addressTableViewCell:cell :2];
 				
             }
             else if(indexPath.row == 2)
             {
-                cell.addressTitle.text = @"Physical Address";
+                cell.addressTitle.text = @"Physical Address*";
                 cell = [self addressTableViewCell:cell :3];
 				
             }
@@ -1193,7 +1193,7 @@
             {
                 case EInEligibleReason:
                 {
-                    [selectionView assignDataSource:[IneligibleReason findAll]];
+                    [selectionView assignDataSource:[IneligibleReason findAllSortedBy:@"name" ascending:YES]];
                     break;
                 }
             }
@@ -2125,7 +2125,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-	
+
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -2497,7 +2497,8 @@
                 break;
             case EStatus:
             {
-                if(_detailItem.isEligible == nil)
+                if(_detailItem.isEligible == nil||
+                   (!(_detailItem.isEligibleValue) && _detailItem.ineligibleReason == nil))
                     return FALSE;
             }
                 break;

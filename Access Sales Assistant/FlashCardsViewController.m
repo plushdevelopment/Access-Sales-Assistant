@@ -213,12 +213,11 @@
 
 - (void)carouselWillBeginDragging:(iCarousel *)carousel
 {
-	NSLog(@"Carousel will begin dragging");
+	
 }
 
 - (void)carouselDidEndDragging:(iCarousel *)carousel willDecelerate:(BOOL)decelerate
 {
-	NSLog(@"Carousel did end dragging and %@ decelerate", decelerate? @"will": @"won't");
 	for(int cContainer = 0; cContainer<[containerArray count];cContainer++)
 	{
 		CustomContainerView* view = [containerArray objectAtIndex:cContainer];
@@ -233,22 +232,22 @@
 
 - (void)carouselWillBeginDecelerating:(iCarousel *)carousel
 {
-	NSLog(@"Carousel will begin decelerating");
+//	NSLog(@"Carousel will begin decelerating");
 }
 
 - (void)carouselDidEndDecelerating:(iCarousel *)carousel
 {
-	NSLog(@"Carousel did end decelerating");
+//	NSLog(@"Carousel did end decelerating");
 }
 
 - (void)carouselWillBeginScrollingAnimation:(iCarousel *)carousel
 {
-	NSLog(@"Carousel will begin scrolling");
+//	NSLog(@"Carousel will begin scrolling");
 }
 
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel
 {
-	NSLog(@"Carousel did end scrolling");
+//	NSLog(@"Carousel did end scrolling");
 }
 
 - (void)carousel:(iCarousel *)_carousel didSelectItemAtIndex:(NSInteger)index
@@ -257,7 +256,6 @@
 	{
 		//note, this will only ever happen if USE_BUTTONS == NO
 		//otherwise the button intercepts the tap event
-		NSLog(@"Selected current item");
 		//  CustomContainerView* view = (CustomContainerView*)[_carousel viewAtIndex:index];
         
         for(int cContainer = 0; cContainer<[containerArray count];cContainer++)
@@ -278,7 +276,7 @@
 	}
 	else
 	{
-		NSLog(@"Selected item number %i", index);
+		//NSLog(@"Selected item number %i", index);
 	}
 }
 
