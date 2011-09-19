@@ -684,10 +684,10 @@
 			contactCell.emailAddressTextField.text = email.address;
 		}
 	}
-    if([tContact.type.name isEqualToString:@"Agent"]==0)
-        [self disableTextField:contactCell.socialSecurityNumberTextField :YES];
-    else
+    if([tContact.type.name isEqualToString:@"Agent"])
         [self disableTextField:contactCell.socialSecurityNumberTextField :NO];
+    else
+        [self disableTextField:contactCell.socialSecurityNumberTextField :YES];
         
     return contactCell;
 }

@@ -188,8 +188,8 @@
     }
     else
     {
-        textField.layer.backgroundColor=[[UIColor clearColor]CGColor];
-        
+     //   textField.layer.backgroundColor=[[UIColor clearColor]CGColor];
+          textField.backgroundColor = [UIColor clearColor];
                 [textField setEnabled:TRUE];
     }
 
