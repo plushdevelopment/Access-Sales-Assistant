@@ -69,10 +69,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(CLLocationController);
 	
 	for (Producer *producer in producers) {
 		CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(producer.latitudeValue, producer.longitudeValue);
-		CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:coordinate radius:100.0 identifier:producer.producerCode];
+		CLRegion *region = [[[CLRegion alloc] initCircularRegionWithCenter:coordinate radius:100.0 identifier:producer.producerCode] autorelease];
 		NSLog(@"Region: %@", region);
 		[self monitorRegion:region];
 	}
+}
+
+- (void)dealloc
+{
+	[_manager release];
+	[_currentLocation release];
 }
 
 #pragma mark -
