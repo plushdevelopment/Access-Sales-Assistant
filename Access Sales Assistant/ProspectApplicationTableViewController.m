@@ -22,6 +22,7 @@
 #import "EmailListItem.h"
 #import "NSString-Validation.h"
 #import "SelectionModelViewController.h"
+#import "UIHelpers.h"
 
 @implementation ProspectApplicationTableViewController
 
@@ -40,6 +41,11 @@
 @synthesize spaceButton = _spaceButton;
 @synthesize pListTableViewController = _pListTableViewController;
 @synthesize prospectPopoverController = _prospectPopoverController;
+
+- (void)postProducerSuccess:(id)notification
+{
+	[UIHelpers showAlertWithTitle:@"Success" msg:@"Successfully submitted Prospect Application" buttonTitle:@"OK"];
+}
 
 - (void)hideKeyboard
 {
@@ -74,6 +80,7 @@
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
     
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(postProducerSuccess:) name:@"Post Producer Successful" object:nil];
     
     self.baseToolbar = _toolBar;
     myTextFieldSemaphore =0;
@@ -91,6 +98,7 @@
 
 - (void)viewDidUnload
 {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -221,7 +229,7 @@
             }
 
             for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers) {
-                if (phoneNumber.typeValue == 3) {
+                if (phoneNumber.typeValue == PHONE_1) {
                     [cell.phone1TextField setText:phoneNumber.number];
                 } else if (phoneNumber.typeValue == 4) {
                     [cell.faxTextField setText:phoneNumber.number];
@@ -250,7 +258,13 @@
                 [[NSBundle mainBundle] loadNibNamed:@"ProspectAppRaterTableViewCell" owner:self options:nil];
                 cell = (ProducerRaterTableViewCell*)_raterTableViewCell;
             }
-
+			if (self.detailItem.rater) {
+				[cell.rater2Button setEnabled:YES];
+				[self disableTextField:cell.rater2TextField :YES];
+			} else {
+				[cell.rater2Button setEnabled:NO];
+				[self disableTextField:cell.rater2TextField :NO];
+			}
             [cell.raterTextField setText:_detailItem.rater.name];
             [cell.rater2TextField setText:_detailItem.rater2.name];
             return cell;
@@ -1010,7 +1024,7 @@
                     BOOL phoneExists = FALSE;
                     for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers)
                     {
-                        if(phoneNumber.typeValue == 3)
+                        if(phoneNumber.typeValue == PHONE_1)
                         {
                             phoneExists= TRUE;
                             if([textField.text isValidPhoneNumber])
@@ -1033,7 +1047,7 @@
                         if([textField.text isValidPhoneNumber])
                         {
                             PhoneListItem *phNo = [PhoneListItem createEntity];
-                            phNo.typeValue = 3;
+                            phNo.typeValue = PHONE_1;
                             phNo.number = textField.text;
                             
                             [self.detailItem addPhoneNumbersObject:phNo];
@@ -1348,6 +1362,9 @@
             {
                 case ERater1:
                     self.detailItem.rater = [Rater findFirstByAttribute:@"name" withValue:selectedString];
+					if (!self.detailItem.rater) {
+						self.detailItem.rater2 = nil;
+					}
                     break;
                 case ERater2:
                     self.detailItem.rater2 = [Rater2 findFirstByAttribute:@"name" withValue:selectedString];

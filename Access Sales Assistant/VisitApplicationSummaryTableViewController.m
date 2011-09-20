@@ -364,20 +364,16 @@ enum PRPTableStatsTags {
 
 - (IBAction)handleSwitch:(id)sender
 {
-	/*  UISwitch *rdfollowup = (UISwitch*) sender;
-	 
-	 if(rdfollowup.isOn)
-	 _detailItem.rdFollowUpValue = 1;
-	 else
-	 _detailItem.rdFollowUpValue = 0;
-	 */
-    
+    self.detailItem.editedValue = YES;
+	self.detailItem.producerId.editedValue = YES;
     UICustomSwitch * rdfollowup = (UICustomSwitch*) sender;
     if(rdfollowup.isOn)
         _detailItem.rdFollowUpValue = 1;
     else
         _detailItem.rdFollowUpValue = 0;
     
+	[[NSManagedObjectContext defaultContext] save];
+	
     [self toggleSubmitButton:[self isEnableSubmit]];
 	
 }

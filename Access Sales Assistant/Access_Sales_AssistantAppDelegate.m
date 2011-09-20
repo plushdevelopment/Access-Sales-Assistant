@@ -21,6 +21,7 @@
 @synthesize splitViewController = _splitViewController;
 @synthesize loginController = _loginController;
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Setup the Core Data Stack

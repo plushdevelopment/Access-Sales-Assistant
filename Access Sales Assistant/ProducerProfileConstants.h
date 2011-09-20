@@ -33,7 +33,7 @@
 #define MAILING_ADDRESS 1
 #define PHYSICAL_ADDRESS 3
 
-#define PHONE_1 3
+#define PHONE_1 1
 #define FAX 4
 #define MAIN_EMAIL 1
 #define CLAIMS_EMAIL 2

@@ -64,6 +64,7 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *submitButton;
 
 @property (nonatomic,strong) IBOutlet SelectionModelViewController *selectionTableView;
+@property (nonatomic, strong) NSMutableSet *fields;
 
 
 

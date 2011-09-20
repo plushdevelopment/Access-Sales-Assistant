@@ -30,7 +30,7 @@
 #define VALID_PHONE_ALERT       @"Not a valid phone number"
 #define VALID_ZIP_CODE_ALERT       @"Not a valid zip code"
 
-#define PHONE_1 3
+#define PHONE_1 1
 
 #pragma mark - enums
 

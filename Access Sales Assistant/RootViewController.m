@@ -108,6 +108,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	
+	UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:[HTTPOperationController sharedHTTPOperationController] action:@selector(logout)];
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:[HTTPOperationController sharedHTTPOperationController] action:@selector(refreshProducers)];
+	self.navigationItem.leftBarButtonItem = logoutButton;
+	self.navigationItem.rightBarButtonItem = refreshButton;
     
 	self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
 	
@@ -310,13 +315,12 @@
     
     switch (self.openSectionIndex) {
         case VISIT_APP_INDEX: {
-			VisitApplicationMapViewController *detailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
-            [self changeDetailViewController:detailViewController];
-			self.detailViewController = detailViewController;
-			
+			VisitApplicationMapViewController *aDetailViewController = [[VisitApplicationMapViewController alloc] initWithNibName:@"VisitApplicationMapViewController" bundle:nil];
+			self.detailViewController = aDetailViewController;
+            [self changeDetailViewController:aDetailViewController];
             [self displayTopMenuItem];
 			[self.popoverController dismissPopoverAnimated:YES];
-            [detailViewController setSelectedDay:[visitApplicationDaysArray objectAtIndex:indexPath.row]];
+            [aDetailViewController setSelectedDay:[visitApplicationDaysArray objectAtIndex:indexPath.row]];
 		}
             break;
         case CONTACTS_OPTIONS_INDEX:
@@ -761,20 +765,18 @@
 
 -(void) changeDetailViewController:(BaseDetailViewController *)detailViewController
 {
-    
-	//  BaseDetailViewController *det = (BaseDetailViewController*) [viewControllerArr objectAtIndex:1];
-    CGRect rec = detailViewController.view.frame;
-    rec.origin.y = 20;
-    [detailViewController.view setFrame:rec];
-    
-    NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-    
-    BaseDetailViewController *det = (BaseDetailViewController*) [viewControllerArr objectAtIndex:1];
-    CGRect rec1 = det.view.frame;
-	
-	// CGRect *rec = [(BaseDetailViewController*) [viewControllerArr objectAtIndex:1]].frame; 
-    detailViewController.splitviewcontroller = self.splitViewController;
-    
+		//  BaseDetailViewController *det = (BaseDetailViewController*) [viewControllerArr objectAtIndex:1];
+		//CGRect rec = detailViewController.view.frame;
+		//rec.origin.y = 20;
+		//[detailViewController.view setFrame:rec];
+		
+		RootViewController *rootViewController = [[self.splitViewController viewControllers] objectAtIndex:0];
+		self.splitViewController.viewControllers = [NSArray arrayWithObjects:rootViewController, detailViewController, nil];
+		
+		//BaseDetailViewController *det = (BaseDetailViewController*) [self.splitViewController.viewControllers objectAtIndex:1];
+		//CGRect rec1 = det.view.frame;
+		
+		// CGRect *rec = [(BaseDetailViewController*) [viewControllerArr objectAtIndex:1]].frame; 
+		detailViewController.splitviewcontroller = self.splitViewController;
 }
 @end

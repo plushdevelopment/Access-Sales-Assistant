@@ -17,6 +17,7 @@
 #import "HTTPOperationController.h"
 #import "VisitTableViewCell.h"
 #import "UITableView+PRPSubviewAdditions.h"
+#import "Access_Sales_AssistantAppDelegate.h"
 
 @implementation VisitApplicationMapViewController
 @synthesize titleLabel = _titleLabel;
@@ -36,6 +37,7 @@
 @synthesize popoverController=popoverController;
 @synthesize tabBarController = _tabBarController;
 @synthesize visitTableViewCellNib=_visitTableViewCellNib;
+@synthesize hud=_hud;
 
 - (void)producersSuccessful
 {
@@ -65,7 +67,7 @@
 
 - (void)configureView
 {
-	if ([[[HTTPOperationController sharedHTTPOperationController] networkQueue] requestsCount] == 0) {
+	if ([[[HTTPOperationController sharedHTTPOperationController] networkQueue] isSuspended]) {
 		[self.directionsMapView removeOverlays:self.directionsMapView.overlays];
 		[self.directionsMapView removeAnnotations:self.directionsMapView.annotations];
 		if (self.producers.count > 0) {
@@ -149,6 +151,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	Access_Sales_AssistantAppDelegate *appDelegate = (Access_Sales_AssistantAppDelegate *)[[UIApplication sharedApplication] delegate];
+	self.hud = [MBProgressHUD showHUDAddedTo:[appDelegate window] animated:YES];
+	self.hud.labelText = @"Loading Map";
+	self.hud.dimBackground = YES;
+	[self.hud hide:YES afterDelay:3];
 	[self configureView];
 }
 
@@ -236,6 +243,7 @@
 		[aV setFrame:endFrame];
 		[UIView commitAnimations];
 	}
+	[self.hud hide:YES afterDelay:1];
 }
 
 - (void)mapView:(MKMapView *)mapView didAddOverlayViews:(NSArray *)overlayViews
@@ -339,7 +347,7 @@
 
 - (void)directions:(UICGDirections *)directions didFailInitializeWithError:(NSError *)error {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-	
+	[self.hud hide:YES afterDelay:1];
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Map Directions" message:[error localizedFailureReason] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
 	[alertView show];
 }
@@ -403,10 +411,12 @@
 			[_directionsMapView addAnnotation:annotation];
 		}
 	}
+	[self.hud hide:YES afterDelay:1];
 }
 
 - (void)directions:(UICGDirections *)directions didFailWithMessage:(NSString *)message {
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];\
+	[self.hud hide:YES afterDelay:1];
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Map Directions" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
 	[alertView show];
 }

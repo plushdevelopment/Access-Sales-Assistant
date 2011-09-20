@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "UICGDirections.h"
 #import "VisitApplicationTabBarController.h"
+#import "MBProgressHUD.h"
 
 @class UICRouteOverlayMapView;
 
@@ -38,6 +39,7 @@
 @property (nonatomic, strong) UIPopoverController *popoverController;
 @property (strong, nonatomic) IBOutlet VisitApplicationTabBarController *tabBarController;
 @property (strong, nonatomic) UINib *visitTableViewCellNib;
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 - (void)configureView;
 - (void)update;

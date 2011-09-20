@@ -21,6 +21,8 @@
 #import "GetCompetitorRequest.h"
 #import "UIHelpers.h"
 #import "AccessSalesConstants.h"
+#import "Access_Sales_AssistantAppDelegate.h"
+#import "MBProgressHUD.h"
 
 #define kPAGESIZE 100
 
@@ -53,12 +55,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
     }
     
     return self;
-}
-
-- (void)synchronizeSchedule
-{
-	
-	
 }
 
 #pragma mark -
@@ -149,9 +145,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	user.token = encodedString;
 	[self.managedObjectContext save];
 	[encodedString release];
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Launch Map" object:request];
-	
-	[self requestPickLists];
 }
 
 - (void)loginRequestFailed:(ASIHTTPRequest *)request
@@ -159,8 +152,26 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSError *error = [request error];
 	NSLog(@"Request Error: %@", [error localizedDescription]);
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"Login Failure" object:request];
-	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Login Failure" object:request];	
+}
+
+- (void)logout
+{
+	Access_Sales_AssistantAppDelegate *appDelegate = (Access_Sales_AssistantAppDelegate *)[[UIApplication sharedApplication] delegate];
+	MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[appDelegate window] animated:YES];
+	hud.labelText = @"Logging Out";
+	hud.dimBackground = YES;
+	[[Producer findAll] makeObjectsPerformSelector:@selector(deleteEntity)];
+	[[User findFirst] setPassword:@""];
+	[self.managedObjectContext save];
+	[hud hide:YES];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Producers Successful" object:nil];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"Login Failure" object:nil];
+}
+
+- (void)refreshProducers
+{
+	[self requestPickLists];
 }
 
 // Pick Lists
@@ -348,7 +359,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		NSString *responseString = [request responseString];
 		NSDictionary *responseJSON = [responseString JSONValue];
 		if (responseJSON) {
-			NSAssert(responseJSON, @"Failed to parse response");
 			Producer *producer = [Producer ai_objectForProperty:@"uid" value:[responseJSON valueForKey:@"uid"] managedObjectContext:self.managedObjectContext];
 			producer.editedValue = NO;
 			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -357,7 +367,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			[formatter release];
 			// Hours of Operation
 			HoursOfOperation *hoursOfOperation = producer.hoursOfOperation;
-			NSAssert(hoursOfOperation, @"Hours of Operation is nil");
 			[hoursOfOperation safeSetValuesForKeysWithDictionary:[responseJSON valueForKey:@"hoursOfOperation"] dateFormatter:nil managedObjectContext:self.managedObjectContext];
 			// Contacts
 			NSArray *contactsArray = [responseJSON valueForKey:@"contacts"];
@@ -373,9 +382,48 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 					}
 				}
 			}
+			NSArray *phoneArray = [responseJSON valueForKey:@"phoneNumbers"];
+			if (contactsArray.count > 0) {
+				@autoreleasepool {
+					for (PhoneListItem *phone in producer.phoneNumbers) {
+						[phone deleteInContext:self.managedObjectContext];
+					}
+					for (NSDictionary *phoneDictionary in phoneArray) {
+						PhoneListItem *phone = [PhoneListItem createInContext:self.managedObjectContext];
+						[phone setProducer:producer];
+						[phone safeSetValuesForKeysWithDictionary:phoneDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
+					}
+				}
+			}
+			NSArray *emailArray = [responseJSON valueForKey:@"emails"];
+			if (emailArray.count > 0) {
+				@autoreleasepool {
+					for (EmailListItem *email in producer.emails) {
+						[email deleteInContext:self.managedObjectContext];
+					}
+					for (NSDictionary *emailDictionary in emailArray) {
+						EmailListItem *email = [EmailListItem createInContext:self.managedObjectContext];
+						[email setProducer:producer];
+						[email safeSetValuesForKeysWithDictionary:emailDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
+					}
+				}
+			}
+			NSArray *addressArray = [responseJSON valueForKey:@"addresses"];
+			if (addressArray.count > 0) {
+				@autoreleasepool {
+					for (AddressListItem *address in producer.addresses) {
+						[address deleteInContext:self.managedObjectContext];
+					}
+					for (NSDictionary *addressDictionary in addressArray) {
+						AddressListItem *address = [AddressListItem createInContext:self.managedObjectContext];
+						[address setProducer:producer];
+						[address safeSetValuesForKeysWithDictionary:addressDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
+					}
+				}
+			}
 			[self.managedObjectContext save];
+			NSLog(@"%@", [producer jsonStringValue]);
 		}
-		[UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_PROFILE_REQUEST_SUCCESS buttonTitle:@"OK"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Successful" object:request];
 	}
 }

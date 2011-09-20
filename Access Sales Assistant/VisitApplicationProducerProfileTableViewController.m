@@ -39,6 +39,7 @@
 #import "ContactType.h"
 #import "UIHelpers.h"
 #import "SelectionModelViewController.h"
+#import "AccessSalesConstants.h"
 
 @implementation VisitApplicationProducerProfileTableViewController
 
@@ -57,13 +58,11 @@
 @synthesize addressTableViewCell = _addressTableViewCell;
 @synthesize contactTableViewCell = _contactTableViewCell;
 @synthesize lastVisitedCell = _lastVisitedCell;
-
-
 @synthesize dismissButton = _dismissButton;
 @synthesize submitButton = _submitButton;
 @synthesize isDoneSelected = _isDoneSelected;
 @synthesize profileGeneralTableViewCellNib = _profileGeneralTableViewCellNib;
-
+@synthesize fields=_fields;
 
 @synthesize titleLabel = _titleLabel;
 
@@ -98,6 +97,11 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)postProducerSuccess:(id)notification
+{
+	[UIHelpers showAlertWithTitle:@"Success" msg:PRODUCER_PROFILE_REQUEST_SUCCESS buttonTitle:@"OK"];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -105,6 +109,8 @@
 	
     [super viewDidLoad];
     
+	self.fields = [NSMutableSet set];
+	
     sectionTitleArray = [[NSArray alloc] initWithObjects:PRODUCER_PROFILE_SECTIONS];
     
     self.tableView.allowsSelection = NO;
@@ -115,11 +121,14 @@
 	
     self.tableView.backgroundColor = [UIColor clearColor];
     _isDoneSelected = TRUE;
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(postProducerSuccess:) name:@"Post Producer Successful" object:nil];
 }
 
 - (void)viewDidUnload
 {
     [self setTableView:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -286,7 +295,13 @@
             cell.accessSignTextField.text = _detailItem.hasAccessSignValue?@"Yes":@"No";
             cell.subTerritoryTextField.text = _detailItem.subTerritory.uid.stringValue;
             cell.numberOfLocationsTextField.text = _detailItem.numberOfLocations.stringValue;
-            
+			
+			[self.fields addObject:cell.producerNameTextField];
+			[self.fields addObject:cell.numberOfEmployeesTextField];
+			[self.fields addObject:cell.numberOfLocationsTextField];
+			[self.fields addObject:cell.subTerritoryTextField];
+            [self.fields addObject:cell.primaryContactTextField];
+			
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             
             [dateFormatter setDateFormat:@"MM-dd-yyyy"];
@@ -305,14 +320,7 @@
             if(_detailItem.hasAccessSignValue)
                 cell.accessSignCustomSwitch.on = TRUE;
             else
-                cell.accessSignCustomSwitch = FALSE;
-
-            
-            
-            if(indexPath == self.datePickerViewController.currentIndexPath)
-                cell.selected = YES;
-            else
-                cell.selected = NO;
+                cell.accessSignCustomSwitch.on = FALSE;
             
             
             return cell;
@@ -333,6 +341,9 @@
             QuestionListItem *qListItem = (QuestionListItem *)[questionArray objectAtIndex:indexPath.row];
             cell.questionLabel.text = qListItem.text;
             cell.answerTextField.text = qListItem.answer;
+			
+			[self.fields addObject:cell.answerTextField];
+			
             return cell;
 			
         }
@@ -366,6 +377,15 @@
             }
 
             [self raterTableViewCell:cell :indexPath.row];
+			
+			if (self.detailItem.rater) {
+				[cell.rater2Button setEnabled:YES];
+				[self disableTextField:cell.rater2TextField :YES];
+			} else {
+				[cell.rater2Button setEnabled:NO];
+				[self disableTextField:cell.rater2TextField :NO];
+			}
+			
             return cell;
         }
         case ECompanyContactInfo:
@@ -382,6 +402,15 @@
 
             
             [self contactInfoTableViewCell:cell :indexPath.row];
+			
+			[self.fields addObject:cell.phone1TextField];
+			[self.fields addObject:cell.faxTextField];
+			[self.fields addObject:cell.mainMailTextField];
+			[self.fields addObject:cell.claimsMailTextField];
+            [self.fields addObject:cell.acctMailTextField];
+			[self.fields addObject:cell.custServMailTextField];
+			[self.fields addObject:cell.webAddrTextField];
+			
             return cell;
         }
         case EHoursOfOperation:
@@ -429,6 +458,11 @@
 				
             }
             
+			[self.fields addObject:cell.streetAddress1TextField];
+			[self.fields addObject:cell.streetAddress2TextField];
+			[self.fields addObject:cell.cityTextField];
+			[self.fields addObject:cell.zipTextField];
+			
             return cell;
         }
         case EContacts:
@@ -453,7 +487,7 @@
                 remBtn.tag = 1002;
                 
                 [remBtn addTarget:self action:@selector(AddContact:) forControlEvents:UIControlEventTouchUpInside];
-                
+				
                 return cell;
 				
             }
@@ -470,6 +504,12 @@
                 }
 
                 cell = [self contactTableViewCell:cell :indexPath.row];
+				
+				[self.fields addObject:cell.firstNameTextField];
+				[self.fields addObject:cell.lastNameTextField];
+				[self.fields addObject:cell.mobilePhoneTextField];
+				[self.fields addObject:cell.emailAddressTextField];
+				[self.fields addObject:cell.socialSecurityNumberTextField];
 				
 				return cell;
             }
@@ -695,9 +735,10 @@
 {
     for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers) {
         if (phoneNumber.typeValue == 1) {
+			[contactInfoCell.phone1TextField setText:phoneNumber.number];
         } else if (phoneNumber.typeValue == 2) {
         } else if (phoneNumber.typeValue == 3) {
-            [contactInfoCell.phone1TextField setText:phoneNumber.number];
+            
         } else if (phoneNumber.typeValue == 4) {
             [contactInfoCell.faxTextField setText:phoneNumber.number];
         }
@@ -1016,7 +1057,7 @@
             [cToDel deleteInContext:[NSManagedObjectContext defaultContext]];
             [[NSManagedObjectContext defaultContext] save];
             [self.tableView reloadData];
-            
+            [self.tableView setNeedsDisplay];
         }
 		
 		
@@ -1162,6 +1203,7 @@
 
 -(IBAction)handleCustomSwitchToggle:(id)sender
 {
+	self.detailItem.editedValue = YES;
     UICustomSwitch *neverSwitch = (UICustomSwitch*) sender;
     
     if(neverSwitch.tag == 1100)
@@ -1194,16 +1236,19 @@
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
         
     }
-    
+    [[NSManagedObjectContext defaultContext] save];
     [self toggleSubmitButton:[self isEnableSubmit]];
-    
-     
    
 }
 
 - (void)showViewController:(UIViewController *)viewController
 {
     [self presentModalViewController:viewController animated:YES];
+}
+
+- (void)dismissKeyboard
+{
+	[self.fields makeObjectsPerformSelector:@selector(resignFirstResponder)];
 }
 
 -(IBAction)showSelectionTableView:(id)sender
@@ -1326,7 +1371,7 @@
             break;
         }
     }
-    [self hideKeyboard];
+    [self dismissKeyboard];
     [self performSelector:@selector(showViewController:) withObject:selectionView afterDelay:0.0];
 }
 -(IBAction)showTimePickerView:(id)sender
@@ -2080,7 +2125,7 @@
         {
             switch(tag)
             {
-                case EPhone1: //3
+                case EPhone1: //1
                 {
 					if([replacementString isValidPhoneNumber])
 					{
@@ -2203,6 +2248,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [self saveTextFieldToContext:textField];
+	[self.tableView reloadData];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -2282,9 +2328,9 @@
         {
             switch(tag)
             {
-                case EPhone1: //3
+                case EPhone1: //1
                 {
-                    [self modifyPhoneItem:textField :3];
+                    [self modifyPhoneItem:textField :1];
                 }
                     break;
                 case EFax://4
@@ -2722,6 +2768,7 @@
 						self.detailItem.rater = rater;
 					} else {
 						self.detailItem.rater = nil;
+						self.detailItem.rater2 = nil;
 					}
                     
                     break;

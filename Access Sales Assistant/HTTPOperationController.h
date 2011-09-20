@@ -23,6 +23,10 @@
 - (void)loginRequestFinished:(ASIHTTPRequest *)request;
 - (void)loginRequestFailed:(ASIHTTPRequest *)request;
 
+- (void)logout;
+
+- (void)refreshProducers;
+
 - (void)requestPickLists;
 - (void)requestPickListsFinished:(ASIHTTPRequest *)request;
 - (void)requestPickListsFailed:(ASIHTTPRequest *)request;

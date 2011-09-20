@@ -56,7 +56,7 @@
         self.arrowImage.alpha = 0.25;
 		[content addSubview:self.arrowImage];
 		
-		[content release];
+		//[content release];
     }
     return self;
 }
