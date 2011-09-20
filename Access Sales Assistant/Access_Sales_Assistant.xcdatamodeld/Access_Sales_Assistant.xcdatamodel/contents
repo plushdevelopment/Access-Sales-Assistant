@@ -201,6 +201,7 @@
         <attribute name="numberOfLocations" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="primaryContact" optional="YES" attributeType="String"/>
         <attribute name="producerCode" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="prospect" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="statusDate" optional="YES" attributeType="Date"/>
         <attribute name="submitted" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
         <attribute name="uid" optional="YES" attributeType="String" indexed="YES"/>
@@ -345,7 +346,7 @@
         <element name="Phase" positionX="-396" positionY="-108" width="128" height="90"/>
         <element name="PhoneListItem" positionX="826" positionY="477" width="128" height="105"/>
         <element name="PolicyCountReportData" positionX="207" positionY="-675" width="128" height="105"/>
-        <element name="Producer" positionX="306" positionY="123" width="128" height="645"/>
+        <element name="Producer" positionX="306" positionY="123" width="128" height="660"/>
         <element name="ProducerAddOn" positionX="261" positionY="864" width="128" height="90"/>
         <element name="ProducerImage" positionX="27" positionY="870" width="128" height="90"/>
         <element name="ProductionReportData" positionX="459" positionY="-900" width="128" height="360"/>
