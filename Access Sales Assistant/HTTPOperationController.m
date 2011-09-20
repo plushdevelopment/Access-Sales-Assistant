@@ -476,7 +476,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			producer.submittedValue = YES;
 			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 			[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-			[producer.dailySummary safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
+			producer.dailySummary.uid = [responseJSON valueForKey:@"uid"];
+			//[producer.dailySummary safeSetValuesForKeysWithDictionary:responseJSON dateFormatter:formatter managedObjectContext:self.managedObjectContext];
 			[formatter release];
 			// Contacts
 			NSArray *notesArray = [responseJSON valueForKey:@"notes"];
