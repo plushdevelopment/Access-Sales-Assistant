@@ -26,11 +26,6 @@
 
 #define kPAGESIZE 100
 
-#define kUATURL @"https://uatmobile.accessgeneral.com/TsmServices/"
-#define kDevURL @"http://devweb01.development.accessgeneral.com:82/"
-#define kURL @"https://mobile.accessgeneral.com/"
-#define kProdURL @"https://mobile.accessgeneral.com/"
-
 @implementation HTTPOperationController
 
 @synthesize networkQueue=_networkQueue;
@@ -111,8 +106,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	NSString *encryptedString = [encryptedData base64EncodingWithLineLength:0];
 	NSString *encryptedEncodedString = [self urlencode:encryptedString];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"%@SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@",
-						   kURL,
+						   stringWithFormat:@"%@STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@",
+						   kLoginURL,
 						   [user username],
 						   encryptedEncodedString,
 						   [user domain],
@@ -185,7 +180,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"%@TsmServices/VisitApplicationService/Picklists?token=%@",
+						   stringWithFormat:@"%@VisitApplicationService/Picklists?token=%@",
 						   kURL,
 						   [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
@@ -244,7 +239,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"%@TsmServices/VisitApplicationService/Competitors?pageNbr=%d&pageSize=%d&token=%@",
+						   stringWithFormat:@"%@VisitApplicationService/Competitors?pageNbr=%d&pageSize=%d&token=%@",
 						   kURL, 
 						   [page integerValue],
 						   kPAGESIZE,
@@ -296,7 +291,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 		[[self networkQueue] go];
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"%@TsmServices/VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", kURL, [page integerValue], 1, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/TSM/Schedule?pageNbr=%d&pageSize=%d&partialLoad=false&token=%@", kURL, [page integerValue], 1, [user token]];
 	NSURL *aURL = [NSURL URLWithString:urlString];
 	
 	GetProducerRequest *request = [[GetProducerRequest alloc] initWithURL:aURL];
@@ -337,7 +332,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"%@TsmServices/VisitApplicationService/Producers?token=%@", kURL, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/Producers?token=%@", kURL, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
@@ -448,7 +443,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"%@TsmServices/VisitApplicationService/DailySummaryReports?token=%@", kURL, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/DailySummaryReports?token=%@", kURL, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
@@ -518,7 +513,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	
 	User *user = [User findFirst];
 	NSString *imageName = [NSString stringWithFormat:@"%@_%d.png", producerID, [image hash]];
-	NSString *urlString = [NSString stringWithFormat:@"%@TsmServices/VisitApplicationService/Producers/%@/Images?fileName=%@&token=%@", kURL, producerID, imageName, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/Producers/%@/Images?fileName=%@&token=%@", kURL, producerID, imageName, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
@@ -563,7 +558,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"%@TsmServices/VisitApplicationService/Producers/%@/Images?fileName=%@&token=%@", kURL, producerID, imageName, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/Producers/%@/Images?fileName=%@&token=%@", kURL, producerID, imageName, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"DELETE"];
@@ -600,7 +595,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"%@TsmServices/VisitApplicationService/Producers/%@/Images?token=%@", kURL, producerID, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/Producers/%@/Images?token=%@", kURL, producerID, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -703,7 +698,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	User *user = [User findFirst];
 	
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"%@TsmServices/VisitApplicationService/AccessAcademy/Videos?token=%@",kURL,[user token]];
+						   stringWithFormat:@"%@VisitApplicationService/AccessAcademy/Videos?token=%@",kURL,[user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -743,7 +738,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	User *user = [User findFirst];
     NSString* escapedString = [self urlencode:searchString];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"%@TsmServices/VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@", kURL, escapedString, [user token]];
+						   stringWithFormat:@"%@VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@", kURL, escapedString, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -813,7 +808,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"%@TsmServices/VisitApplicationService/AUNTk/%@?token=%@", kURL, producerCode, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/AUNTk/%@?token=%@", kURL, producerCode, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
@@ -866,7 +861,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"%@TsmServices/VisitApplicationService/QAResolutionRequest?token=%@", kURL, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/QAResolutionRequest?token=%@", kURL, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"POST"];
@@ -901,7 +896,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	}
 	
 	User *user = [User findFirst];
-	NSString *urlString = [NSString stringWithFormat:@"%@TsmServices/VisitApplicationService/Contacts/%@?token=%@", kURL, contact, [user token]];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/Contacts/%@?token=%@", kURL, contact, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"DELETE"];

@@ -13,8 +13,6 @@
 #import "JSON.h"
 #import "HTTPOperationController.h"
 
-#define kURL @"https://mobile.accessgeneral.com/"
-
 @implementation LoginViewController
 
 @synthesize domainField=_domainField;
@@ -115,8 +113,8 @@
 		[[self user] setServiceKey:self.serviceKeyField.text];
 		[self.managedObjectContext save];
 		
-		NSString *urlString = [NSString stringWithFormat:@"%@SecurityServices/STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@",
-							   kURL,
+		NSString *urlString = [NSString stringWithFormat:@"%@STS/Authenticate?userName=%@&securePwd=%@&domain=%@&org=%@&apiKey=%@",
+							   kLoginURL,
 							   self.user.username,
 							   encryptedEncodedString,
 							   self.user.domain,

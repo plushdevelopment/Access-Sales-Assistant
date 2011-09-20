@@ -10,6 +10,16 @@
 #import "ASIHTTPRequestDelegate.h"
 #import "HUDNetworkQueue.h"
 
+#define kUATURL @"https://uatmobile.accessgeneral.com/TsmServices/"
+#define kDevURL @"http://devweb01.development.accessgeneral.com:82/"
+#define kProdURL @"https://mobile.accessgeneral.com/TsmServices/"
+#define kURL @"http://devweb01.development.accessgeneral.com:82/"
+
+#define kLoginURLUAT @"https://uatmobile.accessgeneral.com/SecurityServices/"
+#define kLoginURLDev @"http://devweb01.development.accessgeneral.com:81/"
+#define kLoginURLProd @"https://mobile.accessgeneral.com/SecurityServices/"
+#define kLoginURL @"http://devweb01.development.accessgeneral.com:81/"
+
 @interface HTTPOperationController : NSObject <ASIHTTPRequestDelegate>
 
 @property (strong) HUDNetworkQueue *networkQueue;
