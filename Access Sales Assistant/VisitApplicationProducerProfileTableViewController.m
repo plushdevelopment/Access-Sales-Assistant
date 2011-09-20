@@ -642,7 +642,7 @@
     {
         if(addrItem.addressTypeValue == forType)
         {
-            [self FillAddressCellForType:addressCell :addrItem];      
+            [self FillAddressCellForType:addressCell :addrItem:0];      
             isCurrentAddrFound= TRUE;
             break;
         }
@@ -671,15 +671,15 @@
     {
         if(isMailingAddrFound)
         {
-            [self FillAddressCellForType:addressCell :mailingAddress];
+            [self FillAddressCellForType:addressCell :mailingAddress:forType];
         }
         else if(isCommissionAddrFound)
         {
-            [self FillAddressCellForType:addressCell :commissionAddress];
+            [self FillAddressCellForType:addressCell :commissionAddress:forType];
         }
         else if(isPhysicalAddrFound)
         {
-            [self FillAddressCellForType:addressCell :physicalAddress];
+            [self FillAddressCellForType:addressCell :physicalAddress:forType];
         }
         return addressCell;
     }
@@ -687,18 +687,66 @@
 	
 }
 
--(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem
+-(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem: (NSInteger) forType
 {
-    addressCell.streetAddress1TextField.text = withAddrItem.addressLine1;
+    AddressListItem *newAddressListItem = nil;
+    if(forType == 0)
+    {
+        newAddressListItem = withAddrItem;
+        
+        addressCell.streetAddress1TextField.text = withAddrItem.addressLine1;
+
+        addressCell.streetAddress2TextField.text = withAddrItem.addressLine2;
+
+        addressCell.cityTextField.text = withAddrItem.city;
+
+        addressCell.stateTextField.text = withAddrItem.state.name;
+
+        addressCell.zipTextField.text = withAddrItem.postalCode;
+
+
+    }
+    else
+    {
+    newAddressListItem = [AddressListItem createEntity];
+        newAddressListItem.addressTypeValue = forType;
+    newAddressListItem.addressLine1 = withAddrItem.addressLine1;
+    newAddressListItem.addressLine2 = withAddrItem.addressLine2;
+    newAddressListItem.city = withAddrItem.city;
+        
+    newAddressListItem.state = [State findFirstByAttribute:@"name" withValue: withAddrItem.state.name];
+   // newAddressListItem.state.name = withAddrItem.state.name;
+    newAddressListItem.postalCode = withAddrItem.postalCode;
+        [self.detailItem addAddressesObject:newAddressListItem];
+        
+   /*     addressCell.streetAddress1TextField.text = newAddressListItem.addressLine1;
+        //[self saveTextFieldToContext:addressCell.streetAddress1TextField];
+        addressCell.streetAddress2TextField.text = newAddressListItem.addressLine2;
+        //[self saveTextFieldToContext:addressCell.streetAddress2TextField];
+        addressCell.cityTextField.text = newAddressListItem.city;
+        //[self saveTextFieldToContext:addressCell.cityTextField];
+        addressCell.stateTextField.text = newAddressListItem.state.name;
+        //[self saveTextFieldToContext:addressCell.stateTextField];
+        addressCell.zipTextField.text = newAddressListItem.postalCode;
+        //[self saveTextFieldToContext:addressCell.zipTextField];
+      //  newAddressListItem.editedValue = TRUE;
+    */
+        
+
+    }
+    
+    addressCell.streetAddress1TextField.text = newAddressListItem.addressLine1;
 	//[self saveTextFieldToContext:addressCell.streetAddress1TextField];
-    addressCell.streetAddress2TextField.text = withAddrItem.addressLine2;
+    addressCell.streetAddress2TextField.text = newAddressListItem.addressLine2;
 	//[self saveTextFieldToContext:addressCell.streetAddress2TextField];
-    addressCell.cityTextField.text = withAddrItem.city;
+    addressCell.cityTextField.text = newAddressListItem.city;
 	//[self saveTextFieldToContext:addressCell.cityTextField];
-    addressCell.stateTextField.text = withAddrItem.state.name;
+    addressCell.stateTextField.text = newAddressListItem.state.name;
 	//[self saveTextFieldToContext:addressCell.stateTextField];
-    addressCell.zipTextField.text = withAddrItem.postalCode;
+    addressCell.zipTextField.text = newAddressListItem.postalCode;
 	//[self saveTextFieldToContext:addressCell.zipTextField];
+    
+    [[NSManagedObjectContext defaultContext] save];
 }
 
 -(ProducerContactTableViewCell*) contactTableViewCell:(ProducerContactTableViewCell*) contactCell:(NSInteger)forRow

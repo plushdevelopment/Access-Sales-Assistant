@@ -270,14 +270,14 @@ enum PRPTableStatsTags {
 					NSDictionary *dict = [NSDictionary dictionaryWithObject:@"None" forKey:@"name"];
 					[dataSource addObject:dict];
                     [selectionView assignDataSource:dataSource];
-                    [self presentModalViewController:selectionView  animated:YES];
+                 //   [self presentModalViewController:selectionView  animated:YES];
 					
                     break;
                 }
                 case PRPTableCompetitorCommissionStructure:
                 {
                     [selectionView assignDataSource:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
-                    [self presentModalViewController:selectionView  animated:YES];
+                 //   [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
 					
@@ -291,7 +291,7 @@ enum PRPTableStatsTags {
                 case PRPTableSpokeWithTitle:
                 {
                     [selectionView assignDataSource:[PersonSpokeWithTitle findAllSortedBy:@"name" ascending:YES]];
-					[self presentModalViewController:selectionView  animated:YES];
+				//	[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -307,13 +307,13 @@ enum PRPTableStatsTags {
                     Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:selectionView.currentIndexPath.row];
                     [self.detailItem removeCompetitorsObject:competitor];
                     [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
-					[self presentModalViewController:selectionView  animated:YES];
+					//[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
                 case 1001:
                 {
                     [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
-                    [self presentModalViewController:selectionView  animated:YES];
+                   // [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -328,13 +328,13 @@ enum PRPTableStatsTags {
                     BarrierToBusiness *barrier = [self.detailItem.barriersToBusiness.allObjects objectAtIndex:selectionView.currentIndexPath.row];
                     [self.detailItem removeBarriersToBusinessObject:barrier];
                     [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
-					[self presentModalViewController:selectionView  animated:YES];
+					//[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
                 case 1005:
                 {
                     [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
-                    [self presentModalViewController:selectionView  animated:YES];
+                  //  [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -347,7 +347,7 @@ enum PRPTableStatsTags {
                 case PRPTableStatsProducerAddOn:
                 {
                     [selectionView assignDataSource:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
-					[self presentModalViewController:selectionView  animated:YES];
+				//	[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
                 case PRPTableStatsRDFollowUp:
@@ -360,6 +360,22 @@ enum PRPTableStatsTags {
         }
             
     }
+    
+    [self dismissKeyboard];
+    [self performSelector:@selector(showViewController:) withObject:selectionView afterDelay:0.0];
+    
+    
+}
+
+
+- (void)showViewController:(UIViewController *)viewController
+{
+    [self presentModalViewController:viewController animated:YES];
+}
+
+- (void)dismissKeyboard
+{
+	[self.fields makeObjectsPerformSelector:@selector(resignFirstResponder)];
 }
 
 - (IBAction)handleSwitch:(id)sender

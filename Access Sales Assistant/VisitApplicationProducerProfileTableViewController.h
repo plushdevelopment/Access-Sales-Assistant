@@ -81,7 +81,7 @@
 -(void) modifyPhoneItem:(UITextField*) textField:(NSInteger) phoneType;
 -(void) toggleSubmitButton:(BOOL)isEnable;
 -(BOOL) isEnableSubmit;
--(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem; 
+-(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem: (NSInteger) forType; 
 -(void) AutoFillEmailItem:(ProducerContactInfoTableViewCell*)contactInfoCell:(EmailListItem*) withEmailItem;
 -(EmailListItem*)createNewEmailItem:(EmailListItem*) withEmailItem:(NSInteger) forType;
 -(void) AutoFillHoursOfOperation:(HoursOfOperation*) withHours:(HoursOfOperation*) toHours;
