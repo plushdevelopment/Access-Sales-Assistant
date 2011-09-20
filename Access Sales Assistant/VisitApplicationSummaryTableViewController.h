@@ -59,5 +59,5 @@ optionSelectedDelegate> {
 
 -(void) toggleSubmitButton:(BOOL)isEnable;
 -(BOOL) isEnableSubmit;
-
+- (void)dismissKeyboard;
 @end
