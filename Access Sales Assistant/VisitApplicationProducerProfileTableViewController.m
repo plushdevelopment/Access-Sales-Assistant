@@ -800,23 +800,31 @@
         int typevalue = email.typeValue;
         if (email.typeValue == ACCOUNTING_EMAIL) {
             if([email.address length]>0)
+            {
                 isAccountMailFound = TRUE;
-            acctMailItem = email;
+                acctMailItem = email;
+            }
         } else if (email.typeValue == MAIN_EMAIL) {
 			
             if([email.address length]>0)
+            {
                 isMainMailFound = TRUE;
-            mainMailItem = email;
+                mainMailItem = email;
+            }
         } else if (email.typeValue == CUSTOMER_SERVICE_EMAIL) {
 			
             if([email.address length]>0)
+            {
                 isCustServiceMailFound = TRUE;
-            custMailItem = email;
+                custMailItem = email;
+            }
         } else if (email.typeValue == CLAIMS_EMAIL) {
 			
             if([email.address length]>0)
+            {
                 isClaimsMailFound = TRUE;
-            claimsMailItem = email;
+                claimsMailItem = email;
+            }
         }
     }
     
