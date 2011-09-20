@@ -61,6 +61,7 @@
 @property (nonatomic,strong) UITableView* producerListTableView;
 @property (nonatomic,strong) IBOutlet ProducerListTableViewController *pListTableViewController;
 @property (nonatomic, strong) UIPopoverController *prospectPopoverController;
+@property (nonatomic, strong) NSMutableSet *fields;
 
 - (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;

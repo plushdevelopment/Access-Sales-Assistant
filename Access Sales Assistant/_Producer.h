@@ -46,6 +46,7 @@
 
 
 
+
 @interface ProducerID : NSManagedObjectID {}
 @end
 
@@ -246,6 +247,18 @@
 
 
 //- (BOOL)validateProducerCode:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *prospect;
+
+
+@property BOOL prospectValue;
+- (BOOL)prospectValue;
+- (void)setProspectValue:(BOOL)value_;
+
+//- (BOOL)validateProspect:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -578,6 +591,15 @@
 
 - (NSString*)primitiveProducerCode;
 - (void)setPrimitiveProducerCode:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveProspect;
+- (void)setPrimitiveProspect:(NSNumber*)value;
+
+- (BOOL)primitiveProspectValue;
+- (void)setPrimitiveProspectValue:(BOOL)value_;
 
 
 

@@ -61,6 +61,10 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"numberOfLocations"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"prospectValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"prospect"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"submittedValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"submitted"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -359,6 +363,32 @@
 
 @dynamic producerCode;
 
+
+
+
+
+
+@dynamic prospect;
+
+
+
+- (BOOL)prospectValue {
+	NSNumber *result = [self prospect];
+	return [result boolValue];
+}
+
+- (void)setProspectValue:(BOOL)value_ {
+	[self setProspect:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveProspectValue {
+	NSNumber *result = [self primitiveProspect];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveProspectValue:(BOOL)value_ {
+	[self setPrimitiveProspect:[NSNumber numberWithBool:value_]];
+}
 
 
 

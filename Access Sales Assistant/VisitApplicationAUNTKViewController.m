@@ -203,7 +203,7 @@
 	[self.scrollView setContentSize:CGSizeMake(768, 1676)];
 	
 	[self setAuntk:self.detailItem.auntk];
-	self.toggleAUNTKButton.title = @"Switch to Chain";
+	//self.toggleAUNTKButton.title = @"Switch to Chain";
 	
 	_lossRatioLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(20, 995, 480, 300)];
 	[self.scrollView addSubview:self.lossRatioLineChartView];

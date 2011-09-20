@@ -41,10 +41,22 @@
 @synthesize spaceButton = _spaceButton;
 @synthesize pListTableViewController = _pListTableViewController;
 @synthesize prospectPopoverController = _prospectPopoverController;
+@synthesize fields=_fields;
 
 - (void)postProducerSuccess:(id)notification
 {
 	[UIHelpers showAlertWithTitle:@"Success" msg:@"Successfully submitted Prospect Application" buttonTitle:@"OK"];
+	[self.detailItem deleteEntity];
+	[[NSManagedObjectContext defaultContext] save];
+	self.detailItem = [Producer ai_objectForProperty:@"prospect" value:[NSNumber numberWithBool:YES] managedObjectContext:[NSManagedObjectContext defaultContext]];
+	Contact *contact = [Contact createEntity];
+    contact.type = [ContactType findFirstByAttribute:@"name" withValue:@"Owner"];
+    [self.detailItem addContactsObject:contact];
+    self.detailItem.editedValue = YES;
+	contact.editedValue = YES;
+	[[NSManagedObjectContext defaultContext] save];
+	[self toggleSubmitButton:[self isEnableSubmit]];
+	[self.tableView reloadData];
 }
 
 - (void)hideKeyboard
@@ -86,7 +98,7 @@
     myTextFieldSemaphore =0;
     myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
     
-    self.detailItem = [Producer createEntity];
+    self.detailItem = [Producer ai_objectForProperty:@"prospect" value:[NSNumber numberWithBool:YES] managedObjectContext:[NSManagedObjectContext defaultContext]];
 	Contact *contact = [Contact createEntity];
     contact.type = [ContactType findFirstByAttribute:@"name" withValue:@"Owner"];
     [self.detailItem addContactsObject:contact];
@@ -94,6 +106,8 @@
 	contact.editedValue = YES;
 	[[NSManagedObjectContext defaultContext] save];
 	[self toggleSubmitButton:[self isEnableSubmit]];
+	
+	self.fields = [NSMutableSet set];
 }
 
 - (void)viewDidUnload
@@ -197,6 +211,10 @@
             [self disableTextField:cell.sourceField :NO];
             
             [self disableTextField:cell.tsmNameField :NO];
+			
+			[self.fields addObject:cell.producerNameField];
+			[self.fields addObject:cell.subTerritoryField];
+			
             return cell;
         }
             break;
@@ -212,6 +230,12 @@
                 cell = (ProducerAddressTableViewCell*)_addressTableViewCell;
             }
             cell = [self addressTableViewCell:cell :(indexPath.row)+1];
+			
+			[self.fields addObject:cell.streetAddress1TextField];
+			[self.fields addObject:cell.streetAddress2TextField];
+			[self.fields addObject:cell.cityTextField];
+			[self.fields addObject:cell.zipTextField];
+			
             return cell;
         }
 			//  break;
@@ -243,7 +267,9 @@
                     break;
                 } 
             }
-            
+            [self.fields addObject:cell.phone1TextField];
+			[self.fields addObject:cell.faxTextField];
+			[self.fields addObject:cell.mainMailTextField];
             return cell;
         }
             break;
@@ -267,6 +293,10 @@
 			}
             [cell.raterTextField setText:_detailItem.rater.name];
             [cell.rater2TextField setText:_detailItem.rater2.name];
+			
+			[self.fields addObject:cell.raterTextField];
+			[self.fields addObject:cell.rater2TextField];
+			
             return cell;
         }
             break;
@@ -281,6 +311,12 @@
                 [[NSBundle mainBundle] loadNibNamed:@"ProspectAppContactTableViewCell" owner:self options:nil];
                 cell = (ProspectAppContactTableViewCell*)_contactTableViewCell;
             }
+			
+			[self.fields addObject:cell.primaryContactFirstName];
+			[self.fields addObject:cell.primaryContactLastName];
+			[self.fields addObject:cell.ownerFirstName];
+			[self.fields addObject:cell.ownerLastName];
+			
             return cell;
             
         }
@@ -467,6 +503,11 @@
     
 }
 
+- (void)dismissKeyboard
+{
+	[self.fields makeObjectsPerformSelector:@selector(resignFirstResponder)];
+}
+
 -(IBAction)showSelectionTableView:(id)sender
 {
     UIButton *button = (UIButton *)sender;
@@ -522,7 +563,7 @@
             break;
 			
     }
-	[self hideKeyboard];
+	[self dismissKeyboard];
 	[self.parentViewController presentViewController:selectionView animated:YES completion:^(void){}];
 	
 }
