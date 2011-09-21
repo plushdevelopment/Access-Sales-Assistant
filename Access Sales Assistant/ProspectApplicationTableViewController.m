@@ -907,7 +907,7 @@
                 break;
             case EContactInfo:
             {
-                if([_detailItem.phoneNumbers.allObjects count]<=0 || [_detailItem.emails.allObjects count]<=0)
+                if([_detailItem.phoneNumbers.allObjects count]<=0 /*|| [_detailItem.emails.allObjects count]<=0*/)
                     return FALSE;
                 BOOL isPhoneNoFound = FALSE;
                 

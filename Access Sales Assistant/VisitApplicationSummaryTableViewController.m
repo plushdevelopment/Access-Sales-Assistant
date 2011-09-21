@@ -152,53 +152,53 @@ enum PRPTableStatsTags {
     NSLog(@"%@",self.detailItem);
 }
 /*
-// Show the pickerView inside of a popover
-- (IBAction)showPickerView:(id)sender
-{
-	[self nextField:0];
-	UIButton *button = (UIButton *)sender;
-	
-	self.pickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
-	self.pickerViewController.currentTag = button.tag;
-	
-	UIPickerView *pickerView = self.pickerViewController.pickerView;
-	[pickerView setDelegate:self];
-	[pickerView setDataSource:self];
-	[pickerView setShowsSelectionIndicator:YES];
-	[pickerView selectRow:0 inComponent:0 animated:NO];
-	[pickerView reloadAllComponents];
-	[self pickerView:pickerView didSelectRow:0 inComponent:0];
-	
-	//Position the picker out of sight
-	if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-		[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME_LANDSCAPE];
-	} else {
-		[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
-	}
-	
-	//Add the picker to the view
-	[self.parentViewController.view addSubview:self.pickerViewController.view];
-	
-	//This animation will work on iOS 4
-	//For older iOS, use "beginAnimation:context"
-	[UIView animateWithDuration:0.2 animations:^{
-		//Position of the picker in sight
-		[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
-		//Position of the picker in sight
-		if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-			[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME_LANDSCAPE];
-		} else {
-			[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
-		}
-		
-	} completion:^(BOOL finished){
-		CIVector *frameVector = [CIVector vectorWithCGRect:self.pickerViewController.view.frame];
-		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:frameVector, UIKeyboardFrameEndUserInfoKey, nil];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
-	}];
-	
-}
-*/
+ // Show the pickerView inside of a popover
+ - (IBAction)showPickerView:(id)sender
+ {
+ [self nextField:0];
+ UIButton *button = (UIButton *)sender;
+ 
+ self.pickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
+ self.pickerViewController.currentTag = button.tag;
+ 
+ UIPickerView *pickerView = self.pickerViewController.pickerView;
+ [pickerView setDelegate:self];
+ [pickerView setDataSource:self];
+ [pickerView setShowsSelectionIndicator:YES];
+ [pickerView selectRow:0 inComponent:0 animated:NO];
+ [pickerView reloadAllComponents];
+ [self pickerView:pickerView didSelectRow:0 inComponent:0];
+ 
+ //Position the picker out of sight
+ if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+ [self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME_LANDSCAPE];
+ } else {
+ [self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
+ }
+ 
+ //Add the picker to the view
+ [self.parentViewController.view addSubview:self.pickerViewController.view];
+ 
+ //This animation will work on iOS 4
+ //For older iOS, use "beginAnimation:context"
+ [UIView animateWithDuration:0.2 animations:^{
+ //Position of the picker in sight
+ [self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+ //Position of the picker in sight
+ if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+ [self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME_LANDSCAPE];
+ } else {
+ [self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
+ }
+ 
+ } completion:^(BOOL finished){
+ CIVector *frameVector = [CIVector vectorWithCGRect:self.pickerViewController.view.frame];
+ NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:frameVector, UIKeyboardFrameEndUserInfoKey, nil];
+ [[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
+ }];
+ 
+ }
+ */
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
 {
@@ -269,14 +269,14 @@ enum PRPTableStatsTags {
 					NSDictionary *dict = [NSDictionary dictionaryWithObject:@"None" forKey:@"name"];
 					[dataSource addObject:dict];
                     [selectionView assignDataSource:dataSource];
-                 //   [self presentModalViewController:selectionView  animated:YES];
+                    //   [self presentModalViewController:selectionView  animated:YES];
 					
                     break;
                 }
                 case PRPTableCompetitorCommissionStructure:
                 {
                     [selectionView assignDataSource:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
-                 //   [self presentModalViewController:selectionView  animated:YES];
+                    //   [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
 					
@@ -290,7 +290,7 @@ enum PRPTableStatsTags {
                 case PRPTableSpokeWithTitle:
                 {
                     [selectionView assignDataSource:[PersonSpokeWithTitle findAllSortedBy:@"name" ascending:YES]];
-				//	[self presentModalViewController:selectionView  animated:YES];
+                    //	[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -312,7 +312,7 @@ enum PRPTableStatsTags {
                 case 1001:
                 {
                     [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
-                   // [self presentModalViewController:selectionView  animated:YES];
+                    // [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -333,7 +333,7 @@ enum PRPTableStatsTags {
                 case 1005:
                 {
                     [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
-                  //  [self presentModalViewController:selectionView  animated:YES];
+                    //  [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -346,7 +346,7 @@ enum PRPTableStatsTags {
                 case PRPTableStatsProducerAddOn:
                 {
                     [selectionView assignDataSource:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
-				//	[self presentModalViewController:selectionView  animated:YES];
+                    //	[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
                 case PRPTableStatsRDFollowUp:
@@ -435,14 +435,14 @@ enum PRPTableStatsTags {
 	return _summaryStatsTableViewCellNib;
 }
 /*
-- (PickerViewController *)pickerViewController
-{
-	if (_pickerViewController == nil) {
-		self.pickerViewController = [[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil];
-	}
-	return _pickerViewController;
-}
-*/
+ - (PickerViewController *)pickerViewController
+ {
+ if (_pickerViewController == nil) {
+ self.pickerViewController = [[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil];
+ }
+ return _pickerViewController;
+ }
+ */
 - (NSManagedObjectContext *)managedObjectContext
 {
 	if (_managedObjectContext == nil) {
@@ -1611,7 +1611,7 @@ enum PRPTableStatsTags {
 				case PRPTableBarrierName: {
 					// Change value in model object
 					BarrierToBusiness *barrier = [BarrierToBusiness findFirstByAttribute:@"name" withValue:selectedString];//[self.detailItem.barriersToBusiness.allObjects objectAtIndex:forIndexPath.row];//[BarrierToBusiness findFirstByAttribute:@"name" withValue:titleForRow];
-																														   // barrier.name = selectedString;
+                    // barrier.name = selectedString;
 					[self.detailItem addBarriersToBusinessObject:barrier];
 				}
 					break;

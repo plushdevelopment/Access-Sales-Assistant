@@ -219,8 +219,8 @@
         case ELastVisited:
         {
             
-     //       [[NSBundle mainBundle] loadNibNamed:@"LastVisitedTableViewCell" owner:self options:nil];
-       //     LastVisitedTableViewCell* cell = _lastVisitedCell;
+            //       [[NSBundle mainBundle] loadNibNamed:@"LastVisitedTableViewCell" owner:self options:nil];
+            //     LastVisitedTableViewCell* cell = _lastVisitedCell;
             
             LastVisitedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LastVisitedTableViewCell"];
             if (cell == nil) {
@@ -244,10 +244,10 @@
 			break;
         case EGeneral:
         {
-    //        [[NSBundle mainBundle] loadNibNamed:@"ProducerGeneralTableViewCell" owner:self options:nil];
-          //  if(!_profileGeneralTableViewCellNib)
-           //     self.profileGeneralTableViewCellNib = [ProducerGeneralTableViewCell nib];
-     //       ProducerGeneralTableViewCell* cell = _generalTableViewCell;
+            //        [[NSBundle mainBundle] loadNibNamed:@"ProducerGeneralTableViewCell" owner:self options:nil];
+            //  if(!_profileGeneralTableViewCellNib)
+            //     self.profileGeneralTableViewCellNib = [ProducerGeneralTableViewCell nib];
+            //       ProducerGeneralTableViewCell* cell = _generalTableViewCell;
             
             ProducerGeneralTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerGeneralTableViewCell"];
             if (cell == nil) {
@@ -295,8 +295,8 @@
         }
         case EQuestions:
         {
-       //     [[NSBundle mainBundle] loadNibNamed:@"ProducerQuestionTableViewCell" owner:self options:nil];
-        //    ProducerQuestionTableViewCell* cell = _questionTableViewCell;
+            //     [[NSBundle mainBundle] loadNibNamed:@"ProducerQuestionTableViewCell" owner:self options:nil];
+            //    ProducerQuestionTableViewCell* cell = _questionTableViewCell;
             
             ProducerQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerQuestionTableViewCell"];
             if (cell == nil) {
@@ -304,7 +304,7 @@
                 [[NSBundle mainBundle] loadNibNamed:@"ProducerQuestionTableViewCell" owner:self options:nil];
                 cell = (ProducerQuestionTableViewCell*)_questionTableViewCell;
             }
-
+            
             NSArray* questionArray=_detailItem.questions.allObjects;
             QuestionListItem *qListItem = (QuestionListItem *)[questionArray objectAtIndex:indexPath.row];
             cell.questionLabel.text = qListItem.text;
@@ -319,8 +319,8 @@
         case EStatus:
         {
             
-       //     [[NSBundle mainBundle] loadNibNamed:@"ProducerStatusTableViewCell" owner:self options:nil];
-       //     ProducerStatusTableViewCell* cell = _statusCell;
+            //     [[NSBundle mainBundle] loadNibNamed:@"ProducerStatusTableViewCell" owner:self options:nil];
+            //     ProducerStatusTableViewCell* cell = _statusCell;
             
             ProducerStatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerStatusTableViewCell"];
             if (cell == nil) {
@@ -333,8 +333,8 @@
         }
         case ERater:
         {
-      //      [[NSBundle mainBundle] loadNibNamed:@"ProducerRaterTableViewCell" owner:self options:nil];
-       //     ProducerRaterTableViewCell* cell = _raterTableViewCell;
+            //      [[NSBundle mainBundle] loadNibNamed:@"ProducerRaterTableViewCell" owner:self options:nil];
+            //     ProducerRaterTableViewCell* cell = _raterTableViewCell;
             
             
             ProducerRaterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerRaterTableViewCell"];
@@ -343,7 +343,7 @@
                 [[NSBundle mainBundle] loadNibNamed:@"ProducerRaterTableViewCell" owner:self options:nil];
                 cell = (ProducerRaterTableViewCell*)_raterTableViewCell;
             }
-
+            
             [self raterTableViewCell:cell :indexPath.row];
 			
 			if (self.detailItem.rater) {
@@ -358,8 +358,8 @@
         }
         case ECompanyContactInfo:
         {
-           // [[NSBundle mainBundle] loadNibNamed:@"ProducerContactInfoTableViewCell" owner:self options:nil];
-         //   ProducerContactInfoTableViewCell* cell = _contactInfoTableViewCell;
+            // [[NSBundle mainBundle] loadNibNamed:@"ProducerContactInfoTableViewCell" owner:self options:nil];
+            //   ProducerContactInfoTableViewCell* cell = _contactInfoTableViewCell;
             
             ProducerContactInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerContactInfoTableViewCell"];
             if (cell == nil) {
@@ -367,7 +367,7 @@
                 [[NSBundle mainBundle] loadNibNamed:@"ProducerContactInfoTableViewCell" owner:self options:nil];
                 cell = (ProducerContactInfoTableViewCell*)_contactInfoTableViewCell;
             }
-
+            
             
             [self contactInfoTableViewCell:cell :indexPath.row];
 			
@@ -383,8 +383,8 @@
         }
         case EHoursOfOperation:
         {
-        //    [[NSBundle mainBundle] loadNibNamed:@"ProducerHoursTableViewCell" owner:self options:nil];
-         //   ProducerHoursTableViewCell* cell = _hoursTableViewCell;
+            //    [[NSBundle mainBundle] loadNibNamed:@"ProducerHoursTableViewCell" owner:self options:nil];
+            //   ProducerHoursTableViewCell* cell = _hoursTableViewCell;
             
             ProducerHoursTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerHoursTableViewCell"];
             if (cell == nil) {
@@ -397,8 +397,8 @@
         }
         case EAddresses:
         {
-         //   [[NSBundle mainBundle] loadNibNamed:@"ProducerAddressTableViewCell" owner:self options:nil];
-          //  ProducerAddressTableViewCell* cell = _addressTableViewCell;
+            //   [[NSBundle mainBundle] loadNibNamed:@"ProducerAddressTableViewCell" owner:self options:nil];
+            //  ProducerAddressTableViewCell* cell = _addressTableViewCell;
             
             ProducerAddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerAddressTableViewCell"];
             if (cell == nil) {
@@ -406,7 +406,7 @@
                 [[NSBundle mainBundle] loadNibNamed:@"ProducerAddressTableViewCell" owner:self options:nil];
                 cell = (ProducerAddressTableViewCell*)_addressTableViewCell;
             }
-
+            
             if(indexPath.row ==0)
             {
                 cell.addressTitle.text = @"Mailing Address*";
@@ -461,8 +461,8 @@
             }
             else
             {
-        //        [[NSBundle mainBundle] loadNibNamed:@"ProducerContactTableViewCell" owner:self options:nil];
-            //    ProducerContactTableViewCell* cell = _contactTableViewCell;
+                //        [[NSBundle mainBundle] loadNibNamed:@"ProducerContactTableViewCell" owner:self options:nil];
+                //    ProducerContactTableViewCell* cell = _contactTableViewCell;
                 
                 ProducerContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProducerContactTableViewCell"];
                 if (cell == nil) {
@@ -470,7 +470,7 @@
                     [[NSBundle mainBundle] loadNibNamed:@"ProducerContactTableViewCell" owner:self options:nil];
                     cell = (ProducerContactTableViewCell*)_contactTableViewCell;
                 }
-
+                
                 cell = [self contactTableViewCell:cell :indexPath.row];
 				
 				[self.fields addObject:cell.firstNameTextField];
@@ -663,44 +663,44 @@
         newAddressListItem = withAddrItem;
         
         addressCell.streetAddress1TextField.text = withAddrItem.addressLine1;
-
+        
         addressCell.streetAddress2TextField.text = withAddrItem.addressLine2;
-
+        
         addressCell.cityTextField.text = withAddrItem.city;
-
+        
         addressCell.stateTextField.text = withAddrItem.state.name;
-
+        
         addressCell.zipTextField.text = withAddrItem.postalCode;
-
-
+        
+        
     }
     else
     {
-    newAddressListItem = [AddressListItem createEntity];
+        newAddressListItem = [AddressListItem createEntity];
         newAddressListItem.addressTypeValue = forType;
-    newAddressListItem.addressLine1 = withAddrItem.addressLine1;
-    newAddressListItem.addressLine2 = withAddrItem.addressLine2;
-    newAddressListItem.city = withAddrItem.city;
+        newAddressListItem.addressLine1 = withAddrItem.addressLine1;
+        newAddressListItem.addressLine2 = withAddrItem.addressLine2;
+        newAddressListItem.city = withAddrItem.city;
         
-    newAddressListItem.state = [State findFirstByAttribute:@"name" withValue: withAddrItem.state.name];
-   // newAddressListItem.state.name = withAddrItem.state.name;
-    newAddressListItem.postalCode = withAddrItem.postalCode;
+        newAddressListItem.state = [State findFirstByAttribute:@"name" withValue: withAddrItem.state.name];
+        // newAddressListItem.state.name = withAddrItem.state.name;
+        newAddressListItem.postalCode = withAddrItem.postalCode;
         [self.detailItem addAddressesObject:newAddressListItem];
         
-   /*     addressCell.streetAddress1TextField.text = newAddressListItem.addressLine1;
-        //[self saveTextFieldToContext:addressCell.streetAddress1TextField];
-        addressCell.streetAddress2TextField.text = newAddressListItem.addressLine2;
-        //[self saveTextFieldToContext:addressCell.streetAddress2TextField];
-        addressCell.cityTextField.text = newAddressListItem.city;
-        //[self saveTextFieldToContext:addressCell.cityTextField];
-        addressCell.stateTextField.text = newAddressListItem.state.name;
-        //[self saveTextFieldToContext:addressCell.stateTextField];
-        addressCell.zipTextField.text = newAddressListItem.postalCode;
-        //[self saveTextFieldToContext:addressCell.zipTextField];
-      //  newAddressListItem.editedValue = TRUE;
-    */
+        /*     addressCell.streetAddress1TextField.text = newAddressListItem.addressLine1;
+         //[self saveTextFieldToContext:addressCell.streetAddress1TextField];
+         addressCell.streetAddress2TextField.text = newAddressListItem.addressLine2;
+         //[self saveTextFieldToContext:addressCell.streetAddress2TextField];
+         addressCell.cityTextField.text = newAddressListItem.city;
+         //[self saveTextFieldToContext:addressCell.cityTextField];
+         addressCell.stateTextField.text = newAddressListItem.state.name;
+         //[self saveTextFieldToContext:addressCell.stateTextField];
+         addressCell.zipTextField.text = newAddressListItem.postalCode;
+         //[self saveTextFieldToContext:addressCell.zipTextField];
+         //  newAddressListItem.editedValue = TRUE;
+         */
         
-
+        
     }
     
     addressCell.streetAddress1TextField.text = newAddressListItem.addressLine1;
@@ -744,7 +744,7 @@
         [self disableTextField:contactCell.socialSecurityNumberTextField :NO];
     else
         [self disableTextField:contactCell.socialSecurityNumberTextField :YES];
-        
+    
     return contactCell;
 }
 -(ProducerContactInfoTableViewCell*) contactInfoTableViewCell:(ProducerContactInfoTableViewCell*) contactInfoCell:(NSInteger)forRow
@@ -903,10 +903,10 @@
         if(ineligibleObj)
         {
             _detailItem.ineligibleReason = nil;
-           
+            
         }
     }
-
+    
     
     //if(_detailItem.isEligible)
     {
@@ -934,12 +934,12 @@
     [hoursCell.monStartTextField setText:hOfOperation.mondayOpenTime.name];
     [hoursCell.monStopTextField setText:hOfOperation.mondayCloseTime.name];
 	
-  /*  if(!_isDoneSelected && self.pickerViewController.currentIndexPath.section == EHoursOfOperation && self.pickerViewController.currentTag == EMondayEndHour)
-    {
-        [self toggleHoursOfOperationCell:hoursCell :FALSE];
-        return;
-    }
-	*/
+    /*  if(!_isDoneSelected && self.pickerViewController.currentIndexPath.section == EHoursOfOperation && self.pickerViewController.currentTag == EMondayEndHour)
+     {
+     [self toggleHoursOfOperationCell:hoursCell :FALSE];
+     return;
+     }
+     */
     if(isMondayHoursExists)
     {
 		
@@ -1187,7 +1187,7 @@
         else
             self.detailItem.hasAccessSignValue = FALSE;
         
-                
+        
     }
     else if(neverSwitch.tag == 1101)
     {
@@ -1195,7 +1195,7 @@
             _detailItem.neverVisitValue= TRUE;
         else
             _detailItem.neverVisitValue = FALSE;
-
+        
     }
     else if(neverSwitch.tag == 1102)
     {
@@ -1212,7 +1212,7 @@
     }
     [[NSManagedObjectContext defaultContext] save];
     [self toggleSubmitButton:[self isEnableSubmit]];
-   
+    
 }
 
 - (void)showViewController:(UIViewController *)viewController
@@ -1391,7 +1391,7 @@
 
 - (void)nextField:(NSInteger)currentTag
 {	
-
+    
 	if (self.datePickerViewController.view.superview != nil) {
 		self.datePickerViewController.currentIndexPath = nil;
 		self.datePickerViewController.currentTag = 0;
@@ -1630,7 +1630,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-
+    
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -2143,7 +2143,7 @@
             }
             break;
         }
-       
+            
         case ERater:
         {
             switch(forTag)
