@@ -114,8 +114,6 @@
 		FF3B6C7A14251C3D00A810AB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3B6C7414251C3D00A810AB /* Icon.png */; };
 		FF3B6C7B14251C3D00A810AB /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3B6C7514251C3D00A810AB /* Icon@2x.png */; };
 		FF56A25513CC883B00FF159A /* HTTPOperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56A25413CC883B00FF159A /* HTTPOperationController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF641CF113B9094400CC0B61 /* PickerViewController.m */; };
-		FF641CF413B9094400CC0B61 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF641CF213B9094400CC0B61 /* PickerViewController.xib */; };
 		FF697AD413AFB8D500B66202 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697AD113AFB8D500B66202 /* _User.m */; };
 		FF697AD513AFB8D500B66202 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FF697AD313AFB8D500B66202 /* User.m */; };
 		FF71F52C13C6314C005CE1DA /* ProducerGeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F52B13C6314C005CE1DA /* ProducerGeneralTableViewCell.m */; };
@@ -581,9 +579,6 @@
 		FF56A25313CC883B00FF159A /* HTTPOperationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPOperationController.h; sourceTree = "<group>"; };
 		FF56A25413CC883B00FF159A /* HTTPOperationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPOperationController.m; sourceTree = "<group>"; };
 		FF56A25613CC888D00FF159A /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
-		FF641CF013B9094400CC0B61 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
-		FF641CF113B9094400CC0B61 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
-		FF641CF213B9094400CC0B61 /* PickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		FF697AD013AFB8D500B66202 /* _User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _User.h; sourceTree = "<group>"; };
 		FF697AD113AFB8D500B66202 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
 		FF697AD213AFB8D500B66202 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -2261,9 +2256,6 @@
 				FF99B8A913B8A3FC00FC1A0B /* DatePickerViewController.h */,
 				FF99B8AA13B8A3FC00FC1A0B /* DatePickerViewController.m */,
 				FF99B8AB13B8A3FC00FC1A0B /* DatePickerViewController.xib */,
-				FF641CF013B9094400CC0B61 /* PickerViewController.h */,
-				FF641CF113B9094400CC0B61 /* PickerViewController.m */,
-				FF641CF213B9094400CC0B61 /* PickerViewController.xib */,
 				6D0EF48113D713F600745307 /* SplashViewController.h */,
 				6D0EF48213D713F600745307 /* SplashViewController.m */,
 				6D0EF48313D713F600745307 /* SplashViewController.xib */,
@@ -2341,7 +2333,6 @@
 				FF77110913B25A2400E90F4B /* carat-open.png in Resources */,
 				FF90611813B3D6AB009DCA0E /* form_seperator.png in Resources */,
 				FF99B8AD13B8A3FC00FC1A0B /* DatePickerViewController.xib in Resources */,
-				FF641CF413B9094400CC0B61 /* PickerViewController.xib in Resources */,
 				FFC2814613BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png in Resources */,
 				FFC2814713BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png in Resources */,
 				FFC2814813BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png in Resources */,
@@ -2549,7 +2540,6 @@
 				FF8CA83813B0D1AE00BA9A7B /* NSManagedObjectExtras.m in Sources */,
 				FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */,
 				FF99B8AC13B8A3FC00FC1A0B /* DatePickerViewController.m in Sources */,
-				FF641CF313B9094400CC0B61 /* PickerViewController.m in Sources */,
 				FFF0D00013BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */,
 				FFF0D00613BB7ED7008DFA19 /* Producer.m in Sources */,
 				FFF0D04413BBA529008DFA19 /* SuspensionReason.m in Sources */,
