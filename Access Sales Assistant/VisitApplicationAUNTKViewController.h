@@ -8,15 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseDetailViewController.h"
-//#import "PCLineChartView.h"
-#import "TKGraphView.h"
 
-@class Producer;
-@class AUNTK;
-
-@interface VisitApplicationAUNTKViewController : BaseDetailViewController <UITableViewDataSource, UITableViewDelegate> {
-	UIScrollView *_scrollView;
-}
+@interface VisitApplicationAUNTKViewController : BaseDetailViewController <UITableViewDataSource, UITableViewDelegate>
 
 
 
@@ -27,10 +20,6 @@
 @property (nonatomic, strong) NSArray *lossRatioData;
 @property (strong, nonatomic) IBOutlet UITableView *productionTableView;
 @property (strong, nonatomic) IBOutlet UITableView *lossRatioTableView1;
-@property (strong, nonatomic) IBOutlet TKGraphView *lossRatioLineChartView;
-@property (strong, nonatomic) IBOutlet UILabel *lossRatioTrendLabel;
-@property (strong, nonatomic) IBOutlet TKGraphView *claimFrequencyLineChartView;
-@property (strong, nonatomic) IBOutlet UILabel *claimFrequencyTrendLabel;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *dismissButton;
 @property (nonatomic, strong) UIPopoverController *aPopoverController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -38,13 +27,11 @@
 @property (strong, nonatomic) UINib *productionTableViewCellNib;
 @property (strong, nonatomic) UINib *lossRatioTableViewCell1Nib;
 @property (strong, nonatomic) UINib *lossRatioTableViewCell2Nib;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *toggleAUNTKButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic,strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic,strong) NSString* titleText;
 
 - (void)configureView;
 - (IBAction)dismiss:(id)sender;
-- (IBAction)toggleAUNTK:(id)sender;
 
 @end

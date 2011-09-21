@@ -17,26 +17,10 @@
 #import "ProducerAddressTableViewCell.h"
 #import "ProducerContactTableViewCell.h"
 #import "AddRowTableViewCell.h"
-#import "Producer.h"
-#import "Contact.h"
-#import "Status.h"
-#import "AddressListItem.h"
-#import "QuestionListItem.h"
-#import "State.h"
-#import "PhoneListItem.h"
-#import "EmailListItem.h"
-#import "Rater.h"
-#import "Rater2.h"
-#import "HoursOfOperation.h"
-#import "SubTerritory.h"
-#import "SuspensionReason.h"
-#import "OperationHour.h"
-#import "IneligibleReason.h"
 #import "ProducerProfileConstants.h"
 #import "HTTPOperationController.h"
 #import "NSString-Validation.h"
 #import <QuartzCore/QuartzCore.h>
-#import "ContactType.h"
 #import "UIHelpers.h"
 #import "SelectionModelViewController.h"
 #import "AccessSalesConstants.h"
@@ -63,20 +47,7 @@
 @synthesize isDoneSelected = _isDoneSelected;
 @synthesize profileGeneralTableViewCellNib = _profileGeneralTableViewCellNib;
 @synthesize fields=_fields;
-
 @synthesize titleLabel = _titleLabel;
-
-- (void)hideKeyboard
-{
-    [self.statusCell hideKeyboard];
-    [self.generalTableViewCell hideKeyboard];
-    [self.contactInfoTableViewCell hideKeyboard];
-    [self.contactTableViewCell hideKeyboard];
-    [self.addressTableViewCell hideKeyboard];
-    [self.raterTableViewCell hideKeyboard];
-    [self.hoursTableViewCell hideKeyboard];
-    [self.lastVisitedCell hideKeyboard];
-}
 
 - (IBAction)dismiss:(id)sender
 {
@@ -165,16 +136,14 @@
 }
 -(void) toggleSubmitButton:(BOOL) isEnable
 {
-    //[_submitButton setEnabled:YES];
     [_submitButton setEnabled:isEnable];
 }
 - (void)setDetailItem:(id)newDetailItem
 {
 	if (self.detailItem) {
-		//if ([self.detailItem valueForKey:@"editedValue"]) {
 		[[NSManagedObjectContext defaultContext] save];
-        //}
 	}
+	
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
         

@@ -16,7 +16,7 @@ void drawLinearGradient(CGContextRef context, CGRect rect, CGColorRef startColor
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGFloat locations[] = { 0.0, 1.0 };
     
-	const void *colorRefs[2] = {startColor, endColor};
+	const void * colorRefs[2] = {startColor, endColor};
 	CFArrayRef colorArray = CFArrayCreate(kCFAllocatorDefault, colorRefs, 2, &kCFTypeArrayCallBacks);
     
     CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, colorArray, locations);

@@ -7,30 +7,10 @@
 //
 
 #import "VisitApplicationAUNTKViewController.h"
-
-#import "DailySummary.h"
-
-#import "Producer.h"
-
-#import "AUNTK.h"
-
 #import "HTTPOperationController.h"
-
-#import "LossRatioTrendReportData.h"
-
 #import "AUNTKProductionTableViewCell.h"
-
 #import "AUNTKLossRatioTableViewCell1.h"
-
 #import "AUNTKLossRatioTableViewCell2.h"
-
-#import "PolicyCountReportData.h"
-
-#import "ProductionReportData.h"
-
-#import "LossRatioTrendReportData.h"
-
-#import "ClaimFrequecyTrendReportData.h"
 
 @implementation VisitApplicationAUNTKViewController
 
@@ -40,10 +20,6 @@
 @synthesize lossRatioData=_lossRatioData;
 @synthesize productionTableView=_productionTableView;
 @synthesize lossRatioTableView1 = _lossRatioTableView;
-@synthesize lossRatioLineChartView = _lossRatioLineChartView;
-@synthesize lossRatioTrendLabel = _lossRatioTrendLabel;
-@synthesize claimFrequencyLineChartView = _claimFrequencyLineChartView;
-@synthesize claimFrequencyTrendLabel = _claimFrequencyTrendLabel;
 @synthesize dismissButton=_dismissButton;
 @synthesize aPopoverController=_aPopoverController;
 @synthesize managedObjectContext=_managedObjectContext;
@@ -51,7 +27,6 @@
 @synthesize productionTableViewCellNib=_productionTableViewCellNib;
 @synthesize lossRatioTableViewCell1Nib=_lossRatioTableViewCell1Nib;
 @synthesize lossRatioTableViewCell2Nib=_lossRatioTableViewCell2Nib;
-@synthesize toggleAUNTKButton=_toggleAUNTKButton;
 @synthesize scrollView = _scrollView;
 @synthesize titleLabel = _titleLabel;
 @synthesize titleText;
@@ -87,8 +62,6 @@
 		NSSortDescriptor *yearSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"monthEndDate" ascending:YES];
 		NSArray *monthYearSortDescriptors = [NSArray arrayWithObjects:yearSortDescriptor, nil];
 		self.lossRatioData = [_auntk.productionReportData.allObjects sortedArrayUsingDescriptors:monthYearSortDescriptors];
-        // Update the view.
-        [self configureView];
     }
 }
 
@@ -101,46 +74,9 @@
 	[self dismissModalViewControllerAnimated:YES];
 }
 
-- (IBAction)toggleAUNTK:(id)sender
-{
-	if ([self.auntk isEqual:self.detailItem.auntk]) {
-		[self setAuntk:self.detailItem.chainAuntk];
-		self.toggleAUNTKButton.title = @"Switch to AUNTK";
-	} else {
-		[self setAuntk:self.detailItem.auntk];
-		self.toggleAUNTKButton.title = @"Switch to Chain";
-	}
-}
-
-
 - (void)configureView
 {
-	NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"monthYear" ascending:YES];
-	NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-	
-	// Loss Ratio Line Chart
-	[self.lossRatioLineChartView setTitle:self.lossRatioTrendLabel];
-	[self.lossRatioLineChartView setPointDistance:55];
-	[self.lossRatioLineChartView setTouchIndicatorEnabled:YES];
-	[self.lossRatioLineChartView setGoalValue:[NSNumber numberWithFloat:30.0]];
-	[self.lossRatioLineChartView setGoalShown:NO];
-	NSArray *lossRatioData = [self.auntk.lossRatioTrendReportData.allObjects sortedArrayUsingDescriptors:sortDescriptors];
-	if ((lossRatioData != nil) && (lossRatioData.count > 0)) {
-		[self.lossRatioLineChartView setGraphWithDataPoints:lossRatioData];
-	}
-	
-	// Claim Frequency Line Chart
-	[self.claimFrequencyLineChartView setTitle:self.claimFrequencyTrendLabel];
-	[self.claimFrequencyLineChartView setPointDistance:55];
-	[self.claimFrequencyLineChartView setTouchIndicatorEnabled:YES];
-	[self.claimFrequencyLineChartView setGoalValue:[NSNumber numberWithFloat:30.0]];
-	[self.claimFrequencyLineChartView setGoalShown:NO];
-	NSArray *claimFrequencyData = [self.auntk.claimFrequecyTrendReportData.allObjects sortedArrayUsingDescriptors:sortDescriptors];
-	
-	if ((claimFrequencyData != nil) && (claimFrequencyData.count > 0)) {
-		[self.claimFrequencyLineChartView setGraphWithDataPoints:claimFrequencyData];
-	}
-	 
+	[self setAuntk:self.detailItem.auntk];
 	// Table Views
 	[self.productionTableView reloadData];
 	[self.lossRatioTableView1 reloadData];
@@ -200,21 +136,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-	[self.scrollView setContentSize:CGSizeMake(768, 1676)];
+	[self.scrollView setContentSize:CGSizeMake(768, 1004)];
 	
-	[self setAuntk:self.detailItem.auntk];
-	//self.toggleAUNTKButton.title = @"Switch to Chain";
-	
-	_lossRatioLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(20, 995, 480, 300)];
-	[self.scrollView addSubview:self.lossRatioLineChartView];
-	_claimFrequencyLineChartView = [[TKGraphView alloc] initWithFrame:CGRectMake(20, 1336, 480, 300)];
-	[self.scrollView addSubview:self.claimFrequencyLineChartView];
-	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configureView) name:@"AUNTK" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[[HTTPOperationController sharedHTTPOperationController] getAUNTKsForProducer:self.detailItem.producerCode];
+	
 	[self configureView];
     
     _titleLabel.text = titleText;
@@ -224,10 +154,6 @@
 {
     [self setProductionTableView:nil];
 	[self setLossRatioTableView1:nil];
-	[self setLossRatioLineChartView:nil];
-	[self setClaimFrequencyLineChartView:nil];
-	[self setLossRatioTrendLabel:nil];
-	[self setClaimFrequencyTrendLabel:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[self setLossRatioTableView2:nil];
 	[self setScrollView:nil];
@@ -238,8 +164,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    //[_lossRatioLineChartView setNeedsDisplay];
-	//[_claimFrequencyLineChartView setNeedsDisplay];
 	return YES;
 }
 

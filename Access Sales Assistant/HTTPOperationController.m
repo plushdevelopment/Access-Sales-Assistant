@@ -264,11 +264,22 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 			[self requestCompetitors:[NSNumber numberWithInt:i]];
 		}
 	} else if (competitorRequest.currentPage == competitorRequest.totalPages) {
+		
+		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Producer"
+												  inManagedObjectContext:[NSManagedObjectContext defaultContext]];
+		[fetchRequest setEntity:entity];
 		NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
 		[dateFormatter setDateFormat:@"MM-dd-yyyy"];
 		NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
 		NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate != %@", dateString];
-		NSArray *producers = [Producer findAllWithPredicate:datePredicate];
+		[fetchRequest setPredicate:datePredicate];
+		[fetchRequest setReturnsObjectsAsFaults:YES];
+		NSError *error = nil;
+		NSArray *producers = [[NSManagedObjectContext defaultContext] executeFetchRequest:fetchRequest error:&error];
+		if (producers == nil) {
+			NSLog(@"No producers found!");
+		}
 		[producers makeObjectsPerformSelector:@selector(deleteEntity)];
 		[[NSManagedObjectContext defaultContext] save];
 		NSNumber *page = [NSNumber numberWithInt:1];

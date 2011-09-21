@@ -41,8 +41,21 @@
 
 - (void)producersSuccessful
 {
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Producer"
+											  inManagedObjectContext:[NSManagedObjectContext defaultContext]];
+	[fetchRequest setEntity:entity];
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate matches %@", _selectedDay];
-	self.producers = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES withPredicate:predicate];
+	[fetchRequest setPredicate:predicate];
+	NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"nextScheduledVisit" ascending:YES];
+	[fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+	NSArray *properties = [NSArray arrayWithObjects:@"name", @"nextScheduledVisitTime", @"producerCode", @"address", @"latitude", @"longitude", nil];
+	[fetchRequest setPropertiesToFetch:properties];
+	NSError *error = nil;
+	self.producers = [[NSManagedObjectContext defaultContext] executeFetchRequest:fetchRequest error:&error];
+	if (self.producers == nil) {
+		NSLog(@"No producers found!");
+	}
 	[self configureView];
 }
 
@@ -58,8 +71,22 @@
 {
 	if (_selectedDay != selectedDay) {
         _selectedDay = selectedDay;
+		
+		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Producer"
+												  inManagedObjectContext:[NSManagedObjectContext defaultContext]];
+		[fetchRequest setEntity:entity];
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nextScheduledVisitDate matches %@", _selectedDay];
-		self.producers = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES withPredicate:predicate];
+		[fetchRequest setPredicate:predicate];
+		NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"nextScheduledVisit" ascending:YES];
+		[fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+		NSArray *properties = [NSArray arrayWithObjects:@"name", @"nextScheduledVisitTime", @"producerCode", @"address", @"latitude", @"longitude", nil];
+		[fetchRequest setPropertiesToFetch:properties];
+		NSError *error = nil;
+		self.producers = [[NSManagedObjectContext defaultContext] executeFetchRequest:fetchRequest error:&error];
+		if (self.producers == nil) {
+			NSLog(@"No producers found!");
+		}
 	}
 	self.titleLabel.text = selectedDay;
 	[self configureView];

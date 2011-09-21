@@ -15,9 +15,6 @@
 		6D11F9F0141FF9B700ACBC87 /* QAResolutionForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D11F9EE141FF9B700ACBC87 /* QAResolutionForm.m */; };
 		6D167FC813E8515500425F49 /* QATimeTableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D167FC713E8515500425F49 /* QATimeTableObject.m */; };
 		6D38EFB71402B20300E4F682 /* NSString-Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38EFB61402B20300E4F682 /* NSString-Validation.m */; };
-		6D38EFCE1402E11600E4F682 /* PCHalfPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38EFC61402E11600E4F682 /* PCHalfPieChart.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6D38EFCF1402E11600E4F682 /* PCLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38EFC81402E11600E4F682 /* PCLineChartView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6D38EFD01402E11600E4F682 /* PCPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38EFCA1402E11600E4F682 /* PCPieChart.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6D38EFD11402E11600E4F682 /* VisitApplicationAUNTKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38EFCC1402E11600E4F682 /* VisitApplicationAUNTKViewController.m */; };
 		6D38EFD21402E11600E4F682 /* VisitApplicationAUNTKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D38EFCD1402E11600E4F682 /* VisitApplicationAUNTKViewController.xib */; };
 		6D5C4CCD14253DE400AA47F5 /* switchBlueBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D5C4CC914253DE400AA47F5 /* switchBlueBg.png */; };
@@ -435,12 +432,6 @@
 		6D167FC713E8515500425F49 /* QATimeTableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QATimeTableObject.m; sourceTree = "<group>"; };
 		6D38EFB51402B20300E4F682 /* NSString-Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-Validation.h"; sourceTree = "<group>"; };
 		6D38EFB61402B20300E4F682 /* NSString-Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-Validation.m"; sourceTree = "<group>"; };
-		6D38EFC51402E11600E4F682 /* PCHalfPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCHalfPieChart.h; sourceTree = "<group>"; };
-		6D38EFC61402E11600E4F682 /* PCHalfPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCHalfPieChart.m; sourceTree = "<group>"; };
-		6D38EFC71402E11600E4F682 /* PCLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLineChartView.h; sourceTree = "<group>"; };
-		6D38EFC81402E11600E4F682 /* PCLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCLineChartView.m; sourceTree = "<group>"; };
-		6D38EFC91402E11600E4F682 /* PCPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCPieChart.h; sourceTree = "<group>"; };
-		6D38EFCA1402E11600E4F682 /* PCPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCPieChart.m; sourceTree = "<group>"; };
 		6D38EFCB1402E11600E4F682 /* VisitApplicationAUNTKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationAUNTKViewController.h; sourceTree = "<group>"; };
 		6D38EFCC1402E11600E4F682 /* VisitApplicationAUNTKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationAUNTKViewController.m; sourceTree = "<group>"; };
 		6D38EFCD1402E11600E4F682 /* VisitApplicationAUNTKViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationAUNTKViewController.xib; sourceTree = "<group>"; };
@@ -1137,12 +1128,6 @@
 		6D38EFD41402E12900E4F682 /* AUNTK */ = {
 			isa = PBXGroup;
 			children = (
-				6D38EFC51402E11600E4F682 /* PCHalfPieChart.h */,
-				6D38EFC61402E11600E4F682 /* PCHalfPieChart.m */,
-				6D38EFC71402E11600E4F682 /* PCLineChartView.h */,
-				6D38EFC81402E11600E4F682 /* PCLineChartView.m */,
-				6D38EFC91402E11600E4F682 /* PCPieChart.h */,
-				6D38EFCA1402E11600E4F682 /* PCPieChart.m */,
 				6D38EFCB1402E11600E4F682 /* VisitApplicationAUNTKViewController.h */,
 				6D38EFCC1402E11600E4F682 /* VisitApplicationAUNTKViewController.m */,
 				6D38EFCD1402E11600E4F682 /* VisitApplicationAUNTKViewController.xib */,
@@ -2707,9 +2692,6 @@
 				6D7AABB413FD938A00F6B361 /* ProspectAppGeneralTableViewCell.m in Sources */,
 				6D7AABBD13FDAB8200F6B361 /* ProspectAppContactTableViewCell.m in Sources */,
 				6D38EFB71402B20300E4F682 /* NSString-Validation.m in Sources */,
-				6D38EFCE1402E11600E4F682 /* PCHalfPieChart.m in Sources */,
-				6D38EFCF1402E11600E4F682 /* PCLineChartView.m in Sources */,
-				6D38EFD01402E11600E4F682 /* PCPieChart.m in Sources */,
 				6D38EFD11402E11600E4F682 /* VisitApplicationAUNTKViewController.m in Sources */,
 				FFA9F1BE14056D9400817BA6 /* CLLocationController.m in Sources */,
 				FFA9F1BF14056D9400817BA6 /* VisitTableViewCell.m in Sources */,

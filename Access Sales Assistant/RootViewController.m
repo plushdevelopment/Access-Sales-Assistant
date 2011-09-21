@@ -70,18 +70,27 @@
 
 - (void)producersSuccessful
 {
-	//if ([[[HTTPOperationController sharedHTTPOperationController] networkQueue] requestsCount] == 0) {
-		NSArray *producersArray = [Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES];
-		NSMutableArray *daysArray = [NSMutableArray arrayWithCapacity:[producersArray count]];
-		for (Producer *producer in producersArray) {
-			if (![daysArray containsObject:producer.nextScheduledVisitDate] && (producer.nextScheduledVisitDate != nil)) {
-				[daysArray addObject:producer.nextScheduledVisitDate];
-			}
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Producer"
+											  inManagedObjectContext:[NSManagedObjectContext defaultContext]];
+	[fetchRequest setEntity:entity];
+	NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"nextScheduledVisit" ascending:YES];
+	[fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+	NSArray *properties = [NSArray arrayWithObjects:@"nextScheduledVisitDate", nil];
+	[fetchRequest setPropertiesToFetch:properties];
+	NSError *error = nil;
+	NSArray *producersArray = [[NSManagedObjectContext defaultContext] executeFetchRequest:fetchRequest error:&error];
+	if (producersArray == nil) {
+		NSLog(@"No producers found!");
+	}
+	NSMutableArray *daysArray = [NSMutableArray arrayWithCapacity:[producersArray count]];
+	for (Producer *producer in producersArray) {
+		if (![daysArray containsObject:producer.nextScheduledVisitDate] && (producer.nextScheduledVisitDate != nil)) {
+			[daysArray addObject:producer.nextScheduledVisitDate];
 		}
-		visitApplicationDaysArray = [NSArray arrayWithArray:daysArray];
-		//visitApplicationDaysArray = [[NSSet setWithArray:[[Producer findAllSortedBy:@"nextScheduledVisit" ascending:YES] valueForKeyPath:@"nextScheduledVisitDate"]] allObjects];
-		[self.tableView reloadData];
-		//}
+	}
+	visitApplicationDaysArray = [NSArray arrayWithArray:daysArray];
+	[self.tableView reloadData];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
