@@ -295,8 +295,16 @@
                 cell = (ProspectAppContactTableViewCell*)_contactTableViewCell;
             }
 			
+			cell.primaryContactFirstName.text = _detailItem.primaryContact;
+			
+			for (Contact *contact in _detailItem.contacts) {
+				if ([contact.type.name isEqualToString:@"Owner"]) {
+					cell.ownerFirstName.text = contact.firstName;
+					cell.ownerLastName.text = contact.lastName;
+				}
+			}
+			
 			[self.fields addObject:cell.primaryContactFirstName];
-			[self.fields addObject:cell.primaryContactLastName];
 			[self.fields addObject:cell.ownerFirstName];
 			[self.fields addObject:cell.ownerLastName];
 			
@@ -849,7 +857,30 @@
             break;
         case EContact:
         {
-            
+            switch(tag)
+            {
+				case EOwnerFirstName:
+					for (Contact *contact in _detailItem.contacts) {
+						if ([contact.type.name isEqualToString:@"Owner"]) {
+							contact.firstName = textField.text;
+							break;
+						}
+					}
+					break;
+				case EOwnerLastName:
+					for (Contact *contact in _detailItem.contacts) {
+						if ([contact.type.name isEqualToString:@"Owner"]) {
+							contact.lastName = textField.text;
+							break;
+						}
+					}
+					break;
+				case EPrimaryFirstName:
+					_detailItem.primaryContact = textField.text;
+					break;
+				default:
+					break;
+			}
         }
             break;
     }
