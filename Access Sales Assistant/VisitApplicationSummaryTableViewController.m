@@ -85,13 +85,12 @@ enum PRPTableStatsTags {
 
 @synthesize summaryStatsTableViewCellNib=_summaryStatsTableViewCellNib;
 
-@synthesize pickerViewController=_pickerViewController;
-
 @synthesize datePickerViewController = _datePickerViewController;
 
 @synthesize aPopoverController=_aPopoverController;
 
 @synthesize managedObjectContext=_managedObjectContext;
+
 @synthesize tableView = _tableView;
 
 @synthesize isCompetetorEdited = _isCompetetorEdited;
@@ -152,7 +151,7 @@ enum PRPTableStatsTags {
     
     NSLog(@"%@",self.detailItem);
 }
-
+/*
 // Show the pickerView inside of a popover
 - (IBAction)showPickerView:(id)sender
 {
@@ -199,7 +198,7 @@ enum PRPTableStatsTags {
 	}];
 	
 }
-
+*/
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
 {
@@ -435,7 +434,7 @@ enum PRPTableStatsTags {
 	}
 	return _summaryStatsTableViewCellNib;
 }
-
+/*
 - (PickerViewController *)pickerViewController
 {
 	if (_pickerViewController == nil) {
@@ -443,7 +442,7 @@ enum PRPTableStatsTags {
 	}
 	return _pickerViewController;
 }
-
+*/
 - (NSManagedObjectContext *)managedObjectContext
 {
 	if (_managedObjectContext == nil) {
@@ -1403,227 +1402,6 @@ enum PRPTableStatsTags {
 	return YES;
 }
 
-
-#pragma mark -
-#pragma mark UIPickerViewDataSource
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-	return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-	NSInteger rows = 0;
-	switch (self.pickerViewController.currentIndexPath.section) {
-		case PRPTableSectionGeneral:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableGeneralCallType:
-					rows = [[PurposeOfCall numberOfEntities] integerValue];
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionSpokeWith:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableSpokeWithTitle:
-					rows = [[PersonSpokeWithTitle numberOfEntities] integerValue];
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionCompetitor:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableCompetitorName:
-					rows = [[Competitor numberOfEntities] integerValue];
-					break;
-				case PRPTableCompetitorCommissionStructure:
-					rows = [[CommissionStructure numberOfEntities] integerValue];
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionBarriersToBusiness:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableBarrierName:
-					rows = [[BarrierToBusiness numberOfEntities] integerValue];
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionStats:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableStatsProducerAddOn:
-					rows = [[ProducerAddOn numberOfEntities] integerValue];
-					break;
-				case PRPTableStatsRDFollowUp:
-					rows = 100;
-					break;
-				default:
-					break;
-			}
-			break;
-		default:
-			break;
-	}
-	return rows;
-}
-
-
-#pragma mark -
-#pragma mark UIPickerViewDelegate
-
-// Set the appropriate value for a text field based on what the current tag is
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{	
-	NSString *titleForRow = [pickerView.delegate
-							 pickerView:pickerView
-							 titleForRow:row
-							 forComponent:component];
-	
-	NSIndexPath *indexPath = self.pickerViewController.currentIndexPath;
-	
-	switch (indexPath.section) {
-		case PRPTableSectionGeneral:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableGeneralCallType:
-					// Change value in model object
-					self.detailItem.purposeOfCall = [PurposeOfCall findFirstByAttribute:@"name" withValue:titleForRow];
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionSpokeWith:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableSpokeWithTitle: {
-					// Change value in model object
-					PersonSpokeWith *person = [self.detailItem.personsSpokeWith.allObjects objectAtIndex:indexPath.row];
-					person.title = [PersonSpokeWithTitle findFirstByAttribute:@"name" withValue:titleForRow];
-				}
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionCompetitor:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableCompetitorName: {
-					Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:indexPath.row];//[Competitor findFirstByAttribute:@"name" withValue:titleForRow];
-                    competitor.name = titleForRow;//[Competitor findFirstByAttribute:@"name" withValue:<#(id)#>]
-												  //[self.detailItem.competitorsSet.allObjects removeObjectAtIndex:indexPath.row];
-					
-				}
-					break;
-				case PRPTableCompetitorCommissionStructure: {
-					CommissionStructure *structure = [CommissionStructure findFirstByAttribute:@"name" withValue:titleForRow];
-					self.detailItem.commissionStructure = structure;
-				}
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionBarriersToBusiness:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableBarrierName: {
-					// Change value in model object
-					BarrierToBusiness *barrier = [self.detailItem.barriersToBusiness.allObjects objectAtIndex:indexPath.row];//[BarrierToBusiness findFirstByAttribute:@"name" withValue:titleForRow];
-                    barrier.name = titleForRow;
-					[self.detailItem addBarriersToBusinessObject:barrier];
-				}
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionStats:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableStatsProducerAddOn:
-					self.detailItem.producerAddOn = [ProducerAddOn findFirstByAttribute:@"name" withValue:titleForRow];
-					break;
-				case PRPTableStatsRDFollowUp:
-					self.detailItem.rdFollowUpValue = [titleForRow integerValue];
-					break;
-				default:
-					break;
-			}
-			break;
-		default:
-			break;
-	}
-	[self.managedObjectContext save];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-    [self toggleSubmitButton:[self isEnableSubmit]];
-	//[self.tableView reloadData];
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-	NSString *theTitle = @"NOT SET";
-	switch (self.pickerViewController.currentIndexPath.section) {
-		case PRPTableSectionGeneral:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableGeneralCallType:
-					theTitle = [[[PurposeOfCall findAll] objectAtIndex:row] name];
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionSpokeWith:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableSpokeWithTitle:
-					theTitle = [[[PersonSpokeWithTitle findAll] objectAtIndex:row] name];
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionCompetitor:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableCompetitorName:
-					theTitle = [[[Competitor findAllSortedBy:@"name" ascending:YES] objectAtIndex:row] name];
-					break;
-				case PRPTableCompetitorCommissionStructure:
-					theTitle = [[[CommissionStructure findAll] objectAtIndex:row] name];
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionBarriersToBusiness:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableBarrierName:
-					theTitle = [[[BarrierToBusiness findAll] objectAtIndex:row] name];
-					break;
-				default:
-					break;
-			}
-			break;
-		case PRPTableSectionStats:
-			switch (self.pickerViewController.currentTag) {
-				case PRPTableStatsProducerAddOn:
-					theTitle = [[[ProducerAddOn findAll] objectAtIndex:row] name];
-					break;
-				case PRPTableStatsRDFollowUp:
-					theTitle = [NSString stringWithFormat:@"%d", row];
-					break;
-				default:
-					break;
-			}
-			break;
-		default:
-			break;
-	}
-	
-	return theTitle;
-}
-
 #pragma mark -
 #pragma mark DatePickerViewControllerDelegate
 
@@ -1658,17 +1436,7 @@ enum PRPTableStatsTags {
 - (void)nextField:(NSInteger)currentTag
 {	
 	
-	if (self.pickerViewController.view.superview != nil) {
-		self.pickerViewController.currentIndexPath = nil;
-		self.pickerViewController.currentTag = 0;
-		//Position the picker out of sight
-		[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
-		//This animation will work on iOS 4
-		//For older iOS, use "beginAnimation:context"
-		[UIView animateWithDuration:0.2 animations:^{[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];} completion:^(BOOL finished){
-			[[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillHideNotification object:nil];
-			[self.pickerViewController.view removeFromSuperview];}];
-	} else if (self.datePickerViewController.view.superview != nil) {
+    if (self.datePickerViewController.view.superview != nil) {
 		self.datePickerViewController.currentIndexPath = nil;
 		self.datePickerViewController.currentTag = 0;
 		//Position the picker out of sight

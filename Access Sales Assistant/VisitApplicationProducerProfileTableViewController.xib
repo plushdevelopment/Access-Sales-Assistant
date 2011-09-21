@@ -40,17 +40,6 @@
 			<object class="IBUICustomObject" id="892217664">
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
-			<object class="IBUIViewController" id="729063133">
-				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
-					<int key="IBUIStatusBarStyle">2</int>
-				</object>
-				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
-					<int key="IBUIInterfaceOrientation">1</int>
-					<int key="interfaceOrientation">1</int>
-				</object>
-				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-				<bool key="IBUIHorizontal">NO</bool>
-			</object>
 			<object class="IBUIViewController" id="747092421">
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
 					<int key="IBUIStatusBarStyle">2</int>
@@ -88,7 +77,6 @@
 						<string key="NSFrame">{{0, 44}, {768, 960}}</string>
 						<reference key="NSSuperview" ref="626657145"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -238,27 +226,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">pickerViewController</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="729063133"/>
-					</object>
-					<int key="connectionID">26</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">datePickerViewController</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="747092421"/>
 					</object>
 					<int key="connectionID">27</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="729063133"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">28</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -366,11 +338,6 @@
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">24</int>
-						<reference key="object" ref="729063133"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">25</int>
 						<reference key="object" ref="747092421"/>
 						<reference key="parent" ref="0"/>
@@ -446,8 +413,6 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="14.CustomClassName">ProducerGeneralTableViewCell</string>
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="24.CustomClassName">PickerViewController</string>
-				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="25.CustomClassName">DatePickerViewController</string>
 				<string key="25.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="30.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -761,11 +726,13 @@
 					<string key="superclassName">PRPNibBasedTableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="accessSignButton">UIButton</string>
+						<string key="accessSignCustomSwitch">UICustomSwitch</string>
 						<string key="accessSignTextField">UITextField</string>
 						<string key="dateEstablishedButton">UIButton</string>
 						<string key="dateEstablishedTextField">UITextField</string>
 						<string key="eOExpiresButton">UIButton</string>
 						<string key="eOExpiresTextField">UITextField</string>
+						<string key="neverVisitCustomSwitch">UICustomSwitch</string>
 						<string key="neverVisitSwitch">UISwitch</string>
 						<string key="numberOfEmployeesTextField">UITextField</string>
 						<string key="numberOfLocationsButton">UIButton</string>
@@ -780,6 +747,10 @@
 						<object class="IBToOneOutletInfo" key="accessSignButton">
 							<string key="name">accessSignButton</string>
 							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="accessSignCustomSwitch">
+							<string key="name">accessSignCustomSwitch</string>
+							<string key="candidateClassName">UICustomSwitch</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="accessSignTextField">
 							<string key="name">accessSignTextField</string>
@@ -800,6 +771,10 @@
 						<object class="IBToOneOutletInfo" key="eOExpiresTextField">
 							<string key="name">eOExpiresTextField</string>
 							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="neverVisitCustomSwitch">
+							<string key="name">neverVisitCustomSwitch</string>
+							<string key="candidateClassName">UICustomSwitch</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="neverVisitSwitch">
 							<string key="name">neverVisitSwitch</string>
@@ -1061,6 +1036,7 @@
 						<string key="appointedDateButton">UIButton</string>
 						<string key="appointedDateTextField">UITextField</string>
 						<string key="eligibleButton">UIButton</string>
+						<string key="eligibleCustomSwitch">UICustomSwitch</string>
 						<string key="eligibleTextField">UITextField</string>
 						<string key="reasonIneligibleButton">UIButton</string>
 						<string key="reasonIneligibleLabel">UILabel</string>
@@ -1084,6 +1060,10 @@
 						<object class="IBToOneOutletInfo" key="eligibleButton">
 							<string key="name">eligibleButton</string>
 							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="eligibleCustomSwitch">
+							<string key="name">eligibleCustomSwitch</string>
+							<string key="candidateClassName">UICustomSwitch</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="eligibleTextField">
 							<string key="name">eligibleTextField</string>
@@ -1178,11 +1158,20 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">UICustomSwitch</string>
+					<string key="superclassName">UISlider</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/UICustomSwitch.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">VisitApplicationProducerProfileTableViewController</string>
 					<string key="superclassName">BaseDetailViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="autoFormatPhoneNumber:">id</string>
 						<string key="dismiss:">id</string>
+						<string key="handleCustomSwitchToggle:">id</string>
 						<string key="neverVisitToggle:">id</string>
 						<string key="showDatePickerView:">id</string>
 						<string key="showPickerView:">id</string>
@@ -1196,6 +1185,10 @@
 						</object>
 						<object class="IBActionInfo" key="dismiss:">
 							<string key="name">dismiss:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleCustomSwitchToggle:">
+							<string key="name">handleCustomSwitchToggle:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="neverVisitToggle:">
@@ -1316,7 +1309,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">MenuButton.png</string>
-			<string key="NS.object.0">{1470, 310}</string>
+			<string key="NS.object.0">{320, 67}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">894</string>
 	</data>

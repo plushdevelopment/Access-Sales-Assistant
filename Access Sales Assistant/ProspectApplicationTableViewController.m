@@ -33,7 +33,6 @@
 @synthesize generalTableViewCell = _generalTableViewCell;
 @synthesize addressTableViewCell = _addressTableViewCell;
 @synthesize detailItem = _detailItem;
-@synthesize pickerViewController = _pickerViewController;
 @synthesize datePickerViewController = _datePickerViewController;
 @synthesize popoverController;
 @synthesize toolBar = _toolBar;
@@ -173,7 +172,7 @@
             rows = 1;
             break;
         case EContact:
-			rows = [_detailItem.contacts.allObjects count];
+			rows = 1;//[_detailItem.contacts.allObjects count];
             break;
             
         default:
@@ -193,8 +192,6 @@
     {
         case EGeneral:
         {
-        //    [[NSBundle mainBundle] loadNibNamed:@"ProspectAppGeneralTableViewCell" owner:self options:nil];
-         //   ProspectAppGeneralTableViewCell* cell = _generalTableViewCell;
             
             ProspectAppGeneralTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppGeneralTableViewCell"];
             if (cell == nil) {
@@ -220,9 +217,6 @@
             break;
         case EAddresses:
         {
-    //        [[NSBundle mainBundle] loadNibNamed:@"ProspectAppAddressTableViewCell" owner:self options:nil];
-     //       ProducerAddressTableViewCell* cell = _addressTableViewCell;
-            
             ProducerAddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppAddressTableViewCell"];
             if (cell == nil) {
                 // Load the top-level objects from the custom cell XIB.
@@ -241,17 +235,13 @@
 			//  break;
         case EContactInfo:
         {
-          //  [[NSBundle mainBundle] loadNibNamed:@"ProspectAppCompanyContactInfoTableViewCell" owner:self options:nil];
-          //  ProducerContactInfoTableViewCell* cell = _contactInfoTableViewCell;
-            
-            
             ProducerContactInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppCompanyContactInfoTableViewCell"];
             if (cell == nil) {
                 // Load the top-level objects from the custom cell XIB.
                 [[NSBundle mainBundle] loadNibNamed:@"ProspectAppCompanyContactInfoTableViewCell" owner:self options:nil];
                 cell = (ProducerContactInfoTableViewCell*)_contactInfoTableViewCell;
             }
-
+            
             for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers) {
                 if (phoneNumber.typeValue == PHONE_1) {
                     [cell.phone1TextField setText:phoneNumber.number];
@@ -275,9 +265,6 @@
             break;
         case ERater:
         {
-        //    [[NSBundle mainBundle] loadNibNamed:@"ProspectAppRaterTableViewCell" owner:self options:nil];
-        //    ProducerRaterTableViewCell* cell = _raterTableViewCell;
-            
             ProducerRaterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppRaterTableViewCell"];
             if (cell == nil) {
                 // Load the top-level objects from the custom cell XIB.
@@ -302,9 +289,6 @@
             break;
         case EContact:
         {
-          //  [[NSBundle mainBundle] loadNibNamed:@"ProspectAppContactTableViewCell" owner:self options:nil];
-           // ProspectAppContactTableViewCell* cell = _contactTableViewCell;
-            
             ProspectAppContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppContactTableViewCell"];
             if (cell == nil) {
                 // Load the top-level objects from the custom cell XIB.
@@ -371,17 +355,11 @@
         }
         case EContact:
         {
-			/*  if (indexPath.row == _detailItem.contacts.allObjects.count) {
-			 height =44.0;
-			 }
-			 else
-			 */
 			height = CONTACT_HEIGHT;
             break;
         }
         default:
             height = 110.0;
-            //case 
     }
     
     return height;
@@ -416,52 +394,6 @@
     return addressCell;
 }
 
-
-#pragma mark - pickerView methods
-// Show the pickerView inside of a popover
-- (IBAction)showPickerView:(id)sender
-{
-	[self nextField:0];
-	UIButton *button = (UIButton *)sender;
-	
-	self.pickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
-	self.pickerViewController.currentTag = button.tag;
-	
-	UIPickerView *pickerView = self.pickerViewController.pickerView;
-	[pickerView setDelegate:self];
-	[pickerView setDataSource:self];
-	[pickerView setShowsSelectionIndicator:YES];
-	[pickerView selectRow:0 inComponent:0 animated:NO];
-	[pickerView reloadAllComponents];
-	[self pickerView:pickerView didSelectRow:0 inComponent:0];
-	
-	//Position the picker out of sight
-	if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-		[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME_LANDSCAPE];
-	} else {
-		[self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
-	}
-	
-	//Add the picker to the view
-	[self.view.superview addSubview:self.pickerViewController.view];
-	
-	//This animation will work on iOS 4
-	//For older iOS, use "beginAnimation:context"
-	[UIView animateWithDuration:0.2 animations:^{
-		//Position of the picker in sight
-		if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-			[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME_LANDSCAPE];
-		} else {
-			[self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
-		}
-		
-	} completion:^(BOOL finished){
-		CIVector *frameVector = [CIVector vectorWithCGRect:self.pickerViewController.view.frame];
-		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:frameVector, UIKeyboardFrameEndUserInfoKey, nil];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
-	}];
-	//[self.pickerViewController.pickerView reloadAllComponents];
-}
 
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
@@ -577,282 +509,9 @@
 	
 }
 
-#pragma mark -
-#pragma mark UIPickerViewDataSource
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-	return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-	NSInteger rows = 0;
-	switch(self.pickerViewController.currentIndexPath.section)
-    {
-        case EGeneral:
-        {
-            switch(self.pickerViewController.currentTag)
-            {
-                case ESubTerritory:
-                    rows = 21;
-                    break;
-            }
-            break;
-        }
-        case ERater:
-        {
-            switch(self.pickerViewController.currentTag)
-            {
-                case ERater1:
-                    rows = [[Rater findAll] count];
-                    break;
-                case ERater2:
-                    rows = [[Rater2 findAll] count];
-                    break;
-                    
-            }
-            break;
-        }
-		case EAddresses:
-        {
-            switch(self.pickerViewController.currentTag)
-            {
-                case EAddressState:
-                    rows = [[State findAll] count];
-                    break;
-            }
-        }
-        case EContact:
-        {
-            break;
-        }
-            
-    }
-    
-	
-    return rows;
-}
 
 #pragma mark -
-#pragma mark UIPickerViewDelegate
-
-// Set the appropriate value for a text field based on what the current tag is
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{	
-	NSString *titleForRow = [pickerView.delegate
-							 pickerView:pickerView
-							 titleForRow:row
-							 forComponent:component];
-	
-	NSIndexPath *indexPath = self.pickerViewController.currentIndexPath;
-    
-    switch(indexPath.section)
-    {
-        case EGeneral:
-        {
-            switch(self.pickerViewController.currentTag)
-            {
-                case ESubTerritory:
-                {
-                    self.detailItem.subTerritory = [SubTerritory ai_objectForProperty:@"uid" value:titleForRow managedObjectContext:[NSManagedObjectContext defaultContext]];
-                    break;
-                    //  self.
-                    
-                }
-            }
-            break;
-            
-        }
-		case ERater:
-        {
-            switch(self.pickerViewController.currentTag)
-            {
-                case ERater1:
-                    self.detailItem.rater = [Rater findFirstByAttribute:@"name" withValue:titleForRow];
-                    break;
-                case ERater2:
-                    self.detailItem.rater2 = [Rater2 findFirstByAttribute:@"name" withValue:titleForRow];
-                    break;
-            }
-            break;
-        }
-		case EAddresses:
-        {
-            switch(self.pickerViewController.currentTag)
-            {
-                case EAddressState:
-                {
-                    switch(self.pickerViewController.currentIndexPath.row)
-                    {
-                        case 0:
-                        {
-                            AddressListItem *addrItem = nil;
-                            for (AddressListItem *address in _detailItem.addresses) {
-                                if (address.addressTypeValue == 1) {
-                                    addrItem = address;
-                                    break;
-                                }
-                            }
-                            if(addrItem != nil)
-                            {
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                            }
-                            else
-                            {
-                                addrItem = [AddressListItem createEntity];
-                                addrItem.addressTypeValue = 1;
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                [self.detailItem addAddressesObject:addrItem];
-                            }
-                            
-                            break;
-                        }
-                            
-                        case 1:
-                        {
-                            AddressListItem *addrItem = nil;
-                            for (AddressListItem *address in _detailItem.addresses) {
-                                if (address.addressTypeValue == 2) {
-                                    addrItem = address;
-                                    break;
-                                }
-                            }
-                            if(addrItem != nil)
-                            {
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                            }
-                            else
-                            {
-                                addrItem = [AddressListItem createEntity];
-                                addrItem.addressTypeValue = 2;
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                [self.detailItem addAddressesObject:addrItem];
-                            }
-                            
-                            break;
-                        }
-                            
-                        case 2:
-                        {
-                            AddressListItem *addrItem = nil;
-                            for (AddressListItem *address in _detailItem.addresses) {
-                                if (address.addressTypeValue == 3) {
-                                    addrItem = address;
-                                    break;
-                                }
-                            }
-                            if(addrItem != nil)
-                            {
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                            }
-                            else
-                            {
-                                addrItem = [AddressListItem createEntity];
-                                addrItem.addressTypeValue = 3;
-                                addrItem.state = [State findFirstByAttribute:@"name" withValue:titleForRow];
-                                [self.detailItem addAddressesObject:addrItem];
-                            }
-                            
-                            break;
-                            
-                            
-                        }
-                    }
-                    
-                }
-                    break;
-            } 
-            break;
-        }
-    }
-    [[NSManagedObjectContext defaultContext]save];
-	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-    
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-	NSString *theTitle = @"NOT SET";
-    
-    
-    switch(self.pickerViewController.currentIndexPath.section)
-    {
-        case EGeneral:
-        {
-            switch(self.pickerViewController.currentTag)
-            {
-                case ESubTerritory:
-                {
-					// theTitle = [[[SubTerritory findAll] objectAtIndex:row] name];
-                    theTitle = [NSString stringWithFormat:@"%d", row];
-                    break;
-                }
-            }
-        }
-            break;
-        case EContactInfo:
-            break;
-        case EAddresses:
-        {
-            switch(self.pickerViewController.currentTag)
-            {
-                case EAddressState:
-                {
-					theTitle = [[[State findAll] objectAtIndex:row] name];
-                    break;
-                }
-            }
-        }
-            break;
-        case ERater:
-        {
-            switch(self.pickerViewController.currentTag)
-            {
-                case ERater1:
-                {
-                    theTitle = [[[Rater findAll] objectAtIndex:row] name];
-                    break;
-                }
-                case ERater2:
-                {
-                    theTitle = [[[Rater2 findAll] objectAtIndex:row] name];
-                    break;
-                }
-					
-            }
-        }
-            break;
-        case EContact:
-            break;
-    }
-	return theTitle;
-}
-
--(IBAction)searchProducer:(id)sender
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(searchProducerDone:) 
-                                                 name:@"searchProducer"
-                                               object:nil];
-    
-    UIButton *btn = (UIButton*)sender;
-	
-    ProspectAppGeneralTableViewCell *parentCell = (ProspectAppGeneralTableViewCell *)[[btn superview] superview];
-    
-    [parentCell.producerNameField resignFirstResponder];
-    
-    NSString* escapedString = parentCell.producerNameField.text;
-    [[HTTPOperationController sharedHTTPOperationController] searchProducer:escapedString];  
-}
-
--(void) searchProducerDone:(NSNotification*) notification
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"searchProducer" object:nil];
-    [producerNamesArray removeAllObjects];
-    producerNamesArray = (NSMutableArray*) [notification object];
-}
-
+#pragma mark Textfield delegate methods
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
 	NSString *replacementString = [textField.text stringByReplacingCharactersInRange:range withString:string];
@@ -1251,7 +910,7 @@
             {
                 if([_detailItem.phoneNumbers.allObjects count]<=0 || [_detailItem.emails.allObjects count]<=0)
                     return FALSE;
-                BOOL isPhoneNoFound = FALSE/*,isEmailFound = FALSE,isFaxFound = FALSE*/;
+                BOOL isPhoneNoFound = FALSE;
                 
                 
                 

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "DatePickerViewController.h"
-#import "PickerViewController.h"
 #import "VisitApplicationTabBarController.h"
 #import "SmartTableView.h"
 #import "BaseDetailViewController.h"
@@ -30,7 +29,6 @@ optionSelectedDelegate> {
 @property (nonatomic, strong) UINib *summaryCompetitorTableViewCellNib;
 @property (nonatomic, strong) UINib *summaryBarriersToBusinessTableViewCellNib;
 @property (nonatomic, strong) UINib *summaryStatsTableViewCellNib;
-@property (nonatomic, strong) IBOutlet PickerViewController *pickerViewController;
 @property (nonatomic, strong) IBOutlet DatePickerViewController *datePickerViewController;
 @property (nonatomic, strong) UIPopoverController *aPopoverController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -49,7 +47,6 @@ optionSelectedDelegate> {
 //@property ()
 
 - (void)configureView;
-- (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
 - (IBAction)showSelectionTableView:(id)sender;
 - (IBAction)dismiss:(id)sender;

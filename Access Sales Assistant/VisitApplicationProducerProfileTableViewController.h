@@ -20,7 +20,6 @@
 #import "Producer.h"
 #import "VisitApplicationTabBarController.h"
 #import "DatePickerViewController.h"
-#import "PickerViewController.h"
 #import "SmartTableView.h"
 #import "BaseDetailViewController.h"
 #import "PhoneNumberFormatter.h"
@@ -41,7 +40,6 @@
 }
 
 @property (nonatomic, strong) Producer* detailItem;
-@property (nonatomic, strong) IBOutlet PickerViewController *pickerViewController;
 @property (nonatomic, strong) IBOutlet DatePickerViewController *datePickerViewController;
 @property (nonatomic, strong) UIPopoverController *popoverController;
 
@@ -92,7 +90,6 @@
 
 - (void)configureView;
 
-- (IBAction)showPickerView:(id)sender;
 - (IBAction)showDatePickerView:(id)sender;
 
 -(IBAction)showSelectionTableView:(id)sender;
