@@ -15,7 +15,7 @@
 
 @class DailySummary;
 
-@interface VisitApplicationSummaryTableViewController : BaseDetailViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDelegate, UITableViewDataSource,
+@interface VisitApplicationSummaryTableViewController : BaseDetailViewController <UITextFieldDelegate, DatePickerViewControllerDelegate, DetailViewController, UITableViewDelegate, UITableViewDataSource,
 optionSelectedDelegate> {
 	SmartTableView *_tableView;
     NSInteger currentSection;

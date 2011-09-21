@@ -26,7 +26,7 @@
 #import "OperationHour.h"
 #import "SelectionModelViewController.h"
 
-@interface VisitApplicationProducerProfileTableViewController : BaseDetailViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, DatePickerViewControllerDelegate, DetailViewController, UITableViewDataSource, UITableViewDelegate,optionSelectedDelegate>
+@interface VisitApplicationProducerProfileTableViewController : BaseDetailViewController <UITextFieldDelegate, DatePickerViewControllerDelegate, DetailViewController, UITableViewDataSource, UITableViewDelegate,optionSelectedDelegate>
 {
     NSArray* sectionTitleArray;
     BOOL isContactsEdited;
