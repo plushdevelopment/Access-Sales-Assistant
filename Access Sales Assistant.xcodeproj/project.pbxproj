@@ -32,8 +32,6 @@
 		6D7CC79F13E1A2F800B0FE43 /* indexCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7CC79E13E1A2F800B0FE43 /* indexCard.png */; };
 		6D7CC7A813E1E74800B0FE43 /* MenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7CC7A713E1E74800B0FE43 /* MenuButton.png */; };
 		6D7CC7AA13E1E99600B0FE43 /* MenuButton_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D7CC7A913E1E99600B0FE43 /* MenuButton_green.png */; };
-		6D7CC7AE13E1F10F00B0FE43 /* ProducerListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7CC7AC13E1F10F00B0FE43 /* ProducerListTableViewController.m */; };
-		6D7CC7AF13E1F10F00B0FE43 /* ProducerListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7CC7AD13E1F10F00B0FE43 /* ProducerListTableViewController.xib */; };
 		6D7E43B913E3168F002832C6 /* QATimeTable.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D7E43B813E3168F002832C6 /* QATimeTable.plist */; };
 		6D7E43BE13E31D44002832C6 /* ContactsQATimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E43BC13E31D44002832C6 /* ContactsQATimeTableViewController.m */; };
 		6D7E43BF13E31D44002832C6 /* ContactsQATimeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7E43BD13E31D44002832C6 /* ContactsQATimeTableViewController.xib */; };
@@ -42,10 +40,6 @@
 		6D89C30813F18CD500C886BC /* AddIcon-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D89C30713F18CD500C886BC /* AddIcon-plus.png */; };
 		6D966D4413DDCF2000DAF04B /* _TrainingVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D966D4113DDCF2000DAF04B /* _TrainingVideo.m */; };
 		6D966D4513DDCF2000DAF04B /* TrainingVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D966D4313DDCF2000DAF04B /* TrainingVideo.m */; };
-		6D966D4913DDD1E000DAF04B /* TrainingVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D966D4713DDD1DF00DAF04B /* TrainingVideoViewController.m */; };
-		6D966D4A13DDD1E000DAF04B /* TrainingVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D966D4813DDD1E000DAF04B /* TrainingVideoViewController.xib */; };
-		6D966D5313DDFC6800DAF04B /* ProspectApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D966D5113DDFC6500DAF04B /* ProspectApplicationViewController.m */; };
-		6D966D5413DDFC6800DAF04B /* ProspectApplicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D966D5213DDFC6600DAF04B /* ProspectApplicationViewController.xib */; };
 		6D96C92113D8A94300478DD3 /* CustomContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D96C92013D8A94200478DD3 /* CustomContainerView.m */; };
 		6D96C92513D8AB4500478DD3 /* FlashCardTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D96C92413D8AB4500478DD3 /* FlashCardTitleView.m */; };
 		6D96C92813D8AB6700478DD3 /* FlashCardFlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D96C92713D8AB6600478DD3 /* FlashCardFlipView.m */; };
@@ -124,10 +118,6 @@
 		FF71F53D13C63EA5005CE1DA /* ProducerStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F53C13C63EA5005CE1DA /* ProducerStatusTableViewCell.xib */; };
 		FF71F54013C64649005CE1DA /* ProducerRaterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F53F13C64649005CE1DA /* ProducerRaterTableViewCell.m */; };
 		FF71F54213C6467C005CE1DA /* ProducerRaterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F54113C6467C005CE1DA /* ProducerRaterTableViewCell.xib */; };
-		FF71F54513C648DA005CE1DA /* ProducerPhoneNumberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F54413C648D9005CE1DA /* ProducerPhoneNumberTableViewCell.m */; };
-		FF71F54713C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F54613C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib */; };
-		FF71F54A13C64B58005CE1DA /* ProducerEmailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F54913C64B57005CE1DA /* ProducerEmailTableViewCell.m */; };
-		FF71F54C13C64B76005CE1DA /* ProducerEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F54B13C64B76005CE1DA /* ProducerEmailTableViewCell.xib */; };
 		FF71F54F13C64D19005CE1DA /* ProducerHoursTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF71F54E13C64D18005CE1DA /* ProducerHoursTableViewCell.m */; };
 		FF71F55113C64E17005CE1DA /* ProducerHoursTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF71F55013C64E17005CE1DA /* ProducerHoursTableViewCell.xib */; };
 		FF77100B13B23DFC00E90F4B /* access-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FF77100413B23DFC00E90F4B /* access-logo.png */; };
@@ -207,8 +197,6 @@
 		FFA0707813D5EB930021E412 /* AccessAcademy.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFA0707513D5EB930021E412 /* AccessAcademy.plist */; };
 		FFA0708013D5EBC00021E412 /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA0707A13D5EBC00021E412 /* ContactsViewController.xib */; };
 		FFA0708113D5EBC00021E412 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0707B13D5EBC00021E412 /* ContactsViewController.m */; };
-		FFA0708213D5EBC00021E412 /* ContactQAFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA0707D13D5EBC00021E412 /* ContactQAFormView.xib */; };
-		FFA0708313D5EBC00021E412 /* ContactQAFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0707E13D5EBC00021E412 /* ContactQAFormView.m */; };
 		FFA0708B13D5EC030021E412 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0708A13D5EC030021E412 /* SectionHeaderView.m */; };
 		FFA0709813D5EC330021E412 /* FeaturesAndBenefitsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA0708E13D5EC330021E412 /* FeaturesAndBenefitsViewController.xib */; };
 		FFA0709913D5EC330021E412 /* FeaturesAndBenefitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA0708F13D5EC330021E412 /* FeaturesAndBenefitsViewController.m */; };
@@ -453,9 +441,6 @@
 		6D7CC79E13E1A2F800B0FE43 /* indexCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indexCard.png; sourceTree = "<group>"; };
 		6D7CC7A713E1E74800B0FE43 /* MenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuButton.png; sourceTree = "<group>"; };
 		6D7CC7A913E1E99600B0FE43 /* MenuButton_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuButton_green.png; sourceTree = "<group>"; };
-		6D7CC7AB13E1F10F00B0FE43 /* ProducerListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerListTableViewController.h; sourceTree = "<group>"; };
-		6D7CC7AC13E1F10F00B0FE43 /* ProducerListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerListTableViewController.m; sourceTree = "<group>"; };
-		6D7CC7AD13E1F10F00B0FE43 /* ProducerListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerListTableViewController.xib; sourceTree = "<group>"; };
 		6D7E43B813E3168F002832C6 /* QATimeTable.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QATimeTable.plist; sourceTree = "<group>"; };
 		6D7E43BB13E31D44002832C6 /* ContactsQATimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsQATimeTableViewController.h; sourceTree = "<group>"; };
 		6D7E43BC13E31D44002832C6 /* ContactsQATimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsQATimeTableViewController.m; sourceTree = "<group>"; };
@@ -469,12 +454,6 @@
 		6D966D4113DDCF2000DAF04B /* _TrainingVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TrainingVideo.m; sourceTree = "<group>"; };
 		6D966D4213DDCF2000DAF04B /* TrainingVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingVideo.h; sourceTree = "<group>"; };
 		6D966D4313DDCF2000DAF04B /* TrainingVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingVideo.m; sourceTree = "<group>"; };
-		6D966D4613DDD1DE00DAF04B /* TrainingVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingVideoViewController.h; sourceTree = "<group>"; };
-		6D966D4713DDD1DF00DAF04B /* TrainingVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingVideoViewController.m; sourceTree = "<group>"; };
-		6D966D4813DDD1E000DAF04B /* TrainingVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingVideoViewController.xib; sourceTree = "<group>"; };
-		6D966D5013DDFC6400DAF04B /* ProspectApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProspectApplicationViewController.h; sourceTree = "<group>"; };
-		6D966D5113DDFC6500DAF04B /* ProspectApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProspectApplicationViewController.m; sourceTree = "<group>"; };
-		6D966D5213DDFC6600DAF04B /* ProspectApplicationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProspectApplicationViewController.xib; sourceTree = "<group>"; };
 		6D96C91F13D8A94200478DD3 /* CustomContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomContainerView.h; sourceTree = "<group>"; };
 		6D96C92013D8A94200478DD3 /* CustomContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomContainerView.m; sourceTree = "<group>"; };
 		6D96C92313D8AB4500478DD3 /* FlashCardTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashCardTitleView.h; sourceTree = "<group>"; };
@@ -595,12 +574,6 @@
 		FF71F53E13C64649005CE1DA /* ProducerRaterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerRaterTableViewCell.h; sourceTree = "<group>"; };
 		FF71F53F13C64649005CE1DA /* ProducerRaterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerRaterTableViewCell.m; sourceTree = "<group>"; };
 		FF71F54113C6467C005CE1DA /* ProducerRaterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerRaterTableViewCell.xib; sourceTree = "<group>"; };
-		FF71F54313C648D9005CE1DA /* ProducerPhoneNumberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerPhoneNumberTableViewCell.h; sourceTree = "<group>"; };
-		FF71F54413C648D9005CE1DA /* ProducerPhoneNumberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerPhoneNumberTableViewCell.m; sourceTree = "<group>"; };
-		FF71F54613C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerPhoneNumberTableViewCell.xib; sourceTree = "<group>"; };
-		FF71F54813C64B57005CE1DA /* ProducerEmailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerEmailTableViewCell.h; sourceTree = "<group>"; };
-		FF71F54913C64B57005CE1DA /* ProducerEmailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerEmailTableViewCell.m; sourceTree = "<group>"; };
-		FF71F54B13C64B76005CE1DA /* ProducerEmailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerEmailTableViewCell.xib; sourceTree = "<group>"; };
 		FF71F54D13C64D17005CE1DA /* ProducerHoursTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerHoursTableViewCell.h; sourceTree = "<group>"; };
 		FF71F54E13C64D18005CE1DA /* ProducerHoursTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerHoursTableViewCell.m; sourceTree = "<group>"; };
 		FF71F55013C64E17005CE1DA /* ProducerHoursTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProducerHoursTableViewCell.xib; sourceTree = "<group>"; };
@@ -738,9 +711,6 @@
 		FFA0707A13D5EBC00021E412 /* ContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		FFA0707B13D5EBC00021E412 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 		FFA0707C13D5EBC00021E412 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
-		FFA0707D13D5EBC00021E412 /* ContactQAFormView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactQAFormView.xib; sourceTree = "<group>"; };
-		FFA0707E13D5EBC00021E412 /* ContactQAFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactQAFormView.m; sourceTree = "<group>"; };
-		FFA0707F13D5EBC00021E412 /* ContactQAFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactQAFormView.h; sourceTree = "<group>"; };
 		FFA0708913D5EC030021E412 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
 		FFA0708A13D5EC030021E412 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
 		FFA0708E13D5EC330021E412 /* FeaturesAndBenefitsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeaturesAndBenefitsViewController.xib; sourceTree = "<group>"; };
@@ -1186,12 +1156,6 @@
 		6D966D5513DF0E0000DAF04B /* Prospect Application */ = {
 			isa = PBXGroup;
 			children = (
-				6D966D5013DDFC6400DAF04B /* ProspectApplicationViewController.h */,
-				6D966D5113DDFC6500DAF04B /* ProspectApplicationViewController.m */,
-				6D966D5213DDFC6600DAF04B /* ProspectApplicationViewController.xib */,
-				6D7CC7AB13E1F10F00B0FE43 /* ProducerListTableViewController.h */,
-				6D7CC7AC13E1F10F00B0FE43 /* ProducerListTableViewController.m */,
-				6D7CC7AD13E1F10F00B0FE43 /* ProducerListTableViewController.xib */,
 				6DB6EBE813FD61D100EE1EA9 /* ProspectApplicationTableViewController.h */,
 				6DB6EBE913FD61D100EE1EA9 /* ProspectApplicationTableViewController.m */,
 				6DB6EBEA13FD61D100EE1EA9 /* ProspectApplicationTableViewController.xib */,
@@ -1256,12 +1220,6 @@
 				FF71F53E13C64649005CE1DA /* ProducerRaterTableViewCell.h */,
 				FF71F53F13C64649005CE1DA /* ProducerRaterTableViewCell.m */,
 				FF71F54113C6467C005CE1DA /* ProducerRaterTableViewCell.xib */,
-				FF71F54313C648D9005CE1DA /* ProducerPhoneNumberTableViewCell.h */,
-				FF71F54413C648D9005CE1DA /* ProducerPhoneNumberTableViewCell.m */,
-				FF71F54613C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib */,
-				FF71F54813C64B57005CE1DA /* ProducerEmailTableViewCell.h */,
-				FF71F54913C64B57005CE1DA /* ProducerEmailTableViewCell.m */,
-				FF71F54B13C64B76005CE1DA /* ProducerEmailTableViewCell.xib */,
 				FF71F54D13C64D17005CE1DA /* ProducerHoursTableViewCell.h */,
 				FF71F54E13C64D18005CE1DA /* ProducerHoursTableViewCell.m */,
 				FF71F55013C64E17005CE1DA /* ProducerHoursTableViewCell.xib */,
@@ -1864,9 +1822,6 @@
 				FFA0707A13D5EBC00021E412 /* ContactsViewController.xib */,
 				FFA0707B13D5EBC00021E412 /* ContactsViewController.m */,
 				FFA0707C13D5EBC00021E412 /* ContactsViewController.h */,
-				FFA0707D13D5EBC00021E412 /* ContactQAFormView.xib */,
-				FFA0707E13D5EBC00021E412 /* ContactQAFormView.m */,
-				FFA0707F13D5EBC00021E412 /* ContactQAFormView.h */,
 				6D7E43B813E3168F002832C6 /* QATimeTable.plist */,
 				6D7E43BB13E31D44002832C6 /* ContactsQATimeTableViewController.h */,
 				6D7E43BC13E31D44002832C6 /* ContactsQATimeTableViewController.m */,
@@ -1974,9 +1929,6 @@
 				6D96C92713D8AB6600478DD3 /* FlashCardFlipView.m */,
 				6DE4337013DA012600BF551E /* RoundedRectView.h */,
 				6DE4337113DA012600BF551E /* RoundedRectView.m */,
-				6D966D4613DDD1DE00DAF04B /* TrainingVideoViewController.h */,
-				6D966D4713DDD1DF00DAF04B /* TrainingVideoViewController.m */,
-				6D966D4813DDD1E000DAF04B /* TrainingVideoViewController.xib */,
 			);
 			name = "Flash Cards";
 			sourceTree = "<group>";
@@ -2349,8 +2301,6 @@
 				FF71F53413C63CD5005CE1DA /* ProducerQuestionTableViewCell.xib in Resources */,
 				FF71F53D13C63EA5005CE1DA /* ProducerStatusTableViewCell.xib in Resources */,
 				FF71F54213C6467C005CE1DA /* ProducerRaterTableViewCell.xib in Resources */,
-				FF71F54713C648F8005CE1DA /* ProducerPhoneNumberTableViewCell.xib in Resources */,
-				FF71F54C13C64B76005CE1DA /* ProducerEmailTableViewCell.xib in Resources */,
 				FF71F55113C64E17005CE1DA /* ProducerHoursTableViewCell.xib in Resources */,
 				FF9A1DCD13C7444E00BAA6F2 /* ProducerAddressTableViewCell.xib in Resources */,
 				FF9A1DD213C7472700BAA6F2 /* ProducerContactTableViewCell.xib in Resources */,
@@ -2364,7 +2314,6 @@
 				FF95E22F13D4B1540098D41F /* VisitApplicationPhotosViewController.xib in Resources */,
 				FFA0707813D5EB930021E412 /* AccessAcademy.plist in Resources */,
 				FFA0708013D5EBC00021E412 /* ContactsViewController.xib in Resources */,
-				FFA0708213D5EBC00021E412 /* ContactQAFormView.xib in Resources */,
 				FFA0709813D5EC330021E412 /* FeaturesAndBenefitsViewController.xib in Resources */,
 				FFA0709C13D5EC330021E412 /* FeaturesAndBenefitsList.plist in Resources */,
 				FFA0709D13D5EC330021E412 /* States.plist in Resources */,
@@ -2372,13 +2321,10 @@
 				FFA070A513D5F8EE0021E412 /* CircleArrowRight_sml.png in Resources */,
 				6D0EF48513D713F600745307 /* SplashViewController.xib in Resources */,
 				6D0EF49413D7479600745307 /* FlashCardsViewController.xib in Resources */,
-				6D966D4A13DDD1E000DAF04B /* TrainingVideoViewController.xib in Resources */,
-				6D966D5413DDFC6800DAF04B /* ProspectApplicationViewController.xib in Resources */,
 				6D7B83EB13E04BFD00A009A1 /* curl.png in Resources */,
 				6D7CC79F13E1A2F800B0FE43 /* indexCard.png in Resources */,
 				6D7CC7A813E1E74800B0FE43 /* MenuButton.png in Resources */,
 				6D7CC7AA13E1E99600B0FE43 /* MenuButton_green.png in Resources */,
-				6D7CC7AF13E1F10F00B0FE43 /* ProducerListTableViewController.xib in Resources */,
 				6D7E43B913E3168F002832C6 /* QATimeTable.plist in Resources */,
 				6D7E43BF13E31D44002832C6 /* ContactsQATimeTableViewController.xib in Resources */,
 				FFE2D20013E96EE000E6A77B /* VisitApplicationMapViewController.xib in Resources */,
@@ -2571,8 +2517,6 @@
 				FF71F53713C63D24005CE1DA /* ProducerQuestionTableViewCell.m in Sources */,
 				FF71F53A13C63E6E005CE1DA /* ProducerStatusTableViewCell.m in Sources */,
 				FF71F54013C64649005CE1DA /* ProducerRaterTableViewCell.m in Sources */,
-				FF71F54513C648DA005CE1DA /* ProducerPhoneNumberTableViewCell.m in Sources */,
-				FF71F54A13C64B58005CE1DA /* ProducerEmailTableViewCell.m in Sources */,
 				FF71F54F13C64D19005CE1DA /* ProducerHoursTableViewCell.m in Sources */,
 				FF9A1DCA13C7443200BAA6F2 /* ProducerAddressTableViewCell.m in Sources */,
 				FF9A1DD013C746F200BAA6F2 /* ProducerContactTableViewCell.m in Sources */,
@@ -2637,7 +2581,6 @@
 				FFA0707613D5EB930021E412 /* MyTreeViewCell.m in Sources */,
 				FFA0707713D5EB930021E412 /* MyTreeNode.m in Sources */,
 				FFA0708113D5EBC00021E412 /* ContactsViewController.m in Sources */,
-				FFA0708313D5EBC00021E412 /* ContactQAFormView.m in Sources */,
 				FFA0708B13D5EC030021E412 /* SectionHeaderView.m in Sources */,
 				FFA0709913D5EC330021E412 /* FeaturesAndBenefitsViewController.m in Sources */,
 				FFA0709A13D5EC330021E412 /* StateSelectionTableViewController.m in Sources */,
@@ -2655,9 +2598,6 @@
 				FF846CB313DD9A2500D59F3E /* GetCompetitorRequest.m in Sources */,
 				6D966D4413DDCF2000DAF04B /* _TrainingVideo.m in Sources */,
 				6D966D4513DDCF2000DAF04B /* TrainingVideo.m in Sources */,
-				6D966D4913DDD1E000DAF04B /* TrainingVideoViewController.m in Sources */,
-				6D966D5313DDFC6800DAF04B /* ProspectApplicationViewController.m in Sources */,
-				6D7CC7AE13E1F10F00B0FE43 /* ProducerListTableViewController.m in Sources */,
 				6D7E43BE13E31D44002832C6 /* ContactsQATimeTableViewController.m in Sources */,
 				FFBE682613E844F900013066 /* SmartTableView.m in Sources */,
 				FFBE682913E845A000013066 /* SmartScrollView.m in Sources */,

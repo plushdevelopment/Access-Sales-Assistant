@@ -38,7 +38,6 @@
 @synthesize toolBar = _toolBar;
 @synthesize submitButton = _submitButton;
 @synthesize spaceButton = _spaceButton;
-@synthesize pListTableViewController = _pListTableViewController;
 @synthesize prospectPopoverController = _prospectPopoverController;
 @synthesize fields=_fields;
 
