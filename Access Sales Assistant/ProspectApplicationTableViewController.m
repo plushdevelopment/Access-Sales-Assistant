@@ -97,11 +97,25 @@
     myPhoneNumberFormatter = [[PhoneNumberFormatter alloc] init];
     
     self.detailItem = [Producer ai_objectForProperty:@"prospect" value:[NSNumber numberWithBool:YES] managedObjectContext:[NSManagedObjectContext defaultContext]];
-	Contact *contact = [Contact createEntity];
-    contact.type = [ContactType findFirstByAttribute:@"name" withValue:@"Owner"];
-    [self.detailItem addContactsObject:contact];
-    self.detailItem.editedValue = YES;
-	contact.editedValue = YES;
+    
+    Contact *ownerContact = nil;
+    for (Contact *contact in _detailItem.contacts) {
+        if ([contact.type.name isEqualToString:@"Owner"]) {
+            ownerContact = contact;
+            break;
+        }
+    }
+	//Contact *contact = [Contact createEntity];
+        
+        if(!ownerContact)
+        {
+            ownerContact = [Contact createEntity];
+    ownerContact.type = [ContactType findFirstByAttribute:@"name" withValue:@"Owner"];
+    [self.detailItem addContactsObject:ownerContact];
+   
+	ownerContact.editedValue = YES;
+        }
+         self.detailItem.editedValue = YES;
 	[[NSManagedObjectContext defaultContext] save];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 	
