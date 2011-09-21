@@ -20,7 +20,6 @@
 #import "Producer.h"
 #import "BaseDetailViewController.h"
 #import "VisitApplicationTabBarController.h"
-#import "ProducerListTableViewController.h"
 #import "PhoneNumberFormatter.h"
 #import "SelectionModelViewController.h"
 
@@ -56,7 +55,7 @@
 @property (nonatomic,strong) IBOutlet UIBarButtonItem* spaceButton;
 
 
-@property (nonatomic,strong) IBOutlet ProducerListTableViewController *pListTableViewController;
+
 @property (nonatomic, strong) UIPopoverController *prospectPopoverController;
 @property (nonatomic, strong) NSMutableSet *fields;
 
