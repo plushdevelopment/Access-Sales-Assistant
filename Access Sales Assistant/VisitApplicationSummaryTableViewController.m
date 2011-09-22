@@ -345,7 +345,10 @@ enum PRPTableStatsTags {
             {
                 case PRPTableStatsProducerAddOn:
                 {
-                    [selectionView assignDataSource:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
+					NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
+					NSDictionary *dict = [NSDictionary dictionaryWithObject:@"None" forKey:@"name"];
+					[dataSource addObject:dict];
+                    [selectionView assignDataSource:dataSource];
                     //	[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }

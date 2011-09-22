@@ -1476,12 +1476,6 @@
 #pragma mark - TextField delegate methods
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    
-    Producer *producer = (Producer *)self.detailItem;
-	if (!producer.editedValue) {
-		producer.editedValue = YES;
-		[[NSManagedObjectContext defaultContext] save];
-	}
     NSString *replacementString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	NSInteger tag = textField.tag;
@@ -1884,7 +1878,7 @@
     }
     
 	[[NSManagedObjectContext defaultContext] save];
-	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+	//[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 	//[self.tableView reloadData];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 }

@@ -923,12 +923,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 
 - (void)deleteContactFinished:(ASIHTTPRequest *)request
 {
-	
+	if ([request responseStatusCode] != 200) {
+		[self deleteContactFailed:request];
+	}
 }
 
 - (void)deleteContactFailed:(ASIHTTPRequest *)request
 {
-	
+	[UIHelpers showAlertWithTitle:@"Delete Failed" msg:@"Failed to delete contact" buttonTitle:@"OK"];
 }
 
 #pragma mark - 
