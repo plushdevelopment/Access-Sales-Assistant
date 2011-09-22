@@ -211,6 +211,7 @@
 								<string key="NSFrame">{{23, 664}, {695, 128}}</string>
 								<reference key="NSSuperview" ref="99607656"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:504</string>
 								<reference key="IBUIBackgroundColor" ref="612232715"/>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -328,7 +329,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Committment</string>
+								<string key="IBUIText">Commitment</string>
 								<reference key="IBUITextColor" ref="645848983"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -956,7 +957,7 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{1470, 310}</string>
+				<string>{320, 67}</string>
 				<string>{748, 143}</string>
 			</object>
 		</object>

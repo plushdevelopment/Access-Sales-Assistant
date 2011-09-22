@@ -1634,8 +1634,7 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self saveTextFieldToContext:textField];
-	[self.tableView reloadData];
+    
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -1650,6 +1649,8 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
+	[self saveTextFieldToContext:textField];
+	[self.tableView reloadData];
 	return YES;
 }
 
@@ -1883,7 +1884,7 @@
     }
     
 	[[NSManagedObjectContext defaultContext] save];
-	//[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 	//[self.tableView reloadData];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 }
