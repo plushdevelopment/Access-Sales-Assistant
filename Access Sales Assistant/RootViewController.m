@@ -34,7 +34,7 @@
 
 #define SOCIAL_MEDIA_OPTIONS @"Access.com",@"LinkedIn",@"Twitter",@"Facebook",@"Career Builder",nil
 #define SOCIAL_MEDIA_IMAGE_NAME @"access_icon.png",@"linkedin_icon.png",@"twitter_icon.png",@"facebook_icon.png",@"career_builder_icon.png",nil
-#define SOCIAL_MEDIA_URL @"http://www.access.com",@"http://www.linkedin.com/company/54125",@"http://www.twitter.com/AccessOnTheGo",@"http://www.facebook.com/AccessInsuranceCompany",@"http://www.accessgeneral.com/jobs",nil
+#define SOCIAL_MEDIA_URL @"http://www.access.com",@"http://www.linkedin.com/company/54125",@"http://www.twitter.com/AccessOnTheGo",@"http://www.facebook.com/AccessInsuranceCompany",@"http://www.accessgeneral.jobs",nil
 
 #define SECTION_ROW_COUNT           5,0,0,0,5,0,nil
 #define VISIT_APP_INDEX             0
