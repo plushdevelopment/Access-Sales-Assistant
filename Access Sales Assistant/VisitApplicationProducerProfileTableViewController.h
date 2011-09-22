@@ -38,6 +38,8 @@
     NSString *myLocale; //@"us"
     
     int prevIndexPath,currentIndexPath,currentTag;
+    
+    UITextField *currentTextFld;
 
 }
 
