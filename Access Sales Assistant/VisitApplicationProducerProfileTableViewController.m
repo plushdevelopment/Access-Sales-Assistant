@@ -1885,7 +1885,6 @@
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
 {
-	
     EmailListItem *newMail=nil;
     for (EmailListItem *email in _detailItem.emails)
     {
