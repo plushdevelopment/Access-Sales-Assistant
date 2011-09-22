@@ -162,7 +162,23 @@
 			break;
 	}
   //  [self showAlert:message];
-    [self showRootPopoverButtonItem:rootPopoverButtonItem];
+    
+   // [self showRootPopoverButtonItem:rootPopoverButtonItem];
+    
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;//[[UIDevice currentDevice] orientation];
+    
+	// if(orientation == 0)
+	//     orientation = self.detailViewController.interfaceOrientation;
+    
+    if(UIDeviceOrientationIsPortrait(orientation))
+    {
+		
+		[self showRootPopoverButtonItem:rootPopoverButtonItem];
+		
+    }
+    else
+        [self invalidateRootPopoverButtonItem:rootPopoverButtonItem];
+
 	[self dismissModalViewControllerAnimated:YES];
 }
 

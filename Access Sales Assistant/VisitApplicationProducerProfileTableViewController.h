@@ -36,6 +36,8 @@
     PhoneNumberFormatter *myPhoneNumberFormatter;
     
     NSString *myLocale; //@"us"
+    
+    int prevIndexPath,currentIndexPath,currentTag;
 
 }
 

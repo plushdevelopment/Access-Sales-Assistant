@@ -1624,17 +1624,48 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    
+ 
+    NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
+	NSInteger tag = textField.tag;
+    NSLog(@"DidBeginEditing-->IndexPath:%d tag:%d",indexPath.section,tag);
+  //  prevIndexPath = currentIndexPath;
+ //   currentIndexPath = indexPath.section;
+  //  currentTag = tag;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     //NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
 	//[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    
+   // [self.tableView reloadData];
+    
+    NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
+	NSInteger tag = textField.tag;
+    
+    NSLog(@"DidEndEditing-->IndexPath:%d tag:%d",indexPath.section,tag);
+    
+  //  
+    
+    //if(indexPath.section == currentIndexPath && tag == currentTag)
+     //   [self saveTextFieldToContext:textField];
+ //   [self saveTextFieldToContext:textField];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-	return YES;
+    
+    NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
+	NSInteger tag = textField.tag;
+    NSLog(@"ShouldBeginEditing-->IndexPath:%d tag:%d",indexPath.section,tag);
+    
+   // [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+   /* if([textField isFirstResponder])
+        return YES;
+    else
+        return NO;
+    */
+    
+    return YES;
 }
 
 - (BOOL)textFieldShouldClear:(UITextField *)textField
@@ -1644,9 +1675,17 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-	[self saveTextFieldToContext:textField];
-	[self.tableView reloadData];
-	return YES;
+    NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
+	NSInteger tag = textField.tag;
+    NSLog(@"ShouldEndEditing-->IndexPath:%d tag:%d",indexPath.section,tag);
+ //   if(indexPath.section == currentIndexPath && tag == currentTag)
+    {
+        [self saveTextFieldToContext:textField];
+        return YES;
+    }
+ //   else
+//        return NO;
+//	return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -1880,8 +1919,15 @@
     
 	[[NSManagedObjectContext defaultContext] save];
 	//[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-	//[self.tableView reloadData];
+    
+   // [self performSelector:@selector(reloadSections) withObject:nil afterDelay:.2];
+	[self.tableView reloadData];
 	[self toggleSubmitButton:[self isEnableSubmit]];
+}
+
+- (void)reloadSections {
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:prevIndexPath]
+                  withRowAnimation:UITableViewRowAnimationNone];
 }
 -(void)modifyEmailItem:(UITextField *)textField :(NSInteger)emailType
 {
@@ -2432,4 +2478,6 @@
     [self.tableView reloadData];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 }
+
+
 @end
