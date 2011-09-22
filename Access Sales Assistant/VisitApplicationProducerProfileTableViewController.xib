@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<int key="IBDocument.SystemTarget">0</int>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -77,6 +77,7 @@
 						<string key="NSFrame">{{0, 44}, {768, 960}}</string>
 						<reference key="NSSuperview" ref="626657145"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -110,6 +111,12 @@
 								<reference key="IBUIToolbar" ref="199136232"/>
 								<int key="IBUISystemItemIdentifier">0</int>
 							</object>
+							<object class="IBUIBarButtonItem" id="1069247301">
+								<string key="IBUITitle">Navigate</string>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIStyle">1</int>
+								<reference key="IBUIToolbar" ref="199136232"/>
+							</object>
 							<object class="IBUIBarButtonItem" id="428445128">
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUIToolbar" ref="199136232"/>
@@ -126,7 +133,7 @@
 					<object class="IBUILabel" id="850351093">
 						<reference key="NSNextResponder" ref="626657145"/>
 						<int key="NSvFlags">294</int>
-						<string key="NSFrame">{{65, 6}, {628, 30}}</string>
+						<string key="NSFrame">{{155, 6}, {504, 30}}</string>
 						<reference key="NSSuperview" ref="626657145"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="507230919"/>
@@ -312,6 +319,14 @@
 					</object>
 					<int key="connectionID">48</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">navigateToProducer:</string>
+						<reference key="source" ref="1069247301"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">51</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -348,8 +363,8 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="199136232"/>
 							<reference ref="507230919"/>
-							<reference ref="850351093"/>
 							<reference ref="993928743"/>
+							<reference ref="850351093"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -370,6 +385,7 @@
 							<reference ref="243804984"/>
 							<reference ref="428445128"/>
 							<reference ref="572250844"/>
+							<reference ref="1069247301"/>
 						</array>
 						<reference key="parent" ref="626657145"/>
 					</object>
@@ -404,6 +420,11 @@
 						<reference key="object" ref="850351093"/>
 						<reference key="parent" ref="626657145"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">49</int>
+						<reference key="object" ref="1069247301"/>
+						<reference key="parent" ref="199136232"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -426,6 +447,7 @@
 				<string key="45.CustomClassName">SelectionModelViewController</string>
 				<string key="45.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="47.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="49.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.CustomClassName">SmartTableView</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -433,7 +455,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">48</int>
+			<int key="maxID">51</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -522,47 +544,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/PRPNibBasedTableViewCell.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">PickerViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="doneSelected:">id</string>
-						<string key="nextField:">id</string>
-						<string key="previousField:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="doneSelected:">
-							<string key="name">doneSelected:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="nextField:">
-							<string key="name">nextField:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="previousField:">
-							<string key="name">previousField:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="delegate">id</string>
-						<string key="pickerView">UIPickerView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="delegate">
-							<string key="name">delegate</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="pickerView">
-							<string key="name">pickerView</string>
-							<string key="candidateClassName">UIPickerView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PickerViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -1172,9 +1153,9 @@
 						<string key="autoFormatPhoneNumber:">id</string>
 						<string key="dismiss:">id</string>
 						<string key="handleCustomSwitchToggle:">id</string>
+						<string key="navigateToProducer:">id</string>
 						<string key="neverVisitToggle:">id</string>
 						<string key="showDatePickerView:">id</string>
-						<string key="showPickerView:">id</string>
 						<string key="showSelectionTableView:">id</string>
 						<string key="submit:">id</string>
 					</dictionary>
@@ -1191,16 +1172,16 @@
 							<string key="name">handleCustomSwitchToggle:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="navigateToProducer:">
+							<string key="name">navigateToProducer:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="neverVisitToggle:">
 							<string key="name">neverVisitToggle:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showDatePickerView:">
 							<string key="name">showDatePickerView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showPickerView:">
-							<string key="name">showPickerView:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showSelectionTableView:">
@@ -1221,7 +1202,6 @@
 						<string key="generalTableViewCell">ProducerGeneralTableViewCell</string>
 						<string key="hoursTableViewCell">ProducerHoursTableViewCell</string>
 						<string key="lastVisitedCell">LastVisitedTableViewCell</string>
-						<string key="pickerViewController">PickerViewController</string>
 						<string key="questionTableViewCell">ProducerQuestionTableViewCell</string>
 						<string key="raterTableViewCell">ProducerRaterTableViewCell</string>
 						<string key="selectionTableView">SelectionModelViewController</string>
@@ -1263,10 +1243,6 @@
 							<string key="name">lastVisitedCell</string>
 							<string key="candidateClassName">LastVisitedTableViewCell</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="pickerViewController">
-							<string key="name">pickerViewController</string>
-							<string key="candidateClassName">PickerViewController</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="questionTableViewCell">
 							<string key="name">questionTableViewCell</string>
 							<string key="candidateClassName">ProducerQuestionTableViewCell</string>
@@ -1305,6 +1281,10 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="0.0" key="NS.object.0"/>
+		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
