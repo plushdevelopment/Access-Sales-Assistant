@@ -430,7 +430,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 				}
 			}
 			[self.managedObjectContext save];
-			NSLog(@"%@", [producer jsonStringValue]);
+			//NSLog(@"%@", [producer jsonStringValue]);
 		}
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"Post Producer Successful" object:request];
 	}
