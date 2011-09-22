@@ -1628,7 +1628,8 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
+    //NSIndexPath *indexPath = [self.tableView prp_indexPathForRowContainingView:textField];
+	//[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField

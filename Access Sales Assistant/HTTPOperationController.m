@@ -749,7 +749,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
 	User *user = [User findFirst];
     NSString* escapedString = [self urlencode:searchString];
 	NSString *urlString = [NSString 
-						   stringWithFormat:@"%@VisitApplicationService/Producers/Search?producerName=%@&producerCode=&pageNbr=1&pageSize=100&partialLoad=false&token=%@", kURL, escapedString, [user token]];
+						   stringWithFormat:@"%@VisitApplicationService/Producers/Search?producerName=%@&producerCode=%@&pageNbr=1&pageSize=100&partialLoad=false&token=%@", kURL, escapedString, escapedString, [user token]];
 	NSURL *url = [NSURL URLWithString:urlString];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
 	[request setRequestMethod:@"GET"];
