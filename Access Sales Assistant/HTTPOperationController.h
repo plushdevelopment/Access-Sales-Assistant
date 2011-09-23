@@ -13,12 +13,12 @@
 #define kUATURL @"https://uatmobile.accessgeneral.com/TsmServices/"
 #define kDevURL @"http://devweb01.development.accessgeneral.com:82/"
 #define kProdURL @"https://mobile.accessgeneral.com/TsmServices/"
-#define kURL @"https://uatmobile.accessgeneral.com/TsmServices/"
+#define kURL @"https://mobile.accessgeneral.com/TsmServices/"
 
 #define kLoginURLUAT @"https://uatmobile.accessgeneral.com/SecurityServices/"
 #define kLoginURLDev @"http://devweb01.development.accessgeneral.com:81/"
 #define kLoginURLProd @"https://mobile.accessgeneral.com/SecurityServices/"
-#define kLoginURL @"https://uatmobile.accessgeneral.com/SecurityServices/"
+#define kLoginURL @"https://mobile.accessgeneral.com/SecurityServices/"
 
 @interface HTTPOperationController : NSObject <ASIHTTPRequestDelegate>
 

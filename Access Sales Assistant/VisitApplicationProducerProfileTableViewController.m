@@ -2098,10 +2098,22 @@
                 
                 for(Contact *cItem in _detailItem.contacts.allObjects)
                 {
+                    BOOL isEmailFilled = FALSE;
+                    
+                    if([cItem.emails.allObjects count]>0)
+                    {
+                        for(EmailListItem *emailObj in cItem.emails)
+                        {
+                            if(emailObj.typeValue == 5 && [emailObj.address length]>0)
+                                isEmailFilled = TRUE;
+                        }
+                    }
+                
                     if([cItem.firstName length]<=0||
                        [cItem.lastName length]<=0||
                        cItem.type == nil||
                        (![cItem.type.name isEqualToString:@"Agent"] && [cItem.ssn length]<=0)
+                       || !isEmailFilled
                        )
                         return FALSE;
                 }
