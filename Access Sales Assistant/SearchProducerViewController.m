@@ -88,7 +88,12 @@
     [self.tableView reloadData];
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	CGFloat height = 80.0;
+    
+    return height;
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -111,8 +116,9 @@
     }
     
     
-    NSString* str= [[NSString alloc] initWithFormat:@"%@ - %@",[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"name"],[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"producerCode"]];
+    NSString* str= [[NSString alloc] initWithFormat:@"%@ - %@\n\n%@",[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"producerCode"],[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"name"],[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"producerAddress"]];
     cell.textLabel.text = str;
+    cell.textLabel.numberOfLines = 0;
 	
     return cell;
 }

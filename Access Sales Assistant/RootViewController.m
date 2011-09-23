@@ -671,8 +671,15 @@
             
         case GPS_INDEX:
         {
+      //      UIApplication *app = [UIApplication sharedApplication];
+            
+            
+        //    [app openURL:[NSURL URLWithString: @"http://maps.google.com/"]];
+            
+            NSString *url = [NSString stringWithFormat:@"motionxgpsdrive://"];
             UIApplication *app = [UIApplication sharedApplication];
-            [app openURL:[NSURL URLWithString: @"http://maps.google.com/"]];
+            BOOL isSuccess = [app openURL:[NSURL URLWithString:url]];
+
             closePopOver = TRUE;
         }
             break;
