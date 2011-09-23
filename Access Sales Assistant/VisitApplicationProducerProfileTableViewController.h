@@ -99,6 +99,7 @@
 -(IBAction)showSelectionTableView:(id)sender;
 -(IBAction)neverVisitToggle:(id)sender;
 -(IBAction)handleCustomSwitchToggle:(id)sender;
+- (IBAction)navigateToProducer:(id)sender;
 
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;
