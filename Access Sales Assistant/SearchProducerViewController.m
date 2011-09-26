@@ -116,7 +116,7 @@
     }
     
     
-    NSString* str= [[NSString alloc] initWithFormat:@"%@ - %@\n\n%@",[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"producerCode"],[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"name"],[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"producerAddress"]];
+    NSString* str= [[NSString alloc] initWithFormat:@"%@ - %@\n%@",[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"producerCode"],[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"name"],[[producerNamesArray objectAtIndex:indexPath.row] objectForKey:@"producerAddress"]];
     cell.textLabel.text = str;
     cell.textLabel.numberOfLines = 0;
 	
