@@ -61,7 +61,7 @@
 
 - (IBAction)navigateToProducer:(id)sender
 {
-	NSString *url = [NSString stringWithFormat:@"motionxgpsdrive://dest?lat=%f&lon=%f", self.detailItem.latitudeValue, self.detailItem.longitudeValue];
+	NSString *url = [NSString stringWithFormat:@"motionxgpsdrivehd://dest?lat=%f&lon=%f", self.detailItem.latitudeValue, self.detailItem.longitudeValue];
 	UIApplication *app = [UIApplication sharedApplication];
 	[app openURL:[NSURL URLWithString:url]];
 }

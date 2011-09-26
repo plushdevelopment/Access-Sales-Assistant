@@ -676,7 +676,7 @@
             
         //    [app openURL:[NSURL URLWithString: @"http://maps.google.com/"]];
             
-            NSString *url = [NSString stringWithFormat:@"motionxgpsdrive://"];
+            NSString *url = [NSString stringWithFormat:@"motionxgpsdrivehd://"];
             UIApplication *app = [UIApplication sharedApplication];
             BOOL isSuccess = [app openURL:[NSURL URLWithString:url]];
 
