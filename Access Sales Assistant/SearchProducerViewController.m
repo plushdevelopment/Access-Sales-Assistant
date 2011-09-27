@@ -129,6 +129,7 @@
 {
 	NSDictionary* dict = [producerNamesArray objectAtIndex:indexPath.row];
     Producer *producer = [Producer findFirstByAttribute:@"uid" withValue:[dict valueForKey:@"uid"]];
+    NSLog(@"Selected producer: %@",[producer jsonStringValue]);
 	[_tabBarController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
 	[_tabBarController setModalPresentationStyle:UIModalPresentationPageSheet];
     [self presentModalViewController:_tabBarController animated:YES];
