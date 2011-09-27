@@ -75,42 +75,42 @@
     {
         case EMAIL_SSC:
         {
-            toAddress = @"ssc@accessgeneral.com";
+            toAddress = @"ssc@access.com";
             [picker setSubject:EMAIL_SSC_SUBJECT];
             break;
         }
         case EMAIL_CUSTOMER_SERVICE:
         {
-            toAddress = @"customer@accessgeneral.com";
+            toAddress = @"customer@access.com";
             [picker setSubject:EMAIL_CUSTOMER_SUBJECT];
             break;
         }
         case EMAIL_NSF:
         {
-            toAddress = @"nsf@accessgeneral.com";
+            toAddress = @"nsf@access.com";
             [picker setSubject:EMAIL_NSF_SUBJECT];
             break;
         }
         case EMAIL_PRODUCT:
         {
-            toAddress = @"product@accessgeneral.com";
+            toAddress = @"product@access.com";
             [picker setSubject:EMAIL_PRODUCT_SUBJECT];
             break;
         }
         case EMAIL_FACILITIES:
         {
-            toAddress = @"facilities@accessgeneral.com";
+            toAddress = @"facilities@access.com";
             [picker setSubject:EMAIL_FACILITIES_SUBJECT];
             break;
         }
         case QA_RESOLUTION_TT:
         {
-            toAddress = @"timetable@accessgeneral.com";
+            toAddress = @"timetable@access.com";
             break;
         }
         case EMAIL_HELP_DESK:
         {
-            toAddress = @"help@accessgeneral.com";
+            toAddress = @"help@access.com";
             [picker setSubject:EMAIL_HELPDESK_SUBJECT];
             break;
         }
