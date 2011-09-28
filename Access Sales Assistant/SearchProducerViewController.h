@@ -13,7 +13,7 @@
 #import "VisitApplicationTabBarController.h"
 @interface SearchProducerViewController : BaseDetailViewController<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 {
-     NSMutableArray* producerNamesArray;
+    NSMutableArray* producerNamesArray;
 }
 
 

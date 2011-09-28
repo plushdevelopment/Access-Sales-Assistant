@@ -36,7 +36,7 @@
 
 enum EProspectSectionIndex
 {
-  EGeneral=0,
+    EGeneral=0,
     EAddresses,
     EContactInfo,
     ERater,

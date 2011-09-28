@@ -19,7 +19,7 @@
 @property(nonatomic,strong) FlashCardFlipView* flipView;
 @property(nonatomic) BOOL flipped;
 -(void) flipCurrentView:(BOOL)isFlipped;
-- (id)initWithFrame:(CGRect)frame:(int) forFlashCard:(int) forIndex;
+- (id)initWithFrame:(CGRect)frame forFlashcardType:(int) forFlashCard forFlashcardIndex:(int) forIndex;
 
 
 

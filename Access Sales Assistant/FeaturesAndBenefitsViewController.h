@@ -20,7 +20,7 @@
 }
 
 -(IBAction)selectState:(id)sender;
--(void) selectedState:(NSString*) stateName:(NSString *)stateCode;
+-(void) selectedState:(NSString*) stateName selectedStateCode:(NSString *)stateCode;
 
 @property(nonatomic,strong) IBOutlet UILabel* _accessInternationalDrivers;
 @property(nonatomic,strong) IBOutlet UILabel* _accessBusiness;

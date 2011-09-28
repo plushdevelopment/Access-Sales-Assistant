@@ -26,6 +26,6 @@
 @property (nonatomic,strong) NSString* currentStateName;
 @property (nonatomic,strong) NSString* currentStateCode;
 -(IBAction)stateChanged:(id)sender;
--(void) selectedState:(NSString*) stateName:(NSString *)stateCode;
+-(void) selectedState:(NSString*)stateName selectedStateCode:(NSString *)stateCode;
 
 @end

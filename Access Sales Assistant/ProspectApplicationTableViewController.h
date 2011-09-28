@@ -29,15 +29,10 @@
     NSMutableArray* producerList;
     NSMutableArray* producerNamesArray;
     
-    //Variables for phone formatter
     int myTextFieldSemaphore;
     PhoneNumberFormatter *myPhoneNumberFormatter;
-    NSString *myLocale; //@"us"
-
+    NSString *myLocale;
 }
-
-
-
 @property (nonatomic, strong) IBOutlet ProducerAddressTableViewCell* addressTableViewCell;
 @property (nonatomic, strong) IBOutlet ProducerContactInfoTableViewCell* contactInfoTableViewCell;
 @property (nonatomic, strong) IBOutlet ProducerRaterTableViewCell* raterTableViewCell;
@@ -54,8 +49,6 @@
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *submitButton;
 @property (nonatomic,strong) IBOutlet UIBarButtonItem* spaceButton;
 
-
-
 @property (nonatomic, strong) UIPopoverController *prospectPopoverController;
 @property (nonatomic, strong) NSMutableSet *fields;
 
@@ -65,7 +58,7 @@
 - (void) toggleSubmitButton:(BOOL)isEnabled;
 - (BOOL) isEnableSubmit;
 
-- (ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell:(NSInteger)forType;
+- (ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell createAddressCellWithType:(NSInteger)forType;
 - (void) saveTextFieldToContext:(UITextField*) textField;
 - (IBAction)submitProspectApp:(id)sender;
 - (IBAction)autoFormatPhoneNumber:(id) sender;

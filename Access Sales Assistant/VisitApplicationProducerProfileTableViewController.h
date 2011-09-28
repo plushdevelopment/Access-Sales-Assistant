@@ -71,39 +71,31 @@
 
 
 -(UITableViewCell*) tableViewCellForNibName:(NSString*)nibName;
--(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell:(NSInteger)forType;
--(ProducerContactTableViewCell*) contactTableViewCell:(ProducerContactTableViewCell*) contactCell:(NSInteger)forRow;
--(ProducerContactInfoTableViewCell*) contactInfoTableViewCell:(ProducerContactInfoTableViewCell*) contactInfoCell:(NSInteger)forRow;
--(void) raterTableViewCell:(ProducerRaterTableViewCell*) raterCell:(NSInteger)forRow;
--(void) statusTableViewCell:(ProducerStatusTableViewCell*) statusCell:(NSInteger)forRow;
--(void) hoursOfOperationCell:(ProducerHoursTableViewCell*)hoursCell:(NSInteger)forRow;
+-(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*)addressCell createAddressCellForType:(NSInteger)forType;
+-(ProducerContactTableViewCell*) contactTableViewCell:(ProducerContactTableViewCell*) contactCell createContactCellForType:(NSInteger)forRow;
+-(ProducerContactInfoTableViewCell*) contactInfoTableViewCell:(ProducerContactInfoTableViewCell*) contactInfoCell contactInfoForRow:(NSInteger)forRow;
+-(void) raterTableViewCell:(ProducerRaterTableViewCell*) raterCell raterCellForRow:(NSInteger)forRow;
+-(void) statusTableViewCell:(ProducerStatusTableViewCell*) statusCell statusCellForRow:(NSInteger)forRow;
+-(void) hoursOfOperationCell:(ProducerHoursTableViewCell*)hoursCell hoursCellForRow:(NSInteger)forRow;
 -(void) saveTextFieldToContext:(UITextField*) textField;
-
--(void) modifyEmailItem:(UITextField*) textField:(NSInteger) emailType;
--(void) modifyPhoneItem:(UITextField*) textField:(NSInteger) phoneType;
+-(void) modifyEmailItem:(UITextField*) textField forEmailType:(NSInteger) emailType;
+-(void) modifyPhoneItem:(UITextField*) textField forPhoneType:(NSInteger) phoneType;
 -(void) toggleSubmitButton:(BOOL)isEnable;
 -(BOOL) isEnableSubmit;
--(void)FillAddressCellForType:(ProducerAddressTableViewCell*)addressCell:(AddressListItem*) withAddrItem: (NSInteger) forType; 
--(void) AutoFillEmailItem:(ProducerContactInfoTableViewCell*)contactInfoCell:(EmailListItem*) withEmailItem;
--(EmailListItem*)createNewEmailItem:(EmailListItem*) withEmailItem:(NSInteger) forType;
--(void) AutoFillHoursOfOperation:(HoursOfOperation*) withHours:(HoursOfOperation*) toHours;
--(void) toggleHoursOfOperationCell:(ProducerHoursTableViewCell*) hoursCell:(BOOL) isEnabled;
--(OperationHour*) assignHour:(OperationHour*) withHour:(OperationHour*) toHour:(HoursOfOperation*) hoursOperation:(NSInteger) forDay:(BOOL)isOpen;
-
-//-(void) changeTextFieldOutline:(UITextField*) textField:(BOOL) toOriginal;
-
+-(void)fillAddressCellForType:(ProducerAddressTableViewCell*)addressCell fillAddressWithItem:(AddressListItem*) withAddrItem forAddressType:(NSInteger) forType; 
+-(void) autoFillEmailItem:(ProducerContactInfoTableViewCell*)contactInfoCell fillWithEmailItem:(EmailListItem*) withEmailItem;
+-(EmailListItem*)createNewEmailItem:(EmailListItem*) withEmailItem createEmailForType:(NSInteger) forType;
+-(void) autoFillHoursOfOperation:(HoursOfOperation*) withHours fillWithHours:(HoursOfOperation*) toHours;
+-(void) toggleHoursOfOperationCell:(ProducerHoursTableViewCell*) hoursCell isEnableHoursCell:(BOOL) isEnabled;
+-(OperationHour*) assignHour:(OperationHour*)withHour assignToHour:(OperationHour*) toHour forHoursOfOperation:(HoursOfOperation*) hoursOperation hoursForDay:(NSInteger) forDay isHoursOpen:(BOOL)isOpen;
 - (void)configureView;
-
 - (IBAction)showDatePickerView:(id)sender;
-
 -(IBAction)showSelectionTableView:(id)sender;
 -(IBAction)neverVisitToggle:(id)sender;
 -(IBAction)handleCustomSwitchToggle:(id)sender;
 - (IBAction)navigateToProducer:(id)sender;
-
 - (IBAction)dismiss:(id)sender;
 - (IBAction)submit:(id)sender;
--(IBAction)autoFormatPhoneNumber:(id) sender;
+-(IBAction)autoFormatPhoneNumber:(id)sender;
 -(void)doneSelection:(id)sender;
-
 @end

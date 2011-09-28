@@ -91,7 +91,7 @@
     [_fnbScrollview setBackgroundColor:[UIColor clearColor]];
     
 #if TARGET_IPHONE_SIMULATOR
-    [self selectedState:@"Georgia" :@"GA"];
+    [self selectedState:@"Georgia" selectedStateCode:@"GA"];
 #else
 //	[self selectedState:@"Georgia" :@"GA"];
     [[SSLocationManager sharedManager] addDelegate:self];
@@ -142,7 +142,7 @@
     
     
 }
--(void) selectedState:(NSString*) stateName:(NSString*) stateCode
+-(void) selectedState:(NSString*) stateName selectedStateCode:(NSString*) stateCode
 {
     
     
@@ -307,7 +307,7 @@
 {
     self.currentStateName = _currentLocation.state;
     self.currentStateCode = _currentLocation.statecode;
-    [self selectedState:self.currentStateName :self.currentStateCode];
+    [self selectedState:self.currentStateName selectedStateCode:self.currentStateCode];
     [[SSLocationManager sharedManager] removeDelegate:self];
     NSLog(@"Current Location string is: %@",[_currentLocation toString]);
 }

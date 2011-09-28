@@ -195,7 +195,7 @@
         self.currentSelectedState = [array objectAtIndex:indexPath.row];
         selectedIndexPath = indexPath.row;
         [tableView reloadData];
-        [self.delegate selectedState:[array objectAtIndex:indexPath.row] :[stateCodeArray objectAtIndex:indexPath.row]];
+        [self.delegate selectedState:[array objectAtIndex:indexPath.row] selectedStateCode:[stateCodeArray objectAtIndex:indexPath.row]];
     }
         //[self.delegate selectedState:[array objectAtIndex:indexPath.row]];
     // Navigation logic may go here. Create and push another view controller.

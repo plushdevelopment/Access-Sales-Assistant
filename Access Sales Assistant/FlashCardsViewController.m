@@ -128,7 +128,7 @@
 		
 		
         
-        CustomContainerView* containerView = [[CustomContainerView alloc] initWithFrame:CGRectMake(0,0,containerSize.width,containerSize.height):selectedFlashCard:i];
+        CustomContainerView* containerView = [[CustomContainerView alloc] initWithFrame:CGRectMake(0,0,containerSize.width,containerSize.height)forFlashcardType:selectedFlashCard forFlashcardIndex:i];
         
         [containerArray addObject:containerView];
         

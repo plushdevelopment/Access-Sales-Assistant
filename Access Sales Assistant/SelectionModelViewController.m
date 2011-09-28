@@ -24,17 +24,14 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+
 }
 
 #pragma mark - View lifecycle
@@ -42,21 +39,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-//    self.dataSource = 
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
 	return YES;
 }
 -(void) assignDataSource:(NSMutableArray *)datasource
@@ -77,26 +68,7 @@
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSLog(searchText);	
-    [_tableData removeAllObjects];// remove all data that belongs to previous search
-    
-    
-   /* for(int index = 0; index<[_dataSource count];index++)
-    {
-        NSString *name = [[_dataSource objectAtIndex:index] name];
-        NSLog(name);
-     
-        NSRange r = [name rangeOfString:searchText];
-        if(r.location != NSNotFound)
-        {
-            if(r.location== 0)//that is we are checking only the start of the names.
-            {
-                [_tableData addObject:name];
-            }
-        }
-        counter++;
-    
-    }*/
+    [_tableData removeAllObjects];
     [_tableView reloadData];
 }
 
@@ -106,16 +78,12 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
-    // Return the number of rows in the section.
-   
-   // int count =[_dataSource count];
     if(tableView == self.searchDisplayController.searchResultsTableView)
         return [_tableData count];
     else 
@@ -129,16 +97,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        //      cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier]];
     }
     
-  /*  if(indexPath.row == 0)
-    {
-        cell.textLabel.text = @"(NONE)";
-    }
-    else
-    {
-  */
+    
     if(tableView == self.searchDisplayController.searchResultsTableView)
     {
         NSString* str= [[NSString alloc] initWithFormat:@"%@",[[_tableData objectAtIndex:indexPath.row] valueForKey:@"name"]] ;
@@ -147,9 +108,8 @@
     else
     {
 		NSString* str= [[NSString alloc] initWithFormat:@"%@",[[_dataSource objectAtIndex:indexPath.row] valueForKey:@"name"]] ;
-    cell.textLabel.text = str;
+        cell.textLabel.text = str;
     }
-//    }
     
     return cell;
 }
@@ -158,28 +118,23 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-/*    if(indexPath.row == 0)
-        [_delegate selectedOption:@" " :_currentIndexPath :self.currentTag];
-    else
-    {*/
-    
+{    
     if(tableView == self.searchDisplayController.searchResultsTableView)
     {
         NSLog(@"current indexpath:%d",indexPath.row);
         NSLog(@"selected %@",[[_tableData objectAtIndex:indexPath.row] valueForKey:@"name"]);
-         [_delegate selectedOption:[[_tableData objectAtIndex:indexPath.row] valueForKey:@"name"] :_currentIndexPath :self.currentTag];
+        [_delegate selectedOption:[[_tableData objectAtIndex:indexPath.row] valueForKey:@"name"] didSelectRowAtIndexPath:_currentIndexPath forTag:self.currentTag];
     }
     else
     {
         NSLog(@"current indexpath:%d",indexPath.row);
         NSLog(@"selected %@",[[_dataSource objectAtIndex:indexPath.row] valueForKey:@"name"]);
-        [_delegate selectedOption:[[_dataSource objectAtIndex:indexPath.row] valueForKey:@"name"] :_currentIndexPath :self.currentTag];
+        
+        [_delegate selectedOption:[[_dataSource objectAtIndex:indexPath.row] valueForKey:@"name"] didSelectRowAtIndexPath:_currentIndexPath forTag:self.currentTag];
         
     }
-   // }
     [self dismissModalViewControllerAnimated:YES];
-   
+    
 }
 
 
@@ -188,32 +143,13 @@
     for(int index = 0; index<[_dataSource count];index++)
     {
         NSString *name = [[_dataSource objectAtIndex:index] valueForKey:@"name"];
-        NSLog(name);
-        
         
         NSComparisonResult result = [name compare:searchString options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchString length])];
         if (result == NSOrderedSame)
         {
             [_tableData addObject:[_dataSource objectAtIndex:index]];
         }
-
-      /*  NSRange r = [name rangeOfString:searchString];
-        if(r.location != NSNotFound)
-        {
-            if(r.location== 0)//that is we are checking only the start of the names.
-            {
-                [_tableData addObject:name];
-            }
-        }*/
-        //counter++;
-        
-    }
-  /*  NSPredicate *pred = [NSPredicate predicateWithFormat:@"name CONTAINS[c] %@" argumentArray:[NSArray arrayWithObject:searchString]];
-    
-    NSArray *fetchedArray = [_dataSource filteredArrayUsingPredicate:pred];
-    
-    NSLog(@"Filtered Array:%@",fetchedArray);*/
-    
+    }    
     return YES;
 }
 -(IBAction)closeAction:(id)sender

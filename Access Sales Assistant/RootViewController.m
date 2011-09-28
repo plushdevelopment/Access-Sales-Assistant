@@ -104,7 +104,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
 
 
@@ -113,7 +112,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 	
 	UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:[HTTPOperationController sharedHTTPOperationController] action:@selector(logout)];
 	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:[HTTPOperationController sharedHTTPOperationController] action:@selector(refreshProducers)];
@@ -122,7 +120,6 @@
     
 	self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
 	
-    // Set up default values.
     self.tableView.sectionHeaderHeight = SECTION_HEADER_HEIGHT;
     
     CGRect rectFrame = self.tableView.frame;
@@ -178,8 +175,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"Producers Successful" object:nil];
 }
 
@@ -205,11 +200,9 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return YES;
 }
 
-// Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return [self.sectionInfoArray count];
@@ -242,8 +235,6 @@
     }
     else 
         return 0;
-    
-	// return sectionInfo.open ? rowsCount : 0;
 }
 
 // Customize the appearance of table view cells.
@@ -334,40 +325,17 @@
             if(indexPath.row == 4)
             {
                 
-                //LoginViewController *viewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-                
                 ContactsQAFormViewController *detailViewController = [[ContactsQAFormViewController alloc] initWithNibName:@"ContactsQAFormViewController" bundle:nil];
                 [detailViewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
                 [detailViewController setModalPresentationStyle:UIModalPresentationFormSheet];
                 [self presentModalViewController:detailViewController animated:YES];
 				
-				//    ContactQAFormView *detailViewController = [[ContactQAFormView alloc] initWithNibName:@"ContactQAFormView" bundle:nil];
-				//      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-				//    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-                
-				/*   ContactsQAFormViewController *detailViewController = [[ContactsQAFormViewController alloc] initWithNibName:@"ContactsQAFormViewController" bundle:nil];
-				 
-				 [self changeDetailViewController:detailViewController];
-				 self.detailViewController = detailViewController;
-				 //  [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-				 
-				 UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-				 if(orientation == 0)
-				 orientation = self.detailViewController.interfaceOrientation;;
-				 
-				 if(UIDeviceOrientationIsPortrait(orientation))
-				 {
-				 
-				 [self.detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
-				 }*/
-				
+							
                 [self.popoverController dismissPopoverAnimated:YES];
             }
             else if(indexPath.row == CONTACT_QA_TABLE)
             {
                 ContactsQATimeTableViewController* detailViewController = [[ContactsQATimeTableViewController alloc] initWithNibName:@"ContactsQATimeTableViewController" bundle:nil];
-				//   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-				//  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                 
                 [self changeDetailViewController:detailViewController];
                 self.detailViewController = detailViewController;
@@ -380,16 +348,12 @@
             {
                 
                 ContactsViewController * detailViewController = [[ContactsViewController alloc] initWithNibName:@"ContactsViewController" bundle:nil];
-				//   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-				//  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-                
+				                
                 [self changeDetailViewController:detailViewController];
                 
                 detailViewController.rootPopoverButtonItem = self.rootPopoverButtonItem;
                 self.detailViewController = detailViewController;
                 
-                
-				//    ContactsViewController* contactDetailView = (ContactsViewController*) self.detailViewController;
 				detailViewController.selectedContactOption = indexPath.row;
                 [self.popoverController dismissPopoverAnimated:YES];
 				[detailViewController launchMailComposer];
@@ -406,8 +370,6 @@
 			
             if (!node.hasChildren) 
             {
-				//   NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-                int index = indexPath.row;
                 if(indexPath.row >= FLASH_CARD_PROSPECT && indexPath.row <= FLASH_CARD_PRODUCER && levelDepth == 2)
                 {
 					
@@ -428,7 +390,6 @@
 							
 							
 					}
-					//   self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                     
                     [self changeDetailViewController:detailViewController];
 					self.detailViewController = detailViewController;
@@ -436,8 +397,6 @@
                 else if((indexPath.row == TRAINING_VIDEO || indexPath.row == TRAINING_VIDEO_EXPANDED) && levelDepth == 1)
                 {
                     VideosTableViewController* detailViewController  = [[VideosTableViewController alloc] initWithNibName:@"VideosTableViewController" bundle:nil];
-                    
-					//  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
                     
                     [self changeDetailViewController:detailViewController];
                     self.detailViewController = detailViewController;
@@ -466,14 +425,9 @@
         default:
             break;
     }
-	
-    
-	
 }
 
 - (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section {
-    
-	
     
     MainViewSectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
     if (!sectionInfo.headerView) {
@@ -559,14 +513,6 @@
         deleteAnimation = UITableViewRowAnimationTop;
     }
 	
-    
-	// MainViewSectionInfo *previousOpenSection1 = [self.sectionInfoArray objectAtIndex:previousOpenSectionIndex];
-    //previousOpenSection1.open = NO;
-	//  [previousOpenSection1.headerView toggleOpenWithUserAction:NO];
-    //previousOpenSection1.headerView.darkColor = RGB(73,103,22);
-	// [previousOpenSection1.headerView setNeedsDisplay];
-	
-	
     // Apply the updates.
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:insertAnimation];
@@ -577,46 +523,26 @@
     
     MainViewSectionInfo* sectInfo = [self.sectionInfoArray objectAtIndex:sectionOpened];
     
-	// if(sectInfo.headerView.disclosureButton)
-    //    return;
     BOOL closePopOver = FALSE;
     
     switch (sectionOpened) {
         case VISIT_APP_INDEX:
         {
-			/*	VisitApplicationViewController *detailViewController = [[VisitApplicationViewController alloc] initWithNibName:@"VisitApplicationViewController" bundle:nil];
-			 NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-			 self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-			 self.detailViewController = detailViewController;
-			 detailViewController.pc = self.popoverController;
-			 */
-            
+			            
             SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
-			//  NSArray* viewControllerArr =   [ self.mgSplitViewController viewControllers ];
-			// self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
+			
             
 			
             
             detailViewController.titleLabel.text = @"HOME SCREEN";
-            
-			//  [self changeDetailViewController:detailViewController];
 			
             self.detailViewController = detailViewController;
-            
-            //self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
 			
         }
             break;
         case PROSPECT_APP_INDEX:
         {
-			//    ProspectApplicationViewController* detailViewController = [[ProspectApplicationViewController alloc] initWithNibName:@"ProspectApplicationViewController" bundle:nil];
-            
             ProspectApplicationTableViewController* detailViewController = [[ProspectApplicationTableViewController alloc] initWithNibName:@"ProspectApplicationTableViewController" bundle:nil];
-            
-            
-			//   ProspectViewController* detailViewController = [[ProspectApplicationViewController alloc] initWithNibName:@"ProspectApplicationViewController" bundle:nil];
-			//      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-			//     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
             [self changeDetailViewController:detailViewController];
 			
@@ -629,24 +555,15 @@
         case CONTACTS_OPTIONS_INDEX:
         {
             SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
-			//      NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-			//    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-            
-			//  [self changeDetailViewController:detailViewController];
             detailViewController.titleLabel.text = @"CONTACTS";
 			
             self.detailViewController = detailViewController;
-			//self.contentSizeForViewInPopover = CGSizeMake(320.0, 1024);
 			
             break;
         }
         case FEATURES_AND_BENEFITS_INDEX:
         {
-			//[self.splitViewController.viewControllers]
-            
             FeaturesAndBenefitsViewController * detailViewController = [[FeaturesAndBenefitsViewController alloc] initWithNibName:@"FeaturesAndBenefitsViewController" bundle:nil];
-			//       NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-			//     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
             [self changeDetailViewController:detailViewController];
 			
@@ -657,10 +574,6 @@
         case ACCESS_ACADEMY_INDEX:
         {
             SplashViewController* detailViewController = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
-			//    NSArray* viewControllerArr =   [ self.splitViewController viewControllers ];
-			//    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
-            
-			//  [self changeDetailViewController:detailViewController];
             
 			detailViewController.titleLabel.text = @"ACCESS ACADEMY";
 			
@@ -671,11 +584,6 @@
             
         case GPS_INDEX:
         {
-      //      UIApplication *app = [UIApplication sharedApplication];
-            
-            
-        //    [app openURL:[NSURL URLWithString: @"http://maps.google.com/"]];
-            
             NSString *url = [NSString stringWithFormat:@"motionxgpsdrivehd://"];
             UIApplication *app = [UIApplication sharedApplication];
             BOOL isSuccess = [app openURL:[NSURL URLWithString:url]];
@@ -687,8 +595,6 @@
         case SEARCH_PRODUCER_INDEX:
         {
             SearchProducerViewController* detailViewController  = [[SearchProducerViewController alloc] initWithNibName:@"SearchProducerViewController" bundle:nil];
-            
-            //  self.splitViewController.viewControllers = [NSArray arrayWithObjects:[viewControllerArr objectAtIndex:0],detailViewController,nil];
             
             [self changeDetailViewController:detailViewController];
             self.detailViewController = detailViewController;
@@ -710,10 +616,7 @@
 }
 -(void) displayTopMenuItem
 {
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;//[[UIDevice currentDevice] orientation];
-    
-	// if(orientation == 0)
-	//     orientation = self.detailViewController.interfaceOrientation;
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     
     if(UIDeviceOrientationIsPortrait(orientation))
     {
@@ -746,12 +649,10 @@
     }
 	self.openSectionIndex = NSNotFound;
     
-	//self.contentSizeForViewInPopover = CGSizeMake(320.0, 600);
-    
 }
 
 
-////MGSplitViewDelegate
+
 #pragma mark -
 #pragma mark Split view support
 
@@ -778,18 +679,9 @@
 
 -(void) changeDetailViewController:(BaseDetailViewController *)detailViewController
 {
-		//  BaseDetailViewController *det = (BaseDetailViewController*) [viewControllerArr objectAtIndex:1];
-		//CGRect rec = detailViewController.view.frame;
-		//rec.origin.y = 20;
-		//[detailViewController.view setFrame:rec];
-		
 		RootViewController *rootViewController = [[self.splitViewController viewControllers] objectAtIndex:0];
 		self.splitViewController.viewControllers = [NSArray arrayWithObjects:rootViewController, detailViewController, nil];
-		
-		//BaseDetailViewController *det = (BaseDetailViewController*) [self.splitViewController.viewControllers objectAtIndex:1];
-		//CGRect rec1 = det.view.frame;
-		
-		// CGRect *rec = [(BaseDetailViewController*) [viewControllerArr objectAtIndex:1]].frame; 
+	
 		detailViewController.splitviewcontroller = self.splitViewController;
 }
 @end

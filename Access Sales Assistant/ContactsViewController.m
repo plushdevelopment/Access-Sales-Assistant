@@ -161,14 +161,9 @@
 			message = @"Result: not sent";
 			break;
 	}
-  //  [self showAlert:message];
-    
-   // [self showRootPopoverButtonItem:rootPopoverButtonItem];
-    
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;//[[UIDevice currentDevice] orientation];
-    
-	// if(orientation == 0)
-	//     orientation = self.detailViewController.interfaceOrientation;
+     
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+
     
     if(UIDeviceOrientationIsPortrait(orientation))
     {

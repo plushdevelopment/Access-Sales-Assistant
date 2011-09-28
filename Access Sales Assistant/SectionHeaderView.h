@@ -1,9 +1,9 @@
 
 /*
-     File: SectionHeaderView.h
+ File: SectionHeaderView.h
  Abstract: A view to display a section header, and support opening and closing a section.
  
-  Version: 1.1
+ Version: 1.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following

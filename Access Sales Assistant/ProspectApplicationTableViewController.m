@@ -69,10 +69,8 @@
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -81,11 +79,6 @@
 {
     [super viewDidLoad];
 	
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-	
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     sectionTitleArray = [[NSArray alloc] initWithObjects:PROSPECT_APP_SECTIONS];
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -105,17 +98,16 @@
             break;
         }
     }
-	//Contact *contact = [Contact createEntity];
+    
+    if(!ownerContact)
+    {
+        ownerContact = [Contact createEntity];
+        ownerContact.type = [ContactType findFirstByAttribute:@"name" withValue:@"Owner"];
+        [self.detailItem addContactsObject:ownerContact];
         
-        if(!ownerContact)
-        {
-            ownerContact = [Contact createEntity];
-    ownerContact.type = [ContactType findFirstByAttribute:@"name" withValue:@"Owner"];
-    [self.detailItem addContactsObject:ownerContact];
-   
-	ownerContact.editedValue = YES;
-        }
-         self.detailItem.editedValue = YES;
+        ownerContact.editedValue = YES;
+    }
+    self.detailItem.editedValue = YES;
 	[[NSManagedObjectContext defaultContext] save];
 	[self toggleSubmitButton:[self isEnableSubmit]];
 	
@@ -126,8 +118,6 @@
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -152,7 +142,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
 	return YES;
 }
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -170,7 +159,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger rows =0;
-    // Return the number of rows in the section.
+    
     switch (section) {
         case EGeneral:
             rows = 1;
@@ -185,7 +174,7 @@
             rows = 1;
             break;
         case EContact:
-			rows = 1;//[_detailItem.contacts.allObjects count];
+			rows = 1;
             break;
             
         default:
@@ -208,7 +197,6 @@
             
             ProspectAppGeneralTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppGeneralTableViewCell"];
             if (cell == nil) {
-                // Load the top-level objects from the custom cell XIB.
                 [[NSBundle mainBundle] loadNibNamed:@"ProspectAppGeneralTableViewCell" owner:self options:nil];
                 cell = (ProspectAppGeneralTableViewCell*)_generalTableViewCell;
             }
@@ -232,11 +220,10 @@
         {
             ProducerAddressTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppAddressTableViewCell"];
             if (cell == nil) {
-                // Load the top-level objects from the custom cell XIB.
                 [[NSBundle mainBundle] loadNibNamed:@"ProspectAppAddressTableViewCell" owner:self options:nil];
                 cell = (ProducerAddressTableViewCell*)_addressTableViewCell;
             }
-            cell = [self addressTableViewCell:cell :(indexPath.row)+1];
+            cell = [self addressTableViewCell:cell createAddressCellWithType:(indexPath.row)+1];
 			
 			[self.fields addObject:cell.streetAddress1TextField];
 			[self.fields addObject:cell.streetAddress2TextField];
@@ -245,12 +232,10 @@
 			
             return cell;
         }
-			//  break;
         case EContactInfo:
         {
             ProducerContactInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppCompanyContactInfoTableViewCell"];
             if (cell == nil) {
-                // Load the top-level objects from the custom cell XIB.
                 [[NSBundle mainBundle] loadNibNamed:@"ProspectAppCompanyContactInfoTableViewCell" owner:self options:nil];
                 cell = (ProducerContactInfoTableViewCell*)_contactInfoTableViewCell;
             }
@@ -280,7 +265,6 @@
         {
             ProducerRaterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppRaterTableViewCell"];
             if (cell == nil) {
-                // Load the top-level objects from the custom cell XIB.
                 [[NSBundle mainBundle] loadNibNamed:@"ProspectAppRaterTableViewCell" owner:self options:nil];
                 cell = (ProducerRaterTableViewCell*)_raterTableViewCell;
             }
@@ -304,7 +288,6 @@
         {
             ProspectAppContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectAppContactTableViewCell"];
             if (cell == nil) {
-                // Load the top-level objects from the custom cell XIB.
                 [[NSBundle mainBundle] loadNibNamed:@"ProspectAppContactTableViewCell" owner:self options:nil];
                 cell = (ProspectAppContactTableViewCell*)_contactTableViewCell;
             }
@@ -415,8 +398,6 @@
     return addressCell;
 }
 
-
-// Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
 {
 	UIButton *button = (UIButton *)sender;
@@ -899,8 +880,6 @@
             break;
     }
     [[NSManagedObjectContext defaultContext] save];
-	//[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-	
     [self toggleSubmitButton:[self isEnableSubmit]];
 }
 
@@ -952,7 +931,7 @@
                 break;
             case EContactInfo:
             {
-                if([_detailItem.phoneNumbers.allObjects count]<=0 /*|| [_detailItem.emails.allObjects count]<=0*/)
+                if([_detailItem.phoneNumbers.allObjects count]<=0)
                     return FALSE;
                 BOOL isPhoneNoFound = FALSE;
                 

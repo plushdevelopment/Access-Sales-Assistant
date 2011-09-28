@@ -11,7 +11,7 @@
 
 @protocol stateChangedDelegate <NSObject>
 
--(void) selectedState:(NSString*) stateName:(NSString*) stateCode;
+-(void) selectedState:(NSString*) stateName selectedStateCode:(NSString*) stateCode;
 
 @end
 

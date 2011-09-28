@@ -26,13 +26,13 @@
     }
     return self;
 }
--(id) initWithFrame:(CGRect)frame :(int)forFlashCard :(int)forIndex
+-(id) initWithFrame:(CGRect)frame forFlashcardType:(int)forFlashCard forFlashcardIndex:(int)forIndex
 {
     self = [super initWithFrame:frame];
     if (self) {
         
-        mainView = [[FlashCardTitleView alloc] initWithFrame:frame:forFlashCard:forIndex];
-        flipView = [[FlashCardFlipView alloc] initWithFrame:frame:forFlashCard:forIndex];
+        mainView = [[FlashCardTitleView alloc] initWithFrame:frame forFlashcardType:forFlashCard forFlashcardIndex:forIndex];
+        flipView = [[FlashCardFlipView alloc] initWithFrame:frame forFlashcardType:forFlashCard forFlashcardIndex:forIndex];
         
         // Initialization code
         [self addSubview:mainView];

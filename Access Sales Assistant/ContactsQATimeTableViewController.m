@@ -48,7 +48,7 @@
     self.currentStateCode = @"GA";
     self.currentStateName = @"Georgia";
     self.baseToolbar = _toolBar;
-    [self selectedState:@"Georgia" :@"GA"];
+    [self selectedState:@"Georgia" selectedStateCode:@"GA"];
     
     currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
     
@@ -77,7 +77,7 @@
    // [self.scrollView setNeedsDisplay];
     
     currentOrientation = toInterfaceOrientation;
-    [self selectedState:self.currentStateCode :self.currentStateName];
+    [self selectedState:self.currentStateCode selectedStateCode:self.currentStateName];
 }
 -(IBAction)stateChanged:(id)sender
 {

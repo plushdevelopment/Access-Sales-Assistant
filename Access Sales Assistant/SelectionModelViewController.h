@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NSString-Validation.h"
+
 @protocol optionSelectedDelegate <NSObject>
-
--(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag;
-
+-(void) selectedOption:(NSString*)selectedString didSelectRowAtIndexPath:(NSIndexPath*)forIndexPath forTag:(NSInteger) forTag;
 @end
 
 @interface SelectionModelViewController : UIViewController <UISearchDisplayDelegate,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -29,7 +28,6 @@
 
 @property (nonatomic,assign) id<optionSelectedDelegate> delegate;
 
-//@property (nonatomic,strong) IBOutlet UISearchDisplayController *searchDisplayController;
 -(void) assignDataSource:(NSMutableArray*) datasource;
 -(IBAction)closeAction:(id)sender;
 @end
