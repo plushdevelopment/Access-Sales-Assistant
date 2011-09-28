@@ -428,7 +428,6 @@
 	[self.directionsMapView setRegion:MKCoordinateRegionForMapRect(rect) animated:YES];
 	
 	// Add annotations
-	NSInteger numberOfRoutes = [directions numberOfRoutes];
 	for (Producer *producer in self.producers) {
 		@autoreleasepool {
 			CLLocation *location = [[CLLocation alloc] initWithLatitude:producer.latitudeValue longitude:producer.longitudeValue];

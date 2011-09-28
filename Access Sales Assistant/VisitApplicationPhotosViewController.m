@@ -40,7 +40,6 @@
 {
 	UIButton *button = (UIButton *)sender;
 	ProducerImage *producerImage = [self.images objectAtIndex:button.tag];
-	NSString *imageName = producerImage.imagePath;
 	[[HTTPOperationController sharedHTTPOperationController] deleteImage:producerImage.imageName forProducer:self.detailItem.uid];
 	[producerImage deleteInContext:self.managedObjectContext];
 }

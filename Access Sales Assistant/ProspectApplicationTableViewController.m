@@ -409,7 +409,7 @@
 	//Position the picker out of sight
 	[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
     
-    NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
+  /*  NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];*/
 	
 	//Add the picker to the view
 	if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
@@ -991,14 +991,14 @@
             {
                 case EAddressState:
                 {
-                    int indRow = forIndexPath.row;
+
                     switch(forIndexPath.row)
                     {
                         case 0:
                         {
                             AddressListItem *addrItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
-                                int addrValue = address.addressTypeValue;
+
                                 if (address.addressTypeValue == 1) {
                                     addrItem = address;
                                     continue;
@@ -1025,7 +1025,6 @@
                         {
                             AddressListItem *addrItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
-                                int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 2) {
                                     addrItem = address;
                                     break;
@@ -1051,7 +1050,6 @@
                         {
                             AddressListItem *addrItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
-                                int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 3) {
                                     addrItem = address;
                                     break;

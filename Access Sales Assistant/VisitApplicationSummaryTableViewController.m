@@ -226,7 +226,8 @@ enum PRPTableStatsTags {
                 }
                 case PRPTableCompetitorCommissionStructure:
                 {
-                    [selectionView assignDataSource:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
+                    NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
 					
@@ -239,7 +240,8 @@ enum PRPTableStatsTags {
             {
                 case PRPTableSpokeWithTitle:
                 {
-                    [selectionView assignDataSource:[PersonSpokeWithTitle findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[PersonSpokeWithTitle findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
             }
@@ -254,12 +256,14 @@ enum PRPTableStatsTags {
                     
                     Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:selectionView.currentIndexPath.row];
                     [self.detailItem removeCompetitorsObject:competitor];
-                    [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[Competitor findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
                 case 1001:
                 {
-                    [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[Competitor findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
             }
@@ -273,12 +277,14 @@ enum PRPTableStatsTags {
                 {
                     BarrierToBusiness *barrier = [self.detailItem.barriersToBusiness.allObjects objectAtIndex:selectionView.currentIndexPath.row];
                     [self.detailItem removeBarriersToBusinessObject:barrier];
-                    [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
                 case 1005:
                 {
-                    [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
             }
@@ -290,7 +296,8 @@ enum PRPTableStatsTags {
             {
                 case PRPTableStatsProducerAddOn:
                 {
-                    [selectionView assignDataSource:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
                 case PRPTableStatsRDFollowUp:

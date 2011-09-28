@@ -152,8 +152,6 @@
                       @"FeaturesAndBenefitsList" ofType:@"plist"];
       NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:path];
     
-    NSDictionary* featuresAndBenefits = [plistData objectForKey:stateName]; 
-    
     [_changeStateButton setTitle:stateName forState:UIControlStateNormal];
     
     NSArray *sr22FeatureStates = [[NSArray alloc] initWithObjects:SR22FEATURE];

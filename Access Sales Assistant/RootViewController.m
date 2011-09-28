@@ -521,8 +521,6 @@
     [self.tableView reloadData];
 	self.openSectionIndex = sectionOpened;  
     
-    MainViewSectionInfo* sectInfo = [self.sectionInfoArray objectAtIndex:sectionOpened];
-    
     BOOL closePopOver = FALSE;
     
     switch (sectionOpened) {
@@ -586,7 +584,7 @@
         {
             NSString *url = [NSString stringWithFormat:@"motionxgpsdrivehd://"];
             UIApplication *app = [UIApplication sharedApplication];
-            BOOL isSuccess = [app openURL:[NSURL URLWithString:url]];
+            [app openURL:[NSURL URLWithString:url]];
 
             closePopOver = TRUE;
         }
