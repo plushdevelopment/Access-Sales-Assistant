@@ -44,7 +44,7 @@
 #define FNBFEATURES @"Market Niche",@"Low Rates",@"Ease of Use",@"Claims",nil
 #define MARKETNICHEFEATURES @"FDL Accepted",@"Biz/Artisan use",@"ADD Coverage",@"Multi Lingual",@"Salvage Titles",@"We don't go Direct",@"Non-Owner Policies",@"Registered Owner Discounts",@"Multi Family Policy",@"Accept DUI",@"Credit Cards on Down Payment",@"SR-22",@"Limited Policy",nil
 #define LOWRATESFEATURES @"Low down pay",@"No Credit Scoring",@"No CC Fees",@"Paid as Earned",nil
-#define EASEOFUSEFEATURES @"No Taxing",@"Access website",@"24/7 automated",@"Responsive Prod Support",@"59 Day Reinstate",@"No Production Requirement",@"Retention Calls",@"Visible Sales Force",@"No Charge for MVR",@"Real Time",@"Flexible Billing",@"iPhone app",nil
+#define EASEOFUSEFEATURES @"No Faxing",@"Access website",@"24/7 automated",@"Responsive Prod Support",@"59 Day Reinstate",@"No Production Requirement",@"Retention Calls",@"Visible Sales Force",@"No Charge for MVR",@"Real Time",@"Flexible Billing",@"iPhone app",nil
 #define CLAIMSFEATURES @"70% settled in 7 days 90% in 30 days",@"Talk directly to adjuster",@"Pick your body shop",@"Claims Hours",nil
 
 #define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
