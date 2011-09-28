@@ -371,7 +371,7 @@
 
 
 #pragma mark - Fill the table view cell with entity values
--(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell:(NSInteger)forType
+-(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell createAddressCellWithType:(NSInteger)forType
 {
     for(AddressListItem *addrItem in _detailItem.addresses)
     {

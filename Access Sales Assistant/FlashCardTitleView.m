@@ -28,7 +28,7 @@
 }
 
 
--(id) initWithFrame:(CGRect)frame :(int)forFlashCard :(int)forIndex
+-(id) initWithFrame:(CGRect)frame forFlashcardType:(int)forFlashCard forFlashcardIndex:(int)forIndex
 {
     self = [super initWithFrame:frame];
     if (self) {
