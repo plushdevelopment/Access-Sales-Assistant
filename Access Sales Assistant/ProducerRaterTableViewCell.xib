@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11A511</string>
+		<string key="IBDocument.SystemVersion">11B26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
@@ -56,6 +56,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<bool key="IBUIEnabled">NO</bool>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<string key="IBUIText"/>
 								<int key="IBUIBorderStyle">3</int>
@@ -127,6 +128,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<bool key="IBUIEnabled">NO</bool>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<string key="IBUIText"/>
 								<int key="IBUIBorderStyle">3</int>
@@ -565,85 +567,6 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">PickerViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>doneSelected:</string>
-							<string>nextField:</string>
-							<string>previousField:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>doneSelected:</string>
-							<string>nextField:</string>
-							<string>previousField:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">doneSelected:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">nextField:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">previousField:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>delegate</string>
-							<string>pickerView</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>UIPickerView</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>delegate</string>
-							<string>pickerView</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">delegate</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">pickerView</string>
-								<string key="candidateClassName">UIPickerView</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PickerViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">ProducerAddressTableViewCell</string>
 					<string key="superclassName">PRPNibBasedTableViewCell</string>
 					<object class="NSMutableDictionary" key="outlets">
@@ -897,11 +820,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>accessSignButton</string>
+							<string>accessSignCustomSwitch</string>
 							<string>accessSignTextField</string>
 							<string>dateEstablishedButton</string>
 							<string>dateEstablishedTextField</string>
 							<string>eOExpiresButton</string>
 							<string>eOExpiresTextField</string>
+							<string>neverVisitCustomSwitch</string>
 							<string>neverVisitSwitch</string>
 							<string>numberOfEmployeesTextField</string>
 							<string>numberOfLocationsButton</string>
@@ -915,11 +840,13 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIButton</string>
+							<string>UICustomSwitch</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
 							<string>UITextField</string>
+							<string>UICustomSwitch</string>
 							<string>UISwitch</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
@@ -936,11 +863,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>accessSignButton</string>
+							<string>accessSignCustomSwitch</string>
 							<string>accessSignTextField</string>
 							<string>dateEstablishedButton</string>
 							<string>dateEstablishedTextField</string>
 							<string>eOExpiresButton</string>
 							<string>eOExpiresTextField</string>
+							<string>neverVisitCustomSwitch</string>
 							<string>neverVisitSwitch</string>
 							<string>numberOfEmployeesTextField</string>
 							<string>numberOfLocationsButton</string>
@@ -956,6 +885,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">accessSignButton</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">accessSignCustomSwitch</string>
+								<string key="candidateClassName">UICustomSwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">accessSignTextField</string>
@@ -976,6 +909,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">eOExpiresTextField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">neverVisitCustomSwitch</string>
+								<string key="candidateClassName">UICustomSwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">neverVisitSwitch</string>
@@ -1353,6 +1290,7 @@
 							<string>appointedDateButton</string>
 							<string>appointedDateTextField</string>
 							<string>eligibleButton</string>
+							<string>eligibleCustomSwitch</string>
 							<string>eligibleTextField</string>
 							<string>reasonIneligibleButton</string>
 							<string>reasonIneligibleLabel</string>
@@ -1369,6 +1307,7 @@
 							<string>UIButton</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
+							<string>UICustomSwitch</string>
 							<string>UITextField</string>
 							<string>UIButton</string>
 							<string>UILabel</string>
@@ -1388,6 +1327,7 @@
 							<string>appointedDateButton</string>
 							<string>appointedDateTextField</string>
 							<string>eligibleButton</string>
+							<string>eligibleCustomSwitch</string>
 							<string>eligibleTextField</string>
 							<string>reasonIneligibleButton</string>
 							<string>reasonIneligibleLabel</string>
@@ -1412,6 +1352,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">eligibleButton</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">eligibleCustomSwitch</string>
+								<string key="candidateClassName">UICustomSwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">eligibleTextField</string>
@@ -1527,6 +1471,14 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">UICustomSwitch</string>
+					<string key="superclassName">UISlider</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/UICustomSwitch.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">VisitApplicationProducerProfileTableViewController</string>
 					<string key="superclassName">BaseDetailViewController</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -1535,14 +1487,16 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>autoFormatPhoneNumber:</string>
 							<string>dismiss:</string>
+							<string>handleCustomSwitchToggle:</string>
+							<string>navigateToProducer:</string>
 							<string>neverVisitToggle:</string>
 							<string>showDatePickerView:</string>
-							<string>showPickerView:</string>
 							<string>showSelectionTableView:</string>
 							<string>submit:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1558,9 +1512,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>autoFormatPhoneNumber:</string>
 							<string>dismiss:</string>
+							<string>handleCustomSwitchToggle:</string>
+							<string>navigateToProducer:</string>
 							<string>neverVisitToggle:</string>
 							<string>showDatePickerView:</string>
-							<string>showPickerView:</string>
 							<string>showSelectionTableView:</string>
 							<string>submit:</string>
 						</object>
@@ -1575,15 +1530,19 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
+								<string key="name">handleCustomSwitchToggle:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">navigateToProducer:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
 								<string key="name">neverVisitToggle:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">showDatePickerView:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">showPickerView:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -1608,7 +1567,6 @@
 							<string>generalTableViewCell</string>
 							<string>hoursTableViewCell</string>
 							<string>lastVisitedCell</string>
-							<string>pickerViewController</string>
 							<string>questionTableViewCell</string>
 							<string>raterTableViewCell</string>
 							<string>selectionTableView</string>
@@ -1627,7 +1585,6 @@
 							<string>ProducerGeneralTableViewCell</string>
 							<string>ProducerHoursTableViewCell</string>
 							<string>LastVisitedTableViewCell</string>
-							<string>PickerViewController</string>
 							<string>ProducerQuestionTableViewCell</string>
 							<string>ProducerRaterTableViewCell</string>
 							<string>SelectionModelViewController</string>
@@ -1649,7 +1606,6 @@
 							<string>generalTableViewCell</string>
 							<string>hoursTableViewCell</string>
 							<string>lastVisitedCell</string>
-							<string>pickerViewController</string>
 							<string>questionTableViewCell</string>
 							<string>raterTableViewCell</string>
 							<string>selectionTableView</string>
@@ -1693,10 +1649,6 @@
 								<string key="candidateClassName">LastVisitedTableViewCell</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">pickerViewController</string>
-								<string key="candidateClassName">PickerViewController</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">questionTableViewCell</string>
 								<string key="candidateClassName">ProducerQuestionTableViewCell</string>
 							</object>
@@ -1735,6 +1687,10 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="1280" key="NS.object.0"/>
+		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
 			<integer value="3100" key="NS.object.0"/>

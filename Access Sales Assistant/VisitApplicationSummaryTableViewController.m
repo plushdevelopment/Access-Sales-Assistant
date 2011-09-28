@@ -701,6 +701,12 @@ enum PRPTableStatsTags {
             [self disableTextField:customCell.reportDateTextField :NO];
 			[customCell.reportDateButton setEnabled:NO];
             
+			customCell.producerNameTextField.enabled = NO;
+			customCell.reportDateTextField.enabled = NO;
+			customCell.callTypeTextField.enabled = NO;
+			customCell.reasonNotSeenTextField.enabled = NO;
+			customCell.commissionStructureTextField.enabled = NO;
+			
 			cell = customCell;
 		}
 			break;
@@ -753,6 +759,9 @@ enum PRPTableStatsTags {
                 [self.fields addObject: customCell.titleTextField];
                 [self.fields addObject: customCell.emailAddressTextField];
                 [self.fields addObject: customCell.titleButton];
+				
+				customCell.titleTextField.enabled = NO;
+				
 				cell = customCell;
 			}
 		}
@@ -803,6 +812,8 @@ enum PRPTableStatsTags {
                 [self.fields addObject: customCell.appsPerMonthTextField];
                 [self.fields addObject: customCell.competitorNameButton];
                 
+				customCell.competitorNameTextField.enabled = NO;
+				
 				cell = customCell;
 			}
 		}
@@ -850,6 +861,8 @@ enum PRPTableStatsTags {
                 [self.fields addObject: customCell.barrierToBusinessTextField];
                 [self.fields addObject: customCell.barrierToBusinessButton];
 				
+				customCell.barrierToBusinessTextField.enabled = NO;
+				
 				cell = customCell;
 			}
 		}
@@ -883,6 +896,8 @@ enum PRPTableStatsTags {
             [self.fields addObject: customCell.percentFDLTextField];
             [self.fields addObject: customCell.rdFollowUpCustomSwitch];
             [self.fields addObject: customCell.producerAddOnButton];
+			
+			customCell.producerAddOnTextField.enabled = NO;
 			
 			cell = customCell;
 		}

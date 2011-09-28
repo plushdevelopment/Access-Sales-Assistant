@@ -169,7 +169,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
 	if(_detailItem.lastVisit)
 		return [sectionTitleArray count];
@@ -180,7 +179,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     switch(section)
     {
@@ -283,6 +281,7 @@
             
             cell.eOExpiresTextField.text = [dateFormatter stringFromDate:_detailItem.eAndOExpires];
 			[self disableTextField:cell.eOExpiresTextField :NO];
+			cell.eOExpiresTextField.enabled = NO;
             cell.dateEstablishedTextField.text = [dateFormatter stringFromDate:_detailItem.dateEstablished];
             
             cell.primaryContactTextField.text = _detailItem.primaryContact;
@@ -356,9 +355,11 @@
 			if (self.detailItem.rater) {
 				[cell.rater2Button setEnabled:YES];
 				[self disableTextField:cell.rater2TextField :YES];
+				cell.rater2TextField.enabled = NO;
 			} else {
 				[cell.rater2Button setEnabled:NO];
 				[self disableTextField:cell.rater2TextField :NO];
+				cell.rater2TextField.enabled = NO;
 			}
 			
             return cell;
