@@ -151,54 +151,6 @@ enum PRPTableStatsTags {
     
     NSLog(@"%@",self.detailItem);
 }
-/*
- // Show the pickerView inside of a popover
- - (IBAction)showPickerView:(id)sender
- {
- [self nextField:0];
- UIButton *button = (UIButton *)sender;
- 
- self.pickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
- self.pickerViewController.currentTag = button.tag;
- 
- UIPickerView *pickerView = self.pickerViewController.pickerView;
- [pickerView setDelegate:self];
- [pickerView setDataSource:self];
- [pickerView setShowsSelectionIndicator:YES];
- [pickerView selectRow:0 inComponent:0 animated:NO];
- [pickerView reloadAllComponents];
- [self pickerView:pickerView didSelectRow:0 inComponent:0];
- 
- //Position the picker out of sight
- if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
- [self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME_LANDSCAPE];
- } else {
- [self.pickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
- }
- 
- //Add the picker to the view
- [self.parentViewController.view addSubview:self.pickerViewController.view];
- 
- //This animation will work on iOS 4
- //For older iOS, use "beginAnimation:context"
- [UIView animateWithDuration:0.2 animations:^{
- //Position of the picker in sight
- [self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
- //Position of the picker in sight
- if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
- [self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME_LANDSCAPE];
- } else {
- [self.pickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
- }
- 
- } completion:^(BOOL finished){
- CIVector *frameVector = [CIVector vectorWithCGRect:self.pickerViewController.view.frame];
- NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:frameVector, UIKeyboardFrameEndUserInfoKey, nil];
- [[NSNotificationCenter defaultCenter] postNotificationName:@"Picker Did Show" object:userInfo];
- }];
- 
- }
- */
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
 {
@@ -269,14 +221,12 @@ enum PRPTableStatsTags {
 					NSDictionary *dict = [NSDictionary dictionaryWithObject:@"None" forKey:@"name"];
 					[dataSource addObject:dict];
                     [selectionView assignDataSource:dataSource];
-                    //   [self presentModalViewController:selectionView  animated:YES];
 					
                     break;
                 }
                 case PRPTableCompetitorCommissionStructure:
                 {
                     [selectionView assignDataSource:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
-                    //   [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
 					
@@ -290,7 +240,6 @@ enum PRPTableStatsTags {
                 case PRPTableSpokeWithTitle:
                 {
                     [selectionView assignDataSource:[PersonSpokeWithTitle findAllSortedBy:@"name" ascending:YES]];
-                    //	[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -306,13 +255,11 @@ enum PRPTableStatsTags {
                     Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:selectionView.currentIndexPath.row];
                     [self.detailItem removeCompetitorsObject:competitor];
                     [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
-					//[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
                 case 1001:
                 {
                     [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
-                    // [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -327,13 +274,11 @@ enum PRPTableStatsTags {
                     BarrierToBusiness *barrier = [self.detailItem.barriersToBusiness.allObjects objectAtIndex:selectionView.currentIndexPath.row];
                     [self.detailItem removeBarriersToBusinessObject:barrier];
                     [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
-					//[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
                 case 1005:
                 {
                     [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
-                    //  [self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
             }
@@ -346,12 +291,10 @@ enum PRPTableStatsTags {
                 case PRPTableStatsProducerAddOn:
                 {
                     [selectionView assignDataSource:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
-                    //	[self presentModalViewController:selectionView  animated:YES];
                     break;
                 }
                 case PRPTableStatsRDFollowUp:
                 {
-					//       [selectionView assignDataSource:[]]
                     break;
                 }
             }
@@ -434,15 +377,6 @@ enum PRPTableStatsTags {
 	}
 	return _summaryStatsTableViewCellNib;
 }
-/*
- - (PickerViewController *)pickerViewController
- {
- if (_pickerViewController == nil) {
- self.pickerViewController = [[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil];
- }
- return _pickerViewController;
- }
- */
 - (NSManagedObjectContext *)managedObjectContext
 {
 	if (_managedObjectContext == nil) {
@@ -468,24 +402,19 @@ enum PRPTableStatsTags {
 	Producer *producer = (Producer *)newDetailItem;
 	if (!producer.dailySummary) {
         DailySummary *dSummary = [DailySummary createEntity]; 
-		producer.dailySummary = dSummary;//[DailySummary createEntity];
+		producer.dailySummary = dSummary;
 	}
     
 	
     if (_detailItem != producer.dailySummary) {
         _detailItem = producer.dailySummary;
         
-		
-        
         // Update the view.
         [self configureView];
     }
     
 	titleText = [[NSString alloc]initWithFormat:@"%@ - %@",producer.name,producer.producerCode];  
-	// NSLog(titleText);
-	
-	
-	
+    
 	if (self.aPopoverController != nil) {
         [self.aPopoverController dismissPopoverAnimated:YES];
     } 
@@ -507,10 +436,7 @@ enum PRPTableStatsTags {
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -521,11 +447,7 @@ enum PRPTableStatsTags {
 	
 	self.tableView.allowsSelection = NO;
     [self toggleSubmitButton:NO];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
 	self.tableView.backgroundColor = [UIColor clearColor];
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.fields = [NSMutableSet set];
 }
 
@@ -534,8 +456,6 @@ enum PRPTableStatsTags {
     [self setDatePickerViewController:nil];
 	[self setTableView:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 	self.summaryGeneralTableViewCellNib = nil;
 	self.summarySpokeWithTableViewCellNib = nil;
 	self.summaryCompetitorTableViewCellNib = nil;
@@ -621,33 +541,12 @@ enum PRPTableStatsTags {
 				rows = 1;
 				break;
 			case PRPTableSectionSpokeWith:
-				/*
-				 if (self.detailItem.personsSpokeWith.allObjects.count == 0) {
-				 PersonSpokeWith *person = [PersonSpokeWith createEntity];
-				 [self.detailItem addPersonsSpokeWithObject:person];
-				 [self.managedObjectContext save];
-				 }
-				 */
 				rows = self.detailItem.personsSpokeWith.allObjects.count + 1;
 				break;
 			case PRPTableSectionCompetitor:
-				/*
-				 if (self.detailItem.competitors.allObjects.count == 0) {
-				 Competitor *competitor = [Competitor createEntity];
-				 [self.detailItem addCompetitorsObject:competitor];
-				 [self.managedObjectContext save];
-				 }
-				 */
 				rows = self.detailItem.competitors.allObjects.count + 1;
 				break;
 			case PRPTableSectionBarriersToBusiness:
-				/*
-				 if (self.detailItem.barriersToBusiness.allObjects.count == 0) {
-				 BarrierToBusiness *barrier = [BarrierToBusiness createEntity];
-				 [self.detailItem addBarriersToBusinessObject:barrier];
-				 [self.managedObjectContext save];
-				 }
-				 */
 				rows = self.detailItem.barriersToBusiness.allObjects.count + 1;
 				break;
 			case PRPTableSectionStats:
@@ -960,10 +859,6 @@ enum PRPTableStatsTags {
     
     if(btn.tag == 1001)
     {
-		/*   Competitor* newCompetitor = [Competitor findFirst];
-		 [self.detailItem addCompetitorsObject:newCompetitor];
-		 [self.tableView reloadData];*/
-        
 		[self showSelectionTableView:btn];
     }
     else if(btn.tag == 1002)
@@ -975,20 +870,12 @@ enum PRPTableStatsTags {
         {
             [btn setTitle:@"Done" forState:UIControlStateNormal];
             self.isCompetetorEdited = TRUE;
-            
-            
-            //   cell.addButton.enabled = FALSE;
-            
         }
         else
         {
             [btn setTitle:@"Edit" forState:UIControlStateNormal];
             self.isCompetetorEdited = FALSE;
-            
-            
-            // cell.addButton.enabled = TRUE;
         }
-        //[super setEditing:editing animated:YES];
         currentSection = PRPTableSectionCompetitor;
         [self setEditing:editing animated:YES];
     }
@@ -1016,20 +903,12 @@ enum PRPTableStatsTags {
         {
             [btn setTitle:@"Done" forState:UIControlStateNormal];
             self.isPersonEdited = TRUE;
-            
-            
-            //   cell.addButton.enabled = FALSE;
-            
         }
         else
         {
             [btn setTitle:@"Edit" forState:UIControlStateNormal];
             self.isPersonEdited = FALSE;
-            
-            
-            // cell.addButton.enabled = TRUE;
         }
-		//  [super setEditing:editing animated:YES];
 		currentSection = PRPTableSectionSpokeWith;
         [self setEditing:editing animated:YES];
     }
@@ -1041,11 +920,6 @@ enum PRPTableStatsTags {
     
     if(btn.tag == 1005)
     {
-		/*  BarrierToBusiness *barrier = [BarrierToBusiness findFirst];
-		 [self.detailItem addBarriersToBusinessObject:barrier];
-		 [self.managedObjectContext save];
-		 [self.tableView reloadData];*/
-        
         [self showSelectionTableView:btn];
         
     }
@@ -1058,21 +932,13 @@ enum PRPTableStatsTags {
         {
             [btn setTitle:@"Done" forState:UIControlStateNormal];
             self.isBarrierEdited = TRUE;
-            
-            
-            //   cell.addButton.enabled = FALSE;
-            
         }
         else
         {
             [btn setTitle:@"Edit" forState:UIControlStateNormal];
             self.isBarrierEdited = FALSE;
-            
-            
-            // cell.addButton.enabled = TRUE;
         }
 		currentSection = PRPTableSectionBarriersToBusiness;
-        //[super setEditing:editing animated:YES];
 		[self setEditing:editing animated:YES];
     }
     [self.tableView reloadData];
@@ -1084,37 +950,6 @@ enum PRPTableStatsTags {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	/*switch (indexPath.section) {
-	 case PRPTableSectionSpokeWith:
-	 if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
-	 PersonSpokeWith *person = [PersonSpokeWith createEntity];
-	 [self.detailItem addPersonsSpokeWithObject:person];
-	 [self.managedObjectContext save];
-	 [self.tableView reloadData];
-	 }
-	 break;
-     
-	 case PRPTableSectionCompetitor:
-	 if (indexPath.row == self.detailItem.competitors.allObjects.count) {
-	 Competitor *competitor = [Competitor createEntity];
-	 [self.detailItem addCompetitorsObject:competitor];
-	 [self.managedObjectContext save];
-	 [self.tableView reloadData];
-	 }
-	 break;
-     
-	 case PRPTableSectionBarriersToBusiness:
-	 if (indexPath.row == self.detailItem.barriersToBusiness.allObjects.count) {
-	 BarrierToBusiness *barrier = [BarrierToBusiness createEntity];
-	 [self.detailItem addBarriersToBusinessObject:barrier];
-	 [self.managedObjectContext save];
-	 [self.tableView reloadData];
-	 }
-	 break;
-	 default:
-	 break;
-	 }
-	 [self.tableView deselectRowAtIndexPath:indexPath animated:NO];*/
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -1150,16 +985,6 @@ enum PRPTableStatsTags {
     }
     return height;
 }
-/*
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- return YES;
- }
- 
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- return YES;
- }*/
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -1227,18 +1052,11 @@ enum PRPTableStatsTags {
             NSArray *arr = _detailItem.barriersToBusiness.allObjects;
             BarrierToBusiness* bToDel = [arr objectAtIndex:indexPath.row];
             [self.detailItem removeBarriersToBusinessObject:bToDel];
-            //[bToDel deleteInContext:[NSManagedObjectContext defaultContext]];
             [[NSManagedObjectContext defaultContext] save];
-            //  UITableViewCellEditingStyleNone
-            // [self.tableView set]
             [self.tableView reloadData];
-            
         }
-        
-        
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
 
@@ -1454,7 +1272,6 @@ enum PRPTableStatsTags {
     if (self.datePickerViewController.view.superview != nil) {
 		self.datePickerViewController.currentIndexPath = nil;
 		self.datePickerViewController.currentTag = 0;
-		//Position the picker out of sight
 		[self.datePickerViewController.view setFrame:PICKER_VISIBLE_FRAME];
 		//This animation will work on iOS 4
 		//For older iOS, use "beginAnimation:context"
@@ -1554,7 +1371,7 @@ enum PRPTableStatsTags {
     return TRUE;
 }
 
--(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag
+-(void) selectedOption:(NSString*)selectedString didSelectRowAtIndexPath:(NSIndexPath*)forIndexPath forTag:(NSInteger) forTag
 {
 	self.detailItem.editedValue = YES;
 	self.detailItem.producerId.editedValue = YES;
@@ -1601,10 +1418,6 @@ enum PRPTableStatsTags {
 		case PRPTableSectionCompetitor:
 			switch (forTag) {
 				case PRPTableCompetitorName: {
-					//		Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:forIndexPath.row];//[Competitor findFirstByAttribute:@"name" withValue:titleForRow];
-					//     competitor.name = selectedString;//[Competitor findFirstByAttribute:@"name" withValue:<#(id)#>]
-					//[self.detailItem.competitorsSet.allObjects removeObjectAtIndex:indexPath.row];
-                    
                     Competitor *competitor = [Competitor findFirstByAttribute:@"name" withValue:selectedString];
                     [self.detailItem addCompetitorsObject:competitor];
 					
@@ -1625,8 +1438,7 @@ enum PRPTableStatsTags {
 			switch (forTag) {
 				case PRPTableBarrierName: {
 					// Change value in model object
-					BarrierToBusiness *barrier = [BarrierToBusiness findFirstByAttribute:@"name" withValue:selectedString];//[self.detailItem.barriersToBusiness.allObjects objectAtIndex:forIndexPath.row];//[BarrierToBusiness findFirstByAttribute:@"name" withValue:titleForRow];
-                    // barrier.name = selectedString;
+					BarrierToBusiness *barrier = [BarrierToBusiness findFirstByAttribute:@"name" withValue:selectedString];
 					[self.detailItem addBarriersToBusinessObject:barrier];
 				}
 					break;

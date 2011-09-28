@@ -980,7 +980,7 @@
 	
 }
 
--(void) selectedOption:(NSString*) selectedString:(NSIndexPath*) forIndexPath:(NSInteger) forTag
+-(void) selectedOption:(NSString*)selectedString didSelectRowAtIndexPath:(NSIndexPath*)forIndexPath forTag:(NSInteger) forTag
 {
 	self.detailItem.editedValue = YES;
     switch(forIndexPath.section)
