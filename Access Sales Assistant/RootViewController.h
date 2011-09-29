@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VisitApplicationViewController.h"
 #import "MyTreeNode.h"
 
 @class  BaseDetailViewController;

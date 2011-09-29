@@ -128,7 +128,7 @@ enum hoursOfOperationSectionTags
 };
 enum addressSectionTags
 {
-  EAddressStreet1=1,  
+    EAddressStreet1=1,  
     EAddressStreet2,
     EAddressCity,
     EAddressState,

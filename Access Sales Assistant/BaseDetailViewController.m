@@ -55,18 +55,6 @@
   
     [items1 insertObject:barButtonItem atIndex:0];
     
- /*   if([self isShowMaster])
-    {    
-    showHideMaster = [[UIBarButtonItem alloc] initWithTitle:@"Hide Menu"
-                                                      style:UIBarButtonItemStyleBordered
-                                                     target:self
-                                                     action:@selector(toggleMaster:)];
-    
-
-    [items1 insertObject:showHideMaster atIndex:[items1 indexOfObject:[items1 lastObject]]];
-    }
-  */
-
     if(prospectSpaceButton)
         [items1 insertObject:prospectSpaceButton atIndex:[items1 count]]; 
     if(prospectSubmitBtn)
@@ -78,8 +66,6 @@
 
 
 - (void)invalidateRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem {
-    // Remove the popover button.
-	// [baseNavigationBar.topItem setLeftBarButtonItem:nil animated:NO];
     
     NSMutableArray *items = [[self.baseToolbar items] mutableCopy];
     
@@ -100,19 +86,6 @@
 
     if([items count])
         [items removeAllObjects];
- /*   if([self isShowMaster])
-    {
-      
-    showHideMaster = [[UIBarButtonItem alloc] initWithTitle:@"Hide Menu"
-                                                                    style:UIBarButtonItemStyleBordered
-                                                                   target:self
-                                                                   action:@selector(toggleMaster:)];
-    
-      
-    [items insertObject:showHideMaster atIndex:0];
-    }
-    
-    */
     if(prospectSpaceButton)
         [items insertObject:prospectSpaceButton atIndex:[items count]];
     if(prospectSubmitBtn)
@@ -135,18 +108,6 @@
 
 -(void) toggleMaster:(id) sender
 {
-  /*  hidemaster = !hidemaster;
-    
-    [splitviewcontroller toggleMasterView:sender];
-    
-    NSString* title = hidemaster?@"Show Menu":@"Hide Menu";
-    
-    [self.showHideMaster setTitle:title];
-    [self.view setNeedsDisplay];*/
-    
-    
-    
-    
 }
 -(BOOL) isShowMaster
 {
@@ -178,17 +139,13 @@
 {
     if(!isEnable)
     {
-        //[textField.layer setBackgroundColor: [UIColor grayColor]];
+       
         textField.backgroundColor = [UIColor lightGrayColor];
-      //  [textField.layer setBorderColor: [[UIColor redColor] CGColor]];
-      //  [textField.layer setBorderWidth: 3.0f];
-       // [textField.layer setCornerRadius:8.0f];
         [textField.layer setMasksToBounds:YES];
         [textField setEnabled:FALSE];
     }
     else
     {
-     //   textField.layer.backgroundColor=[[UIColor clearColor]CGColor];
           textField.backgroundColor = [UIColor clearColor];
                 [textField setEnabled:TRUE];
     }

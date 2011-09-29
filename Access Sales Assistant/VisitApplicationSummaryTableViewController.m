@@ -148,8 +148,6 @@ enum PRPTableStatsTags {
 {
 	[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[self.detailItem jsonStringValue]];
 	self.detailItem.producerId.submittedValue = YES;
-    
-    NSLog(@"%@",self.detailItem);
 }
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
@@ -170,7 +168,6 @@ enum PRPTableStatsTags {
 	}
 	
 	//Add the picker to the view
-	//[self.view.superview addSubview:self.datePickerViewController.view];
 	[self.parentViewController.view addSubview:self.datePickerViewController.view];
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"

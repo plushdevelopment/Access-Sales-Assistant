@@ -17,7 +17,6 @@
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
     }
     
     return self;
@@ -36,15 +35,9 @@
         else
             _strBenefit = nil;
         _bIsFeatureTitle = isTitle;
-
-        // Initialization code here.
     }
     
     return featureObj;
-
-    
-    
-    
 }
 
 @end

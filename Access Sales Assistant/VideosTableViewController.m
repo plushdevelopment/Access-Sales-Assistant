@@ -48,7 +48,7 @@
     }
     
     NSString *out = [NSString stringWithString: temp];
-   // out = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
     return out;
 }
 
@@ -56,8 +56,6 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -66,13 +64,7 @@
 {
     [super viewDidLoad];
 	self.baseToolbar = self.toolBar;
-	
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//	self.videos = [NSArray arrayWithObjects:@"https://uatwww.access.com/test/intro_to_c4.mp4", @"https://uatwww.access.com/test/Intro_to_Claims_Assignor_(5-2-11).mp4", @"https://uatwww.access.com/test/Intro_to_ImageRight_(5-2-11).mp4", nil];
+
 	
     [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(getVideosSuccess:)
@@ -94,8 +86,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -131,13 +121,9 @@
 // Called after the user changes the selection
 - (void) gridView: (AQGridView *) gridView didSelectItemAtIndex: (NSUInteger) index
 {
-	// Navigation logic may go here. Create and push another view controller.
-    
 	VideoViewController *detailViewController = [[VideoViewController alloc] initWithNibName:@"VideoViewController" bundle:nil];
-	// ...
-	// Pass the selected object to the new view controller.
+
 	[self.splitviewcontroller presentViewController:detailViewController animated:YES completion:NULL];
-    NSLog(@"%@",[self.videos objectAtIndex:index]);
 	NSURL *url = [NSURL URLWithString:[self urlencode:[[self.videos objectAtIndex:index] valueForKey:@"url"]]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	[detailViewController.webView loadRequest:request];

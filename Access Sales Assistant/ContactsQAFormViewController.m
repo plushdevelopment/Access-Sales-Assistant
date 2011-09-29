@@ -28,7 +28,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -37,8 +36,6 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -53,16 +50,12 @@
     [self.requestView.layer setBorderWidth: 3.0f];
     [self.requestView.layer setCornerRadius:8.0f];
     [self.requestView.layer setMasksToBounds:YES];
-   // self.requestView.layer.borderWidth = 5.0f;
-    //self.requestView.layer.borderColor = [[UIColor grayColor] CGColor];
     
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -83,12 +76,6 @@
     self.strQADescription = _descriptionField.text;
     self.strQARequest = _requestView.text;
 
-    
-     NSString* requestFormat = [[NSString alloc] initWithFormat:@"Producer Num:%@\nProducer Code:%@\nDescription: %@\nRequest: %@\n",self.strProducerNumber,self.strProducerCode,self.strQADescription,self.strQARequest];
-     //   [self showAlert:requestFormat];
-    
-    
-   // QAForm *formData = [QAForm createEntity];
     QAResolutionForm *formData = [QAResolutionForm createEntity];
     formData.producerCode = _strProducerCode;
     formData.policyNumber = _strProducerNumber;
@@ -97,7 +84,6 @@
     
     [[HTTPOperationController sharedHTTPOperationController] postQAResolutionForm:[formData jsonStringValue]];
     
-   // [self showAlert:@"Request submitted successfully!"];
     [self dismissModalViewControllerAnimated:YES];
 }
 @end
