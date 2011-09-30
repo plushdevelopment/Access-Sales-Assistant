@@ -49,7 +49,10 @@ static UICGDirections *sharedDirections;
 	NSArray *routeDics = [dictionary objectForKey:@"routes"];
 	routes = [[NSMutableArray alloc] initWithCapacity:[routeDics count]];
 	for (NSDictionary *routeDic in routeDics) {
-		[(NSMutableArray *)routes addObject:[UICGRoute routeWithDictionaryRepresentation:routeDic]];
+		UICGRoute *route = [UICGRoute routeWithDictionaryRepresentation:routeDic];
+		if (route) {
+			[(NSMutableArray *)routes addObject:route];
+		}
 	}
 	self.geocodes = [dictionary objectForKey:@"geocodes"];
 	self.polyline = [UICGPolyline polylineWithDictionaryRepresentation:[dictionary objectForKey:@"polyline"]];

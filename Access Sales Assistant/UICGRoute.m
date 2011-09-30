@@ -31,26 +31,43 @@
 	if (self != nil) {
 		dictionaryRepresentation = dictionary;
         NSArray *allKeys = [dictionaryRepresentation allKeys];
-        NSDictionary *k = [dictionaryRepresentation objectForKey:[allKeys objectAtIndex:[allKeys count] - 1]];
-		NSArray *stepDics = [k objectForKey:@"Steps"];
+		id k = [dictionaryRepresentation objectForKey:[allKeys objectAtIndex:[allKeys count] - 1]];
+		NSArray *stepDics;
+		NSDictionary *endLocationDic;
+        if ([k isKindOfClass:[NSDictionary class]]) {
+			stepDics = [k objectForKey:@"Steps"];
+			distance = [k objectForKey:@"Distance"];
+			duration = [k objectForKey:@"Duration"];
+			endLocationDic = [k objectForKey:@"Point"];
+			summaryHtml = [k objectForKey:@"summaryHtml"];
+			polylineEndIndex = [[k objectForKey:@"polylineEndIndex"] integerValue];
+		} else {
+			stepDics = [k lastObject];
+			distance = [[k lastObject] objectForKey:@"Distance"];
+			duration = [[k lastObject] objectForKey:@"Duration"];
+			endLocationDic = [[k lastObject] objectForKey:@"Point"];
+			summaryHtml = [[k lastObject] objectForKey:@"summaryHtml"];
+			polylineEndIndex = [[[k lastObject] objectForKey:@"polylineEndIndex"] integerValue];
+		}
 		numerOfSteps = [stepDics count];
 		steps = [[NSMutableArray alloc] initWithCapacity:numerOfSteps];
-		for (NSDictionary *stepDic in stepDics) {
-			[(NSMutableArray *)steps addObject:[UICGStep stepWithDictionaryRepresentation:stepDic]];
+		for (id stepDic in stepDics) {
+			if ([stepDic isKindOfClass:[NSDictionary class]]) {
+				UICGStep *step = [UICGStep stepWithDictionaryRepresentation:stepDic];
+				if (step) {
+					[(NSMutableArray *)steps addObject:step];
+				}
+			}
+			
 		}
 		
 		endGeocode = [dictionaryRepresentation objectForKey:@"MJ"];
 		startGeocode = [dictionaryRepresentation objectForKey:@"dT"];
-		
-		distance = [k objectForKey:@"Distance"];
-		duration = [k objectForKey:@"Duration"];
-		NSDictionary *endLocationDic = [k objectForKey:@"Point"];
 		NSArray *coordinates = [endLocationDic objectForKey:@"coordinates"];
 		CLLocationDegrees longitude = [[coordinates objectAtIndex:0] doubleValue];
 		CLLocationDegrees latitude  = [[coordinates objectAtIndex:1] doubleValue];
 		endLocation = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-		summaryHtml = [k objectForKey:@"summaryHtml"];
-		polylineEndIndex = [[k objectForKey:@"polylineEndIndex"] integerValue];
+		
 	}
 	return self;
 }
