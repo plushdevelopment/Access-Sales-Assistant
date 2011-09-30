@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseDetailViewController.h"
 #import "StateSelectionTableViewController.h"
 #import "RootViewController.h"
 #import "SSLocationManager.h"

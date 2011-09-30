@@ -25,32 +25,10 @@
 #import "ProspectApplicationTableViewController.h"
 #import "SearchProducerViewController.h"
 #import "HTTPOperationController.h"
-
+#import "AccessSalesConstants.h"
 
 #define SECTION_HEADER_HEIGHT       48
-#define VISIT_APPLICATION_DAYS      @"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",nil
-#define CONTACT_OPTIONS             @"Email Sales Compliance",@"Email Customer Service",@"Email Insufficient Funds",@"Email Product",@"Quality Assurance Form",@"Email Facilities",@"Quality Assurance Timetable",@"Email Help Desk",nil
-#define SECTION_TITLES              @"Daily Schedule",@"Add New Prospect",@"Features & Benefits",@"Training",@"Email Atlanta",@"Get Directions",@"Search Producer",@"Total Access",nil
 
-#define SOCIAL_MEDIA_OPTIONS @"Access.com",@"LinkedIn",@"Twitter",@"Facebook",@"Career Builder",nil
-#define SOCIAL_MEDIA_IMAGE_NAME @"access_icon.png",@"linkedin_icon.png",@"twitter_icon.png",@"facebook_icon.png",@"career_builder_icon.png",nil
-#define SOCIAL_MEDIA_URL @"http://www.access.com",@"http://www.linkedin.com/company/54125",@"http://www.twitter.com/AccessOnTheGo",@"http://www.facebook.com/AccessInsuranceCompany",@"http://www.accessgeneral.jobs",nil
-
-#define SECTION_ROW_COUNT           5,0,0,0,5,0,nil
-#define VISIT_APP_INDEX             0
-#define CONTACTS_OPTIONS_INDEX      4
-#define PROSPECT_APP_INDEX          1
-#define FEATURES_AND_BENEFITS_INDEX 2
-#define ACCESS_ACADEMY_INDEX        3
-#define GPS_INDEX                   5
-#define SEARCH_PRODUCER_INDEX       6
-#define SOCIAL_MEDIA_INDEX          7
-#define FLASH_CARD_PROSPECT         1
-#define FLASH_CARD_ZERO_PRODUCER    2
-#define FLASH_CARD_PRODUCER         3
-#define TRAINING_VIDEO              1
-#define TRAINING_VIDEO_EXPANDED     4
-#define CONTACT_QA_TABLE            6
 
 #define RGB(r, g, b)                [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 #define RGBA(r, g, b, a)            [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
@@ -521,8 +499,6 @@
     [self.tableView reloadData];
 	self.openSectionIndex = sectionOpened;  
     
-    MainViewSectionInfo* sectInfo = [self.sectionInfoArray objectAtIndex:sectionOpened];
-    
     BOOL closePopOver = FALSE;
     
     switch (sectionOpened) {
@@ -586,7 +562,7 @@
         {
             NSString *url = [NSString stringWithFormat:@"motionxgpsdrivehd://"];
             UIApplication *app = [UIApplication sharedApplication];
-            BOOL isSuccess = [app openURL:[NSURL URLWithString:url]];
+            [app openURL:[NSURL URLWithString:url]];
 
             closePopOver = TRUE;
         }

@@ -40,7 +40,6 @@
 {
 	UIButton *button = (UIButton *)sender;
 	ProducerImage *producerImage = [self.images objectAtIndex:button.tag];
-	NSString *imageName = producerImage.imagePath;
 	[[HTTPOperationController sharedHTTPOperationController] deleteImage:producerImage.imageName forProducer:self.detailItem.uid];
 	[producerImage deleteInContext:self.managedObjectContext];
 }
@@ -159,7 +158,6 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -242,30 +240,7 @@
 
 - (AQGridViewCell *) gridView: (AQGridView *) gridView cellForItemAtIndex: (NSUInteger) index
 {
-	/*
-	static NSString * CellIdentifier = @"PhotoGridViewCell";
-    PhotoGridViewCell * cell = (PhotoGridViewCell *)[gridView dequeueReusableCellWithIdentifier: CellIdentifier];
-    if ( cell == nil )
-    {
-        cell = [[PhotoGridViewCell alloc] initWithFrame: CGRectMake(0.0, 0.0, 144.0, 123.0) reuseIdentifier: CellIdentifier];
-    }
-	UIImage *image;
-	if (index == self.images.count) {
-		image = [UIImage imageNamed:@"button-plus.png"];
-		cell.textField.hidden = YES;
-		cell.textField.text = @"";
-	} else {
-		ProducerImage *producerImage = [self.images objectAtIndex:index];
-		NSString *imageName = producerImage.imagePath;
-		image = [UIImage imageWithContentsOfFile:imageName];
-		cell.textField.hidden = NO;
-		cell.textField.text = [[self.images objectAtIndex:index] title];
-	}
-	[cell.textField setDelegate:self];
-	[cell setIcon:image];
-	*/
-	
-    static NSString * CellIdentifier = @"CellIdentifier";
+	static NSString * CellIdentifier = @"CellIdentifier";
     PhotoGridViewCell * cell = (PhotoGridViewCell *)[gridView dequeueReusableCellWithIdentifier: CellIdentifier];
     if ( cell == nil )
     {

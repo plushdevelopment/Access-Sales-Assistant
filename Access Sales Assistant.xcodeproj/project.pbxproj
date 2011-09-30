@@ -155,8 +155,6 @@
 		FF8CA83013B0D03200BA9A7B /* NSScanner+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA82A13B0D03200BA9A7B /* NSScanner+BSJSONAdditions.m */; };
 		FF8CA83113B0D03200BA9A7B /* NSString+BSJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA82C13B0D03200BA9A7B /* NSString+BSJSONAdditions.m */; };
 		FF8CA83813B0D1AE00BA9A7B /* NSManagedObjectExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA83713B0D1AE00BA9A7B /* NSManagedObjectExtras.m */; };
-		FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */; };
-		FF8CA88513B1256500BA9A7B /* VisitApplicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */; };
 		FF90611813B3D6AB009DCA0E /* form_seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = FF90611713B3D6AA009DCA0E /* form_seperator.png */; };
 		FF95E22E13D4B1540098D41F /* VisitApplicationPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF95E22C13D4B1540098D41F /* VisitApplicationPhotosViewController.m */; };
 		FF95E22F13D4B1540098D41F /* VisitApplicationPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF95E22D13D4B1540098D41F /* VisitApplicationPhotosViewController.xib */; };
@@ -632,9 +630,6 @@
 		FF8CA82C13B0D03200BA9A7B /* NSString+BSJSONAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BSJSONAdditions.m"; sourceTree = "<group>"; };
 		FF8CA83613B0D1AE00BA9A7B /* NSManagedObjectExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectExtras.h; sourceTree = "<group>"; };
 		FF8CA83713B0D1AE00BA9A7B /* NSManagedObjectExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectExtras.m; sourceTree = "<group>"; };
-		FF8CA88113B1256500BA9A7B /* VisitApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationViewController.h; sourceTree = "<group>"; };
-		FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationViewController.m; sourceTree = "<group>"; };
-		FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitApplicationViewController.xib; sourceTree = "<group>"; };
 		FF90611713B3D6AA009DCA0E /* form_seperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = form_seperator.png; sourceTree = "<group>"; };
 		FF95E22B13D4B1540098D41F /* VisitApplicationPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitApplicationPhotosViewController.h; sourceTree = "<group>"; };
 		FF95E22C13D4B1540098D41F /* VisitApplicationPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitApplicationPhotosViewController.m; sourceTree = "<group>"; };
@@ -1282,9 +1277,6 @@
 				6DDC3E2113FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.h */,
 				6DDC3E2213FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.m */,
 				6DDC3E2313FAAACE005F4DD7 /* VisitApplicationProducerImageViewController.xib */,
-				FF8CA88113B1256500BA9A7B /* VisitApplicationViewController.h */,
-				FF8CA88213B1256500BA9A7B /* VisitApplicationViewController.m */,
-				FF8CA88313B1256500BA9A7B /* VisitApplicationViewController.xib */,
 				FF21973B13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.h */,
 				FF21973C13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.m */,
 				FF21973D13CF53CA001F1B0D /* VisitApplicationSummaryTableViewController.xib */,
@@ -2274,7 +2266,6 @@
 				FFA1A31A13AF922200434B93 /* LoginViewController.xib in Resources */,
 				FFC9533F13AFCACE000967CB /* LICENSE in Resources */,
 				FFC9534513AFCACE000967CB /* README.md in Resources */,
-				FF8CA88513B1256500BA9A7B /* VisitApplicationViewController.xib in Resources */,
 				FF77100B13B23DFC00E90F4B /* access-logo.png in Resources */,
 				FF77101113B23DFC00E90F4B /* sidebar-background.png in Resources */,
 				FF77101C13B23E2F00E90F4B /* button-cancel.png in Resources */,
@@ -2484,7 +2475,6 @@
 				FF8CA83013B0D03200BA9A7B /* NSScanner+BSJSONAdditions.m in Sources */,
 				FF8CA83113B0D03200BA9A7B /* NSString+BSJSONAdditions.m in Sources */,
 				FF8CA83813B0D1AE00BA9A7B /* NSManagedObjectExtras.m in Sources */,
-				FF8CA88413B1256500BA9A7B /* VisitApplicationViewController.m in Sources */,
 				FF99B8AC13B8A3FC00FC1A0B /* DatePickerViewController.m in Sources */,
 				FFF0D00013BB7B02008DFA19 /* NSManagedObject+SafeSetValuesKeysWithDictionary.m in Sources */,
 				FFF0D00613BB7ED7008DFA19 /* Producer.m in Sources */,

@@ -96,6 +96,7 @@
 {
 	for (Note *note in self.detailItem.notes) {
 		switch (note.typeValue) {
+                NSLog(@"%@",note.text);
 			case 1:
 				self.opportunityTextField.text = note.text;
 				break;
@@ -191,12 +192,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _scrollView.contentSize = _scrollView.frame.size;
-    _titleLabel.text = titleText;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[self toggleSubmitButton:[self isEnableSubmit]];
+    _titleLabel.text = titleText;
 }
 
 - (void)viewDidUnload

@@ -148,8 +148,6 @@ enum PRPTableStatsTags {
 {
 	[[HTTPOperationController sharedHTTPOperationController] postDailySummary:[self.detailItem jsonStringValue]];
 	self.detailItem.producerId.submittedValue = YES;
-    
-    NSLog(@"%@",self.detailItem);
 }
 // Show the Date picker in Date mode in a popover
 - (IBAction)showDatePickerView:(id)sender
@@ -170,7 +168,6 @@ enum PRPTableStatsTags {
 	}
 	
 	//Add the picker to the view
-	//[self.view.superview addSubview:self.datePickerViewController.view];
 	[self.parentViewController.view addSubview:self.datePickerViewController.view];
 	//This animation will work on iOS 4
 	//For older iOS, use "beginAnimation:context"
@@ -226,7 +223,8 @@ enum PRPTableStatsTags {
                 }
                 case PRPTableCompetitorCommissionStructure:
                 {
-                    [selectionView assignDataSource:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
+                    NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[CommissionStructure findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
 					
@@ -239,7 +237,8 @@ enum PRPTableStatsTags {
             {
                 case PRPTableSpokeWithTitle:
                 {
-                    [selectionView assignDataSource:[PersonSpokeWithTitle findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[PersonSpokeWithTitle findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
             }
@@ -254,12 +253,14 @@ enum PRPTableStatsTags {
                     
                     Competitor *competitor = [self.detailItem.competitors.allObjects objectAtIndex:selectionView.currentIndexPath.row];
                     [self.detailItem removeCompetitorsObject:competitor];
-                    [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[Competitor findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
                 case 1001:
                 {
-                    [selectionView assignDataSource:[Competitor findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[Competitor findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
             }
@@ -273,12 +274,14 @@ enum PRPTableStatsTags {
                 {
                     BarrierToBusiness *barrier = [self.detailItem.barriersToBusiness.allObjects objectAtIndex:selectionView.currentIndexPath.row];
                     [self.detailItem removeBarriersToBusinessObject:barrier];
-                    [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
                 case 1005:
                 {
-                    [selectionView assignDataSource:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[BarrierToBusiness findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
             }
@@ -290,7 +293,8 @@ enum PRPTableStatsTags {
             {
                 case PRPTableStatsProducerAddOn:
                 {
-                    [selectionView assignDataSource:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
+                     NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[ProducerAddOn findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
                 case PRPTableStatsRDFollowUp:

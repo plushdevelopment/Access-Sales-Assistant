@@ -186,7 +186,6 @@
             else
                 return 0;
         }
-			//            return 1;
         case EGeneral:
             return 1;
         case EQuestions:
@@ -464,41 +463,10 @@
         }
             
     }
+    
+    return nil;
 }
 
--(void) AddContact:(id) sender
-{
-    UIButton* btn = (UIButton*) sender;
-	self.detailItem.editedValue = YES;
-    if(btn.tag == 1001)
-    {
-        Contact* newContact = [Contact createEntity];
-		newContact.editedValue = YES;
-        [self.detailItem addContactsObject:newContact];
-		[[NSManagedObjectContext defaultContext]save];
-        [self.tableView reloadData];
-    }
-    else if(btn.tag == 1002)
-    {
-        
-        BOOL editing = [self.tableView isEditing]?NO:YES;
-        
-        if(editing)
-        {
-			[btn setTitle:@"Done" forState:UIControlStateNormal];
-			isContactsEdited = TRUE;
-            
-        }
-        else
-        {
-            [btn setTitle:@"Edit" forState:UIControlStateNormal];
-            isContactsEdited = FALSE;
-        }
-		
-        [self setEditing:editing animated:YES];
-    }
-    [self.tableView reloadData];
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -579,7 +547,42 @@
     return cell;
 }
 
-#pragma mark - Fill the table view cell with entity values
+#pragma mark - Create new or fill table view cell with entity values
+
+-(void) AddContact:(id) sender
+{
+    UIButton* btn = (UIButton*) sender;
+	self.detailItem.editedValue = YES;
+    if(btn.tag == 1001)
+    {
+        Contact* newContact = [Contact createEntity];
+		newContact.editedValue = YES;
+        [self.detailItem addContactsObject:newContact];
+		[[NSManagedObjectContext defaultContext]save];
+        [self.tableView reloadData];
+    }
+    else if(btn.tag == 1002)
+    {
+        
+        BOOL editing = [self.tableView isEditing]?NO:YES;
+        
+        if(editing)
+        {
+			[btn setTitle:@"Done" forState:UIControlStateNormal];
+			isContactsEdited = TRUE;
+            
+        }
+        else
+        {
+            [btn setTitle:@"Edit" forState:UIControlStateNormal];
+            isContactsEdited = FALSE;
+        }
+		
+        [self setEditing:editing animated:YES];
+    }
+    [self.tableView reloadData];
+}
+
 
 -(ProducerAddressTableViewCell*) addressTableViewCell:(ProducerAddressTableViewCell*) addressCell createAddressCellForType:(NSInteger)forType
 {
@@ -725,7 +728,6 @@
     
     for (EmailListItem *email in _detailItem.emails) {
         
-        int typevalue = email.typeValue;
         if (email.typeValue == ACCOUNTING_EMAIL) {
             if([email.address length]>0)
             {
@@ -768,7 +770,7 @@
         if(emailToUse)
         {
             EmailListItem* newMailItem = [self createNewEmailItem:emailToUse createEmailForType:ACCOUNTING_EMAIL];
-            [contactInfoCell.acctMailTextField setText:emailToUse.address];
+            [contactInfoCell.acctMailTextField setText:newMailItem.address];
         }
     }
     
@@ -844,7 +846,6 @@
     [self disableTextField:statusCell.statusTextField :NO];
     statusCell.appointedDateTextField.text = [dateFormatter stringFromDate:_detailItem.appointedDate];
     [self disableTextField:statusCell.appointedDateTextField :NO];
-    BOOL b = _detailItem.isEligibleValue;
     statusCell.eligibleTextField.text = _detailItem.isEligibleValue?@"YES":@"NO";
     statusCell.statusDateTextField.text = [dateFormatter stringFromDate:_detailItem.statusDate];
     [self disableTextField:statusCell.statusDateTextField :NO];
@@ -877,7 +878,6 @@
 
 -(void) hoursOfOperationCell:(ProducerHoursTableViewCell*)hoursCell hoursCellForRow:(NSInteger)forRow
 {
-	BOOL isMondayOpen=FALSE,isMondayClose=FALSE;
     
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
     [timeFormatter setDateFormat:@"hh:mm a"];
@@ -1063,7 +1063,7 @@
 {
 	
 	UIButton *button = (UIButton *)sender;
-    NSString *viewFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.parentViewController.view.frame.origin.x, self.parentViewController.view.frame.origin.y, self.parentViewController.view.frame.size.height, self.parentViewController.view.frame.size.width];
+  /*  NSString *viewFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.parentViewController.view.frame.origin.x, self.parentViewController.view.frame.origin.y, self.parentViewController.view.frame.size.height, self.parentViewController.view.frame.size.width];*/
 	
 	[self.datePickerViewController.datePicker setDate:[NSDate date]];
 	self.datePickerViewController.currentIndexPath = [self.tableView prp_indexPathForRowContainingView:sender];
@@ -1078,7 +1078,7 @@
 	}
 	
     
-    NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
+ /*   NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];*/
 	
 	
 	//Add the picker to the view
@@ -1224,7 +1224,8 @@
             {
                 case EInEligibleReason:
                 {
-                    [selectionView assignDataSource:[IneligibleReason findAllSortedBy:@"name" ascending:YES]];
+                      NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[IneligibleReason findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     break;
                 }
             }
@@ -1249,7 +1250,8 @@
                 case ESundayStartHour:
                 case ESundayEndHour:
                 {
-                    [selectionView assignDataSource:[OperationHour findAllSortedBy:@"uid" ascending:YES]];
+                    NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[OperationHour findAllSortedBy:@"uid" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
 					
                 }
                     break;
@@ -1263,7 +1265,8 @@
             {
                 case EAddressState:
                 {
-                    [selectionView assignDataSource:[State findAllSortedBy:@"name" ascending:YES]];
+                      NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[State findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
 					
                     break;
                 }
@@ -1276,7 +1279,9 @@
             {
                 case EContactTitle:
                 {
-                    [selectionView assignDataSource:[ContactType findAllSortedBy:@"name" ascending:YES]];
+                    
+                      NSMutableArray *dataSource = [NSMutableArray arrayWithArray:[ContactType findAllSortedBy:@"name" ascending:YES]];
+                    [selectionView assignDataSource:dataSource];
                     
                     break;
                 }
@@ -1303,8 +1308,8 @@
 		[self.datePickerViewController.view setFrame:PICKER_HIDDEN_FRAME];
 	}
     
-    NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
-    
+  /*  NSString *pickerFrame = [NSString stringWithFormat:@"NSRect: {{%f, %f}, {%f, %f}}", self.datePickerViewController.view.frame.origin.x, self.datePickerViewController.view.frame.origin.y, self.datePickerViewController.view.frame.size.height, self.datePickerViewController.view.frame.size.width];
+    */
 	
 	//Add the picker to the view
 	[self.parentViewController.view addSubview:self.datePickerViewController.view];
@@ -2282,7 +2287,6 @@
                         {
                             AddressListItem *addressItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
-                                int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 1) {
                                     addressItem = address;
                                     break;
@@ -2308,7 +2312,6 @@
                         {
                             AddressListItem *addressItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
-                                int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 2) {
                                     addressItem = address;
                                     break;
@@ -2333,7 +2336,6 @@
                         {
                             AddressListItem *addressItem = nil;
                             for (AddressListItem *address in _detailItem.addresses) {
-                                int addrValue = address.addressTypeValue;
                                 if (address.addressTypeValue == 3) {
                                     addressItem = address;
                                     continue;

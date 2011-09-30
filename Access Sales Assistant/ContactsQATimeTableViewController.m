@@ -36,8 +36,6 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -51,8 +49,6 @@
     [self selectedState:@"Georgia" selectedStateCode:@"GA"];
     
     currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
@@ -61,8 +57,6 @@
     [self setScrollView:nil];
     [self setToolBar:nil];
     [self setStateChangeButton:nil];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -72,10 +66,6 @@
 }
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    //[self selectedState:self.currentStateName :self.currentStateCode];
-    
-   // [self.scrollView setNeedsDisplay];
-    
     currentOrientation = toInterfaceOrientation;
     [self selectedState:self.currentStateCode selectedStateCode:self.currentStateName];
 }
@@ -148,13 +138,11 @@
     
     
     int scrollWidth =0;
-//     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+
     if(UIInterfaceOrientationIsPortrait(currentOrientation))
         scrollWidth = scrollRect.size.width;
     else
         scrollWidth = 650;
-    
-//    int scrollWidth = 650;//scrollRect.size.width;
     
     int xPosEsc = scrollRect.origin.x;
     int xPosDescr = scrollWidth/2;
@@ -207,7 +195,7 @@
             descrLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:18.0];
             descrLabel.numberOfLines = 0;
             
-            descrLabel.textColor =[UIColor blackColor]; //RGB(0,178,238);
+            descrLabel.textColor =[UIColor blackColor]; 
              descrLabel.backgroundColor = [UIColor  clearColor];
             [_scrollView addSubview:escalationLabel];
             [_scrollView addSubview:descrLabel];

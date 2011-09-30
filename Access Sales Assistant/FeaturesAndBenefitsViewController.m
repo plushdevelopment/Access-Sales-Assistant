@@ -51,23 +51,10 @@
 #define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 #pragma mark Managing the popover
-
-/*- (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem {
-    // Add the popover button to the left navigation item.
-    [navigationBar.topItem setLeftBarButtonItem:barButtonItem animated:NO];
-}
-
-
-- (void)invalidateRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem {
-    // Remove the popover button.
-    [navigationBar.topItem setLeftBarButtonItem:nil animated:NO];
-}
-*/
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -76,8 +63,6 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -93,20 +78,14 @@
 #if TARGET_IPHONE_SIMULATOR
     [self selectedState:@"Georgia" selectedStateCode:@"GA"];
 #else
-//	[self selectedState:@"Georgia" :@"GA"];
     [[SSLocationManager sharedManager] addDelegate:self];
     [[SSLocationManager sharedManager] startUpdatingCurrentLocation];
 #endif
-    
-    
-   // [self selectedState:@"California" :@"CA"];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -116,8 +95,6 @@
 }
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    //[self selectedState:self.currentStateName :self.currentStateCode];
-    
     [self.fnbScrollview setNeedsDisplay];
 }
 -(IBAction)selectState:(id)sender
@@ -152,8 +129,6 @@
                       @"FeaturesAndBenefitsList" ofType:@"plist"];
       NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:path];
     
-    NSDictionary* featuresAndBenefits = [plistData objectForKey:stateName]; 
-    
     [_changeStateButton setTitle:stateName forState:UIControlStateNormal];
     
     NSArray *sr22FeatureStates = [[NSArray alloc] initWithObjects:SR22FEATURE];
@@ -169,7 +144,6 @@
 
     for(int fKey = 0; fKey<[plistData count];fKey++)
     {
-       // NSArray * arr= [[plistData allKeys] so]
         NSString *keyValue = [fnbFeaturesArray objectAtIndex:fKey];
         NSDictionary* tDictionary = [plistData objectForKey:keyValue];
         
@@ -243,7 +217,7 @@
     
     int fObjCount = [featureObjArray count];
     
-    int scrollwidth = 600;//[_fnbScrollview bounds].size.width;//686;
+    int scrollwidth = 600;
 	
 	[_fnbScrollview setCanCancelContentTouches:NO];
 	_fnbScrollview.clipsToBounds = YES;	// default is NO, we want to restrict drawing within our scrollview
@@ -271,7 +245,7 @@
             featureLabel.text = tFeaturesObj.strFeature;
             
 
-            featureLabel.textColor = RGB(0,178,238);//[UIColor orangeColor];
+            featureLabel.textColor = RGB(0,178,238);
              featureLabel.textAlignment=UITextAlignmentLeft;
             featureLabel.backgroundColor = [UIColor clearColor];
             
@@ -285,11 +259,10 @@
             featureLabel.text = tFeaturesObj.strFeature;
             
             featureLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
-            featureLabel.textColor = [UIColor whiteColor];//[UIColor lightGrayColor];
+            featureLabel.textColor = [UIColor whiteColor];
             benefitLabel.text = tFeaturesObj.strBenefit;
             benefitLabel.font = [UIFont fontWithName:@"Trebuchet MS" size:20.0];
-           // benefitLabel.textColor = RGB(0,111,162);
-            benefitLabel.textColor = [UIColor blackColor]; //RGB(0,178,238);
+            benefitLabel.textColor = [UIColor blackColor];
             
              featureLabel.backgroundColor = [UIColor clearColor];
             benefitLabel.backgroundColor = [UIColor clearColor];
