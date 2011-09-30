@@ -545,13 +545,13 @@ enum PRPTableStatsTags {
 				rows = 1;
 				break;
 			case PRPTableSectionSpokeWith:
-				rows = self.detailItem.personsSpokeWith.allObjects.count + 1;
+				rows = self.detailItem.personsSpokeWith.allObjects.count + 2;
 				break;
 			case PRPTableSectionCompetitor:
-				rows = self.detailItem.competitors.allObjects.count + 1;
+				rows = self.detailItem.competitors.allObjects.count + 2;
 				break;
 			case PRPTableSectionBarriersToBusiness:
-				rows = self.detailItem.barriersToBusiness.allObjects.count + 1;
+				rows = self.detailItem.barriersToBusiness.allObjects.count + 2;
 				break;
 			case PRPTableSectionStats:
 				rows = 1;
@@ -640,7 +640,26 @@ enum PRPTableStatsTags {
                 [self.fields addObject: customCell.addButton];
                 [self.fields addObject: customCell.editButton];
 				cell = customCell;
-			} else {
+			}
+            else if(indexPath.row == self.detailItem.personsSpokeWith.allObjects.count + 1)
+            {
+                static NSString *CellIdentifier = @"Cell";
+                
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                if (cell == nil) {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                }
+                
+                NSString* str= [[NSString alloc] initWithFormat:@"*Note: At least one Person is mandatory"];
+                cell.textLabel.text = str;
+                
+               cell.textLabel.font= [UIFont fontWithName:@"TrebuchetMS-Italic" size:16.0];
+                
+                
+                return cell;
+
+            }
+            else {
 				SummarySpokeWithTableViewCell *customCell = [SummarySpokeWithTableViewCell cellForTableView:tableView fromNib:self.summarySpokeWithTableViewCellNib];
 				
 				PersonSpokeWith *person = (PersonSpokeWith *)[self.detailItem.personsSpokeWith.allObjects objectAtIndex:indexPath.row];
@@ -698,7 +717,24 @@ enum PRPTableStatsTags {
                 [self.fields addObject: customCell.editButton];
                 cell = customCell;
 				
-			} else {
+			}
+            else if(indexPath.row == self.detailItem.competitors.allObjects.count + 1)
+            {
+                static NSString *CellIdentifier = @"Cell";
+                
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                if (cell == nil) {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                }
+                
+                NSString* str= [[NSString alloc] initWithFormat:@"*Note: At least one Competitor is mandatory"];
+                cell.textLabel.text = str;
+                cell.textLabel.font= [UIFont fontWithName:@"TrebuchetMS-Italic" size:16.0];
+                
+                
+                return cell;
+            }
+            else {
 				SummaryCompetitorTableViewCell *customCell = [SummaryCompetitorTableViewCell cellForTableView:tableView fromNib:self.summaryCompetitorTableViewCellNib];
 				
 				Competitor *competitor = (Competitor *)[self.detailItem.competitors.allObjects objectAtIndex:indexPath.row];
@@ -750,7 +786,25 @@ enum PRPTableStatsTags {
                 [self.fields addObject: customCell.editButton];
 				
 				cell = customCell;
-			} else {
+			}
+            else if(indexPath.row == self.detailItem.barriersToBusiness.allObjects.count + 1)
+            {
+                static NSString *CellIdentifier = @"Cell";
+                
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                if (cell == nil) {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                }
+                
+                NSString* str= [[NSString alloc] initWithFormat:@"*Note: Atleast one Barrier to Business is mandatory"];
+                    cell.textLabel.text = str;
+                cell.textLabel.font= [UIFont fontWithName:@"TrebuchetMS-Italic" size:16.0];
+             
+                
+                return cell;
+
+            }
+            else {
 				SummaryBarriersToBusinessTableViewCell *customCell = [SummaryBarriersToBusinessTableViewCell cellForTableView:tableView fromNib:self.summaryBarriersToBusinessTableViewCellNib];
 				
 				BarrierToBusiness *barrier = (BarrierToBusiness *)[self.detailItem.barriersToBusiness.allObjects objectAtIndex:indexPath.row];
@@ -964,14 +1018,14 @@ enum PRPTableStatsTags {
             height = 191.0;
 			break;
         case PRPTableSectionSpokeWith:
-			if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
+			if (indexPath.row >= self.detailItem.personsSpokeWith.allObjects.count) {
 				height = 44.0;
 			} else {
 				height = 110.0;
 			}
 			break;
 		case PRPTableSectionCompetitor:
-			if (indexPath.row == self.detailItem.competitors.allObjects.count) {
+			if (indexPath.row >= self.detailItem.competitors.allObjects.count) {
 				height = 44.0;
 			} else {
 				height = 72.0;
