@@ -94,6 +94,16 @@
 
 - (void)configureView
 {
+    for (UIView *view in self.view.subviews) {
+        for (UIResponder *responder in view.subviews) {
+            if ([responder isKindOfClass:[UITextView class]]) {
+                UITextView *textFld = (UITextView*) responder;
+                [textFld setText:@""];
+            }
+        }
+        
+    }
+
 	for (Note *note in self.detailItem.notes) {
 		switch (note.typeValue) {
                 NSLog(@"%@",note.text);

@@ -570,6 +570,17 @@ enum PRPTableStatsTags {
 	switch (indexPath.section) {
         case PRPTableSectionGeneral: {
             SummaryGeneralTableViewCell *customCell = [SummaryGeneralTableViewCell cellForTableView:tableView fromNib:self.summaryGeneralTableViewCellNib];
+            
+            for (UIView *view in customCell.subviews) {
+                for (UIResponder *responder in view.subviews) {
+                    if ([responder isKindOfClass:[UITextField class]]) {
+                        UITextField *textFld = (UITextField*) responder;
+                        [textFld setText:@""];
+                    }
+                }
+                
+            }
+
 			
 			customCell.producerNameTextField.text = self.detailItem.producerId.name;
             [self disableTextField:customCell.producerNameTextField :NO];
@@ -617,6 +628,17 @@ enum PRPTableStatsTags {
 			if (indexPath.row == self.detailItem.personsSpokeWith.allObjects.count) {
 				
                 AddRowTableViewCell* customCell = [AddRowTableViewCell cellForTableView:tableView fromNib:[AddRowTableViewCell nib]];
+                
+                for (UIView *view in customCell.subviews) {
+                    for (UIResponder *responder in view.subviews) {
+                        if ([responder isKindOfClass:[UITextField class]]) {
+                            UITextField *textFld = (UITextField*) responder;
+                            [textFld setText:@""];
+                        }
+                    }
+                    
+                }
+
                 customCell.addRowType.text = @"Add a Person";
                 
                 UIButton *button = customCell.addButton;
@@ -661,6 +683,17 @@ enum PRPTableStatsTags {
             }
             else {
 				SummarySpokeWithTableViewCell *customCell = [SummarySpokeWithTableViewCell cellForTableView:tableView fromNib:self.summarySpokeWithTableViewCellNib];
+                
+                for (UIView *view in customCell.subviews) {
+                    for (UIResponder *responder in view.subviews) {
+                        if ([responder isKindOfClass:[UITextField class]]) {
+                            UITextField *textFld = (UITextField*) responder;
+                            [textFld setText:@""];
+                        }
+                    }
+                    
+                }
+
 				
 				PersonSpokeWith *person = (PersonSpokeWith *)[self.detailItem.personsSpokeWith.allObjects objectAtIndex:indexPath.row];
 				
@@ -736,6 +769,17 @@ enum PRPTableStatsTags {
             }
             else {
 				SummaryCompetitorTableViewCell *customCell = [SummaryCompetitorTableViewCell cellForTableView:tableView fromNib:self.summaryCompetitorTableViewCellNib];
+                
+                for (UIView *view in customCell.subviews) {
+                    for (UIResponder *responder in view.subviews) {
+                        if ([responder isKindOfClass:[UITextField class]]) {
+                            UITextField *textFld = (UITextField*) responder;
+                            [textFld setText:@""];
+                        }
+                    }
+                    
+                }
+
 				
 				Competitor *competitor = (Competitor *)[self.detailItem.competitors.allObjects objectAtIndex:indexPath.row];
 				
@@ -761,6 +805,17 @@ enum PRPTableStatsTags {
 			if (indexPath.row == self.detailItem.barriersToBusiness.allObjects.count) {
 				
                 AddRowTableViewCell* customCell = [AddRowTableViewCell cellForTableView:tableView fromNib:[AddRowTableViewCell nib]];
+                
+                for (UIView *view in customCell.subviews) {
+                    for (UIResponder *responder in view.subviews) {
+                        if ([responder isKindOfClass:[UITextField class]]) {
+                            UITextField *textFld = (UITextField*) responder;
+                            [textFld setText:@""];
+                        }
+                    }
+                    
+                }
+
                 customCell.addRowType.text = @"Add a Barrier";
                 
                 UIButton *button = customCell.addButton;
@@ -806,6 +861,17 @@ enum PRPTableStatsTags {
             }
             else {
 				SummaryBarriersToBusinessTableViewCell *customCell = [SummaryBarriersToBusinessTableViewCell cellForTableView:tableView fromNib:self.summaryBarriersToBusinessTableViewCellNib];
+                
+                for (UIView *view in customCell.subviews) {
+                    for (UIResponder *responder in view.subviews) {
+                        if ([responder isKindOfClass:[UITextField class]]) {
+                            UITextField *textFld = (UITextField*) responder;
+                            [textFld setText:@""];
+                        }
+                    }
+                    
+                }
+
 				
 				BarrierToBusiness *barrier = (BarrierToBusiness *)[self.detailItem.barriersToBusiness.allObjects objectAtIndex:indexPath.row];
 				
@@ -826,6 +892,17 @@ enum PRPTableStatsTags {
 			break;
 		case PRPTableSectionStats: {
 			SummaryStatsTableViewCell *customCell = [SummaryStatsTableViewCell cellForTableView:tableView fromNib:self.summaryStatsTableViewCellNib];
+            
+            for (UIView *view in customCell.subviews) {
+                for (UIResponder *responder in view.subviews) {
+                    if ([responder isKindOfClass:[UITextField class]]) {
+                        UITextField *textFld = (UITextField*) responder;
+                        [textFld setText:@""];
+                    }
+                }
+                
+            }
+
 			
 			customCell.totalAppsPerMonthTextField.text = self.detailItem.nsbsTotAppsPerMonth.stringValue;
 			customCell.percentLiabTextField.text = self.detailItem.nsbsPercentLiab.stringValue;

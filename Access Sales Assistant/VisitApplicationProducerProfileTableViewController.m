@@ -588,6 +588,17 @@
 {
     BOOL isCommissionAddrFound = FALSE,isPhysicalAddrFound,isMailingAddrFound=FALSE,isCurrentAddrFound=FALSE;
     
+    
+    for (UIView *view in addressCell.subviews) {
+        for (UIResponder *responder in view.subviews) {
+            if ([responder isKindOfClass:[UITextField class]]) {
+                UITextField *textFld = (UITextField*) responder;
+                [textFld setText:@""];
+            }
+        }
+        
+    }
+
     AddressListItem *mailingAddress=nil, *commissionAddress=nil, *physicalAddress=nil;
     for(AddressListItem *addrItem in _detailItem.addresses)
     {
@@ -682,6 +693,17 @@
 
 -(ProducerContactTableViewCell*) contactTableViewCell:(ProducerContactTableViewCell*) contactCell createContactCellForType:(NSInteger)forRow
 {
+    
+    for (UIView *view in contactCell.subviews) {
+        for (UIResponder *responder in view.subviews) {
+            if ([responder isKindOfClass:[UITextField class]]) {
+                UITextField *textFld = (UITextField*) responder;
+                [textFld setText:@""];
+            }
+        }
+        
+    }
+
     NSArray* contactArray = _detailItem.contacts.allObjects;
     
     Contact* tContact = [contactArray objectAtIndex:forRow];
@@ -691,7 +713,7 @@
     contactCell.lastNameTextField.text = tContact.lastName;
     contactCell.socialSecurityNumberTextField.text = tContact.ssn;
 	contactCell.titleTextField.text = tContact.type.name;
-	for (PhoneListItem *phone in tContact.phoneNumbers) {
+   	for (PhoneListItem *phone in tContact.phoneNumbers) {
 		if (phone.typeValue == 4) {
 			contactCell.faxTextField.text = phone.number;
 		} else if (phone.typeValue == 5) {
@@ -712,6 +734,18 @@
 }
 -(ProducerContactInfoTableViewCell*) contactInfoTableViewCell:(ProducerContactInfoTableViewCell*) contactInfoCell contactInfoForRow:(NSInteger)forRow
 {
+    
+    for (UIView *view in contactInfoCell.subviews) {
+        for (UIResponder *responder in view.subviews) {
+            if ([responder isKindOfClass:[UITextField class]]) {
+                UITextField *textFld = (UITextField*) responder;
+                [textFld setText:@""];
+            }
+        }
+        
+    }
+
+    
     for (PhoneListItem *phoneNumber in _detailItem.phoneNumbers) {
         if (phoneNumber.typeValue == 1) {
 			[contactInfoCell.phone1TextField setText:phoneNumber.number];
@@ -881,6 +915,17 @@
     
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
     [timeFormatter setDateFormat:@"hh:mm a"];
+    
+    for (UIView *view in hoursCell.subviews) {
+        for (UIResponder *responder in view.subviews) {
+            if ([responder isKindOfClass:[UITextField class]]) {
+                UITextField *textFld = (UITextField*) responder;
+                [textFld setText:@""];
+            }
+        }
+        
+    }
+
     
     HoursOfOperation *hOfOperation = _detailItem.hoursOfOperation;
     
@@ -2027,7 +2072,7 @@
                 
              for(Contact *cItem in _detailItem.contacts.allObjects)
                 {
-                 /*      BOOL isEmailFilled = FALSE;
+                       BOOL isEmailFilled = FALSE;
                     
                         for(EmailListItem *emailObj in cItem.emails)
                         {
@@ -2041,13 +2086,13 @@
                         {
                             if(phoneObj.typeValue == 5 && [phoneObj.number length]>0)
                                 isPhoneFilled = TRUE;
-                        }*/
+                        }
                 
                     if([cItem.firstName length]<=0||
                        [cItem.lastName length]<=0||
                        cItem.type == nil||
                        (![cItem.type.name isEqualToString:@"Agent"] && [cItem.ssn length]<=0)
-                      // || !isEmailFilled || !isPhoneFilled
+                       || !isEmailFilled || !isPhoneFilled
                        )
                         return FALSE;
                 }
