@@ -851,7 +851,7 @@ enum PRPTableStatsTags {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 }
                 
-                NSString* str= [[NSString alloc] initWithFormat:@"*Note: Atleast one Barrier to Business is mandatory"];
+                NSString* str= [[NSString alloc] initWithFormat:@"*Note: At least one Barrier to Business is mandatory"];
                     cell.textLabel.text = str;
                 cell.textLabel.font= [UIFont fontWithName:@"TrebuchetMS-Italic" size:16.0];
              
