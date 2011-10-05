@@ -725,7 +725,7 @@
 			contactCell.emailAddressTextField.text = email.address;
 		}
 	}
-    if([tContact.type.name isEqualToString:@"Agent"])
+    if([tContact.type.name isEqualToString:@"Accounting"] || [tContact.type.name isEqualToString:@"Customer Service"])
         [self disableTextField:contactCell.socialSecurityNumberTextField :NO];
     else
         [self disableTextField:contactCell.socialSecurityNumberTextField :YES];
@@ -2091,7 +2091,7 @@
                     if([cItem.firstName length]<=0||
                        [cItem.lastName length]<=0||
                        cItem.type == nil||
-                       (![cItem.type.name isEqualToString:@"Agent"] && [cItem.ssn length]<=0)
+                       (!([cItem.type.name isEqualToString:@"Accounting"] ||[cItem.type.name isEqualToString:@"Customer Service"]) && [cItem.ssn length]<=0)
                        || !isEmailFilled || !isPhoneFilled
                        )
                         return FALSE;
