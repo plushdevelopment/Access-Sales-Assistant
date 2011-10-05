@@ -399,8 +399,6 @@ enum PRPTableStatsTags {
 			[[NSManagedObjectContext defaultContext] save];
             
 		}
-        
-        
 	}
 	
 	Producer *producer = (Producer *)newDetailItem;
