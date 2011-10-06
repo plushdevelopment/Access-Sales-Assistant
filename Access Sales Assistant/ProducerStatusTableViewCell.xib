@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
-		<int key="IBDocument.SystemTarget">0</int>
+		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">11B26</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1900</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">894</string>
+			<string key="NS.object.0">933</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -261,6 +261,7 @@
 								<string key="NSFrame">{{507, 98}, {239, 31}}</string>
 								<reference key="NSSuperview" ref="640757967"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<int key="IBUITag">6</int>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -322,7 +323,7 @@
 							<object class="IBUILabel" id="336252244">
 								<reference key="NSNextResponder" ref="640757967"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{8, 25}, {98, 21}}</string>
+								<string key="NSFrame">{{8, 25}, {99, 21}}</string>
 								<reference key="NSSuperview" ref="640757967"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="644392437"/>
@@ -332,7 +333,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Appointed Date*</string>
+								<string key="IBUIText">Appointed Date</string>
 								<object class="NSColor" key="IBUITextColor" id="1054042834">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -359,7 +360,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Status*</string>
+								<string key="IBUIText">Status</string>
 								<reference key="IBUITextColor" ref="1054042834"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -380,7 +381,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Status Date*</string>
+								<string key="IBUIText">Status Date</string>
 								<reference key="IBUITextColor" ref="1054042834"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -401,7 +402,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Suspension Reason*</string>
+								<string key="IBUIText">Suspension Reason</string>
 								<reference key="IBUITextColor" ref="1054042834"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -467,7 +468,7 @@
 								<float key="IBUIValue">0.5</float>
 							</object>
 						</object>
-						<string key="NSFrame">{{1, 0}, {766, 148}}</string>
+						<string key="NSFrameSize">{768, 148}</string>
 						<reference key="NSSuperview" ref="139170719"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="336252244"/>
@@ -492,8 +493,6 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 				<reference key="IBUIContentView" ref="640757967"/>
-				<reference key="IBUIFontDescription" ref="914813818"/>
-				<reference key="IBUIFont" ref="763831068"/>
 				<string key="IBUIReuseIdentifier">ProducerStatusTableViewCell</string>
 				<real value="280" key="IBUIRowHeight"/>
 			</object>
@@ -501,6 +500,14 @@
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">statusCell</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="139170719"/>
+					</object>
+					<int key="connectionID">48</int>
+				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">appointedDateTextField</string>
@@ -591,11 +598,20 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">statusCell</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="139170719"/>
+						<string key="label">eligibleCustomSwitch</string>
+						<reference key="source" ref="139170719"/>
+						<reference key="destination" ref="549877818"/>
 					</object>
-					<int key="connectionID">48</int>
+					<int key="connectionID">57</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">showSelectionTableView:</string>
+						<reference key="source" ref="436306913"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">59</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -616,14 +632,6 @@
 					<int key="connectionID">50</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">eligibleCustomSwitch</string>
-						<reference key="source" ref="139170719"/>
-						<reference key="destination" ref="549877818"/>
-					</object>
-					<int key="connectionID">57</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">handleCustomSwitchToggle:</string>
 						<reference key="source" ref="549877818"/>
@@ -631,15 +639,6 @@
 						<int key="IBEventType">13</int>
 					</object>
 					<int key="connectionID">58</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">showSelectionTableView:</string>
-						<reference key="source" ref="436306913"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">59</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2116,7 +2115,7 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="0.0" key="NS.object.0"/>
+			<real value="1280" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
@@ -2124,6 +2123,6 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">894</string>
+		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>
 </archive>

@@ -850,19 +850,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
                     AddressListItem *mailingAddress=nil, *commissionAddress=nil, *physicalAddress=nil;
                     for(AddressListItem *addrItem in producer.addresses)
                     {
-                        
-                        if(addrItem.addressTypeValue == 1)
-                        {
-                            isMailingAddrFound = TRUE;
-                            mailingAddress = addrItem;
-                            
-                        }
-                        else if(addrItem.addressTypeValue == 2)
-                        {
-                            isCommissionAddrFound = TRUE;
-                            commissionAddress = addrItem;
-                        }
-                        else if(addrItem.addressTypeValue == 3)
+                        if(addrItem.addressTypeValue == 3)
                         {
                             isPhysicalAddrFound = TRUE;
                             physicalAddress = addrItem;
@@ -872,17 +860,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
                     
                     NSString *producerAddress = nil;
                     
-                    if(isMailingAddrFound)
-                    {
-                        producerAddress = [[NSString alloc] initWithFormat:@"%@, %@, %@, %@",mailingAddress.addressLine1,mailingAddress.city,mailingAddress.state.name,mailingAddress.postalCode];
-                        // [self FillAddressCellForType:addressCell :mailingAddress:forType];
-                    }
-                    else if(isCommissionAddrFound)
-                    { 
-                        producerAddress = [[NSString alloc] initWithFormat:@"%@, %@, %@, %@",commissionAddress.addressLine1,commissionAddress.city,commissionAddress.state.name,commissionAddress.postalCode];
-                        // [self FillAddressCellForType:addressCell :commissionAddress:forType];
-                    }
-                    else if(isPhysicalAddrFound)
+                    if(isPhysicalAddrFound)
                     {
                         producerAddress = [[NSString alloc] initWithFormat:@"%@, %@, %@, %@",physicalAddress.addressLine1,physicalAddress.city,physicalAddress.state.name,physicalAddress.postalCode];
                         // [self FillAddressCellForType:addressCell :physicalAddress:forType];
@@ -890,7 +868,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
                     
                     NSLog(@"Address is:%@",producerAddress);
                     if(!producerAddress)
-                        producerAddress = [[NSString alloc] initWithFormat:@"<No Address Found>"];
+                        producerAddress = [[NSString alloc] initWithFormat:@"No Address Found"];
                     
                     [newDict setValue:producerAddress forKey:@"producerAddress"];
                     

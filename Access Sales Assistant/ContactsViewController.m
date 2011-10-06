@@ -103,7 +103,7 @@
         }
         case EMAIL_HELP_DESK:
         {
-            toAddress = @"helpdesk@access.com";
+            toAddress = @"helpdeskuser@access.com";
             [picker setSubject:EMAIL_HELPDESK_SUBJECT];
             break;
         }
