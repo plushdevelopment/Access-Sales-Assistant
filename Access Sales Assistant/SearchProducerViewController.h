@@ -14,7 +14,7 @@
 @interface SearchProducerViewController : BaseDetailViewController<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray* producerNamesArray;
-}
+} 
 
 
 @property(nonatomic,strong) IBOutlet UIToolbar* toolBar;
