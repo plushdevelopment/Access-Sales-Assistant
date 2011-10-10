@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">11B26</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1934</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">933</string>
+			<string key="NS.object.0">931</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -74,7 +74,6 @@
 						<string key="NSFrame">{{0, 44}, {768, 980}}</string>
 						<reference key="NSSuperview" ref="480542238"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -118,7 +117,7 @@
 					<object class="IBUILabel" id="955098039">
 						<reference key="NSNextResponder" ref="480542238"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{63, 5}, {629, 37}}</string>
+						<string key="NSFrame">{{66, 5}, {629, 37}}</string>
 						<reference key="NSSuperview" ref="480542238"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="993928743"/>
@@ -483,6 +482,6 @@
 			<string key="NS.key.0">MenuButton.png</string>
 			<string key="NS.object.0">{320, 67}</string>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">933</string>
+		<string key="IBCocoaTouchPluginVersion">931</string>
 	</data>
 </archive>

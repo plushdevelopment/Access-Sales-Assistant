@@ -229,9 +229,15 @@
                                                      reuseIdentifier:CellIdentifier1 
                                                                level:[node levelDepth] - 1 
                                                             expanded:node.inclusive];   
-        cell.backgroundView = [[CustomCellBackground alloc] init];
-        cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
-        ((CustomCellBackground *)cell.selectedBackgroundView).selected = YES;
+		UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"customCell.png"]];
+        cell.backgroundView = backgroundImageView;
+		/*
+		 cell.backgroundView = [[CustomCellBackground alloc] init];
+		 cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
+		 ((CustomCellBackground *)cell.selectedBackgroundView).selected = YES;
+		 */
+        //cell.selectedBackgroundView = backgroundImageView;
+        //((CustomCellBackground *)cell.selectedBackgroundView).selected = YES;
         NSString* valText = [[NSString alloc] initWithFormat:@"%@",node.value];
         
         cell.valueLabel.text = valText;
@@ -245,9 +251,12 @@
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
 			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"customCell.png"]];
+			/*
 			cell.backgroundView = [[CustomCellBackground alloc] init];
 			cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
 			((CustomCellBackground *)cell.selectedBackgroundView).selected = YES;
+			 */
 		}
 		
 		

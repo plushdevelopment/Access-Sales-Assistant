@@ -286,6 +286,7 @@
 		FFBDF21A141E76480011376F /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FFBDF219141E76480011376F /* TapkuLibrary.bundle */; };
 		FFBE682613E844F900013066 /* SmartTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBE682513E844F900013066 /* SmartTableView.m */; };
 		FFBE682913E845A000013066 /* SmartScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBE682813E845A000013066 /* SmartScrollView.m */; };
+		FFC07363144332BA004FF20B /* customCell.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC07362144332BA004FF20B /* customCell.png */; };
 		FFC2814613BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812B13BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png */; };
 		FFC2814713BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812C13BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png */; };
 		FFC2814813BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC2812D13BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png */; };
@@ -850,6 +851,7 @@
 		FFBE682513E844F900013066 /* SmartTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartTableView.m; sourceTree = "<group>"; };
 		FFBE682713E845A000013066 /* SmartScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartScrollView.h; sourceTree = "<group>"; };
 		FFBE682813E845A000013066 /* SmartScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartScrollView.m; sourceTree = "<group>"; };
+		FFC07362144332BA004FF20B /* customCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customCell.png; sourceTree = "<group>"; };
 		FFC2812B13BCAC2C00CA3ABB /* AccessLogoFinalRGB2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalRGB2.png; sourceTree = "<group>"; };
 		FFC2812C13BCAC2C00CA3ABB /* AccessLogoFinalRGB3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalRGB3.png; sourceTree = "<group>"; };
 		FFC2812D13BCAC2C00CA3ABB /* AccessLogoFinalwhite2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessLogoFinalwhite2.png; sourceTree = "<group>"; };
@@ -1502,6 +1504,7 @@
 		FF77100213B23DE500E90F4B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FFC07362144332BA004FF20B /* customCell.png */,
 				FFB8AEDE1427CC6800AEFAD9 /* button-plus.png */,
 				6D7B57E71427932F003B8129 /* Social Media */,
 				FF3B6C7014251C3D00A810AB /* Icon-72.png */,
@@ -2407,6 +2410,7 @@
 				6D5C4CCE14253DE400AA47F5 /* switchOffPlain.png in Resources */,
 				6D5C4CCF14253DE400AA47F5 /* switchThumb.png in Resources */,
 				FFB8AEDF1427CC6800AEFAD9 /* button-plus.png in Resources */,
+				FFC07363144332BA004FF20B /* customCell.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

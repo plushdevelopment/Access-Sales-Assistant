@@ -32,13 +32,14 @@
 
     // Fill with gradient
     if (_selected) {
-        drawLinearGradient(context, paperRect, lightGrayColor, separatorColor);
+        //drawLinearGradient(context, paperRect, lightGrayColor, separatorColor);
     } else {
-        drawLinearGradient(context, paperRect, whiteColor, lightGrayColor);
+        //drawLinearGradient(context, paperRect, whiteColor, lightGrayColor);
     }
     
     if (!_lastCell) {
         // Add white 1 px stroke
+		/*
         CGRect strokeRect = paperRect;
         strokeRect.size.height -= 1;
         strokeRect = rectFor1PxStroke(strokeRect);
@@ -51,7 +52,7 @@
         CGPoint startPoint = CGPointMake(paperRect.origin.x, paperRect.origin.y + paperRect.size.height - 1);
         CGPoint endPoint = CGPointMake(paperRect.origin.x + paperRect.size.width - 1, paperRect.origin.y + paperRect.size.height - 1);
         draw1PxStroke(context, startPoint, endPoint, separatorColor); 
-        
+        */
     } else {
      
         CGContextSetStrokeColorWithColor(context, whiteColor);
