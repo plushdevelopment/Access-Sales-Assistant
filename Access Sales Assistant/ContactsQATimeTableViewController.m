@@ -9,6 +9,7 @@
 #import "ContactsQATimeTableViewController.h"
 
 #import "QATimeTableObject.h"
+
 @implementation ContactsQATimeTableViewController
 @synthesize toolBar = _toolBar;
 @synthesize stateChangeButton = _stateChangeButton;
@@ -89,7 +90,7 @@
 
 }
 
--(void) selectedState:(NSString*) stateName:(NSString *)stateCode
+-(void) selectedState:(NSString*)stateName selectedStateCode:(NSString *)stateCode
 {
     self.currentStateCode = stateCode;
     self.currentStateName = stateName;
