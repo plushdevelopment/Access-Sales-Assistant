@@ -76,6 +76,13 @@
 						[contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.context];
 					}
 				}
+				NSDictionary *dailySummary = [dict valueForKey:@"dailySummary"];
+				if (dailySummary) {
+					[producer.dailySummary deleteInContext:self.context];
+					DailySummary *summary = [DailySummary createInContext:self.context];
+					[summary safeSetValuesForKeysWithDictionary:dailySummary dateFormatter:dateFormatter managedObjectContext:self.context];
+					producer.dailySummary = summary;
+				}
 			} else {
 				NSLog(@"Producer has been editted:\n %@", [producer jsonStringValue]);
 			}

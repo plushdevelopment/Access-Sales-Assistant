@@ -851,245 +851,252 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HTTPOperationController);
                             [contact safeSetValuesForKeysWithDictionary:contactDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
                         }
                     }
-                        
-                        NSArray *addressesArray = [dict valueForKey:@"addresses"];
-                        if (addressesArray.count > 0) {
-                            for (AddressListItem *address in producer.addresses) {
-                                [address deleteInContext:self.managedObjectContext];
-                            }
-                            for (NSDictionary *addressDictionary in addressesArray) {
-                                AddressListItem *address = [AddressListItem createInContext:self.managedObjectContext];
-                                [address setProducer:producer];
-                                [address safeSetValuesForKeysWithDictionary:addressDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
-                            }
-                        }
-                            
-                        
-                        else {
-                            NSLog(@"Producer has been editted:\n %@", [producer jsonStringValue]);
-                        }
-                    }
-                    
-                    
-                    NSLog(@"%@",[producer jsonStringValue]);
-                    [newDict setValue:producer.uid forKey:@"uid"];
-                    [newDict setValue:producer.name forKey:@"name"];
-                    [newDict setValue:producer.producerCode forKey:@"producerCode"];
-                    [producernameArray addObject:newDict];
-                    
-                    
-                    
-                    ///////////////////
-                    BOOL isCommissionAddrFound = FALSE,isPhysicalAddrFound,isMailingAddrFound=FALSE;
-                    
-                    AddressListItem *mailingAddress=nil, *commissionAddress=nil, *physicalAddress=nil;
-                    for(AddressListItem *addrItem in producer.addresses)
-                    {
-                        if(addrItem.addressTypeValue == 3)
-                        {
-                            isPhysicalAddrFound = TRUE;
-                            physicalAddress = addrItem;
-                        }
-                        
-                    }
-                    
-                    NSString *producerAddress = nil;
-                    
-                    if(isPhysicalAddrFound)
-                    {
-                        producerAddress = [[NSString alloc] initWithFormat:@"%@, %@, %@, %@",physicalAddress.addressLine1,physicalAddress.city,physicalAddress.state.name,physicalAddress.postalCode];
-                        // [self FillAddressCellForType:addressCell :physicalAddress:forType];
-                    }
-                    
-                    NSLog(@"Address is:%@",producerAddress);
-                    if(!producerAddress)
-                        producerAddress = [[NSString alloc] initWithFormat:@"No Address Found"];
-                    
-                    [newDict setValue:producerAddress forKey:@"producerAddress"];
-                    
-                }
-            }
-            [self.managedObjectContext save];
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"searchProducer" object:producernameArray];
-            
-        }
-        else
-        {
-            [UIHelpers showAlertWithTitle:@"Alert" msg:@"No Producers found" buttonTitle:@"OK"];
-        }
-        [producernameArray release];
-        [formatter release];
-        
-    }
-    -(void)searchProducerFailed:(ASIHTTPRequest *)request
-    {
-        NSError *error = [request error];
-        NSLog(@"Request Error: %@", [error localizedDescription]);
-        
-        NSString *summaryFailed = [NSString stringWithFormat:SEARCH_PRODUCER_FAILED,[error localizedDescription]];
-        [UIHelpers showAlertWithTitle:@"Error" msg:summaryFailed buttonTitle:@"OK"];
-    }
-    
+					NSDictionary *dailySummary = [dict valueForKey:@"dailySummary"];
+					if (dailySummary) {
+						[producer.dailySummary deleteInContext:self.managedObjectContext];
+						DailySummary *summary = [DailySummary createInContext:self.managedObjectContext];
+						[summary safeSetValuesForKeysWithDictionary:dailySummary dateFormatter:dateFormatter managedObjectContext:self.managedObjectContext];
+						producer.dailySummary = summary;
+					}
+					
+					NSArray *addressesArray = [dict valueForKey:@"addresses"];
+					if (addressesArray.count > 0) {
+						for (AddressListItem *address in producer.addresses) {
+							[address deleteInContext:self.managedObjectContext];
+						}
+						for (NSDictionary *addressDictionary in addressesArray) {
+							AddressListItem *address = [AddressListItem createInContext:self.managedObjectContext];
+							[address setProducer:producer];
+							[address safeSetValuesForKeysWithDictionary:addressDictionary dateFormatter:nil managedObjectContext:self.managedObjectContext];
+						}
+					}
+					
+					
+					else {
+						NSLog(@"Producer has been editted:\n %@", [producer jsonStringValue]);
+					}
+				}
+				
+				
+				NSLog(@"%@",[producer jsonStringValue]);
+				[newDict setValue:producer.uid forKey:@"uid"];
+				[newDict setValue:producer.name forKey:@"name"];
+				[newDict setValue:producer.producerCode forKey:@"producerCode"];
+				[producernameArray addObject:newDict];
+				
+				
+				
+				///////////////////
+				BOOL isCommissionAddrFound = FALSE,isPhysicalAddrFound,isMailingAddrFound=FALSE;
+				
+				AddressListItem *mailingAddress=nil, *commissionAddress=nil, *physicalAddress=nil;
+				for(AddressListItem *addrItem in producer.addresses)
+				{
+					if(addrItem.addressTypeValue == 3)
+					{
+						isPhysicalAddrFound = TRUE;
+						physicalAddress = addrItem;
+					}
+					
+				}
+				
+				NSString *producerAddress = nil;
+				
+				if(isPhysicalAddrFound)
+				{
+					producerAddress = [[NSString alloc] initWithFormat:@"%@, %@, %@, %@",physicalAddress.addressLine1,physicalAddress.city,physicalAddress.state.name,physicalAddress.postalCode];
+					// [self FillAddressCellForType:addressCell :physicalAddress:forType];
+				}
+				
+				NSLog(@"Address is:%@",producerAddress);
+				if(!producerAddress)
+					producerAddress = [[NSString alloc] initWithFormat:@"No Address Found"];
+				
+				[newDict setValue:producerAddress forKey:@"producerAddress"];
+				
+			}
+		}
+		[self.managedObjectContext save];
+		
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"searchProducer" object:producernameArray];
+		
+	}
+	else
+	{
+		[UIHelpers showAlertWithTitle:@"Alert" msg:@"No Producers found" buttonTitle:@"OK"];
+	}
+	[producernameArray release];
+	[formatter release];
+	
+}
+-(void)searchProducerFailed:(ASIHTTPRequest *)request
+{
+	NSError *error = [request error];
+	NSLog(@"Request Error: %@", [error localizedDescription]);
+	
+	NSString *summaryFailed = [NSString stringWithFormat:SEARCH_PRODUCER_FAILED,[error localizedDescription]];
+	[UIHelpers showAlertWithTitle:@"Error" msg:summaryFailed buttonTitle:@"OK"];
+}
+
 #pragma mark -
 #pragma mark AUNTKs
-    
-    -(void)getAUNTKsForProducer:(NSString *)producerCode
-    {
-        if ([[self networkQueue] isSuspended]) {
-            [[self networkQueue] go];
-        }
-        
-        User *user = [User findFirst];
-        NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/AUNTk/%@?token=%@", kURL, producerCode, [user token]];
-        NSURL *url = [NSURL URLWithString:urlString];
-        ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
-        [request setRequestMethod:@"GET"];
-        [request addRequestHeader:@"Content-Type" value:@"application/json"];
-        [request setDelegate:self];
-        [request setDidFinishSelector:@selector(getAUNTKsForProducerFinished:)];
-        [request setDidFailSelector:@selector(getAUNTKsForProducerFailed:)];
-        NSDictionary *userInfoDict = [NSDictionary dictionaryWithObjectsAndKeys:producerCode, @"producerUID", nil];
-        [request setUserInfo:userInfoDict];
-        [request setNumberOfTimesToRetryOnTimeout:3];
-        [request setQueuePriority:NSOperationQueuePriorityVeryHigh];
-        [request setShouldContinueWhenAppEntersBackground:YES];
-        [[self networkQueue] addOperation:request];
-        [request release];
-    }
-    
-    -(void)getAUNTKsForProducerFinished:(ASIHTTPRequest*)request
-    {
-        NSString *responseString = [request responseString];
-        NSString *escapedString = [responseString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-        NSArray *responseJSON = [escapedString JSONValue];
-        
-        Producer *producer = [Producer findFirstByAttribute:@"producerCode" withValue:[[request userInfo] valueForKey:@"producerUID"]];
-        
-        for (NSDictionary *dict in responseJSON) {
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-            AUNTK *auntk = [AUNTK createEntity];
-            [auntk safeSetValuesForKeysWithDictionary:[dict valueForKey:@"value"] dateFormatter:formatter managedObjectContext:self.managedObjectContext];
-            if ([[dict valueForKey:@"key"] isEqualToString:@"auntk"]) {
-                producer.auntk = auntk;
-            } else if ([[dict valueForKey:@"key"] isEqualToString:@"chain"]) {
-                producer.chainAuntk = auntk;
-            }
-            [formatter release];
-        }
-        [self.managedObjectContext save];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"AUNTK" object:nil];
-    }
-    
-    -(void)getAUNTKsForProducerFailed:(ASIHTTPRequest*)request
-    {
-        
-    }
-    
-    -(void)postQAResolutionForm:(NSString*)qaResolutionForm
-    {
-        if ([[self networkQueue] isSuspended]) {
-            [[self networkQueue] go];
-        }
-        
-        User *user = [User findFirst];
-        NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/QAResolutionRequest?token=%@", kURL, [user token]];
-        NSURL *url = [NSURL URLWithString:urlString];
-        ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
-        [request setRequestMethod:@"POST"];
-        [request addRequestHeader:@"Content-Type" value:@"application/json"];
-        [request setDelegate:self];
-        [request setDidFinishSelector:@selector(postQAResolutionFormFinished:)];
-        [request setDidFailSelector:@selector(postQAResolutionFormFailed:)];
-        [request setPostBody:[NSMutableData dataWithData:[qaResolutionForm dataUsingEncoding:NSASCIIStringEncoding]]];
-        [request setTimeOutSeconds:60];
-        [request setQueuePriority:NSOperationQueuePriorityVeryHigh];
-        [request setShouldContinueWhenAppEntersBackground:YES];
-        [[self networkQueue] addOperation:request];
-        [request release];
-    }
-    
-    -(void)postQAResolutionFormFinished:(ASIHTTPRequest*)request
-    {
-        [UIHelpers showAlertWithTitle:@"Success" msg:@"Request submitted successfully" buttonTitle:@"OK"];
-    }
-    
-    -(void)postQAResolutionFormFailed:(ASIHTTPRequest*)request
-    {
-        [UIHelpers showAlertWithTitle:@"Failed" msg:@"Request Failed" buttonTitle:@"OK"];
-    }
-    
+
+-(void)getAUNTKsForProducer:(NSString *)producerCode
+{
+	if ([[self networkQueue] isSuspended]) {
+		[[self networkQueue] go];
+	}
+	
+	User *user = [User findFirst];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/AUNTk/%@?token=%@", kURL, producerCode, [user token]];
+	NSURL *url = [NSURL URLWithString:urlString];
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+	[request setRequestMethod:@"GET"];
+	[request addRequestHeader:@"Content-Type" value:@"application/json"];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(getAUNTKsForProducerFinished:)];
+	[request setDidFailSelector:@selector(getAUNTKsForProducerFailed:)];
+	NSDictionary *userInfoDict = [NSDictionary dictionaryWithObjectsAndKeys:producerCode, @"producerUID", nil];
+	[request setUserInfo:userInfoDict];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
+	[[self networkQueue] addOperation:request];
+	[request release];
+}
+
+-(void)getAUNTKsForProducerFinished:(ASIHTTPRequest*)request
+{
+	NSString *responseString = [request responseString];
+	NSString *escapedString = [responseString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+	NSArray *responseJSON = [escapedString JSONValue];
+	
+	Producer *producer = [Producer findFirstByAttribute:@"producerCode" withValue:[[request userInfo] valueForKey:@"producerUID"]];
+	
+	for (NSDictionary *dict in responseJSON) {
+		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+		[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+		AUNTK *auntk = [AUNTK createEntity];
+		[auntk safeSetValuesForKeysWithDictionary:[dict valueForKey:@"value"] dateFormatter:formatter managedObjectContext:self.managedObjectContext];
+		if ([[dict valueForKey:@"key"] isEqualToString:@"auntk"]) {
+			producer.auntk = auntk;
+		} else if ([[dict valueForKey:@"key"] isEqualToString:@"chain"]) {
+			producer.chainAuntk = auntk;
+		}
+		[formatter release];
+	}
+	[self.managedObjectContext save];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"AUNTK" object:nil];
+}
+
+-(void)getAUNTKsForProducerFailed:(ASIHTTPRequest*)request
+{
+	
+}
+
+-(void)postQAResolutionForm:(NSString*)qaResolutionForm
+{
+	if ([[self networkQueue] isSuspended]) {
+		[[self networkQueue] go];
+	}
+	
+	User *user = [User findFirst];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/QAResolutionRequest?token=%@", kURL, [user token]];
+	NSURL *url = [NSURL URLWithString:urlString];
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+	[request setRequestMethod:@"POST"];
+	[request addRequestHeader:@"Content-Type" value:@"application/json"];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(postQAResolutionFormFinished:)];
+	[request setDidFailSelector:@selector(postQAResolutionFormFailed:)];
+	[request setPostBody:[NSMutableData dataWithData:[qaResolutionForm dataUsingEncoding:NSASCIIStringEncoding]]];
+	[request setTimeOutSeconds:60];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
+	[[self networkQueue] addOperation:request];
+	[request release];
+}
+
+-(void)postQAResolutionFormFinished:(ASIHTTPRequest*)request
+{
+	[UIHelpers showAlertWithTitle:@"Success" msg:@"Request submitted successfully" buttonTitle:@"OK"];
+}
+
+-(void)postQAResolutionFormFailed:(ASIHTTPRequest*)request
+{
+	[UIHelpers showAlertWithTitle:@"Failed" msg:@"Request Failed" buttonTitle:@"OK"];
+}
+
 #pragma mark - Delete Contact
-    
-    - (void)deleteContact:(NSString *)contact
-    {
-        if ([[self networkQueue] isSuspended]) {
-            [[self networkQueue] go];
-        }
-        
-        User *user = [User findFirst];
-        NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/Contacts/%@?token=%@", kURL, contact, [user token]];
-        NSURL *url = [NSURL URLWithString:urlString];
-        ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
-        [request setRequestMethod:@"DELETE"];
-        [request setDelegate:self];
-        [request setDidFinishSelector:@selector(deleteContactFinished:)];
-        [request setDidFailSelector:@selector(deleteContactFailed:)];
-        [request setNumberOfTimesToRetryOnTimeout:3];
-        [request setQueuePriority:NSOperationQueuePriorityVeryHigh];
-        [request setShouldContinueWhenAppEntersBackground:YES];
-        [[self networkQueue] addOperation:request];
-        [request release];
-    }
-    
-    - (void)deleteContactFinished:(ASIHTTPRequest *)request
-    {
-        if ([request responseStatusCode] != 200) {
-            [self deleteContactFailed:request];
-        }
-    }
-    
-    - (void)deleteContactFailed:(ASIHTTPRequest *)request
-    {
-        [UIHelpers showAlertWithTitle:@"Delete Failed" msg:@"Failed to delete contact" buttonTitle:@"OK"];
-    }
-    
+
+- (void)deleteContact:(NSString *)contact
+{
+	if ([[self networkQueue] isSuspended]) {
+		[[self networkQueue] go];
+	}
+	
+	User *user = [User findFirst];
+	NSString *urlString = [NSString stringWithFormat:@"%@VisitApplicationService/Contacts/%@?token=%@", kURL, contact, [user token]];
+	NSURL *url = [NSURL URLWithString:urlString];
+	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+	[request setRequestMethod:@"DELETE"];
+	[request setDelegate:self];
+	[request setDidFinishSelector:@selector(deleteContactFinished:)];
+	[request setDidFailSelector:@selector(deleteContactFailed:)];
+	[request setNumberOfTimesToRetryOnTimeout:3];
+	[request setQueuePriority:NSOperationQueuePriorityVeryHigh];
+	[request setShouldContinueWhenAppEntersBackground:YES];
+	[[self networkQueue] addOperation:request];
+	[request release];
+}
+
+- (void)deleteContactFinished:(ASIHTTPRequest *)request
+{
+	if ([request responseStatusCode] != 200) {
+		[self deleteContactFailed:request];
+	}
+}
+
+- (void)deleteContactFailed:(ASIHTTPRequest *)request
+{
+	[UIHelpers showAlertWithTitle:@"Delete Failed" msg:@"Failed to delete contact" buttonTitle:@"OK"];
+}
+
 #pragma mark - 
 #pragma mark URL Encode
-    
-    -(NSString *) urlencode: (NSString *) url
-    {
-        NSArray *escapeChars = [NSArray arrayWithObjects:@";" , @"/" , @"?" , @":" ,
-                                @"@" , @"&" , @"=" , @"+" ,
-                                @"$" , @"," , @"[" , @"]",
-                                @"#", @"!", @"'", @"(", 
-                                @")", @"*", @" ",nil];
-        
-        NSArray *replaceChars = [NSArray arrayWithObjects:@"%3B" , @"%2F" , @"%3F" ,
-                                 @"%3A" , @"%40" , @"%26" ,
-                                 @"%3D" , @"%2B" , @"%24" ,
-                                 @"%2C" , @"%5B" , @"%5D", 
-                                 @"%23", @"%21", @"%27",
-                                 @"%28", @"%29", @"%2A", @"%20",nil];
-        
-        int len = [escapeChars count];
-        
-        NSMutableString *temp = [[url mutableCopy] autorelease];
-        
-        int i;
-        for(i = 0; i < len; i++)
-        {
-            
-            [temp replaceOccurrencesOfString: [escapeChars objectAtIndex:i]
-                                  withString:[replaceChars objectAtIndex:i]
-                                     options:NSLiteralSearch
-                                       range:NSMakeRange(0, [temp length])];
-        }
-        
-        NSString *out = [NSString stringWithString: temp];
-        
-        return out;
-    }
-    
-    @end
+
+-(NSString *) urlencode: (NSString *) url
+{
+	NSArray *escapeChars = [NSArray arrayWithObjects:@";" , @"/" , @"?" , @":" ,
+							@"@" , @"&" , @"=" , @"+" ,
+							@"$" , @"," , @"[" , @"]",
+							@"#", @"!", @"'", @"(", 
+							@")", @"*", @" ",nil];
+	
+	NSArray *replaceChars = [NSArray arrayWithObjects:@"%3B" , @"%2F" , @"%3F" ,
+							 @"%3A" , @"%40" , @"%26" ,
+							 @"%3D" , @"%2B" , @"%24" ,
+							 @"%2C" , @"%5B" , @"%5D", 
+							 @"%23", @"%21", @"%27",
+							 @"%28", @"%29", @"%2A", @"%20",nil];
+	
+	int len = [escapeChars count];
+	
+	NSMutableString *temp = [[url mutableCopy] autorelease];
+	
+	int i;
+	for(i = 0; i < len; i++)
+	{
+		
+		[temp replaceOccurrencesOfString: [escapeChars objectAtIndex:i]
+							  withString:[replaceChars objectAtIndex:i]
+								 options:NSLiteralSearch
+								   range:NSMakeRange(0, [temp length])];
+	}
+	
+	NSString *out = [NSString stringWithString: temp];
+	
+	return out;
+}
+
+@end
